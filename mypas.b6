@@ -1,8 +1,10 @@
 user 419900 зс5^
 dis 67(77-wr)^
 dis 66(2148-440)^
+dis 65(2048)^
 EEB1A3
 *name
+*to perso:670000
 *call yesmemory
 *      libra:67
 *libra:66
@@ -517,7 +519,7 @@ var (* total size 4791 words *)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %              PROGRAMME                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-procedure programme(var l2arg1z: integer; l2idr2z: irptr);
+procedure programme(var l2arg1z: integer; procPtr: irptr);
 label 22420, 22421, 23301;
 var
     preDefHead, typelist, scopeBound, l2var4z, curIdRec, workidr: irptr;
@@ -1211,7 +1213,7 @@ _( (* parseComment *)
         'L': readOptVal(PASINFOR.listMode, 3);
         'P': readOptFlag(doPMD);
         'T': readOptFlag(checkBounds);
-        'A': readOptVal(charEncoding, 3);
+        'A': readOptVal(charEncoding, 4);
         'C': readOptFlag(checkTypes);
         'R': readOptFlag(fuzzReals);
         'M': readOptFlag(fixMult);
@@ -2170,13 +2172,13 @@ _( (* genOneOp *)
                     error(207);
             _);
             20: addInsnToBuf(3*macro + curInsn.i);
-            4: _(
-                if insnBuf[insnBufIdx-1].m * [21:23, 28:35] = [] then
-                    insnBuf[insnBufIdx-1].m := insnBuf[insnBufIdx-1].m + [35]
+            mcPOP: _(
+                with insnBuf[insnBufIdx-1] do if m * [21:23, 28:35] = [] then
+                    m := m + [35]
                 else
                     addInsnToBuf(KXTA+SP)
             _);
-            5:
+            mcPUSH:
 (blk)       _(
                 if l4oi212z <> NIL then _(
                     tempInsn.i := l4oi212z@.code;
@@ -4826,7 +4828,7 @@ _(
             optSflags.m := (optSflags.m + [S3]);
             curVal.i := 74001B;
             P0715(2, 34); (*"P/DS"*)
-            curVal := l2idr2z@.id;
+            curVal := procPtr@.id;
             toFCST;
             curVal.i := lineCnt;
             toFCST;
@@ -4835,7 +4837,7 @@ _(
             curIdRec := symHashTabBase[temp];
             (*13066*)
             while (curIdRec <> NIL) and
-                  (l2idr2z < curIdRec) do with curIdRec@ do _(
+                  (procPtr < curIdRec) do with curIdRec@ do _(
                 l3var2z.i := typ@.size;
                 if (cl IN [VARID, FORMALID]) and
                   (value < 74000B) then _(
@@ -4849,7 +4851,7 @@ _(
                         l3typ1z := l3typ1z@.base;
                         l3var5z := l3typ1z@.k;
                         l3var3z := [0];
-                    _);
+                    _) else if cl = FORMALID then l3var3z := [0];
                     if (l3typ1z = realType) then
                         curVal.i := 0
                     else if typeCheck(l3typ1z, integerType) then
@@ -4861,9 +4863,9 @@ _(
                     else if (l3var5z = kindScalar) then _(
                         dumpEnumNames(l3typ1z);
                         curVal.i := 1000000B * l3typ1z@.start + 300000B;
-                    _) else if (l3var5z = kindFile) then
-                        curVal.i := 600000B
-                    else _(
+                    _) else if (l3var5z = kindFile) then _(
+                        curVal.i := 600000B; l3var3z := [0];
+                    _) else _(
                         curVal.i := 500000B;
                     _);
                     curVal.i := curVal.i + curIdRec@.value;
@@ -4904,26 +4906,26 @@ _(
         write(' IN LINE ', curIdRec@.offset:0);
     _);
     2: _(
-        with l2idr2z@ do
+        with procPtr@ do
             ; (* useless *)
         padToLeft;
-        l3var3z := 22 IN l2idr2z@.flags;
-        l3arg1z := l2idr2z@.pos;
+        l3var3z := 22 IN procPtr@.flags;
+        l3arg1z := procPtr@.pos;
         l3var2z.i := moduleOffset - 40000B;
         if (l3arg1z <> (0)) then
             symTab[l3arg1z] := [24, 29] + l3var2z.m * halfWord;
-        l2idr2z@.pos := moduleOffset;
-        l3arg1z := F3307(l2idr2z);
+        procPtr@.pos := moduleOffset;
+        l3arg1z := F3307(procPtr);
         if l3var3z then _(
             if (41 >= entryPtCnt) then _(
-                curVal := l2idr2z@.id;
+                curVal := procPtr@.id;
                 entryPtTable[entryPtCnt] := makeNameWithStars(true);
                 entryPtTable[entryPtCnt+1] := [1] + l3var2z.m - [0, 3];
                 entryPtCnt := entryPtCnt + 2;
             _) else
                 error(87); (* errTooManyEntryProcs *)
         _);
-        if (l2idr2z@.typ = NIL) then _(
+        if (procPtr@.typ = NIL) then _(
             l3var2z.i := 3;
         _) else _(
             l3var2z.i := 4;
@@ -5340,8 +5342,16 @@ _( (* factor *)
             _) else
                 case hashTravPtr@.cl of
                 TYPEID: _(
-                    error(23); (* errTypeIdInsteadOfVar *)
-                    curExpr := uVarPtr;
+%                    error(23); (* errTypeIdInsteadOfVar *)
+%                    curExpr := uVarPtr;
+                    l4typ11z := hashTravPtr@.typ;
+                    inSymbol;
+                    if SY <> LPAREN then error(95);
+                    expression;
+                    if curExpr@.typ@.size <> 1 then
+                    error(errNeedOtherTypesOfOperands);                    
+                    checkSymAndRead(RPAREN);
+                    curExpr@.typ := l4typ11z;
                 _);
                 ENUMID: _(
                     new(curExpr);
@@ -6958,6 +6968,13 @@ _( (* standProc *)
             formAndAlign(getHelperProc(80)); (*"PAIB"*)
         _) until (SY <> COMMA);
     _);
+    29: _( (* called via FIND, fake *)
+        expression;
+        formOperator(LOAD);
+        curVal.i := 1264645157120000C(*"*TTIO*"*);
+        procNo := allocExtSymbol([24,27:29,43,45,46]);
+        form2Insn(2200000B + procNo, 3);
+    _)
     end; (* 20257 *)
     if procNo in [0,1,2,3,5,10,11,12,13,21,22] then
         arithMode := 1;
@@ -7246,7 +7263,7 @@ _( (* statement *)
 	    objBuffer[objBufIdx] := [];
 	    curInsnTemplate := insnTemp[XTA];
             prevOpcode := -1;
-	    bool48z := 22 IN l2idr2z@.flags;
+	    bool48z := 22 IN procPtr@.flags;
 	    lineStartOffset := moduleOffset;
 	    l3var1z := ;
 	    int92z := 2;
@@ -7263,12 +7280,12 @@ _( (* statement *)
 	    l2int21z := curVarOff;
 	    if (SY <> BEGINSY) then
 		requiredSymErr(BEGINSY);
-	    if 23 IN l2idr2z@.flags then _(
-		l3idr5z := l2idr2z@.argList;
+	    if 23 IN procPtr@.flags then _(
+		l3idr5z := procPtr@.argList;
 		l3int4z := 3;
-		if (l2idr2z@.typ <> NIL) then
+		if (procPtr@.typ <> NIL) then
 		l3int4z := 4;
-		while (l3idr5z <> l2idr2z) do _(
+		while (l3idr5z <> procPtr) do _(
 		    if (l3idr5z@.cl = VARID) then _(
 			l3var2z.i := l3idr5z@.typ@.size;
 			if (l3var2z.i <> 1) then _(
@@ -7303,20 +7320,20 @@ _( (* statement *)
             _)
         _);
     until l2bool8z;
-    l2idr2z@.flags := (set145z * [0:15]) + (l2idr2z@.flags - l3var7z.m);
+    procPtr@.flags := (set145z * [0:15]) + (procPtr@.flags - l3var7z.m);
     lineNesting := l3var2z.i - 1;
     if (int53z <> 0) then
 	P0715(0, int53z);
     if not bool48z and not doPMD and (l2int21z = 3) and
        (curProcNesting <> 1) and (set145z * [1:15] <> [1:15]) then _(
 	objBuffer[1] := [7:11,21:23,28,31];
-	with l2idr2z@ do
+	with procPtr@ do
 	    flags := flags + [25];
 	if (objBufIdx = 2) then _(
 	    objBuffer[1] := [0,1,3:5];
 	    putLeft := true;
 	_) else _(
-	    l2idr2z@.pos := l3var1z.i;
+	    procPtr@.pos := l3var1z.i;
 	    if 13 IN set145z then _(
 		curVal.i := minel([1:15] - set145z);
 		besm(ASN64-24);
@@ -7334,11 +7351,11 @@ _( (* statement *)
 	    temp := 28;
 	form1Insn(getHelperProc(temp) + (-I13-100000B));
 	if (curProcNesting = 1) then _(
-	    parseDecls((2));
+	    parseDecls(2);
 	    if S3 IN optSflags.m then
 		formAndAlign(getHelperProc(78)); (* "P/PMDSET" *)
 	    form1Insn(insnTemp[UJ] + l3var1z.i);
-	    curVal.i := l2idr2z@.pos - 40000B;
+	    curVal.i := procPtr@.pos - 40000B;
 	    symTab[74002B] := [24,29] + (curVal.m * halfWord);
 	_);
 	curVal.i := l2int21z;
@@ -7362,7 +7379,7 @@ _); (* defineRoutine *)
 	    l3var7z: irptr;
 	    l3var8z, l3var9z: integer;
 	    temptype: tptr;
-	    l3var11z: word;
+	    filePattern: word;
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	procedure regSysType(l4arg1z:integer; l4arg2z: tptr);
@@ -7497,7 +7514,7 @@ _); (* defineRoutine *)
 	    _);
 	    temptype := NIL;
 	    l3var9z := 0;
-	    for l3var5z := 0 to 28 do
+	    for l3var5z := 0 to 29 do
 		regSysProc(systemProcNames[l3var5z]);
 	    l3var9z := 0;
 	    temptype := realType;
@@ -7532,8 +7549,8 @@ _); (* defineRoutine *)
 	    regSysProc(5551564554C(*"   MINEL"*));
 	    temptype := pointerType;
 	    regSysProc(606462C(*"     PTR"*));
-	    l3var11z.i := 30;
-	    l3var11z.m := l3var11z.m * halfWord + [24,27,28,29];
+	    filePattern.i := 30;
+	    filePattern.m := filePattern.m * halfWord + [24,27,28,29];
 	    new(programObj, 12);
 	    curVal.i := 576564606564C(*"  OUTPUT"*);
 	    l3var3z := curVal;
@@ -7591,7 +7608,7 @@ _); (* defineRoutine *)
 		list := NIL;
 	    _);
 	    curVal.i := 1257656460656412C(*"*OUTPUT*"*);
-	    l3var7z@.value := allocExtSymbol(l3var11z.m);
+	    l3var7z@.value := allocExtSymbol(filePattern.m);
 	    addToHashTab(l3var7z);
 	    l3var5z := 1;
 	    while SY = IDENT do _(
@@ -7608,7 +7625,7 @@ _); (* defineRoutine *)
 			list := NIL;
 		    _);
 		    curVal := l3var1z;
-		    inputFile@.value := allocExtSymbol(l3var11z.m);
+		    inputFile@.value := allocExtSymbol(filePattern.m);
 		    addToHashTab(inputFile);
 		    l3var8z := lineCnt;
 		_) else if (curIdent = l3var3z) then _(
@@ -7983,6 +8000,7 @@ _( (* programme *)
                     id := curIdent;
                     offset := curFrameRegTemplate;
                     next := symHashTabBase[bucket];
+                    value := 0c;
                     cl := VARID;
                     list := NIL;
                 _);
@@ -7995,6 +8013,16 @@ _( (* programme *)
                 l2var4z := curIdRec;
             _) else
                 error(errNoIdent);
+            if SY = LBRACK then _(
+               inSymbol;
+               if (SY <> INTCONST) or (curToken.i < 0)
+               or (curToken.i > 77777B) then
+                  error(errNumberTooLarge);
+               curIdRec@.value := curToken.i;
+               curIdRec@.offset := 0;
+               inSymbol;
+               checkSymAndRead(RBRACK);
+            _);
             if not (SY IN [COMMA,COLON]) then
                 errAndSkip(1, skipToSet + [IDENT,COMMA]);
             l2bool8z := SY <> COMMA;
@@ -8029,7 +8057,7 @@ _( (* programme *)
                         _)
                     _)
                 _); (* 22731 *)
-                if (l2bool8z) then _(
+                if (l2bool8z and (workidr@.value = 0c)) then _(
                     workidr@.value := curVarOff;
                     if (PASINFOR.listMode = 3) then _(
                         write('VARIABLE ':25);
@@ -8186,12 +8214,14 @@ _( (* programme *)
             preDefLink := preDefHead;
             preDefHead := curIdRec;
         _) else (* 23237 *) if (curIdent = litExternal) or
-            (curIdent = litFortran) then _(
+            (curIdent = litFortran) or (curIdent = litOct) then _(
             if (curIdent = litExternal) then _(
                 curVal.m := [20];
             _) else if (checkFortran) then _(
                 curVal.m := [21,24];
                 checkFortran := false;
+            _) _else if (curIdent = litOct) then _(
+                curVal.m := [24];
             _) else _(
                 curVal.m := [21];
             _);
@@ -8244,7 +8274,7 @@ _( (* programme *)
         numLabList := numLabList@.next;
     _);
     if not l2bool8z then _(
-        printTextWord(l2idr2z@.id);
+        printTextWord(procPtr@.id);
         error(90); (* errLblDefinitionInBlock *)
     _);
     l2arg1z := l2int21z;
@@ -8780,13 +8810,75 @@ _)
         55574444C              (*"    MODD"*),
         46515644C              (*"    FIND"*);
 end
+*table:exclude(program)
+*exclude
+*table:liblist(*pascom,pasmitxt)
+*liblist:660000
+*assem
+          PASISOCD:,NAME,DTRAN  /01.06.84/
+          ISOPGOST:,LC,22
+          ISOPTEXT:,LC,11
+          ISOPITM:,LC,22
+          ISOPRESV:,LC,22
+          13,UJ,
+          ,DATA,
+          /0001B:,TEXT,8H*+ - /01
+          ,TEXT,8H23456789
+          ,TEXT,8H       A
+          ,TEXT,8HBCDEFGHI
+          ,TEXT,8HJKLMNOPQ
+          ,TEXT,8HRSTUVWXY
+          ,TEXT,8HZ     ЮA
+          ,TEXT,8HБЦДEФГXИ
+          ,TEXT,8HЙKЛMHOПЯ
+          ,TEXT,8HPCTYЖBЬЫ
+          ,TEXT,8HЗШЭЩЧ
+          ,TEXT,8H
+          /0015B:,GOST,6H     ′135′
+          ,GOST,6H′24′
+          ,GOST,6H  ′116′′117′′32′
+          ,GOST,6H   ′131′′21′′20′
+          ,GOST,6H′34′′136′′124′′173′′122′′125′
+          ,GOST,6H′120′′123′ ′133′′134′
+          ,GOST,6H◇%′121′′137′()
+          ,GOST,18H*+,-./0123456789:;
+          ,GOST,6H<=>′133′′21′A
+          ,GOST,24HBCDEFGHIJKLMNOPQRSTUVWXY
+          ,GOST,6HZ[ ]′115′′132′
+          ,GOST,24HЮAБЦДEФГXИЙKЛMHOПЯPCTYЖB
+          ,GOST,18HЬЫЗШЭЩЧ
+          ,LOG,360 7417 0360 7417
+ koi8:,iso,30H
+ ,iso,6H   !"#
+ ,iso,6H$%&''()
+ ,iso,18H*+,-./0123456789:;
+ ,iso,6H<=>?@A
+ ,iso,24HBCDEFGHIJKLMNOPQRSTUVWXY
+ ,iso,6HZ[ ]^_
+ ,iso,6H'340'A'342''343''344'E
+ ,iso,6H'346''347'X'351''352'K
+ ,iso,6H'354'MHO'360''361'
+ ,iso,6HPCT'365''366'B
+ ,iso,18H'370''371''372''373''374''375''376'
+          11,SET,/0001B
+          1,,ISOPTEXT
+          22,SET,/0015B
+          1,,ISOPGOST
+          22,SET,koi8
+          1,,ISOPRESV
+          ,END,
 *to perso:670000
-*      system
+*call plcatalog:670000
+*system
+*call lditm*:650424
 *call *pascom
-program foo(output);var f:text;
-_( writeln('Hello from the underworld!') _).
+(*=y+,l3*)program foo(output); var a [12345b] : integer;
+_(
+writeln(integer([0,1,3,46,47])*integer([0,1,3,45,47]))
+_).
 *no lo
 *execute
 *end file
 ``````
 ЕКОНЕЦ
+%writeln('Hello from the underworld!')

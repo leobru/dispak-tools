@@ -1,0 +1,655 @@
+user 419900зс5^
+dis 31(2113)32(77)33(2148-440)34(2048)67(1234-wr)^
+eeb1a3
+*name
+*      call lditm*:340424
+*system
+*libra:13
+*libra:32
+*call ficmemory
+*call *pascom
+(*=y+,l0*)program KOMПAPAT(input, output);
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+const lf = '_012'; eot = '_004';sp6='      ';d=2200000B;
+type lineRange=1..84; bitset=set of 0..47;
+linetype=packed array[linerange] of char;
+zonerange=0..6143;
+pagetype=packed array[zonerange] of char;
+filedesc=record ext, lib, name: alfa end;
+var CMDLINE [55B] :linetype;
+CИMB:char;
+ЧПAP:integer;
+PACШИP:alfa;
+ИMЯФ1, ИMЯФ2:filedesc;
+БИБ1, БИБ2:alfa;
+ФAДP1, ФAДP2:integer;
+ЛEKCEMA:linetype;
+KO, FADR1, FADR2:integer;
+PRIEQ, PRIED:boolean;
+ACTIVELI [3]: alfa;
+ПEЧATЬ [5]: integer;
+%
+%
+%
+%
+%
+function E6365(var CA:linetype):boolean; fortran;
+procedure E7036(*KO:integer; var OШИБ:linetype*); external;
+function E7443(*var l:linetype; a:integer;
+b:alfa; var k: linetype *):integer; external;
+function E7667(*var l:linetype; a:integer;
+var k: linetype *):integer; external;
+%
+%
+% 
+%
+%
+%
+procedure GЕТСМDLI(var F:text);
+var i:integer; 
+_(
+ rewrite(F);
+ (a) for i := 1 to 80 do _(
+  if CMDLINE[i] = lf then exit a;  
+  write(F, CMDLINE[i]); 
+_);
+  writeln(f)
+_);
+procedure ДАЙСИ;
+_(
+ if eof(INPUT) then CИMB := lf else
+ _( CИMB := INPUT@; get(INPUT) _)
+ _); 
+function ПРОПУС:boolean;
+_(
+ if (CИMB = lf) then ПРОПУС := false else 
+ if (CИMB <> ' ') then ПРОПУС := true else _(
+ while (CИMB = ' ') do ДАЙСИ;
+ ПРОПУС := (CИMB <> lf);
+ _);
+_);
+function ВВЛЕКСЕМ(var ЛEKCEMA:linetype; РАЗД1, РАЗД2:char):boolean;
+var i:integer;
+_(
+ if not ПРОПУС then ВВЛЕКСЕМ := false else _(
+ i := 1;
+ ВВЛЕКСЕМ := true;
+ while (CИMB <> lf) do _(
+ if (CИMB=РАЗД1) or (CИMB=РАЗД2) then _( ЛEKCEMA[i] := lf; exit _);
+  ЛEKCEMA[i] := CИMB;
+ i := (i + 1);
+ ДАЙСИ;
+_); ЛEKCEMA[i] := lf;
+ _)
+_);
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+procedure FINITA;
+_(
+ besm(0100000B); besm(620042B);
+ (q) besm(3000002B);
+_);
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+procedure SRAVN(FADR1, KOD1, FADR2, KOD2:integer);
+type linetype=packed array[1..84] of char;
+var R, (* unused *)
+MA, MB,
+TKJ, TKI,
+DKJ, DKI:integer;
+A, B:array [1..500] of linetype;
+EMPTY:linetype;
+%
+KJ, KI,
+L, M,
+NA, NB:integer;
+%
+HA, HB:array[1..500] of integer;
+%
+NKINO, KINO, KA, KB:integer;
+%
+F1, F2:boolean;
+%
+i, TSYM1, TSYM2:integer;
+%
+EOF1, EOF2:boolean;
+buff2 [72000B] : pagetype;
+procedure RDBUF(var ADR:integer; LIS:integer);
+var AФ, ИСЭ70:bitset;
+_(
+ AФ := bitset(ADR); ИСЭ70 := AФ * [30:47] + bitset(LIS) + [8];
+ besm(700000B : ИСЭ70); (q) exit q; ADR := ADR + 1;
+ _);
+procedure ASFIL1(var ADR:integer; KOD:integer);
+var i:integer; BS:bitset;
+procedure E6444(var a:integer); fortran;
+_(
+ case KOD of
+ 12: _(
+ BS := bitset(ADR);
+ i := integer(BS * [30:47]);
+ E6444(i); (q) exit q
+ _);
+ 8: _(
+ TSYM1 := 0;
+ RDBUF( ADR, 000036T );
+ _);
+ others: _(
+ (*=a4*)writeln(' ПЛOXOЙ TИП KOДИPOBKИ : ', KOD:10 );(*=a2*)
+ FINITA;
+ _)
+ end;
+ EOF1 := false;
+_);
+procedure ASFIL2(var ADR:integer; KOD:integer);
+var i:integer; BS:bitset;
+procedure E6661(var a:integer); fortran;
+_(
+ case KOD of
+ 12: _(
+ BS := bitset(ADR);
+ i := integer(BS * [30:47]);
+ E6661(i); (q) exit q;
+ _);
+ 8: _(
+ TSYM2 := 0;
+ RDBUF( ADR, 000035T );
+ _);
+ others: _(
+ (*=a4*)writeln(' ПЛOXOЙ TИП KOДИPOBKИ : ', KOD:10 );(*=a2*)
+ FINITA;
+ _)
+ end;
+ EOF2 := false;
+_);
+function CH1(var C:char):boolean;var page36 [74000B]:pagetype;
+ _(
+ if EOF1 then _( C := lf; CH1 := false _) else _(
+  if 6143 < TSYM1 then _( RDBUF( FADR1, 000036T ); TSYM1 := 0 _);
+ C := page36[TSYM1]; TSYM1 := TSYM1 + 1;CH1 := (C <> lf) and (C <> eot);
+ if (C = eot) then _( C := lf; EOF1 := true _)
+ _)
+_);
+function CH2(var C:char):boolean;
+_(
+ if EOF2 then _( C := lf; CH2 := false _) else _(
+  if 6143 < TSYM2 then _( RDBUF( FADR2, 000035T ); TSYM2 := 0 _);
+ C := buff2[TSYM2]; TSYM2 := TSYM2 + 1;CH2 := (C <> lf) and (C <> eot);
+ if (C = eot) then _( C := lf; EOF2 := true _)
+ _)
+_);
+%
+function RDCAR1(var CA:linetype):boolean;
+var i:integer; C:char;CO:boolean;
+KKK:packed array [1..31] of char;
+_(
+ if EOF1 then CA := EMPTY  else _(
+ case KOD1 of
+ 12: _(
+ CO := E6365( CA );
+ RDCAR1 := CO;
+ if CO then _( CA := EMPTY; EOF1 := true; exit  _);
+  KKK :=  'ЮAБЦДEФГXИЙKЛMHOПЯPCTYЖBЬЫЗШЭЩЧ';
+%
+%
+%
+% 
+  for i := 1 to 60 do _(
+  C := CA[i];  if (ord(C) >= 96) and (ord(C) < 127) then _(
+  C := KKK[ord(C)-95];
+  _) else if C = 'Y' then C := '_365';
+  CA[i] := C;
+  _); (* 2547 *)
+  for i := 61 to 84 do CA[i] := ' ';
+ _);
+ 8: _(
+ CA := EMPTY;
+ i := 0; while (i < 84) and CH1(C) do _(
+ i := i + 1; CA[i] := C;
+ _);
+ RDCAR1 := EOF1;
+ _)
+ end; (q) exit q;
+ _); (* 2613 *)
+_);
+%
+function RDCAR2(var CA:linetype):boolean;
+var i:integer;
+ C:char;
+CO:boolean;
+KKK: packed array [1..31] of char;
+function E6602(var CA:linetype):boolean; fortran;
+_(
+ if EOF2 then CA := EMPTY
+ else _( case KOD2 of
+ 12: _(
+ CO := E6602( CA );
+ RDCAR2 := CO;
+ if CO then _( CA := EMPTY; EOF2 := true; exit  _);
+   KKK :=  'ЮAБЦДEФГXИЙKЛMHOПЯPCTYЖBЬЫЗШЭЩЧ';
+%
+%
+%
+%
+%
+%
+%
+  for i := 1 to 60 do _(
+  C := CA[i];
+  if (ord(C) >= 96) and (ord(C) < 127) then _(
+  C := KKK[ord(C)-95];
+  _) else if C = 'Y' then C := '_365';
+  CA[i] := C;
+  _);
+  for i := 61 to 84 do CA[i] := ' ';
+ _);
+ 8: _(
+ CA := EMPTY;
+ i := 0; while (i < 84) and CH2(C) do _(
+ i := i + 1; CA[i] := C;
+ _);
+ RDCAR2 := EOF1;
+ _)
+ end; (q) exit q;
+ _); 
+_);
+%
+%
+%
+procedure PRINT;
+ _(
+ for i to 125 do write('-'); writeln
+ _);
+procedure WRIDE(var CA:linetype);
+ _(
+  for i := 1 to 54 do write(CA[i])
+ _);
+procedure PRINR;
+ _(
+ while NB <> KJ do _(
+ write('I':61);
+ write(HB[NB]:5, ' ');
+ WRIDE(B[NB]);
+ writeln;
+ NB := NB + 1
+ _);
+_);
+procedure PRINL;
+_(
+ while NA <> KI do _(
+ write( HA[NA]:5, ' ' );
+ WRIDE(A[NA]);
+ writeLN('I');
+ NA := (NA + 1);
+ _)
+_);
+%
+procedure PRIND; label 3131;
+ _(
+ 3131: write( HA[NA]:5, ' ' );
+ WRIDE(A[NA]);
+ write( 'I', HB[NB]:5, ' ' );
+ WRIDE(B[NB]);
+ writeLN;
+ NA := NA + 1;
+ NB := NB + 1;
+ if NA = KI then _( PRINR; exit _);
+ if NB = KJ then _( PRINL; exit _);
+ goto 3131;
+_);
+procedure PRINA;
+ _(
+ PRINT;
+ KI := DKI - 1;
+ if (KI = NA) then _(
+ if not PRIEQ then _(
+ write( HA[KI]:5, 'I':56 );
+ write( HB[NB]:5, ' ' );
+ WRIDE(B[NB]);
+ writeLN;
+ NB := NB + 1;
+ _);
+ PRINR;
+ _) else  PRIND;
+ if PRIEQ then PRINT;
+_);
+%
+%
+procedure PRINB;
+ _(
+ PRINT;
+ KJ := DKJ - 1;
+ if KJ = NB then _(
+ if not PRIEQ then _(
+ write( HA[NA]:5, ' ' );
+ WRIDE(A[NA]);
+ writeln('I', HB[KJ]:5 );
+ NA := NA + 1;
+ _);
+ PRINL;
+ _) else  PRIND;
+ if PRIEQ then  PRINT;
+_);
+%
+%
+%
+%
+function SYTUS1:boolean;
+ _(
+ DKJ := TKJ + 1;
+ TKI := KI;
+repeat
+ NKINO := NKINO + 1;
+ TKI := TKI + 1;
+ if KA < TKI then _(
+ KA := KA + 1;
+ F1 :=   RDCAR1(A[KA]);
+ MA := MA + 1;
+ HA[KA] := MA;
+ _);
+ TKJ := TKJ + 1;
+ if KB < TKJ then _(
+ KB := KB + 1;
+ F2 :=   RDCAR2(B[KB]);
+ MB := MB + 1;
+ HB[KB] := MB;
+ _);
+ if A[TKI] <> B[TKJ] then _(
+ NKINO := 1;
+ SYTUS1 := false;
+ exit
+ _)
+ until (NKINO >= KINO);
+ NKINO := 1;
+ SYTUS1 := true;
+_);
+function SYTUS2:boolean;
+ _(
+ DKI := TKI + 1; TKJ := KJ;
+repeat
+ NKINO := NKINO + 1;
+ TKJ := TKJ + 1;
+ if KB < TKJ then _(
+ KB := KB + 1;
+ F2 :=   RDCAR2(B[KB]);
+ MB := MB + 1;
+ HB[KB] := MB;
+ _);
+ M := DKI;
+ TKI := TKI + 1;
+ if KA < TKI then _(
+ KA := KA + 1;
+ F1 :=   RDCAR1(A[KA]);
+ MA := MA + 1;
+ HA[KA] := MA;
+ _);
+ if A[TKI] <> B[TKJ] then _(
+ NKINO := 1;
+ SYTUS2 := false;
+ exit
+ _)
+ until NKINO >= KINO;
+ NKINO := 1;
+ SYTUS2 := true;
+_);
+%
+%
+procedure SYTUS;
+_var JJ, II:integer;
+_(
+ KJ := NB;
+ KI := NA;
+ L := NA + 1;
+ TKJ := NB;
+ TKI := NA;
+ if KA < 0 then KA := NA;
+ if KB < 0 then KB := NB;
+ while not F1 or not F2 do _(
+ if not F1 then _(
+ M := KI;
+ KI := KI + 1;
+ if KA < KI then _(
+ KA := KA + 1;
+ F1 :=   RDCAR1(A[KA]);
+ MA := MA + 1;
+ HA[KA] := MA;
+ _); (* 3655 *)
+  for JJ := NB to KJ do 
+   if A[KI] = B[JJ] then _(
+   TKJ := JJ;
+    if SYTUS1 then _(  PRINB; exit _)
+ _)_); (* 3701 *)
+  if not F2 then _(
+ KJ := KJ + 1;
+ if KB < KJ then _(
+ KB := KB + 1;
+ F2 :=   RDCAR2(B[KB]);
+ MB := MB + 1;
+ HB[KB] := MB;
+ _);
+ for II := NA to KI do
+ if A[II] = B[KJ] then _(
+  TKI := II;
+   if SYTUS2 then _(  PRINA; exit _);
+ _)
+ _) (* 3756 *)
+_)
+_);
+%
+%
+%
+%
+%
+%
+%
+%
+%
+_( (* SRAVN *)
+ ASFIL1( FADR1, KOD1 );
+ ASFIL2( FADR2, KOD2 );
+ find(3c);
+write(
+ИMЯФ1.name, '.', ИMЯФ1.ext:5, ' (', ИMЯФ1.lib, ') [', ФAДP1:6 oct,
+alfa('] <=> '),
+ИMЯФ2.name, '.', ИMЯФ2.ext:5, ' (', ИMЯФ2.lib, ') [', ФAДP2:6 oct,
+']'); writeln;
+   for i := 1 to 84 do EMPTY[i] := ' ';
+   for i := 1 to 500 do _(
+   HA[i] := 0; A[i] := EMPTY; B[i] := EMPTY; HB[i] := 0;
+   _); (* 4110 *)
+ KA := (-1); KB := (-1);
+ MA := 0; MB := 0;
+ NA := 1; NB := 1;
+ F1 := false; F2 := false;
+ KINO := (2); DKJ := 0; DKI := 0;
+ repeat
+ if (NA >= KA) then _(
+ if (NA = KA) then _( KA := -KA; NA := 1; _);
+ F1 :=   RDCAR1(A[NA]);
+ MA := (MA + 1);
+ HA[NA] := MA;
+ (q) exit q; _) else 
+ NA := (NA + 1);
+ if (NB >= KB) then _(
+ if (NB = KB) then _(
+ KB := -KB;
+ NB := 1;
+ _);
+ F2 :=   RDCAR2(B[NB]);
+ MB := (MB + 1);
+ HB[NB] := MB;
+ (q) exit q; _) else 
+ NB := (NB + 1);
+ if A[NA] = B[NB] then _(
+   if PRIEQ then _(
+ writeln( ' ':22, HA[NA]:4, ' =',
+ HB[NB]:4, '  ', A[NA]);
+ _) _else _(
+  SYTUS;
+ NB := ((NB - KINO) + 1);
+ NA := ((NA - KINO) + 1);
+  _)
+ _)
+ until F1 or F2;
+ PRINT
+_);
+procedure OШMOH(KO:integer);
+var OШИБ:linetype;
+_( if KO = 0 then exit; E7036(* KO, OШИБ *); writeln(OШИБ); (q) exit q
+_);
+%
+function GETNUM(var ЛEKCEMA:linetype; N:integer):integer;
+var i, K:integer;
+_(
+ K := 0;
+ i := N;
+ while (ЛEKCEMA[i] <= '9') and (ЛEKCEMA[i] >= '0') do _(
+ K := K * 10 + ord(ЛEKCEMA[i]) - ord('0');
+ i := (i + 1);
+  _);(*(q)exit q;(q)exit q;(q)exit q;(q)exit q;(q)exit q;*)
+ GETNUM := K;(*(q)exit q;(q)exit q;(q)exit q;(q)exit q;(q)exit q;*)
+_); 
+_(
+ ЧПAP := (4); PACШИP := 'ISO   ';
+ ИMЯФ1.name := '000000'; ИMЯФ2.name := '000000';
+ БИБ1 := ACTIVELI; БИБ2 := БИБ1;
+ getcmdline(input); ДАЙСИ;
+ PRIEQ := false; PRIED := false;
+ ФAДP1 := 0; ФAДP2 := 0; (q) exit q;
+(wh) while (ВВЛЕКСЕМ( cmdline, ' ', ' ')) do _(
+ if ЧПAP = 0 then exit wh; if ЛEKCEMA[1] = '-' then _(
+    case ЛEKCEMA[2] of 'p': PRIEQ := true;
+    'b': _(  PRIEQ := false; PRIED := true _) end;
+ _) else _( (* 4443 *)
+   if ИMЯФ1.name = '000000' then _( (q) exit q; (q) exit q; 
+   KO := E7443(* cmdline, БИБ1, PACШИP, cmdline *);
+ if (KO <> 0) then  OШMOH( KO );
+ _) else if (ИMЯФ2.name = '000000') then _((q) exit q; (q) exit q; 
+ KO := E7443(* cmdline, БИБ2, PACШИP, cmdline *);
+ if (KO <> 0) then  OШMOH( KO );
+ if (ИMЯФ1.lib<>ИMЯФ2.lib) and (ИMЯФ2.name=sp6) then
+ ИMЯФ2.name := ИMЯФ1.name _)
+ _); (* 4472 *)
+ ЧПAP := (ЧПAP - 1);
+_) (* 4474 *);
+ (loop) if (ИMЯФ1.name = '000000') then _(
+ rewrite(INPUT); write(INPUT, 'ПEPBЫЙ ФAЙЛ-');
+ (* E6023(INPUT) *) reset( INPUT ); reset( INPUT ); ДАЙСИ;
+ if not ВВЛЕКСЕМ( cmdline, ' ', ' ') then goto loop;
+ (q) exit q; (q) exit q;(q) exit q;
+ KO := E7443(* &2916, БИБ1, PACШИP, &2906 *);
+ if KO <> 0 then _( ИMЯФ1.name := '000000'; OШMOH( KO ); goto loop _);
+ if (ИMЯФ1.name = 'KHЦ   ') then FINITA;
+ (q) exit q; (q) exit q;(q) exit q;
+ KO := E7667(* &2906, (0C), &2914 *);
+ if (KO = (8)) and (ИMЯФ1.ext[6] = chr(14C)) _then _(
+  ИMЯФ1.ext := 'TXT  _010';
+ KO := E7667(* &2906, (0C), &2914 *);
+ (q) exit q
+_);
+if KO <> 0 then _( ИMЯФ1.name := '000000'; OШMOH( KO ); goto loop _)
+_); 
+ (loop) _( if (ИMЯФ2.name = '000000') then _(
+ rewrite(INPUT); write(INPUT, 'BTOPOЙ ФAЙЛ-');
+ reset( INPUT ); reset( INPUT ); ДАЙСИ;
+ if not ВВЛЕКСЕМ( cmdline, ' ', ' ') then goto loop;
+ (q) exit q; (q) exit q;(q) exit q;
+ KO := E7443(* &2916, БИБ2, PACШИP, &2906 *);
+ if (KO <> 0) then _(  ИMЯФ2.name := '000000';
+ OШMOH( KO );
+ goto loop
+ _);
+ if (ИMЯФ2.name = 'KHЦ   ') then FINITA;
+_);
+(q) exit q; (q) exit q;
+ KO := E7667(* &2906, (0C), &2914 *);
+ if (KO = (8)) and (ИMЯФ2.ext[6] = chr(14C)) _then _(
+  ИMЯФ2.ext := 'TXT  _010';
+ KO := E7667(* &2906, (0C), &2914 *); (q) exit q; (q) exit q
+_);
+if KO <> 0 then _( ИMЯФ2.name := '000000'; OШMOH( KO ); goto loop _)
+_);
+ writeln(
+' CPABHEHИE ', ИMЯФ1.name, '.', ИMЯФ1.ext:5,' (',ИMЯФ1.lib,
+') [', ФAДP1:6 oct, alfa('] <=> '), ИMЯФ2.name, '.', ИMЯФ2.ext:5,
+' (',ИMЯФ2.lib, ') [', ФAДP2:6 oct, ']');
+if PRIEQ then write(' C ПOЛHOЙ ПEЧATЬЮ')
+else  write(', ПEЧATЬ TOЛЬKO HECOBПABШИX БЛOKOB');
+ writeLN; SRAVN( ФAДP1, ord(ИMЯФ1.ext[6]), ФAДP2, ord(ИMЯФ2.ext[6]));
+ find(6c); FINITA;
+_).
+*assem
+ e6444:,name,
+ ,utc,
+ e6661:,entry,
+ ,utc,
+ e6365:,entry,
+ ,utc,
+ e6602:,entry,
+ ,utc,
+ e7036:,entry,
+ ,utc,
+ e7443:,entry,
+ ,utc,
+ e7667:,entry,
+ ,utc,
+  ,end,
+*perso:311160,cont
+*perso:320200,cont
+*table:p/coder(w*670315,l*10)
+*main pascoder
+*execute
+*end file
+*libra:2
+*call dtran(program)
+*super
+*edit
+*r:1
+*ll
+*ee
+*end file
+``````
+еконец
