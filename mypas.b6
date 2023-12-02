@@ -4,12 +4,12 @@ dis 66(2148-440)^
 dis 65(2048)^
 EEB1A3
 *name
-*to perso:670000
+*      to perso:670000
 *call yesmemory
 *      libra:67
 *libra:66
 *pascal
-*      call *pascom
+*trans:newpasc,,670000
 (*=s8,p-,t-,u-,y+,k9,l0*)
 program pascompl(output, child, pasinput, pasinfor);
 %
@@ -396,12 +396,12 @@ var (* total size 4791 words *)
 (*82*)      curVarKind: kind;
 (*83*)      curExternFile: @extfilerec;
 (*84*)      commentModeCH: char;
-(*85*)      unused85z: word;
+(*85*)      besmInsn: word;
 (*86*)      CH: char;
 (*87*)      prevInsn: word;
 (*88*)      debugLine: integer;
 (*89*)      lineNesting: integer;
-(*90*)      FcstCountTo500: integer;
+(*90*)      FcstTop, FcstBottom: integer;
 (*91*)      objBufIdx: integer;
 (*92-94*)   int92z, int93z, int94z: integer;
 (*95*)      prevOpcode: integer;
@@ -829,19 +829,25 @@ _(
 _); (* toFCST *)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modified: sorting constants with bit48=1 and bit48=0
+% separately avoids replications due to non-transitive ALFA comparisons
+% (saves about 100B words of code)
 function addCurValToFCST: integer;
 var
     low, high, mid: integer;
+    bit48:boolean;
 _(
-    low := 1;
-    if (FcstCountTo500 = 0) then _(
+    bit48 := [0] <= curVal.m;
+    if bit48 and (FcstTop = 501)  
+    or not bit48 and (FcstBottom = 0) then _(
         addCurValToFCST := FcstCnt;
-        FcstCountTo500 := 1;
-        constVals[1] := curVal.a;
-        constNums[1] := FcstCnt;
-        toFCST;
+        if bit48 then _( FcstTop := 500;  mid := ; _)
+        else _( FcstBottom := 1; mid := ; _);
+        constVals[mid] := curVal.a;
+        constNums[mid] := FcstCnt;
     _) else _(
-        high := FcstCountTo500;
+        if bit48 then _( low := FcstTop; high := 500 _)
+        else _( low := 1; high := FcstBottom _);
         repeat
             mid := (low + high) div 2;
             if (curVal.a = constVals[mid]) then _(
@@ -854,22 +860,31 @@ _(
                 low := mid + 1
         until high < low;
         addCurValToFCST := FcstCnt;
-        if FcstCountTo500 <> 500 then _(
+        if FcstTop - FcstBottom > 1 then _(
             if curval.a < constVals[mid] then
-                high := mid
+                high := mid - ord(bit48)
             else
-                high := mid + 1;
-            for mid := FcstCountTo500 downto high do _(
-                low := mid + 1;
-                constVals[low] := constVals[mid];
-                constNums[low] := constNums[mid];
+                high := mid + ord(not bit48);
+            if bit48 then _(
+                for mid := FcstTop to high do _(
+                    low := mid - 1;
+                    constVals[low] := constVals[mid];
+                    constNums[low] := constNums[mid];
+                _);
+                FcstTop := FcstTop - 1;
+            _) else _(
+                for mid := FcstBottom downto high do _(
+                    low := mid + 1;
+                    constVals[low] := constVals[mid];
+                    constNums[low] := constNums[mid];
+                _);
+                FcstBottom := FcstBottom + 1;
             _);
-            FcstCountTo500 := FcstCountTo500 + 1;
             constVals[high] := curVal.a;
             constNums[high] := FcstCnt;
         _);
-        toFCST;
-    _)
+    _);
+    toFCST;
 _); (* addCurValToFCST *)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -6861,35 +6876,41 @@ _( (* standProc *)
         while (SY <> RPAREN) do
             inSymbol;
     _);
-    16: _( (* besm *)
+    16: repeat (* besm *)
         expression;
         formOperator(LITINSN);
-         if SY = RPAREN then 
-                  form1Insn(curVal.i)
-         else  _(
-               unused85z := curVal;
-               checkSymAndRead(COLON);
-               if SY = IDENT then _(
-               verifyType(NIL);
-               formOperator(STORE);
-               _) else _( fetch := false; expression;
-               if (curExpr@.op <> GETENUM) then
-                   error(errNeedOtherTypesOfOperands);
-                   formOperator(LOAD);
-               _);
-% Patch the last instruction
-                 if putLeft then
-                    objBuffer[objBufIdx-1] :=
+        if (SY = RPAREN) or (SY = COMMA) then 
+            form1Insn(curVal.i)
+        else  _(
+            besmInsn := curVal;
+            checkSymAndRead(COLON);
+            if SY = IDENT then _(
+% Expecting a LHS-like construct; forming STORE
+% keeps Acc intact, and the last constructed op
+% will be ATX.
+                verifyType(NIL);
+                formOperator(STORE);
+            _) else _(
+                fetch := false;
+                expression;
+% Expecting a constant, loading it with XTA would be the last op.
+                if (curExpr@.op <> GETENUM) then
+                    error(errNeedOtherTypesOfOperands);
+                formOperator(LOAD);
+            _);
+% Patch the last instruction with the opcode of the argument of BESM
+            if putLeft then
+                objBuffer[objBufIdx-1] :=
                     objBuffer[objBufIdx-1] - [28, 30..35] +
-                    unused85z.m * [28, 30..35]
-                 else _(
-                     unused85z.m := unused85z.m * [28, 30..35];
-                     besm(ASN64-24);
-                     unused85z :=;
-                     leftInsn := leftInsn -[4, 6..11] + unused85z.m;
-                     _)
-         _);
-    _);
+                    besmInsn.m * [28, 30..35]
+            else _(
+                besmInsn.m := besmInsn.m * [28, 30..35];
+                besm(ASN64-24);
+                besmInsn :=;
+                leftInsn := leftInsn -[4, 6..11] + besmInsn.m;
+            _)
+        _);
+    until SY = RPAREN;
     17: _( (* mapia *)
         l4typ1z := integerType;
         l4typ2z := alfaType;
@@ -8412,7 +8433,8 @@ var
     l3var1z, l3var2z: word;
 _(
     FcstCnt := 0;
-    FcstCount := 0;
+    FcstBottom := 0;
+    FcstTop := 501;
     for idx := 3 to 6 do _(
         l3var2z.i := (idx - (2));
         for jdx to l3var2z.i do
@@ -8808,7 +8830,7 @@ _)
         60656444C              (*"    PUTD"*),
         47456444C              (*"    GETD"*),
         55574444C              (*"    MODD"*),
-        46515644C              (*"    FIND"*);
+        64645157C              (*"    TTIO"*);
 end
 *table:exclude(program)
 *exclude
@@ -8848,13 +8870,19 @@ end
           ,GOST,24HЮAБЦДEФГXИЙKЛMHOПЯPCTYЖB
           ,GOST,18HЬЫЗШЭЩЧ
           ,LOG,360 7417 0360 7417
- koi8:,iso,30H
- ,iso,6H   !"#
- ,iso,6H$%&''()
- ,iso,18H*+,-./0123456789:;
- ,iso,6H<=>?@A
+ koi8:,iso,6H'0''1''2''3''4''5'
+ ,iso,6H'6''7''10''11''12''13'
+ ,iso,6H'14''15''16''17''20''21'
+ ,iso,6H'22''23''24''25''26''27'
+ ,iso,6H'30''31''32''33''34''35'
+ ,iso,6H'36''37''40''41''42''43'
+ ,iso,6H'44''45''46''47''50''51'
+ ,iso,6H'52''53''54''55''56''57'
+ ,iso,6H'60''61''62''63''64''65'
+ ,iso,6H'66''67''70''71''72''73'
+ ,iso,6H'74''75''76''77''100'A
  ,iso,24HBCDEFGHIJKLMNOPQRSTUVWXY
- ,iso,6HZ[ ]^_
+ ,iso,6HZ['134']^_
  ,iso,6H'340'A'342''343''344'E
  ,iso,6H'346''347'X'351''352'K
  ,iso,6H'354'MHO'360''361'
@@ -8867,11 +8895,17 @@ end
           22,SET,koi8
           1,,ISOPRESV
           ,END,
-*to perso:670000
-*call plcatalog:670000
+ newpasc:,name,
+ *pascom:,subp,
+ ,end,
+*libra:2
+*call overlay*:670000
+ monitor*(newpasc)
+*end record
+*      to perso:670000
+*call ocatalog:670000
 *system
-*call lditm*:650424
-*call *pascom
+*trans:newpasc,,670000
 (*=y+,l3*)program foo(output); var a [12345b] : integer;
 _(
 writeln(integer([0,1,3,46,47])*integer([0,1,3,45,47]))
