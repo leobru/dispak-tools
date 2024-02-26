@@ -1,4 +1,3 @@
-#include <string>
 /*
  * Use latin letters for GOST output.
  */

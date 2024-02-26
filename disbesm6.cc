@@ -1054,7 +1054,10 @@ int analyze_insn (actpoint_t * cur, int right, int addr, int limit) {
         // Deals with passing control to the next instruction within
         if (!right)
             mflags[cur->addr] |= W_NORIGHT;
-        analyze_call (cur, reg, arg2, addr, limit);
+        if (reg)
+            analyze_call (cur, reg, arg2, addr, limit);
+        else
+            analyze_jump (cur, reg, arg2, addr, limit);
         return 0;
     case OPCODE_JUMP:
         if (!right)

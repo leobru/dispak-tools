@@ -16,7 +16,6 @@
 #include <string>
 #include "encoding.h"
 #include "gost10859.h"
-#include "gettext.h"
 
 int gost_latin = 0; /* default cyrillics */
 
