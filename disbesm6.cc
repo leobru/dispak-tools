@@ -1493,7 +1493,7 @@ struct Module {
             bool extrd = mod.back() == '\0';
             while (!mod.empty() && (mod.back() == '\0' || mod.back() == ' '))
                 mod.pop_back();
-            while (name.back() == '\0' || name.back() == ' ')
+            while (!name.empty() && (name.back() == '\0' || name.back() == ' '))
                 name.pop_back();
             // Assuming all externs are unique so far
             externs.push_back(extrd ? name+mod : name);
