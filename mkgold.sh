@@ -12,5 +12,5 @@ ln -s -f globals.$1 globals.txt
 ./dtran -d $opt $1.o > predecomp.$1 
 if [ -f rename.$1 ]; then replace `cat rename.$1` -- predecomp.$1 golden.$1; fi
 
-./decomp.pl < predecomp.$1 > disasm
+grep -v -e ---------- predecomp.$1 | ./decomp.pl > disasm
 perl -i -pe 's/smc/;/g;' disasm golden.$1

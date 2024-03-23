@@ -102,9 +102,9 @@ struct opcode {
   { "Э60",	0x030000, 0x0bf000, OPCODE_ADDREX,	BASIC },
   { "Э61",	0x031000, 0x0bf000, OPCODE_ADDREX,	BASIC },
   { "Э62",	0x032000, 0x0bf000, OPCODE_IMMEX,	BASIC },
-  { "Э63",	0x033000, 0x0bf000, OPCODE_IMMEX,	BASIC },
+  { "Э63",	0x033000, 0x0bf000, OPCODE_ADDREX,	BASIC },
   { "Э64",	0x034000, 0x0bf000, OPCODE_ADDREX,	BASIC },
-  { "Э65",	0x035000, 0x0bf000, OPCODE_IMMEX,	BASIC },
+  { "Э65",	0x035000, 0x0bf000, OPCODE_ADDREX,	BASIC },
   { "Э66",	0x036000, 0x0bf000, OPCODE_IMMEX,	BASIC },
   { "Э67",	0x037000, 0x0bf000, OPCODE_ADDREX,	BASIC },
   { "Э70",	0x038000, 0x0bf000, OPCODE_ADDREX,	BASIC },
@@ -119,6 +119,7 @@ struct opcode {
   { "э21",	0x088000, 0x0f8000, OPCODE_STR2,	BASIC },*/
   { "мода",	0x090000, 0x0f8000, OPCODE_ADDRMOD,	BASIC },
   { "мод",	0x098000, 0x0f8000, OPCODE_ADDRMOD,	BASIC },
+  { "уиа",	0x0a0000, 0xff8000, OPCODE_IMM2,	PRIV },
   { "уиа",	0x0a0000, 0x0f8000, OPCODE_REG2,	BASIC },
   { "слиа",	0x0a8000, 0x0f8000, OPCODE_REG2,	BASIC },
   { "по",	0x0b0000, 0x0f8000, OPCODE_BRANCH,	BASIC },
@@ -140,7 +141,7 @@ struct opcode {
 #define ADDR(x) ((x) & 077777)
 
 FILE *textfd, *relfd;
-int bflag, rflag, srcflag, trim;
+int bflag, rflag, srcflag, trim, verbose, pascal;
 unsigned int loadaddr, codelen = 0, entryaddr = 0;
 
 bool inrange(unsigned addr) {
@@ -221,7 +222,9 @@ actpoint_t * reachable = 0;
 
 uint64 memory[32768];
 uint32 mflags[32768];
+std::map<int, std::string> reason;
 std::vector<std::string> externs;
+std::map<int, std::vector<std::string> > abs_ents;
 
 void add_actpoint (int addr) {
     actpoint_t * old = reachable;
@@ -261,8 +264,8 @@ addsym (const std::string & name, int type, uint32 val,
     if (type & W_CODE)
         add_actpoint(val);
     mflags[val] |= type & (W_UNSET|W_STARTBB|W_NOEXEC);
-    if (type & W_STARTBB)
-        mflags[val] |= type & W_DATA;
+//    if (type & W_STARTBB)
+//        mflags[val] |= type & W_DATA;
     if ((type & W_CODE) && name == "-")
         return;
     names[val].push_back(nlist(name, type, val));
@@ -278,17 +281,20 @@ prsym (uint32 addr)
 {
     int printed;
     int flags = 0;
-
+    bool first = true;
     printed = 0;
     for (auto p : names[addr]) {
         flags |= p.n_type;
         if (p.hasname() && !(flags & W_UNSET)) {
-            if (printed) {
-                printf("\tноп\n\t\t\t");
-            }
             // Do not re-print the start name
-            if (printed || addr != loadaddr)
-                printf ("%s", p.n_name.c_str());
+            if (first && addr == loadaddr) {
+                first = false;
+                continue;
+	    }
+	    if (printed) {
+                printf("\tноп\n%s", srcflag ? "" : "\t\t\t");
+            }
+            printf ("%s", p.n_name.c_str());
             ++printed;
         }
     }
@@ -323,6 +329,33 @@ findsym (uint32 addr)
     return &dummy;
 }
 
+/*
+ * Print an absolute value, using an absolute entry, if appropriate.
+ */
+std::string
+prabs (uint32 val) {
+    // If the value exactly matches a unique absolute-valued entry, use its name.
+    if (abs_ents.count(val) && abs_ents[val].size() == 1)
+        return abs_ents[val][0];
+    else {
+        std::string ret;
+        auto sym = findsym(val);
+        if (sym != &dummy) {
+            auto offset = val - sym->n_value;
+            ret = sym->n_name;
+            if (offset > 0) {
+                ret += '+';
+            } else if (offset < 0) {
+                ret += '-';
+                offset = - offset;
+            }
+            if (offset) ret += std::to_string(offset);
+            return ret;
+        }
+        return strprintf("'%o'", val);
+    }
+}
+
 struct FreeElt {
     char op;
     char type;                  // A - absolute, R - relative, E - external
@@ -336,7 +369,7 @@ struct FreeElt {
         case 'A':
             ret += val <= 64 ? strprintf("%d", val) :
                 val >= 32768-64 ? strprintf("%d", (val % 32768) -32768) :
-                strprintf("'%o'", val);
+                prabs(val);
             break;
         case 'R': {
             auto sym = findsym (val);
@@ -358,6 +391,12 @@ struct FreeExpr : public std::vector<FreeElt> {
             ret += (*this)[i].print(i);
         return ret;
     };
+    int absval() const {
+        if (size() == 1 && (*this)[0].type == 'A')
+            return (*this)[0].val;
+        else
+            return -1;
+    }
 };
 
 // Indexed by address*2+right
@@ -376,9 +415,11 @@ size_t utflen(const std::string& s) {
     return ret;
 }
 
-void prext(const std::string& mod, std::vector<std::string>& list) {
+std::string
+prlist(const std::string & kind, const std::string& mod, std::vector<std::string>& list) {
+    std::string ret;
     while (list.size()) {
-        std::string s = mod + "\tВНЕШ";
+        std::string s = mod + '\t' + kind;
         char delim = '\t';
         size_t len = utflen(s);
         while (list.size() && (len+1 + utflen(list.back()) <= 60)) {
@@ -388,13 +429,16 @@ void prext(const std::string& mod, std::vector<std::string>& list) {
             list.pop_back();
             delim = ',';
         }
-        printf("%s\n", s.c_str());
+        ret += s;
+	ret += '\n';
     }
+    return ret;
 }
 
-void prequs ()
+std::string prequs ()
 {
     struct nlist *p;
+    std::string ret;
     std::map<std::string, std::vector<std::string>> externs;
     for (auto & v : names) for (auto & p : v) {
         if (p.n_name.empty() || !p.n_used)
@@ -415,8 +459,9 @@ void prequs ()
         }
     }
     for (auto & elt : externs) {
-        prext(elt.first, elt.second);
+        ret += prlist("ВНЕШ", elt.first, elt.second);
     }
+    return ret;
 }
 
 void prstart() {
@@ -503,6 +548,14 @@ praddr (uint32 address, bool known_reloc,
     return std::string();
 }
 
+const opcode & getop(uint32 code) {
+    int i;
+    for (i=0; op[i].mask; i++)
+        if ((code & op[i].mask) == op[i].opcode)
+            return op[i];
+    return op[i];
+}
+
 /*
  * Print instruction code.
  * Return 0 on error.
@@ -512,10 +565,7 @@ prcode (uint32 memaddr, uint32 opcode)
 {
     int i;
 
-    for (i=0; op[i].mask; i++)
-        if ((opcode & op[i].mask) == op[i].opcode)
-            break;
-    switch (op[i].type) {
+    switch (getop(opcode).type) {
     case OPCODE_STR1:
     case OPCODE_ADDREX:
     case OPCODE_IMM:
@@ -544,53 +594,64 @@ prcode (uint32 memaddr, uint32 opcode)
  * Return 0 on error.
  */
 std::string
-properand (uint32 instaddr, uint32 reg, uint32 offset, int explicit0)
+properand (uint32 instaddr, uint32 reg, uint32 offset, int explicit0, uint32 base_reg = 0)
 {
     if (offset == 0 && freevars.count(instaddr)) {
         return freevars[instaddr].print() + (reg ? prreg (reg, true) : "");
     }
     bool inrange = offset >= loadaddr && offset < loadaddr + codelen;
     bool verysmall = offset < 020 || offset >= 077700;
-    auto b = find_bases(instaddr/2);
-    bool have_base = b.count(reg);
+    bool have_base = base_reg != 0;
     bool base_modif = explicit0 && have_base;
     int data_offset_as_number = !inrange || (verysmall && reg != 0 && !have_base);
     int offset_as_number = !inrange || reg != 0 && !have_base && (offset < 020 || offset >= 077700);
+    if (have_base && base_reg == 0)
+        base_reg = reg;
+    uint32 base_val = 0;
+    if (base_reg) {
+        auto b = find_bases(instaddr/2);
+        base_val = b[base_reg];
+    }
     if (!base_modif && have_base) {
-        offset += b[reg];
+        offset += base_val;
 	offset &= 077777;
     }
-
+    bool utc_base = base_reg && reg != base_reg;
     std::string ret;
     bool rel =
         (reloc(instaddr) > 0 &&
          !(ret = praddr (offset, true, false, false)).empty()) ||
         (have_base ? offset >= loadaddr && offset < loadaddr + codelen : true) &&
         !(ret = praddr (offset, false, data_offset_as_number, offset_as_number)).empty();
-    if (have_base && !rel && b[reg] < loadaddr && offset < loadaddr && offset >= b[reg]) {
+    if (have_base && !rel && base_val < loadaddr && offset < loadaddr && offset >= base_val) {
         auto sym = findsym(offset);
         if (sym != &dummy) {
             return praddr (offset, false, data_offset_as_number, offset_as_number) +
             "-base" +
             prreg (reg, true);
         }
-    }
-    if (!rel && !base_modif && have_base) {
-        offset -= b[reg];
-        offset &= 077777;
-    }
-    if (!rel) {
+    } else if (!rel) {
+        if (offset == base_val) {
+                offset = base_val = 0;
+        }
         if(offset) {
             if (offset < 040)
                 ret = std::to_string(offset);
             else if (offset >= 077700)
                 ret = strprintf("%d", offset-0100000);
-            else
-                ret = strprintf("'%o'", offset);
+            else {
+                ret = prabs(offset);
+            }
         } else if (explicit0)
             ret = '0';
     }
-    if (reg && (base_modif || !have_base || !rel)) {
+    if (!ret.empty() && (utc_base || (base_val && !rel))) {
+        if (ret != "base")
+            ret += "-base";
+        else
+            ret = "";
+    }
+    if (reg && (reg != base_reg || base_modif || !have_base || !rel)) {
         ret += prreg (reg, true);
     }
     return ret;
@@ -599,28 +660,32 @@ properand (uint32 instaddr, uint32 reg, uint32 offset, int explicit0)
 std::string
 prinsn (uint32 memaddr, uint32 opcode, int right)
 {
-    int i;
     std::string ret;
     int reg = opcode >> 20;
     int arg1 = (opcode & 07777) + (opcode & 0x040000 ? 070000 : 0);
     int arg2 = opcode & 077777;
-
-    for (i=0; op[i].mask; i++)
-        if ((opcode & op[i].mask) == op[i].opcode)
-            break;
-    opcode_e type = op[i].type;
-    if (op[i].opcode == 0xa0000 && reg == 0) {
-        type = OPCODE_IMM;
-    }
-    ret = op[i].name;
-    if (!strchr(op[i].name, '\t'))
+    static uint32 utc_base = 0;
+    auto op = getop(opcode);
+    opcode_e type = op.type;
+    auto b = find_bases(memaddr);
+    uint32 base_reg = utc_base ? utc_base : (reg && b.count(reg)) ? reg : 0;
+    utc_base = base_reg && (opcode & 0xfffff) == 0x90000 ? base_reg : 0;
+    uint32 instaddr = memaddr*2 + right;
+    ret = op.name;
+    if (!right && type == OPCODE_CALL)
+        ret += "л";
+    if (!strchr(op.name, '\t'))
         ret += AFTER_INSTRUCTION;
-    if (freevars.count(memaddr*2+right)) {
-        ret += freevars[memaddr*2+right].print();
-        if (reg) {
-            ret += prreg (reg, true);
+    if (freevars.count(instaddr)) {
+        auto & fv = freevars[instaddr];
+        if (fv.absval() == -1 || !reg || !base_reg) {
+            if (fv.absval() != 0)
+                ret += fv.print();
+            if (reg) {
+                ret += prreg (reg, true);
+            }
+            return ret;
         }
-        return ret;
     }
     switch (type) {
     case OPCODE_REG1:
@@ -636,24 +701,27 @@ prinsn (uint32 memaddr, uint32 opcode, int right)
         break;
     case OPCODE_ADDREX:
     case OPCODE_STR1:
-        ret += properand (memaddr*2+right, reg, arg1, 0);
+        ret += properand (memaddr*2+right, reg, arg1, 0, base_reg);
         break;
     case OPCODE_REG2:
     case OPCODE_STR2:
-    case OPCODE_ADDRMOD:
-        ret += properand (memaddr*2+right, reg, arg2, op[i].type == OPCODE_REG2);
-        break;
+    case OPCODE_ADDRMOD: {
+        bool explicit_reg = op.type == OPCODE_REG2;
+        if (reg != base_reg)
+            explicit_reg = false;
+        ret += properand (memaddr*2+right, reg, arg2, explicit_reg, base_reg);
+    } break;
     case OPCODE_BRANCH:
     case OPCODE_JUMP:
     case OPCODE_IRET:
     case OPCODE_CALL:
-        ret += properand (memaddr*2+right, reg, arg2, 0);
+        ret += properand (memaddr*2+right, reg, arg2, 0, base_reg);
         break;
     case OPCODE_IMMEX:
     case OPCODE_IMM:
     case OPCODE_STOP: {
         bool need0 = false;
-        if (strchr(op[i].name, '\t'))
+        if (strchr(op.name, '\t'))
             need0 = true;
         if (arg1 || need0) ret += strprintf ("'%o'", arg1);
         if (reg) {
@@ -687,7 +755,7 @@ prinsn (uint32 memaddr, uint32 opcode, int right)
 
 bool is_good_gost(int s)
 {
-    return (s < 020) || (s == 025) || (s >= 040 && s < 0115);
+    return (s < 020) || (s == 025) || (s >= 037 && s < 0115);
 }
 
 bool is_good_iso(int s) {
@@ -745,6 +813,10 @@ bool nonconst(int cmdaddr) {
         return true;
     return false;
 }
+std::string proct(uint32 val) {
+        if (val <= 7) return std::string(1, char(val + '0'));
+        return strprintf("'%o'", val);
+}
 
 void prshort(uint32 val, int cmdaddr) {
     bool good_gost = val && is_good_gost(val & 0377) && is_good_gost((val >> 8) & 0377) && is_good_gost((val >> 16) & 0377);
@@ -765,17 +837,28 @@ void prshort(uint32 val, int cmdaddr) {
     } else {
         int rel = reloc(cmdaddr);
         if (rel == 1) {
-            printf("кк\t'%o',%s", (val >> 12) & 077,
+            printf("кк\t%s,%s", proct((val >> 12) & 077).c_str(),
                    properand(cmdaddr, reg, (val & 07777) + (val & 01000000 ? 070000 : 0), true).c_str());
         } else if (rel == 2 && good_addr)
             printf("конк\tA(%s)", praddr(val, true, false, false).c_str());
-        else 
-            printf("дк\t'%o',%s", (val >> 15) & 037, properand(cmdaddr, reg, val & 077777, true).c_str());        
+        else
+            printf("дк\t%s,%s", proct((val >> 15) & 037).c_str(), properand(cmdaddr, reg, val & 077777, true).c_str());
     }
 }
 
 bool printable(uint32 byte) {
-    return byte < 0140 && byte != 0136 && byte != 0115;
+    switch (byte) {
+    case 0135: // hard sign
+    case 0136: // degree/question mark
+    case 0131: // horizontal line
+    case 0115: // overline
+    case 0032: case 0033: // opening/closing quote
+    case 0137: // apostrophe/prime
+    case 0020: // lower ten
+        return false;
+    default:
+        return byte < 0140;
+    }
 }
 
 void prconst (uint32 addr, uint32 limit)
@@ -805,7 +888,7 @@ void prconst (uint32 addr, uint32 limit)
             bool bad_seen = false;
             bool print_all_bytes = false;
             printf ("\tконд\t");
-            if (good_gost >= 4) {
+            if (good_gost >= 4 || (flags & W_GOST)) {
                 std::string s;
                 for (i = 0; i < 6; ++i) {
                     if (printable(bytes[i]))
@@ -816,7 +899,7 @@ void prconst (uint32 addr, uint32 limit)
                     if (s == "000000")
                         printf("в'0'");
                     else
-                        printf("п'%s'", s.c_str());
+                        printf("п'%s'", s.c_str()+s.find_first_not_of('0'));
             } else
                 print_all_bytes = true;
             if (bad_seen || print_all_bytes) {
@@ -835,7 +918,7 @@ void prconst (uint32 addr, uint32 limit)
             uint32 right = memory[addr] & 0xFFFFFF;
             bool left_addr = left && (rel_l ||  maybe_addr(left));
             bool right_addr = right && (rel_r || maybe_addr(right));
-            if (!rel_l && !rel_r && !left_addr && !right_addr) {
+            if (!rel_l && !rel_r && (rflag || (!left_addr && !right_addr))) {
                 int good_iso, good_iso_with_parity;
                 printf ("\tконд\tв'%016llo'", memory[addr]);
                 good_iso = count_good(bytes, is_good_iso);
@@ -854,10 +937,10 @@ void prconst (uint32 addr, uint32 limit)
                         fake += (c == 0) || (c == 0x7F);
                         if (c < 0x20)
                             (s += '^') += char(c + 0x40);
-                        else 
+                        else
                             s += unicode_to_utf8 (koi7_to_unicode[c]);
                     }
-                    if (fake <= 3)
+                    if (fake <= 3 && !srcflag)
                         printf(" PARITY ISO '%s'", s.c_str());
                 }
                 putchar('\n');
@@ -869,16 +952,17 @@ void prconst (uint32 addr, uint32 limit)
                 printf("\tконд\tA(%s)\tвозм.\n", findsym(right)->n_name.c_str());
             } else {
                 if (left_addr) {
-                    printf("\tконк\tA(%s)\tвозм.\n", findsym(left)->n_name.c_str());                    
+                    printf("\tконк\tA(%s)\tвозм.\n", findsym(left)->n_name.c_str());
                 } else {
-                    printf("\tконк\tв'%08o'\n", left);
+                    putchar('\t'); prshort(left, addr*2); putchar('\n');
+                    // printf("\tконк\tв'%08o'\n", left);
                 }
                 printf(srcflag ? "" : "\t\t\t");
                 if (right_addr) {
-                    printf("\tконк\tA(%s)\tвозм.\n", findsym(right)->n_name.c_str());                    
+                    printf("\tконк\tA(%s)\tвозм.\n", findsym(right)->n_name.c_str());
                 } else {
                     printf("\tконк\tв'%08o'\n", right);
-                }                
+                }
             }
         }
         mflags[addr] |= W_DONE;
@@ -892,12 +976,14 @@ void analyze_call (actpoint_t * cur, int reg, int arg, int addr, int limit)
         copy_actpoint (cur, arg);
         if (reg)
             reachable->regvals[reg] = cur->addr+1;
+        if (!(mflags[arg] & W_STARTBB))
+	    reason[arg] += strprintf("CALL @%05o, ", cur->addr);
         mflags[arg] |= W_STARTBB;
     }
     copy_actpoint (cur, cur->addr + 1);
     // Assuming no tricks are played; usually does not hurt,
     // used in Pascal-Autocode
-    if (reg)
+    if (pascal && reg)
         reachable->regvals[reg] = cur->addr + 1;
 }
 
@@ -907,6 +993,8 @@ void analyze_jump (actpoint_t * cur, int reg, int arg, int addr, int limit)
         arg = ADDR(arg + cur->regvals[reg]);
         if (arg >= addr && arg < limit) {
             copy_actpoint (cur, arg);
+            if (!(mflags[arg] & W_STARTBB))
+		reason[arg] += strprintf("JUMP @%05o, ", cur->addr);
             mflags[arg] |= W_STARTBB;
         }
     }
@@ -918,12 +1006,16 @@ void analyze_branch (actpoint_t * cur, int opcode, int reg, int arg, int addr, i
     if (opcode >= 0x0e0000) {
         if (arg >= addr && arg < limit && !(mflags[arg] & W_UNSET)) {
             copy_actpoint (cur, arg);
+            if (!(mflags[arg] & W_STARTBB))
+		reason[arg] += strprintf("BR1 @%05o, ", cur->addr);
             mflags[arg] |= W_STARTBB;
         }
     } else if (cur->regvals[reg] != -1) {
         arg = ADDR(arg + cur->regvals[reg]);
         if (arg >= addr && arg < limit && !(mflags[arg] & W_UNSET)) {
             copy_actpoint (cur, arg);
+            if (!(mflags[arg] & W_STARTBB))
+		reason[arg] += strprintf("BR2 @%05o, ", cur->addr);
             mflags[arg] |= W_STARTBB;
         }
     }
@@ -1021,8 +1113,12 @@ void analyze_addrmod (actpoint_t * cur, int opcode, int reg, int arg)
             cur->addrmod = -1;
 		break;
     case 0x098000:	// мод
-        if (arg != -1 && cur->regvals[reg] != -1)
-            mflags[ADDR(cur->regvals[reg] + arg)] |= W_DATA;
+        if (arg != -1 && cur->regvals[reg] != -1) {
+            int aex = ADDR(arg + cur->regvals[reg]);
+            if (!(mflags[aex] & W_DATA))
+		reason[aex] += strprintf("WTC @%05o, ", cur->addr);
+            mflags[aex] |= W_DATA;
+         }
         // Memory contents are not tracked
         cur->addrmod = -1;
         break;
@@ -1031,16 +1127,13 @@ void analyze_addrmod (actpoint_t * cur, int opcode, int reg, int arg)
 
 // Returns whether the control may pass to the next instruction
 int analyze_insn (actpoint_t * cur, int right, int addr, int limit) {
-    int opcode, arg1, arg2, reg, i;
+    int opcode, arg1, arg2, reg;
     if (cur->addr < addr || cur->addr > limit)
         return 0;
     if (right)
         opcode = memory[cur->addr] & 0xffffff;
     else
         opcode = memory[cur->addr] >> 24;
-    for (i=0; op[i].mask; i++)
-        if ((opcode & op[i].mask) == op[i].opcode)
-            break;
     if (cur->addrmod == -1) {
         arg1 = arg2 = -1;
     } else {
@@ -1049,7 +1142,8 @@ int analyze_insn (actpoint_t * cur, int right, int addr, int limit) {
     }
     cur->addrmod = 0;
     reg = opcode >> 20;
-    switch (op[i].type) {
+    auto opc = getop(opcode);
+    switch (opc.type) {
     case OPCODE_CALL:
         // Deals with passing control to the next instruction within
         if (!right)
@@ -1065,8 +1159,8 @@ int analyze_insn (actpoint_t * cur, int right, int addr, int limit) {
         analyze_jump (cur, reg, arg2, addr, limit);
         return 0;
     case OPCODE_BRANCH:
-        analyze_branch (cur, op[i].opcode, reg, arg2, addr, limit);
-        return 1;
+        analyze_branch (cur, opc.opcode, reg, arg2, addr, limit);
+        break;
     case OPCODE_ILLEGAL:
         // mflags[cur->addr] |= W_DATA;
         return 0;
@@ -1077,30 +1171,39 @@ int analyze_insn (actpoint_t * cur, int right, int addr, int limit) {
             mflags[cur->addr] |= W_NORIGHT;
         return 0;
     case OPCODE_REG1:
-        analyze_regop1 (cur, op[i].opcode, reg, arg1);
-        return 1;
+        analyze_regop1 (cur, opc.opcode, reg, arg1);
+        break;
     case OPCODE_REG2:
-        analyze_regop2 (cur, op[i].opcode, reg, arg2);
-        return 1;
+        analyze_regop2 (cur, opc.opcode, reg, arg2);
+        break;
     case OPCODE_ADDRMOD:
-        analyze_addrmod (cur, op[i].opcode, reg, arg2);
-        return 1;
+        analyze_addrmod (cur, opc.opcode, reg, arg2);
+        break;
     case OPCODE_STR1:
-        if (cur->regvals[reg] != -1 && arg1 != -1)
-            mflags[ADDR(arg1 + cur->regvals[reg])] |= W_DATA;
-        return 1;
+        if (cur->regvals[reg] != -1 && arg1 != -1) {
+            int aex = ADDR(arg1 + cur->regvals[reg]);
+            if (!(mflags[aex] & W_DATA))
+		reason[aex] += strprintf("STR1 @%05o, ", cur->addr);
+            mflags[aex] |= W_DATA;
+        }
+        break;
     case OPCODE_ADDREX:
-        if (cur->regvals[reg] != -1 && arg1 != -1)
-            mflags[ADDR(arg1 + cur->regvals[reg])] |= W_DATA;
+        if (cur->regvals[reg] != -1 && arg1 != -1) {
+            int aex = ADDR(arg1 + cur->regvals[reg]);
+            if (!(mflags[aex] & W_DATA))
+		reason[aex] += strprintf("EX @%05o, ", cur->addr);
+            mflags[aex] |= W_DATA;
+        }
         // fall through
     case OPCODE_IMMEX:
         cur->regvals[016] = -1;
         if (!right)
             mflags[cur->addr] |= W_NORIGHT;
-        return 1;
+        break;
     default:
-        return 1;
+        break;
     }
+    return mflags[cur->addr] & W_NOEXEC ? 0 : 1;
 }
 
 void okno(actpoint_t * cur) {
@@ -1201,7 +1304,7 @@ prsection (uint32 addr, uint32 limit)
                 auto& s = base->n_name;
                 printf("%s\tупотр\t%s", indent, s.c_str());
                 if (base->n_value != i.second) {
-                    if (!s.empty())
+                    if (!s.empty() && s[0] != '-')
                         putchar('+');
                     printf("%d", i.second -  base->n_value);
                 }
@@ -1235,14 +1338,14 @@ prsection (uint32 addr, uint32 limit)
                 continue;
             }
             if (! (mflags[addr] & W_NORIGHT) ||
-                (opcode != 0 && opcode != 02200000)) {
+                rel_r || (opcode != 0 && opcode != 02200000)) {
                 if (srcflag == 0) {
                     printf("      ");
                     prcode (addr, opcode);
                     putchar ('\t');
                 }
                 putchar ('\t');
-                if (mflags[addr] & W_NORIGHT)                    
+                if (mflags[addr] & W_NORIGHT)
                     prshort (opcode, addr*2+1);
                 else
                     fputs(prinsn (addr, opcode, 1).c_str(), stdout);
@@ -1286,15 +1389,15 @@ readsymtab (char *fname)
     }
     addsym("", 0, 32768);
     addsym("", 0, 0);
-    while (fsym >> addr >> typestr >> name) {
+    try { while (fsym >> addr >> typestr >> name) {
         std::string mod;
         std::getline(fsym, mod);
         size_t ent = mod.find("entry");
         int type = 0;
         if (ent != ~0ull) {
             size_t s = mod.find_first_not_of(" \t", ent+5);
-            size_t e = mod.find_first_of(" \t\n", s);
-            mod = mod.substr(s, e-s);
+            size_t e = s == ~0ull ? ~0ull : mod.find_first_of(" \t\n", s);
+            mod = e == ~0ull ? "" : mod.substr(s, e-s);
         }
         if (typestr != "0" && (type = atoi(typestr.c_str())) == 0)
             type = gettype(typestr);
@@ -1317,10 +1420,10 @@ readsymtab (char *fname)
                 break;
             }
             for (; start <= finish; ++start)
-                addsym(name, type, start, mod);                
+                addsym(name, type, start, mod);
         }
 	++line;
-    }
+    } } catch (...) { err = true; }
     if (err || fsym.fail() && !fsym.eof()) {
         std::cerr << "disbesm6: error reading symbol table, line " << line << '\n';
         std::cerr << "last read: <" << addr << "> <" << typestr << "> <" << name << ">\n";
@@ -1387,7 +1490,7 @@ disbin (char *fname)
         if (i.second >= loadaddr + codelen)
             prsection (i.second, i.second +01000);
     }
-    prequs ();
+    fputs(prequs ().c_str(), stdout);
     printf("%s\tФИНИШ\n", srcflag ? "" : "\t\t\t");
     fclose (textfd);
 }
@@ -1395,9 +1498,11 @@ disbin (char *fname)
 struct Module {
     FILE * fd;
     Module(FILE * f) : fd(f), chunks_read(0) {
-        readHeader();        
+        readHeader();
     }
     std::string debemsh(uint64 val) {
+	const char * abekmhopctyx = "ABEKMHOPCTYX";
+	const char * awekmnorstuh = "awekmnorstuh";
         unsigned char bytes[6];
         split_bytes(val, bytes);
         std::string s;
@@ -1409,8 +1514,11 @@ struct Module {
                 break;
             case 0240 ... 0337:
                 byte -= 0140;
-                break;                
+                break;
             }
+	    // Cyrillify
+	    if (const char * p = index(abekmhopctyx, byte))
+		byte = awekmnorstuh[p-abekmhopctyx];
             s += unicode_to_utf8 (koi7_to_unicode[byte]);
         }
         return s;
@@ -1424,7 +1532,7 @@ struct Module {
             for (int i = 0; i < 4; ++i)
                 (void) freadw(fd);
         }
-       
+
     }
     void readHeader() {
         // Header structure:
@@ -1462,7 +1570,9 @@ struct Module {
             prev_addr = analyze_chunk();
         }
     }
-    void read_entries() {
+    std::string read_entries() {
+        std::string ret;
+        std::vector<std::string> ents;
         for (uint i = 0; i < entries_cnt; ++i) {
             if (i % 6 == 0)
                 read_chunk();
@@ -1474,18 +1584,22 @@ struct Module {
             if (cur == name) {
                 if (val != loadaddr)
                     fprintf(stderr, "Module address mismatch, start %05o, entry %05o\n",
-                            loadaddr, val);
+                            loadaddr, int(val));
                 continue;
             }
             if (val & 0100000) {
-                printf("%s%s\tЭКВ\t'%o'\n", srcflag ? "" : "\t\t\t", cur.c_str(), val & 077777);
+                ret += strprintf("%s%s\tЭКВ\t'%o'\n",
+                                 srcflag ? "" : "\t\t\t", cur.c_str(), int(val) & 077777);
+                abs_ents[int(val) & 077777].push_back(cur);
             } else {
                 addsym(cur, 0, val & 077777);
             }
-            printf("%s\tВХОДН\t%s\n", srcflag ? "" : "\t\t\t", cur.c_str());
+	    ents.push_back(cur);
         }
+        return ret + prlist("ВХОД", "", ents);
     }
-    void read_externs() {
+    std::string read_externs() {
+        std::string ret;
         std::map<std::string, std::vector<std::string>> extdecls;
         externs.push_back("");
         for (uint i = 0; i < externs_cnt; ++i) {
@@ -1507,8 +1621,9 @@ struct Module {
         }
         for (auto & elt : extdecls) {
             std::reverse(elt.second.begin(), elt.second.end());
-            prext(elt.first, elt.second);
+            ret += prlist("ВНЕШ", elt.first, elt.second);
         }
+	return ret;
     }
     // Returns the first address which does not belong to the chunk
     int analyze_chunk() {
@@ -1525,7 +1640,7 @@ struct Module {
             bool is_ext = flag(i, 4);
             bool is_abs = flag(i, 2);
             bool has_cont = flag(i, 1);
-//            printf("%05o Looking at %s\t\tflags %d %d %d %d\n", addr/2, 
+//            printf("%05o Looking at %s\t\tflags %d %d %d %d\n", addr/2,
 //                   prinsn(addr/2, cmd, addr & 1).c_str(), has_cont, is_abs, long_addr, is_ext);
             if (!in_continuation) {
                 if (addr % 2 == 0 && cmd == 0 && !has_cont && long_addr && is_ext) {
@@ -1542,7 +1657,8 @@ struct Module {
                     uint opcode = (cmd >> 12) & 0377;
                     bool is_asn = opcode == 036;
                     bool is_ecode = (opcode >= 050 && opcode <= 057) || (opcode == 062 || opcode == 063);
-                    if (is_abs && !is_asn && !is_ecode)
+		    bool is_reg1 = opcode >= 040 && opcode <= 045;
+                    if (is_abs && !is_asn && !is_ecode && !is_reg1)
                         freevars[addr].push_back(FreeElt('+', 'A', arg));
                     relocs[addr] = is_abs ? 0 : long_addr ? 2 : 1;
                 } else if (has_cont && is_abs)
@@ -1557,8 +1673,8 @@ struct Module {
                 // No more continuation
                 if (!free.empty())
                     freevars[addr] = free;
-                ++addr;                
-            }            
+                ++addr;
+            }
         }
         return addr/2;
     }
@@ -1614,8 +1730,8 @@ disobj (char *fname)
         printf ("\n");
     }
     m.read_chunks();
-    m.read_entries();
-    m.read_externs();
+    auto ents = m.read_entries();
+    auto exts = m.read_externs();
     prstart();
     analyze (entryaddr, loadaddr, loadaddr + codelen);
     make_syms(loadaddr, loadaddr + codelen);
@@ -1624,7 +1740,9 @@ disobj (char *fname)
         if (i.second >= loadaddr + codelen)
             prsection (i.second, i.second +01000);
     }
-    prequs ();
+    fputs(prequs ().c_str(), stdout);
+    fputs(ents.c_str(), stdout);
+    fputs(exts.c_str(), stdout);
     printf("%s\tФИНИШ\n", srcflag ? "" : "\t\t\t");
     fclose (textfd);
 }
@@ -1635,7 +1753,7 @@ main (int argc, char **argv)
     char *cp;
     bflag = 1;
     int opt, addr;
-    while ((opt = getopt(argc, argv, "rbsta:e:R:n:")) != -1) {
+    while ((opt = getopt(argc, argv, "rbsta:e:R:n:vp")) != -1) {
         switch (opt) {
             case 'r':   /* -r: disassemble object file */
                 rflag++;
@@ -1698,6 +1816,12 @@ main (int argc, char **argv)
                 }
                 bases[loadaddr][basereg] = ADDR(baseaddr);
             } break;
+            case 'v':
+                verbose = 1;
+                break;
+            case 'p':
+                pascal = 1;
+                break;
         default:
             fprintf (stderr, "Usage: disbesm6 [-r] [-b] [-aN] [-eN] [-nSymtab] file\n");
             return (1);
@@ -1711,5 +1835,10 @@ main (int argc, char **argv)
         disobj (argv[optind]);
     else
         disbin (argv[optind]);
+    if (verbose) {
+        for (auto it : reason) {
+            printf("%05o: %s\n", it.first, it.second.c_str());
+        }
+    }
     return (0);
 }

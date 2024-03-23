@@ -76,7 +76,7 @@ $prog =~ s@L([^:,;]+):,BSS,;15,ATX,4;14,VJM,P/(\d) *;15,UTM,(\d+);@"==========;L
 
 $prog =~ s@L([^:,;]+):,BSS,;15,ATX,0;15,UTM,-(\d+);14,VJM,P/(\d) *;15,UTM,(\d+);@manyargs($1,$3,$2,$4)@eg;
 
-$prog =~ s@L([^:,;]+):,BSS,;,NTR,7; :,BSS,;13,MTJ,(\d);@"==========;L$1: Level ".($2-1)." procedure with no frame;"@eg;
+$prog =~ s@L([^:,;]+):,BSS,;,NTR,7;13,MTJ,(\d);@"==========;L$1: Level ".($2-1)." procedure with no frame;"@eg;
 
 # Converting shortcuts to standard subroutine calls
 

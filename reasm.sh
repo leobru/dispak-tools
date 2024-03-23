@@ -1,5 +1,5 @@
 #!/bin/sh -x
-/u/leob/area/scratch/mybesm6/dispak/besmtool/besmtool dump 1234 --start=0315 --length=8 --to-file=re-$1.o
+besmtool dump 1234 --start=0 --length=2 --to-file=re-$1.o
 opt=
 if [ -f entry.$1 ]; then opt="$opt -E entry.$1"; fi
 if [ -f gost.$1 ]; then opt="$opt -G gost.$1"; fi
