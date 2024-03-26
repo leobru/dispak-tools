@@ -23,7 +23,7 @@ const
     fnLN    = 5;  fnEXP  = 6;  fnABSR = 7;  fnTRUNC = 8;  fnODD  = 9;
     fnORD   = 10; fnCHR  = 11; fnSUCC = 12; fnPRED  = 13; fnEOF  = 14;
     fnREF   = 15; fnEOLN = 16; fnSQRR = 17; fnROUND = 18; fnCARD = 19;
-    fnMINEL = 20; fnPTR  = 21; fnABSI = 22; fnSQRI  = 23;
+    fnMINEL = 20; fnPTR  = 21; fnSHIFT = 22; fnABSI = 23; fnSQRI  = 24;
 %
     S3 = 0;
     S4 = 1;
@@ -72,6 +72,7 @@ const
     mcMINEL = 15;
     mcSQRI = 13;
     mcCARD = 23;
+    mcSHIFT = 24;
 %
     ASCII0 =    4000007B;
     E1 =        4000010B;
@@ -185,10 +186,10 @@ operator = (
 );
 %
 opgen = (
-    gen0,  STORE, LOAD,  gen3,  SETREG,
-    gen5,  gen6,  gen7,  gen8,  gen9,
-    gen10, gen11, gen12, FILEACCESS, gen14,
-    gen15, gen16, LITINSN
+    LOOPLIMIT,  STORE, LOAD,  BINOP,  SETREG,
+    gen5,  STOREELT,  gen7,  gen8,  LOADINT,
+    PUSHARG, gen11, gen12, FILEACCESS, gen14,
+    gen15, PCKUNPCK, LITINSN
 );
 %
 % Flags for ops that can potentially be optimized if one operand is a constant
@@ -474,7 +475,7 @@ var (* total size 4791 words *)
 (*414-450*) opToInsn: array [MUL..op44] of integer;
 (*451-487*) opToMode: array [MUL..op44] of integer;
 (*488-524*) opFlags: array [MUL..op44] of opflg;
-(*525-548*) funcInsn: array [0..23] of integer;
+(*525-548*) funcInsn: array [0..24] of integer;
 (*549-595*) insnTemp: array [insn] of integer;
 (*596*)     frameRegTemplate: integer;
 (*597*)     constRegTemplate: integer;
@@ -692,7 +693,7 @@ _(
     _) else if (prevOpcode <> -1) and (insn.i mod 4096 <> 0) and
     (insn.m mod prevInsn.m = [32]) (* maybe ATX/XTA *) then _(
 % Load after store; if the load reg/off is the same as the store,
-% and the store was not a stack push, there is no need to do the read.
+% and the store was not a stack push, there is no need to so the read.
           if (prevInsn.i <> 74000000B (* not 15,ATX, *)) and
              (prevInsn.m * [28, 30..35] = [] (* but still ATX *)) then
              exit (* skip the XTA *)
@@ -2058,7 +2059,7 @@ label
     3556;
 var
     insnBufIdx: integer;
-    l4var2z, l4var3z, l4var4z: integer;
+    l4var2z, l4var3z, m: integer;
     l4var5z: word;
     l4inl6z, l4inl7z, l4inl8z: oiptr;
     l4var9z: integer;
@@ -2137,7 +2138,7 @@ _( (* genOneOp *)
     l4inl6z := NIL;
     while l4oi212z <> NIL do _(
         tempInsn.i := l4oi212z@.code;
-        l4var4z := tempInsn.i -  macro;
+        m := tempInsn.i - macro;
         curInsn.i := l4oi212z@.offset;
         case l4oi212z@.mode of
          0: ;
@@ -2153,8 +2154,8 @@ _( (* genOneOp *)
          4: arithMode := 2;
         end; (* case *)
         l4oi212z := l4oi212z@.next;
-        if l4var4z >= 0 then _(
-            case l4var4z of
+        if m >= 0 then _(
+            case m of
             mcCARD: _(
                 add2InsnsToBuf(KACX, KAEX+ZERO);
             _);
@@ -2269,12 +2270,12 @@ _( (* genOneOp *)
         _)
     _); (* 4037 *)
     insnBufIdx := insnBufIdx-1;
-    for l4var4z := insnBufIdx downto 1 do _(
-        curInsn := insnBuf[l4var4z];
+    for m := insnBufIdx downto 1 do _(
+        curInsn := insnBuf[m];
         if (curInsn.i = insnTemp[NTR]) or
            (curInsn.i = 370007B)
         then _(
-            l4var3z := l4var4z - 1;
+            l4var3z := m - 1;
             l4var213z := false;
 (loop)      if l4var3z < 1 then exit loop else _(
                 tempInsn.m := insnBuf[l4var3z].m * [28:32];
@@ -2294,20 +2295,20 @@ _( (* genOneOp *)
             _);
 *)
             l4var3z := l4var3z + 1;
-            if (l4var3z <> l4var4z) then _(
-                for l4var2z := l4var4z-1 downto l4var3z do _(
+            if (l4var3z <> m) then _(
+                for l4var2z := m-1 downto l4var3z do _(
                     insnBuf[l4var2z+1] := insnBuf[l4var2z]
                 _);
             _);
             insnBuf[l4var3z] := curInsn;
         _); (* 4103 *)
     _);
-    for l4var4z to insnBufIdx do
+    for m to insnBufIdx do
 (iter)  _(
-        curInsn := insnBuf[l4var4z];
+        curInsn := insnBuf[m];
         tempInsn.m := curInsn.m * [0, 1, 3, 23:32];
         if tempInsn.i = KATX+SP then _(
-            l4var2z := l4var4z + 1;
+            l4var2z := m + 1;
             while insnBufIdx + 1 <> l4var2z do _(
                 curVal.m := insnBuf[l4var2z].m * [0, 1, 3, 23, 28:35];
                 tempInsn.m := curVal.m * [0, 1, 3, 23, 28:32];
@@ -2696,7 +2697,7 @@ _(
 _); (* prepStore *)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-procedure P5117(op: operator);
+procedure mkTempVar(op: operator);
 _(
     addInsnAndOffset(curFrameRegTemplate, curVarOff);
     new(curExpr);
@@ -2708,7 +2709,7 @@ _(
     curVarOff := curVarOff + 1;
     if (l2int21z < curVarOff) then
         l2int21z := curVarOff;
-_); (* P5117 *)
+_); (* mkTempVar *)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function insnCount: integer;
@@ -4064,7 +4065,7 @@ _( (* formOperator *)
     l3bool13z := true;
     if (errors and (l3arg1z <> SETREG)) or (curExpr = NIL) then
         exit;
-    if not (l3arg1z IN [gen3, gen6, gen9, gen14, gen16]) then
+    if not (l3arg1z IN [BINOP, STOREELT, LOADINT, gen14, PCKUNPCK]) then
         genFullExpr(curExpr);
     case l3arg1z of
     gen7: genOneOp;
@@ -4089,7 +4090,7 @@ _( (* formOperator *)
                     if (l3int3z <> 1) then _(
                         P4621(l3int2z);
                         addToInsnList(KITA + l3int2z);
-                        P5117(op37);
+                        mkTempVar(op37);
                     _) else if (l3int2z <> 14) then _(
                         P4621(l3int2z);
                         genOneOp;
@@ -4112,16 +4113,16 @@ _( (* formOperator *)
         _); (* with *)
         l3var5z@.expr2 := curExpr;
     _); (* SETREG *)
-    gen0: _(
+    LOOPLIMIT: _(
         prepLoad;
         if (insnCount > 1) then
-            P5117(op36)
+            mkTempVar(op36)
     _);
     STORE: _(
         prepStore;
         genOneOp
     _);
-    gen3: _(
+    BINOP: _(
         curInsnTemplate := curVal.i;
         formOperator(LOAD);
         curInsnTemplate := insnTemp[XTA];
@@ -4132,7 +4133,7 @@ _( (* formOperator *)
         P4621(9);
         genOneOp;
     _);
-    gen6: _(
+    STOREELT: _(
         l3int1z := curVal.i;
         genFullExpr(curExpr);
         prepLoad;
@@ -4145,11 +4146,11 @@ _( (* formOperator *)
         P4621(12);
         genOneOp
     _);
-    gen9: _(
+    LOADINT: _(
         curVal.m := curVal.m + intZero;
         form1Insn(KXTA+I8 + getFCSToffset);
     _);
-    gen10: _(
+    PUSHARG: _(
         prepLoad;
         addxToInsnList(macro + mcPUSH);
         genOneOp;
@@ -4222,7 +4223,7 @@ _( (* formOperator *)
                 _)
             _)
         _); (* gen15 *)
-    gen16: _(
+    PCKUNPCK: _(
         l3var5z := curExpr;
         curExpr := curExpr@.expr1;
         formOperator(gen11);
@@ -5273,8 +5274,8 @@ _(
         goto 8888;
     _);
     expression;
-    if (stProcNo >= 14) and
-       (16 >= stProcNo) and
+    if (stProcNo >= fnEOF) and
+       (fnEOLN >= stProcNo) and
        not (curExpr@.op IN [GETELT..FILEPTR]) then _(
         error(27); (* errExpressionWhereVariableExpected *)
         exit;
@@ -5301,26 +5302,30 @@ _(
         checkMode := 7;
     _);
     asBitset := [stProcNo];
-    if not ((checkMode = 0) and (asBitset <= [0:8, 15, 17, 18, 29]) or
-           ((checkMode = 1) and (asBitset <= [0:7, 9, 11, 15, 17, 21])) or
-           ((checkMode IN [2, 3, 4]) and (asBitset <= [10, 12, 13, 15])) or
-           ((checkMode = 5) and (asBitset <= [14, 15, 16])) or
-           ((checkMode = 6) and (asBitset <= [15, 19, 20])) or
-           ((checkMode = 7) and (stProcNo = 15))) then
+    if not ((checkMode = 0) and
+       (asBitset <= [fnSQRT:fnTRUNC, fnREF, fnSQRR, fnROUND]) or
+           ((checkMode = 1) and
+       (asBitset <= [fnSQRT:fnABSR, fnODD, fnCHR,
+                     fnSHIFT, fnREF, fnSQRR, fnPTR])) or
+           ((checkMode IN [2, 3, 4]) and
+       (asBitset <= [fnORD, fnSUCC, fnPRED, fnREF, fnSHIFT])) or
+           ((checkMode = 5) and (asBitset <= [fnEOF..fnEOLN])) or
+           ((checkMode = 6) and (asBitset <= [fnREF, fnCARD, fnMINEL])) or
+           ((checkMode = 7) and (stProcNo = fnREF))) then
         error(errNeedOtherTypesOfOperands);
-    if not (asBitset <= [7, 12, 13, 17]) then _(
+    if not (asBitset <= [fnABSR, fnSUCC, fnPRED, fnSQRR, fnSHIFT]) then _(
         arg1Type := routine@.typ;
-    _) else if (checkMode = 1) and (asBitset <= [7, 17]) then _(
-        if stProcNo = 7 then
-            stProcNo := 22
+    _) else if (checkMode = 1) and (asBitset <= [fnABSR, fnSQRR]) then _(
+        if stProcNo = fnABSR then
+            stProcNo := fnABSI
         else
-            stProcNo := 23;
+            stProcNo := fnSQRI;
     _);
     new(l4exp6z);
     l4exp6z@.op := STANDPROC;
     l4exp6z@.expr1 := curExpr;
     l4exp6z@.num2 := stProcNo;
-    if stProcNo = 24 then _(
+    if stProcNo = fnSHIFT then _(
         if SY <> COMMA then _(
             requiredSymErr(COMMA);
             goto 8888;
@@ -5805,7 +5810,7 @@ _(
     expression;
     if not typeCheck(l4typ1z, curExpr@.typ) then
         error(31); (* errIncompatibleTypesOfLoopIndexAndExpr *)
-    formOperator(gen0);
+    formOperator(LOOPLIMIT);
     l4var4z := curExpr;
     if (hasinit) then _(
         curExpr := init;
@@ -5832,7 +5837,7 @@ _(
     else
         curVal.i := insnTemp[RSUB];
     (*15401*)
-    formOperator(gen3);
+    formOperator(BINOP);
     form1Insn(insnTemp[UZA] + l4int8z);
 _); (* forStatement *)
 %
@@ -6175,7 +6180,7 @@ _(
                 fetch := false;
                 expression;
                 curVal.i := indCnt;
-                formOperator(gen6);
+                formOperator(STOREELT);
             _); (* 16270 *)
             goto indices;
         _);
@@ -6588,7 +6593,7 @@ _(
                 _) else _(
                     if (l4var4z = NIL) then _(
                         curVal := l4var15z;
-                        formOperator(gen9);
+                        formOperator(LOADINT);
                     _) else _(
                         curExpr := l4var4z;
                         formOperator(LOAD);
@@ -6600,7 +6605,7 @@ _(
                         form1Insn(KXTS+I8 + getFCSToffset);
                     _) else _(
                         curExpr := l4var5z;
-                        formOperator(gen10);
+                        formOperator(PUSHARG);
                     _)
                 _);
                 curExpr := l4exp7z;
@@ -6614,7 +6619,7 @@ _(
                        (helperNo = 81) then     (* P/WA *)
                         l4var18z := gen12
                     else
-                        l4var18z := gen10;
+                        l4var18z := PUSHARG;
                 _);
                 formOperator(l4var18z);
                 if (helperNo IN [39,40,44,45]) or (* A6,A7,6A,7A *)
@@ -6725,7 +6730,7 @@ _(
     curExpr@.val.c := chr(procNo + 50);
     curExpr@.expr1 := l4exp7z;
     curExpr@.expr2 := l4exp6z;
-    formOperator(gen16);
+    formOperator(PCKUNPCK);
 _); (* doPackUnpack *)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -6975,7 +6980,7 @@ _( (* standProc *)
                 l4exp9z := curExpr;
                 if (SY = COLON) then _(
                     expression;
-                    formOperator(gen10);
+                    formOperator(PUSHARG);
                 _) else _(
                     form2Insn(KVTM + I14 + l4exp9z@.typ@.size,
                               KITS + 14);
@@ -7395,7 +7400,7 @@ _); (* defineRoutine *)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	procedure initScalars;
 	var
-	    l3var1z, noProgram, l3var3z, l3var4z: word;
+	    l3var1z, noProgram, outName, inName: word;
 	    l3var5z, l3var6z: integer;
 	    l3var7z: irptr;
 	    l3var8z, l3var9z: integer;
@@ -7570,15 +7575,13 @@ _); (* defineRoutine *)
 	    regSysProc(5551564554C(*"   MINEL"*));
 	    temptype := pointerType;
 	    regSysProc(606462C(*"     PTR"*));
+	    regSysProc(6350514664C(*"   SHIFT"*));
 	    filePattern.i := 30;
 	    filePattern.m := filePattern.m * halfWord + [24,27,28,29];
 	    new(programObj, 12);
-	    curVal.i := 576564606564C(*"  OUTPUT"*);
-	    l3var3z := curVal;
-	    curVal.i := 5156606564C(*"   INPUT"*);
-	    l3var4z := curVal;
-	    curVal.i := 5657606257476241C(*"NOPROGRA"*);
-	    noProgram := curVal;
+	    outName.i := 576564606564C(*"  OUTPUT"*);
+	    inName.i := 5156606564C(*"   INPUT"*);
+	    noProgram.i := 5657606257476241C(*"NOPROGRA"*);
 	    test1(PROGRAMSY, (skipToSet + [IDENT,LPAREN]));
 	    symTabPos := 74004B;
 	    with programObj@ do _(
@@ -7622,7 +7625,7 @@ _); (* defineRoutine *)
 	    new(l3var7z, 12);
 	    lineStartOffset := moduleOffset;
 	    with l3var7z@ do _(
-		id := l3var3z;
+		id := outName;
 		offset := 0;
 		typ := textType;
 		cl := VARID;
@@ -7636,7 +7639,7 @@ _); (* defineRoutine *)
 		l3var8z := 0;
 		curVal := curIdent;
 		l3var1z.m := makeNameWithStars(false);
-		if (curIdent = l3var4z) then _(
+		if (curIdent = inName) then _(
 		    new(inputFile, 12);
 		    with inputFile@ do _(
 			id := curIdent;
@@ -7649,7 +7652,7 @@ _); (* defineRoutine *)
 		    inputFile@.value := allocExtSymbol(filePattern.m);
 		    addToHashTab(inputFile);
 		    l3var8z := lineCnt;
-		_) else if (curIdent = l3var3z) then _(
+		_) else if (curIdent = outName) then _(
 		    outputFile := l3var7z;
 		    l3var8z := lineCnt;
 		_); (* 21745 *)
@@ -7670,7 +7673,7 @@ _); (* defineRoutine *)
 		    offset := l3var1z.i;
 		_);
 		if l3var8z <> 0 then _(
-		    if (curIdent = l3var3z) then _(
+		    if (curIdent = outName) then _(
 			fileForOutput := curExternFile;
 		    _) else _(
 			fileForInput := curExternFile;
@@ -8039,8 +8042,6 @@ _( (* programme *)
                if (SY <> INTCONST) or (curToken.i < 0)
                or (curToken.i > 77777B) then
                   error(errNumberTooLarge);
-               if (curToken.i >= 74000B) then
-                  curToken.i := curToken.i - 32768;
                curIdRec@.value := curToken.i;
                curIdRec@.offset := 0;
                inSymbol;
@@ -8313,33 +8314,33 @@ var
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 procedure initInsnTemplates;
 var
-    l3var1z: insn;
-    l3var2z: operator;
+    i: insn;
+    op: operator;
 _(
-    for l3var1z := ATX to JADDM do
-        insnTemp[l3var1z] := ord(l3var1z) * 10000B;
+    for i := ATX to JADDM do
+        insnTemp[i] := ord(i) * 10000B;
     insnTemp[ELFUN] := 500000B;
     jdx := KUTC;
-    for l3var1z := UTC to VJM do _(
-        insnTemp[l3var1z] := jdx;
+    for i := UTC to VJM do _(
+        insnTemp[i] := jdx;
         jdx := (jdx + 100000B);
     _);
     for idx to 15 do
         indexreg[idx] := idx * frameRegTemplate;
     jumpType := insnTemp[UJ];
-    for l3var2z := MUL to ASSIGNOP do _(
-        opFlags[l3var2z] := opfCOMM;
-        opToInsn[l3var2z] := 0;
-        if (l3var2z IN [MUL, RDIVOP, PLUSOP, MINUSOP]) then _(
-            opToMode[l3var2z] := 3;
-        _) else if (l3var2z IN [IDIVOP, IMODOP]) then _(
-            opToMode[l3var2z] := 2;
-        _) else if (l3var2z IN [IMULOP, INTPLUS, INTMINUS, badop27]) then _(
-            opToMode[l3var2z] := 1;
-        _) else if (l3var2z IN [IDIVROP,badop30,badop31]) then _(
-            opToMode[l3var2z] := 4;
+    for op := MUL to ASSIGNOP do _(
+        opFlags[op] := opfCOMM;
+        opToInsn[op] := 0;
+        if (op IN [MUL, RDIVOP, PLUSOP, MINUSOP]) then _(
+            opToMode[op] := 3;
+        _) else if (op IN [IDIVOP, IMODOP]) then _(
+            opToMode[op] := 2;
+        _) else if (op IN [IMULOP, INTPLUS, INTMINUS, badop27]) then _(
+            opToMode[op] := 1;
+        _) else if (op IN [IDIVROP,badop30,badop31]) then _(
+            opToMode[op] := 4;
         _) else _(
-            opToMode[l3var2z] := 0;
+            opToMode[op] := 0;
         _)
     _);
     opToInsn[MUL] := insnTemp[AMULX];
@@ -8656,6 +8657,7 @@ _)
     funcInsn[fnPTR] := KAAX+MANTISSA;
     funcInsn[fnABSI] := KAMX;
     funcInsn[fnSQRI] := macro + mcSQRI;
+    funcInsn[fnSHIFT] := macro + mcSHIFT;
     iAddOpMap[PLUSOP] := INTPLUS, INTMINUS;
     setOpMap[PLUSOP] := SETOR, SETSUB;
     imulOpMap := IMULOP, IDIVROP;
