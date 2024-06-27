@@ -192,6 +192,7 @@ struct nlist {
 typedef std::vector<nlist> names_t;
 names_t names[32769];
 nlist dummy;
+std::map<uint32, uint32> shorts;
 
 bool hasname(uint32 addr) {
     for (auto & p : names[addr])
@@ -210,6 +211,7 @@ bool hasname(uint32 addr) {
 #define W_REAL          128
 #define W_NOEXEC        256
 #define W_SETBASE       512
+#define W_LITERAL       1024
 #define W_DONE		(1<<31)
 
 typedef struct actpoint_t {
@@ -263,11 +265,12 @@ addsym (const std::string & name, int type, uint32 val,
     }
     if (type & W_CODE)
         add_actpoint(val);
-    mflags[val] |= type & (W_UNSET|W_STARTBB|W_NOEXEC);
+    mflags[val] |= type & (W_UNSET|W_STARTBB|W_NOEXEC|W_LITERAL);
 //    if (type & W_STARTBB)
 //        mflags[val] |= type & W_DATA;
-    if ((type & W_CODE) && name == "-")
+    if ((type & W_CODE) && name == "-") {
         return;
+    }
     names[val].push_back(nlist(name, type, val));
     if (!mod.empty())
         names[val].back().n_mod = mod;
@@ -297,6 +300,17 @@ prsym (uint32 addr)
             printf ("%s", p.n_name.c_str());
             ++printed;
         }
+    }
+    return flags;
+}
+
+/*
+ * Collect all flags at the address.
+ */
+int flags(uint32 addr) {
+    int flags = 0;
+    for (auto p : names[addr]) {
+        flags |= p.n_type;
     }
     return flags;
 }
@@ -818,32 +832,11 @@ std::string proct(uint32 val) {
         return strprintf("'%o'", val);
 }
 
-void prshort(uint32 val, int cmdaddr) {
-    bool good_gost = val && is_good_gost(val & 0377) && is_good_gost((val >> 8) & 0377) && is_good_gost((val >> 16) & 0377);
-    bool good_addr = val && maybe_addr(val);
-    int reg = val >> 20;
-    bool data = !nonconst(cmdaddr);
-    if (data) {
-        if (good_gost) {
-            std::string s = gost_to_utf8((val >> 16) & 0377);
-            s += gost_to_utf8((val >> 8) & 0377);
-            s += gost_to_utf8(val & 0377);
-            printf("конк\tп'%s'", s.c_str());
-        } else if (!rflag && good_addr) {
-            printf("конк\tA(%s)\tвозм.", praddr(val, true, false, false).c_str());
-        } else {
-            printf("конк\tв'%08o'", val);
-        }
-    } else {
-        int rel = reloc(cmdaddr);
-        if (rel == 1) {
-            printf("кк\t%s,%s", proct((val >> 12) & 077).c_str(),
-                   properand(cmdaddr, reg, (val & 07777) + (val & 01000000 ? 070000 : 0), true).c_str());
-        } else if (rel == 2 && good_addr)
-            printf("конк\tA(%s)", praddr(val, true, false, false).c_str());
-        else
-            printf("дк\t%s,%s", proct((val >> 15) & 037).c_str(), properand(cmdaddr, reg, val & 077777, true).c_str());
-    }
+bool is_short_gost(uint32 flags, uint32 val) {
+    return (flags & W_GOST) ||
+	(val && is_good_gost(val & 0377) &&
+	 is_good_gost((val >> 8) & 0377) &&
+	 is_good_gost((val >> 16) & 0377));
 }
 
 bool printable(uint32 byte) {
@@ -859,6 +852,121 @@ bool printable(uint32 byte) {
     default:
         return byte < 0140;
     }
+}
+
+std::string gostlit(unsigned char bytes[6], bool forced, int good_gost = 0) {
+    bool bad_seen = false;
+    bool print_all_bytes = false;
+    std::string ret;
+    if (forced || good_gost >= 4) {
+	std::string s;
+	for (int i = 0; i < 6; ++i) {
+	    if (printable(bytes[i]))
+		s += gost_to_utf8 (bytes[i]);
+	    else { bad_seen = true; s += '0'; }
+	}
+	if (s == "000000") {
+	    ret = bad_seen ? "" : "в'0'";
+	} else if (s.length() >= 6 && s.substr(s.length()-5, 5) == "00000") {
+	    ((ret = "м40п'") += s.substr(0, s.length()-5)) += "'";
+	} else {
+	    ret = strprintf("п'%s'", s.c_str()+s.find_first_not_of('0'));
+	}
+    } else
+	print_all_bytes = true;
+    if (bad_seen || print_all_bytes) {
+	for (int i = 0; i < 6; ++i) {
+	    if (print_all_bytes || !printable(bytes[i])) {
+		if (bytes[i] != 0) {
+		    if (i != 5) ret += strprintf("м%d", 40-i*8);
+		    ret += strprintf("в'%03o'", bytes[i]);
+		}
+	    }
+	}
+    }
+    return ret;
+}
+
+void prshort(uint32 val, int cmdaddr, uint32 flags = 0) {
+    bool good_addr = val && maybe_addr(val);
+    int reg = val >> 20;
+    bool data = !nonconst(cmdaddr);
+    if (data) {
+	if (shorts.count(cmdaddr/2-1) && is_short_gost(flags, val ^ shorts[cmdaddr/2-1])) {
+	    unsigned char bytes1[6], bytes2[6];
+	    val ^= shorts[cmdaddr/2-1];
+	    split_bytes(uint64(val), bytes1);
+	    split_bytes(uint64(shorts[cmdaddr/2-1]), bytes2);
+            printf("конк\t%s%s",
+		   gostlit(bytes1, true).c_str(),
+		   gostlit(bytes2, true).c_str());
+	    shorts[cmdaddr/2] = val;
+	} else if (is_short_gost(flags, val)) {
+	    unsigned char bytes[6];
+	    split_bytes(uint64(val), bytes);
+            printf("конк\t%s", gostlit(bytes, true).c_str());
+	    shorts[cmdaddr/2] = val;
+        } else if (!rflag && good_addr) {
+            printf("конк\tA(%s)\tвозм.", praddr(val, true, false, false).c_str());
+        } else {
+            printf("конк\tв'%08o'", val);
+        }
+
+    } else {
+        int rel = reloc(cmdaddr);
+        if (rel == 1) {
+            printf("кк\t%s,%s", proct((val >> 12) & 077).c_str(),
+                   properand(cmdaddr, reg, (val & 07777) + (val & 01000000 ? 070000 : 0), true).c_str());
+        } else if (rel == 2 && good_addr)
+            printf("конк\tA(%s)", praddr(val, true, false, false).c_str());
+        else
+            printf("дк\t%s,%s", proct((val >> 15) & 037).c_str(), properand(cmdaddr, reg, val & 077777, true).c_str());
+    }
+}
+
+std::string literal(uint32 addr, int flags = 0) {
+    flags |= mflags[addr];
+    uint64 val = memory[addr];
+    if (flags & W_REAL) {
+	bool denorm = !(((val >> 39) ^ (val >> 40)) & 1);
+	double d = ldexp((long long)val << 23, (val >> 41) - 64 - 63);
+	return strprintf ("е'%.12g' %s", d, denorm ? "denorm" : "");
+    }
+    std::string ret;
+    unsigned char bytes[6];
+    split_bytes(addr, bytes);
+    int good_gost = count_good(bytes, is_good_gost);
+    int i;
+    if (good_gost == 6 || (flags & W_GOST)) {
+	return gostlit(bytes, flags & W_GOST, good_gost);
+    }
+    ret = val == 0xffffffffffffLL ? "в'-1'" :
+	val < 256 ? strprintf ("в'%03llo'", val) :
+	(val & 0xffffffffffLL) == 0 ? strprintf("м40в'%03llo'", val >> 40) :
+	strprintf ("в'%016llo'", val);
+    int good_iso = count_good(bytes, is_good_iso);
+    int good_iso_with_parity = count_good(bytes, is_good_iso_with_even_parity);
+    if (good_iso == 6) {
+	std::string s;
+	for (i = 0; i < 6; ++i) {
+	    s += unicode_to_utf8 (koi7_to_unicode[bytes[i]]);
+	}
+	((ret += " ISO '") += s) += "'";
+    } else if (good_iso_with_parity == 6) {
+	std::string s;
+	int fake = 0;
+	for (i = 0; i < 6; ++i) {
+	    int c = bytes[i] & 0x7F;
+	    fake += (c == 0) || (c == 0x7F);
+	    if (c < 0x20)
+		(s += '^') += char(c + 0x40);
+	    else
+		s += unicode_to_utf8 (koi7_to_unicode[c]);
+	}
+	if (fake <= 3 && !srcflag)
+	    ((ret += " PARITY ISO '") += s) += "'";
+    }
+    return ret;
 }
 
 void prconst (uint32 addr, uint32 limit)
@@ -879,71 +987,16 @@ void prconst (uint32 addr, uint32 limit)
         bool rel_r = nonconst(addr*2+1);
 
         if (!rel_l && !rel_r && flags & W_REAL) {
-            uint64 val = memory[addr];
-            bool denorm = !(((val >> 39) ^ (val >> 40)) & 1);
-            double d = ldexp((long long)val << 23, (val >> 41) - 64 - 63);
-            printf ("\tконд\tе'%.12g' %s\n", d, denorm ? "denorm" : "");
+            printf ("\tконд\t%s\n", literal(addr, W_REAL).c_str());
         } else if (!rel_l && !rel_r && (flags & W_GOST || good_gost == 6)) {
-            int i;
-            bool bad_seen = false;
-            bool print_all_bytes = false;
-            printf ("\tконд\t");
-            if (good_gost >= 4 || (flags & W_GOST)) {
-                std::string s;
-                for (i = 0; i < 6; ++i) {
-                    if (printable(bytes[i]))
-                        s += gost_to_utf8 (bytes[i]);
-                    else { bad_seen = true; s += '0'; }
-                }
-                if (good_gost == 6 || s != "000000")
-                    if (s == "000000")
-                        printf("в'0'");
-                    else
-                        printf("п'%s'", s.c_str()+s.find_first_not_of('0'));
-            } else
-                print_all_bytes = true;
-            if (bad_seen || print_all_bytes) {
-                for (i = 0; i < 6; ++i) {
-                    if (print_all_bytes || !printable(bytes[i])) {
-                        if (bytes[i] != 0) {
-                            if (i != 5) printf("м%d", 40-i*8);
-                            printf("в'%03o'", bytes[i]);
-                        }
-                    }
-                }
-            }
-            printf("\n");
+            printf ("\tконд\t%s\n", literal(addr, W_GOST).c_str());
         } else {
             uint32 left = memory[addr] >> 24;
             uint32 right = memory[addr] & 0xFFFFFF;
             bool left_addr = left && (rel_l ||  maybe_addr(left));
             bool right_addr = right && (rel_r || maybe_addr(right));
             if (!rel_l && !rel_r && (rflag || (!left_addr && !right_addr))) {
-                int good_iso, good_iso_with_parity;
-                printf ("\tконд\tв'%016llo'", memory[addr]);
-                good_iso = count_good(bytes, is_good_iso);
-                good_iso_with_parity = count_good(bytes, is_good_iso_with_even_parity);
-                if (good_iso == 6) {
-                    std::string s;
-                    for (i = 0; i < 6; ++i) {
-                        s += unicode_to_utf8 (koi7_to_unicode[bytes[i]]);
-                    }
-                    printf(" ISO '%s'", s.c_str());
-                } else if (good_iso_with_parity == 6) {
-                    std::string s;
-                    int fake = 0;
-                    for (i = 0; i < 6; ++i) {
-                        int c = bytes[i] & 0x7F;
-                        fake += (c == 0) || (c == 0x7F);
-                        if (c < 0x20)
-                            (s += '^') += char(c + 0x40);
-                        else
-                            s += unicode_to_utf8 (koi7_to_unicode[c]);
-                    }
-                    if (fake <= 3 && !srcflag)
-                        printf(" PARITY ISO '%s'", s.c_str());
-                }
-                putchar('\n');
+                printf ("\tконд\t%s\n", literal(addr).c_str());
             } else if (rel_l || rel_r) {
                 putchar('\t'); prshort(left, addr*2); putchar('\n');
                 printf(srcflag ? "" : "\t\t\t");
@@ -1259,6 +1312,10 @@ void analyze (uint32 entry, uint32 addr, uint32 limit)
 void prbss (uint32 addr, uint32 limit)
 {
     int bss = 1;
+    if (mflags[addr] & W_LITERAL) {
+	// Possible in case of =B'0'
+	return;
+    }
     while (addr + bss < limit && memory[addr+bss] == 0 && mflags[addr+bss] == 0 &&
            findsym(addr+bss)->n_value != addr+bss) {
         mflags[addr+bss] |= W_DONE;
@@ -1323,7 +1380,7 @@ prsection (uint32 addr, uint32 limit)
                 prcode (addr, opcode >> 24);
                 putchar ('\t');
             }
-            prsym (addr);
+            uint32 flags = prsym (addr);
             putchar ('\t');
             fputs(prinsn (addr, opcode >> 24, 0).c_str(), stdout);
             printf ("\n");
@@ -1346,7 +1403,7 @@ prsection (uint32 addr, uint32 limit)
                 }
                 putchar ('\t');
                 if (mflags[addr] & W_NORIGHT)
-                    prshort (opcode, addr*2+1);
+                    prshort (opcode, addr*2+1, flags);
                 else
                     fputs(prinsn (addr, opcode, 1).c_str(), stdout);
                 putchar ('\n');
@@ -1357,7 +1414,7 @@ prsection (uint32 addr, uint32 limit)
             opcode = memory[addr];
             print_short_const(addr, opcode >> 24, true);
             print_short_const(addr, opcode & 0xFFFFFF, false);
-        } else {
+        } else if (!(mflags[addr] & W_LITERAL)) {
             prconst (addr, limit);
         }
     }
@@ -1368,8 +1425,9 @@ int gettype(const std::string & str) {
     case 'D': case 'd': return W_DATA;
     case 'C': case 'c': return W_CODE;
     case 'G': case 'g': return W_DATA|W_GOST;
+    case 'L': case 'l': return W_DATA|W_LITERAL;
     case 'B': case 'b': return W_CODE|W_STARTBB;
-    case 'R': case 'r': return W_REAL;
+    case 'R': case 'r': return W_DATA|W_REAL;
     }
     return -1;
 }
@@ -1446,10 +1504,10 @@ void make_syms(uint32 addr, uint32 limit)
         } else if (mflags[addr] & W_DATA) {
             sym = findsym(addr);
             if (sym->n_value != addr) {
-                char buf[8];
-                sprintf(buf, "D%05o", addr);
-                addsym(buf, W_DATA, addr);
-            }
+                addsym(mflags[addr] & W_LITERAL ? "=" + literal(addr, flags(addr)) : strprintf("D%05o", addr), W_DATA, addr);
+            } else if (mflags[addr] & W_LITERAL) {
+		std::cerr << "Address " << strprintf("%05o", addr) << " is literal, remove its name\n";
+	    }
         }
     }
 }
