@@ -31,7 +31,8 @@ OPCODE_IRET,		/* ВЫПР */
 OPCODE_ADDRMOD,		/* МОДА, МОД */
 OPCODE_REG2,		/* УИА, СЛИА */
 OPCODE_IMMEX,		/* Э50, ... */
-OPCODE_ADDREX,		/* Э64, Э70, ... */
+OPCODE_ADDREX,		/* Э60, Э70, ... */
+OPCODE_RANGE,		/* Э64, Э71 */
 OPCODE_STOP,		/* Э74 */
 OPCODE_DEFAULT
 } opcode_e;
@@ -103,12 +104,12 @@ struct opcode {
   { "Э61",	0x031000, 0x0bf000, OPCODE_ADDREX,	BASIC },
   { "Э62",	0x032000, 0x0bf000, OPCODE_IMMEX,	BASIC },
   { "Э63",	0x033000, 0x0bf000, OPCODE_ADDREX,	BASIC },
-  { "Э64",	0x034000, 0x0bf000, OPCODE_ADDREX,	BASIC },
+  { "Э64",	0x034000, 0x0bf000, OPCODE_RANGE,	BASIC },
   { "Э65",	0x035000, 0x0bf000, OPCODE_ADDREX,	BASIC },
   { "Э66",	0x036000, 0x0bf000, OPCODE_IMMEX,	BASIC },
   { "Э67",	0x037000, 0x0bf000, OPCODE_ADDREX,	BASIC },
   { "Э70",	0x038000, 0x0bf000, OPCODE_ADDREX,	BASIC },
-  { "Э71",	0x039000, 0x0bf000, OPCODE_ADDREX,	BASIC },
+  { "Э71",	0x039000, 0x0bf000, OPCODE_RANGE,	BASIC },
   { "Э72",	0x03a000, 0x0bf000, OPCODE_ADDREX,	BASIC },
   { "Э73",	0x03b000, 0x0bf000, OPCODE_ADDREX,	BASIC },
   { "Э74",	0x03c000, 0x0bf000, OPCODE_STOP,	BASIC },
@@ -212,6 +213,7 @@ bool hasname(uint32 addr) {
 #define W_NOEXEC        256
 #define W_SETBASE       512
 #define W_LITERAL       1024
+#define W_HEX           2048
 #define W_DONE		(1<<31)
 
 typedef struct actpoint_t {
@@ -582,6 +584,7 @@ prcode (uint32 memaddr, uint32 opcode)
     switch (getop(opcode).type) {
     case OPCODE_STR1:
     case OPCODE_ADDREX:
+    case OPCODE_RANGE:
     case OPCODE_IMM:
     case OPCODE_IMMEX:
     case OPCODE_IMM64:
@@ -714,6 +717,7 @@ prinsn (uint32 memaddr, uint32 opcode, int right)
         }
         break;
     case OPCODE_ADDREX:
+    case OPCODE_RANGE:
     case OPCODE_STR1:
         ret += properand (memaddr*2+right, reg, arg1, 0, base_reg);
         break;
@@ -890,7 +894,7 @@ std::string gostlit(unsigned char bytes[6], bool forced, int good_gost = 0) {
 void prshort(uint32 val, int cmdaddr, uint32 flags = 0) {
     bool good_addr = val && maybe_addr(val);
     int reg = val >> 20;
-    bool data = !nonconst(cmdaddr);
+    bool data = !nonconst(cmdaddr) && !(flags & W_ADDR);
     if (data) {
 	if (shorts.count(cmdaddr/2-1) && is_short_gost(flags, val ^ shorts[cmdaddr/2-1])) {
 	    unsigned char bytes1[6], bytes2[6];
@@ -914,7 +918,7 @@ void prshort(uint32 val, int cmdaddr, uint32 flags = 0) {
 
     } else {
         int rel = reloc(cmdaddr);
-        if (rel == 1) {
+        if (rel == 1 || flags & W_ADDR) {
             printf("кк\t%s,%s", proct((val >> 12) & 077).c_str(),
                    properand(cmdaddr, reg, (val & 07777) + (val & 01000000 ? 070000 : 0), true).c_str());
         } else if (rel == 2 && good_addr)
@@ -932,6 +936,9 @@ std::string literal(uint32 addr, int flags = 0) {
 	double d = ldexp((long long)val << 23, (val >> 41) - 64 - 63);
 	return strprintf ("е'%.12g' %s", d, denorm ? "denorm" : "");
     }
+    if (flags & W_HEX) {
+        return strprintf("х'%lX'", val);
+    }
     std::string ret;
     unsigned char bytes[6];
     split_bytes(addr, bytes);
@@ -943,6 +950,8 @@ std::string literal(uint32 addr, int flags = 0) {
     ret = val == 0xffffffffffffLL ? "в'-1'" :
 	val < 256 ? strprintf ("в'%03llo'", val) :
 	(val & 0xffffffffffLL) == 0 ? strprintf("м40в'%03llo'", val >> 40) :
+	(val & 0140000000) == 0100000000 ? strprintf("м24в'%03llo'", val >> 24) :
+	(val >> 24) == 0 ? strprintf("в'%08llo'", val) :
 	strprintf ("в'%016llo'", val);
     int good_iso = count_good(bytes, is_good_iso);
     int good_iso_with_parity = count_good(bytes, is_good_iso_with_even_parity);
@@ -980,27 +989,31 @@ void prconst (uint32 addr, uint32 limit)
             printf ("%5o %016llo", addr, memory[addr]);
             putchar ('\t');
         }
+        // Erase "weak" flags which must not spill onto next words
+        flags &= ~W_HEX;
         flags |= prsym (addr);
         split_bytes(addr, bytes);
         good_gost = count_good(bytes, is_good_gost);
         bool rel_l = nonconst(addr*2);
         bool rel_r = nonconst(addr*2+1);
-
-        if (!rel_l && !rel_r && flags & W_REAL) {
-            printf ("\tконд\t%s\n", literal(addr, W_REAL).c_str());
-        } else if (!rel_l && !rel_r && (flags & W_GOST || good_gost == 6)) {
+        uint32 ex_addr = mflags[addr] & W_ADDR;
+        uint32 forced = flags & (W_HEX|W_REAL);
+        if (!rel_l && !rel_r && forced) {
+            printf ("\tконд\t%s\n", literal(addr, forced).c_str());
+        } else if (!ex_addr && !rel_l && !rel_r &&
+                   (flags & W_GOST || good_gost == 6)) {
             printf ("\tконд\t%s\n", literal(addr, W_GOST).c_str());
         } else {
             uint32 left = memory[addr] >> 24;
             uint32 right = memory[addr] & 0xFFFFFF;
-            bool left_addr = left && (rel_l ||  maybe_addr(left));
-            bool right_addr = right && (rel_r || maybe_addr(right));
+            bool left_addr = left && (ex_addr || rel_l ||  maybe_addr(left));
+            bool right_addr = right && (ex_addr || rel_r || maybe_addr(right));
             if (!rel_l && !rel_r && (rflag || (!left_addr && !right_addr))) {
                 printf ("\tконд\t%s\n", literal(addr).c_str());
-            } else if (rel_l || rel_r) {
-                putchar('\t'); prshort(left, addr*2); putchar('\n');
+            } else if (ex_addr || rel_l || rel_r) {
+                putchar('\t'); prshort(left, addr*2, ex_addr); putchar('\n');
                 printf(srcflag ? "" : "\t\t\t");
-                putchar('\t'); prshort(right, addr*2+1); putchar('\n');
+                putchar('\t'); prshort(right, addr*2+1, ex_addr); putchar('\n');
             } else if (left == 0 && right_addr) {
                 printf("\tконд\tA(%s)\tвозм.\n", findsym(right)->n_name.c_str());
             } else {
@@ -1240,6 +1253,14 @@ int analyze_insn (actpoint_t * cur, int right, int addr, int limit) {
             mflags[aex] |= W_DATA;
         }
         break;
+    case OPCODE_RANGE:
+        if (cur->regvals[reg] != -1 && arg1 != -1) {
+            int aex = ADDR(arg1 + cur->regvals[reg]);
+            mflags[aex] |= W_DATA;
+            if (opc.opcode != 0710000 || memory[aex] != ((1LL<<48)-1))
+                mflags[aex] |= W_ADDR;
+        }
+        goto immex;
     case OPCODE_ADDREX:
         if (cur->regvals[reg] != -1 && arg1 != -1) {
             int aex = ADDR(arg1 + cur->regvals[reg]);
@@ -1248,7 +1269,7 @@ int analyze_insn (actpoint_t * cur, int right, int addr, int limit) {
             mflags[aex] |= W_DATA;
         }
         // fall through
-    case OPCODE_IMMEX:
+    case OPCODE_IMMEX: immex:
         cur->regvals[016] = -1;
         if (!right)
             mflags[cur->addr] |= W_NORIGHT;
@@ -1425,9 +1446,12 @@ int gettype(const std::string & str) {
     case 'D': case 'd': return W_DATA;
     case 'C': case 'c': return W_CODE;
     case 'G': case 'g': return W_DATA|W_GOST;
+    case 'H': case 'h': return W_DATA|W_HEX;
     case 'L': case 'l': return W_DATA|W_LITERAL;
     case 'B': case 'b': return W_CODE|W_STARTBB;
     case 'R': case 'r': return W_DATA|W_REAL;
+    case 'U': case 'u': return W_UNSET;
+    case 'A': case 'a': return W_CODE|W_NOEXEC;
     }
     return -1;
 }
@@ -1498,7 +1522,7 @@ void make_syms(uint32 addr, uint32 limit)
             sym = findsym(addr);
             if (sym->n_value != addr) {
                 char buf[8];
-                sprintf(buf, "G%05o", addr); // Instead of A to avoid lat/cyr confusion
+                sprintf(buf, "G%05o", addr & 077777); // Instead of A to avoid lat/cyr confusion
                 addsym(buf, W_CODE, addr);
             }
         } else if (mflags[addr] & W_DATA) {
@@ -1539,6 +1563,10 @@ disbin (char *fname)
     if (trim) {
         while (memory[loadaddr+codelen-1] == 0)
             --codelen;
+    }
+    if (loadaddr == 0) {
+        ++loadaddr;
+        --codelen;
     }
     prstart();
     analyze (entryaddr, loadaddr, loadaddr + codelen);
