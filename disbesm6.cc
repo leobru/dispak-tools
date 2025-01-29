@@ -950,7 +950,7 @@ std::string literal(uint32 addr, int flags = 0) {
     ret = val == 0xffffffffffffLL ? "в'-1'" :
 	val < 256 ? strprintf ("в'%03llo'", val) :
 	(val & 0xffffffffffLL) == 0 ? strprintf("м40в'%03llo'", val >> 40) :
-	(val & 0140000000) == 0100000000 ? strprintf("м24в'%03llo'", val >> 24) :
+	(val & 0177777777) == 0100000000 ? strprintf("м24в'%03llo'", val >> 24) :
 	(val >> 24) == 0 ? strprintf("в'%08llo'", val) :
 	strprintf ("в'%016llo'", val);
     int good_iso = count_good(bytes, is_good_iso);
