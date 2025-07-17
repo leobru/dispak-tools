@@ -214,6 +214,8 @@ bool hasname(uint32 addr) {
 #define W_SETBASE       512
 #define W_LITERAL       1024
 #define W_HEX           2048
+#define W_ISO           4096
+#define W_TEXT          8192
 #define W_DONE		(1<<31)
 
 typedef struct actpoint_t {
@@ -858,6 +860,10 @@ bool printable(uint32 byte) {
     }
 }
 
+bool printable_iso(uint32 byte) {
+    return byte != '@' && ' ' <= byte && byte <= '\176';
+}
+
 std::string gostlit(unsigned char bytes[6], bool forced, int good_gost = 0) {
     bool bad_seen = false;
     bool print_all_bytes = false;
@@ -887,6 +893,62 @@ std::string gostlit(unsigned char bytes[6], bool forced, int good_gost = 0) {
 		}
 	    }
 	}
+    }
+    return ret;
+}
+
+
+std::string isolit(unsigned char bytes[6], bool forced) {
+    bool bad_seen = false;
+    bool print_all_bytes = false;
+    std::string ret;
+    if (forced) {
+	std::string s;
+	for (int i = 0; i < 6; ++i) {
+	    if (printable_iso(bytes[i]))
+		s += unicode_to_utf8 (koi7_to_unicode[bytes[i]]);
+	    else { bad_seen = true; s += '@'; }
+	}
+	if (s == "@@@@@@") {
+	    ret = "";
+	} else if (s.length() >= 6 && s.substr(s.length()-5, 5) == "@@@@@") {
+	    ((ret = "м40д'") += s.substr(0, s.length()-5)) += "'";
+	} else {
+	    ret = strprintf("д'%s'", s.c_str()+s.find_first_not_of('@'));
+	}
+    } else
+	print_all_bytes = true;
+    if (bad_seen || print_all_bytes) {
+	for (int i = 0; i < 6; ++i) {
+	    if (print_all_bytes || !printable_iso(bytes[i])) {
+		if (bytes[i] != 0) {
+		    if (i != 5) ret += strprintf("м%d", 40-i*8);
+		    ret += strprintf("в'%03o'", bytes[i] ^ '@');
+		}
+	    }
+	}
+    }
+    return ret;
+}
+
+std::string get_text_char (unsigned char ch) {
+    static const char * text_to_utf[] = {
+        " ", ".", "Б", "Ц", "Д", "Ф", "Г", "И",
+        "(", ")", "*", "Й", "Л", "Я", "Ж", "/",
+        "0", "1", "2", "3", "4", "5", "6", "7",
+        "8", "9", "Ь", ",", "П", "-", "+", "Ы",
+        "З", "A", "B", "C", "D", "E", "F", "G",
+        "H", "I", "J", "K", "L", "M", "N", "O",
+        "P", "Q", "R", "S", "T", "U", "V", "W",
+        "X", "Y", "Z", "Ш", "Э", "Щ", "Ч", "Ю"
+    };
+    return text_to_utf[ch & 63];
+}
+
+std::string get_text_word(uint64 word) {
+    std::string ret;
+    for (uint i = 42; i <= 42; i-=6) {
+        ret += get_text_char(word >> i);
     }
     return ret;
 }
@@ -943,9 +1005,13 @@ std::string literal(uint32 addr, int flags = 0) {
     unsigned char bytes[6];
     split_bytes(addr, bytes);
     int good_gost = count_good(bytes, is_good_gost);
+    int good_iso = count_good(bytes, is_good_iso);
     int i;
-    if (good_gost == 6 || (flags & W_GOST)) {
+    if (!(flags & W_ISO) && (good_gost == 6 || (flags & W_GOST))) {
 	return gostlit(bytes, flags & W_GOST, good_gost);
+    }
+    if (good_iso == 6 || (flags & W_ISO)) {
+        return isolit(bytes, flags & W_ISO);
     }
     ret = val == 0xffffffffffffLL ? "в'-1'" :
 	val < 256 ? strprintf ("в'%03llo'", val) :
@@ -953,7 +1019,8 @@ std::string literal(uint32 addr, int flags = 0) {
 	(val & 0177777777) == 0100000000 ? strprintf("м24в'%03llo'", val >> 24) :
 	(val >> 24) == 0 ? strprintf("в'%08llo'", val) :
 	strprintf ("в'%016llo'", val);
-    int good_iso = count_good(bytes, is_good_iso);
+    if (flags & W_TEXT)
+      ret += "TEXT " + get_text_word(val);
     int good_iso_with_parity = count_good(bytes, is_good_iso_with_even_parity);
     if (good_iso == 6) {
 	std::string s;
@@ -984,7 +1051,7 @@ void prconst (uint32 addr, uint32 limit)
     do {
         unsigned char bytes[6];
         int i;
-        int good_gost;
+        int good_gost, good_iso;
         if (srcflag == 0) {
             printf ("%5o %016llo", addr, memory[addr]);
             putchar ('\t');
@@ -994,15 +1061,19 @@ void prconst (uint32 addr, uint32 limit)
         flags |= prsym (addr);
         split_bytes(addr, bytes);
         good_gost = count_good(bytes, is_good_gost);
+        good_iso = count_good(bytes, is_good_iso);
         bool rel_l = nonconst(addr*2);
         bool rel_r = nonconst(addr*2+1);
         uint32 ex_addr = mflags[addr] & W_ADDR;
-        uint32 forced = flags & (W_HEX|W_REAL);
+        uint32 forced = flags & (W_HEX|W_REAL|W_ISO|W_TEXT);
         if (!rel_l && !rel_r && forced) {
             printf ("\tконд\t%s\n", literal(addr, forced).c_str());
         } else if (!ex_addr && !rel_l && !rel_r &&
-                   (flags & W_GOST || good_gost == 6)) {
+                   ((flags & W_GOST && !(flags & W_ISO) || good_gost == 6))) {
             printf ("\tконд\t%s\n", literal(addr, W_GOST).c_str());
+        } else if (!ex_addr && !rel_l && !rel_r &&
+                   (flags & W_ISO || good_iso == 6)) {
+            printf ("\tконд\t%s\n", literal(addr, W_ISO).c_str());
         } else {
             uint32 left = memory[addr] >> 24;
             uint32 right = memory[addr] & 0xFFFFFF;
@@ -1446,10 +1517,12 @@ int gettype(const std::string & str) {
     case 'D': case 'd': return W_DATA;
     case 'C': case 'c': return W_CODE;
     case 'G': case 'g': return W_DATA|W_GOST;
+    case 'I': case 'i': return W_DATA|W_ISO;
     case 'H': case 'h': return W_DATA|W_HEX;
     case 'L': case 'l': return W_DATA|W_LITERAL;
     case 'B': case 'b': return W_CODE|W_STARTBB;
     case 'R': case 'r': return W_DATA|W_REAL;
+    case 'T': case 't': return W_DATA|W_TEXT;
     case 'U': case 'u': return W_UNSET;
     case 'A': case 'a': return W_CODE|W_NOEXEC;
     }
