@@ -469,9 +469,12 @@ std::string prequs ()
             // Offset definition
             continue;
         }
-        if (!p.n_mod.empty())
-            externs[p.n_mod].push_back(p.n_name);
-        else if (p.n_value > 0162) {
+        if (!p.n_mod.empty()) {
+            if (rflag)
+                externs[p.n_mod].push_back(p.n_name);
+            else
+                printf("%s\tВНЕШД\t%s\n", p.n_name.c_str(), p.n_mod.c_str());
+        } else if (p.n_value > 0162) {
             printf(srcflag ? "" : "\t\t\t");
             printf ("%s\tэкв\t'%o'\n",  p.n_name.c_str(), p.n_value);
         }
@@ -569,8 +572,15 @@ praddr (uint32 address, bool known_reloc,
 const opcode & getop(uint32 code) {
     int i;
     for (i=0; op[i].mask; i++)
-        if ((code & op[i].mask) == op[i].opcode)
+        if ((code & op[i].mask) == op[i].opcode) {
+            static opcode fake;
+            if (code == 00'062'0000) {
+                fake = op[i];
+                fake.type = OPCODE_STOP;
+                return fake;
+            }
             return op[i];
+        }
     return op[i];
 }
 
@@ -676,6 +686,15 @@ properand (uint32 instaddr, uint32 reg, uint32 offset, int explicit0, uint32 bas
     return ret;
 }
 
+std::string check_madlen(const opcode & op, int right) {
+    std::string ret = op.name;
+    if (!right && op.type == OPCODE_CALL)
+        ret = "пвл";
+    else if (!right && ret.starts_with("Э"))
+        ret = "кк\t'" + ret.substr(2,2) + "',";
+    return ret;
+}
+
 std::string
 prinsn (uint32 memaddr, uint32 opcode, int right)
 {
@@ -690,10 +709,8 @@ prinsn (uint32 memaddr, uint32 opcode, int right)
     uint32 base_reg = utc_base ? utc_base : (reg && b.count(reg)) ? reg : 0;
     utc_base = base_reg && (opcode & 0xfffff) == 0x90000 ? base_reg : 0;
     uint32 instaddr = memaddr*2 + right;
-    ret = op.name;
-    if (!right && type == OPCODE_CALL)
-        ret += "л";
-    if (!strchr(op.name, '\t'))
+    ret = check_madlen(op, right);
+    if (!strchr(ret.c_str(), '\t'))
         ret += AFTER_INSTRUCTION;
     if (freevars.count(instaddr)) {
         auto & fv = freevars[instaddr];
@@ -721,7 +738,7 @@ prinsn (uint32 memaddr, uint32 opcode, int right)
     case OPCODE_ADDREX:
     case OPCODE_RANGE:
     case OPCODE_STR1:
-        ret += properand (memaddr*2+right, reg, arg1, 0, base_reg);
+        ret += properand (memaddr*2+right, reg, arg1, ret.ends_with(','), base_reg);
         break;
     case OPCODE_REG2:
     case OPCODE_STR2:
@@ -741,7 +758,7 @@ prinsn (uint32 memaddr, uint32 opcode, int right)
     case OPCODE_IMM:
     case OPCODE_STOP: {
         bool need0 = false;
-        if (strchr(op.name, '\t'))
+        if (strchr(ret.c_str(), '\t'))
             need0 = true;
         if (arg1 || need0) ret += strprintf ("'%o'", arg1);
         if (reg) {
@@ -861,7 +878,7 @@ bool printable(uint32 byte) {
 }
 
 bool printable_iso(uint32 byte) {
-    return byte != '@' && ' ' <= byte && byte <= '\176';
+    return byte != '@' && byte != *"'" && ' ' <= byte && byte <= '\176';
 }
 
 std::string gostlit(unsigned char bytes[6], bool forced, int good_gost = 0) {
@@ -902,32 +919,40 @@ std::string isolit(unsigned char bytes[6], bool forced) {
     bool bad_seen = false;
     bool print_all_bytes = false;
     std::string ret;
-    if (forced) {
-	std::string s;
-	for (int i = 0; i < 6; ++i) {
-	    if (printable_iso(bytes[i]))
-		s += unicode_to_utf8 (koi7_to_unicode[bytes[i]]);
-	    else { bad_seen = true; s += '@'; }
-	}
-	if (s == "@@@@@@") {
-	    ret = "";
-	} else if (s.length() >= 6 && s.substr(s.length()-5, 5) == "@@@@@") {
-	    ((ret = "м40д'") += s.substr(0, s.length()-5)) += "'";
-	} else {
-	    ret = strprintf("д'%s'", s.c_str()+s.find_first_not_of('@'));
-	}
-    } else
-	print_all_bytes = true;
-    if (bad_seen || print_all_bytes) {
-	for (int i = 0; i < 6; ++i) {
-	    if (print_all_bytes || !printable_iso(bytes[i])) {
-		if (bytes[i] != 0) {
-		    if (i != 5) ret += strprintf("м%d", 40-i*8);
-		    ret += strprintf("в'%03o'", bytes[i] ^ '@');
-		}
-	    }
-	}
+    int i, first_printable = -1, last_printable = -1;
+    for (i = 0; i < 6; ++i) {
+        if (printable_iso(bytes[i])) {
+            if (first_printable < 0)
+                first_printable = i;
+            last_printable = i;
+        }
     }
+    // For ease of reading, if ISO format was requested, but there are
+    // no printable characters, use hex format.
+    if (last_printable == -1) {
+        ret = "X'";
+        for (i = 0; i < 6; ++i)
+            ret += strprintf("%02X", bytes[i]);
+        ret += "'";
+        return ret;
+    }
+    std::string s;
+    for (int i = 0; i < 6; ++i) {
+        if (first_printable <= i && i <= last_printable) {
+            if (i == first_printable)
+                ret += strprintf(last_printable < 5 ? "м%dд'" : "д'", 40-last_printable*8);
+            if (printable_iso(bytes[i]))
+		ret += unicode_to_utf8 (koi7_to_unicode[bytes[i]]);
+            else {
+                ret += '@';
+                s += strprintf(i < 5 ? "м%dв'%o'" : "в'%2$o'", 40-i*8, bytes[i] ^ '@');
+            }
+            if (i == last_printable) {
+                (ret += "'") += s;
+            }
+        } else if (bytes[i])
+            ret += strprintf(i < 5 ? "м%dв'%o'" : "в'%2$o'", 40-i*8, bytes[i]);
+}
     return ret;
 }
 
@@ -980,7 +1005,7 @@ void prshort(uint32 val, int cmdaddr, uint32 flags = 0) {
 
     } else {
         int rel = reloc(cmdaddr);
-        if (rel == 1 || flags & W_ADDR) {
+        if (rel == 1 || !(val & 02000000) && (flags & W_ADDR)) {
             printf("кк\t%s,%s", proct((val >> 12) & 077).c_str(),
                    properand(cmdaddr, reg, (val & 07777) + (val & 01000000 ? 070000 : 0), true).c_str());
         } else if (rel == 2 && good_addr)
@@ -1020,7 +1045,8 @@ std::string literal(uint32 addr, int flags = 0) {
 	(val >> 24) == 0 ? strprintf("в'%08llo'", val) :
 	strprintf ("в'%016llo'", val);
     if (flags & W_TEXT)
-      ret += "TEXT " + get_text_word(val);
+      ret += " TEXT " + get_text_word(val);
+    else {
     int good_iso_with_parity = count_good(bytes, is_good_iso_with_even_parity);
     if (good_iso == 6) {
 	std::string s;
@@ -1041,6 +1067,7 @@ std::string literal(uint32 addr, int flags = 0) {
 	}
 	if (fake <= 3 && !srcflag)
 	    ((ret += " PARITY ISO '") += s) += "'";
+    }
     }
     return ret;
 }
