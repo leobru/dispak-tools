@@ -4,6 +4,7 @@
 #include <cstdarg>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <getopt.h>
 #include "encoding.h"
 #include <map>
 #include <set>
@@ -216,6 +217,7 @@ bool hasname(uint32 addr) {
 #define W_HEX           2048
 #define W_ISO           4096
 #define W_TEXT          8192
+#define W_JMPTAB        16384
 #define W_DONE		(1<<31)
 
 typedef struct actpoint_t {
@@ -225,6 +227,13 @@ typedef struct actpoint_t {
 } actpoint_t;
 
 actpoint_t * reachable = 0;
+
+// Extra entry points to seed flow analysis, resolved in disbin() once the
+// image is loaded and loadaddr/codelen are known:
+//   trace_addrs  - addresses executed in a dispak trace (--trace=FILE)
+//   jmptab_addrs - words whose 15-bit halves are code entries (sym type J)
+std::set<uint32> trace_addrs;
+std::vector<uint32> jmptab_addrs;
 
 uint64 memory[32768];
 uint32 mflags[32768];
@@ -269,6 +278,8 @@ addsym (const std::string & name, int type, uint32 val,
     }
     if (type & W_CODE)
         add_actpoint(val);
+    if (type & W_JMPTAB)
+        jmptab_addrs.push_back(val);
     mflags[val] |= type & (W_UNSET|W_STARTBB|W_NOEXEC|W_LITERAL);
 //    if (type & W_STARTBB)
 //        mflags[val] |= type & W_DATA;
@@ -325,8 +336,8 @@ int flags(uint32 addr) {
 struct nlist *
 findsym (uint32 addr)
 {
-    const int plusfuzz = 64, minusfuzz = 4;
-    const int minaddr = addr <= plusfuzz ? 0 : addr-plusfuzz;
+    const uint32 plusfuzz = 64, minusfuzz = 4;
+    const uint32 minaddr = addr <= plusfuzz ? 0 : addr - plusfuzz;
     for (uint32 a = addr; a > minaddr; --a) {
         for (auto & p : names[a]) {
             if (p.hasname() && !(p.n_type & W_UNSET)) {
@@ -335,7 +346,7 @@ findsym (uint32 addr)
             }
         }
     }
-    const int maxaddr = addr+minusfuzz > 0100000 ? 0100000 : addr+minusfuzz;
+    const uint32 maxaddr = std::min<uint32>(0100000, addr + minusfuzz);
     for (uint32 a = addr+1; a < maxaddr; ++a) {
         for (auto & p : names[a]) {
             if (p.hasname() && !(p.n_type & W_UNSET)) {
@@ -359,7 +370,8 @@ prabs (uint32 val) {
         std::string ret;
         auto sym = findsym(val);
         if (sym != &dummy) {
-            auto offset = val - sym->n_value;
+            long long offset = static_cast<long long>(val) -
+                static_cast<long long>(sym->n_value);
             ret = sym->n_name;
             if (offset > 0) {
                 ret += '+';
@@ -391,8 +403,15 @@ struct FreeElt {
             break;
         case 'R': {
             auto sym = findsym (val);
-            auto offset = val - sym->n_value;
+            long long offset = static_cast<long long>(val) -
+                static_cast<long long>(sym->n_value);
             ret += sym->n_name;
+            if (offset > 0)
+                ret += '+';
+            else if (offset < 0) {
+                ret += '-';
+                offset = -offset;
+            }
             if (offset) ret += std::to_string(offset);
         } break;
         case 'E':
@@ -455,7 +474,6 @@ prlist(const std::string & kind, const std::string& mod, std::vector<std::string
 
 std::string prequs ()
 {
-    struct nlist *p;
     std::string ret;
     std::map<std::string, std::vector<std::string>> externs;
     for (auto & v : names) for (auto & p : v) {
@@ -498,16 +516,19 @@ void prstart() {
 /*
  * Read 48-bit word at current file position.
  */
-uint64
-freadw (FILE *fd)
+bool
+freadw (FILE *fd, uint64 &val)
 {
-    uint64 val = 0;
-    int i;
-    for (i = 0; i < 6; ++i) {
+    val = 0;
+    for (int i = 0; i < 6; ++i) {
+        int ch = getc(fd);
+        if (ch == EOF) {
+            return false;
+        }
         val <<= 8;
-        val |= getc (fd);
+        val |= static_cast<unsigned char>(ch);
     }
-    return val;
+    return true;
 }
 
 /*
@@ -572,7 +593,7 @@ praddr (uint32 address, bool known_reloc,
 const opcode & getop(uint32 code) {
     int i;
     for (i=0; op[i].mask; i++)
-        if ((code & op[i].mask) == op[i].opcode) {
+        if ((code & static_cast<uint32>(op[i].mask)) == static_cast<uint32>(op[i].opcode)) {
             static opcode fake;
             if (code == 00'062'0000) {
                 fake = op[i];
@@ -589,10 +610,8 @@ const opcode & getop(uint32 code) {
  * Return 0 on error.
  */
 void
-prcode (uint32 memaddr, uint32 opcode)
+prcode (uint32 opcode)
 {
-    int i;
-
     switch (getop(opcode).type) {
     case OPCODE_STR1:
     case OPCODE_ADDREX:
@@ -744,7 +763,7 @@ prinsn (uint32 memaddr, uint32 opcode, int right)
     case OPCODE_STR2:
     case OPCODE_ADDRMOD: {
         bool explicit_reg = op.type == OPCODE_REG2;
-        if (reg != base_reg)
+        if (reg != static_cast<int>(base_reg))
             explicit_reg = false;
         ret += properand (memaddr*2+right, reg, arg2, explicit_reg, base_reg);
     } break;
@@ -796,8 +815,8 @@ bool is_good_gost(int s)
 }
 
 bool is_good_iso(int s) {
-    // Allow letters (Latin not matching Cyrillic), digits and space
-    if (strchr("ABEKMHOPCTYX", s))
+    // Allow letters (Cyrillic not matching Latin), digits and space
+    if (strchr("awekmnhopstu", s))
         return false;
     return (s == ' ') || ('0' <= s && s <= '9') ||
         ('A' <= s && s <= 'Z') || ('`' <= s && s <= '}');
@@ -811,7 +830,7 @@ bool is_good_iso_with_even_parity(int s) {
         return false;
     s &= 0x7F;
     // Allow control characters including NUL here
-    return (s = 0xFF) || (s < 0x20) || is_good_iso(s);
+    return (s == 0x7F) || (s < 0x20) || is_good_iso(s);
 }
 bool maybe_addr(uint32 val) {
     if (val > 077777)
@@ -878,7 +897,9 @@ bool printable(uint32 byte) {
 }
 
 bool printable_iso(uint32 byte) {
-    return byte != '@' && byte != *"'" && ' ' <= byte && byte <= '\176';
+    if (strchr("'#abekmhorctyx?", byte))
+        return false;
+    return ' ' <= byte && byte <= '\176';
 }
 
 std::string gostlit(unsigned char bytes[6], bool forced, int good_gost = 0) {
@@ -915,9 +936,7 @@ std::string gostlit(unsigned char bytes[6], bool forced, int good_gost = 0) {
 }
 
 
-std::string isolit(unsigned char bytes[6], bool forced) {
-    bool bad_seen = false;
-    bool print_all_bytes = false;
+std::string isolit(unsigned char bytes[6]) {
     std::string ret;
     int i, first_printable = -1, last_printable = -1;
     for (i = 0; i < 6; ++i) {
@@ -1036,7 +1055,7 @@ std::string literal(uint32 addr, int flags = 0) {
 	return gostlit(bytes, flags & W_GOST, good_gost);
     }
     if (good_iso == 6 || (flags & W_ISO)) {
-        return isolit(bytes, flags & W_ISO);
+        return isolit(bytes);
     }
     ret = val == 0xffffffffffffLL ? "в'-1'" :
 	val < 256 ? strprintf ("в'%03llo'", val) :
@@ -1077,7 +1096,6 @@ void prconst (uint32 addr, uint32 limit)
     int flags = 0;
     do {
         unsigned char bytes[6];
-        int i;
         int good_gost, good_iso;
         if (srcflag == 0) {
             printf ("%5o %016llo", addr, memory[addr]);
@@ -1292,7 +1310,7 @@ void analyze_addrmod (actpoint_t * cur, int opcode, int reg, int arg)
 // Returns whether the control may pass to the next instruction
 int analyze_insn (actpoint_t * cur, int right, int addr, int limit) {
     int opcode, arg1, arg2, reg;
-    if (cur->addr < addr || cur->addr > limit)
+    if (cur->addr < addr || cur->addr >= limit)
         return 0;
     if (right)
         opcode = memory[cur->addr] & 0xffffff;
@@ -1398,18 +1416,18 @@ void analyze (uint32 entry, uint32 addr, uint32 limit)
         actpoint_t * cur = reachable;
         reachable = cur->next;
         if (mflags[cur->addr] & W_NOEXEC) {
-            free(cur);
+            delete cur;
             continue;
         }
         if (mflags[cur->addr] & W_CODE) {
             // fprintf(stderr, "Already seen\n");
-            free (cur);
+            delete cur;
             continue;
         }
         mflags[cur->addr] |= W_CODE;
         /* Left insn */
         if (! analyze_insn (cur, 0, addr, limit)) {
-            free (cur);
+            delete cur;
             continue;
         }
         /* Right insn */
@@ -1417,13 +1435,13 @@ void analyze (uint32 entry, uint32 addr, uint32 limit)
             // Put 'cur' back with the next address
             if (++cur->addr == 0100000 || mflags[cur->addr] & W_NOEXEC) {
                 // Loss of control
-                free (cur);
+                delete cur;
             } else {
                 cur->next = reachable;
                 reachable = cur;
             }
         } else {
-            free (cur);
+            delete cur;
         }
     }
 }
@@ -1452,7 +1470,7 @@ void prbss (uint32 addr, uint32 limit)
 void print_short_const(uint32 addr, uint32 opcode, bool left) {
     if (!srcflag) {
         printf (left ? "%5o%c" : "      ", addr, mflags[addr] & W_STARTBB ? ':' : ' ');
-        prcode (addr, opcode);
+        prcode (opcode);
         putchar ('\t');
     }
     if (left) prsym (addr);
@@ -1496,7 +1514,7 @@ prsection (uint32 addr, uint32 limit)
             opcode = memory[addr];
             if (!srcflag) {
                 printf ("%5o%c", addr, mflags[addr] & W_STARTBB ? ':' : ' ');
-                prcode (addr, opcode >> 24);
+                prcode (opcode >> 24);
                 putchar ('\t');
             }
             uint32 flags = prsym (addr);
@@ -1506,7 +1524,7 @@ prsection (uint32 addr, uint32 limit)
             // Do not print the non-insn part of a word
             // if it looks like a placeholder
             opcode &= 0xffffff;
-            if (opcode == 02200000 && (mflags[addr+1] && W_STARTBB)) {
+            if (addr + 1 < limit && opcode == 02200000 && (mflags[addr+1] & W_STARTBB)) {
                 auto sym = findsym(addr+1);
                 if (sym->n_value != addr+1 || !sym->hasname()) {
                     printf("%s\tпам\t0\n", srcflag ? "" : "\t\t\t");
@@ -1517,7 +1535,7 @@ prsection (uint32 addr, uint32 limit)
                 rel_r || (opcode != 0 && opcode != 02200000)) {
                 if (srcflag == 0) {
                     printf("      ");
-                    prcode (addr, opcode);
+                    prcode (opcode);
                     putchar ('\t');
                 }
                 putchar ('\t');
@@ -1550,6 +1568,7 @@ int gettype(const std::string & str) {
     case 'B': case 'b': return W_CODE|W_STARTBB;
     case 'R': case 'r': return W_DATA|W_REAL;
     case 'T': case 't': return W_DATA|W_TEXT;
+    case 'J': case 'j': return W_DATA|W_JMPTAB;
     case 'U': case 'u': return W_UNSET;
     case 'A': case 'a': return W_CODE|W_NOEXEC;
     }
@@ -1636,6 +1655,64 @@ void make_syms(uint32 addr, uint32 limit)
     }
 }
 
+/*
+ * --trace=FILE: read a dispak execution trace and remember every address
+ * that starts a trace line ("<octal>:"). These are guaranteed-code entry
+ * points; they are seeded into the analysis by seed_entries() once the
+ * image is loaded.
+ */
+static void
+read_trace (const char *fname)
+{
+    std::ifstream f(fname);
+    if (!f.is_open()) {
+        std::cerr << "disbesm6: cannot open trace " << fname << '\n';
+        return;
+    }
+    std::string line;
+    while (std::getline(f, line)) {
+        size_t i = line.find_first_not_of(" \t");
+        if (i == std::string::npos)
+            continue;
+        size_t j = i;
+        while (j < line.size() && line[j] >= '0' && line[j] <= '7')
+            ++j;
+        if (j > i && j < line.size() && line[j] == ':')
+            trace_addrs.insert(strtol(line.substr(i, j - i).c_str(), nullptr, 8));
+    }
+}
+
+/*
+ * Seed flow analysis with entry points collected before the image was
+ * loaded: trace addresses (--trace) and the code entries packed into
+ * jump-table words (sym type J). Called from disbin() once loadaddr and
+ * codelen are final, but before analyze().
+ */
+static void
+seed_entries ()
+{
+    const uint32 lo = loadaddr, hi = loadaddr + codelen;
+    // Every executed word within the image is code.
+    for (uint32 a : trace_addrs)
+        if (a >= lo && a < hi)
+            add_actpoint(a);
+    // Each 15-bit half of a jump-table word that lands inside the image is a
+    // handler entry; mark it as a basic-block start so it gets a label too.
+    for (uint32 a : jmptab_addrs) {
+        if (a >= sizeof(memory) / sizeof(memory[0]))
+            continue;
+        const uint32 halves[2] = {
+            static_cast<uint32>((memory[a] >> 24) & 077777),
+            static_cast<uint32>(memory[a] & 077777)
+        };
+        for (uint32 t : halves)
+            if (t > 01000 && t >= lo && t < hi) {
+                mflags[t] |= W_STARTBB;
+                add_actpoint(t);
+            }
+    }
+}
+
 void
 disbin (char *fname)
 {
@@ -1657,8 +1734,17 @@ disbin (char *fname)
         printf ("      Address: %#o\n", loadaddr);
         printf ("\n");
     }
-    while (!feof(textfd) && addr < 0100000) {
-        memory[addr++] = freadw (textfd);
+    while (addr < 0100000) {
+        uint64 word;
+        if (!freadw(textfd, word)) {
+            break;
+        }
+        memory[addr++] = word;
+    }
+    codelen = addr - loadaddr;
+    if (st.st_size % 6 != 0) {
+        fprintf(stderr, "disbesm6: %s has %lld trailing byte(s)\n",
+                fname, static_cast<long long>(st.st_size % 6));
     }
     if (trim) {
         while (memory[loadaddr+codelen-1] == 0)
@@ -1669,6 +1755,7 @@ disbin (char *fname)
         --codelen;
     }
     prstart();
+    seed_entries ();
     analyze (entryaddr, loadaddr, loadaddr + codelen);
     make_syms(loadaddr, loadaddr + codelen);
     prsection (loadaddr, loadaddr + codelen);
@@ -1711,12 +1798,18 @@ struct Module {
     }
     void read_chunk() {
         for (int i = 0; i < 12; ++i) {
-            chunk[i] = freadw(fd);
+            if (!freadw(fd, chunk[i])) {
+                fprintf(stderr, "disbesm6: unexpected EOF while reading object module\n");
+                exit(1);
+            }
         }
         if (++chunks_read % 85 == 0) {
             // Align to a zone boundary
             for (int i = 0; i < 4; ++i)
-                (void) freadw(fd);
+                if (!freadw(fd, chunk[0])) {
+                    fprintf(stderr, "disbesm6: unexpected EOF while aligning object module\n");
+                    exit(1);
+                }
         }
 
     }
@@ -1733,7 +1826,7 @@ struct Module {
         // 8 - (upper: ?; lower: externs)
         read_chunk();
         name = debemsh(chunk[1]);
-        while (name.back() == ' ') name.pop_back();
+        while (!name.empty() && name.back() == ' ') name.pop_back();
         loadaddr = chunk[2] & 077777;
         addsym(name, 0, loadaddr);
         codelen = chunk[6] & 077777;
@@ -1763,7 +1856,7 @@ struct Module {
             if (i % 6 == 0)
                 read_chunk();
             std::string cur = debemsh(chunk[i%6*2]);
-            while (cur.back() == ' ')
+            while (!cur.empty() && cur.back() == ' ')
                 cur.pop_back();
             uint64 val = chunk[i%6*2+1];
             // If the entry matches the module name, addresses must match
@@ -1793,7 +1886,7 @@ struct Module {
                 read_chunk();
             std::string mod = debemsh(chunk[i%6*2]);
             std::string name = debemsh(chunk[i%6*2+1]);
-            bool extrd = mod.back() == '\0';
+            bool extrd = !mod.empty() && mod.back() == '\0';
             while (!mod.empty() && (mod.back() == '\0' || mod.back() == ' '))
                 mod.pop_back();
             while (!name.empty() && (name.back() == '\0' || name.back() == ' '))
@@ -1939,7 +2032,12 @@ main (int argc, char **argv)
     char *cp;
     bflag = 1;
     int opt, addr;
-    while ((opt = getopt(argc, argv, "rbsta:e:R:n:vp")) != -1) {
+    static const struct option long_options[] = {
+        {"trace", required_argument, nullptr, 'T'},
+        {nullptr, 0, nullptr, 0}
+    };
+    while ((opt = getopt_long(argc, argv, "rbsta:e:R:n:vpT:",
+                              long_options, nullptr)) != -1) {
         switch (opt) {
             case 'r':   /* -r: disassemble object file */
                 rflag++;
@@ -1978,6 +2076,9 @@ main (int argc, char **argv)
             case 'n':
                 readsymtab(optarg);
                 break;
+            case 'T':       /* --trace=FILE: seed entries from a dispak trace */
+                read_trace(optarg);
+                break;
             case 'R': {	/* -RN=x: forced base reg/addr */
                 unsigned basereg = 0, baseaddr = 0;
                 cp = optarg;
@@ -2009,12 +2110,12 @@ main (int argc, char **argv)
                 pascal = 1;
                 break;
         default:
-            fprintf (stderr, "Usage: disbesm6 [-r] [-b] [-aN] [-eN] [-nSymtab] file\n");
+            fprintf (stderr, "Usage: disbesm6 [-r] [-b] [-aN] [-eN] [-nSymtab] [--trace=FILE] file\n");
             return (1);
         }
     }
     if (optind != argc-1) {
-        fprintf (stderr, "Usage: disbesm6 [-r] [-b] [-aN] [-eN] [-nSymtab] file\n");
+        fprintf (stderr, "Usage: disbesm6 [-r] [-b] [-aN] [-eN] [-nSymtab] [--trace=FILE] file\n");
         return (1);
     }
     if (rflag)
