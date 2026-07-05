@@ -218,6 +218,7 @@ bool hasname(uint32 addr) {
 #define W_ISO           4096
 #define W_TEXT          8192
 #define W_JMPTAB        16384
+#define W_KONK          32768
 #define W_DONE		(1<<31)
 
 typedef struct actpoint_t {
@@ -1034,6 +1035,26 @@ void prshort(uint32 val, int cmdaddr, uint32 flags = 0) {
     }
 }
 
+// Directed rendering of one 24-bit half of a table word marked K or J
+// (W_KONK): an address constant A(SYM), a flags<<15|addr15 pack rendered as
+// м15в'NN'A(SYM) (the packing seed_entries() already assumes for J), a GOST
+// key, or a plain octal constant.  No "возм." suffix - the split is directed
+// by the symbol table, not guessed.
+void prkonk(uint32 val) {
+    if (val && maybe_addr(val)) {
+        printf("конк\tA(%s)", praddr(val, true, false, false).c_str());
+    } else if ((val >> 15) && maybe_addr(val & 077777)) {
+        printf("конк\tм15в'%o'A(%s)", val >> 15,
+               praddr(val & 077777, true, false, false).c_str());
+    } else if (is_short_gost(0, val)) {
+        unsigned char bytes[6];
+        split_bytes(uint64(val), bytes);
+        printf("конк\t%s", gostlit(bytes, true).c_str());
+    } else {
+        printf("конк\tв'%08o'", val);
+    }
+}
+
 std::string literal(uint32 addr, int flags = 0) {
     flags |= mflags[addr];
     uint64 val = memory[addr];
@@ -1111,12 +1132,13 @@ void prconst (uint32 addr, uint32 limit)
         bool rel_r = nonconst(addr*2+1);
         uint32 ex_addr = mflags[addr] & W_ADDR;
         uint32 forced = flags & (W_HEX|W_REAL|W_ISO|W_TEXT);
+        bool konk = flags & W_KONK;
         if (!rel_l && !rel_r && forced) {
             printf ("\tконд\t%s\n", literal(addr, forced).c_str());
-        } else if (!ex_addr && !rel_l && !rel_r &&
+        } else if (!ex_addr && !rel_l && !rel_r && !konk &&
                    ((flags & W_GOST && !(flags & W_ISO) || good_gost == 6))) {
             printf ("\tконд\t%s\n", literal(addr, W_GOST).c_str());
-        } else if (!ex_addr && !rel_l && !rel_r &&
+        } else if (!ex_addr && !rel_l && !rel_r && !konk &&
                    (flags & W_ISO || good_iso == 6)) {
             printf ("\tконд\t%s\n", literal(addr, W_ISO).c_str());
         } else {
@@ -1124,7 +1146,11 @@ void prconst (uint32 addr, uint32 limit)
             uint32 right = memory[addr] & 0xFFFFFF;
             bool left_addr = left && (ex_addr || rel_l ||  maybe_addr(left));
             bool right_addr = right && (ex_addr || rel_r || maybe_addr(right));
-            if (!rel_l && !rel_r && (rflag || (!left_addr && !right_addr))) {
+            if (!rel_l && !rel_r && konk) {
+                putchar('\t'); prkonk(left); putchar('\n');
+                printf(srcflag ? "" : "\t\t\t");
+                putchar('\t'); prkonk(right); putchar('\n');
+            } else if (!rel_l && !rel_r && (rflag || (!left_addr && !right_addr))) {
                 printf ("\tконд\t%s\n", literal(addr).c_str());
             } else if (ex_addr || rel_l || rel_r) {
                 putchar('\t'); prshort(left, addr*2, ex_addr); putchar('\n');
@@ -1568,7 +1594,8 @@ int gettype(const std::string & str) {
     case 'B': case 'b': return W_CODE|W_STARTBB;
     case 'R': case 'r': return W_DATA|W_REAL;
     case 'T': case 't': return W_DATA|W_TEXT;
-    case 'J': case 'j': return W_DATA|W_JMPTAB;
+    case 'J': case 'j': return W_DATA|W_JMPTAB|W_KONK;
+    case 'K': case 'k': return W_DATA|W_KONK;
     case 'U': case 'u': return W_UNSET;
     case 'A': case 'a': return W_CODE|W_NOEXEC;
     }
