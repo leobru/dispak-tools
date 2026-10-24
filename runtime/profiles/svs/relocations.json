@@ -1,0 +1,710 @@
+{
+  "profile": "svs",
+  "source": "\u0442\u0435\u0441\u0442\u0430\u0446.bin",
+  "sha256": "172b8ca87e612bae0890abd711d2b60f6e55ae9087cf7b6b19c75834cd4827f2",
+  "module": "RTTS1",
+  "chunks": [
+    {
+      "name": "RTTS1",
+      "start": "03710",
+      "end": "03745"
+    },
+    {
+      "name": "RTTS2",
+      "start": "03745",
+      "end": "04067"
+    },
+    {
+      "name": "RTTS3",
+      "start": "04067",
+      "end": "04233"
+    },
+    {
+      "name": "RTTS4",
+      "start": "04245",
+      "end": "04354"
+    }
+  ],
+  "runtime": [
+    "03710",
+    "04354"
+  ],
+  "exports": {
+    "P/2": "03710",
+    "P/IN": "03714",
+    "P/EO": "03724",
+    "P/GF": "03725",
+    "P/EF": "03737",
+    "P/E": "03742",
+    "P/08": "03745",
+    "P/STAR": "03774",
+    "P/LDAR": "04006",
+    "P/3": "04016",
+    "P/RF": "04022",
+    "P/CW": "04032",
+    "P/TF": "04034",
+    "P/6A": "04037",
+    "P/31": "04041",
+    "P/RC": "04043",
+    "P/WOLN": "04067",
+    "P/WL": "04070",
+    "P/7A": "04076",
+    "P/7AD": "04100",
+    "P/WI": "04113",
+    "P/WO": "04174",
+    "P/A7": "04225",
+    "P/CO": "04245",
+    "P/IT": "04252",
+    "P/1": "04254",
+    "P/PF": "04271",
+    "P/RET": "04270",
+    "P/PRINT": "04304",
+    "P/HIDE": "04310",
+    "P/EDIH": "04313",
+    "P/SP": "04316",
+    "P/PUTADR": "04331",
+    "P/PUTERR": "04336",
+    "P/OVERFL": "04345",
+    "STOP*": "04330"
+  },
+  "common": {
+    "P/1D": {
+      "address": "03516",
+      "words": 92,
+      "reserve": 40,
+      "initialize": 40
+    },
+    "*OUTPUT*": {
+      "address": "03652",
+      "words": 30
+    }
+  },
+  "core_helpers": [],
+  "compiler_prefix": "(*=a1*)",
+  "relocations": [
+    {
+      "word": "03716",
+      "half": "L",
+      "target": "03722",
+      "expression": "R03722",
+      "width": 15
+    },
+    {
+      "word": "03725",
+      "half": "R",
+      "target": "04261",
+      "expression": "RTTS4+14B",
+      "width": 15
+    },
+    {
+      "word": "03727",
+      "half": "L",
+      "target": "03731",
+      "expression": "R03731",
+      "width": 15
+    },
+    {
+      "word": "03733",
+      "half": "L",
+      "target": "03745",
+      "expression": "RTTS2",
+      "width": 15
+    },
+    {
+      "word": "03733",
+      "half": "R",
+      "target": "04006",
+      "expression": "RTTS2+41B",
+      "width": 15
+    },
+    {
+      "word": "03736",
+      "half": "L",
+      "target": "04270",
+      "expression": "RTTS4+23B",
+      "width": 15
+    },
+    {
+      "word": "03750",
+      "shift": 0,
+      "width": 15,
+      "target": "03760",
+      "expression": "R03760",
+      "half": "data"
+    },
+    {
+      "word": "03751",
+      "shift": 0,
+      "width": 15,
+      "target": "03766",
+      "expression": "R03766",
+      "half": "data"
+    },
+    {
+      "word": "04023",
+      "half": "R",
+      "target": "04026",
+      "expression": "R04026",
+      "width": 15
+    },
+    {
+      "word": "04033",
+      "half": "R",
+      "target": "04271",
+      "expression": "RTTS4+24B",
+      "width": 15
+    },
+    {
+      "word": "04040",
+      "half": "R",
+      "target": "04076",
+      "expression": "RTTS3+7B",
+      "width": 15
+    },
+    {
+      "word": "04043",
+      "half": "R",
+      "target": "04064",
+      "expression": "R04064",
+      "width": 15
+    },
+    {
+      "word": "04047",
+      "half": "L",
+      "target": "04057",
+      "expression": "R04057",
+      "width": 15
+    },
+    {
+      "word": "04050",
+      "half": "L",
+      "target": "04066",
+      "expression": "R04066",
+      "width": 15
+    },
+    {
+      "word": "04051",
+      "half": "L",
+      "target": "04054",
+      "expression": "R04054",
+      "width": 15
+    },
+    {
+      "word": "04054",
+      "half": "L",
+      "target": "04064",
+      "expression": "R04064",
+      "width": 15
+    },
+    {
+      "word": "04056",
+      "half": "L",
+      "target": "04046",
+      "expression": "R04046",
+      "width": 15
+    },
+    {
+      "word": "04060",
+      "half": "L",
+      "target": "04063",
+      "expression": "R04063",
+      "width": 15
+    },
+    {
+      "word": "04062",
+      "half": "L",
+      "target": "04057",
+      "expression": "R04057",
+      "width": 15
+    },
+    {
+      "word": "04067",
+      "half": "L",
+      "target": "03652",
+      "expression": "*OUTPUT*",
+      "width": 15
+    },
+    {
+      "word": "04070",
+      "half": "R",
+      "target": "04303",
+      "expression": "RTTS4+36B",
+      "width": 15
+    },
+    {
+      "word": "04072",
+      "half": "R",
+      "target": "04271",
+      "expression": "RTTS4+24B",
+      "width": 15
+    },
+    {
+      "word": "04074",
+      "half": "R",
+      "target": "04304",
+      "expression": "RTTS4+37B",
+      "width": 15
+    },
+    {
+      "word": "04075",
+      "half": "L",
+      "target": "04270",
+      "expression": "RTTS4+23B",
+      "width": 15
+    },
+    {
+      "word": "04075",
+      "half": "R",
+      "target": "04034",
+      "expression": "RTTS2+67B",
+      "width": 15
+    },
+    {
+      "word": "04076",
+      "half": "L",
+      "target": "04310",
+      "expression": "RTTS4+43B",
+      "width": 15
+    },
+    {
+      "word": "04105",
+      "half": "L",
+      "target": "04271",
+      "expression": "RTTS4+24B",
+      "width": 15
+    },
+    {
+      "word": "04106",
+      "half": "R",
+      "target": "04111",
+      "expression": "R04111",
+      "width": 15
+    },
+    {
+      "word": "04107",
+      "half": "L",
+      "target": "04102",
+      "expression": "R04102",
+      "width": 15
+    },
+    {
+      "word": "04110",
+      "half": "L",
+      "target": "04100",
+      "expression": "R04100",
+      "width": 15
+    },
+    {
+      "word": "04111",
+      "half": "L",
+      "target": "04313",
+      "expression": "RTTS4+46B",
+      "width": 15
+    },
+    {
+      "word": "04115",
+      "half": "R",
+      "target": "04165",
+      "expression": "R04165",
+      "width": 15
+    },
+    {
+      "word": "04117",
+      "half": "L",
+      "target": "04122",
+      "expression": "R04122",
+      "width": 15
+    },
+    {
+      "word": "04117",
+      "half": "R",
+      "target": "04172",
+      "expression": "R04172",
+      "width": 15
+    },
+    {
+      "word": "04120",
+      "half": "R",
+      "target": "04076",
+      "expression": "R04076",
+      "width": 15
+    },
+    {
+      "word": "04121",
+      "half": "L",
+      "target": "04162",
+      "expression": "R04162",
+      "width": 15
+    },
+    {
+      "word": "04124",
+      "half": "R",
+      "target": "04127",
+      "expression": "R04127",
+      "width": 15
+    },
+    {
+      "word": "04132",
+      "half": "L",
+      "target": "04134",
+      "expression": "R04134",
+      "width": 15
+    },
+    {
+      "word": "04133",
+      "half": "L",
+      "target": "04136",
+      "expression": "R04136",
+      "width": 15
+    },
+    {
+      "word": "04142",
+      "half": "L",
+      "target": "04130",
+      "expression": "R04130",
+      "width": 15
+    },
+    {
+      "word": "04143",
+      "half": "L",
+      "target": "04144",
+      "expression": "R04144",
+      "width": 15
+    },
+    {
+      "word": "04146",
+      "half": "L",
+      "target": "04316",
+      "expression": "RTTS4+51B",
+      "width": 15
+    },
+    {
+      "word": "04150",
+      "half": "L",
+      "target": "04152",
+      "expression": "R04152",
+      "width": 15
+    },
+    {
+      "word": "04150",
+      "half": "R",
+      "target": "04325",
+      "expression": "RTTS4+60B",
+      "width": 15
+    },
+    {
+      "word": "04151",
+      "half": "R",
+      "target": "04032",
+      "expression": "RTTS2+65B",
+      "width": 15
+    },
+    {
+      "word": "04152",
+      "half": "R",
+      "target": "04166",
+      "expression": "R04166",
+      "width": 15
+    },
+    {
+      "word": "04153",
+      "half": "R",
+      "target": "04162",
+      "expression": "R04162",
+      "width": 15
+    },
+    {
+      "word": "04154",
+      "half": "R",
+      "target": "04324",
+      "expression": "RTTS4+57B",
+      "width": 15
+    },
+    {
+      "word": "04157",
+      "half": "L",
+      "target": "04271",
+      "expression": "RTTS4+24B",
+      "width": 15
+    },
+    {
+      "word": "04161",
+      "half": "L",
+      "target": "04152",
+      "expression": "R04152",
+      "width": 15
+    },
+    {
+      "word": "04175",
+      "half": "L",
+      "target": "04310",
+      "expression": "RTTS4+43B",
+      "width": 15
+    },
+    {
+      "word": "04176",
+      "half": "L",
+      "target": "04224",
+      "expression": "R04224",
+      "width": 15
+    },
+    {
+      "word": "04200",
+      "half": "L",
+      "target": "04316",
+      "expression": "RTTS4+51B",
+      "width": 15
+    },
+    {
+      "word": "04202",
+      "half": "L",
+      "target": "04205",
+      "expression": "R04205",
+      "width": 15
+    },
+    {
+      "word": "04202",
+      "half": "R",
+      "target": "04224",
+      "expression": "R04224",
+      "width": 15
+    },
+    {
+      "word": "04211",
+      "half": "L",
+      "target": "04324",
+      "expression": "RTTS4+57B",
+      "width": 15
+    },
+    {
+      "word": "04212",
+      "half": "R",
+      "target": "04207",
+      "expression": "R04207",
+      "width": 15
+    },
+    {
+      "word": "04216",
+      "half": "L",
+      "target": "04221",
+      "expression": "R04221",
+      "width": 15
+    },
+    {
+      "word": "04217",
+      "half": "R",
+      "target": "04032",
+      "expression": "RTTS2+65B",
+      "width": 15
+    },
+    {
+      "word": "04220",
+      "half": "R",
+      "target": "04216",
+      "expression": "R04216",
+      "width": 15
+    },
+    {
+      "word": "04222",
+      "half": "L",
+      "target": "04313",
+      "expression": "RTTS4+46B",
+      "width": 15
+    },
+    {
+      "word": "04226",
+      "half": "L",
+      "target": "04310",
+      "expression": "RTTS4+43B",
+      "width": 15
+    },
+    {
+      "word": "04232",
+      "half": "L",
+      "target": "04100",
+      "expression": "R04100",
+      "width": 15
+    },
+    {
+      "word": "04232",
+      "half": "R",
+      "target": "04316",
+      "expression": "RTTS4+51B",
+      "width": 15
+    },
+    {
+      "word": "04255",
+      "half": "R",
+      "target": "03516",
+      "expression": "P/1D",
+      "width": 15
+    },
+    {
+      "word": "04256",
+      "half": "R",
+      "target": "04330",
+      "expression": "R04330",
+      "width": 15
+    },
+    {
+      "word": "04261",
+      "half": "L",
+      "target": "04263",
+      "expression": "R04263",
+      "width": 15
+    },
+    {
+      "word": "04261",
+      "half": "R",
+      "target": "04267",
+      "expression": "R04267",
+      "width": 15
+    },
+    {
+      "word": "04262",
+      "half": "L",
+      "target": "04331",
+      "expression": "R04331",
+      "width": 15
+    },
+    {
+      "word": "04271",
+      "half": "R",
+      "target": "04336",
+      "expression": "R04336",
+      "width": 15
+    },
+    {
+      "word": "04272",
+      "half": "R",
+      "target": "04302",
+      "expression": "R04302",
+      "width": 15
+    },
+    {
+      "word": "04273",
+      "half": "R",
+      "target": "04345",
+      "expression": "R04345",
+      "width": 15
+    },
+    {
+      "word": "04276",
+      "half": "R",
+      "target": "03745",
+      "expression": "RTTS2",
+      "width": 15
+    },
+    {
+      "word": "04277",
+      "half": "L",
+      "target": "03774",
+      "expression": "RTTS2+27B",
+      "width": 15
+    },
+    {
+      "word": "04301",
+      "half": "R",
+      "target": "04270",
+      "expression": "R04270",
+      "width": 15
+    },
+    {
+      "word": "04304",
+      "half": "L",
+      "target": "04306",
+      "expression": "R04306",
+      "width": 15
+    },
+    {
+      "word": "04317",
+      "half": "L",
+      "target": "04326",
+      "expression": "R04326",
+      "width": 15
+    },
+    {
+      "word": "04321",
+      "half": "L",
+      "target": "04271",
+      "expression": "R04271",
+      "width": 15
+    },
+    {
+      "word": "04323",
+      "half": "R",
+      "target": "04316",
+      "expression": "R04316",
+      "width": 15
+    },
+    {
+      "word": "04332",
+      "half": "L",
+      "target": "04335",
+      "expression": "R04335",
+      "width": 15
+    },
+    {
+      "word": "04334",
+      "half": "L",
+      "target": "04330",
+      "expression": "R04330",
+      "width": 15
+    },
+    {
+      "word": "04334",
+      "half": "R",
+      "target": "04304",
+      "expression": "R04304",
+      "width": 15
+    },
+    {
+      "word": "04336",
+      "half": "L",
+      "target": "04340",
+      "expression": "R04340",
+      "width": 15
+    },
+    {
+      "word": "04336",
+      "half": "R",
+      "target": "04344",
+      "expression": "R04344",
+      "width": 15
+    },
+    {
+      "word": "04337",
+      "half": "L",
+      "target": "04331",
+      "expression": "R04331",
+      "width": 15
+    },
+    {
+      "word": "04345",
+      "half": "L",
+      "target": "04347",
+      "expression": "R04347",
+      "width": 15
+    },
+    {
+      "word": "04345",
+      "half": "R",
+      "target": "04353",
+      "expression": "R04353",
+      "width": 15
+    },
+    {
+      "word": "04346",
+      "half": "L",
+      "target": "04331",
+      "expression": "R04331",
+      "width": 15
+    }
+  ],
+  "notes": [
+    "Preserved the observed SVS I/O and startup implementation.",
+    "Excluded application FORTRAN routines between runtime chunks.",
+    "P/1D reserves only 050 words for new programs; golden layout reserves the original globals.",
+    "Word 02007 is the PASCODER stack descriptor supplied by the launch deck."
+  ]
+}

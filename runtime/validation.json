@@ -1,0 +1,93 @@
+{
+  "checked_at": "2026-10-24T07:32:20.815247+00:00",
+  "regression_checks": 9,
+  "original_placement_profiles": 4,
+  "source_hashes": {
+    "/usr/local/share/besm6/4001": "30223751b839a6273cf96a0a6ab2e8becfcef2a59dd16661022b39740974b978",
+    "/home/leob/git/leobru/dispak-tools/test.bin": "b4073efcc29a4b3c8da9ba2c55a76e3affb47117ec15cc544c3826f6de9048dc",
+    "/home/leob/git/leobru/dispak-tools/тестац.bin": "172b8ca87e612bae0890abd711d2b60f6e55ae9087cf7b6b19c75834cd4827f2",
+    "/home/leob/git/leobru/dispak-tools/pak.bin": "a1392bfba7e529ab4f15cd11453eb0c37bcb07e633059445611aa585f365aa2b",
+    "/home/leob/git/leobru/dispak-tools/mark3.bin": "59fe1253b0421f4b0e3f1deb5575576ddb51337cdedd240c7058e0b7f31acc9d",
+    "/home/leob/.besm6/77": "43002a310a7e63e21ac2830979b75f339b050bbb8c7c5926bec851873de29719",
+    "/usr/local/share/besm6/2113": "c631e8d8e340441f593aa2e5028e8157158077b2732eabbc4e11be75939100bb",
+    "/home/leob/.besm6/2148": "75617c04fee7d90dfce12d7ea82fe8c5ae88897825508094313f970ace59b69b",
+    "/usr/local/share/besm6/2048": "e37f019c6e5b1b518a9424e1b5e52d45785a1eb11f84727abf8638f7758fc852"
+  },
+  "scenarios": [
+    {
+      "profile": "monitor",
+      "scenario": "smoke",
+      "listing": "build/monitor/run-smoke/program.lst",
+      "image": "build/monitor/run-smoke/program.img",
+      "output": "RUNTIME 41\nABC\n КОНЕЦ ЗАДАЧИ\n 02731: 00 074 0000\t*74\n"
+    },
+    {
+      "profile": "monitor",
+      "scenario": "nested",
+      "listing": "build/monitor/run-nested/program.lst",
+      "image": "build/monitor/run-nested/program.img",
+      "output": "NESTED 43\n КОНЕЦ ЗАДАЧИ\n 02661: 00 074 0000\t*74\n"
+    },
+    {
+      "profile": "svs",
+      "scenario": "smoke",
+      "listing": "build/svs/run-smoke/program.lst",
+      "image": "build/svs/run-smoke/program.img",
+      "output": "RUNTIME 41\nABC\n КОНЕЦ ЗАДАЧИ\n 02360: 00 074 0000\t*74\n"
+    },
+    {
+      "profile": "svs",
+      "scenario": "nested",
+      "listing": "build/svs/run-nested/program.lst",
+      "image": "build/svs/run-nested/program.img",
+      "output": "NESTED 43\n КОНЕЦ ЗАДАЧИ\n 02426: 00 074 0000\t*74\n"
+    },
+    {
+      "profile": "mark3",
+      "scenario": "smoke",
+      "listing": "build/mark3/run-smoke/program.lst",
+      "image": "build/mark3/run-smoke/program.img",
+      "output": "RUNTIME 41\nABC\n КОНЕЦ ЗАДАЧИ\n 02360: 00 074 0000\t*74\n"
+    },
+    {
+      "profile": "mark3",
+      "scenario": "nested",
+      "listing": "build/mark3/run-nested/program.lst",
+      "image": "build/mark3/run-nested/program.img",
+      "output": "NESTED 43\n КОНЕЦ ЗАДАЧИ\n 02426: 00 074 0000\t*74\n"
+    },
+    {
+      "profile": "pak",
+      "scenario": "smoke",
+      "listing": "build/pak/run-smoke/program.lst",
+      "image": "build/pak/run-smoke/program.img",
+      "output": "RUNTIME 41\nABC\n КОНЕЦ ЗАДАЧИ\n 02761: 00 074 0000\t*74\n"
+    },
+    {
+      "profile": "pak",
+      "scenario": "nested",
+      "listing": "build/pak/run-nested/program.lst",
+      "image": "build/pak/run-nested/program.img",
+      "output": "NESTED 43\n КОНЕЦ ЗАДАЧИ\n 02705: 00 074 0000\t*74\n"
+    },
+    {
+      "profile": "pak",
+      "scenario": "packed",
+      "listing": "build/pak/run-packed/program.lst",
+      "image": "build/pak/run-packed/program.img",
+      "output": "PACKED 66\n КОНЕЦ ЗАДАЧИ\n 02732: 00 074 0000\t*74\n"
+    },
+    {
+      "profile": "monitor",
+      "scenario": "bounds-error",
+      "listing": "build/monitor/run-bounds/program.lst",
+      "image": "build/monitor/run-bounds/program.img",
+      "output": " OVERANGE IN     4\n КОНЕЦ ЗАДАЧИ\n 03500: 00 074 0000\t*74\n"
+    },
+    {
+      "profile": "monitor",
+      "scenario": "unsupported-helper",
+      "error": "unsupported helpers resolved from another library: P/4"
+    }
+  ]
+}

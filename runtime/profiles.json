@@ -1,0 +1,729 @@
+{
+  "monitor": {
+    "image": "root-test",
+    "source": "test.bin",
+    "runtime": [
+      "02310",
+      "04066"
+    ],
+    "chunks": [
+      {
+        "name": "RTMON1",
+        "start": "02310",
+        "end": "02676"
+      },
+      {
+        "name": "RTMON2",
+        "start": "02676",
+        "end": "03002"
+      },
+      {
+        "name": "RTMON3",
+        "start": "03002",
+        "end": "03422"
+      },
+      {
+        "name": "RTMON4",
+        "start": "03422",
+        "end": "04066"
+      }
+    ],
+    "common": {
+      "P/1D": {
+        "address": "02142",
+        "words": 42,
+        "reserve": 40,
+        "initialize": 40
+      },
+      "*INPUT*": {
+        "address": "02214",
+        "words": 30
+      },
+      "*OUTPUT*": {
+        "address": "02252",
+        "words": 30
+      }
+    },
+    "code": [
+      [
+        "02310",
+        "02317"
+      ],
+      [
+        "02322",
+        "02330"
+      ],
+      [
+        "02355",
+        "02673"
+      ],
+      [
+        "02725",
+        "02745"
+      ],
+      [
+        "02774",
+        "03111"
+      ],
+      [
+        "03150",
+        "03160"
+      ],
+      [
+        "03162",
+        "03207"
+      ],
+      [
+        "03255",
+        "03264"
+      ],
+      [
+        "03315",
+        "03333"
+      ],
+      [
+        "03334",
+        "03366"
+      ],
+      [
+        "03421",
+        "03511"
+      ],
+      [
+        "03520",
+        "03531"
+      ],
+      [
+        "03533",
+        "03537"
+      ],
+      [
+        "03540",
+        "03556"
+      ],
+      [
+        "03560",
+        "03723"
+      ],
+      [
+        "03772",
+        "04022"
+      ],
+      [
+        "04024",
+        "04032"
+      ],
+      [
+        "04055",
+        "04066"
+      ]
+    ],
+    "exports": {
+      "P/2": "02310",
+      "P/SC": "02314",
+      "P/CO": "02355",
+      "P/TF": "02403",
+      "P/RF": "02407",
+      "P/IT": "02445",
+      "P/RET": "02447",
+      "P/PF": "02461",
+      "P/WOLN": "02510",
+      "P/WL": "02511",
+      "P/GF": "02541",
+      "P/EO": "02643",
+      "P/DA": "02663",
+      "P/08": "02676",
+      "P/LDAR": "02725",
+      "P/CW": "02735",
+      "P/EF": "02737",
+      "P/E": "02742",
+      "P/1": "02774",
+      "P/LV": "02774",
+      "PASPMD": "03002",
+      "P/PMDSET": "03034",
+      "P/ER": "03150",
+      "P/7A": "03422",
+      "P/7AD": "03424",
+      "P/WI": "03437",
+      "P/HT": "03520",
+      "P/WX": "03533",
+      "P/WXD": "03542",
+      "P/WR": "03560",
+      "PASTENS": "03746",
+      "P/SP": "03772",
+      "P/HIDE": "04000",
+      "P/EDIH": "04003",
+      "P/RC": "04006",
+      "P/TR": "04055",
+      "P/A7": "04060"
+    },
+    "data_relocations": [
+      {
+        "word": "02701",
+        "shift": 0,
+        "width": 15,
+        "target": "02711"
+      },
+      {
+        "word": "02702",
+        "shift": 0,
+        "width": 15,
+        "target": "02717"
+      }
+    ],
+    "fixed_addresses": [
+      "02007"
+    ],
+    "core_helpers": [
+      "P/3",
+      "P/6A"
+    ],
+    "notes": [
+      "Split into four modules to fit Madlen entry tables; original object-module boundaries are not assumed.",
+      "P/1D reserves 052 words in this image; initialize only the 050 runtime words so new program globals are not overwritten.",
+      "Word 02007 is the PASCODER stack descriptor supplied by the launch deck.",
+      "Short absolute references require the recovered module to remain below 010000."
+    ]
+  },
+  "svs": {
+    "image": "root-тестац",
+    "source": "тестац.bin",
+    "runtime": [
+      "03710",
+      "04354"
+    ],
+    "chunks": [
+      {
+        "name": "RTTS1",
+        "start": "03710",
+        "end": "03745"
+      },
+      {
+        "name": "RTTS2",
+        "start": "03745",
+        "end": "04067"
+      },
+      {
+        "name": "RTTS3",
+        "start": "04067",
+        "end": "04233"
+      },
+      {
+        "name": "RTTS4",
+        "start": "04245",
+        "end": "04354"
+      }
+    ],
+    "common": {
+      "P/1D": {
+        "address": "03516",
+        "words": 92,
+        "reserve": 40,
+        "initialize": 40
+      },
+      "*OUTPUT*": {
+        "address": "03652",
+        "words": 30
+      }
+    },
+    "code": [
+      [
+        "03710",
+        "03745"
+      ],
+      [
+        "03774",
+        "04064"
+      ],
+      [
+        "04067",
+        "04165"
+      ],
+      [
+        "04174",
+        "04224"
+      ],
+      [
+        "04225",
+        "04233"
+      ],
+      [
+        "04245",
+        "04263"
+      ],
+      [
+        "04270",
+        "04302"
+      ],
+      [
+        "04304",
+        "04306"
+      ],
+      [
+        "04310",
+        "04324"
+      ],
+      [
+        "04330",
+        "04335"
+      ],
+      [
+        "04336",
+        "04340"
+      ],
+      [
+        "04345",
+        "04347"
+      ]
+    ],
+    "exports": {
+      "P/2": "03710",
+      "P/IN": "03714",
+      "P/EO": "03724",
+      "P/GF": "03725",
+      "P/EF": "03737",
+      "P/E": "03742",
+      "P/08": "03745",
+      "P/STAR": "03774",
+      "P/LDAR": "04006",
+      "P/3": "04016",
+      "P/RF": "04022",
+      "P/CW": "04032",
+      "P/TF": "04034",
+      "P/6A": "04037",
+      "P/31": "04041",
+      "P/RC": "04043",
+      "P/WOLN": "04067",
+      "P/WL": "04070",
+      "P/7A": "04076",
+      "P/7AD": "04100",
+      "P/WI": "04113",
+      "P/WO": "04174",
+      "P/A7": "04225",
+      "P/CO": "04245",
+      "P/IT": "04252",
+      "P/1": "04254",
+      "P/PF": "04271",
+      "P/RET": "04270",
+      "P/PRINT": "04304",
+      "P/HIDE": "04310",
+      "P/EDIH": "04313",
+      "P/SP": "04316",
+      "P/PUTADR": "04331",
+      "P/PUTERR": "04336",
+      "P/OVERFL": "04345",
+      "STOP*": "04330"
+    },
+    "data_relocations": [
+      {
+        "word": "03750",
+        "shift": 0,
+        "width": 15,
+        "target": "03760"
+      },
+      {
+        "word": "03751",
+        "shift": 0,
+        "width": 15,
+        "target": "03766"
+      }
+    ],
+    "fixed_addresses": [
+      "02007"
+    ],
+    "core_helpers": [],
+    "compiler_prefix": "(*=a1*)",
+    "notes": [
+      "Preserved the observed SVS I/O and startup implementation.",
+      "Excluded application FORTRAN routines between runtime chunks.",
+      "P/1D reserves only 050 words for new programs; golden layout reserves the original globals.",
+      "Word 02007 is the PASCODER stack descriptor supplied by the launch deck."
+    ]
+  },
+  "mark3": {
+    "image": "root-mark3",
+    "source": "mark3.bin",
+    "runtime": [
+      "04755",
+      "05616"
+    ],
+    "chunks": [
+      {
+        "name": "RTMK1",
+        "start": "04755",
+        "end": "05012"
+      },
+      {
+        "name": "RTMK2",
+        "start": "05012",
+        "end": "05134"
+      },
+      {
+        "name": "RTMK3",
+        "start": "05134",
+        "end": "05143"
+      },
+      {
+        "name": "RTMK4",
+        "start": "05336",
+        "end": "05507"
+      },
+      {
+        "name": "RTMK5",
+        "start": "05507",
+        "end": "05616"
+      }
+    ],
+    "common": {
+      "P/1D": {
+        "address": "04507",
+        "words": 136,
+        "reserve": 40,
+        "initialize": 40
+      },
+      "*OUTPUT*": {
+        "address": "04717",
+        "words": 30
+      }
+    },
+    "code": [
+      [
+        "04755",
+        "05012"
+      ],
+      [
+        "05041",
+        "05131"
+      ],
+      [
+        "05134",
+        "05143"
+      ],
+      [
+        "05336",
+        "05447"
+      ],
+      [
+        "05456",
+        "05506"
+      ],
+      [
+        "05507",
+        "05525"
+      ],
+      [
+        "05532",
+        "05544"
+      ],
+      [
+        "05546",
+        "05550"
+      ],
+      [
+        "05552",
+        "05566"
+      ],
+      [
+        "05572",
+        "05577"
+      ],
+      [
+        "05600",
+        "05602"
+      ],
+      [
+        "05607",
+        "05611"
+      ]
+    ],
+    "exports": {
+      "P/2": "04755",
+      "P/IN": "04761",
+      "P/EO": "04771",
+      "P/GF": "04772",
+      "P/EF": "05004",
+      "P/E": "05007",
+      "P/08": "05012",
+      "P/STAR": "05041",
+      "P/LDAR": "05053",
+      "P/3": "05063",
+      "P/RF": "05067",
+      "P/CW": "05077",
+      "P/TF": "05101",
+      "P/6A": "05104",
+      "P/31": "05106",
+      "P/RC": "05110",
+      "P/WOLN": "05134",
+      "P/WL": "05135",
+      "P/7A": "05336",
+      "P/7AD": "05340",
+      "P/A7": "05353",
+      "P/WC": "05361",
+      "P/A6": "05366",
+      "P/WI": "05375",
+      "P/WO": "05456",
+      "P/CO": "05507",
+      "P/IT": "05514",
+      "P/1": "05516",
+      "P/PF": "05533",
+      "P/RET": "05532",
+      "P/PRINT": "05546",
+      "P/HIDE": "05552",
+      "P/EDIH": "05555",
+      "P/SP": "05560",
+      "P/PUTADR": "05573",
+      "P/PUTERR": "05600",
+      "P/OVERFL": "05607",
+      "STOP*": "05572"
+    },
+    "data_relocations": [
+      {
+        "word": "05015",
+        "shift": 0,
+        "width": 15,
+        "target": "05025"
+      },
+      {
+        "word": "05016",
+        "shift": 0,
+        "width": 15,
+        "target": "05033"
+      }
+    ],
+    "fixed_addresses": [
+      "02007"
+    ],
+    "core_helpers": [],
+    "compiler_prefix": "(*=a1*)",
+    "notes": [
+      "Preserved the observed SVS I/O and startup implementation.",
+      "Excluded application FORTRAN routines between runtime chunks.",
+      "P/1D reserves only 050 words for new programs; golden layout reserves the original globals.",
+      "Word 02007 is the PASCODER stack descriptor supplied by the launch deck."
+    ]
+  },
+  "pak": {
+    "image": "root-pak",
+    "source": "pak.bin",
+    "runtime": [
+      "10752",
+      "11563"
+    ],
+    "chunks": [
+      {
+        "name": "RTPK1",
+        "start": "10752",
+        "end": "11014"
+      },
+      {
+        "name": "RTPK2",
+        "start": "11014",
+        "end": "11244"
+      },
+      {
+        "name": "RTPK3",
+        "start": "11244",
+        "end": "11410"
+      },
+      {
+        "name": "RTPK4",
+        "start": "11436",
+        "end": "11445"
+      },
+      {
+        "name": "RTPK5",
+        "start": "11454",
+        "end": "11563"
+      }
+    ],
+    "common": {
+      "P/1D": {
+        "address": "10136",
+        "words": 365,
+        "reserve": 40,
+        "initialize": 40
+      },
+      "*OUTPUT*": {
+        "address": "10713",
+        "words": 30
+      },
+      "PASEOLSY": {
+        "address": "10751",
+        "words": 1,
+        "initialize": 1
+      }
+    },
+    "code": [
+      [
+        "10752",
+        "10764"
+      ],
+      [
+        "10777",
+        "11030"
+      ],
+      [
+        "11101",
+        "11155"
+      ],
+      [
+        "11164",
+        "11220"
+      ],
+      [
+        "11221",
+        "11271"
+      ],
+      [
+        "11307",
+        "11342"
+      ],
+      [
+        "11373",
+        "11410"
+      ],
+      [
+        "11436",
+        "11445"
+      ],
+      [
+        "11454",
+        "11472"
+      ],
+      [
+        "11474",
+        "11477"
+      ],
+      [
+        "11501",
+        "11507"
+      ],
+      [
+        "11511",
+        "11521"
+      ],
+      [
+        "11526",
+        "11536"
+      ],
+      [
+        "11537",
+        "11542"
+      ],
+      [
+        "11547",
+        "11551"
+      ],
+      [
+        "11556",
+        "11562"
+      ]
+    ],
+    "exports": {
+      "P/2": "10752",
+      "P/EF": "10756",
+      "P/E": "10761",
+      "P/07": "10764",
+      "P/LDARIN": "10777",
+      "P/CW": "11007",
+      "P/TF": "11011",
+      "P/WOLN": "11014",
+      "P/WL": "11015",
+      "P/WC": "11023",
+      "P/04": "11030",
+      "P/6A": "11101",
+      "P/WI": "11103",
+      "P/3": "11164",
+      "P/WO": "11170",
+      "P/RF": "11221",
+      "P/EO": "11231",
+      "P/GF": "11232",
+      "P/7A": "11244",
+      "P/7AD": "11246",
+      "P/SS": "11261",
+      "P/31": "11263",
+      "P/00": "11271",
+      "P/RR": "11307",
+      "P/STAR": "11320",
+      "P/IN": "11332",
+      "P/08": "11342",
+      "P/A7": "11373",
+      "P/CO": "11401",
+      "P/IT": "11406",
+      "P/A6": "11436",
+      "P/1": "11454",
+      "P/PF": "11461",
+      "P/RET": "11474",
+      "P/PRINT": "11475",
+      "P/SP": "11501",
+      "P/HIDE": "11511",
+      "P/EDIH": "11514",
+      "P/LDAR": "11526",
+      "P/PUTERR": "11540",
+      "P/OVERFL": "11547",
+      "P/PUTADR": "11556",
+      "STOP*": "11537"
+    },
+    "data_relocations": [
+      {
+        "word": "10767",
+        "shift": 0,
+        "width": 15,
+        "target": "10773"
+      },
+      {
+        "word": "10770",
+        "shift": 0,
+        "width": 15,
+        "target": "10775"
+      },
+      {
+        "word": "11033",
+        "shift": 0,
+        "width": 15,
+        "target": "11051"
+      },
+      {
+        "word": "11034",
+        "shift": 0,
+        "width": 15,
+        "target": "11065"
+      },
+      {
+        "word": "11274",
+        "shift": 0,
+        "width": 15,
+        "target": "11301"
+      },
+      {
+        "word": "11275",
+        "shift": 0,
+        "width": 15,
+        "target": "11304"
+      },
+      {
+        "word": "11345",
+        "shift": 0,
+        "width": 15,
+        "target": "11355"
+      },
+      {
+        "word": "11346",
+        "shift": 0,
+        "width": 15,
+        "target": "11363"
+      }
+    ],
+    "fixed_addresses": [
+      "02007"
+    ],
+    "core_helpers": [],
+    "compiler_prefix": "(*=a1*)",
+    "notes": [
+      "Preserved the observed SVS I/O and startup implementation.",
+      "Excluded application FORTRAN routines between runtime chunks.",
+      "P/1D reserves only 050 words for new programs; golden layout reserves the original globals.",
+      "Word 02007 is the PASCODER stack descriptor supplied by the launch deck."
+    ]
+  }
+}

@@ -1,0 +1,1028 @@
+{
+  "format_version": 1,
+  "address_notation": "octal",
+  "volume": {
+    "number": "4001",
+    "sha256": "30223751b839a6273cf96a0a6ab2e8becfcef2a59dd16661022b39740974b978",
+    "logical_zones": 1011,
+    "storage": "physical-le64-4-service-zones"
+  },
+  "catalog": [
+    {
+      "name": "МОНИТР",
+      "start": "0001",
+      "zones": "0010",
+      "descriptor": "0000234254420001"
+    },
+    {
+      "name": "UNIСОР",
+      "start": "0011",
+      "zones": "0005",
+      "descriptor": "0000126154012011"
+    },
+    {
+      "name": "ТАR",
+      "start": "0016",
+      "zones": "0005",
+      "descriptor": "0000126154012016"
+    },
+    {
+      "name": "КАНАЛ",
+      "start": "0023",
+      "zones": "0005",
+      "descriptor": "0000126154012023"
+    },
+    {
+      "name": "ПРОЗ",
+      "start": "0030",
+      "zones": "0004",
+      "descriptor": "0000234354410030"
+    },
+    {
+      "name": "МОRЕ",
+      "start": "0034",
+      "zones": "0003",
+      "descriptor": "0000126154006034"
+    },
+    {
+      "name": "КЕRМIТ",
+      "start": "0037",
+      "zones": "0010",
+      "descriptor": "0000020750020037"
+    },
+    {
+      "name": "МТD",
+      "start": "0047",
+      "zones": "0002",
+      "descriptor": "0000126154004047"
+    },
+    {
+      "name": "РRINТ",
+      "start": "0051",
+      "zones": "0006",
+      "descriptor": "0000126154014051"
+    },
+    {
+      "name": "ТЕСТАЦ",
+      "start": "0057",
+      "zones": "0002",
+      "descriptor": "0000126154004057"
+    },
+    {
+      "name": "ТЕSТ",
+      "start": "0061",
+      "zones": "0002",
+      "descriptor": "0000126154004061"
+    },
+    {
+      "name": "FРRINТ",
+      "start": "0063",
+      "zones": "0003",
+      "descriptor": "0000126154006063"
+    },
+    {
+      "name": "ВОХ",
+      "start": "0066",
+      "zones": "0002",
+      "descriptor": "0000206154004066"
+    },
+    {
+      "name": "ТАРТАR",
+      "start": "0070",
+      "zones": "0005",
+      "descriptor": "0000026254012070"
+    },
+    {
+      "name": "RЕСОD",
+      "start": "0075",
+      "zones": "0004",
+      "descriptor": "0000101054410075"
+    },
+    {
+      "name": "МТСОРУ",
+      "start": "0101",
+      "zones": "0003",
+      "descriptor": "0000134154406101"
+    },
+    {
+      "name": "СОРУ",
+      "start": "0106",
+      "zones": "0003",
+      "descriptor": "0000210254406106"
+    },
+    {
+      "name": "ТАВСОD",
+      "start": "0111",
+      "zones": "0001",
+      "descriptor": "0000134254402111"
+    },
+    {
+      "name": "LINК",
+      "start": "0112",
+      "zones": "0020",
+      "descriptor": "0000034454440112"
+    },
+    {
+      "name": "АСС3",
+      "start": "0132",
+      "zones": "0040",
+      "descriptor": "0000305054500132"
+    },
+    {
+      "name": "МТ",
+      "start": "0172",
+      "zones": "0003",
+      "descriptor": "0000246054406172"
+    },
+    {
+      "name": "LINК1",
+      "start": "0175",
+      "zones": "0020",
+      "descriptor": "0000102254440175"
+    },
+    {
+      "name": "АСС2",
+      "start": "0215",
+      "zones": "0040",
+      "descriptor": "0000144350100215"
+    },
+    {
+      "name": "ВLINК1",
+      "start": "0255",
+      "zones": "0020",
+      "descriptor": "0000020455040255"
+    },
+    {
+      "name": "ВLINК",
+      "start": "0275",
+      "zones": "0020",
+      "descriptor": "0000020455040275"
+    },
+    {
+      "name": "СОМР",
+      "start": "0315",
+      "zones": "0010",
+      "descriptor": "0000040650020315"
+    },
+    {
+      "name": "НЕВКЕР",
+      "start": "0325",
+      "zones": "0012",
+      "descriptor": "0000234655024325"
+    }
+  ],
+  "images": [
+    {
+      "id": "4001-0002-monitr-pascal",
+      "path": "images/4001/0002-monitr-pascal.bin",
+      "source": "4001",
+      "name": "МОНИТР (embedded)",
+      "placement": "embedded",
+      "zone": "0002",
+      "zone_word": "0000",
+      "words": 7168,
+      "end_zone_exclusive": "0011",
+      "sha256": "fd5a0d0da07e5585c05d9b8b042f5f0ba5d9c993829835210f1c3e8852fa3623",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "3",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "04101",
+          "start": "04074"
+        }
+      ],
+      "catalog": {
+        "name": "МОНИТР",
+        "start": "0001",
+        "zones": "0010",
+        "descriptor": "0000234254420001"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0011-unicop",
+      "path": "images/4001/0011-unicop.bin",
+      "source": "4001",
+      "name": "UNIСОР",
+      "placement": "catalog",
+      "zone": "0011",
+      "zone_word": "0000",
+      "words": 5120,
+      "end_zone_exclusive": "0016",
+      "sha256": "f2d03a7c0cca3b1d28d626f47f017b4ec682b18fab53a7ea6f6be5e7641ced74",
+      "loader": "pascoder",
+      "load_address": "02000",
+      "loader_transfer": "02011",
+      "loader_count_word": "4",
+      "entries": [
+        {
+          "address": "02020",
+          "constants": "06575",
+          "start": "06570"
+        }
+      ],
+      "catalog": {
+        "name": "UNIСОР",
+        "start": "0011",
+        "zones": "0005",
+        "descriptor": "0000126154012011"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0016-tar",
+      "path": "images/4001/0016-tar.bin",
+      "source": "4001",
+      "name": "ТАR",
+      "placement": "catalog",
+      "zone": "0016",
+      "zone_word": "0000",
+      "words": 5120,
+      "end_zone_exclusive": "0023",
+      "sha256": "5ce3faaa4e87ebdb65607ebba23a04497a9d747580aabcbd79383ce69fa9b95d",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "4",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "04301",
+          "start": "04270"
+        }
+      ],
+      "catalog": {
+        "name": "ТАR",
+        "start": "0016",
+        "zones": "0005",
+        "descriptor": "0000126154012016"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0023-kanal",
+      "path": "images/4001/0023-kanal.bin",
+      "source": "4001",
+      "name": "КАНАЛ",
+      "placement": "catalog",
+      "zone": "0023",
+      "zone_word": "0000",
+      "words": 5120,
+      "end_zone_exclusive": "0030",
+      "sha256": "4bef71fb3d64b3950bc2629a891b31b84f720d50065d4f75d95811d3dcaea23b",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "3",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "04060",
+          "start": "04053"
+        }
+      ],
+      "catalog": {
+        "name": "КАНАЛ",
+        "start": "0023",
+        "zones": "0005",
+        "descriptor": "0000126154012023"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0030-proz",
+      "path": "images/4001/0030-proz.bin",
+      "source": "4001",
+      "name": "ПРОЗ",
+      "placement": "catalog",
+      "zone": "0030",
+      "zone_word": "0000",
+      "words": 4096,
+      "end_zone_exclusive": "0034",
+      "sha256": "11df5af52a88fefa5ba05225036d232ac6cf43eeeecb476393df64cba5bcf5fd",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "4",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "04076",
+          "start": "04065"
+        }
+      ],
+      "catalog": {
+        "name": "ПРОЗ",
+        "start": "0030",
+        "zones": "0004",
+        "descriptor": "0000234354410030"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0034-more",
+      "path": "images/4001/0034-more.bin",
+      "source": "4001",
+      "name": "МОRЕ",
+      "placement": "catalog",
+      "zone": "0034",
+      "zone_word": "0000",
+      "words": 3072,
+      "end_zone_exclusive": "0037",
+      "sha256": "091a1127bc77951e8dbf8cca57fa573437b65340b64dab84afbe68aa17132d55",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "3",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "02516",
+          "start": "02505"
+        }
+      ],
+      "catalog": {
+        "name": "МОRЕ",
+        "start": "0034",
+        "zones": "0003",
+        "descriptor": "0000126154006034"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0037-kermit",
+      "path": "images/4001/0037-kermit.bin",
+      "source": "4001",
+      "name": "КЕRМIТ",
+      "placement": "catalog",
+      "zone": "0037",
+      "zone_word": "0000",
+      "words": 8192,
+      "end_zone_exclusive": "0047",
+      "sha256": "935b84153906109dc100946e812f53645c7ac1affd7c143785fddff0fb59126b",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "10",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "10342",
+          "start": "10335"
+        }
+      ],
+      "catalog": {
+        "name": "КЕRМIТ",
+        "start": "0037",
+        "zones": "0010",
+        "descriptor": "0000020750020037"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0047-mtd",
+      "path": "images/4001/0047-mtd.bin",
+      "source": "4001",
+      "name": "МТD",
+      "placement": "catalog",
+      "zone": "0047",
+      "zone_word": "0000",
+      "words": 2048,
+      "end_zone_exclusive": "0051",
+      "sha256": "df0c58282fe90fceda04522b2c2f0ca04aeaf7b3925ca7afbf532c2e9a4003ae",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "2",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "02640",
+          "start": "02627"
+        }
+      ],
+      "catalog": {
+        "name": "МТD",
+        "start": "0047",
+        "zones": "0002",
+        "descriptor": "0000126154004047"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0051-print",
+      "path": "images/4001/0051-print.bin",
+      "source": "4001",
+      "name": "РRINТ",
+      "placement": "catalog",
+      "zone": "0051",
+      "zone_word": "0000",
+      "words": 6144,
+      "end_zone_exclusive": "0057",
+      "sha256": "08b23f5cb0db9f428280d29dca8550b637ac3914caf59f8ba3955b11d9124cfc",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "5",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "02715",
+          "start": "02710"
+        }
+      ],
+      "catalog": {
+        "name": "РRINТ",
+        "start": "0051",
+        "zones": "0006",
+        "descriptor": "0000126154014051"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0057-testats",
+      "path": "images/4001/0057-testats.bin",
+      "source": "4001",
+      "name": "ТЕСТАЦ",
+      "placement": "catalog",
+      "zone": "0057",
+      "zone_word": "0000",
+      "words": 2048,
+      "end_zone_exclusive": "0061",
+      "sha256": "172b8ca87e612bae0890abd711d2b60f6e55ae9087cf7b6b19c75834cd4827f2",
+      "loader": "pascoder",
+      "load_address": "02000",
+      "loader_transfer": "02011",
+      "loader_count_word": "2",
+      "entries": [
+        {
+          "address": "02011",
+          "constants": "03310",
+          "start": "03303"
+        }
+      ],
+      "catalog": {
+        "name": "ТЕСТАЦ",
+        "start": "0057",
+        "zones": "0002",
+        "descriptor": "0000126154004057"
+      },
+      "duplicates": [
+        "тестац.bin"
+      ]
+    },
+    {
+      "id": "4001-0061-test",
+      "path": "images/4001/0061-test.bin",
+      "source": "4001",
+      "name": "ТЕSТ",
+      "placement": "catalog",
+      "zone": "0061",
+      "zone_word": "0000",
+      "words": 2048,
+      "end_zone_exclusive": "0063",
+      "sha256": "b4073efcc29a4b3c8da9ba2c55a76e3affb47117ec15cc544c3826f6de9048dc",
+      "loader": "pascoder",
+      "load_address": "02000",
+      "loader_transfer": "02011",
+      "loader_count_word": "2",
+      "entries": [
+        {
+          "address": "02011",
+          "constants": "02106",
+          "start": "02075"
+        }
+      ],
+      "catalog": {
+        "name": "ТЕSТ",
+        "start": "0061",
+        "zones": "0002",
+        "descriptor": "0000126154004061"
+      },
+      "duplicates": [
+        "test.bin"
+      ]
+    },
+    {
+      "id": "4001-0063-fprint",
+      "path": "images/4001/0063-fprint.bin",
+      "source": "4001",
+      "name": "FРRINТ",
+      "placement": "catalog",
+      "zone": "0063",
+      "zone_word": "0000",
+      "words": 3072,
+      "end_zone_exclusive": "0066",
+      "sha256": "10f07d99b30a31ffc22dd85b8a174168431d713c7ee7184cc15c0f1f4f3ed2d9",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "3",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "03407",
+          "start": "03376"
+        }
+      ],
+      "catalog": {
+        "name": "FРRINТ",
+        "start": "0063",
+        "zones": "0003",
+        "descriptor": "0000126154006063"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0066-box",
+      "path": "images/4001/0066-box.bin",
+      "source": "4001",
+      "name": "ВОХ",
+      "placement": "catalog",
+      "zone": "0066",
+      "zone_word": "0000",
+      "words": 2048,
+      "end_zone_exclusive": "0070",
+      "sha256": "96951aff3c85266bb929f353cc2f7ac34d5ace1e6b79a475d9c01174a4cf59d0",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "2",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "02565",
+          "start": "02560"
+        }
+      ],
+      "catalog": {
+        "name": "ВОХ",
+        "start": "0066",
+        "zones": "0002",
+        "descriptor": "0000206154004066"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0070-tartar",
+      "path": "images/4001/0070-tartar.bin",
+      "source": "4001",
+      "name": "ТАРТАR",
+      "placement": "catalog",
+      "zone": "0070",
+      "zone_word": "0000",
+      "words": 5120,
+      "end_zone_exclusive": "0075",
+      "sha256": "6bec3c8db9012cf3cac8ffcb52dc78b8ae45e38f53207c3ae63249a64d4391b9",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "4",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "04152",
+          "start": "04141"
+        }
+      ],
+      "catalog": {
+        "name": "ТАРТАR",
+        "start": "0070",
+        "zones": "0005",
+        "descriptor": "0000026254012070"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0075-recod",
+      "path": "images/4001/0075-recod.bin",
+      "source": "4001",
+      "name": "RЕСОD",
+      "placement": "catalog",
+      "zone": "0075",
+      "zone_word": "0000",
+      "words": 4096,
+      "end_zone_exclusive": "0101",
+      "sha256": "87a51716220b91f57a9a5e3c1248ea9e92738d7b8e15cfcc5988972fd43044a7",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "3",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "03462",
+          "start": "03455"
+        }
+      ],
+      "catalog": {
+        "name": "RЕСОD",
+        "start": "0075",
+        "zones": "0004",
+        "descriptor": "0000101054410075"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0101-mtcopy",
+      "path": "images/4001/0101-mtcopy.bin",
+      "source": "4001",
+      "name": "МТСОРУ",
+      "placement": "catalog",
+      "zone": "0101",
+      "zone_word": "0000",
+      "words": 3072,
+      "end_zone_exclusive": "0104",
+      "sha256": "42ea247fec8a4789aeda5f04bb133cf0c27436c205dde5956cfba64d4440998a",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "3",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "03070",
+          "start": "03057"
+        }
+      ],
+      "catalog": {
+        "name": "МТСОРУ",
+        "start": "0101",
+        "zones": "0003",
+        "descriptor": "0000134154406101"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0104-orphan-0104",
+      "path": "images/4001/0104-orphan-0104.bin",
+      "source": "4001",
+      "name": "uncatalogued",
+      "placement": "orphan",
+      "zone": "0104",
+      "zone_word": "0000",
+      "words": 2048,
+      "end_zone_exclusive": "0106",
+      "sha256": "89c85ddab46970f9bc3eb7a891625b84dd8df7a21d102c03d6d4b43527214e2a",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "2",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "02643",
+          "start": "02632"
+        }
+      ],
+      "duplicates": []
+    },
+    {
+      "id": "4001-0106-copy",
+      "path": "images/4001/0106-copy.bin",
+      "source": "4001",
+      "name": "СОРУ",
+      "placement": "catalog",
+      "zone": "0106",
+      "zone_word": "0000",
+      "words": 3072,
+      "end_zone_exclusive": "0111",
+      "sha256": "d5710ba2eea3ee9b0192061f17751a3a8497e19abd7754c3b09b92157cbf9acb",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "2",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "02620",
+          "start": "02613"
+        }
+      ],
+      "catalog": {
+        "name": "СОРУ",
+        "start": "0106",
+        "zones": "0003",
+        "descriptor": "0000210254406106"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0112-link",
+      "path": "images/4001/0112-link.bin",
+      "source": "4001",
+      "name": "LINК",
+      "placement": "catalog",
+      "zone": "0112",
+      "zone_word": "0000",
+      "words": 16384,
+      "end_zone_exclusive": "0132",
+      "sha256": "cc75fb6ffa95914f503b1d590c3932ae07ae4b0990e4cdccf18bb54dc1ce1465",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "12",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "17345",
+          "start": "17340"
+        }
+      ],
+      "catalog": {
+        "name": "LINК",
+        "start": "0112",
+        "zones": "0020",
+        "descriptor": "0000034454440112"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0132-acc3",
+      "path": "images/4001/0132-acc3.bin",
+      "source": "4001",
+      "name": "АСС3",
+      "placement": "catalog",
+      "zone": "0132",
+      "zone_word": "0000",
+      "words": 32768,
+      "end_zone_exclusive": "0172",
+      "sha256": "12c69f847fda2a20d722b9cd3a9ef9c51669a0e91d2ce7347dcf94c09e0518bf",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02013",
+      "loader_count_word": "1",
+      "entries": [
+        {
+          "address": "02013",
+          "constants": "02031",
+          "start": "02027"
+        }
+      ],
+      "catalog": {
+        "name": "АСС3",
+        "start": "0132",
+        "zones": "0040",
+        "descriptor": "0000305054500132"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0172-mt",
+      "path": "images/4001/0172-mt.bin",
+      "source": "4001",
+      "name": "МТ",
+      "placement": "catalog",
+      "zone": "0172",
+      "zone_word": "0000",
+      "words": 3072,
+      "end_zone_exclusive": "0175",
+      "sha256": "5dbe66f34992890b56800f7165e72da2daa214b4a38ab3eb48028b2a30d2cc3c",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "3",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "02753",
+          "start": "02742"
+        }
+      ],
+      "catalog": {
+        "name": "МТ",
+        "start": "0172",
+        "zones": "0003",
+        "descriptor": "0000246054406172"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0175-link1",
+      "path": "images/4001/0175-link1.bin",
+      "source": "4001",
+      "name": "LINК1",
+      "placement": "catalog",
+      "zone": "0175",
+      "zone_word": "0000",
+      "words": 16384,
+      "end_zone_exclusive": "0215",
+      "sha256": "0c14fc30f555024d6356f786869a5c10fb68e7fdcd00dc54bdc12dc620b35f01",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "12",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "16631",
+          "start": "16624"
+        }
+      ],
+      "catalog": {
+        "name": "LINК1",
+        "start": "0175",
+        "zones": "0020",
+        "descriptor": "0000102254440175"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0215-acc2",
+      "path": "images/4001/0215-acc2.bin",
+      "source": "4001",
+      "name": "АСС2",
+      "placement": "catalog",
+      "zone": "0215",
+      "zone_word": "0000",
+      "words": 32768,
+      "end_zone_exclusive": "0255",
+      "sha256": "12a9eb9f4218175f89b45c7c6a72081a5f5f0228fbd046575f739a31b463d64b",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02013",
+      "loader_count_word": "1",
+      "entries": [
+        {
+          "address": "02013",
+          "constants": "02031",
+          "start": "02027"
+        }
+      ],
+      "catalog": {
+        "name": "АСС2",
+        "start": "0215",
+        "zones": "0040",
+        "descriptor": "0000144350100215"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0255-blink1",
+      "path": "images/4001/0255-blink1.bin",
+      "source": "4001",
+      "name": "ВLINК1",
+      "placement": "catalog",
+      "zone": "0255",
+      "zone_word": "0000",
+      "words": 16384,
+      "end_zone_exclusive": "0275",
+      "sha256": "a55ef110189af39d91e03160b538766b3aff2627e0b54c2167042bc8ba79a5fc",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "12",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "16704",
+          "start": "16677"
+        }
+      ],
+      "catalog": {
+        "name": "ВLINК1",
+        "start": "0255",
+        "zones": "0020",
+        "descriptor": "0000020455040255"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0275-blink",
+      "path": "images/4001/0275-blink.bin",
+      "source": "4001",
+      "name": "ВLINК",
+      "placement": "catalog",
+      "zone": "0275",
+      "zone_word": "0000",
+      "words": 16384,
+      "end_zone_exclusive": "0315",
+      "sha256": "42ba1a5f545857c43cd6196c1060ea92ea4a703d9a10eee819f85f88b317431e",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "12",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "17345",
+          "start": "17340"
+        }
+      ],
+      "catalog": {
+        "name": "ВLINК",
+        "start": "0275",
+        "zones": "0020",
+        "descriptor": "0000020455040275"
+      },
+      "duplicates": []
+    },
+    {
+      "id": "4001-0315-comp",
+      "path": "images/4001/0315-comp.bin",
+      "source": "4001",
+      "name": "СОМР",
+      "placement": "catalog",
+      "zone": "0315",
+      "zone_word": "0000",
+      "words": 8192,
+      "end_zone_exclusive": "0325",
+      "sha256": "4a448553b9499d719f770c33e32a0cab200ca718557493e44c067a8df0858d34",
+      "loader": "alternate",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "10",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "04706",
+          "start": "04675"
+        }
+      ],
+      "catalog": {
+        "name": "СОМР",
+        "start": "0315",
+        "zones": "0010",
+        "descriptor": "0000040650020315"
+      },
+      "duplicates": []
+    }
+  ],
+  "roots": [
+    {
+      "id": "root-mark3",
+      "path": "mark3.bin",
+      "source": "workspace",
+      "sha256": "59fe1253b0421f4b0e3f1deb5575576ddb51337cdedd240c7058e0b7f31acc9d",
+      "words": 3072,
+      "loader": "pascoder",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "2",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "04115",
+          "start": "04110"
+        }
+      ]
+    },
+    {
+      "id": "root-pak",
+      "path": "pak.bin",
+      "source": "workspace",
+      "sha256": "a1392bfba7e529ab4f15cd11453eb0c37bcb07e633059445611aa585f365aa2b",
+      "words": 4096,
+      "loader": "pascoder",
+      "load_address": "02000",
+      "loader_transfer": "02012",
+      "loader_count_word": "4",
+      "entries": [
+        {
+          "address": "02012",
+          "constants": "07255",
+          "start": "07250"
+        }
+      ]
+    },
+    {
+      "id": "root-test",
+      "path": "test.bin",
+      "source": "workspace",
+      "sha256": "b4073efcc29a4b3c8da9ba2c55a76e3affb47117ec15cc544c3826f6de9048dc",
+      "words": 2048,
+      "loader": "pascoder",
+      "load_address": "02000",
+      "loader_transfer": "02011",
+      "loader_count_word": "2",
+      "entries": [
+        {
+          "address": "02011",
+          "constants": "02106",
+          "start": "02075"
+        }
+      ]
+    },
+    {
+      "id": "root-тестац",
+      "path": "тестац.bin",
+      "source": "workspace",
+      "sha256": "172b8ca87e612bae0890abd711d2b60f6e55ae9087cf7b6b19c75834cd4827f2",
+      "words": 2048,
+      "loader": "pascoder",
+      "load_address": "02000",
+      "loader_transfer": "02011",
+      "loader_count_word": "2",
+      "entries": [
+        {
+          "address": "02011",
+          "constants": "03310",
+          "start": "03303"
+        }
+      ]
+    }
+  ]
+}

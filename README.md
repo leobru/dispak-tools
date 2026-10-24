@@ -1,6 +1,13 @@
 # dispak-tools
 Various tools for OS DISPAK for BESM-6, disassembled/decompiled.
 
+## Pascal runtime recovery
+
+[runtime/README.md](runtime/README.md) describes the Pascal image corpus extracted
+from volume 4001, its analysis, and four recovered Madlen runtime libraries.
+Compile and run a new program with `python3 runtime/build.py run program.pas`;
+use `python3 runtime/build.py check` for the word comparisons and emulator checks.
+
 ## MARK3
 Утилита для разметки лент ЕС ЭВМ на СВС (Э1-К2) путем прямого доступа к ПВВ.
 Для компиляции требуется улучшенный Паскаль-компилятор.

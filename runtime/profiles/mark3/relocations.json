@@ -1,0 +1,745 @@
+{
+  "profile": "mark3",
+  "source": "mark3.bin",
+  "sha256": "59fe1253b0421f4b0e3f1deb5575576ddb51337cdedd240c7058e0b7f31acc9d",
+  "module": "RTMK1",
+  "chunks": [
+    {
+      "name": "RTMK1",
+      "start": "04755",
+      "end": "05012"
+    },
+    {
+      "name": "RTMK2",
+      "start": "05012",
+      "end": "05134"
+    },
+    {
+      "name": "RTMK3",
+      "start": "05134",
+      "end": "05143"
+    },
+    {
+      "name": "RTMK4",
+      "start": "05336",
+      "end": "05507"
+    },
+    {
+      "name": "RTMK5",
+      "start": "05507",
+      "end": "05616"
+    }
+  ],
+  "runtime": [
+    "04755",
+    "05616"
+  ],
+  "exports": {
+    "P/2": "04755",
+    "P/IN": "04761",
+    "P/EO": "04771",
+    "P/GF": "04772",
+    "P/EF": "05004",
+    "P/E": "05007",
+    "P/08": "05012",
+    "P/STAR": "05041",
+    "P/LDAR": "05053",
+    "P/3": "05063",
+    "P/RF": "05067",
+    "P/CW": "05077",
+    "P/TF": "05101",
+    "P/6A": "05104",
+    "P/31": "05106",
+    "P/RC": "05110",
+    "P/WOLN": "05134",
+    "P/WL": "05135",
+    "P/7A": "05336",
+    "P/7AD": "05340",
+    "P/A7": "05353",
+    "P/WC": "05361",
+    "P/A6": "05366",
+    "P/WI": "05375",
+    "P/WO": "05456",
+    "P/CO": "05507",
+    "P/IT": "05514",
+    "P/1": "05516",
+    "P/PF": "05533",
+    "P/RET": "05532",
+    "P/PRINT": "05546",
+    "P/HIDE": "05552",
+    "P/EDIH": "05555",
+    "P/SP": "05560",
+    "P/PUTADR": "05573",
+    "P/PUTERR": "05600",
+    "P/OVERFL": "05607",
+    "STOP*": "05572"
+  },
+  "common": {
+    "P/1D": {
+      "address": "04507",
+      "words": 136,
+      "reserve": 40,
+      "initialize": 40
+    },
+    "*OUTPUT*": {
+      "address": "04717",
+      "words": 30
+    }
+  },
+  "core_helpers": [],
+  "compiler_prefix": "(*=a1*)",
+  "relocations": [
+    {
+      "word": "04763",
+      "half": "L",
+      "target": "04767",
+      "expression": "R04767",
+      "width": 15
+    },
+    {
+      "word": "04772",
+      "half": "R",
+      "target": "05523",
+      "expression": "RTMK5+14B",
+      "width": 15
+    },
+    {
+      "word": "04774",
+      "half": "L",
+      "target": "04776",
+      "expression": "R04776",
+      "width": 15
+    },
+    {
+      "word": "05000",
+      "half": "L",
+      "target": "05012",
+      "expression": "RTMK2",
+      "width": 15
+    },
+    {
+      "word": "05000",
+      "half": "R",
+      "target": "05053",
+      "expression": "RTMK2+41B",
+      "width": 15
+    },
+    {
+      "word": "05003",
+      "half": "L",
+      "target": "05532",
+      "expression": "RTMK5+23B",
+      "width": 15
+    },
+    {
+      "word": "05015",
+      "shift": 0,
+      "width": 15,
+      "target": "05025",
+      "expression": "R05025",
+      "half": "data"
+    },
+    {
+      "word": "05016",
+      "shift": 0,
+      "width": 15,
+      "target": "05033",
+      "expression": "R05033",
+      "half": "data"
+    },
+    {
+      "word": "05070",
+      "half": "R",
+      "target": "05073",
+      "expression": "R05073",
+      "width": 15
+    },
+    {
+      "word": "05100",
+      "half": "R",
+      "target": "05533",
+      "expression": "RTMK5+24B",
+      "width": 15
+    },
+    {
+      "word": "05105",
+      "half": "R",
+      "target": "05336",
+      "expression": "RTMK4",
+      "width": 15
+    },
+    {
+      "word": "05110",
+      "half": "R",
+      "target": "05131",
+      "expression": "R05131",
+      "width": 15
+    },
+    {
+      "word": "05114",
+      "half": "L",
+      "target": "05124",
+      "expression": "R05124",
+      "width": 15
+    },
+    {
+      "word": "05115",
+      "half": "L",
+      "target": "05133",
+      "expression": "R05133",
+      "width": 15
+    },
+    {
+      "word": "05116",
+      "half": "L",
+      "target": "05121",
+      "expression": "R05121",
+      "width": 15
+    },
+    {
+      "word": "05121",
+      "half": "L",
+      "target": "05131",
+      "expression": "R05131",
+      "width": 15
+    },
+    {
+      "word": "05123",
+      "half": "L",
+      "target": "05113",
+      "expression": "R05113",
+      "width": 15
+    },
+    {
+      "word": "05125",
+      "half": "L",
+      "target": "05130",
+      "expression": "R05130",
+      "width": 15
+    },
+    {
+      "word": "05127",
+      "half": "L",
+      "target": "05124",
+      "expression": "R05124",
+      "width": 15
+    },
+    {
+      "word": "05134",
+      "half": "L",
+      "target": "04717",
+      "expression": "*OUTPUT*",
+      "width": 15
+    },
+    {
+      "word": "05135",
+      "half": "R",
+      "target": "05545",
+      "expression": "RTMK5+36B",
+      "width": 15
+    },
+    {
+      "word": "05137",
+      "half": "R",
+      "target": "05533",
+      "expression": "RTMK5+24B",
+      "width": 15
+    },
+    {
+      "word": "05141",
+      "half": "R",
+      "target": "05546",
+      "expression": "RTMK5+37B",
+      "width": 15
+    },
+    {
+      "word": "05142",
+      "half": "L",
+      "target": "05532",
+      "expression": "RTMK5+23B",
+      "width": 15
+    },
+    {
+      "word": "05142",
+      "half": "R",
+      "target": "05101",
+      "expression": "RTMK2+67B",
+      "width": 15
+    },
+    {
+      "word": "05336",
+      "half": "L",
+      "target": "05552",
+      "expression": "RTMK5+43B",
+      "width": 15
+    },
+    {
+      "word": "05345",
+      "half": "L",
+      "target": "05533",
+      "expression": "RTMK5+24B",
+      "width": 15
+    },
+    {
+      "word": "05346",
+      "half": "R",
+      "target": "05351",
+      "expression": "R05351",
+      "width": 15
+    },
+    {
+      "word": "05347",
+      "half": "L",
+      "target": "05342",
+      "expression": "R05342",
+      "width": 15
+    },
+    {
+      "word": "05350",
+      "half": "L",
+      "target": "05340",
+      "expression": "R05340",
+      "width": 15
+    },
+    {
+      "word": "05351",
+      "half": "L",
+      "target": "05555",
+      "expression": "RTMK5+46B",
+      "width": 15
+    },
+    {
+      "word": "05354",
+      "half": "L",
+      "target": "05552",
+      "expression": "RTMK5+43B",
+      "width": 15
+    },
+    {
+      "word": "05360",
+      "half": "L",
+      "target": "05340",
+      "expression": "R05340",
+      "width": 15
+    },
+    {
+      "word": "05360",
+      "half": "R",
+      "target": "05560",
+      "expression": "RTMK5+51B",
+      "width": 15
+    },
+    {
+      "word": "05363",
+      "half": "L",
+      "target": "05560",
+      "expression": "RTMK5+51B",
+      "width": 15
+    },
+    {
+      "word": "05365",
+      "half": "R",
+      "target": "05077",
+      "expression": "RTMK2+65B",
+      "width": 15
+    },
+    {
+      "word": "05371",
+      "half": "L",
+      "target": "05560",
+      "expression": "RTMK5+51B",
+      "width": 15
+    },
+    {
+      "word": "05374",
+      "half": "L",
+      "target": "05104",
+      "expression": "RTMK2+72B",
+      "width": 15
+    },
+    {
+      "word": "05377",
+      "half": "R",
+      "target": "05447",
+      "expression": "R05447",
+      "width": 15
+    },
+    {
+      "word": "05401",
+      "half": "L",
+      "target": "05404",
+      "expression": "R05404",
+      "width": 15
+    },
+    {
+      "word": "05401",
+      "half": "R",
+      "target": "05454",
+      "expression": "R05454",
+      "width": 15
+    },
+    {
+      "word": "05402",
+      "half": "R",
+      "target": "05336",
+      "expression": "R05336",
+      "width": 15
+    },
+    {
+      "word": "05403",
+      "half": "L",
+      "target": "05444",
+      "expression": "R05444",
+      "width": 15
+    },
+    {
+      "word": "05406",
+      "half": "R",
+      "target": "05411",
+      "expression": "R05411",
+      "width": 15
+    },
+    {
+      "word": "05414",
+      "half": "L",
+      "target": "05416",
+      "expression": "R05416",
+      "width": 15
+    },
+    {
+      "word": "05415",
+      "half": "L",
+      "target": "05420",
+      "expression": "R05420",
+      "width": 15
+    },
+    {
+      "word": "05424",
+      "half": "L",
+      "target": "05412",
+      "expression": "R05412",
+      "width": 15
+    },
+    {
+      "word": "05425",
+      "half": "L",
+      "target": "05426",
+      "expression": "R05426",
+      "width": 15
+    },
+    {
+      "word": "05430",
+      "half": "L",
+      "target": "05560",
+      "expression": "RTMK5+51B",
+      "width": 15
+    },
+    {
+      "word": "05432",
+      "half": "L",
+      "target": "05434",
+      "expression": "R05434",
+      "width": 15
+    },
+    {
+      "word": "05432",
+      "half": "R",
+      "target": "05567",
+      "expression": "RTMK5+60B",
+      "width": 15
+    },
+    {
+      "word": "05433",
+      "half": "R",
+      "target": "05077",
+      "expression": "RTMK2+65B",
+      "width": 15
+    },
+    {
+      "word": "05434",
+      "half": "R",
+      "target": "05450",
+      "expression": "R05450",
+      "width": 15
+    },
+    {
+      "word": "05435",
+      "half": "R",
+      "target": "05444",
+      "expression": "R05444",
+      "width": 15
+    },
+    {
+      "word": "05436",
+      "half": "R",
+      "target": "05566",
+      "expression": "RTMK5+57B",
+      "width": 15
+    },
+    {
+      "word": "05441",
+      "half": "L",
+      "target": "05533",
+      "expression": "RTMK5+24B",
+      "width": 15
+    },
+    {
+      "word": "05443",
+      "half": "L",
+      "target": "05434",
+      "expression": "R05434",
+      "width": 15
+    },
+    {
+      "word": "05457",
+      "half": "L",
+      "target": "05552",
+      "expression": "RTMK5+43B",
+      "width": 15
+    },
+    {
+      "word": "05460",
+      "half": "L",
+      "target": "05506",
+      "expression": "R05506",
+      "width": 15
+    },
+    {
+      "word": "05462",
+      "half": "L",
+      "target": "05560",
+      "expression": "RTMK5+51B",
+      "width": 15
+    },
+    {
+      "word": "05464",
+      "half": "L",
+      "target": "05467",
+      "expression": "R05467",
+      "width": 15
+    },
+    {
+      "word": "05464",
+      "half": "R",
+      "target": "05506",
+      "expression": "R05506",
+      "width": 15
+    },
+    {
+      "word": "05473",
+      "half": "L",
+      "target": "05566",
+      "expression": "RTMK5+57B",
+      "width": 15
+    },
+    {
+      "word": "05474",
+      "half": "R",
+      "target": "05471",
+      "expression": "R05471",
+      "width": 15
+    },
+    {
+      "word": "05500",
+      "half": "L",
+      "target": "05503",
+      "expression": "R05503",
+      "width": 15
+    },
+    {
+      "word": "05501",
+      "half": "R",
+      "target": "05077",
+      "expression": "RTMK2+65B",
+      "width": 15
+    },
+    {
+      "word": "05502",
+      "half": "R",
+      "target": "05500",
+      "expression": "R05500",
+      "width": 15
+    },
+    {
+      "word": "05504",
+      "half": "L",
+      "target": "05555",
+      "expression": "RTMK5+46B",
+      "width": 15
+    },
+    {
+      "word": "05517",
+      "half": "R",
+      "target": "04507",
+      "expression": "P/1D",
+      "width": 15
+    },
+    {
+      "word": "05520",
+      "half": "R",
+      "target": "05572",
+      "expression": "R05572",
+      "width": 15
+    },
+    {
+      "word": "05523",
+      "half": "L",
+      "target": "05525",
+      "expression": "R05525",
+      "width": 15
+    },
+    {
+      "word": "05523",
+      "half": "R",
+      "target": "05531",
+      "expression": "R05531",
+      "width": 15
+    },
+    {
+      "word": "05524",
+      "half": "L",
+      "target": "05573",
+      "expression": "R05573",
+      "width": 15
+    },
+    {
+      "word": "05533",
+      "half": "R",
+      "target": "05600",
+      "expression": "R05600",
+      "width": 15
+    },
+    {
+      "word": "05534",
+      "half": "R",
+      "target": "05544",
+      "expression": "R05544",
+      "width": 15
+    },
+    {
+      "word": "05535",
+      "half": "R",
+      "target": "05607",
+      "expression": "R05607",
+      "width": 15
+    },
+    {
+      "word": "05540",
+      "half": "R",
+      "target": "05012",
+      "expression": "RTMK2",
+      "width": 15
+    },
+    {
+      "word": "05541",
+      "half": "L",
+      "target": "05041",
+      "expression": "RTMK2+27B",
+      "width": 15
+    },
+    {
+      "word": "05543",
+      "half": "R",
+      "target": "05532",
+      "expression": "R05532",
+      "width": 15
+    },
+    {
+      "word": "05546",
+      "half": "L",
+      "target": "05550",
+      "expression": "R05550",
+      "width": 15
+    },
+    {
+      "word": "05561",
+      "half": "L",
+      "target": "05570",
+      "expression": "R05570",
+      "width": 15
+    },
+    {
+      "word": "05563",
+      "half": "L",
+      "target": "05533",
+      "expression": "R05533",
+      "width": 15
+    },
+    {
+      "word": "05565",
+      "half": "R",
+      "target": "05560",
+      "expression": "R05560",
+      "width": 15
+    },
+    {
+      "word": "05574",
+      "half": "L",
+      "target": "05577",
+      "expression": "R05577",
+      "width": 15
+    },
+    {
+      "word": "05576",
+      "half": "L",
+      "target": "05572",
+      "expression": "R05572",
+      "width": 15
+    },
+    {
+      "word": "05576",
+      "half": "R",
+      "target": "05546",
+      "expression": "R05546",
+      "width": 15
+    },
+    {
+      "word": "05600",
+      "half": "L",
+      "target": "05602",
+      "expression": "R05602",
+      "width": 15
+    },
+    {
+      "word": "05600",
+      "half": "R",
+      "target": "05606",
+      "expression": "R05606",
+      "width": 15
+    },
+    {
+      "word": "05601",
+      "half": "L",
+      "target": "05573",
+      "expression": "R05573",
+      "width": 15
+    },
+    {
+      "word": "05607",
+      "half": "L",
+      "target": "05611",
+      "expression": "R05611",
+      "width": 15
+    },
+    {
+      "word": "05607",
+      "half": "R",
+      "target": "05615",
+      "expression": "R05615",
+      "width": 15
+    },
+    {
+      "word": "05610",
+      "half": "L",
+      "target": "05573",
+      "expression": "R05573",
+      "width": 15
+    }
+  ],
+  "notes": [
+    "Preserved the observed SVS I/O and startup implementation.",
+    "Excluded application FORTRAN routines between runtime chunks.",
+    "P/1D reserves only 050 words for new programs; golden layout reserves the original globals.",
+    "Word 02007 is the PASCODER stack descriptor supplied by the launch deck."
+  ]
+}

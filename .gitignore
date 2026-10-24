@@ -1,6 +1,9 @@
 # Prerequisites
 *.d
 
+# Python tools
+__pycache__/
+
 # Object files
 *.o
 *.ko
