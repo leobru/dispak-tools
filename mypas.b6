@@ -525,7 +525,7 @@ label 22420, 22421, 23301;
 var
     preDefHead, typelist, scopeBound, l2var4z, curIdRec, workidr: irptr;
     isPredefined, l2bool8z, inTypeDef: boolean;
-    l2var10z: eptr;
+    l2var10z, fInitList: eptr;
     fInitOff: integer;
     l2var12z: word;
     curType, l2typ14z: tptr;
@@ -1151,6 +1151,7 @@ var
     l3var135z: irptr;
     expMultiple, expValue: real;
     curChar: char;
+    dquote: boolean;
     numstr: array [1..16] of word;
     l3vars2: array [155..159] of word;
     expLiteral, expMagnitude: integer;
@@ -1519,12 +1520,18 @@ _(
                 exit lexer
             _); (* INTCONST *) (*=m+*)
             CHARCONST: _(
+% A string in double quotes is always in KOI-8 and ends
+% only with a double quote; a string in single quotes uses
+% the A option encoding and cannot end with a double quote.
+                dquote := CH = '"';
 (loop)          _(
                     for tokenIdx := 6 to 130 do _(
                         nextCH;
-                        if charSymTabBase[CH] = CHARCONST then _(
+                        if (charSymTabBase[CH] = CHARCONST) and
+                           ((CH = '"') = dquote) then _(
                             nextCH;
-                            if charSymTabBase[CH] <> CHARCONST then
+                            if (charSymTabBase[CH] <> CHARCONST) or
+                               ((CH = '"') <> dquote) then
                                 exit loop
                             else
                                 goto 2233;
@@ -1550,7 +1557,12 @@ _(
                             localBuf[tokenIdx] := chr(expLiteral);
                         _) else
 2233:                       with PASINFOR do _(
-                                if charEncoding = 3 then _(
+                                if dquote then _(
+                                    if '_176' < CH then
+                                        curChar := CH
+                                    else
+                                        curChar := a4@[CH];
+                                _) else if charEncoding = 3 then _(
                                     if (ch < '*') or ('_176' < CH) then
                                         curChar := chr(0)
                                     else
@@ -3237,6 +3249,7 @@ var
     l5exp1z, l5exp2z: eptr;
     l5idr3z, l5idr4z, l5idr5z, l5idr6z: irptr;
     l5bool7z, l5bool8z, l5bool9z, l5bool10z, l5bool11z: boolean;
+    isAsm: boolean;
     l5var12z, l5var13z, l5var14z: word;
     l5var15z: integer;
     l5var16z, l5var17z, l5var18z, l5var19z: word;
@@ -3281,6 +3294,12 @@ _( (* genEntry *)
     l5var12z.m := l5idr5z@.flags;
     l5bool10z := (21 in l5var12z.m);
     l5bool11z := (24 in l5var12z.m);
+% ASSEMBLER convention: all arguments are pushed onto the stack
+% (values of one-word value parameters, addresses of the rest)
+% with no frame header, the routine is called by VJM 13,
+% returns the function result in A and pops the arguments itself;
+% it must preserve M1..M8, so M8 is not restored after the call.
+    isAsm := (19 in l5var12z.m);
     if (l5bool9z) then _(
         l5var14z.i := F3307(l5idr5z);
         l5idr6z := l5idr5z@.argList;
@@ -3300,7 +3319,9 @@ _( (* genEntry *)
         _)
     _) else _(
         l5bool8z := true;
-        if (not l5bool9z) and (l5exp1z <> NIL)
+        if isAsm then
+            (* no frame header *)
+        else if (not l5bool9z) and (l5exp1z <> NIL)
             or (l5bool9z) and (l5var14z.i >= 2) then _(
             addToInsnList(KUTM+SP + l5var13z.i);
         _);
@@ -3414,6 +3435,8 @@ _( (* genEntry *)
         if l5bool9z and not l5bool11z then
             l5idr6z := l5idr6z@.list;
     _); (* while -> 7061 *)
+    if isAsm and (l5var14z.i <> 0) then
+        addToInsnList(KATX+SP);
     traceEntry(true);
     if l5bool10z then _(
         addToInsnList(KNTR+2);
@@ -3463,7 +3486,7 @@ _( (* genEntry *)
             _)
         _)
     _); (* 7176 *)
-    if not l5bool9z or ([20, 21] * l5var12z.m <> []) then _(
+    if not l5bool9z or ([20, 21] * l5var12z.m <> []) and not isAsm then _(
         addToInsnList(KVTM+40074001B);
     _);
     set145z := (set145z + l5var12z.m) * [1:15];
@@ -3475,7 +3498,7 @@ _( (* genEntry *)
             addToInsnList(getHelperProc(93));    (* "P/FM" *)
         insnList@.next@.mode := 2;
     _) else _(
-        if not l5bool7z then
+        if not l5bool7z and not isAsm then
             addToInsnList(KXTA+SP + l5var13z.i - 1);
     _); (* 7226 *)
     if not l5bool7z then _(
@@ -7302,7 +7325,13 @@ _( (* statement *)
 	    int53z := 0;
 	    set145z := [1:15] - set147z;
 	    if (curProcNesting <> 1) then
-		parseDecls(2);
+		parseDecls(2)
+	    else if fInitList <> NIL then _(
+		curExpr := fInitList;
+		fInitOff := moduleOffset;
+		formOperator(gen14);
+		l3var1z.i := moduleOffset;
+	    _);
 	    l2int21z := curVarOff;
 	    if (SY <> BEGINSY) then
 		requiredSymErr(BEGINSY);
@@ -7883,6 +7912,7 @@ _( (* programme *)
     preDefHead := ptr(0);
     inTypeDef := false;
     fInitOff := 0;
+    fInitList := NIL;
     strLabList := NIL;
     lineNesting := lineNesting + 1;
     l2var16z := numLabList;
@@ -8117,11 +8147,17 @@ _( (* programme *)
 %    writeln(' formfileinit called, curexpr = ', curexpr:5 oct,
 %    ' level = ', curProcNesting:0);
 
+    fInitOff := 0;
     if  (curExpr <> NIL) and not (S5 in optSflags.m) then _(
-        fInitOff := moduleOffset;
-        formOperator(gen14);
-    _) else
-        fInitOff := 0;
+% The main program's file initialization is formed by defineRoutine
+% right before the main program body, not at the start of the module.
+        if curProcNesting = 1 then
+            fInitList := curExpr
+        else _(
+            fInitOff := moduleOffset;
+            formOperator(gen14);
+        _)
+    _);
     if (curProcNesting = 1) then _(
         curExternFile := externFileList;
         while (curExternFile <> NIL) do _(
@@ -8238,9 +8274,12 @@ _( (* programme *)
             preDefLink := preDefHead;
             preDefHead := curIdRec;
         _) else (* 23237 *) if (curIdent = litExternal) or
-            (curIdent = litFortran) or (curIdent = litOct) then _(
+            (curIdent = litFortran) or (curIdent = litOct) or
+            (curIdent.i = 4163634555425445C(*"ASSEMBLE"*)) then _(
             if (curIdent = litExternal) then _(
                 curVal.m := [20];
+            _) else if (curIdent.i = 4163634555425445C) then _(
+                curVal.m := [19, 20];
             _) else if (checkFortran) then _(
                 curVal.m := [21,24];
                 checkFortran := false;
@@ -8664,6 +8703,7 @@ _)
     setOpMap[MUL] := SETAND, SETXOR;
     charSymTabBase[chr(27)] := CHARCONST;
     charSymTabBase[''''] := CHARCONST;
+    charSymTabBase['"'] := CHARCONST;
     charSymTabBase['_'] := REALCONST;
     charSymTabBase['<'] := LTSY;
     charSymTabBase['>'] := GTSY;
