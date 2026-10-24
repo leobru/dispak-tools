@@ -8,24 +8,190 @@
     ],
     "chunks": [
       {
-        "name": "RTMON1",
+        "name": "P/2",
         "start": "02310",
-        "end": "02676"
+        "end": "02314",
+        "file": "p_2.madlen"
       },
       {
-        "name": "RTMON2",
+        "name": "P/SC",
+        "start": "02314",
+        "end": "02330",
+        "file": "p_sc.madlen"
+      },
+      {
+        "name": "P/SYS",
+        "start": "02330",
+        "end": "02663",
+        "file": "p_sys.madlen"
+      },
+      {
+        "name": "P/DA",
+        "start": "02663",
+        "end": "02676",
+        "file": "p_da.madlen"
+      },
+      {
+        "name": "P/08",
         "start": "02676",
-        "end": "03002"
+        "end": "02725",
+        "file": "p_08.madlen"
       },
       {
-        "name": "RTMON3",
+        "name": "P/LDAR",
+        "start": "02725",
+        "end": "02735",
+        "file": "p_ldar.madlen"
+      },
+      {
+        "name": "P/CW",
+        "start": "02735",
+        "end": "02737",
+        "file": "p_cw.madlen"
+      },
+      {
+        "name": "P/EF",
+        "start": "02737",
+        "end": "02745",
+        "file": "p_ef.madlen"
+      },
+      {
+        "name": "*TTIO*",
+        "start": "02745",
+        "end": "02774",
+        "file": "ttio.madlen"
+      },
+      {
+        "name": "P/1",
+        "start": "02774",
+        "end": "03002",
+        "file": "p_1.madlen"
+      },
+      {
+        "name": "PASPMD",
         "start": "03002",
-        "end": "03422"
+        "end": "03150",
+        "file": "paspmd.madlen"
       },
       {
-        "name": "RTMON4",
+        "name": "P/ER",
+        "start": "03150",
+        "end": "03162",
+        "file": "p_er.madlen"
+      },
+      {
+        "name": "STOP*",
+        "start": "03162",
+        "end": "03163",
+        "file": "stop.madlen"
+      },
+      {
+        "name": "MONOUT",
+        "start": "03163",
+        "end": "03255",
+        "file": "monout.madlen"
+      },
+      {
+        "name": "MONIN",
+        "start": "03255",
+        "end": "03315",
+        "file": "monin.madlen"
+      },
+      {
+        "name": "P/PRINT",
+        "start": "03315",
+        "end": "03334",
+        "file": "p_print.madlen"
+      },
+      {
+        "name": "P/WO",
+        "start": "03334",
+        "end": "03416",
+        "file": "p_wo.madlen"
+      },
+      {
+        "name": "PASCHARS",
+        "start": "03416",
+        "end": "03421",
+        "file": "paschars.madlen"
+      },
+      {
+        "name": "P/PUTERR",
+        "start": "03421",
+        "end": "03422",
+        "file": "p_puterr.madlen"
+      },
+      {
+        "name": "P/7A",
         "start": "03422",
-        "end": "04066"
+        "end": "03437",
+        "file": "p_7a.madlen"
+      },
+      {
+        "name": "P/WI",
+        "start": "03437",
+        "end": "03520",
+        "file": "p_wi.madlen"
+      },
+      {
+        "name": "P/HT",
+        "start": "03520",
+        "end": "03533",
+        "file": "p_ht.madlen"
+      },
+      {
+        "name": "P/WX",
+        "start": "03533",
+        "end": "03560",
+        "file": "p_wx.madlen"
+      },
+      {
+        "name": "P/WR",
+        "start": "03560",
+        "end": "03772",
+        "file": "p_wr.madlen"
+      },
+      {
+        "name": "P/SP",
+        "start": "03772",
+        "end": "04000",
+        "file": "p_sp.madlen"
+      },
+      {
+        "name": "P/HIDE",
+        "start": "04000",
+        "end": "04006",
+        "file": "p_hide.madlen"
+      },
+      {
+        "name": "P/RC",
+        "start": "04006",
+        "end": "04024",
+        "file": "p_rc.madlen"
+      },
+      {
+        "name": "PASISOXT",
+        "start": "04024",
+        "end": "04053",
+        "file": "pasisoxt.madlen"
+      },
+      {
+        "name": "PASWRCHR",
+        "start": "04053",
+        "end": "04055",
+        "file": "paswrchr.madlen"
+      },
+      {
+        "name": "P/TR",
+        "start": "04055",
+        "end": "04060",
+        "file": "p_tr.madlen"
+      },
+      {
+        "name": "P/A7",
+        "start": "04060",
+        "end": "04066",
+        "file": "p_a7.madlen"
       }
     ],
     "common": {
@@ -155,7 +321,14 @@
       "P/EDIH": "04003",
       "P/RC": "04006",
       "P/TR": "04055",
-      "P/A7": "04060"
+      "P/A7": "04060",
+      "PASCELUP": "03161",
+      "PASZERO*": "03416",
+      "PASMINS*": "03417",
+      "SPACE*": "03420",
+      "PASPMDAD": "03532",
+      "PASPERID": "04053",
+      "PASPLUS*": "04054"
     },
     "data_relocations": [
       {
@@ -179,10 +352,51 @@
       "P/6A"
     ],
     "notes": [
-      "Split into four modules to fit Madlen entry tables; original object-module boundaries are not assumed.",
+      "Split by standard Pascal library routine groups; P/SYS combines the monitor file helpers. Original object-module boundaries are not claimed.",
       "P/1D reserves 052 words in this image; initialize only the 050 runtime words so new program globals are not overwritten.",
       "Word 02007 is the PASCODER stack descriptor supplied by the launch deck.",
-      "Short absolute references require the recovered module to remain below 010000."
+      "Short absolute references require the recovered module to remain below 010000.",
+      "*TTIO*, PASCHARS and PASWRCHR keep shared tables independently relocatable.",
+      "MONOUT and MONIN are recovery names for the monitor text converters; their historical module names are unknown.",
+      "PASPMD keeps P/PMDSET, P/EF keeps P/E, P/7A keeps P/7AD, P/HIDE keeps P/EDIH, P/WR keeps PASTENS, and P/WX keeps P/WXD."
+    ],
+    "split_sources": true,
+    "initialization_module": "P/1",
+    "helper_sources": [
+      "p_3.madlen",
+      "p_6a.madlen"
+    ],
+    "text": [
+      {
+        "start": "02330",
+        "encoding": "iso",
+        "value": "  PUT(F) EOLN=FALSE\u0004    "
+      },
+      {
+        "start": "02334",
+        "encoding": "iso",
+        "value": "  PUT(F) EOF=TRUE\u0004"
+      },
+      {
+        "start": "02337",
+        "encoding": "iso",
+        "value": "  PUT(F) LOCAL FILE OVERFLOW\u0004 "
+      },
+      {
+        "start": "02344",
+        "encoding": "iso",
+        "value": "  GET(F) EOF=TRUE\u0004"
+      },
+      {
+        "start": "02347",
+        "encoding": "iso",
+        "value": "  GET(F) EOLN=TRUE\u0004     "
+      },
+      {
+        "start": "02353",
+        "encoding": "iso",
+        "value": "... RET=\u0004   "
+      }
     ]
   },
   "svs": {

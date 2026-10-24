@@ -43,7 +43,7 @@ The four reviewed profiles have generated Madlen sources and explicit instructio
 
 | Profile | Source | Runtime words | Public entries |
 |---|---|---:|---:|
-| [monitor](profiles/monitor/runtime.madlen) | test.bin | 878 | 37 |
+| [monitor](profiles/monitor/README.md) | test.bin | 878 | 44 |
 | [svs](profiles/svs/runtime.madlen) | тестац.bin | 282 | 36 |
 | [mark3](profiles/mark3/runtime.madlen) | mark3.bin | 294 | 38 |
 | [pak](profiles/pak/runtime.madlen) | pak.bin | 364 | 43 |

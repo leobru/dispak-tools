@@ -1,0 +1,10 @@
+C Shared frame and ALFA helpers recovered from тестац.bin.
+C P/3: 04016..04021. P/6A: 04037..04040.
+C P/2 and P/7A match the monitor profile under address relocation.
+ P/6A:,NAME,
+ P/7A:,SUBP,
+ 1,ATX,5
+ 1,UTC,5
+ 11,VTM,
+ ,UJ,P/7A
+ ,END,

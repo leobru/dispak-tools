@@ -100,7 +100,9 @@ def job(work,name,cards):
 def library(profile,with_gaps=False):
     meta=generate(profile,DIRECTORY)
     work=DIRECTORY/'build'/profile
-    source=(DIRECTORY/'profiles'/profile/'runtime.madlen').read_text()
+    directory=DIRECTORY/'profiles'/profile
+    source=''.join((directory/name).read_text()
+                   for name in meta.get('sources',['runtime.madlen']))
     if with_gaps:
         for index,(before,after) in enumerate(zip(meta['chunks'],meta['chunks'][1:])):
             gap=int(after['start'],8)-int(before['end'],8)
@@ -108,8 +110,8 @@ def library(profile,with_gaps=False):
                 filler=f' RTGAP{index}:,NAME,\n ,BSS,{gap}\n ,END,\n'
                 source=source.replace(f' {after["name"]}:,NAME,',
                                       filler+f' {after["name"]}:,NAME,')
-    if meta.get('core_helpers'):
-        source+=(DIRECTORY/'core.madlen').read_text()
+    if meta.get('helper_sources'):
+        source+=''.join((directory/name).read_text() for name in meta['helper_sources'])
     cards='*call ficmemory\n*assem\n'+source+'*to perso:670100\n*end file\n``````\nеконец\n'
     job(work,'library',cards)
     print(f'Private PERSO: {work}/3776 zone 0100')
@@ -161,19 +163,28 @@ def expected_word(original,address,metadata,symbols):
 
 def check_image(image,listing,meta,original_placement=False):
     symbols={s.name:s.address for s in load_symbols(listing)}
-    if meta['module'] not in symbols:
-        raise ValueError('recovered module missing from loader map')
-    deltas={c['name']:symbols[c['name']]-int(c['start'],8) for c in meta['chunks']}
+    loaded=[c for c in meta['chunks'] if c['name'] in symbols]
+    if not loaded:
+        raise ValueError('recovered modules missing from loader map')
+    if original_placement and len(loaded)!=len(meta['chunks']):
+        raise ValueError('golden link omitted recovered modules')
+    deltas={c['name']:symbols[c['name']]-int(c['start'],8) for c in loaded}
     if original_placement and any(deltas.values()):
         raise ValueError(f'golden placement differs: {deltas}')
     ref=read_words(ROOT/meta['source'])
     built=read_words(image)
     for name,address in meta['exports'].items():
+        owner=next(c for c in meta['chunks']
+                   if int(c['start'],8)<=int(address,8)<int(c['end'],8))
+        if owner not in loaded:
+            if name in symbols:
+                raise ValueError(f'{name}: entry present without its recovered module')
+            continue
         expected=relocated_address(int(address,8),meta,symbols)
         if symbols.get(name)!=expected:
             raise ValueError(f'{name}: public entry did not resolve to the recovered module')
     mismatches=[]
-    addresses=[a for chunk in meta['chunks']
+    addresses=[a for chunk in loaded
                for a in range(int(chunk['start'],8),int(chunk['end'],8))]
     for address in addresses:
         target=relocated_address(address,meta,symbols)
@@ -183,6 +194,10 @@ def check_image(image,listing,meta,original_placement=False):
             mismatches.append(f'{address:05o} -> {target:05o}: '
                               f'{expected:016o} != {actual:016o}')
     for name,c in meta['common'].items():
+        if name not in symbols:
+            if original_placement:
+                raise ValueError(f'{name}: golden common missing')
+            continue
         original=int(c['address'],8)
         if original_placement and symbols[name]!=original:
             raise ValueError(f'{name}: golden common address changed')
@@ -208,7 +223,8 @@ def check_image(image,listing,meta,original_placement=False):
 def audit(listing,meta):
     symbols=load_symbols(listing)
     names={s.name for s in symbols}
-    allowed=set(meta['exports'])|set(meta['common'])|set(meta.get('core_helpers',[]))|{'P/BOOT','P/CODER','PASCODER'}
+    allowed=(set(meta['exports'])|set(meta['common'])|set(meta.get('core_helpers',[]))|
+             {c['name'] for c in meta['chunks']}|{'P/BOOT','P/CODER','PASCODER'})
     unexpected=sorted(n for n in names if (n.startswith('P/') or n.startswith('PAS')) and n not in allowed)
     # Even a same-named helper is a fallback if the loader fetched its object
     # from the installed library rather than from our PERSO.

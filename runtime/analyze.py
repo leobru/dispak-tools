@@ -101,7 +101,8 @@ def analyze(directory, disassembler):
                 reviewed.append(label)
                 for name,address in profile['exports'].items():
                     names[name]={int(address,8)}
-                    kinds[name]='D' if name in libmatch.DATA_MODULES else 'C'
+                    kinds[name]=('C' if any(int(begin,8)<=int(address,8)<int(end,8)
+                                            for begin,end in profile['code']) else 'D')
         symbols = [dict(name=name, address=f'{next(iter(addresses)):05o}', type=kinds[name])
                    for name, addresses in names.items() if len(addresses) == 1]
         symbols.sort(key=lambda s: (int(s['address'], 8), s['name']))
@@ -153,7 +154,8 @@ def report(directory, corpus, records, profiles):
               '|---|---|---:|---:|']
     for name,p in profiles.items():
         count=sum(int(c['end'],8)-int(c['start'],8) for c in p['chunks'])
-        lines.append(f'| [{name}](profiles/{name}/runtime.madlen) | {p["source"]} '
+        source='README.md' if p.get('split_sources') else 'runtime.madlen'
+        lines.append(f'| [{name}](profiles/{name}/{source}) | {p["source"]} '
                      f'| {count} | {len(p["exports"])} |')
     lines += ['', 'The default monitor profile also offers the six words of P/3 and P/6A '
               'recovered from тестац.bin. Their frame and string-helper dependencies agree with '

@@ -1,0 +1,6094 @@
+{
+  "reference": "test.bin",
+  "sha256": "b4073efcc29a4b3c8da9ba2c55a76e3affb47117ec15cc544c3826f6de9048dc",
+  "matching": "Only reviewed address fields may differ; internal targets must relocate together.",
+  "limitations": "Missing matches are not proof of variants. Overlay matches require separate load-address review. Small data and stub matches are not identification evidence alone.",
+  "images": [
+    {
+      "id": "4001-0002-monitr-pascal",
+      "name": "МОНИТР (embedded)",
+      "zone": "0002",
+      "sha256": "fd5a0d0da07e5585c05d9b8b042f5f0ba5d9c993829835210f1c3e8852fa3623",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "04545"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "04551"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "05013"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "05364"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "06306"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "05432"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "04565"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "04516"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "07067"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "07061",
+            "07142"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "07305"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "05434"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": [
+            "07324"
+          ]
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "04564",
+            "05012",
+            "05101",
+            "05120",
+            "06163",
+            "06273",
+            "06315",
+            "07052",
+            "07166",
+            "07243",
+            "07327",
+            "16221",
+            "16250",
+            "16266",
+            "16324",
+            "17343",
+            "17475",
+            "17511",
+            "17745"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "04776"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "07336"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": [
+            "07417"
+          ]
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": []
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": []
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "07330"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "07134"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "05346"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": []
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": []
+        }
+      ],
+      "startup_02010": [
+        "07054"
+      ]
+    },
+    {
+      "id": "4001-0011-unicop",
+      "name": "UNIСОР",
+      "zone": "0011",
+      "sha256": "f2d03a7c0cca3b1d28d626f47f017b4ec682b18fab53a7ea6f6be5e7641ced74",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "07712"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": []
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": []
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "07747"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "10010"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "10034"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "07741"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": []
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "02025",
+            "10657",
+            "12060"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": []
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": []
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "07725",
+            "10017",
+            "10027",
+            "10114",
+            "10600",
+            "10634",
+            "12001",
+            "12035"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "10100"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "10115"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": []
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": []
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "10645",
+            "12046"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "10637",
+            "12040"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": []
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": []
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "10566"
+          ]
+        }
+      ],
+      "startup_02010": []
+    },
+    {
+      "id": "4001-0016-tar",
+      "name": "ТАR",
+      "zone": "0016",
+      "sha256": "5ce3faaa4e87ebdb65607ebba23a04497a9d747580aabcbd79383ce69fa9b95d",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "06562"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "06566"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "06602"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": [
+            "07135"
+          ]
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "07150"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "07177"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "07207"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "07211"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "07350"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": [
+            "10553"
+          ]
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "10721"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "10552",
+            "10733"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "11076"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "07424"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": [
+            "11115"
+          ]
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "02030",
+            "02170",
+            "02446",
+            "02753",
+            "02760",
+            "03245",
+            "06601",
+            "06670",
+            "06707",
+            "07206",
+            "07226",
+            "07261",
+            "10607",
+            "10757",
+            "11034",
+            "11120",
+            "11530",
+            "11633"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "07245"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "07262"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": [
+            "11341"
+          ]
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": [
+            "11366"
+          ]
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "11141"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "11133"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "07506"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": [
+            "11600"
+          ]
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": [
+            "11627"
+          ]
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": [
+            "11631"
+          ]
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "11634"
+          ]
+        }
+      ],
+      "startup_02010": [
+        "10545"
+      ]
+    },
+    {
+      "id": "4001-0023-kanal",
+      "name": "КАНАЛ",
+      "zone": "0023",
+      "sha256": "4bef71fb3d64b3950bc2629a891b31b84f720d50065d4f75d95811d3dcaea23b",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "04513"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "04517"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "04543"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "05104"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "05145"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "05264"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "05076"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "07000"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "06611"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "06603",
+            "06623"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": [
+            "06624"
+          ]
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": [
+            "06716"
+          ]
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "06756"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "05507"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": [
+            "06775"
+          ]
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "04532",
+            "04542",
+            "04631",
+            "04650",
+            "05154",
+            "05175",
+            "06647",
+            "06724",
+            "07027"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "05161"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "05176"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": [
+            "07235"
+          ]
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": []
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": []
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "07036"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "07030"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "05471"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": []
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": []
+        }
+      ],
+      "startup_02010": [
+        "06576"
+      ]
+    },
+    {
+      "id": "4001-0030-proz",
+      "name": "ПРОЗ",
+      "zone": "0030",
+      "sha256": "11df5af52a88fefa5ba05225036d232ac6cf43eeeecb476393df64cba5bcf5fd",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "05060"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "05064"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "05100"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": [
+            "05433"
+          ]
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "05446"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "05475"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "05505"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "05507"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "05515"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": [
+            "07242"
+          ]
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "07410"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "03624",
+            "07241",
+            "07422"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "07565"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "06027"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": [
+            "07604"
+          ]
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "02030",
+            "02177",
+            "02576",
+            "02656",
+            "03277",
+            "03473",
+            "05077",
+            "05166",
+            "05205",
+            "05504",
+            "05763",
+            "05773",
+            "07276",
+            "07446",
+            "07523",
+            "07607",
+            "10221",
+            "10324"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "05747"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "06134"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": [
+            "10032"
+          ]
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": [
+            "10057"
+          ]
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "07663"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "07655"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "06011"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": [
+            "10271"
+          ]
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": [
+            "10320"
+          ]
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": [
+            "10322"
+          ]
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": []
+        }
+      ],
+      "startup_02010": [
+        "07234"
+      ]
+    },
+    {
+      "id": "4001-0034-more",
+      "name": "МОRЕ",
+      "zone": "0034",
+      "sha256": "091a1127bc77951e8dbf8cca57fa573437b65340b64dab84afbe68aa17132d55",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "03114"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "03120"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "03134"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": [
+            "03467"
+          ]
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "03502"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "03531"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "03541"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "03543"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": []
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": []
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": []
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": []
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "02030",
+            "02064",
+            "02272",
+            "02321",
+            "03133",
+            "03222",
+            "03241",
+            "03540",
+            "03576",
+            "06075"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": []
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": []
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": []
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": []
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "06016"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "06024"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": [
+            "06042"
+          ]
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": [
+            "06071"
+          ]
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": [
+            "06073"
+          ]
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "06076"
+          ]
+        }
+      ],
+      "startup_02010": []
+    },
+    {
+      "id": "4001-0037-kermit",
+      "name": "КЕRМIТ",
+      "zone": "0037",
+      "sha256": "935b84153906109dc100946e812f53645c7ac1affd7c143785fddff0fb59126b",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "12137"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": []
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": []
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "13135"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "13164"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "13174"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "13176"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": []
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "15534",
+            "15713"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": []
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": []
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "12440",
+            "12501",
+            "12535",
+            "13112",
+            "13173",
+            "13247",
+            "13301",
+            "13742",
+            "14460",
+            "15166",
+            "15207",
+            "15655",
+            "15712",
+            "15726",
+            "15736",
+            "16200",
+            "16665",
+            "17004",
+            "17064",
+            "17072"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "13265"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "14467"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": [
+            "14337"
+          ]
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": []
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "16223"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "15770"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": []
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": []
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": []
+        }
+      ],
+      "startup_02010": []
+    },
+    {
+      "id": "4001-0047-mtd",
+      "name": "МТD",
+      "zone": "0047",
+      "sha256": "df0c58282fe90fceda04522b2c2f0ca04aeaf7b3925ca7afbf532c2e9a4003ae",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "03257"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "03263"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "03307"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": [
+            "03650"
+          ]
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "03663"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "03724"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "04043"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "03642"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "04524"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": [
+            "04167"
+          ]
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "04335"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "04166",
+            "04347"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": [
+            "04350"
+          ]
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": [
+            "04442"
+          ]
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "04502"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "04077"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": [
+            "04521"
+          ]
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "02131",
+            "02411",
+            "03276",
+            "03306",
+            "03375",
+            "03414",
+            "03733",
+            "03754",
+            "04223",
+            "04373",
+            "04450",
+            "04553",
+            "04772",
+            "05113"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "03740"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "03755"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": [
+            "04603"
+          ]
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": [
+            "04630"
+          ]
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "04574"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "04566"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "05042"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": [
+            "05060"
+          ]
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": [
+            "05107"
+          ]
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": [
+            "05111"
+          ]
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "05114"
+          ]
+        }
+      ],
+      "startup_02010": [
+        "04161"
+      ]
+    },
+    {
+      "id": "4001-0051-print",
+      "name": "РRINТ",
+      "zone": "0051",
+      "sha256": "08b23f5cb0db9f428280d29dca8550b637ac3914caf59f8ba3955b11d9124cfc",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "04342"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": []
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": []
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "05340"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "05367"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "05377"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "05401"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": []
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "06116",
+            "07671"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": []
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": []
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "04643",
+            "04704",
+            "04740",
+            "05315",
+            "05376",
+            "05443",
+            "05537",
+            "06060",
+            "06115",
+            "06130",
+            "07134",
+            "07652",
+            "07727",
+            "10060",
+            "10726",
+            "10757",
+            "11017",
+            "11067",
+            "11075",
+            "11154"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "05427"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "07566"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": [
+            "07674"
+          ]
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": []
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "07731"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "07737"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": []
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": []
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": []
+        }
+      ],
+      "startup_02010": []
+    },
+    {
+      "id": "4001-0057-testats",
+      "name": "ТЕСТАЦ",
+      "zone": "0057",
+      "sha256": "172b8ca87e612bae0890abd711d2b60f6e55ae9087cf7b6b19c75834cd4827f2",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "03710"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": []
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": []
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "03745"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "04006"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "04032"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "03737"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": []
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "04330"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": []
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": []
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "03723",
+            "04015",
+            "04025",
+            "04112",
+            "04251",
+            "04305"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "04076"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "04113"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": []
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": []
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "04316"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "04310"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": []
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": []
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "04225"
+          ]
+        }
+      ],
+      "startup_02010": []
+    },
+    {
+      "id": "4001-0061-test",
+      "name": "ТЕSТ",
+      "zone": "0061",
+      "sha256": "b4073efcc29a4b3c8da9ba2c55a76e3affb47117ec15cc544c3826f6de9048dc",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "02310"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "02314"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "02330"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": [
+            "02663"
+          ]
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "02676"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "02725"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "02735"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "02737"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "02745"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": [
+            "02774"
+          ]
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": [
+            "03002"
+          ]
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "03150"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "03001",
+            "03162"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": [
+            "03163"
+          ]
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": [
+            "03255"
+          ]
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "03315"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "03334"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": [
+            "03416"
+          ]
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "02027",
+            "02327",
+            "02416",
+            "02435",
+            "02734",
+            "03036",
+            "03206",
+            "03263",
+            "03421",
+            "03436",
+            "03722",
+            "04057"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "03422"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "03437"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": [
+            "03520"
+          ]
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": [
+            "03533"
+          ]
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": [
+            "03560"
+          ]
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "03772"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "04000"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "04006"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": [
+            "04024"
+          ]
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": [
+            "04053"
+          ]
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": [
+            "04055"
+          ]
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "04060"
+          ]
+        }
+      ],
+      "startup_02010": []
+    },
+    {
+      "id": "4001-0063-fprint",
+      "name": "FРRINТ",
+      "zone": "0063",
+      "sha256": "10f07d99b30a31ffc22dd85b8a174168431d713c7ee7184cc15c0f1f4f3ed2d9",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "04405"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "04411"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "04435"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": [
+            "04776"
+          ]
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "05011"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "05052"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "05171"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "04770"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "05173"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": [
+            "06214"
+          ]
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "06362"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "06213",
+            "06374"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": [
+            "06375"
+          ]
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": [
+            "06467"
+          ]
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "06527"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "06546"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": [
+            "06630"
+          ]
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "02127",
+            "02407",
+            "02455",
+            "02477",
+            "02554",
+            "02561",
+            "02634",
+            "02705",
+            "03211",
+            "04424",
+            "04434",
+            "04523",
+            "04542",
+            "05061",
+            "05102",
+            "06250",
+            "06420",
+            "06475",
+            "06633",
+            "06675",
+            "07262",
+            "07403"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "05066"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "05103"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": [
+            "07073"
+          ]
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": [
+            "07120"
+          ]
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "06654"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "06646"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "07332"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": [
+            "07350"
+          ]
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": [
+            "07377"
+          ]
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": [
+            "07401"
+          ]
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "07404"
+          ]
+        }
+      ],
+      "startup_02010": [
+        "06206"
+      ]
+    },
+    {
+      "id": "4001-0066-box",
+      "name": "ВОХ",
+      "zone": "0066",
+      "sha256": "96951aff3c85266bb929f353cc2f7ac34d5ace1e6b79a475d9c01174a4cf59d0",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "03031"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "03035"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "03051"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "03404"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "03433"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "03443"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "03445"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "04070"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "03701"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "03673",
+            "03713"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": [
+            "03714"
+          ]
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": [
+            "04006"
+          ]
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "04046"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "03604"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": [
+            "04065"
+          ]
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "03050",
+            "03137",
+            "03156",
+            "03442",
+            "03462",
+            "03515",
+            "03737",
+            "04014",
+            "04117"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "03501"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "03516"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": []
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": []
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "04126"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "04120"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "04146"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": []
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": []
+        }
+      ],
+      "startup_02010": [
+        "03666"
+      ]
+    },
+    {
+      "id": "4001-0070-tartar",
+      "name": "ТАРТАR",
+      "zone": "0070",
+      "sha256": "6bec3c8db9012cf3cac8ffcb52dc78b8ae45e38f53207c3ae63249a64d4391b9",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "06336"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "06342"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "06356"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": [
+            "06711"
+          ]
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "06724"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "06753"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "06763"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "06765"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "07124"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": [
+            "10361"
+          ]
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "10527"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "10360",
+            "10541"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "10704"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "07232"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": [
+            "10723"
+          ]
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "02030",
+            "02170",
+            "02604",
+            "02611",
+            "03076",
+            "06355",
+            "06444",
+            "06463",
+            "06762",
+            "07002",
+            "07035",
+            "10415",
+            "10565",
+            "10642",
+            "10726",
+            "11336",
+            "11441"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "07021"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "07036"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": [
+            "11147"
+          ]
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": [
+            "11174"
+          ]
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "10747"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "10741"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "07314"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": [
+            "11406"
+          ]
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": [
+            "11435"
+          ]
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": [
+            "11437"
+          ]
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "11442"
+          ]
+        }
+      ],
+      "startup_02010": [
+        "10353"
+      ]
+    },
+    {
+      "id": "4001-0075-recod",
+      "name": "RЕСОD",
+      "zone": "0075",
+      "sha256": "87a51716220b91f57a9a5e3c1248ea9e92738d7b8e15cfcc5988972fd43044a7",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "04215"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "04221"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "04235"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "04570"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "04617"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "04627"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "04631"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "04637"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "06340"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "06332",
+            "06352"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "06515"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "05550"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": [
+            "06534"
+          ]
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "04234",
+            "04323",
+            "04342",
+            "04626",
+            "05535",
+            "06323",
+            "06376",
+            "06453",
+            "06537"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "05521"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "05642"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": []
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": []
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "06741"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "06733"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "06761"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": []
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": []
+        }
+      ],
+      "startup_02010": [
+        "06325"
+      ]
+    },
+    {
+      "id": "4001-0101-mtcopy",
+      "name": "МТСОРУ",
+      "zone": "0101",
+      "sha256": "42ea247fec8a4789aeda5f04bb133cf0c27436c205dde5956cfba64d4440998a",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "03574"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "03600"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "03614"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": [
+            "04147"
+          ]
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "04162"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "04211"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "04221"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "04223"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "04357"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": [
+            "05352"
+          ]
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "05520"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "05351",
+            "05532"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "05675"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "05262"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": [
+            "05714"
+          ]
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "02030",
+            "02170",
+            "03613",
+            "03702",
+            "03721",
+            "04220",
+            "04240",
+            "04273",
+            "05406",
+            "05556",
+            "05633",
+            "05717",
+            "06331",
+            "06452"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "04257"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "04274"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": [
+            "06142"
+          ]
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": [
+            "06167"
+          ]
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "05740"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "05732"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "06401"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": [
+            "06417"
+          ]
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": [
+            "06446"
+          ]
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": [
+            "06450"
+          ]
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "06453"
+          ]
+        }
+      ],
+      "startup_02010": [
+        "05344"
+      ]
+    },
+    {
+      "id": "4001-0104-orphan-0104",
+      "name": "uncatalogued",
+      "zone": "0104",
+      "sha256": "89c85ddab46970f9bc3eb7a891625b84dd8df7a21d102c03d6d4b43527214e2a",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "03267"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "03273"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "03307"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": [
+            "03642"
+          ]
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "03655"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "03704"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "03714"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "03716"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "05163"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": [
+            "04616"
+          ]
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "04764"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "04615",
+            "04776"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "05141"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "04526"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": [
+            "05160"
+          ]
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "02030",
+            "02170",
+            "03306",
+            "03375",
+            "03414",
+            "03713",
+            "03733",
+            "03766",
+            "04652",
+            "05022",
+            "05077",
+            "05212",
+            "05624",
+            "05745"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "03752"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "03767"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": [
+            "05435"
+          ]
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": [
+            "05462"
+          ]
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "05233"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "05225"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "05674"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": [
+            "05712"
+          ]
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": [
+            "05741"
+          ]
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": [
+            "05743"
+          ]
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "05746"
+          ]
+        }
+      ],
+      "startup_02010": [
+        "04610"
+      ]
+    },
+    {
+      "id": "4001-0106-copy",
+      "name": "СОРУ",
+      "zone": "0106",
+      "sha256": "d5710ba2eea3ee9b0192061f17751a3a8497e19abd7754c3b09b92157cbf9acb",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "03203"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "03207"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "03223"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "03556"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "03605"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "03615"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "03617"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "05350"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "05161"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "05153",
+            "05173"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": [
+            "05174"
+          ]
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": [
+            "05266"
+          ]
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "05326"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "03637"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": [
+            "05345"
+          ]
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "03222",
+            "03311",
+            "03330",
+            "03614",
+            "03735",
+            "05217",
+            "05274",
+            "05377"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "03721"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "05605"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": []
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": []
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "05400"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "05406"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "05700"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": []
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": []
+        }
+      ],
+      "startup_02010": [
+        "05146"
+      ]
+    },
+    {
+      "id": "4001-0112-link",
+      "name": "LINК",
+      "zone": "0112",
+      "sha256": "cc75fb6ffa95914f503b1d590c3932ae07ae4b0990e4cdccf18bb54dc1ce1465",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "22150",
+            "27664"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "27670"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "23004",
+            "30254"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": [
+            "27775"
+          ]
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "23337",
+            "31223"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "23402",
+            "31264"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "22235",
+            "27765"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "22237",
+            "27767"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "25470",
+            "33273"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "33061"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "17335",
+            "25031",
+            "25122",
+            "25306",
+            "32633",
+            "32712",
+            "33111"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "25451",
+            "33254"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "23522",
+            "30172"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "22261",
+            "22334",
+            "22440",
+            "22450",
+            "22511",
+            "22736",
+            "23072",
+            "23111",
+            "23411",
+            "23425",
+            "23627",
+            "24034",
+            "24053",
+            "24125",
+            "24147",
+            "24236",
+            "24371",
+            "24422",
+            "24442",
+            "24453",
+            "24470",
+            "24522",
+            "24550",
+            "24654",
+            "25332",
+            "25407",
+            "25517",
+            "27703",
+            "30024",
+            "30077",
+            "30167",
+            "30342",
+            "30361",
+            "30616",
+            "30665",
+            "31112",
+            "31214",
+            "31273",
+            "31431",
+            "31636",
+            "31655",
+            "31727",
+            "31751",
+            "32040",
+            "32173",
+            "32224",
+            "32244",
+            "32255",
+            "32272",
+            "32324",
+            "32352",
+            "32456",
+            "32747",
+            "33135",
+            "33212",
+            "33322",
+            "33657",
+            "33733",
+            "34064",
+            "34140",
+            "36776",
+            "37215",
+            "37771"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "22245",
+            "30010"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "22154",
+            "27704"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": [
+            "31146"
+          ]
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": [
+            "33515"
+          ]
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "25123",
+            "33073"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "25133",
+            "33103"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "23743",
+            "31545"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": [
+            "33463"
+          ]
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": [
+            "33727",
+            "34134"
+          ]
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": [
+            "33731",
+            "34136"
+          ]
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "23514",
+            "31400"
+          ]
+        }
+      ],
+      "startup_02010": [
+        "25115",
+        "32705"
+      ]
+    },
+    {
+      "id": "4001-0132-acc3",
+      "name": "АСС3",
+      "zone": "0132",
+      "sha256": "12c69f847fda2a20d722b9cd3a9ef9c51669a0e91d2ce7347dcf94c09e0518bf",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "30557",
+            "71027"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": []
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": []
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "04214"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": []
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "04243",
+            "31146",
+            "71416"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "03620",
+            "04045",
+            "30605",
+            "71055"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "35522",
+            "74437"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": []
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "03633",
+            "04060",
+            "04061",
+            "35300",
+            "35346",
+            "74263",
+            "76762"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "04245"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "04264"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "03610",
+            "04105",
+            "04162",
+            "30701",
+            "30720",
+            "31212",
+            "31437",
+            "31507",
+            "31774",
+            "32235",
+            "32465",
+            "32471",
+            "32553",
+            "32572",
+            "32644",
+            "32666",
+            "32755",
+            "33110",
+            "33141",
+            "33161",
+            "33172",
+            "33207",
+            "33241",
+            "33267",
+            "33373",
+            "34546",
+            "34652",
+            "34720",
+            "35036",
+            "35060",
+            "35101",
+            "35103",
+            "35157",
+            "35372",
+            "35447",
+            "35551",
+            "71151",
+            "71170",
+            "71462",
+            "71707",
+            "71757",
+            "72153",
+            "72221",
+            "72337",
+            "72512",
+            "72612",
+            "73000",
+            "73017",
+            "73071",
+            "73113",
+            "73202",
+            "73335",
+            "73366",
+            "73406",
+            "73417",
+            "73434",
+            "73466",
+            "73514",
+            "73620",
+            "73756",
+            "74106",
+            "74110",
+            "74162",
+            "74307",
+            "74364",
+            "74466",
+            "76475",
+            "76625",
+            "76627",
+            "76667",
+            "77006",
+            "77063",
+            "100103",
+            "101563"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": []
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": []
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": []
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": []
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "04375"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "35712",
+            "40004",
+            "74627",
+            "77163"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": []
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": []
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": []
+        }
+      ],
+      "startup_02010": [
+        "03626",
+        "04053"
+      ]
+    },
+    {
+      "id": "4001-0172-mt",
+      "name": "МТ",
+      "zone": "0172",
+      "sha256": "5dbe66f34992890b56800f7165e72da2daa214b4a38ab3eb48028b2a30d2cc3c",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "03415"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "03421"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "03435"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": [
+            "03770"
+          ]
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "04003"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "04032"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "04042"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "04044"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "05311"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": [
+            "04744"
+          ]
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "05112"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "04743",
+            "05124"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "05267"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "04654"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": [
+            "05306"
+          ]
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "02030",
+            "02170",
+            "03434",
+            "03523",
+            "03542",
+            "04041",
+            "04061",
+            "04114",
+            "05000",
+            "05150",
+            "05225",
+            "05340",
+            "05752",
+            "06073"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "04100"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "04115"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": [
+            "05563"
+          ]
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": [
+            "05610"
+          ]
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "05361"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "05353"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "06022"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": [
+            "06040"
+          ]
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": [
+            "06067"
+          ]
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": [
+            "06071"
+          ]
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "06074"
+          ]
+        }
+      ],
+      "startup_02010": [
+        "04736"
+      ]
+    },
+    {
+      "id": "4001-0175-link1",
+      "name": "LINК1",
+      "zone": "0175",
+      "sha256": "0c14fc30f555024d6356f786869a5c10fb68e7fdcd00dc54bdc12dc620b35f01",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "21426",
+            "27240"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "27244"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "22262",
+            "27630"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": [
+            "27351"
+          ]
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "22615",
+            "30577"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "22660",
+            "30640"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "21513",
+            "27341"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "21515",
+            "27343"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "24662",
+            "32563"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "32351"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "16621",
+            "24223",
+            "24314",
+            "24500",
+            "32123",
+            "32202",
+            "32401"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "24643",
+            "32544"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "23000",
+            "27546"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "21537",
+            "21612",
+            "21716",
+            "21726",
+            "21767",
+            "22214",
+            "22350",
+            "22367",
+            "22667",
+            "22703",
+            "23105",
+            "23327",
+            "23401",
+            "23503",
+            "23612",
+            "23642",
+            "23662",
+            "23673",
+            "23710",
+            "23742",
+            "23762",
+            "24524",
+            "24601",
+            "24711",
+            "27257",
+            "27400",
+            "27453",
+            "27543",
+            "27716",
+            "27735",
+            "30172",
+            "30241",
+            "30466",
+            "30570",
+            "30647",
+            "31005",
+            "31227",
+            "31301",
+            "31403",
+            "31512",
+            "31542",
+            "31562",
+            "31573",
+            "31610",
+            "31642",
+            "31662",
+            "32237",
+            "32425",
+            "32502",
+            "32612",
+            "33147",
+            "33223"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "21523",
+            "27364"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "21432",
+            "27260"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": [
+            "30522"
+          ]
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": [
+            "33005"
+          ]
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "24315",
+            "32363"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "24325",
+            "32373"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "23221",
+            "31121"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": [
+            "32753"
+          ]
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": [
+            "33217"
+          ]
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": [
+            "33221"
+          ]
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "22772",
+            "30754"
+          ]
+        }
+      ],
+      "startup_02010": [
+        "24307",
+        "32175"
+      ]
+    },
+    {
+      "id": "4001-0215-acc2",
+      "name": "АСС2",
+      "zone": "0215",
+      "sha256": "12a9eb9f4218175f89b45c7c6a72081a5f5f0228fbd046575f739a31b463d64b",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "27572",
+            "70175"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": []
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": []
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "04214"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": []
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "04243",
+            "30161",
+            "70564"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "03625",
+            "04045",
+            "27620",
+            "70223"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "34454",
+            "73474"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": []
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "03640",
+            "04060",
+            "04061",
+            "34232",
+            "34300",
+            "36377",
+            "73320",
+            "76762"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "04245"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "04264"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "03615",
+            "04105",
+            "04162",
+            "27714",
+            "27733",
+            "30225",
+            "30452",
+            "30522",
+            "31007",
+            "31250",
+            "31500",
+            "31504",
+            "31603",
+            "31655",
+            "31757",
+            "32066",
+            "32116",
+            "32136",
+            "32147",
+            "32164",
+            "32216",
+            "32236",
+            "33475",
+            "33601",
+            "33647",
+            "33765",
+            "34007",
+            "34044",
+            "34046",
+            "34111",
+            "34324",
+            "34401",
+            "34503",
+            "36026",
+            "36137",
+            "70317",
+            "70336",
+            "70630",
+            "71055",
+            "71125",
+            "71321",
+            "71367",
+            "71505",
+            "71660",
+            "71760",
+            "72163",
+            "72235",
+            "72337",
+            "72446",
+            "72476",
+            "72516",
+            "72527",
+            "72544",
+            "72576",
+            "72616",
+            "73040",
+            "73170",
+            "73172",
+            "73244",
+            "73344",
+            "73421",
+            "73523",
+            "74126",
+            "74371",
+            "74440",
+            "74767",
+            "75034",
+            "75104",
+            "76475",
+            "76625",
+            "76627",
+            "76667",
+            "77006",
+            "77063",
+            "100103",
+            "101563"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": []
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": []
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": []
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": []
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "04375"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "34644",
+            "40004",
+            "73664",
+            "77163"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": []
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": []
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": []
+        }
+      ],
+      "startup_02010": [
+        "03633",
+        "04053"
+      ]
+    },
+    {
+      "id": "4001-0255-blink1",
+      "name": "ВLINК1",
+      "zone": "0255",
+      "sha256": "a55ef110189af39d91e03160b538766b3aff2627e0b54c2167042bc8ba79a5fc",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "21505"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": []
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "22323"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "22656"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "22721"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "21572"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "21574"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "24702"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": []
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "16674",
+            "24243",
+            "24334",
+            "24520"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "24663"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "23041"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "21616",
+            "21671",
+            "21761",
+            "21767",
+            "22030",
+            "22255",
+            "22411",
+            "22430",
+            "22730",
+            "22744",
+            "23146",
+            "23370",
+            "23442",
+            "23544",
+            "23653",
+            "23703",
+            "23723",
+            "23734",
+            "23751",
+            "24003",
+            "24023",
+            "24544",
+            "24621",
+            "24731"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "21602"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "21511"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": []
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": []
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "24335"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "24345"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "23262"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": []
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "23033"
+          ]
+        }
+      ],
+      "startup_02010": [
+        "24327"
+      ]
+    },
+    {
+      "id": "4001-0275-blink",
+      "name": "ВLINК",
+      "zone": "0275",
+      "sha256": "42ba1a5f545857c43cd6196c1060ea92ea4a703d9a10eee819f85f88b317431e",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "22150"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": []
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "22766"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "23321"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "23364"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "22235"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "22237"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "25431"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": []
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": []
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "17335",
+            "24772",
+            "25063",
+            "25247"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "25412"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "23504"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "22261",
+            "22334",
+            "22424",
+            "22432",
+            "22473",
+            "22720",
+            "23054",
+            "23073",
+            "23373",
+            "23407",
+            "23611",
+            "24016",
+            "24035",
+            "24107",
+            "24131",
+            "24220",
+            "24353",
+            "24404",
+            "24424",
+            "24435",
+            "24452",
+            "24504",
+            "24532",
+            "24636",
+            "25273",
+            "25350",
+            "25460"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "22245"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "22154"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": []
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": []
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "25064"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "25074"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "23725"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": []
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": []
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": []
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "23476"
+          ]
+        }
+      ],
+      "startup_02010": [
+        "25056"
+      ]
+    },
+    {
+      "id": "4001-0315-comp",
+      "name": "СОМР",
+      "zone": "0315",
+      "sha256": "4a448553b9499d719f770c33e32a0cab200ca718557493e44c067a8df0858d34",
+      "modules": [
+        {
+          "name": "P/2",
+          "words": 4,
+          "addresses": [
+            "05663"
+          ]
+        },
+        {
+          "name": "P/SC",
+          "words": 12,
+          "addresses": [
+            "05667"
+          ]
+        },
+        {
+          "name": "P/SYS",
+          "words": 219,
+          "addresses": [
+            "05703"
+          ]
+        },
+        {
+          "name": "P/DA",
+          "words": 11,
+          "addresses": [
+            "06236"
+          ]
+        },
+        {
+          "name": "P/08",
+          "words": 23,
+          "addresses": [
+            "06251"
+          ]
+        },
+        {
+          "name": "P/LDAR",
+          "words": 8,
+          "addresses": [
+            "06300"
+          ]
+        },
+        {
+          "name": "P/CW",
+          "words": 2,
+          "addresses": [
+            "06310"
+          ]
+        },
+        {
+          "name": "P/EF",
+          "words": 6,
+          "addresses": [
+            "06312"
+          ]
+        },
+        {
+          "name": "*TTIO*",
+          "words": 23,
+          "addresses": [
+            "06332"
+          ]
+        },
+        {
+          "name": "P/1",
+          "words": 6,
+          "addresses": []
+        },
+        {
+          "name": "PASPMD",
+          "words": 102,
+          "addresses": [
+            "10274"
+          ]
+        },
+        {
+          "name": "P/ER",
+          "words": 10,
+          "addresses": [
+            "10442"
+          ]
+        },
+        {
+          "name": "STOP*",
+          "words": 1,
+          "addresses": [
+            "10273",
+            "10454"
+          ]
+        },
+        {
+          "name": "MONOUT",
+          "words": 58,
+          "addresses": []
+        },
+        {
+          "name": "MONIN",
+          "words": 32,
+          "addresses": []
+        },
+        {
+          "name": "P/PRINT",
+          "words": 15,
+          "addresses": [
+            "10617"
+          ]
+        },
+        {
+          "name": "P/WO",
+          "words": 50,
+          "addresses": [
+            "06754"
+          ]
+        },
+        {
+          "name": "PASCHARS",
+          "words": 3,
+          "addresses": [
+            "10636"
+          ]
+        },
+        {
+          "name": "P/PUTERR",
+          "words": 1,
+          "addresses": [
+            "02030",
+            "02345",
+            "02510",
+            "02526",
+            "02673",
+            "03040",
+            "03053",
+            "05702",
+            "05771",
+            "06010",
+            "06307",
+            "06453",
+            "06516",
+            "06670",
+            "06740",
+            "06742",
+            "10330",
+            "10500",
+            "10555",
+            "10641",
+            "14051",
+            "20365",
+            "20604",
+            "20761"
+          ]
+        },
+        {
+          "name": "P/7A",
+          "words": 13,
+          "addresses": [
+            "06502"
+          ]
+        },
+        {
+          "name": "P/WI",
+          "words": 49,
+          "addresses": [
+            "06517"
+          ]
+        },
+        {
+          "name": "P/HT",
+          "words": 11,
+          "addresses": []
+        },
+        {
+          "name": "P/WX",
+          "words": 21,
+          "addresses": [
+            "20176"
+          ]
+        },
+        {
+          "name": "P/WR",
+          "words": 138,
+          "addresses": [
+            "20223"
+          ]
+        },
+        {
+          "name": "P/SP",
+          "words": 6,
+          "addresses": [
+            "14104"
+          ]
+        },
+        {
+          "name": "P/HIDE",
+          "words": 6,
+          "addresses": [
+            "14076"
+          ]
+        },
+        {
+          "name": "P/RC",
+          "words": 14,
+          "addresses": [
+            "20435"
+          ]
+        },
+        {
+          "name": "PASISOXT",
+          "words": 23,
+          "addresses": [
+            "20551"
+          ]
+        },
+        {
+          "name": "PASWRCHR",
+          "words": 2,
+          "addresses": [
+            "20600"
+          ]
+        },
+        {
+          "name": "P/TR",
+          "words": 3,
+          "addresses": [
+            "20602"
+          ]
+        },
+        {
+          "name": "P/A7",
+          "words": 6,
+          "addresses": [
+            "20605"
+          ]
+        }
+      ],
+      "startup_02010": [
+        "10266"
+      ]
+    }
+  ]
+}

@@ -5,14 +5,22 @@ root `*.bin` files. Two extracts duplicate `test.bin` and `тестац.bin`, gi
 28 distinct images. [ANALYSIS.md](ANALYSIS.md) lists their locations, startup
 layouts, symbol candidates, and generated disassemblies.
 
+[MONITOR-CONSISTENCY.md](MONITOR-CONSISTENCY.md) compares the Monitor modules
+across all 26 volume extracts. Regenerate it with `python3 runtime/consistency.py`.
+The volume contains several runtime variants; missing module matches are kept
+separate from confirmed instruction differences.
+
 Four selectable libraries have been recovered as relocatable Madlen:
 
 | Profile | Source binary | Runtime words | Public entries |
 |---|---|---:|---:|
-| `monitor` (default) | `test.bin` | 878 | 37 |
+| [`monitor`](profiles/monitor/README.md) (default) | `test.bin` | 878 | 44 |
 | `svs` | `тестац.bin` | 282 | 36 |
 | `mark3` | `mark3.bin` | 294 | 38 |
 | `pak` | `pak.bin` | 364 | 43 |
+
+The Monitor entry count includes seven named shared data words introduced by
+the module split; the recovered instruction and data word count is unchanged.
 
 The libraries contain the routines present in those images. They are not complete
 implementations of every NEWPASC helper. Unsupported helpers stop the build before
@@ -40,9 +48,11 @@ historical I/O routines. Options explicitly written in the source take effect
 normally. The Monitor profile uses the compiler's normal defaults.
 
 The default profile also contains `P/3` and `P/6A` from `тестац.bin`, in
-[core.madlen](core.madlen). These frame and ALFA helpers use the same dependencies
-as the Monitor implementation; all six words are checked against their source
-when linked. The I/O and startup variants remain separately selectable.
+[p_3.madlen](profiles/monitor/p_3.madlen) and
+[p_6a.madlen](profiles/monitor/p_6a.madlen). These frame and ALFA helpers use the
+same dependencies as the Monitor implementation; all six words are checked
+against their source when linked. The I/O and startup variants remain separately
+selectable.
 
 The runner accepts an adjacent `.pre` file for application externals. It currently
 runs with standard input closed; the examples exercise local text files.
@@ -63,11 +73,15 @@ complete example, including the PASCODER stack descriptor at core address `02007
 required by the original startup code. The PERSO output is a private library;
 the build does not install it into volume 77.
 
-The sources are under `profiles/PROFILE/runtime.madlen`, with explicit address
-fixups in `relocations.json`. Module names beginning with `RT` and their grouping
-are recovery choices made to fit Madlen's entry tables. Application FORTRAN code
-between runtime modules is excluded. Raw constants, strings, and original
-instruction packing are preserved.
+The Monitor sources are split into individual Madlen files under
+[`profiles/monitor/`](profiles/monitor/README.md), following the standard Pascal
+library's routine groups and ENTRY aliases. Each module declares its actual
+dependencies, so the loader can select the modules a program needs. The other
+profiles use `profiles/PROFILE/runtime.madlen`; their `RT` module names and
+grouping are recovery choices made to fit Madlen's entry tables. Explicit address
+fixups are in each profile's `relocations.json`. Application FORTRAN code between
+runtime modules is excluded. Raw constants, strings, and original instruction
+packing are preserved.
 
 ## Reproduce the extraction and analysis
 

@@ -2,27 +2,193 @@
   "profile": "monitor",
   "source": "test.bin",
   "sha256": "b4073efcc29a4b3c8da9ba2c55a76e3affb47117ec15cc544c3826f6de9048dc",
-  "module": "RTMON1",
+  "module": "P/2",
   "chunks": [
     {
-      "name": "RTMON1",
+      "name": "P/2",
       "start": "02310",
-      "end": "02676"
+      "end": "02314",
+      "file": "p_2.madlen"
     },
     {
-      "name": "RTMON2",
+      "name": "P/SC",
+      "start": "02314",
+      "end": "02330",
+      "file": "p_sc.madlen"
+    },
+    {
+      "name": "P/SYS",
+      "start": "02330",
+      "end": "02663",
+      "file": "p_sys.madlen"
+    },
+    {
+      "name": "P/DA",
+      "start": "02663",
+      "end": "02676",
+      "file": "p_da.madlen"
+    },
+    {
+      "name": "P/08",
       "start": "02676",
-      "end": "03002"
+      "end": "02725",
+      "file": "p_08.madlen"
     },
     {
-      "name": "RTMON3",
+      "name": "P/LDAR",
+      "start": "02725",
+      "end": "02735",
+      "file": "p_ldar.madlen"
+    },
+    {
+      "name": "P/CW",
+      "start": "02735",
+      "end": "02737",
+      "file": "p_cw.madlen"
+    },
+    {
+      "name": "P/EF",
+      "start": "02737",
+      "end": "02745",
+      "file": "p_ef.madlen"
+    },
+    {
+      "name": "*TTIO*",
+      "start": "02745",
+      "end": "02774",
+      "file": "ttio.madlen"
+    },
+    {
+      "name": "P/1",
+      "start": "02774",
+      "end": "03002",
+      "file": "p_1.madlen"
+    },
+    {
+      "name": "PASPMD",
       "start": "03002",
-      "end": "03422"
+      "end": "03150",
+      "file": "paspmd.madlen"
     },
     {
-      "name": "RTMON4",
+      "name": "P/ER",
+      "start": "03150",
+      "end": "03162",
+      "file": "p_er.madlen"
+    },
+    {
+      "name": "STOP*",
+      "start": "03162",
+      "end": "03163",
+      "file": "stop.madlen"
+    },
+    {
+      "name": "MONOUT",
+      "start": "03163",
+      "end": "03255",
+      "file": "monout.madlen"
+    },
+    {
+      "name": "MONIN",
+      "start": "03255",
+      "end": "03315",
+      "file": "monin.madlen"
+    },
+    {
+      "name": "P/PRINT",
+      "start": "03315",
+      "end": "03334",
+      "file": "p_print.madlen"
+    },
+    {
+      "name": "P/WO",
+      "start": "03334",
+      "end": "03416",
+      "file": "p_wo.madlen"
+    },
+    {
+      "name": "PASCHARS",
+      "start": "03416",
+      "end": "03421",
+      "file": "paschars.madlen"
+    },
+    {
+      "name": "P/PUTERR",
+      "start": "03421",
+      "end": "03422",
+      "file": "p_puterr.madlen"
+    },
+    {
+      "name": "P/7A",
       "start": "03422",
-      "end": "04066"
+      "end": "03437",
+      "file": "p_7a.madlen"
+    },
+    {
+      "name": "P/WI",
+      "start": "03437",
+      "end": "03520",
+      "file": "p_wi.madlen"
+    },
+    {
+      "name": "P/HT",
+      "start": "03520",
+      "end": "03533",
+      "file": "p_ht.madlen"
+    },
+    {
+      "name": "P/WX",
+      "start": "03533",
+      "end": "03560",
+      "file": "p_wx.madlen"
+    },
+    {
+      "name": "P/WR",
+      "start": "03560",
+      "end": "03772",
+      "file": "p_wr.madlen"
+    },
+    {
+      "name": "P/SP",
+      "start": "03772",
+      "end": "04000",
+      "file": "p_sp.madlen"
+    },
+    {
+      "name": "P/HIDE",
+      "start": "04000",
+      "end": "04006",
+      "file": "p_hide.madlen"
+    },
+    {
+      "name": "P/RC",
+      "start": "04006",
+      "end": "04024",
+      "file": "p_rc.madlen"
+    },
+    {
+      "name": "PASISOXT",
+      "start": "04024",
+      "end": "04053",
+      "file": "pasisoxt.madlen"
+    },
+    {
+      "name": "PASWRCHR",
+      "start": "04053",
+      "end": "04055",
+      "file": "paswrchr.madlen"
+    },
+    {
+      "name": "P/TR",
+      "start": "04055",
+      "end": "04060",
+      "file": "p_tr.madlen"
+    },
+    {
+      "name": "P/A7",
+      "start": "04060",
+      "end": "04066",
+      "file": "p_a7.madlen"
     }
   ],
   "runtime": [
@@ -66,7 +232,14 @@
     "P/EDIH": "04003",
     "P/RC": "04006",
     "P/TR": "04055",
-    "P/A7": "04060"
+    "P/A7": "04060",
+    "PASCELUP": "03161",
+    "PASZERO*": "03416",
+    "PASMINS*": "03417",
+    "SPACE*": "03420",
+    "PASPMDAD": "03532",
+    "PASPERID": "04053",
+    "PASPLUS*": "04054"
   },
   "common": {
     "P/1D": {
@@ -94,7 +267,7 @@
       "word": "02314",
       "half": "R",
       "target": "03161",
-      "expression": "RTMON3+157B",
+      "expression": "PASCELUP",
       "width": 15
     },
     {
@@ -108,28 +281,28 @@
       "word": "02316",
       "half": "L",
       "target": "03150",
-      "expression": "RTMON3+146B",
+      "expression": "P/ER",
       "width": 15
     },
     {
       "word": "02322",
       "half": "R",
       "target": "03143",
-      "expression": "RTMON3+141B",
+      "expression": "PASPMD+141B",
       "width": 15
     },
     {
       "word": "02324",
       "half": "R",
       "target": "03143",
-      "expression": "RTMON3+141B",
+      "expression": "PASPMD+141B",
       "width": 15
     },
     {
       "word": "02355",
       "half": "L",
       "target": "02745",
-      "expression": "RTMON2+47B",
+      "expression": "*TTIO*",
       "width": 15
     },
     {
@@ -185,14 +358,14 @@
       "word": "02403",
       "half": "L",
       "target": "02745",
-      "expression": "RTMON2+47B",
+      "expression": "*TTIO*",
       "width": 15
     },
     {
       "word": "02407",
       "half": "L",
       "target": "02745",
-      "expression": "RTMON2+47B",
+      "expression": "*TTIO*",
       "width": 15
     },
     {
@@ -206,7 +379,7 @@
       "word": "02417",
       "half": "L",
       "target": "02676",
-      "expression": "RTMON2",
+      "expression": "P/08",
       "width": 15
     },
     {
@@ -227,7 +400,7 @@
       "word": "02443",
       "half": "L",
       "target": "03163",
-      "expression": "RTMON3+161B",
+      "expression": "MONOUT",
       "width": 15
     },
     {
@@ -248,7 +421,7 @@
       "word": "02451",
       "half": "L",
       "target": "02745",
-      "expression": "RTMON2+47B",
+      "expression": "*TTIO*",
       "width": 15
     },
     {
@@ -262,7 +435,7 @@
       "word": "02453",
       "half": "R",
       "target": "02735",
-      "expression": "RTMON2+37B",
+      "expression": "P/CW",
       "width": 15
     },
     {
@@ -297,7 +470,7 @@
       "word": "02461",
       "half": "L",
       "target": "02745",
-      "expression": "RTMON2+47B",
+      "expression": "*TTIO*",
       "width": 15
     },
     {
@@ -388,7 +561,7 @@
       "word": "02502",
       "half": "R",
       "target": "02676",
-      "expression": "RTMON2",
+      "expression": "P/08",
       "width": 15
     },
     {
@@ -416,7 +589,7 @@
       "word": "02505",
       "half": "L",
       "target": "02745",
-      "expression": "RTMON2+47B",
+      "expression": "*TTIO*",
       "width": 15
     },
     {
@@ -437,14 +610,14 @@
       "word": "02511",
       "half": "R",
       "target": "02745",
-      "expression": "RTMON2+47B",
+      "expression": "*TTIO*",
       "width": 15
     },
     {
       "word": "02512",
       "half": "R",
       "target": "02735",
-      "expression": "RTMON2+37B",
+      "expression": "P/CW",
       "width": 15
     },
     {
@@ -514,7 +687,7 @@
       "word": "02535",
       "half": "R",
       "target": "03421",
-      "expression": "RTMON3+417B",
+      "expression": "P/PUTERR",
       "width": 15
     },
     {
@@ -528,7 +701,7 @@
       "word": "02541",
       "half": "L",
       "target": "02745",
-      "expression": "RTMON2+47B",
+      "expression": "*TTIO*",
       "width": 15
     },
     {
@@ -612,7 +785,7 @@
       "word": "02563",
       "half": "L",
       "target": "03255",
-      "expression": "RTMON3+253B",
+      "expression": "MONIN",
       "width": 15
     },
     {
@@ -745,7 +918,7 @@
       "word": "02627",
       "half": "R",
       "target": "03255",
-      "expression": "RTMON3+253B",
+      "expression": "MONIN",
       "width": 15
     },
     {
@@ -829,14 +1002,14 @@
       "word": "02643",
       "half": "L",
       "target": "02772",
-      "expression": "RTMON2+74B",
+      "expression": "*TTIO*+25B",
       "width": 15
     },
     {
       "word": "02646",
       "half": "L",
       "target": "02773",
-      "expression": "RTMON2+75B",
+      "expression": "*TTIO*+26B",
       "width": 15
     },
     {
@@ -871,7 +1044,7 @@
       "word": "02654",
       "half": "L",
       "target": "03315",
-      "expression": "RTMON3+313B",
+      "expression": "P/PRINT",
       "width": 15
     },
     {
@@ -885,7 +1058,7 @@
       "word": "02655",
       "half": "R",
       "target": "03315",
-      "expression": "RTMON3+313B",
+      "expression": "P/PRINT",
       "width": 15
     },
     {
@@ -899,14 +1072,14 @@
       "word": "02660",
       "half": "R",
       "target": "03334",
-      "expression": "RTMON3+332B",
+      "expression": "P/WO",
       "width": 15
     },
     {
       "word": "02661",
       "half": "L",
       "target": "03162",
-      "expression": "RTMON3+160B",
+      "expression": "STOP*",
       "width": 15
     },
     {
@@ -941,28 +1114,28 @@
       "word": "02667",
       "half": "L",
       "target": "03422",
-      "expression": "RTMON4",
+      "expression": "P/7A",
       "width": 15
     },
     {
       "word": "02670",
       "half": "R",
       "target": "03437",
-      "expression": "RTMON4+15B",
+      "expression": "P/WI",
       "width": 15
     },
     {
       "word": "02671",
       "half": "L",
       "target": "02511",
-      "expression": "R02511",
+      "expression": "P/WL",
       "width": 15
     },
     {
       "word": "02672",
       "half": "L",
       "target": "03520",
-      "expression": "RTMON4+76B",
+      "expression": "P/HT",
       "width": 15
     },
     {
@@ -985,7 +1158,7 @@
       "word": "02736",
       "half": "R",
       "target": "02461",
-      "expression": "RTMON1+151B",
+      "expression": "P/PF",
       "width": 15
     },
     {
@@ -1013,7 +1186,7 @@
       "word": "03006",
       "half": "R",
       "target": "02510",
-      "expression": "RTMON1+200B",
+      "expression": "P/WOLN",
       "width": 15
     },
     {
@@ -1027,7 +1200,7 @@
       "word": "03007",
       "half": "R",
       "target": "03315",
-      "expression": "R03315",
+      "expression": "P/PRINT",
       "width": 15
     },
     {
@@ -1055,21 +1228,21 @@
       "word": "03014",
       "half": "R",
       "target": "03315",
-      "expression": "R03315",
+      "expression": "P/PRINT",
       "width": 15
     },
     {
       "word": "03015",
       "half": "L",
       "target": "03162",
-      "expression": "R03162",
+      "expression": "STOP*",
       "width": 15
     },
     {
       "word": "03020",
       "half": "R",
       "target": "03437",
-      "expression": "RTMON4+15B",
+      "expression": "P/WI",
       "width": 15
     },
     {
@@ -1083,7 +1256,7 @@
       "word": "03021",
       "half": "R",
       "target": "03315",
-      "expression": "R03315",
+      "expression": "P/PRINT",
       "width": 15
     },
     {
@@ -1104,14 +1277,14 @@
       "word": "03024",
       "half": "L",
       "target": "03315",
-      "expression": "R03315",
+      "expression": "P/PRINT",
       "width": 15
     },
     {
       "word": "03025",
       "half": "L",
       "target": "02511",
-      "expression": "RTMON1+201B",
+      "expression": "P/WL",
       "width": 15
     },
     {
@@ -1132,7 +1305,7 @@
       "word": "03033",
       "half": "R",
       "target": "03542",
-      "expression": "RTMON4+120B",
+      "expression": "P/WXD",
       "width": 15
     },
     {
@@ -1146,7 +1319,7 @@
       "word": "03035",
       "half": "L",
       "target": "03532",
-      "expression": "RTMON4+110B",
+      "expression": "PASPMDAD",
       "width": 15
     },
     {
@@ -1160,7 +1333,7 @@
       "word": "03040",
       "half": "L",
       "target": "03315",
-      "expression": "R03315",
+      "expression": "P/PRINT",
       "width": 15
     },
     {
@@ -1181,21 +1354,21 @@
       "word": "03042",
       "half": "R",
       "target": "03315",
-      "expression": "R03315",
+      "expression": "P/PRINT",
       "width": 15
     },
     {
       "word": "03044",
       "half": "L",
       "target": "03437",
-      "expression": "RTMON4+15B",
+      "expression": "P/WI",
       "width": 15
     },
     {
       "word": "03045",
       "half": "L",
       "target": "02511",
-      "expression": "RTMON1+201B",
+      "expression": "P/WL",
       "width": 15
     },
     {
@@ -1216,7 +1389,7 @@
       "word": "03050",
       "half": "R",
       "target": "02735",
-      "expression": "RTMON2+37B",
+      "expression": "P/CW",
       "width": 15
     },
     {
@@ -1272,7 +1445,7 @@
       "word": "03061",
       "half": "R",
       "target": "02735",
-      "expression": "RTMON2+37B",
+      "expression": "P/CW",
       "width": 15
     },
     {
@@ -1286,7 +1459,7 @@
       "word": "03062",
       "half": "R",
       "target": "02511",
-      "expression": "RTMON1+201B",
+      "expression": "P/WL",
       "width": 15
     },
     {
@@ -1307,21 +1480,21 @@
       "word": "03064",
       "half": "R",
       "target": "03315",
-      "expression": "R03315",
+      "expression": "P/PRINT",
       "width": 15
     },
     {
       "word": "03065",
       "half": "L",
       "target": "02511",
-      "expression": "RTMON1+201B",
+      "expression": "P/WL",
       "width": 15
     },
     {
       "word": "03072",
       "half": "L",
       "target": "03560",
-      "expression": "RTMON4+136B",
+      "expression": "P/WR",
       "width": 15
     },
     {
@@ -1335,7 +1508,7 @@
       "word": "03074",
       "half": "L",
       "target": "03437",
-      "expression": "RTMON4+15B",
+      "expression": "P/WI",
       "width": 15
     },
     {
@@ -1349,7 +1522,7 @@
       "word": "03077",
       "half": "L",
       "target": "02735",
-      "expression": "RTMON2+37B",
+      "expression": "P/CW",
       "width": 15
     },
     {
@@ -1377,21 +1550,21 @@
       "word": "03106",
       "half": "R",
       "target": "03334",
-      "expression": "R03334",
+      "expression": "P/WO",
       "width": 15
     },
     {
       "word": "03152",
       "half": "R",
       "target": "02510",
-      "expression": "RTMON1+200B",
+      "expression": "P/WOLN",
       "width": 15
     },
     {
       "word": "03154",
       "half": "L",
       "target": "03315",
-      "expression": "R03315",
+      "expression": "P/PRINT",
       "width": 15
     },
     {
@@ -1405,21 +1578,21 @@
       "word": "03155",
       "half": "R",
       "target": "03315",
-      "expression": "R03315",
+      "expression": "P/PRINT",
       "width": 15
     },
     {
       "word": "03156",
       "half": "R",
       "target": "03437",
-      "expression": "RTMON4+15B",
+      "expression": "P/WI",
       "width": 15
     },
     {
       "word": "03157",
       "half": "L",
       "target": "03520",
-      "expression": "RTMON4+76B",
+      "expression": "P/HT",
       "width": 15
     },
     {
@@ -1538,7 +1711,7 @@
       "word": "03325",
       "half": "L",
       "target": "02461",
-      "expression": "RTMON1+151B",
+      "expression": "P/PF",
       "width": 15
     },
     {
@@ -1594,7 +1767,7 @@
       "word": "03345",
       "half": "R",
       "target": "03772",
-      "expression": "RTMON4+350B",
+      "expression": "P/SP",
       "width": 15
     },
     {
@@ -1615,21 +1788,21 @@
       "word": "03362",
       "half": "L",
       "target": "02461",
-      "expression": "RTMON1+151B",
+      "expression": "P/PF",
       "width": 15
     },
     {
       "word": "03422",
       "half": "L",
       "target": "04000",
-      "expression": "R04000",
+      "expression": "P/HIDE",
       "width": 15
     },
     {
       "word": "03431",
       "half": "L",
       "target": "02461",
-      "expression": "RTMON1+151B",
+      "expression": "P/PF",
       "width": 15
     },
     {
@@ -1657,7 +1830,7 @@
       "word": "03435",
       "half": "L",
       "target": "04003",
-      "expression": "R04003",
+      "expression": "P/EDIH",
       "width": 15
     },
     {
@@ -1685,7 +1858,7 @@
       "word": "03444",
       "half": "R",
       "target": "03422",
-      "expression": "R03422",
+      "expression": "P/7A",
       "width": 15
     },
     {
@@ -1734,7 +1907,7 @@
       "word": "03472",
       "half": "L",
       "target": "03772",
-      "expression": "R03772",
+      "expression": "P/SP",
       "width": 15
     },
     {
@@ -1748,14 +1921,14 @@
       "word": "03474",
       "half": "R",
       "target": "03417",
-      "expression": "RTMON3+415B",
+      "expression": "PASMINS*",
       "width": 15
     },
     {
       "word": "03475",
       "half": "R",
       "target": "02735",
-      "expression": "RTMON2+37B",
+      "expression": "P/CW",
       "width": 15
     },
     {
@@ -1776,14 +1949,14 @@
       "word": "03500",
       "half": "R",
       "target": "03416",
-      "expression": "RTMON3+414B",
+      "expression": "PASZERO*",
       "width": 15
     },
     {
       "word": "03503",
       "half": "L",
       "target": "02461",
-      "expression": "RTMON1+151B",
+      "expression": "P/PF",
       "width": 15
     },
     {
@@ -1818,7 +1991,7 @@
       "word": "03523",
       "half": "R",
       "target": "04006",
-      "expression": "R04006",
+      "expression": "P/RC",
       "width": 15
     },
     {
@@ -1832,21 +2005,21 @@
       "word": "03525",
       "half": "R",
       "target": "03162",
-      "expression": "RTMON3+160B",
+      "expression": "STOP*",
       "width": 15
     },
     {
       "word": "03527",
       "half": "R",
       "target": "02742",
-      "expression": "RTMON2+44B",
+      "expression": "P/E",
       "width": 15
     },
     {
       "word": "03530",
       "half": "L",
       "target": "02737",
-      "expression": "RTMON2+41B",
+      "expression": "P/EF",
       "width": 15
     },
     {
@@ -1888,21 +2061,21 @@
       "word": "03545",
       "half": "R",
       "target": "03772",
-      "expression": "R03772",
+      "expression": "P/SP",
       "width": 15
     },
     {
       "word": "03551",
       "half": "L",
       "target": "04024",
-      "expression": "R04024",
+      "expression": "PASISOXT",
       "width": 15
     },
     {
       "word": "03552",
       "half": "L",
       "target": "02735",
-      "expression": "RTMON2+37B",
+      "expression": "P/CW",
       "width": 15
     },
     {
@@ -1979,14 +2152,14 @@
       "word": "03605",
       "half": "R",
       "target": "03420",
-      "expression": "RTMON3+416B",
+      "expression": "SPACE*",
       "width": 15
     },
     {
       "word": "03606",
       "half": "R",
       "target": "02735",
-      "expression": "RTMON2+37B",
+      "expression": "P/CW",
       "width": 15
     },
     {
@@ -2014,7 +2187,7 @@
       "word": "03613",
       "half": "R",
       "target": "03420",
-      "expression": "RTMON3+416B",
+      "expression": "SPACE*",
       "width": 15
     },
     {
@@ -2035,14 +2208,14 @@
       "word": "03617",
       "half": "L",
       "target": "03417",
-      "expression": "RTMON3+415B",
+      "expression": "PASMINS*",
       "width": 15
     },
     {
       "word": "03620",
       "half": "L",
       "target": "02735",
-      "expression": "RTMON2+37B",
+      "expression": "P/CW",
       "width": 15
     },
     {
@@ -2098,7 +2271,7 @@
       "word": "03650",
       "half": "R",
       "target": "04055",
-      "expression": "R04055",
+      "expression": "P/TR",
       "width": 15
     },
     {
@@ -2126,7 +2299,7 @@
       "word": "03662",
       "half": "R",
       "target": "04060",
-      "expression": "R04060",
+      "expression": "P/A7",
       "width": 15
     },
     {
@@ -2140,42 +2313,42 @@
       "word": "03665",
       "half": "L",
       "target": "03437",
-      "expression": "R03437",
+      "expression": "P/WI",
       "width": 15
     },
     {
       "word": "03666",
       "half": "L",
       "target": "04053",
-      "expression": "R04053",
+      "expression": "PASPERID",
       "width": 15
     },
     {
       "word": "03667",
       "half": "L",
       "target": "02735",
-      "expression": "RTMON2+37B",
+      "expression": "P/CW",
       "width": 15
     },
     {
       "word": "03670",
       "half": "L",
       "target": "03420",
-      "expression": "RTMON3+416B",
+      "expression": "SPACE*",
       "width": 15
     },
     {
       "word": "03671",
       "half": "R",
       "target": "03416",
-      "expression": "RTMON3+414B",
+      "expression": "PASZERO*",
       "width": 15
     },
     {
       "word": "03674",
       "half": "L",
       "target": "03437",
-      "expression": "R03437",
+      "expression": "P/WI",
       "width": 15
     },
     {
@@ -2196,14 +2369,14 @@
       "word": "03677",
       "half": "L",
       "target": "02735",
-      "expression": "RTMON2+37B",
+      "expression": "P/CW",
       "width": 15
     },
     {
       "word": "03700",
       "half": "L",
       "target": "04054",
-      "expression": "R04054",
+      "expression": "PASPLUS*",
       "width": 15
     },
     {
@@ -2217,14 +2390,14 @@
       "word": "03703",
       "half": "L",
       "target": "03417",
-      "expression": "RTMON3+415B",
+      "expression": "PASMINS*",
       "width": 15
     },
     {
       "word": "03704",
       "half": "R",
       "target": "02735",
-      "expression": "RTMON2+37B",
+      "expression": "P/CW",
       "width": 15
     },
     {
@@ -2238,14 +2411,14 @@
       "word": "03706",
       "half": "R",
       "target": "03437",
-      "expression": "R03437",
+      "expression": "P/WI",
       "width": 15
     },
     {
       "word": "03707",
       "half": "R",
       "target": "03420",
-      "expression": "RTMON3+416B",
+      "expression": "SPACE*",
       "width": 15
     },
     {
@@ -2273,14 +2446,14 @@
       "word": "03773",
       "half": "L",
       "target": "03420",
-      "expression": "RTMON3+416B",
+      "expression": "SPACE*",
       "width": 15
     },
     {
       "word": "03775",
       "half": "L",
       "target": "02461",
-      "expression": "RTMON1+151B",
+      "expression": "P/PF",
       "width": 15
     },
     {
@@ -2343,28 +2516,312 @@
       "word": "04061",
       "half": "L",
       "target": "04000",
-      "expression": "R04000",
+      "expression": "P/HIDE",
       "width": 15
     },
     {
       "word": "04065",
       "half": "L",
       "target": "03424",
-      "expression": "R03424",
+      "expression": "P/7AD",
       "width": 15
     },
     {
       "word": "04065",
       "half": "R",
       "target": "03772",
-      "expression": "R03772",
+      "expression": "P/SP",
       "width": 15
     }
   ],
   "notes": [
-    "Split into four modules to fit Madlen entry tables; original object-module boundaries are not assumed.",
+    "Split by standard Pascal library routine groups; P/SYS combines the monitor file helpers. Original object-module boundaries are not claimed.",
     "P/1D reserves 052 words in this image; initialize only the 050 runtime words so new program globals are not overwritten.",
     "Word 02007 is the PASCODER stack descriptor supplied by the launch deck.",
-    "Short absolute references require the recovered module to remain below 010000."
+    "Short absolute references require the recovered module to remain below 010000.",
+    "*TTIO*, PASCHARS and PASWRCHR keep shared tables independently relocatable.",
+    "MONOUT and MONIN are recovery names for the monitor text converters; their historical module names are unknown.",
+    "PASPMD keeps P/PMDSET, P/EF keeps P/E, P/7A keeps P/7AD, P/HIDE keeps P/EDIH, P/WR keeps PASTENS, and P/WX keeps P/WXD."
+  ],
+  "sources": [
+    "p_2.madlen",
+    "p_sc.madlen",
+    "p_sys.madlen",
+    "p_da.madlen",
+    "p_08.madlen",
+    "p_ldar.madlen",
+    "p_cw.madlen",
+    "p_ef.madlen",
+    "ttio.madlen",
+    "p_1.madlen",
+    "paspmd.madlen",
+    "p_er.madlen",
+    "stop.madlen",
+    "monout.madlen",
+    "monin.madlen",
+    "p_print.madlen",
+    "p_wo.madlen",
+    "paschars.madlen",
+    "p_puterr.madlen",
+    "p_7a.madlen",
+    "p_wi.madlen",
+    "p_ht.madlen",
+    "p_wx.madlen",
+    "p_wr.madlen",
+    "p_sp.madlen",
+    "p_hide.madlen",
+    "p_rc.madlen",
+    "pasisoxt.madlen",
+    "paswrchr.madlen",
+    "p_tr.madlen",
+    "p_a7.madlen"
+  ],
+  "dependencies": {
+    "P/2": {
+      "subprograms": [],
+      "commons": []
+    },
+    "P/SC": {
+      "subprograms": [
+        "P/ER",
+        "PASCELUP",
+        "PASPMD"
+      ],
+      "commons": []
+    },
+    "P/SYS": {
+      "subprograms": [
+        "*TTIO*",
+        "MONIN",
+        "MONOUT",
+        "P/08",
+        "P/CW",
+        "P/PRINT",
+        "P/PUTERR",
+        "P/WO",
+        "STOP*"
+      ],
+      "commons": [
+        "*INPUT*",
+        "*OUTPUT*"
+      ]
+    },
+    "P/DA": {
+      "subprograms": [
+        "P/7A",
+        "P/HT",
+        "P/WI",
+        "P/WL"
+      ],
+      "commons": [
+        "*OUTPUT*"
+      ]
+    },
+    "P/08": {
+      "subprograms": [],
+      "commons": []
+    },
+    "P/LDAR": {
+      "subprograms": [],
+      "commons": []
+    },
+    "P/CW": {
+      "subprograms": [
+        "P/PF"
+      ],
+      "commons": []
+    },
+    "P/EF": {
+      "subprograms": [],
+      "commons": []
+    },
+    "*TTIO*": {
+      "subprograms": [],
+      "commons": []
+    },
+    "P/1": {
+      "subprograms": [],
+      "commons": [
+        "P/1D"
+      ]
+    },
+    "PASPMD": {
+      "subprograms": [
+        "P/CW",
+        "P/PRINT",
+        "P/WI",
+        "P/WL",
+        "P/WO",
+        "P/WOLN",
+        "P/WR",
+        "P/WXD",
+        "PASPMDAD",
+        "STOP*"
+      ],
+      "commons": []
+    },
+    "P/ER": {
+      "subprograms": [
+        "P/HT",
+        "P/PRINT",
+        "P/WI",
+        "P/WOLN"
+      ],
+      "commons": []
+    },
+    "STOP*": {
+      "subprograms": [],
+      "commons": []
+    },
+    "MONOUT": {
+      "subprograms": [],
+      "commons": []
+    },
+    "MONIN": {
+      "subprograms": [],
+      "commons": []
+    },
+    "P/PRINT": {
+      "subprograms": [
+        "P/PF"
+      ],
+      "commons": []
+    },
+    "P/WO": {
+      "subprograms": [
+        "P/PF",
+        "P/SP"
+      ],
+      "commons": []
+    },
+    "PASCHARS": {
+      "subprograms": [],
+      "commons": []
+    },
+    "P/PUTERR": {
+      "subprograms": [],
+      "commons": []
+    },
+    "P/7A": {
+      "subprograms": [
+        "P/EDIH",
+        "P/HIDE",
+        "P/PF"
+      ],
+      "commons": []
+    },
+    "P/WI": {
+      "subprograms": [
+        "P/7A",
+        "P/CW",
+        "P/PF",
+        "P/SP",
+        "PASMINS*",
+        "PASZERO*"
+      ],
+      "commons": []
+    },
+    "P/HT": {
+      "subprograms": [
+        "P/E",
+        "P/EF",
+        "P/RC",
+        "STOP*"
+      ],
+      "commons": []
+    },
+    "P/WX": {
+      "subprograms": [
+        "P/CW",
+        "P/SP",
+        "PASISOXT"
+      ],
+      "commons": []
+    },
+    "P/WR": {
+      "subprograms": [
+        "P/A7",
+        "P/CW",
+        "P/TR",
+        "P/WI",
+        "PASMINS*",
+        "PASPERID",
+        "PASPLUS*",
+        "PASZERO*",
+        "SPACE*"
+      ],
+      "commons": []
+    },
+    "P/SP": {
+      "subprograms": [
+        "P/PF",
+        "SPACE*"
+      ],
+      "commons": []
+    },
+    "P/HIDE": {
+      "subprograms": [],
+      "commons": []
+    },
+    "P/RC": {
+      "subprograms": [],
+      "commons": []
+    },
+    "PASISOXT": {
+      "subprograms": [],
+      "commons": []
+    },
+    "PASWRCHR": {
+      "subprograms": [],
+      "commons": []
+    },
+    "P/TR": {
+      "subprograms": [],
+      "commons": []
+    },
+    "P/A7": {
+      "subprograms": [
+        "P/7AD",
+        "P/HIDE",
+        "P/SP"
+      ],
+      "commons": []
+    }
+  },
+  "helper_sources": [
+    "p_3.madlen",
+    "p_6a.madlen"
+  ],
+  "text": [
+    {
+      "start": "02330",
+      "encoding": "iso",
+      "value": "  PUT(F) EOLN=FALSE\u0004    "
+    },
+    {
+      "start": "02334",
+      "encoding": "iso",
+      "value": "  PUT(F) EOF=TRUE\u0004"
+    },
+    {
+      "start": "02337",
+      "encoding": "iso",
+      "value": "  PUT(F) LOCAL FILE OVERFLOW\u0004 "
+    },
+    {
+      "start": "02344",
+      "encoding": "iso",
+      "value": "  GET(F) EOF=TRUE\u0004"
+    },
+    {
+      "start": "02347",
+      "encoding": "iso",
+      "value": "  GET(F) EOLN=TRUE\u0004     "
+    },
+    {
+      "start": "02353",
+      "encoding": "iso",
+      "value": "... RET=\u0004   "
+    }
   ]
 }
