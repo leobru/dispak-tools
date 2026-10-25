@@ -1,0 +1,87 @@
+{
+  "comp_file_library_words": 784,
+  "monitor_words": 788,
+  "additional_helper_words": 18,
+  "assembler_calls_checked": {
+    "MKNAME": 1,
+    "OPENF": 1,
+    "ERROR": 2
+  },
+  "comp_converter_words": 98,
+  "global_words": 79,
+  "entry": "02012",
+  "free": "06326",
+  "globals": "02653",
+  "original": {
+    "image": "runtime/images/4001/0034-more.bin",
+    "sha256": "091a1127bc77951e8dbf8cca57fa573437b65340b64dab84afbe68aa17132d55",
+    "entry": "02012",
+    "application_code": [
+      "02012",
+      "02515"
+    ],
+    "application_code_words": 324,
+    "constants_and_pmd": [
+      "02516",
+      "02700"
+    ],
+    "constants_and_pmd_words": 115,
+    "globals_and_file_blocks": [
+      "02701",
+      "03113"
+    ],
+    "globals_and_file_words": 139,
+    "erased_addresses": [
+      "04000",
+      "05777"
+    ],
+    "erased_words": 1024,
+    "erased_volume_zone": "0035",
+    "application_before_erasure": true
+  },
+  "compiler": {
+    "source": "mypas.b6",
+    "source_sha256": "41b984308af5f36c9747689a7930b9b7328b1bc2127c1a577b7e6301328e7c28",
+    "sha256": "59d28894f0fb365ac97f5449f64352c519bc39bb51eeaa3f57c941084bc79518",
+    "installed_volume_sha256": "e0376072801ba9185bfdff4685a40a2b7ff1a9444feb6eda17649d7479c89cf2",
+    "installed_volume_unchanged": true,
+    "translator_zone": "0000",
+    "assembler_last_argument": "accumulator",
+    "assembler_constant_base_restored_by_caller": true,
+    "former_build_path": "runtime/build/more/77"
+  },
+  "source_sha256": "d9c18c6da6c17ca044ae09bdcc1ecb8e9786d3d01158f02f80d0b506eaeb8c7d",
+  "build_source_hashes": {
+    "more.pas": "d9c18c6da6c17ca044ae09bdcc1ecb8e9786d3d01158f02f80d0b506eaeb8c7d",
+    "build.py": "e64a2c72716666b7c8623ac6e3e7761e4fc59ad9ca95afecd4a2e6b6a87100b9"
+  },
+  "image": "runtime/build/more/readable.img",
+  "image_sha256": "b80880547cdadbdacb620b9cb824e253a3aa63ecb784625b5a4b5fac94a93c4a",
+  "image_words": 3072,
+  "application_bit_identical": false,
+  "interactive_execution": false,
+  "volume": {
+    "sha256": "9fb26d665b2c11bfa17df7aab814f69cbca227096bac71f8497c660b4de09476",
+    "source_sha256": "30223751b839a6273cf96a0a6ab2e8becfcef2a59dd16661022b39740974b978",
+    "replaced_zones": [
+      "0034",
+      "0035",
+      "0036"
+    ],
+    "zone_0035_nonzero_words": 1004,
+    "other_payload_words_unchanged": true,
+    "other_physical_zones_unchanged": true,
+    "source_unchanged": true,
+    "former_build_path": "runtime/build/more/4001"
+  },
+  "historical_build_snapshot": true,
+  "source": "runtime/more/more-readable.pas",
+  "listing": "runtime/build/more/readable.lst",
+  "pascal_comparison_before_refinement": {
+    "code_words": 305,
+    "pool_pmd_words": 112,
+    "initial_data_words": 139,
+    "raw_different_words_in_original_code_range": 274,
+    "raw_different_words_in_original_pascal_range": 433
+  }
+}

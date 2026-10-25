@@ -1,0 +1,160 @@
+{
+  "comp_file_library_words": 784,
+  "monitor_words": 788,
+  "additional_helper_words": 18,
+  "assembler_calls_checked": {
+    "MKNAME": 1,
+    "OPENF": 1,
+    "ERROR": 2
+  },
+  "comp_converter_words": 98,
+  "global_words": 79,
+  "entry": "02012",
+  "free": "06352",
+  "globals": "02701",
+  "original": {
+    "image": "runtime/images/4001/0034-more.bin",
+    "sha256": "091a1127bc77951e8dbf8cca57fa573437b65340b64dab84afbe68aa17132d55",
+    "entry": "02012",
+    "application_code": [
+      "02012",
+      "02515"
+    ],
+    "application_code_words": 324,
+    "constants_and_pmd": [
+      "02516",
+      "02700"
+    ],
+    "constants_and_pmd_words": 115,
+    "globals_and_file_blocks": [
+      "02701",
+      "03113"
+    ],
+    "globals_and_file_words": 139,
+    "erased_addresses": [
+      "04000",
+      "05777"
+    ],
+    "erased_words": 1024,
+    "erased_volume_zone": "0035",
+    "application_before_erasure": true
+  },
+  "compiler": {
+    "source": "mypas.b6",
+    "source_sha256": "e3bf19647a640d95ec9f57045ec4ac811819897d2c033d1c1d899881df822833",
+    "volume": "runtime/build/more/77",
+    "sha256": "b526ca305e1a403d14edfb8cd60515bd153cc2b5c7887904262b9d14bcfb6cda",
+    "installed_volume_sha256": "b526ca305e1a403d14edfb8cd60515bd153cc2b5c7887904262b9d14bcfb6cda",
+    "installed_volume_unchanged": true,
+    "translator_zone": "0000",
+    "assembler_last_argument": "accumulator",
+    "assembler_constant_base_restored_by_caller": true
+  },
+  "pascal_comparison": {
+    "range": [
+      "02012",
+      "03113"
+    ],
+    "words": 578,
+    "code_words": 324,
+    "pool_pmd_words": 115,
+    "initial_data_words": 139,
+    "raw_identical_words": 569,
+    "raw_different_words": 9,
+    "code_identical_after_runtime_relocation": true,
+    "pool_pmd_bit_identical": true,
+    "initial_data_bit_identical": true,
+    "mismatches_after_runtime_relocation": 0,
+    "runtime_fixups": [
+      {
+        "word": "02402",
+        "half": "L",
+        "name": "MKNAME",
+        "original": "03601",
+        "rebuilt": "04000"
+      },
+      {
+        "word": "02407",
+        "half": "L",
+        "name": "ERROR",
+        "original": "03765",
+        "rebuilt": "04173"
+      },
+      {
+        "word": "02412",
+        "half": "L",
+        "name": "P/7A",
+        "original": "04156",
+        "rebuilt": "04376"
+      },
+      {
+        "word": "02417",
+        "half": "R",
+        "name": "OPENF",
+        "original": "04224",
+        "rebuilt": "04444"
+      },
+      {
+        "word": "02424",
+        "half": "L",
+        "name": "ERROR",
+        "original": "03765",
+        "rebuilt": "04173"
+      },
+      {
+        "word": "02427",
+        "half": "L",
+        "name": "P/7A",
+        "original": "04156",
+        "rebuilt": "04376"
+      },
+      {
+        "word": "02451",
+        "half": "R",
+        "name": "P/7A",
+        "original": "04156",
+        "rebuilt": "04376"
+      },
+      {
+        "word": "02505",
+        "half": "L",
+        "name": "P/1",
+        "original": "04570",
+        "rebuilt": "05043"
+      },
+      {
+        "word": "02514",
+        "half": "R",
+        "name": "P/PMDSET",
+        "original": "04630",
+        "rebuilt": "05103"
+      }
+    ],
+    "saved_readable_source": "runtime/more/more-readable.pas",
+    "saved_readable_sha256": "d9c18c6da6c17ca044ae09bdcc1ecb8e9786d3d01158f02f80d0b506eaeb8c7d"
+  },
+  "source_sha256": "19b91f3b47a0b425aa3c196efa9932bafaf13303fbe4a77a9e3e39d0816681da",
+  "build_source_hashes": {
+    "more.pas": "19b91f3b47a0b425aa3c196efa9932bafaf13303fbe4a77a9e3e39d0816681da",
+    "build.py": "72457899c89831bf349241f343a893d622bff5cafcb7540e5b9b4be02042f3db"
+  },
+  "image": "runtime/build/more/more.img",
+  "image_sha256": "d2877c5331f238bf5273ae5ab4e5166ed937c3ab773ed1633891f465509b3ad1",
+  "image_words": 3072,
+  "application_bit_identical": false,
+  "interactive_execution": false,
+  "volume": {
+    "path": "runtime/build/more/4001",
+    "sha256": "894b0b96b51eebe4e867588e0284080555a6ef494f4e125cf20e4e59d7bf8811",
+    "source_sha256": "30223751b839a6273cf96a0a6ab2e8becfcef2a59dd16661022b39740974b978",
+    "replaced_zones": [
+      "0034",
+      "0035",
+      "0036"
+    ],
+    "zone_0035_nonzero_words": 1008,
+    "other_payload_words_unchanged": true,
+    "other_physical_zones_unchanged": true,
+    "source_unchanged": true
+  }
+}

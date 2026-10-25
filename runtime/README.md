@@ -10,6 +10,24 @@ across all 26 volume extracts. Regenerate it with `python3 runtime/consistency.p
 The volume contains several runtime variants; missing module matches are kept
 separate from confirmed instruction differences.
 
+[COMPAR.md](COMPAR.md) uses the `compar.b6` decompilation to identify additional
+helpers, shared TTIO state, conversion-table variants, and external services.
+Run `python3 runtime/compar.py` to regenerate its machine-readable evidence and
+supplementary symbols.
+
+[FILE-ACCESS.md](FILE-ACCESS.md) records the include and COPY source decks
+extracted from volume 4001 zones `0005–0007`, including the `MKNAME` and `OPENF`
+signatures that identify COMP's previously address-named services.
+The [recovered Madlen bundles](file-access/README.md) for these two services
+and their shared helpers include relocation evidence from independently linked
+copies in the volume 4001 corpus.
+
+[MORE recovery](more/README.md) reconstructs the intact Pascal application and
+rebuilds its erased runtime with the recovered Monitor helpers and COMP's
+file-access library. `python3 runtime/more/build.py` produces a complete image
+and a private repaired volume 4001, preserving every zone outside MORE's
+three-zone allocation and leaving the original volume unchanged.
+
 Four selectable libraries have been recovered as relocatable Madlen:
 
 | Profile | Source binary | Runtime words | Public entries |
