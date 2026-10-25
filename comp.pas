@@ -1,15 +1,15 @@
-(*=y+,a4,l1,o-*)program KOMПAPAT(input, output);
+(*=y+,a4,l1,o-*)program KOMПAPAT(input, output, TTIO);
 % COMP (KOMПAPAT), volume 4001 zones 0315-0324, decompiled from the
-% image; started from compar.b6.  Build (compiler from mypas.b6, 77):
-%  LIBCODER=1 ZONE=0315 ./buildimg.sh comp.pas ref.bin 8
-% User code 02012-04706, pool, PMD, P/1D, globals and file blocks
-% match the original, except RDBUF: the old compiler loaded LIS
-% before AФ*[30:47] (same words, other order).  O- keeps a load
-% right after a store, as the original compiler did.  Names of the
-% file services and READLINE are from the volume 4001 sources
-% (zone 0005 include, MORE); others are invented.  The library and
-% the comp.pre stubs are not the original ones (see DUMMY below for
-% the gap at 4000000000000001 in the constant pool).
+% image; started from compar.b6.  Full build with its library:
+%  python3 runtime/comp/build.py  (compiler from mypas.b6)
+% All 8 zones match the original except two words of RDBUF (the old
+% compiler loaded LIS before AФ*[30:47]) and the loader's half-word
+% at 02010.  O- keeps a load right after a store, as the original
+% compiler did.  Names of the file services and READLINE are from
+% the volume 4001 sources (zone 0005 include, MORE); others are
+% invented.  User code only: LIBCODER=1 ZONE=0315 ./buildimg.sh
+% comp.pas ref.bin 8 (standard library, comp.pre stubs).  GETCMDLI
+% ends with reset(F), not writeln(f) as in test.bin.
 const lf = '_012'; eot = '_004';sp6='      ';d=2200000B;
 type lineRange=1..84; bitset=set of 0..47;
 linetype=packed array[linerange] of char;
@@ -53,7 +53,7 @@ _(
   if CMDLINE[i] = lf then exit a;  
   write(F, CMDLINE[i]); 
 _);
-  writeln(f)
+  reset(f)
 _);
 procedure ДАЙСИ;
 _(
@@ -83,11 +83,11 @@ _); ЛEKCEMA[i] := lf;
  _)
 _);
 procedure DUMMY(var A:array [1..500] of integer); external;
-% DUMMY is invented: an unused declaration here, after ВВЛЕКСЕМ,
-% puts the array multiplier 4000000000000001 at M10+040, where the
-% original has it.  The 34 lines of this gap held declarations
-% without code, perhaps the ДБ include of zone 0005.
-%
+var TTIO:array [0..22] of integer;
+% DUMMY is invented.  A later VAR part is accepted only after an
+% external declaration, not after a procedure body.  TTIO, a program
+% parameter, is the *TTIO* block (TTIO[3] := c is the TTIO(c) code);
+% declared here, it puts *TTIO* after P/STAR in the loader order.
 %
 %
 %
@@ -480,7 +480,7 @@ _);
 _( (* SRAVN *)
  ASFIL1( FADR1, KOD1 );
  ASFIL2( FADR2, KOD2 );
- TTIO(1c);
+ TTIO[3] := 1c;
 write(
 ИMЯФ1.name, '.', ИMЯФ1.ext:5, ' (', ИMЯФ1.lib, ') [', ФAДP1:6 oct,
 alfa('] <=> ')); write(
@@ -598,12 +598,12 @@ _);
  write(
 ' CPABHEHИE '); write(ИMЯФ1.name, '.', ИMЯФ1.ext:5,' (',ИMЯФ1.lib,
 ') [', ФAДP1:6 oct, alfa('] <=> '));
- writeln(ИMЯФ2.name, '.', ИMЯФ2.ext:5,
-' (',ИMЯФ2.lib, ') [', ФAДP2:6 oct, ']');
+ write(ИMЯФ2.name, '.', ИMЯФ2.ext:5,
+' (',ИMЯФ2.lib, ') [', ФAДP2:6 oct, ']'); writeln;
 if PRIEQ then write(' C ПOЛHOЙ ПEЧATЬЮ')
 else  write(', ПEЧATЬ TOЛЬKO HECOBПABШИX БЛOKOB');
  writeLN; SRAVN( ФAДP1, ord(ИMЯФ1.ext[6]), ФAДP2, ord(ИMЯФ2.ext[6]));
- TTIO(6c); FINITA
+ TTIO[3] := 6c; FINITA
 %
 %
 %
