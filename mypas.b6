@@ -502,7 +502,8 @@ var (* total size 4791 words *)
 (*3151*)    constNums: array [1..500] of integer;
 (*3651*)    objBuffer: array [1..1024] of bitset;
 (*4675*)    iso2text: array ['_052'..'_177'] of '_000'..'_077';
-(*4761*)    fcst: file of bitset; (* last *)
+(*4761*)    dropReload: boolean;
+(*4762*)    fcst: file of bitset; (* last *)
 %
     pasinput: text;
 %
@@ -696,7 +697,8 @@ _(
     (insn.m mod prevInsn.m = [32]) (* maybe ATX/XTA *) then _(
 % Load after store; if the load reg/off is the same as the store,
 % and the store was not a stack push, there is no need to so the read.
-          if (prevInsn.i <> 74000000B (* not 15,ATX, *)) and
+% (*=O-*) keeps the read, as the original compiler did.
+          if dropReload and (prevInsn.i <> 74000000B (* not 15,ATX, *)) and
              (prevInsn.m * [28, 30..35] = [] (* but still ATX *)) then
              exit (* skip the XTA *)
     _);
@@ -1236,6 +1238,7 @@ _( (* parseComment *)
         'C': readOptFlag(checkTypes);
         'R': readOptFlag(fuzzReals);
         'M': readOptFlag(fixMult);
+        'O': readOptFlag(dropReload);
         'B': readOptVal(fileBufSize, 4);
         'K': readOptVal(heapSize, 23);
         'Z': readOptFlag(pseudoZ);
@@ -3296,11 +3299,11 @@ _( (* genEntry *)
     l5var12z.m := l5idr5z@.flags;
     l5bool10z := (21 in l5var12z.m);
     l5bool11z := (24 in l5var12z.m);
-% ASSEMBLER convention: all arguments are pushed onto the stack
-% (values of one-word value parameters, addresses of the rest)
+% ASSEMBLER convention: all but the last argument are on the stack;
+% the last stays in A (one-word values, addresses of the rest),
 % with no frame header, the routine is called by VJM 13,
 % returns the function result in A and pops the arguments itself;
-% it must preserve M1..M8, so M8 is not restored after the call.
+% it must preserve M1..M7; the caller restores M8 after the call.
     isAsm := (19 in l5var12z.m);
     if (l5bool9z) then _(
         l5var14z.i := F3307(l5idr5z);
@@ -3437,8 +3440,6 @@ _( (* genEntry *)
         if l5bool9z and not l5bool11z then
             l5idr6z := l5idr6z@.list;
     _); (* while -> 7061 *)
-    if isAsm and (l5var14z.i <> 0) then
-        addToInsnList(KATX+SP);
     traceEntry(true);
     if l5bool10z then _(
         addToInsnList(KNTR+6);
@@ -3467,7 +3468,8 @@ _( (* genEntry *)
     _); (* 7132 *)
     insnList@.next@.mode := 2;
     if (curProcNesting <> l5var17z.i) then _(
-        if not l5bool10z then _(
+% FORTRAN and ASSEMBLER routines preserve the frame registers.
+        if not l5bool10z and not isAsm then _(
             if (l5var17z.i + 1 = curProcNesting) then _(
                 addToInsnList(KMTJ+I7 + curProcNesting);
             _) else _(
@@ -3488,7 +3490,7 @@ _( (* genEntry *)
             _)
         _)
     _); (* 7176 *)
-    if not l5bool9z or ([20, 21] * l5var12z.m <> []) and not isAsm then _(
+    if isAsm or not l5bool9z or ([20, 21] * l5var12z.m <> []) then _(
         addToInsnList(KVTM+40074001B);
     _);
     set145z := (set145z + l5var12z.m) * [1:15];
@@ -3872,6 +3874,11 @@ _( (* genFullExpr *);
                 _) else if (curIdRec@.cl = ROUTINEID) then _(
                     insnList@.ilf6 := 3;
                     insnList@.ilf5.i := (insnList@.ilf5.i + frameRegTemplate);
+                _) else if (curIdRec@.offset = 0) and
+                           not isFileType(curIdRec@.typ) and
+                           (insnList@.ilf6 >= 74000B) then _(
+                    (* Absolute upper-bank address, not an external symbol. *)
+                    insnList@.ilf6 := insnList@.ilf6 - 100000B;
                 _) else if (insnList@.ilf6 >= 74000B) then _(
                     addToInsnList(insnTemp[UTC] + insnList@.ilf6);
                     insnList@.ilf6 := 0;
@@ -8630,6 +8637,7 @@ _(
     doPMD := not (42 in curVal.m);
     checkTypes := true;
     fixMult := true;
+    dropReload := true;
     fuzzReals := true;
     pseudoZ := ;
     checkBounds := not (44 in curVal.m);

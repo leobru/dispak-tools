@@ -11,16 +11,12 @@ _( i := orx(1, 2); writeln(i);
 _).
 *assem
  ORX:,NAME,
- 15,XTA,-2
- 15,AOX,-1
- 15,UTM,-2
+ 15,AOX,
  13,UJ,
  ,END,
  SETV:,NAME,
- 15,XTA,-1
- 15,WTC,-2
+ 15,WTC,
  ,ATX,
- 15,UTM,-2
  13,UJ,
  ,END,
  NOP:,NAME,
