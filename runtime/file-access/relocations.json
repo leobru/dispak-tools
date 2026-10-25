@@ -1,0 +1,3687 @@
+{
+  "format_version": 1,
+  "address_notation": "octal",
+  "reference": "runtime/images/4001/0315-comp.bin",
+  "reference_sha256": "4a448553b9499d719f770c33e32a0cab200ca718557493e44c067a8df0858d34",
+  "scanned": [
+    {
+      "path": "arfa/koka.bin",
+      "words": 1024,
+      "sha256": "9239a62fd1e0bcdeafe3d3e00f8d6f4c210f0dea5bc5055806f7fe09a4014e5d"
+    },
+    {
+      "path": "arfa/mdupla.bin",
+      "words": 1024,
+      "sha256": "61a1b864f171f394475f2718f4baaad2f80805acdda2c1bd99ebe6e76063f0a1"
+    },
+    {
+      "path": "arfa/svodka.bin",
+      "words": 1024,
+      "sha256": "72c891106822fbdbf53afccb8d062a6aa5002a16751ad12780cda6a98f123f97"
+    },
+    {
+      "path": "arfa/svodka2.bin",
+      "words": 1024,
+      "sha256": "9ff7e3717ecaf6e8dcf6f317588c242c81c6b730b35a4a350bebd21c402f0adf"
+    },
+    {
+      "path": "mark3.bin",
+      "words": 3072,
+      "sha256": "59fe1253b0421f4b0e3f1deb5575576ddb51337cdedd240c7058e0b7f31acc9d"
+    },
+    {
+      "path": "pak.bin",
+      "words": 4096,
+      "sha256": "a1392bfba7e529ab4f15cd11453eb0c37bcb07e633059445611aa585f365aa2b"
+    },
+    {
+      "path": "runtime/images/4001/0002-monitr-pascal.bin",
+      "words": 7168,
+      "sha256": "fd5a0d0da07e5585c05d9b8b042f5f0ba5d9c993829835210f1c3e8852fa3623"
+    },
+    {
+      "path": "runtime/images/4001/0011-unicop.bin",
+      "words": 5120,
+      "sha256": "f2d03a7c0cca3b1d28d626f47f017b4ec682b18fab53a7ea6f6be5e7641ced74"
+    },
+    {
+      "path": "runtime/images/4001/0016-tar.bin",
+      "words": 5120,
+      "sha256": "5ce3faaa4e87ebdb65607ebba23a04497a9d747580aabcbd79383ce69fa9b95d"
+    },
+    {
+      "path": "runtime/images/4001/0023-kanal.bin",
+      "words": 5120,
+      "sha256": "4bef71fb3d64b3950bc2629a891b31b84f720d50065d4f75d95811d3dcaea23b"
+    },
+    {
+      "path": "runtime/images/4001/0030-proz.bin",
+      "words": 4096,
+      "sha256": "11df5af52a88fefa5ba05225036d232ac6cf43eeeecb476393df64cba5bcf5fd"
+    },
+    {
+      "path": "runtime/images/4001/0034-more.bin",
+      "words": 3072,
+      "sha256": "091a1127bc77951e8dbf8cca57fa573437b65340b64dab84afbe68aa17132d55"
+    },
+    {
+      "path": "runtime/images/4001/0037-kermit.bin",
+      "words": 8192,
+      "sha256": "935b84153906109dc100946e812f53645c7ac1affd7c143785fddff0fb59126b"
+    },
+    {
+      "path": "runtime/images/4001/0047-mtd.bin",
+      "words": 2048,
+      "sha256": "df0c58282fe90fceda04522b2c2f0ca04aeaf7b3925ca7afbf532c2e9a4003ae"
+    },
+    {
+      "path": "runtime/images/4001/0051-print.bin",
+      "words": 6144,
+      "sha256": "08b23f5cb0db9f428280d29dca8550b637ac3914caf59f8ba3955b11d9124cfc"
+    },
+    {
+      "path": "runtime/images/4001/0057-testats.bin",
+      "words": 2048,
+      "sha256": "172b8ca87e612bae0890abd711d2b60f6e55ae9087cf7b6b19c75834cd4827f2"
+    },
+    {
+      "path": "runtime/images/4001/0061-test.bin",
+      "words": 2048,
+      "sha256": "b4073efcc29a4b3c8da9ba2c55a76e3affb47117ec15cc544c3826f6de9048dc"
+    },
+    {
+      "path": "runtime/images/4001/0063-fprint.bin",
+      "words": 3072,
+      "sha256": "10f07d99b30a31ffc22dd85b8a174168431d713c7ee7184cc15c0f1f4f3ed2d9"
+    },
+    {
+      "path": "runtime/images/4001/0066-box.bin",
+      "words": 2048,
+      "sha256": "96951aff3c85266bb929f353cc2f7ac34d5ace1e6b79a475d9c01174a4cf59d0"
+    },
+    {
+      "path": "runtime/images/4001/0070-tartar.bin",
+      "words": 5120,
+      "sha256": "6bec3c8db9012cf3cac8ffcb52dc78b8ae45e38f53207c3ae63249a64d4391b9"
+    },
+    {
+      "path": "runtime/images/4001/0075-recod.bin",
+      "words": 4096,
+      "sha256": "87a51716220b91f57a9a5e3c1248ea9e92738d7b8e15cfcc5988972fd43044a7"
+    },
+    {
+      "path": "runtime/images/4001/0101-mtcopy.bin",
+      "words": 3072,
+      "sha256": "42ea247fec8a4789aeda5f04bb133cf0c27436c205dde5956cfba64d4440998a"
+    },
+    {
+      "path": "runtime/images/4001/0104-orphan-0104.bin",
+      "words": 2048,
+      "sha256": "89c85ddab46970f9bc3eb7a891625b84dd8df7a21d102c03d6d4b43527214e2a"
+    },
+    {
+      "path": "runtime/images/4001/0106-copy.bin",
+      "words": 3072,
+      "sha256": "d5710ba2eea3ee9b0192061f17751a3a8497e19abd7754c3b09b92157cbf9acb"
+    },
+    {
+      "path": "runtime/images/4001/0112-link.bin",
+      "words": 16384,
+      "sha256": "cc75fb6ffa95914f503b1d590c3932ae07ae4b0990e4cdccf18bb54dc1ce1465"
+    },
+    {
+      "path": "runtime/images/4001/0132-acc3.bin",
+      "words": 32768,
+      "sha256": "12c69f847fda2a20d722b9cd3a9ef9c51669a0e91d2ce7347dcf94c09e0518bf"
+    },
+    {
+      "path": "runtime/images/4001/0172-mt.bin",
+      "words": 3072,
+      "sha256": "5dbe66f34992890b56800f7165e72da2daa214b4a38ab3eb48028b2a30d2cc3c"
+    },
+    {
+      "path": "runtime/images/4001/0175-link1.bin",
+      "words": 16384,
+      "sha256": "0c14fc30f555024d6356f786869a5c10fb68e7fdcd00dc54bdc12dc620b35f01"
+    },
+    {
+      "path": "runtime/images/4001/0215-acc2.bin",
+      "words": 32768,
+      "sha256": "12a9eb9f4218175f89b45c7c6a72081a5f5f0228fbd046575f739a31b463d64b"
+    },
+    {
+      "path": "runtime/images/4001/0255-blink1.bin",
+      "words": 16384,
+      "sha256": "a55ef110189af39d91e03160b538766b3aff2627e0b54c2167042bc8ba79a5fc"
+    },
+    {
+      "path": "runtime/images/4001/0275-blink.bin",
+      "words": 16384,
+      "sha256": "42ba1a5f545857c43cd6196c1060ea92ea4a703d9a10eee819f85f88b317431e"
+    },
+    {
+      "path": "runtime/images/4001/0315-comp.bin",
+      "words": 8192,
+      "sha256": "4a448553b9499d719f770c33e32a0cab200ca718557493e44c067a8df0858d34"
+    },
+    {
+      "path": "test.bin",
+      "words": 2048,
+      "sha256": "b4073efcc29a4b3c8da9ba2c55a76e3affb47117ec15cc544c3826f6de9048dc"
+    },
+    {
+      "path": "\u0442\u0435\u0441\u0442\u0430\u0446.bin",
+      "words": 2048,
+      "sha256": "172b8ca87e612bae0890abd711d2b60f6e55ae9087cf7b6b19c75834cd4827f2"
+    }
+  ],
+  "modules": [
+    {
+      "name": "ERROR",
+      "source": "error.madlen",
+      "start": "07036",
+      "end": "07241",
+      "words": 131,
+      "entries": {},
+      "code": [
+        [
+          "07036",
+          "07054"
+        ]
+      ],
+      "relocations": [
+        {
+          "word": "07036",
+          "half": "L",
+          "width": 15,
+          "target": "07036",
+          "expression": "R07036",
+          "witnesses": 7
+        },
+        {
+          "word": "07043",
+          "half": "L",
+          "width": 15,
+          "target": "07040",
+          "expression": "R07040",
+          "witnesses": 7
+        },
+        {
+          "word": "07043",
+          "half": "R",
+          "width": 15,
+          "target": "07235",
+          "expression": "R07235",
+          "witnesses": 7
+        },
+        {
+          "word": "07045",
+          "half": "L",
+          "width": 15,
+          "target": "07104",
+          "expression": "R07104",
+          "witnesses": 7
+        },
+        {
+          "word": "07050",
+          "half": "R",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 7
+        },
+        {
+          "word": "07053",
+          "half": "L",
+          "width": 15,
+          "target": "07046",
+          "expression": "R07046",
+          "witnesses": 7
+        },
+        {
+          "word": "07054",
+          "half": "data",
+          "width": 15,
+          "target": "07105",
+          "expression": "R07105",
+          "witnesses": 7
+        },
+        {
+          "word": "07055",
+          "half": "data",
+          "width": 15,
+          "target": "07106",
+          "expression": "R07106",
+          "witnesses": 7
+        },
+        {
+          "word": "07056",
+          "half": "data",
+          "width": 15,
+          "target": "07112",
+          "expression": "R07112",
+          "witnesses": 7
+        },
+        {
+          "word": "07057",
+          "half": "data",
+          "width": 15,
+          "target": "07114",
+          "expression": "R07114",
+          "witnesses": 7
+        },
+        {
+          "word": "07060",
+          "half": "data",
+          "width": 15,
+          "target": "07117",
+          "expression": "R07117",
+          "witnesses": 7
+        },
+        {
+          "word": "07061",
+          "half": "data",
+          "width": 15,
+          "target": "07124",
+          "expression": "R07124",
+          "witnesses": 7
+        },
+        {
+          "word": "07062",
+          "half": "data",
+          "width": 15,
+          "target": "07131",
+          "expression": "R07131",
+          "witnesses": 7
+        },
+        {
+          "word": "07063",
+          "half": "data",
+          "width": 15,
+          "target": "07135",
+          "expression": "R07135",
+          "witnesses": 7
+        },
+        {
+          "word": "07064",
+          "half": "data",
+          "width": 15,
+          "target": "07141",
+          "expression": "R07141",
+          "witnesses": 7
+        },
+        {
+          "word": "07065",
+          "half": "data",
+          "width": 15,
+          "target": "07143",
+          "expression": "R07143",
+          "witnesses": 7
+        },
+        {
+          "word": "07066",
+          "half": "data",
+          "width": 15,
+          "target": "07147",
+          "expression": "R07147",
+          "witnesses": 7
+        },
+        {
+          "word": "07067",
+          "half": "data",
+          "width": 15,
+          "target": "07152",
+          "expression": "R07152",
+          "witnesses": 7
+        },
+        {
+          "word": "07070",
+          "half": "data",
+          "width": 15,
+          "target": "07156",
+          "expression": "R07156",
+          "witnesses": 7
+        },
+        {
+          "word": "07071",
+          "half": "data",
+          "width": 15,
+          "target": "07162",
+          "expression": "R07162",
+          "witnesses": 7
+        },
+        {
+          "word": "07072",
+          "half": "data",
+          "width": 15,
+          "target": "07165",
+          "expression": "R07165",
+          "witnesses": 7
+        },
+        {
+          "word": "07073",
+          "half": "data",
+          "width": 15,
+          "target": "07171",
+          "expression": "R07171",
+          "witnesses": 7
+        },
+        {
+          "word": "07074",
+          "half": "data",
+          "width": 15,
+          "target": "07175",
+          "expression": "R07175",
+          "witnesses": 7
+        },
+        {
+          "word": "07075",
+          "half": "data",
+          "width": 15,
+          "target": "07200",
+          "expression": "R07200",
+          "witnesses": 7
+        },
+        {
+          "word": "07076",
+          "half": "data",
+          "width": 15,
+          "target": "07203",
+          "expression": "R07203",
+          "witnesses": 7
+        },
+        {
+          "word": "07077",
+          "half": "data",
+          "width": 15,
+          "target": "07207",
+          "expression": "R07207",
+          "witnesses": 7
+        },
+        {
+          "word": "07100",
+          "half": "data",
+          "width": 15,
+          "target": "07212",
+          "expression": "R07212",
+          "witnesses": 7
+        },
+        {
+          "word": "07101",
+          "half": "data",
+          "width": 15,
+          "target": "07215",
+          "expression": "R07215",
+          "witnesses": 7
+        },
+        {
+          "word": "07102",
+          "half": "data",
+          "width": 15,
+          "target": "07220",
+          "expression": "R07220",
+          "witnesses": 7
+        },
+        {
+          "word": "07103",
+          "half": "data",
+          "width": 15,
+          "target": "07223",
+          "expression": "R07223",
+          "witnesses": 7
+        },
+        {
+          "word": "07104",
+          "half": "data",
+          "width": 15,
+          "target": "07226",
+          "expression": "R07226",
+          "witnesses": 7
+        }
+      ],
+      "copies": [
+        {
+          "path": "runtime/images/4001/0002-monitr-pascal.bin",
+          "file_anchor": "04573",
+          "file_start": "04573",
+          "load_start": "04573",
+          "load_anchor": "04573",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07036": "04573",
+            "07040": "04575",
+            "07046": "04603",
+            "07104": "04641",
+            "07105": "04642",
+            "07106": "04643",
+            "07112": "04647",
+            "07114": "04651",
+            "07117": "04654",
+            "07124": "04661",
+            "07131": "04666",
+            "07135": "04672",
+            "07141": "04676",
+            "07143": "04700",
+            "07147": "04704",
+            "07152": "04707",
+            "07156": "04713",
+            "07162": "04717",
+            "07165": "04722",
+            "07171": "04726",
+            "07175": "04732",
+            "07200": "04735",
+            "07203": "04740",
+            "07207": "04744",
+            "07212": "04747",
+            "07215": "04752",
+            "07220": "04755",
+            "07223": "04760",
+            "07226": "04763",
+            "07235": "04772",
+            "20027": "07126",
+            "77750": "77750"
+          },
+          "exact_words_after_relocation": 131
+        },
+        {
+          "path": "runtime/images/4001/0023-kanal.bin",
+          "file_anchor": "05266",
+          "file_start": "05266",
+          "load_start": "05266",
+          "load_anchor": "05266",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07036": "05266",
+            "07040": "05270",
+            "07046": "05276",
+            "07104": "05334",
+            "07105": "05335",
+            "07106": "05336",
+            "07112": "05342",
+            "07114": "05344",
+            "07117": "05347",
+            "07124": "05354",
+            "07131": "05361",
+            "07135": "05365",
+            "07141": "05371",
+            "07143": "05373",
+            "07147": "05377",
+            "07152": "05402",
+            "07156": "05406",
+            "07162": "05412",
+            "07165": "05415",
+            "07171": "05421",
+            "07175": "05425",
+            "07200": "05430",
+            "07203": "05433",
+            "07207": "05437",
+            "07212": "05442",
+            "07215": "05445",
+            "07220": "05450",
+            "07223": "05453",
+            "07226": "05456",
+            "07235": "05465",
+            "20027": "07071",
+            "77750": "77750"
+          },
+          "exact_words_after_relocation": 131
+        },
+        {
+          "path": "runtime/images/4001/0030-proz.bin",
+          "file_anchor": "05544",
+          "file_start": "05544",
+          "load_start": "05544",
+          "load_anchor": "05544",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07036": "05544",
+            "07040": "05546",
+            "07046": "05554",
+            "07104": "05612",
+            "07105": "05613",
+            "07106": "05614",
+            "07112": "05620",
+            "07114": "05622",
+            "07117": "05625",
+            "07124": "05632",
+            "07131": "05637",
+            "07135": "05643",
+            "07141": "05647",
+            "07143": "05651",
+            "07147": "05655",
+            "07152": "05660",
+            "07156": "05664",
+            "07162": "05670",
+            "07165": "05673",
+            "07171": "05677",
+            "07175": "05703",
+            "07200": "05706",
+            "07203": "05711",
+            "07207": "05715",
+            "07212": "05720",
+            "07215": "05723",
+            "07220": "05726",
+            "07223": "05731",
+            "07226": "05734",
+            "07235": "05743",
+            "20027": "07647",
+            "77750": "77750"
+          },
+          "exact_words_after_relocation": 131
+        },
+        {
+          "path": "runtime/images/4001/0051-print.bin",
+          "file_anchor": "06556",
+          "file_start": "06556",
+          "load_start": "06556",
+          "load_anchor": "06556",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07036": "06556",
+            "07040": "06560",
+            "07046": "06566",
+            "07104": "06624",
+            "07105": "06625",
+            "07106": "06626",
+            "07112": "06632",
+            "07114": "06634",
+            "07117": "06637",
+            "07124": "06644",
+            "07131": "06651",
+            "07135": "06655",
+            "07141": "06661",
+            "07143": "06663",
+            "07147": "06667",
+            "07152": "06672",
+            "07156": "06676",
+            "07162": "06702",
+            "07165": "06705",
+            "07171": "06711",
+            "07175": "06715",
+            "07200": "06720",
+            "07203": "06723",
+            "07207": "06727",
+            "07212": "06732",
+            "07215": "06735",
+            "07220": "06740",
+            "07223": "06743",
+            "07226": "06746",
+            "07235": "06755",
+            "20027": "10265",
+            "77750": "77750"
+          },
+          "exact_words_after_relocation": 131
+        },
+        {
+          "path": "runtime/images/4001/0075-recod.bin",
+          "file_anchor": "05316",
+          "file_start": "05316",
+          "load_start": "05316",
+          "load_anchor": "05316",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07036": "05316",
+            "07040": "05320",
+            "07046": "05326",
+            "07104": "05364",
+            "07105": "05365",
+            "07106": "05366",
+            "07112": "05372",
+            "07114": "05374",
+            "07117": "05377",
+            "07124": "05404",
+            "07131": "05411",
+            "07135": "05415",
+            "07141": "05421",
+            "07143": "05423",
+            "07147": "05427",
+            "07152": "05432",
+            "07156": "05436",
+            "07162": "05442",
+            "07165": "05445",
+            "07171": "05451",
+            "07175": "05455",
+            "07200": "05460",
+            "07203": "05463",
+            "07207": "05467",
+            "07212": "05472",
+            "07215": "05475",
+            "07220": "05500",
+            "07223": "05503",
+            "07226": "05506",
+            "07235": "05515",
+            "20027": "06565",
+            "77750": "77750"
+          },
+          "exact_words_after_relocation": 131
+        },
+        {
+          "path": "runtime/images/4001/0101-mtcopy.bin",
+          "file_anchor": "04406",
+          "file_start": "04406",
+          "load_start": "04406",
+          "load_anchor": "04406",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07036": "04406",
+            "07040": "04410",
+            "07046": "04416",
+            "07104": "04454",
+            "07105": "04455",
+            "07106": "04456",
+            "07112": "04462",
+            "07114": "04464",
+            "07117": "04467",
+            "07124": "04474",
+            "07131": "04501",
+            "07135": "04505",
+            "07141": "04511",
+            "07143": "04513",
+            "07147": "04517",
+            "07152": "04522",
+            "07156": "04526",
+            "07162": "04532",
+            "07165": "04535",
+            "07171": "04541",
+            "07175": "04545",
+            "07200": "04550",
+            "07203": "04553",
+            "07207": "04557",
+            "07212": "04562",
+            "07215": "04565",
+            "07220": "04570",
+            "07223": "04573",
+            "07226": "04576",
+            "07235": "04605",
+            "20027": "05773",
+            "77750": "77750"
+          },
+          "exact_words_after_relocation": 131
+        },
+        {
+          "path": "runtime/images/4001/0106-copy.bin",
+          "file_anchor": "03736",
+          "file_start": "03736",
+          "load_start": "03736",
+          "load_anchor": "03736",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07036": "03736",
+            "07040": "03740",
+            "07046": "03746",
+            "07104": "04004",
+            "07105": "04005",
+            "07106": "04006",
+            "07112": "04012",
+            "07114": "04014",
+            "07117": "04017",
+            "07124": "04024",
+            "07131": "04031",
+            "07135": "04035",
+            "07141": "04041",
+            "07143": "04043",
+            "07147": "04047",
+            "07152": "04052",
+            "07156": "04056",
+            "07162": "04062",
+            "07165": "04065",
+            "07171": "04071",
+            "07175": "04075",
+            "07200": "04100",
+            "07203": "04103",
+            "07207": "04107",
+            "07212": "04112",
+            "07215": "04115",
+            "07220": "04120",
+            "07223": "04123",
+            "07226": "04126",
+            "07235": "04135",
+            "20027": "05441",
+            "77750": "77750"
+          },
+          "exact_words_after_relocation": 131
+        },
+        {
+          "path": "runtime/images/4001/0315-comp.bin",
+          "file_anchor": "07036",
+          "file_start": "07036",
+          "load_start": "07036",
+          "load_anchor": "07036",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07036": "07036",
+            "07040": "07040",
+            "07046": "07046",
+            "07104": "07104",
+            "07105": "07105",
+            "07106": "07106",
+            "07112": "07112",
+            "07114": "07114",
+            "07117": "07117",
+            "07124": "07124",
+            "07131": "07131",
+            "07135": "07135",
+            "07141": "07141",
+            "07143": "07143",
+            "07147": "07147",
+            "07152": "07152",
+            "07156": "07156",
+            "07162": "07162",
+            "07165": "07165",
+            "07171": "07171",
+            "07175": "07175",
+            "07200": "07200",
+            "07203": "07203",
+            "07207": "07207",
+            "07212": "07212",
+            "07215": "07215",
+            "07220": "07220",
+            "07223": "07223",
+            "07226": "07226",
+            "07235": "07235",
+            "20027": "20027",
+            "77750": "77750"
+          },
+          "exact_words_after_relocation": 131
+        }
+      ],
+      "other_candidates": [
+        {
+          "path": "runtime/images/4001/0063-fprint.bin",
+          "file_anchor": "05420",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 36
+        }
+      ],
+      "text": [
+        {
+          "start": "07105",
+          "end": "07231",
+          "encoding": "iso"
+        },
+        {
+          "start": "07235",
+          "end": "07241",
+          "encoding": "iso"
+        }
+      ],
+      "pointer_words": [
+        "07054",
+        "07055",
+        "07056",
+        "07057",
+        "07060",
+        "07061",
+        "07062",
+        "07063",
+        "07064",
+        "07065",
+        "07066",
+        "07067",
+        "07070",
+        "07071",
+        "07072",
+        "07073",
+        "07074",
+        "07075",
+        "07076",
+        "07077",
+        "07100",
+        "07101",
+        "07102",
+        "07103",
+        "07104"
+      ],
+      "messages": [
+        {
+          "status": 0,
+          "status_octal": "0",
+          "table": "07054",
+          "start": "07105",
+          "text": "     "
+        },
+        {
+          "status": 1,
+          "status_octal": "1",
+          "table": "07055",
+          "start": "07106",
+          "text": "\u0422\u041e\u041c \u041d\u0415 \u0423\u0421\u0422\u0410\u041d\u041e     \u0412\u041b\u0415\u041d "
+        },
+        {
+          "status": 2,
+          "status_octal": "2",
+          "table": "07056",
+          "start": "07112",
+          "text": "\u0422\u041e\u041c \u0417\u0410\u041d\u042f\u0422  "
+        },
+        {
+          "status": 3,
+          "status_octal": "3",
+          "table": "07057",
+          "start": "07114",
+          "text": "\u0412\u0418\u0420\u0422. \u041d\u041e\u041c\u0415\u0420 \u0417\u0410\u041d\u042f\u0422"
+        },
+        {
+          "status": 4,
+          "status_octal": "4",
+          "table": "07060",
+          "start": "07117",
+          "text": "\u041d\u0415\u0422 \u041b\u041e\u0413. \u0418\u041c\u0415\u041d\u0418 \u0411\u0418\u0411\u041b\u0418\u041e\u0422\u0415\u041a\u0418    "
+        },
+        {
+          "status": 5,
+          "status_octal": "5",
+          "table": "07061",
+          "start": "07124",
+          "text": "\u041b\u041e\u0413. \u0418\u041c\u042f \u0411\u0418\u0411\u041b\u0418\u041e\u0422\u0415\u041a\u0418 \u0423\u0416\u0415 \u0415\u0421\u0422\u042c "
+        },
+        {
+          "status": 6,
+          "status_octal": "6",
+          "table": "07062",
+          "start": "07131",
+          "text": "\u041d\u0415\u0414\u041e\u041f\u0423\u0421\u0422\u0418\u041c\u041e\u0415 \u0420\u0410\u0421\u0428\u0418\u0420\u0415\u041d\u0418\u0415"
+        },
+        {
+          "status": 7,
+          "status_octal": "7",
+          "table": "07063",
+          "start": "07135",
+          "text": "\u041d\u0415\u0422 \u041c\u0415\u0421\u0422\u0410 \u0412 \u0410\u0420\u0425\u0418\u0412\u0415"
+        },
+        {
+          "status": 8,
+          "status_octal": "10",
+          "table": "07064",
+          "start": "07141",
+          "text": "\u041d\u0415\u0422 \u0424\u0410\u0419\u041b\u0410  "
+        },
+        {
+          "status": 9,
+          "status_octal": "11",
+          "table": "07065",
+          "start": "07143",
+          "text": "\u041e\u0428\u0418\u0411\u041a\u0410 \u0412 \u041f\u0410\u0420\u0410\u041c\u0415\u0422\u0420\u0410\u0425    "
+        },
+        {
+          "status": 10,
+          "status_octal": "12",
+          "table": "07066",
+          "start": "07147",
+          "text": "\u0412\u0418\u0420\u0422. \u041d\u041e\u041c\u0415\u0420 \u041f\u0423\u0421\u0422 "
+        },
+        {
+          "status": 11,
+          "status_octal": "13",
+          "table": "07067",
+          "start": "07152",
+          "text": "\u0423\u0416\u0415 \u0415\u0421\u0422\u042c \u0422\u0410\u041a\u041e\u0419 \u0424\u0410\u0419\u041b    "
+        },
+        {
+          "status": 12,
+          "status_octal": "14",
+          "table": "07070",
+          "start": "07156",
+          "text": "\u041d\u0415\u041a\u041e\u0420\u0420. \u0414\u041b\u0418\u041d\u0410 \u0424\u0410\u0419\u041b\u0410    "
+        },
+        {
+          "status": 13,
+          "status_octal": "15",
+          "table": "07071",
+          "start": "07162",
+          "text": "\u041a\u0410\u0422\u0410\u041b\u041e\u0413 \u0418\u0421\u041f\u041e\u0420\u0427\u0415\u041d "
+        },
+        {
+          "status": 14,
+          "status_octal": "16",
+          "table": "07072",
+          "start": "07165",
+          "text": "\u041d\u0415\u0422 \u041c\u0415\u0421\u0422\u0410 \u0412 \u041a\u0410\u0422\u0410\u041b\u041e\u0413\u0415   "
+        },
+        {
+          "status": 15,
+          "status_octal": "17",
+          "table": "07073",
+          "start": "07171",
+          "text": "\u041d\u0415\u0422 \u0424\u0410\u0419\u041b\u041e\u0412 \u0414\u041b\u042f \u0428\u0410\u0411\u041b\u041e\u041d\u0410 "
+        },
+        {
+          "status": 16,
+          "status_octal": "20",
+          "table": "07074",
+          "start": "07175",
+          "text": "\u041e\u0428\u0418\u0411\u041a\u0410 \u0412 \u0421\u0414\u0412\u0418\u0413\u0415  "
+        },
+        {
+          "status": 41,
+          "status_octal": "51",
+          "table": "07075",
+          "start": "07200",
+          "text": "\u0422\u0410\u041a\u041e\u0413\u041e \u0418\u041c\u0415\u041d\u0418 \u041d\u0415\u0422 "
+        },
+        {
+          "status": 42,
+          "status_octal": "52",
+          "table": "07076",
+          "start": "07203",
+          "text": "\u041d\u0415\u0412\u0415\u0420\u041d\u041e\u0415 \u0418\u041c\u042f \u041e\u0411\u041b\u0410\u0421\u0422\u0418   "
+        },
+        {
+          "status": 48,
+          "status_octal": "60",
+          "table": "07077",
+          "start": "07207",
+          "text": "\u041e\u0411\u041b\u0410\u0421\u0422\u042c \u0417\u0410\u041d\u042f\u0422\u0410   "
+        },
+        {
+          "status": 50,
+          "status_octal": "62",
+          "table": "07100",
+          "start": "07212",
+          "text": "\u041d\u0415 \u0423\u0421\u0422\u0410\u041d\u041e\u0412\u041b\u0415\u041d \u0422\u041e\u041c"
+        },
+        {
+          "status": 54,
+          "status_octal": "66",
+          "table": "07101",
+          "start": "07215",
+          "text": "\u041e\u0428. \u0412 \u041d\u041e\u041c\u0415\u0420\u0415\u0422\u041e\u041c\u0410 "
+        },
+        {
+          "status": 59,
+          "status_octal": "73",
+          "table": "07102",
+          "start": "07220",
+          "text": "\u041d\u0415\u0422 \u041f\u041e\u041b\u041d\u041e\u041c\u041e\u0427\u0418\u0419   "
+        },
+        {
+          "status": 60,
+          "status_octal": "74",
+          "table": "07103",
+          "start": "07223",
+          "text": "\u041e\u0411\u041b\u0410\u0421\u0422\u042c/\u041a\u0410\u0422\u0410\u041b\u041e\u0413  "
+        },
+        {
+          "status": 66,
+          "status_octal": "102",
+          "table": "07104",
+          "start": "07226",
+          "text": "\u0412\u0418\u0420\u0422. \u041d\u041e\u041c\u0415\u0420 \u0417\u0410\u041d\u042f\u0422"
+        }
+      ],
+      "default_message": {
+        "start": "07235",
+        "text": "\u041d\u0415\u0414\u041e\u041f\u0423\u0421\u0422\u0418\u041c\u042b\u0419 \u041a\u041e\u0414 \u041e\u0422\u0412\u0415\u0422\u0410"
+      }
+    },
+    {
+      "name": "DBNAME",
+      "source": "mkname.madlen",
+      "start": "07244",
+      "end": "07636",
+      "words": 250,
+      "entries": {
+        "MKNAME": "07443"
+      },
+      "code": [
+        [
+          "07244",
+          "07373"
+        ],
+        [
+          "07406",
+          "07515"
+        ],
+        [
+          "07573",
+          "07625"
+        ]
+      ],
+      "relocations": [
+        {
+          "word": "07244",
+          "half": "L",
+          "width": 15,
+          "target": "07244",
+          "expression": "R07244",
+          "witnesses": 7
+        },
+        {
+          "word": "07245",
+          "half": "L",
+          "width": 15,
+          "target": "20031",
+          "expression": "DBPASC+27B",
+          "witnesses": 7
+        },
+        {
+          "word": "07246",
+          "half": "R",
+          "width": 15,
+          "target": "20032",
+          "expression": "DBPASC+30B",
+          "witnesses": 7
+        },
+        {
+          "word": "07247",
+          "half": "R",
+          "width": 15,
+          "target": "20031",
+          "expression": "DBPASC+27B",
+          "witnesses": 7
+        },
+        {
+          "word": "07250",
+          "half": "R",
+          "width": 15,
+          "target": "07443",
+          "expression": "R07443",
+          "witnesses": 7
+        },
+        {
+          "word": "07251",
+          "half": "L",
+          "width": 15,
+          "target": "07244",
+          "expression": "R07244",
+          "witnesses": 7
+        },
+        {
+          "word": "07252",
+          "half": "L",
+          "width": 15,
+          "target": "20032",
+          "expression": "DBPASC+30B",
+          "witnesses": 7
+        },
+        {
+          "word": "07253",
+          "half": "R",
+          "width": 15,
+          "target": "20002",
+          "expression": "DBENTER",
+          "witnesses": 7
+        },
+        {
+          "word": "07255",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07256",
+          "half": "L",
+          "width": 15,
+          "target": "20031",
+          "expression": "DBPASC+27B",
+          "witnesses": 7
+        },
+        {
+          "word": "07261",
+          "half": "R",
+          "width": 15,
+          "target": "20035",
+          "expression": "DBCORE",
+          "witnesses": 7
+        },
+        {
+          "word": "07262",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07273",
+          "half": "R",
+          "width": 15,
+          "target": "20147",
+          "expression": "DBCORE+112B",
+          "witnesses": 7
+        },
+        {
+          "word": "07300",
+          "half": "L",
+          "width": 15,
+          "target": "07312",
+          "expression": "R07312",
+          "witnesses": 7
+        },
+        {
+          "word": "07305",
+          "half": "L",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 7
+        },
+        {
+          "word": "07311",
+          "half": "L",
+          "width": 15,
+          "target": "07300",
+          "expression": "R07300",
+          "witnesses": 7
+        },
+        {
+          "word": "07311",
+          "half": "R",
+          "width": 15,
+          "target": "20147",
+          "expression": "DBCORE+112B",
+          "witnesses": 7
+        },
+        {
+          "word": "07323",
+          "half": "L",
+          "width": 15,
+          "target": "07324",
+          "expression": "R07324",
+          "witnesses": 7
+        },
+        {
+          "word": "07327",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07331",
+          "half": "R",
+          "width": 15,
+          "target": "07333",
+          "expression": "R07333",
+          "witnesses": 7
+        },
+        {
+          "word": "07334",
+          "half": "L",
+          "width": 15,
+          "target": "07337",
+          "expression": "R07337",
+          "witnesses": 7
+        },
+        {
+          "word": "07341",
+          "half": "L",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07343",
+          "half": "R",
+          "width": 15,
+          "target": "20122",
+          "expression": "DBCORE+65B",
+          "witnesses": 7
+        },
+        {
+          "word": "07344",
+          "half": "L",
+          "width": 15,
+          "target": "20066",
+          "expression": "DBCORE+31B",
+          "witnesses": 7
+        },
+        {
+          "word": "07346",
+          "half": "L",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 7
+        },
+        {
+          "word": "07347",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07353",
+          "half": "R",
+          "width": 15,
+          "target": "20104",
+          "expression": "DBCORE+47B",
+          "witnesses": 7
+        },
+        {
+          "word": "07360",
+          "half": "L",
+          "width": 15,
+          "target": "07355",
+          "expression": "R07355",
+          "witnesses": 7
+        },
+        {
+          "word": "07406",
+          "half": "L",
+          "width": 15,
+          "target": "07244",
+          "expression": "R07244",
+          "witnesses": 7
+        },
+        {
+          "word": "07406",
+          "half": "R",
+          "width": 15,
+          "target": "20002",
+          "expression": "DBENTER",
+          "witnesses": 7
+        },
+        {
+          "word": "07410",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07411",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07414",
+          "half": "L",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 7
+        },
+        {
+          "word": "07421",
+          "half": "R",
+          "width": 15,
+          "target": "20067",
+          "expression": "DBCORE+32B",
+          "witnesses": 7
+        },
+        {
+          "word": "07423",
+          "half": "R",
+          "width": 15,
+          "target": "20067",
+          "expression": "DBCORE+32B",
+          "witnesses": 7
+        },
+        {
+          "word": "07431",
+          "half": "L",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 7
+        },
+        {
+          "word": "07442",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07443",
+          "half": "L",
+          "width": 15,
+          "target": "07244",
+          "expression": "R07244",
+          "witnesses": 7
+        },
+        {
+          "word": "07443",
+          "half": "R",
+          "width": 15,
+          "target": "20002",
+          "expression": "DBENTER",
+          "witnesses": 7
+        },
+        {
+          "word": "07446",
+          "half": "R",
+          "width": 15,
+          "target": "07573",
+          "expression": "R07573",
+          "witnesses": 7
+        },
+        {
+          "word": "07447",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07456",
+          "half": "R",
+          "width": 15,
+          "target": "07573",
+          "expression": "R07573",
+          "witnesses": 7
+        },
+        {
+          "word": "07460",
+          "half": "L",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07463",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07465",
+          "half": "R",
+          "width": 15,
+          "target": "07573",
+          "expression": "R07573",
+          "witnesses": 7
+        },
+        {
+          "word": "07466",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07470",
+          "half": "L",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07475",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07502",
+          "half": "R",
+          "width": 15,
+          "target": "07541",
+          "expression": "R07541",
+          "witnesses": 7
+        },
+        {
+          "word": "07504",
+          "half": "R",
+          "width": 15,
+          "target": "07502",
+          "expression": "R07502",
+          "witnesses": 7
+        },
+        {
+          "word": "07506",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07514",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 7
+        },
+        {
+          "word": "07576",
+          "half": "R",
+          "width": 15,
+          "target": "20147",
+          "expression": "DBCORE+112B",
+          "witnesses": 7
+        },
+        {
+          "word": "07614",
+          "half": "L",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 7
+        },
+        {
+          "word": "07620",
+          "half": "L",
+          "width": 15,
+          "target": "07576",
+          "expression": "R07576",
+          "witnesses": 7
+        }
+      ],
+      "copies": [
+        {
+          "path": "runtime/images/4001/0002-monitr-pascal.bin",
+          "file_anchor": "06655",
+          "encoded_base": "06456",
+          "file_start": "06456",
+          "load_start": "06456",
+          "load_anchor": "06655",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07244": "06456",
+            "07300": "06512",
+            "07312": "06524",
+            "07324": "06536",
+            "07333": "06545",
+            "07337": "06551",
+            "07355": "06567",
+            "07443": "06655",
+            "07502": "06714",
+            "07541": "06753",
+            "07573": "07005",
+            "07576": "07010",
+            "20002": "07101",
+            "20007": "07106",
+            "20027": "07126",
+            "20031": "07130",
+            "20032": "07131",
+            "20035": "06316",
+            "20066": "06347",
+            "20067": "06350",
+            "20104": "06365",
+            "20122": "06403",
+            "20147": "06430",
+            "77762": "77762",
+            "77772": "77772",
+            "77773": "77773",
+            "77776": "77776"
+          },
+          "exact_words_after_relocation": 250
+        },
+        {
+          "path": "runtime/images/4001/0030-proz.bin",
+          "file_anchor": "07041",
+          "encoded_base": "06642",
+          "file_start": "06642",
+          "load_start": "06642",
+          "load_anchor": "07041",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07244": "06642",
+            "07300": "06676",
+            "07312": "06710",
+            "07324": "06722",
+            "07333": "06731",
+            "07337": "06735",
+            "07355": "06753",
+            "07443": "07041",
+            "07502": "07100",
+            "07541": "07137",
+            "07573": "07171",
+            "07576": "07174",
+            "20002": "07622",
+            "20007": "07627",
+            "20027": "07647",
+            "20031": "07651",
+            "20032": "07652",
+            "20035": "07671",
+            "20066": "07722",
+            "20067": "07723",
+            "20104": "07740",
+            "20122": "07756",
+            "20147": "10003",
+            "77762": "77762",
+            "77772": "77772",
+            "77773": "77773",
+            "77776": "77776"
+          },
+          "exact_words_after_relocation": 250
+        },
+        {
+          "path": "runtime/images/4001/0037-kermit.bin",
+          "file_anchor": "14142",
+          "encoded_base": "13743",
+          "file_start": "13743",
+          "load_start": "13743",
+          "load_anchor": "14142",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07244": "13743",
+            "07300": "13777",
+            "07312": "14011",
+            "07324": "14023",
+            "07333": "14032",
+            "07337": "14036",
+            "07355": "14054",
+            "07443": "14142",
+            "07502": "14201",
+            "07541": "14240",
+            "07573": "14272",
+            "07576": "14275",
+            "20002": "15776",
+            "20007": "16003",
+            "20027": "16023",
+            "20031": "16025",
+            "20032": "16026",
+            "20035": "16031",
+            "20066": "16062",
+            "20067": "16063",
+            "20104": "16100",
+            "20122": "16116",
+            "20147": "16143",
+            "77762": "77762",
+            "77772": "77772",
+            "77773": "77773",
+            "77776": "77776"
+          },
+          "exact_words_after_relocation": 250
+        },
+        {
+          "path": "runtime/images/4001/0051-print.bin",
+          "file_anchor": "07336",
+          "encoded_base": "07137",
+          "file_start": "07137",
+          "load_start": "07137",
+          "load_anchor": "07336",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07244": "07137",
+            "07300": "07173",
+            "07312": "07205",
+            "07324": "07217",
+            "07333": "07226",
+            "07337": "07232",
+            "07355": "07250",
+            "07443": "07336",
+            "07502": "07375",
+            "07541": "07434",
+            "07573": "07466",
+            "07576": "07471",
+            "20002": "10240",
+            "20007": "10245",
+            "20027": "10265",
+            "20031": "10267",
+            "20032": "10270",
+            "20035": "10273",
+            "20066": "10324",
+            "20067": "10325",
+            "20104": "10342",
+            "20122": "10360",
+            "20147": "10405",
+            "77762": "77762",
+            "77772": "77772",
+            "77773": "77773",
+            "77776": "77776"
+          },
+          "exact_words_after_relocation": 250
+        },
+        {
+          "path": "runtime/images/4001/0075-recod.bin",
+          "file_anchor": "06122",
+          "encoded_base": "05723",
+          "file_start": "05723",
+          "load_start": "05723",
+          "load_anchor": "06122",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07244": "05723",
+            "07300": "05757",
+            "07312": "05771",
+            "07324": "06003",
+            "07333": "06012",
+            "07337": "06016",
+            "07355": "06034",
+            "07443": "06122",
+            "07502": "06161",
+            "07541": "06220",
+            "07573": "06252",
+            "07576": "06255",
+            "20002": "06540",
+            "20007": "06545",
+            "20027": "06565",
+            "20031": "06567",
+            "20032": "06570",
+            "20035": "06573",
+            "20066": "06624",
+            "20067": "06625",
+            "20104": "06642",
+            "20122": "06660",
+            "20147": "06705",
+            "77762": "77762",
+            "77772": "77772",
+            "77773": "77773",
+            "77776": "77776"
+          },
+          "exact_words_after_relocation": 250
+        },
+        {
+          "path": "runtime/images/4001/0132-acc3.bin",
+          "file_anchor": "33663",
+          "encoded_base": "25464",
+          "file_start": "33464",
+          "load_start": "25464",
+          "load_anchor": "25663",
+          "file_to_load_delta": "-6000",
+          "targets": {
+            "07244": "25464",
+            "07300": "25520",
+            "07312": "25532",
+            "07324": "25544",
+            "07333": "25553",
+            "07337": "25557",
+            "07355": "25575",
+            "07443": "25663",
+            "07502": "25722",
+            "07541": "25761",
+            "07573": "26013",
+            "07576": "26016",
+            "20002": "30067",
+            "20007": "30074",
+            "20027": "30114",
+            "20031": "30116",
+            "20032": "30117",
+            "20035": "27727",
+            "20066": "27760",
+            "20067": "27761",
+            "20104": "27776",
+            "20122": "30014",
+            "20147": "30041",
+            "77762": "77762",
+            "77772": "77772",
+            "77773": "77773",
+            "77776": "77776"
+          },
+          "exact_words_after_relocation": 250
+        },
+        {
+          "path": "runtime/images/4001/0215-acc2.bin",
+          "file_anchor": "32612",
+          "encoded_base": "24413",
+          "file_start": "32413",
+          "load_start": "24413",
+          "load_anchor": "24612",
+          "file_to_load_delta": "-6000",
+          "targets": {
+            "07244": "24413",
+            "07300": "24447",
+            "07312": "24461",
+            "07324": "24473",
+            "07333": "24502",
+            "07337": "24506",
+            "07355": "24524",
+            "07443": "24612",
+            "07502": "24651",
+            "07541": "24710",
+            "07573": "24742",
+            "07576": "24745",
+            "20002": "27021",
+            "20007": "27026",
+            "20027": "27046",
+            "20031": "27050",
+            "20032": "27051",
+            "20035": "26661",
+            "20066": "26712",
+            "20067": "26713",
+            "20104": "26730",
+            "20122": "26746",
+            "20147": "26773",
+            "77762": "77762",
+            "77772": "77772",
+            "77773": "77773",
+            "77776": "77776"
+          },
+          "exact_words_after_relocation": 250
+        },
+        {
+          "path": "runtime/images/4001/0315-comp.bin",
+          "file_anchor": "07443",
+          "encoded_base": "07244",
+          "file_start": "07244",
+          "load_start": "07244",
+          "load_anchor": "07443",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07244": "07244",
+            "07300": "07300",
+            "07312": "07312",
+            "07324": "07324",
+            "07333": "07333",
+            "07337": "07337",
+            "07355": "07355",
+            "07443": "07443",
+            "07502": "07502",
+            "07541": "07541",
+            "07573": "07573",
+            "07576": "07576",
+            "20002": "20002",
+            "20007": "20007",
+            "20027": "20027",
+            "20031": "20031",
+            "20032": "20032",
+            "20035": "20035",
+            "20066": "20066",
+            "20067": "20067",
+            "20104": "20104",
+            "20122": "20122",
+            "20147": "20147",
+            "77762": "77762",
+            "77772": "77772",
+            "77773": "77773",
+            "77776": "77776"
+          },
+          "exact_words_after_relocation": 250
+        }
+      ],
+      "other_candidates": [
+        {
+          "path": "runtime/images/4001/0016-tar.bin",
+          "file_anchor": "07717",
+          "encoded_base": "07524",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 36
+        },
+        {
+          "path": "runtime/images/4001/0023-kanal.bin",
+          "file_anchor": "06402",
+          "encoded_base": "06207",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 36
+        },
+        {
+          "path": "runtime/images/4001/0034-more.bin",
+          "file_anchor": "03601",
+          "encoded_base": "03601",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 34
+        },
+        {
+          "path": "runtime/images/4001/0063-fprint.bin",
+          "file_anchor": "05234",
+          "encoded_base": "05234",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 34
+        },
+        {
+          "path": "runtime/images/4001/0070-tartar.bin",
+          "file_anchor": "07525",
+          "encoded_base": "07332",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 36
+        },
+        {
+          "path": "runtime/images/4001/0106-copy.bin",
+          "file_anchor": "04336",
+          "encoded_base": "04143",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 36
+        }
+      ],
+      "text": [
+        {
+          "start": "07523",
+          "end": "07542",
+          "encoding": "iso"
+        }
+      ],
+      "bss": [
+        {
+          "start": "07373",
+          "end": "07401",
+          "words": 6
+        },
+        {
+          "start": "07404",
+          "end": "07406",
+          "words": 2
+        }
+      ]
+    },
+    {
+      "name": "DBFILE",
+      "source": "openf.madlen",
+      "start": "07636",
+      "end": "10266",
+      "words": 280,
+      "entries": {
+        "OPENF": "07667"
+      },
+      "code": [
+        [
+          "07636",
+          "10013"
+        ],
+        [
+          "10032",
+          "10172"
+        ],
+        [
+          "10176",
+          "10266"
+        ]
+      ],
+      "relocations": [
+        {
+          "word": "07636",
+          "half": "L",
+          "width": 15,
+          "target": "07636",
+          "expression": "R07636",
+          "witnesses": 3
+        },
+        {
+          "word": "07636",
+          "half": "R",
+          "width": 15,
+          "target": "20002",
+          "expression": "DBENTER",
+          "witnesses": 3
+        },
+        {
+          "word": "07640",
+          "half": "R",
+          "width": 15,
+          "target": "20035",
+          "expression": "DBCORE",
+          "witnesses": 3
+        },
+        {
+          "word": "07644",
+          "half": "L",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "07646",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "07652",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "07653",
+          "half": "R",
+          "width": 15,
+          "target": "20016",
+          "expression": "DBPASC+14B",
+          "witnesses": 3
+        },
+        {
+          "word": "07655",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "07656",
+          "half": "L",
+          "width": 15,
+          "target": "07636",
+          "expression": "R07636",
+          "witnesses": 3
+        },
+        {
+          "word": "07656",
+          "half": "R",
+          "width": 15,
+          "target": "20002",
+          "expression": "DBENTER",
+          "witnesses": 3
+        },
+        {
+          "word": "07660",
+          "half": "R",
+          "width": 15,
+          "target": "20035",
+          "expression": "DBCORE",
+          "witnesses": 3
+        },
+        {
+          "word": "07661",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "07666",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "07667",
+          "half": "L",
+          "width": 15,
+          "target": "07636",
+          "expression": "R07636",
+          "witnesses": 3
+        },
+        {
+          "word": "07667",
+          "half": "R",
+          "width": 15,
+          "target": "20002",
+          "expression": "DBENTER",
+          "witnesses": 3
+        },
+        {
+          "word": "07671",
+          "half": "R",
+          "width": 15,
+          "target": "07731",
+          "expression": "R07731",
+          "witnesses": 3
+        },
+        {
+          "word": "07674",
+          "half": "R",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 3
+        },
+        {
+          "word": "07704",
+          "half": "L",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "07707",
+          "half": "L",
+          "width": 15,
+          "target": "20016",
+          "expression": "DBPASC+14B",
+          "witnesses": 3
+        },
+        {
+          "word": "07711",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "07712",
+          "half": "R",
+          "width": 15,
+          "target": "07741",
+          "expression": "R07741",
+          "witnesses": 3
+        },
+        {
+          "word": "07713",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "07723",
+          "half": "L",
+          "width": 15,
+          "target": "20016",
+          "expression": "DBPASC+14B",
+          "witnesses": 3
+        },
+        {
+          "word": "07725",
+          "half": "R",
+          "width": 15,
+          "target": "07756",
+          "expression": "R07756",
+          "witnesses": 3
+        },
+        {
+          "word": "07726",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "07731",
+          "half": "R",
+          "width": 15,
+          "target": "20035",
+          "expression": "DBCORE",
+          "witnesses": 3
+        },
+        {
+          "word": "07732",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "07734",
+          "half": "R",
+          "width": 15,
+          "target": "20067",
+          "expression": "DBCORE+32B",
+          "witnesses": 3
+        },
+        {
+          "word": "07736",
+          "half": "R",
+          "width": 15,
+          "target": "20122",
+          "expression": "DBCORE+65B",
+          "witnesses": 3
+        },
+        {
+          "word": "07737",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "07741",
+          "half": "L",
+          "width": 15,
+          "target": "20066",
+          "expression": "DBCORE+31B",
+          "witnesses": 3
+        },
+        {
+          "word": "07743",
+          "half": "L",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 3
+        },
+        {
+          "word": "07751",
+          "half": "R",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 3
+        },
+        {
+          "word": "07755",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "10011",
+          "half": "R",
+          "width": 15,
+          "target": "20141",
+          "expression": "DBCORE+104B",
+          "witnesses": 3
+        },
+        {
+          "word": "10032",
+          "half": "L",
+          "width": 15,
+          "target": "07636",
+          "expression": "R07636",
+          "witnesses": 3
+        },
+        {
+          "word": "10042",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "10044",
+          "half": "R",
+          "width": 15,
+          "target": "20066",
+          "expression": "DBCORE+31B",
+          "witnesses": 3
+        },
+        {
+          "word": "10046",
+          "half": "L",
+          "width": 15,
+          "target": "20066",
+          "expression": "DBCORE+31B",
+          "witnesses": 3
+        },
+        {
+          "word": "10060",
+          "half": "L",
+          "width": 15,
+          "target": "07636",
+          "expression": "R07636",
+          "witnesses": 3
+        },
+        {
+          "word": "10060",
+          "half": "R",
+          "width": 15,
+          "target": "20002",
+          "expression": "DBENTER",
+          "witnesses": 3
+        },
+        {
+          "word": "10063",
+          "half": "R",
+          "width": 15,
+          "target": "07731",
+          "expression": "R07731",
+          "witnesses": 3
+        },
+        {
+          "word": "10064",
+          "half": "R",
+          "width": 15,
+          "target": "07741",
+          "expression": "R07741",
+          "witnesses": 3
+        },
+        {
+          "word": "10065",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "10070",
+          "half": "L",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "10072",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "10103",
+          "half": "L",
+          "width": 15,
+          "target": "20066",
+          "expression": "DBCORE+31B",
+          "witnesses": 3
+        },
+        {
+          "word": "10112",
+          "half": "R",
+          "width": 15,
+          "target": "10033",
+          "expression": "R10033",
+          "witnesses": 3
+        },
+        {
+          "word": "10120",
+          "half": "L",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "10123",
+          "half": "R",
+          "width": 15,
+          "target": "10044",
+          "expression": "R10044",
+          "witnesses": 3
+        },
+        {
+          "word": "10125",
+          "half": "L",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "10126",
+          "half": "R",
+          "width": 15,
+          "target": "20066",
+          "expression": "DBCORE+31B",
+          "witnesses": 3
+        },
+        {
+          "word": "10130",
+          "half": "L",
+          "width": 15,
+          "target": "20066",
+          "expression": "DBCORE+31B",
+          "witnesses": 3
+        },
+        {
+          "word": "10136",
+          "half": "L",
+          "width": 15,
+          "target": "20016",
+          "expression": "DBPASC+14B",
+          "witnesses": 3
+        },
+        {
+          "word": "10142",
+          "half": "R",
+          "width": 15,
+          "target": "07756",
+          "expression": "R07756",
+          "witnesses": 3
+        },
+        {
+          "word": "10143",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "10150",
+          "half": "R",
+          "width": 15,
+          "target": "10033",
+          "expression": "R10033",
+          "witnesses": 3
+        },
+        {
+          "word": "10176",
+          "half": "L",
+          "width": 15,
+          "target": "07636",
+          "expression": "R07636",
+          "witnesses": 3
+        },
+        {
+          "word": "10176",
+          "half": "R",
+          "width": 15,
+          "target": "20002",
+          "expression": "DBENTER",
+          "witnesses": 3
+        },
+        {
+          "word": "10201",
+          "half": "R",
+          "width": 15,
+          "target": "07731",
+          "expression": "R07731",
+          "witnesses": 3
+        },
+        {
+          "word": "10202",
+          "half": "R",
+          "width": 15,
+          "target": "07741",
+          "expression": "R07741",
+          "witnesses": 3
+        },
+        {
+          "word": "10203",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "10211",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "10221",
+          "half": "L",
+          "width": 15,
+          "target": "10223",
+          "expression": "R10223",
+          "witnesses": 3
+        },
+        {
+          "word": "10223",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "10224",
+          "half": "L",
+          "width": 15,
+          "target": "07636",
+          "expression": "R07636",
+          "witnesses": 3
+        },
+        {
+          "word": "10224",
+          "half": "R",
+          "width": 15,
+          "target": "20002",
+          "expression": "DBENTER",
+          "witnesses": 3
+        },
+        {
+          "word": "10226",
+          "half": "R",
+          "width": 15,
+          "target": "07731",
+          "expression": "R07731",
+          "witnesses": 3
+        },
+        {
+          "word": "10227",
+          "half": "R",
+          "width": 15,
+          "target": "07741",
+          "expression": "R07741",
+          "witnesses": 3
+        },
+        {
+          "word": "10230",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "10241",
+          "half": "R",
+          "width": 15,
+          "target": "20066",
+          "expression": "DBCORE+31B",
+          "witnesses": 3
+        },
+        {
+          "word": "10243",
+          "half": "R",
+          "width": 15,
+          "target": "20022",
+          "expression": "DBPASC+20B",
+          "witnesses": 3
+        },
+        {
+          "word": "10244",
+          "half": "R",
+          "width": 15,
+          "target": "20066",
+          "expression": "DBCORE+31B",
+          "witnesses": 3
+        },
+        {
+          "word": "10250",
+          "half": "L",
+          "width": 15,
+          "target": "07636",
+          "expression": "R07636",
+          "witnesses": 3
+        },
+        {
+          "word": "10250",
+          "half": "R",
+          "width": 15,
+          "target": "20002",
+          "expression": "DBENTER",
+          "witnesses": 3
+        },
+        {
+          "word": "10252",
+          "half": "R",
+          "width": 15,
+          "target": "07731",
+          "expression": "R07731",
+          "witnesses": 3
+        },
+        {
+          "word": "10253",
+          "half": "R",
+          "width": 15,
+          "target": "07741",
+          "expression": "R07741",
+          "witnesses": 3
+        },
+        {
+          "word": "10254",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "DBLEAVE",
+          "witnesses": 3
+        },
+        {
+          "word": "10256",
+          "half": "R",
+          "width": 15,
+          "target": "20067",
+          "expression": "DBCORE+32B",
+          "witnesses": 3
+        },
+        {
+          "word": "10262",
+          "half": "R",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 3
+        }
+      ],
+      "copies": [
+        {
+          "path": "runtime/images/4001/0002-monitr-pascal.bin",
+          "file_anchor": "05547",
+          "encoded_base": "05516",
+          "file_start": "05516",
+          "load_start": "05516",
+          "load_anchor": "05547",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07636": "05516",
+            "07731": "05611",
+            "07741": "05621",
+            "07756": "05636",
+            "10033": "05713",
+            "10044": "05724",
+            "10223": "06103",
+            "20002": "07101",
+            "20007": "07106",
+            "20016": "07115",
+            "20022": "07121",
+            "20027": "07126",
+            "20035": "06316",
+            "20066": "06347",
+            "20067": "06350",
+            "20122": "06403",
+            "20141": "06422"
+          },
+          "exact_words_after_relocation": 280
+        },
+        {
+          "path": "runtime/images/4001/0037-kermit.bin",
+          "file_anchor": "13336",
+          "encoded_base": "13305",
+          "file_start": "13305",
+          "load_start": "13305",
+          "load_anchor": "13336",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07636": "13305",
+            "07731": "13400",
+            "07741": "13410",
+            "07756": "13425",
+            "10033": "13502",
+            "10044": "13513",
+            "10223": "13672",
+            "20002": "15776",
+            "20007": "16003",
+            "20016": "16012",
+            "20022": "16016",
+            "20027": "16023",
+            "20035": "16031",
+            "20066": "16062",
+            "20067": "16063",
+            "20122": "16116",
+            "20141": "16135"
+          },
+          "exact_words_after_relocation": 280
+        },
+        {
+          "path": "runtime/images/4001/0075-recod.bin",
+          "file_anchor": "04717",
+          "encoded_base": "04666",
+          "file_start": "04666",
+          "load_start": "04666",
+          "load_anchor": "04717",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07636": "04666",
+            "07731": "04761",
+            "07741": "04771",
+            "07756": "05006",
+            "10033": "05063",
+            "10044": "05074",
+            "10223": "05253",
+            "20002": "06540",
+            "20007": "06545",
+            "20016": "06554",
+            "20022": "06560",
+            "20027": "06565",
+            "20035": "06573",
+            "20066": "06624",
+            "20067": "06625",
+            "20122": "06660",
+            "20141": "06677"
+          },
+          "exact_words_after_relocation": 280
+        },
+        {
+          "path": "runtime/images/4001/0315-comp.bin",
+          "file_anchor": "07667",
+          "encoded_base": "07636",
+          "file_start": "07636",
+          "load_start": "07636",
+          "load_anchor": "07667",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "07636": "07636",
+            "07731": "07731",
+            "07741": "07741",
+            "07756": "07756",
+            "10033": "10033",
+            "10044": "10044",
+            "10223": "10223",
+            "20002": "20002",
+            "20007": "20007",
+            "20016": "20016",
+            "20022": "20022",
+            "20027": "20027",
+            "20035": "20035",
+            "20066": "20066",
+            "20067": "20067",
+            "20122": "20122",
+            "20141": "20141"
+          },
+          "exact_words_after_relocation": 280
+        }
+      ],
+      "other_candidates": [
+        {
+          "path": "runtime/images/4001/0016-tar.bin",
+          "file_anchor": "10144",
+          "encoded_base": "10113",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 23
+        },
+        {
+          "path": "runtime/images/4001/0023-kanal.bin",
+          "file_anchor": "05622",
+          "encoded_base": "05571",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 22
+        },
+        {
+          "path": "runtime/images/4001/0030-proz.bin",
+          "file_anchor": "06254",
+          "encoded_base": "06223",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 24
+        },
+        {
+          "path": "runtime/images/4001/0051-print.bin",
+          "file_anchor": "06170",
+          "encoded_base": "06137",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 24
+        },
+        {
+          "path": "runtime/images/4001/0070-tartar.bin",
+          "file_anchor": "07752",
+          "encoded_base": "07721",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 23
+        },
+        {
+          "path": "runtime/images/4001/0101-mtcopy.bin",
+          "file_anchor": "04642",
+          "encoded_base": "04611",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 24
+        },
+        {
+          "path": "runtime/images/4001/0104-orphan-0104.bin",
+          "file_anchor": "04106",
+          "encoded_base": "04055",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 24
+        },
+        {
+          "path": "runtime/images/4001/0106-copy.bin",
+          "file_anchor": "04561",
+          "encoded_base": "04530",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 22
+        },
+        {
+          "path": "runtime/images/4001/0132-acc3.bin",
+          "file_anchor": "34107",
+          "encoded_base": "26056",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 24
+        },
+        {
+          "path": "runtime/images/4001/0172-mt.bin",
+          "file_anchor": "04234",
+          "encoded_base": "04203",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 24
+        },
+        {
+          "path": "runtime/images/4001/0215-acc2.bin",
+          "file_anchor": "33036",
+          "encoded_base": "25005",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 24
+        }
+      ]
+    },
+    {
+      "name": "DBPASC",
+      "source": "dbpasc.madlen",
+      "start": "20002",
+      "end": "20035",
+      "words": 27,
+      "entries": {
+        "DBENTER": "20002",
+        "DBLEAVE": "20007"
+      },
+      "code": [
+        [
+          "20002",
+          "20016"
+        ],
+        [
+          "20017",
+          "20021"
+        ]
+      ],
+      "relocations": [
+        {
+          "word": "20014",
+          "half": "R",
+          "width": 15,
+          "target": "20016",
+          "expression": "R20016",
+          "witnesses": 14
+        },
+        {
+          "word": "20017",
+          "half": "L",
+          "width": 15,
+          "target": "20030",
+          "expression": "R20030",
+          "witnesses": 14
+        },
+        {
+          "word": "20020",
+          "half": "R",
+          "width": 15,
+          "target": "20007",
+          "expression": "R20007",
+          "witnesses": 14
+        }
+      ],
+      "copies": [
+        {
+          "path": "runtime/images/4001/0002-monitr-pascal.bin",
+          "file_anchor": "07101",
+          "file_start": "07101",
+          "load_start": "07101",
+          "load_anchor": "07101",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "20007": "07106",
+            "20016": "07115",
+            "20030": "07127"
+          },
+          "exact_words_after_relocation": 27
+        },
+        {
+          "path": "runtime/images/4001/0016-tar.bin",
+          "file_anchor": "11305",
+          "file_start": "11305",
+          "load_start": "11305",
+          "load_anchor": "11305",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "20007": "11312",
+            "20016": "11321",
+            "20030": "11333"
+          },
+          "exact_words_after_relocation": 27
+        },
+        {
+          "path": "runtime/images/4001/0023-kanal.bin",
+          "file_anchor": "07044",
+          "file_start": "07044",
+          "load_start": "07044",
+          "load_anchor": "07044",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "20007": "07051",
+            "20016": "07060",
+            "20030": "07072"
+          },
+          "exact_words_after_relocation": 27
+        },
+        {
+          "path": "runtime/images/4001/0030-proz.bin",
+          "file_anchor": "07622",
+          "file_start": "07622",
+          "load_start": "07622",
+          "load_anchor": "07622",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "20007": "07627",
+            "20016": "07636",
+            "20030": "07650"
+          },
+          "exact_words_after_relocation": 27
+        },
+        {
+          "path": "runtime/images/4001/0037-kermit.bin",
+          "file_anchor": "15776",
+          "file_start": "15776",
+          "load_start": "15776",
+          "load_anchor": "15776",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "20007": "16003",
+            "20016": "16012",
+            "20030": "16024"
+          },
+          "exact_words_after_relocation": 27
+        },
+        {
+          "path": "runtime/images/4001/0051-print.bin",
+          "file_anchor": "10240",
+          "file_start": "10240",
+          "load_start": "10240",
+          "load_anchor": "10240",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "20007": "10245",
+            "20016": "10254",
+            "20030": "10266"
+          },
+          "exact_words_after_relocation": 27
+        },
+        {
+          "path": "runtime/images/4001/0070-tartar.bin",
+          "file_anchor": "11113",
+          "file_start": "11113",
+          "load_start": "11113",
+          "load_anchor": "11113",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "20007": "11120",
+            "20016": "11127",
+            "20030": "11141"
+          },
+          "exact_words_after_relocation": 27
+        },
+        {
+          "path": "runtime/images/4001/0075-recod.bin",
+          "file_anchor": "06540",
+          "file_start": "06540",
+          "load_start": "06540",
+          "load_anchor": "06540",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "20007": "06545",
+            "20016": "06554",
+            "20030": "06566"
+          },
+          "exact_words_after_relocation": 27
+        },
+        {
+          "path": "runtime/images/4001/0101-mtcopy.bin",
+          "file_anchor": "05746",
+          "file_start": "05746",
+          "load_start": "05746",
+          "load_anchor": "05746",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "20007": "05753",
+            "20016": "05762",
+            "20030": "05774"
+          },
+          "exact_words_after_relocation": 27
+        },
+        {
+          "path": "runtime/images/4001/0104-orphan-0104.bin",
+          "file_anchor": "05241",
+          "file_start": "05241",
+          "load_start": "05241",
+          "load_anchor": "05241",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "20007": "05246",
+            "20016": "05255",
+            "20030": "05267"
+          },
+          "exact_words_after_relocation": 27
+        },
+        {
+          "path": "runtime/images/4001/0106-copy.bin",
+          "file_anchor": "05414",
+          "file_start": "05414",
+          "load_start": "05414",
+          "load_anchor": "05414",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "20007": "05421",
+            "20016": "05430",
+            "20030": "05442"
+          },
+          "exact_words_after_relocation": 27
+        },
+        {
+          "path": "runtime/images/4001/0132-acc3.bin",
+          "file_anchor": "36067",
+          "file_start": "36067",
+          "load_start": "30067",
+          "load_anchor": "30067",
+          "file_to_load_delta": "-6000",
+          "targets": {
+            "20007": "30074",
+            "20016": "30103",
+            "20030": "30115"
+          },
+          "exact_words_after_relocation": 27
+        },
+        {
+          "path": "runtime/images/4001/0172-mt.bin",
+          "file_anchor": "05367",
+          "file_start": "05367",
+          "load_start": "05367",
+          "load_anchor": "05367",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "20007": "05374",
+            "20016": "05403",
+            "20030": "05415"
+          },
+          "exact_words_after_relocation": 27
+        },
+        {
+          "path": "runtime/images/4001/0215-acc2.bin",
+          "file_anchor": "35021",
+          "file_start": "35021",
+          "load_start": "27021",
+          "load_anchor": "27021",
+          "file_to_load_delta": "-6000",
+          "targets": {
+            "20007": "27026",
+            "20016": "27035",
+            "20030": "27047"
+          },
+          "exact_words_after_relocation": 27
+        },
+        {
+          "path": "runtime/images/4001/0315-comp.bin",
+          "file_anchor": "20002",
+          "file_start": "20002",
+          "load_start": "20002",
+          "load_anchor": "20002",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "20007": "20007",
+            "20016": "20016",
+            "20030": "20030"
+          },
+          "exact_words_after_relocation": 27
+        }
+      ],
+      "other_candidates": [],
+      "bss": [
+        {
+          "start": "20031",
+          "end": "20035",
+          "words": 4
+        }
+      ]
+    },
+    {
+      "name": "DBCORE",
+      "source": "dbcore.madlen",
+      "start": "20035",
+      "end": "20175",
+      "words": 96,
+      "entries": {},
+      "code": [
+        [
+          "20035",
+          "20057"
+        ],
+        [
+          "20064",
+          "20066"
+        ],
+        [
+          "20067",
+          "20140"
+        ],
+        [
+          "20141",
+          "20171"
+        ],
+        [
+          "20174",
+          "20175"
+        ]
+      ],
+      "relocations": [
+        {
+          "word": "20035",
+          "half": "L",
+          "width": 15,
+          "target": "20031",
+          "expression": "DBPASC+27B",
+          "witnesses": 10
+        },
+        {
+          "word": "20036",
+          "half": "R",
+          "width": 15,
+          "target": "20032",
+          "expression": "DBPASC+30B",
+          "witnesses": 10
+        },
+        {
+          "word": "20037",
+          "half": "R",
+          "width": 15,
+          "target": "20035",
+          "expression": "R20035",
+          "witnesses": 10
+        },
+        {
+          "word": "20040",
+          "half": "R",
+          "width": 15,
+          "target": "20031",
+          "expression": "DBPASC+27B",
+          "witnesses": 10
+        },
+        {
+          "word": "20044",
+          "half": "L",
+          "width": 15,
+          "target": "20031",
+          "expression": "DBPASC+27B",
+          "witnesses": 10
+        },
+        {
+          "word": "20046",
+          "half": "R",
+          "width": 15,
+          "target": "20057",
+          "expression": "R20057",
+          "witnesses": 10
+        },
+        {
+          "word": "20051",
+          "half": "L",
+          "width": 15,
+          "target": "20031",
+          "expression": "DBPASC+27B",
+          "witnesses": 10
+        },
+        {
+          "word": "20055",
+          "half": "L",
+          "width": 15,
+          "target": "20032",
+          "expression": "DBPASC+30B",
+          "witnesses": 10
+        },
+        {
+          "word": "20064",
+          "half": "L",
+          "width": 15,
+          "target": "20035",
+          "expression": "R20035",
+          "witnesses": 10
+        },
+        {
+          "word": "20067",
+          "half": "R",
+          "width": 15,
+          "target": "20031",
+          "expression": "DBPASC+27B",
+          "witnesses": 10
+        },
+        {
+          "word": "20071",
+          "half": "L",
+          "width": 15,
+          "target": "20032",
+          "expression": "DBPASC+30B",
+          "witnesses": 10
+        },
+        {
+          "word": "20073",
+          "half": "R",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 10
+        },
+        {
+          "word": "20075",
+          "half": "R",
+          "width": 15,
+          "target": "20163",
+          "expression": "R20163",
+          "witnesses": 10
+        },
+        {
+          "word": "20076",
+          "half": "R",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 10
+        },
+        {
+          "word": "20077",
+          "half": "R",
+          "width": 15,
+          "target": "20031",
+          "expression": "DBPASC+27B",
+          "witnesses": 10
+        },
+        {
+          "word": "20100",
+          "half": "R",
+          "width": 15,
+          "target": "20031",
+          "expression": "DBPASC+27B",
+          "witnesses": 10
+        },
+        {
+          "word": "20101",
+          "half": "R",
+          "width": 15,
+          "target": "20073",
+          "expression": "R20073",
+          "witnesses": 10
+        },
+        {
+          "word": "20102",
+          "half": "L",
+          "width": 15,
+          "target": "20032",
+          "expression": "DBPASC+30B",
+          "witnesses": 10
+        },
+        {
+          "word": "20104",
+          "half": "L",
+          "width": 15,
+          "target": "20033",
+          "expression": "DBPASC+31B",
+          "witnesses": 10
+        },
+        {
+          "word": "20105",
+          "half": "R",
+          "width": 15,
+          "target": "20031",
+          "expression": "DBPASC+27B",
+          "witnesses": 10
+        },
+        {
+          "word": "20107",
+          "half": "L",
+          "width": 15,
+          "target": "20032",
+          "expression": "DBPASC+30B",
+          "witnesses": 10
+        },
+        {
+          "word": "20111",
+          "half": "L",
+          "width": 15,
+          "target": "20033",
+          "expression": "DBPASC+31B",
+          "witnesses": 10
+        },
+        {
+          "word": "20112",
+          "half": "L",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 10
+        },
+        {
+          "word": "20113",
+          "half": "R",
+          "width": 15,
+          "target": "20174",
+          "expression": "R20174",
+          "witnesses": 10
+        },
+        {
+          "word": "20114",
+          "half": "R",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 10
+        },
+        {
+          "word": "20115",
+          "half": "R",
+          "width": 15,
+          "target": "20031",
+          "expression": "DBPASC+27B",
+          "witnesses": 10
+        },
+        {
+          "word": "20116",
+          "half": "R",
+          "width": 15,
+          "target": "20031",
+          "expression": "DBPASC+27B",
+          "witnesses": 10
+        },
+        {
+          "word": "20117",
+          "half": "R",
+          "width": 15,
+          "target": "20111",
+          "expression": "R20111",
+          "witnesses": 10
+        },
+        {
+          "word": "20120",
+          "half": "L",
+          "width": 15,
+          "target": "20032",
+          "expression": "DBPASC+30B",
+          "witnesses": 10
+        },
+        {
+          "word": "20124",
+          "half": "R",
+          "width": 15,
+          "target": "20035",
+          "expression": "R20035",
+          "witnesses": 10
+        },
+        {
+          "word": "20136",
+          "half": "L",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 10
+        },
+        {
+          "word": "20143",
+          "half": "R",
+          "width": 15,
+          "target": "20035",
+          "expression": "R20035",
+          "witnesses": 10
+        },
+        {
+          "word": "20147",
+          "half": "R",
+          "width": 15,
+          "target": "20027",
+          "expression": "DBPASC+25B",
+          "witnesses": 10
+        },
+        {
+          "word": "20152",
+          "half": "R",
+          "width": 15,
+          "target": "20151",
+          "expression": "R20151",
+          "witnesses": 10
+        },
+        {
+          "word": "20154",
+          "half": "R",
+          "width": 15,
+          "target": "20160",
+          "expression": "R20160",
+          "witnesses": 10
+        },
+        {
+          "word": "20163",
+          "half": "L",
+          "width": 15,
+          "target": "20035",
+          "expression": "R20035",
+          "witnesses": 10
+        },
+        {
+          "word": "20167",
+          "half": "L",
+          "width": 15,
+          "target": "10455",
+          "expression": "MONOUT",
+          "witnesses": 10
+        },
+        {
+          "word": "20170",
+          "half": "R",
+          "width": 15,
+          "target": "10455",
+          "expression": "MONOUT",
+          "witnesses": 10
+        },
+        {
+          "word": "20174",
+          "half": "L",
+          "width": 15,
+          "target": "10547",
+          "expression": "MONIN",
+          "witnesses": 10
+        }
+      ],
+      "copies": [
+        {
+          "path": "runtime/images/4001/0002-monitr-pascal.bin",
+          "file_anchor": "06316",
+          "file_start": "06316",
+          "load_start": "06316",
+          "load_anchor": "06316",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "10455": "07143",
+            "10547": "07235",
+            "20027": "07126",
+            "20031": "07130",
+            "20032": "07131",
+            "20033": "07132",
+            "20035": "06316",
+            "20057": "06340",
+            "20073": "06354",
+            "20111": "06372",
+            "20151": "06432",
+            "20160": "06441",
+            "20163": "06444",
+            "20174": "06455",
+            "77730": "77730",
+            "77772": "77772",
+            "77773": "77773"
+          },
+          "exact_words_after_relocation": 96
+        },
+        {
+          "path": "runtime/images/4001/0030-proz.bin",
+          "file_anchor": "07671",
+          "file_start": "07671",
+          "load_start": "07671",
+          "load_anchor": "07671",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "10455": "07423",
+            "10547": "07515",
+            "20027": "07647",
+            "20031": "07651",
+            "20032": "07652",
+            "20033": "07653",
+            "20035": "07671",
+            "20057": "07713",
+            "20073": "07727",
+            "20111": "07745",
+            "20151": "10005",
+            "20160": "10014",
+            "20163": "10017",
+            "20174": "10030",
+            "77730": "77730",
+            "77772": "77772",
+            "77773": "77773"
+          },
+          "exact_words_after_relocation": 96
+        },
+        {
+          "path": "runtime/images/4001/0037-kermit.bin",
+          "file_anchor": "16031",
+          "file_start": "16031",
+          "load_start": "16031",
+          "load_anchor": "16031",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "10455": "16565",
+            "10547": "15730",
+            "20027": "16023",
+            "20031": "16025",
+            "20032": "16026",
+            "20033": "16027",
+            "20035": "16031",
+            "20057": "16053",
+            "20073": "16067",
+            "20111": "16105",
+            "20151": "16145",
+            "20160": "16154",
+            "20163": "16157",
+            "20174": "16170",
+            "77730": "77730",
+            "77772": "77772",
+            "77773": "77773"
+          },
+          "exact_words_after_relocation": 96
+        },
+        {
+          "path": "runtime/images/4001/0051-print.bin",
+          "file_anchor": "10273",
+          "file_start": "10273",
+          "load_start": "10273",
+          "load_anchor": "10273",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "10455": "10122",
+            "10547": "11146",
+            "20027": "10265",
+            "20031": "10267",
+            "20032": "10270",
+            "20033": "10271",
+            "20035": "10273",
+            "20057": "10315",
+            "20073": "10331",
+            "20111": "10347",
+            "20151": "10407",
+            "20160": "10416",
+            "20163": "10421",
+            "20174": "10432",
+            "77730": "77730",
+            "77772": "77772",
+            "77773": "77773"
+          },
+          "exact_words_after_relocation": 96
+        },
+        {
+          "path": "runtime/images/4001/0075-recod.bin",
+          "file_anchor": "06573",
+          "file_start": "06573",
+          "load_start": "06573",
+          "load_anchor": "06573",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "10455": "06353",
+            "10547": "06445",
+            "20027": "06565",
+            "20031": "06567",
+            "20032": "06570",
+            "20033": "06571",
+            "20035": "06573",
+            "20057": "06615",
+            "20073": "06631",
+            "20111": "06647",
+            "20151": "06707",
+            "20160": "06716",
+            "20163": "06721",
+            "20174": "06732",
+            "77730": "77730",
+            "77772": "77772",
+            "77773": "77773"
+          },
+          "exact_words_after_relocation": 96
+        },
+        {
+          "path": "runtime/images/4001/0101-mtcopy.bin",
+          "file_anchor": "06001",
+          "file_start": "06001",
+          "load_start": "06001",
+          "load_anchor": "06001",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "10455": "05533",
+            "10547": "05625",
+            "20027": "05773",
+            "20031": "05775",
+            "20032": "05776",
+            "20033": "05777",
+            "20035": "06001",
+            "20057": "06023",
+            "20073": "06037",
+            "20111": "06055",
+            "20151": "06115",
+            "20160": "06124",
+            "20163": "06127",
+            "20174": "06140",
+            "77730": "77730",
+            "77772": "77772",
+            "77773": "77773"
+          },
+          "exact_words_after_relocation": 96
+        },
+        {
+          "path": "runtime/images/4001/0104-orphan-0104.bin",
+          "file_anchor": "05274",
+          "file_start": "05274",
+          "load_start": "05274",
+          "load_anchor": "05274",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "10455": "04777",
+            "10547": "05071",
+            "20027": "05266",
+            "20031": "05270",
+            "20032": "05271",
+            "20033": "05272",
+            "20035": "05274",
+            "20057": "05316",
+            "20073": "05332",
+            "20111": "05350",
+            "20151": "05410",
+            "20160": "05417",
+            "20163": "05422",
+            "20174": "05433",
+            "77730": "77730",
+            "77772": "77772",
+            "77773": "77773"
+          },
+          "exact_words_after_relocation": 96
+        },
+        {
+          "path": "runtime/images/4001/0132-acc3.bin",
+          "file_anchor": "35727",
+          "file_start": "35727",
+          "load_start": "27727",
+          "load_anchor": "27727",
+          "file_to_load_delta": "-6000",
+          "targets": {
+            "10455": "27347",
+            "10547": "27441",
+            "20027": "30114",
+            "20031": "30116",
+            "20032": "30117",
+            "20033": "30120",
+            "20035": "27727",
+            "20057": "27751",
+            "20073": "27765",
+            "20111": "30003",
+            "20151": "30043",
+            "20160": "30052",
+            "20163": "30055",
+            "20174": "30066",
+            "77730": "77730",
+            "77772": "77772",
+            "77773": "77773"
+          },
+          "exact_words_after_relocation": 96
+        },
+        {
+          "path": "runtime/images/4001/0172-mt.bin",
+          "file_anchor": "05422",
+          "file_start": "05422",
+          "load_start": "05422",
+          "load_anchor": "05422",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "10455": "05125",
+            "10547": "05217",
+            "20027": "05414",
+            "20031": "05416",
+            "20032": "05417",
+            "20033": "05420",
+            "20035": "05422",
+            "20057": "05444",
+            "20073": "05460",
+            "20111": "05476",
+            "20151": "05536",
+            "20160": "05545",
+            "20163": "05550",
+            "20174": "05561",
+            "77730": "77730",
+            "77772": "77772",
+            "77773": "77773"
+          },
+          "exact_words_after_relocation": 96
+        },
+        {
+          "path": "runtime/images/4001/0215-acc2.bin",
+          "file_anchor": "34661",
+          "file_start": "34661",
+          "load_start": "26661",
+          "load_anchor": "26661",
+          "file_to_load_delta": "-6000",
+          "targets": {
+            "10455": "26301",
+            "10547": "26373",
+            "20027": "27046",
+            "20031": "27050",
+            "20032": "27051",
+            "20033": "27052",
+            "20035": "26661",
+            "20057": "26703",
+            "20073": "26717",
+            "20111": "26735",
+            "20151": "26775",
+            "20160": "27004",
+            "20163": "27007",
+            "20174": "27020",
+            "77730": "77730",
+            "77772": "77772",
+            "77773": "77773"
+          },
+          "exact_words_after_relocation": 96
+        },
+        {
+          "path": "runtime/images/4001/0315-comp.bin",
+          "file_anchor": "20035",
+          "file_start": "20035",
+          "load_start": "20035",
+          "load_anchor": "20035",
+          "file_to_load_delta": "+0",
+          "targets": {
+            "10455": "10455",
+            "10547": "10547",
+            "20027": "20027",
+            "20031": "20031",
+            "20032": "20032",
+            "20033": "20033",
+            "20035": "20035",
+            "20057": "20057",
+            "20073": "20073",
+            "20111": "20111",
+            "20151": "20151",
+            "20160": "20160",
+            "20163": "20163",
+            "20174": "20174",
+            "77730": "77730",
+            "77772": "77772",
+            "77773": "77773"
+          },
+          "exact_words_after_relocation": 96
+        }
+      ],
+      "other_candidates": [
+        {
+          "path": "runtime/images/4001/0016-tar.bin",
+          "file_anchor": "11147",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 23
+        },
+        {
+          "path": "runtime/images/4001/0023-kanal.bin",
+          "file_anchor": "07077",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 23
+        },
+        {
+          "path": "runtime/images/4001/0070-tartar.bin",
+          "file_anchor": "10755",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 23
+        },
+        {
+          "path": "runtime/images/4001/0106-copy.bin",
+          "file_anchor": "05447",
+          "status": "different bundle; entry fingerprint only",
+          "matching_opcode_prefix_words": 23
+        }
+      ],
+      "bss": [
+        {
+          "start": "20060",
+          "end": "20061",
+          "words": 1
+        },
+        {
+          "start": "20173",
+          "end": "20174",
+          "words": 1
+        }
+      ]
+    }
+  ],
+  "externals": {
+    "10455": "MONOUT",
+    "10547": "MONIN"
+  }
+}

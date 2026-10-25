@@ -1,0 +1,432 @@
+ШИФP 131266 ЗCX^
+OЗY 32^
+ЛEH 33(ПACKAЛЬ.TPAHC)^
+ЛEH 34(PASCAL.CЧET)35(PASNEW)^
+ЛEH 36(ПACKAЛЬ.ЗAГP)^
+ЛEH 42(MOHИT3-ЗП)^
+EEB1A3
+*NAME
+*FICME
+*LIBRA:34
+*PERSO:350000
+*PERSO:360000,CONT
+*PERSO:420032,CONT
+*NO LIST
+*        NO LOAD
+*TRANS:MPASCAL,,33
+  PROGRAM  COPY ( INPUT, OUTPUT ); (*=P-,T-*)
+% INCLUDE ДБФ
+% DEF
+  SKIP      =  _(_)
+  IF       +=  ^IF
+  THEN      =  ^THEN_(
+  ELSE      = _)^ELSE_(
+  ELSIF     =  _)^ELSE ^IF
+  ENDIF     =  IF_)
+  WHILE    +=  ^WHILE
+  DO        = ^DO_(
+  ENDWHILE  =  WHILE_)
+  FOR      +=  ^FOR
+  ENDFOR    =  FOR_)
+  CASE      =  ^CASE
+  ENDCASE   =   _)
+  RECORD   +=  ^RECORD
+  ENDREC    =  RECORD_)
+  ENDWITH   =  _)
+% FED
+
+
+
+
+
+
+  (*-----------------------------------------------------*)
+  (*                                                     *)
+  (*        ПPOГPAMMA KOПИPOBAHИЯ ФAЙЛOB ИЗ "ДБ"         *)
+  (*        B "ДБ".                                      *)
+  (*                                                     *)
+  (*-----------------------------------------------------*)
+
+
+  (* ------------ PAЗДEЛ METOK -------------- *)
+
+     LABEL    1;
+
+  (* ------------ PAЗДEЛ KOHCTAHT ----------- *)
+
+     CONST
+
+      Э70 = 700000B;
+      ЛЧT = 10370000000000B;
+      ЛЗП =   360000000000B;
+
+                 (*=A0 *)
+
+    ДBA12 = 10000B;
+    ДBA18 = 1000000B;
+       LF = '_012';
+    SLASH = '/';
+   ПPOБEЛ = ' ';
+      П6П = '      ';
+   ФИШKA  =  '        *** KOПИPOBAHИE ФAЙЛOB. BEPC. 1 OT 08.02.89 ***';
+
+
+  (* ----------- PAЗДEЛ ПEPEMEHHЫX ---------- *)
+
+
+    VAR
+
+              CИMB  : CHAR;
+            DR, DW  : INT;     (*     ДECKPИПTOPЫ ФAЙЛOB          *)
+            HYЗЗЗW  : INT;     (*   KOOPДИHATЫ БИБЛИOTEKИ ЗAПИCИ  *)
+         ИMЯ_W,ИMЯ  : PSTRING; (*           ИMЯ ФAЙЛA             *)
+  LIBWRITE, LIBREAD : ALFA;    (*         ИMEHA БИБЛИOTEK         *)
+             LR, LW : INT;     (*          ДЛИHЫ ФAЙЛOB           *)
+                 KO : INT;     (*    KOД OTBETA ФAЙЛOBOЙ CИC-MЫ   *)
+       NAME_W,NAME  : WORD3;   (*    KAHOHИЧECKИE ИMEHA ФAЙЛOB    *)
+                 I  : INT;     (*         PAБOЧИЙ ИHДEKC          *)
+          ONLY_LIB  : BOOL;    (*    ПPИЗHAK ЗAПИCИ B БИБЛИOTEKY  *)
+
+
+  (* ------------ PAЗДEЛ ПPOЦEДYP ----------- *)
+
+
+    PROCEDURE  PASBIND ( VAR Ф : TEXT ); EXTERNAL;
+
+
+    FUNCTION FIRSTF ( VAR ИMЯ : PSTRING; LIBY, PACШИP : ALFA;
+                      VAR NAME : WORD3 ) : INT; ASSEMBLER;
+
+    FUNCTION NEXTF ( VAR NAME : WORD3 ) : INT; ASSEMBLER;
+
+
+
+   PROCEDURE  ДAЙCИ;
+
+       (*
+
+         BЫБOPKA CИMBOЛA
+
+       *)
+
+    BEGIN
+     IF EOLN(INPUT) THEN  CИMB:=LF; EXIT ENDIF;
+     CИMB:=INPUT;
+     GET (INPUT);
+    END;
+
+   (*   END  OF  ДAЙCИ  *)
+
+   (*--------------------------------------------*)
+
+
+  FUNCTION  ПPOПYC : BOOL;
+
+    (*
+      ПPOПYCK ПPOБEЛOB B CTPOKE
+    *)
+
+    (*
+
+      TRUE - ДOШEЛ ДO CЛEД. ЛEKCEMЫ
+
+      FALSE - BЫBAЛИЛCЯ HA LF
+
+    *)
+
+
+     BEGIN
+       IF CИMB = LF THEN  ПPOПYC:=FALSE; EXIT ENDIF;
+       IF CИMB <> ПPOБEЛ THEN  ПPOПYC:=TRUE;  EXIT; ENDIF;
+
+       WHILE CИMB = ПPOБEЛ DO
+         ДAЙCИ;
+       ENDWHILE;
+       ПPOПYC := CИMB <> LF;
+     END;
+
+  (*  END  OF  ПPOПYC  *)
+
+
+
+  FUNCTION  BB_ЛEKCEM ( VAR ЛEKCEMA : PSTRING;
+                        PAЗД1, PAЗД2 : CHAR ) : BOOL;
+
+            (*
+
+              BBOД ПPOИЗBOЛЬHOЙ CTPOKИ
+
+            *)
+
+    VAR  I : INT;
+
+     BEGIN
+       IF NOT ПPOПYC THEN BB_ЛEKCEM := FALSE; EXIT
+       ENDIF;
+
+       I := 1; BB_ЛEKCEM := TRUE;
+
+       WHILE  CИMB <> LF DO
+         IF  ( CИMB = PAЗД1 ) OR
+             ( CИMB = PAЗД2 ) THEN
+                                 ЛEKCEMA[I] := LF;
+                                 EXIT;
+         ENDIF;
+
+         ЛEKCEMA[I] := CИMB;
+         I := I + 1;
+         ДAЙCИ;
+       ENDWHILE;
+
+       ЛEKCEMA[I] := LF;
+
+
+   END;        (*  BB_ЛEKCEM  *)
+
+
+
+   (*-----------------------------------*)
+
+
+
+    PROCEDURE  ПEPEПИCЬ ( DR, DW, L : INT );
+
+     VAR
+        ИCЧT , ИCЗП   :    BITSET;
+        HYЗП , HYЧT    :    INT;
+                  I    :    INT;
+
+    BEGIN
+
+      HYЧT := DR;
+      HYЗП := DW;
+
+      FOR I := 1 TO L DO
+        ИCЧT := BITSET ( HYЧT )*[48-18..48-1] +
+                BITSET(ЛЧT)*[48-35..48-1] + [48-40];
+        ИCЗП := BITSET ( HYЗП )*[48-18..48-1] +
+                BITSET(ЛЧT)*[48-35..48-1];
+        BESM ( Э70 : ИCЧT );
+        BESM ( Э70 : ИCЗП );
+        WRITELN ( HYЧT MOD ДBA12 : 4 OCT, ' ====> ',
+                  HYЗП MOD ДBA12 : 4 OCT );
+        HYЧT := HYЧT + 1;
+        HYЗП := HYЗП + 1;
+      ENDFOR;
+
+    END;                 (***  ПEPEПИCЬ  ***)
+
+
+ (* ----------------------------------------------- *)
+
+
+   PROCEDURE POCПИCЬ ( HYЗЗЗ : INT );
+
+   VAR     KTЛ [76000B] : ARRAY 0..1023 OF INT;
+        OГЛKTЛ [76000B] : ALFA;
+        ПPИKTЛ [77000B] : INT;
+          ФЗOH [76002B] : INT;
+                      I : INT;
+                   ИCЧT : BITSET;
+
+      BEGIN
+
+        ИCЧT := BITSET( ЛЧT + HYЗЗЗ) * [48-41..48-1];
+        BESM ( Э70 : ИCЧT );
+        FOR I := 0 TO 1023 DO
+          KTЛ [I] := 0C;
+        ENDFOR;
+
+        OГЛKTЛ[1] := '_377';
+        OГЛKTЛ[6] := '_001';
+        ПPИKTЛ := 1C;
+          ФЗOH := 1C;
+        ИCЧT := ИCЧT - [48-40];
+        BESM ( Э70 : ИCЧT );
+
+      END;                 (*** POCПИCЬ ***)
+
+(* ----------------------------------------------- *)
+
+   PROCEDURE  OUT;
+      BEGIN
+        BESM ( 3000002B );
+      END;
+
+
+
+ (*------------------------------------------------*)
+
+
+  FUNCTION   OШMOH ( KO : INT ) : BOOL;
+
+    VAR   TOШ : PSTRING;
+
+     BEGIN
+       OШMOH := ( KO <> 0 );
+       IF KO = 0 THEN EXIT ENDIF;
+       ERROR ( KO, TOШ );
+       WRITELN ( TOШ );
+     END;                (***  OШMOH  ***)
+
+ (*---------------------------------------------------*)
+
+  PROCEDURE  PRINTF ( VAR NAME : WORD3 );
+
+   VAR TИП : ALFA;
+
+    BEGIN
+      TИП := NAME.TИПФ;
+      TИП[6] := ПPOБEЛ;
+      WRITE ( NAME.NL,'/',NAME.NF,'.',
+              TИП );
+    END;          (***  PRINTF ***)
+
+ (*-----------------------------------------------*)
+
+
+ (* ================= PROGRAM ==================== *)
+
+
+  BEGIN
+
+    WRITELN; WRITELN ( ФИШKA ); WRITELN;
+    GET_CMD_LINE ( INPUT );
+    ДAЙCИ;
+    IF NOT BB_ЛEKCEM ( ИMЯ, ПPOБEЛ, ПPOБEЛ ) THEN
+           WRITELN ('    BЫЗOB ПPOГPAMMЫ OCYЩECTBЛЯETCЯ TAK:');
+           WRITELN ('          COPY <OБPAЗ ФAЙЛA> <БИБЛИOTEKA ЗAПИCИ>');
+           BESM ( 3000002B);
+    ENDIF;
+
+
+    IF NOT BB_ЛEKCEM( ИMЯ_W, ПPOБEЛ, ПPOБEЛ ) THEN
+
+                     WRITELN (' HE YKAЗAHЫ KOOPДИHATЫ ЗAПИCИ');
+                     OUT;
+
+    ENDIF;
+
+    LIBWRITE := П6П;
+    I := 1;
+    ONLY_LIB := FALSE;
+
+    (Ц) WHILE ((ИMЯ_W[I] <> LF) & (ИMЯ_W[I] <> ПPOБEЛ)) DO
+
+          ONLY_LIB := (ИMЯ_W[I] = SLASH);
+          IF ONLY_LIB THEN EXIT Ц ENDIF;
+          IF I >= 7 THEN EXIT Ц ENDIF;
+          LIBWRITE[I] := ИMЯ_W[I];
+          I := I + 1;
+
+      ENDWHILE;
+
+    ONLY_LIB := ONLY_LIB &
+              ((ИMЯ_W[I+1] = LF) OR (ИMЯ_W[I+1] = ПPOБEЛ));
+    IF NOT ONLY_LIB THEN
+
+              IF OШMOH( MKNAME( ИMЯ_W, ACTIVE_LIBRARY,
+                                'KOД  _000', NAME_W )) THEN
+                                            OUT;
+              ENDIF;
+
+              LIBWRITE := NAME_W.NL;
+
+    ENDIF;
+
+
+
+    IF OШMOH ( FIRSTF ( ИMЯ, ACTIVE_LIBRARY, 'KOД  _000', NAME )) THEN
+            OUT;
+    ENDIF;
+
+    IF ONLY_LIB THEN
+
+                  NAME_W.NL := LIBWRITE;
+                  NAME_W.NF := NAME.NF;
+                  NAME_W.TИПФ := NAME.TИПФ;
+
+    ENDIF;
+
+    HYЗЗЗW := 0;
+    KO := LIB ( LIBWRITE, HYЗЗЗW );
+    IF KO <> 5  THEN             (* HET ЛOГ. ИMEHИ БИБЛИOTEKИ *)
+           IF  OШMOH(KO) THEN OUT ENDIF;
+    ENDIF;
+
+    KO := OPENF ( NAME_W , TRUE , DW );
+    IF KO = 13 THEN
+           WRITELN (' KATAЛOГ ЗAПИCИ ИCПOPЧEH');
+           REWRITE ( INPUT );
+           WRITE ( INPUT,'PACПИCATЬ ( "RETURN" = ДA )- ');
+           PASBIND ( INPUT );
+           IF NOT EOLN ( INPUT ) THEN
+                         BESM ( 3000002B );
+           ENDIF;
+           POCПИCЬ ( HYЗЗЗW );
+    ENDIF;
+
+
+    WHILE TRUE DO
+      PRINTF ( NAME ); WRITE (' ---> ');
+      PRINTF ( NAME_W ); WRITELN;
+      REWRITE ( INPUT );
+      WRITE ( INPUT, 'O''KEY("RETURN" = ДA)- ');
+      PASBIND ( INPUT );
+      IF NOT EOLN ( INPUT ) THEN GOTO 1 ENDIF;
+
+      IF OШMOH ( OPENF ( NAME, FALSE, DR ) ) THEN GOTO 1 ENDIF;
+      LR := DR DIV ДBA18;
+      KO := MAKEF ( NAME_W , LR, DW );
+      IF ( OШMOH (KO) ) & ( KO <> 11 ) THEN GOTO 1 ENDIF;
+      LW := DW DIV ДBA18;
+      IF KO = 0 THEN ПEPEПИCЬ ( DR, DW, LW )
+                ELSE
+
+
+     (*   ФAЙЛ ЗAПИCИ CYЩECTBYET   *)
+
+                   IF NOT OШMOH ( OPENF ( NAME_W, TRUE, DW ) ) THEN
+                                   LW := DW DIV ДBA18;
+                                                               ELSE
+                                   GOTO 1;
+                   ENDIF;
+
+                   IF LW < LR THEN
+                      WRITELN ('ДЛ. ЧT. > ДЛ. ЗП. (',
+                                LR : 4 OCT, ',', LW : 4 OCT, ')' );
+                              ELSE
+                      REWRITE ( INPUT );
+                      WRITE ( INPUT,'ПИCATЬ("RETURN" = ДA)- ');
+                      PASBIND ( INPUT );
+                      IF NOT EOLN ( INPUT ) THEN GOTO 1 ENDIF;
+                      ПEPEПИCЬ ( DR, DW, LW );
+                   ENDIF;
+
+      ENDIF;
+
+      1:
+      IF OШMOH ( NEXTF ( NAME ) ) THEN OUT ENDIF;
+      IF NOT ONLY_LIB THEN
+
+         WRITELN (' BOЗMOЖHO KOПИPOBAHИE TOЛЬKO OДHOГO ФAЙЛA');
+         OUT;
+
+                      ELSE
+
+         NAME_W.NL := LIBWRITE;
+         NAME_W.NF := NAME.NF;
+         NAME_W.TИПФ := NAME.TИПФ;
+
+      ENDIF;
+
+
+    ENDWHILE;
+
+ END.
+*TABLE:P/CODER(W*420050,L*3)
+*MAIN PASCODER
+*EXECUTE
+*END F
+*READ OLD
+*END FILE

@@ -1,0 +1,60 @@
+
+   (*=Y+,L0*)
+(*
+
+       INCLUDE FILE ДЛЯ ПPOЦEДYP PAБOTЫ C ДБ - БИБЛИOTEKOЙ
+
+*)
+
+CONST
+
+   PSTR_LEN = 84;
+
+TYPE
+
+   WORD3 = RECORD
+             TИПФ : ALFA; (* TИП ФAЙЛA *)
+               NL : ALFA; (* ИMЯ БИБЛИOTEKИ *)
+               NF : ALFA; (* ИMЯ ФAЙЛA *)
+           END; (* RECORD *)
+
+   PSTRING = PACKED ARRAY [1..PSTR_LEN] OF CHAR;
+
+   FUNCTION    LIB ( NAMELIB  :  ALFA;
+                  VAR  HYЗЗЗЗ :  INT ) : INT; ASSEMBLER;
+
+   FUNCTION   DLIB ( NAMELIB  :  ALFA
+                                     ) : INT; ASSEMBLER;
+
+   FUNCTION  OPENF ( VAR ИMЯ : WORD3;
+                      ДOCTYП : BOOL;
+                  VAR DESCR  : INT ) : INT;
+                                             ASSEMBLER;
+   FUNCTION  MAKEF ( VAR ИMЯ : WORD3;
+                           L : INT;
+                   VAR DESCR : INT ) : INT;  ASSEMBLER;
+
+   FUNCTION  CLOSEF ( VAR ИMЯ : WORD3;
+                            L : INT;
+                        DESCR : INT ) : INT; ASSEMBLER;
+
+   FUNCTION  DELF  (VAR ИMЯ : WORD3 ) : INT; ASSEMBLER;
+
+   FUNCTION  MKNAME (VAR NAME : PSTRING;
+                       NAMELIB : ALFA;
+                        PACШИP : ALFA;
+                    VAR ИMЯ    : WORD3 ) : INT; ASSEMBLER;
+
+   FUNCTION ДOЗAK ( VAR ФИЗTOM : PSTRING;
+                            HY : INT;
+                         ПAPЧT : INT;
+                         ПAPЗП : INT ) : INT; ASSEMBLER;
+
+   PROCEDURE  APAGE ( AЛИCT : INT); ASSEMBLER;
+
+   FUNCTION PSWRD  ( VAR ФИЗTOM: PSTRING;
+                     VAR OTBET : INT ) : INT; ASSEMBLER;
+
+   PROCEDURE OTKAЗ  ( HY : INT ); ASSEMBLER;
+*READ OLD
+*END FILE

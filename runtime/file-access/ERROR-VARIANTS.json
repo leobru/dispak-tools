@@ -1,0 +1,2487 @@
+{
+  "address_notation": "octal",
+  "counts_notation": "decimal",
+  "scanned": [
+    {
+      "path": "arfa/koka.bin",
+      "words": 1024,
+      "sha256": "9239a62fd1e0bcdeafe3d3e00f8d6f4c210f0dea5bc5055806f7fe09a4014e5d"
+    },
+    {
+      "path": "arfa/mdupla.bin",
+      "words": 1024,
+      "sha256": "61a1b864f171f394475f2718f4baaad2f80805acdda2c1bd99ebe6e76063f0a1"
+    },
+    {
+      "path": "arfa/svodka.bin",
+      "words": 1024,
+      "sha256": "72c891106822fbdbf53afccb8d062a6aa5002a16751ad12780cda6a98f123f97"
+    },
+    {
+      "path": "arfa/svodka2.bin",
+      "words": 1024,
+      "sha256": "9ff7e3717ecaf6e8dcf6f317588c242c81c6b730b35a4a350bebd21c402f0adf"
+    },
+    {
+      "path": "mark3.bin",
+      "words": 3072,
+      "sha256": "59fe1253b0421f4b0e3f1deb5575576ddb51337cdedd240c7058e0b7f31acc9d"
+    },
+    {
+      "path": "pak.bin",
+      "words": 4096,
+      "sha256": "a1392bfba7e529ab4f15cd11453eb0c37bcb07e633059445611aa585f365aa2b"
+    },
+    {
+      "path": "runtime/images/4001/0002-monitr-pascal.bin",
+      "words": 7168,
+      "sha256": "fd5a0d0da07e5585c05d9b8b042f5f0ba5d9c993829835210f1c3e8852fa3623"
+    },
+    {
+      "path": "runtime/images/4001/0011-unicop.bin",
+      "words": 5120,
+      "sha256": "f2d03a7c0cca3b1d28d626f47f017b4ec682b18fab53a7ea6f6be5e7641ced74"
+    },
+    {
+      "path": "runtime/images/4001/0016-tar.bin",
+      "words": 5120,
+      "sha256": "5ce3faaa4e87ebdb65607ebba23a04497a9d747580aabcbd79383ce69fa9b95d"
+    },
+    {
+      "path": "runtime/images/4001/0023-kanal.bin",
+      "words": 5120,
+      "sha256": "4bef71fb3d64b3950bc2629a891b31b84f720d50065d4f75d95811d3dcaea23b"
+    },
+    {
+      "path": "runtime/images/4001/0030-proz.bin",
+      "words": 4096,
+      "sha256": "11df5af52a88fefa5ba05225036d232ac6cf43eeeecb476393df64cba5bcf5fd"
+    },
+    {
+      "path": "runtime/images/4001/0034-more.bin",
+      "words": 3072,
+      "sha256": "091a1127bc77951e8dbf8cca57fa573437b65340b64dab84afbe68aa17132d55"
+    },
+    {
+      "path": "runtime/images/4001/0037-kermit.bin",
+      "words": 8192,
+      "sha256": "935b84153906109dc100946e812f53645c7ac1affd7c143785fddff0fb59126b"
+    },
+    {
+      "path": "runtime/images/4001/0047-mtd.bin",
+      "words": 2048,
+      "sha256": "df0c58282fe90fceda04522b2c2f0ca04aeaf7b3925ca7afbf532c2e9a4003ae"
+    },
+    {
+      "path": "runtime/images/4001/0051-print.bin",
+      "words": 6144,
+      "sha256": "08b23f5cb0db9f428280d29dca8550b637ac3914caf59f8ba3955b11d9124cfc"
+    },
+    {
+      "path": "runtime/images/4001/0057-testats.bin",
+      "words": 2048,
+      "sha256": "172b8ca87e612bae0890abd711d2b60f6e55ae9087cf7b6b19c75834cd4827f2"
+    },
+    {
+      "path": "runtime/images/4001/0061-test.bin",
+      "words": 2048,
+      "sha256": "b4073efcc29a4b3c8da9ba2c55a76e3affb47117ec15cc544c3826f6de9048dc"
+    },
+    {
+      "path": "runtime/images/4001/0063-fprint.bin",
+      "words": 3072,
+      "sha256": "10f07d99b30a31ffc22dd85b8a174168431d713c7ee7184cc15c0f1f4f3ed2d9"
+    },
+    {
+      "path": "runtime/images/4001/0066-box.bin",
+      "words": 2048,
+      "sha256": "96951aff3c85266bb929f353cc2f7ac34d5ace1e6b79a475d9c01174a4cf59d0"
+    },
+    {
+      "path": "runtime/images/4001/0070-tartar.bin",
+      "words": 5120,
+      "sha256": "6bec3c8db9012cf3cac8ffcb52dc78b8ae45e38f53207c3ae63249a64d4391b9"
+    },
+    {
+      "path": "runtime/images/4001/0075-recod.bin",
+      "words": 4096,
+      "sha256": "87a51716220b91f57a9a5e3c1248ea9e92738d7b8e15cfcc5988972fd43044a7"
+    },
+    {
+      "path": "runtime/images/4001/0101-mtcopy.bin",
+      "words": 3072,
+      "sha256": "42ea247fec8a4789aeda5f04bb133cf0c27436c205dde5956cfba64d4440998a"
+    },
+    {
+      "path": "runtime/images/4001/0104-orphan-0104.bin",
+      "words": 2048,
+      "sha256": "89c85ddab46970f9bc3eb7a891625b84dd8df7a21d102c03d6d4b43527214e2a"
+    },
+    {
+      "path": "runtime/images/4001/0106-copy.bin",
+      "words": 3072,
+      "sha256": "d5710ba2eea3ee9b0192061f17751a3a8497e19abd7754c3b09b92157cbf9acb"
+    },
+    {
+      "path": "runtime/images/4001/0112-link.bin",
+      "words": 16384,
+      "sha256": "cc75fb6ffa95914f503b1d590c3932ae07ae4b0990e4cdccf18bb54dc1ce1465"
+    },
+    {
+      "path": "runtime/images/4001/0132-acc3.bin",
+      "words": 32768,
+      "sha256": "12c69f847fda2a20d722b9cd3a9ef9c51669a0e91d2ce7347dcf94c09e0518bf"
+    },
+    {
+      "path": "runtime/images/4001/0172-mt.bin",
+      "words": 3072,
+      "sha256": "5dbe66f34992890b56800f7165e72da2daa214b4a38ab3eb48028b2a30d2cc3c"
+    },
+    {
+      "path": "runtime/images/4001/0175-link1.bin",
+      "words": 16384,
+      "sha256": "0c14fc30f555024d6356f786869a5c10fb68e7fdcd00dc54bdc12dc620b35f01"
+    },
+    {
+      "path": "runtime/images/4001/0215-acc2.bin",
+      "words": 32768,
+      "sha256": "12a9eb9f4218175f89b45c7c6a72081a5f5f0228fbd046575f739a31b463d64b"
+    },
+    {
+      "path": "runtime/images/4001/0255-blink1.bin",
+      "words": 16384,
+      "sha256": "a55ef110189af39d91e03160b538766b3aff2627e0b54c2167042bc8ba79a5fc"
+    },
+    {
+      "path": "runtime/images/4001/0275-blink.bin",
+      "words": 16384,
+      "sha256": "42ba1a5f545857c43cd6196c1060ea92ea4a703d9a10eee819f85f88b317431e"
+    },
+    {
+      "path": "runtime/images/4001/0315-comp.bin",
+      "words": 8192,
+      "sha256": "4a448553b9499d719f770c33e32a0cab200ca718557493e44c067a8df0858d34"
+    },
+    {
+      "path": "test.bin",
+      "words": 2048,
+      "sha256": "b4073efcc29a4b3c8da9ba2c55a76e3affb47117ec15cc544c3826f6de9048dc"
+    },
+    {
+      "path": "тестац.bin",
+      "words": 2048,
+      "sha256": "172b8ca87e612bae0890abd711d2b60f6e55ae9087cf7b6b19c75834cd4827f2"
+    }
+  ],
+  "found": [
+    {
+      "path": "runtime/images/4001/0002-monitr-pascal.bin",
+      "sha256": "fd5a0d0da07e5585c05d9b8b042f5f0ba5d9c993829835210f1c3e8852fa3623",
+      "file_entry": "04573",
+      "load_entry": "04573",
+      "matching_code_words": 14,
+      "expected_code_words": 14,
+      "expected_table_entries": 25,
+      "table_start": "04611",
+      "table_end": "04641",
+      "default_start": "04772",
+      "complete": true,
+      "words": 131,
+      "end_exclusive": "04776",
+      "normalized_sha256": "948ed54d52c22195fb5ebf7997f7c201c4a03a69b944b2137bef199b26718fbf",
+      "messages": [
+        {
+          "status": 0,
+          "status_octal": "0",
+          "address": "04642",
+          "words": 1,
+          "hex": "20202020200a",
+          "text": "     "
+        },
+        {
+          "status": 1,
+          "status_octal": "1",
+          "address": "04643",
+          "words": 4,
+          "hex": "544f4d2048452059435441484f2020202020426c4548200a",
+          "text": "ТОМ НЕ УСТАНО     ВЛЕН "
+        },
+        {
+          "status": 2,
+          "status_octal": "2",
+          "address": "04647",
+          "words": 2,
+          "hex": "544f4d207a4148715420200a",
+          "text": "ТОМ ЗАНЯТ  "
+        },
+        {
+          "status": 3,
+          "status_octal": "3",
+          "address": "04651",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        },
+        {
+          "status": 4,
+          "status_octal": "4",
+          "address": "04654",
+          "words": 5,
+          "hex": "484554206c4f672e20694d454869206269626c694f54454b69202020200a",
+          "text": "НЕТ ЛОГ. ИМЕНИ БИБЛИОТЕКИ    "
+        },
+        {
+          "status": 5,
+          "status_octal": "5",
+          "address": "04661",
+          "words": 5,
+          "hex": "6c4f672e20694d71206269626c694f54454b69205976452045435478200a",
+          "text": "ЛОГ. ИМЯ БИБЛИОТЕКИ УЖЕ ЕСТЬ "
+        },
+        {
+          "status": 6,
+          "status_octal": "6",
+          "address": "04666",
+          "words": 4,
+          "hex": "4845644f70594354694d4f45205041437b6950454869450a",
+          "text": "НЕДОПУСТИМОЕ РАСШИРЕНИЕ"
+        },
+        {
+          "status": 7,
+          "status_octal": "7",
+          "address": "04672",
+          "words": 4,
+          "hex": "484554204d454354412042204150586942450a0000000000",
+          "text": "НЕТ МЕСТА В АРХИВЕ"
+        },
+        {
+          "status": 8,
+          "status_octal": "10",
+          "address": "04676",
+          "words": 2,
+          "hex": "4845542066416a6c4120200a",
+          "text": "НЕТ ФАЙЛА  "
+        },
+        {
+          "status": 9,
+          "status_octal": "11",
+          "address": "04700",
+          "words": 4,
+          "hex": "4f7b69624b41204220704150414d4554504158202020200a",
+          "text": "ОШИБКА В ПАРАМЕТРАХ    "
+        },
+        {
+          "status": 10,
+          "status_octal": "12",
+          "address": "04704",
+          "words": 3,
+          "hex": "426950542e20484f4d45502070594354200a",
+          "text": "ВИРТ. НОМЕР ПУСТ "
+        },
+        {
+          "status": 11,
+          "status_octal": "13",
+          "address": "04707",
+          "words": 4,
+          "hex": "59764520454354782054414b4f6a2066416a6c202020200a",
+          "text": "УЖЕ ЕСТЬ ТАКОЙ ФАЙЛ    "
+        },
+        {
+          "status": 12,
+          "status_octal": "14",
+          "address": "04713",
+          "words": 4,
+          "hex": "48454b4f50502e20646c6948412066416a6c41202020200a",
+          "text": "НЕКОРР. ДЛИНА ФАЙЛА    "
+        },
+        {
+          "status": 13,
+          "status_octal": "15",
+          "address": "04717",
+          "words": 3,
+          "hex": "4b4154416c4f67206943704f507e4548200a",
+          "text": "КАТАЛОГ ИСПОРЧЕН "
+        },
+        {
+          "status": 14,
+          "status_octal": "16",
+          "address": "04722",
+          "words": 4,
+          "hex": "484554204d454354412042204b4154416c4f67452020200a",
+          "text": "НЕТ МЕСТА В КАТАЛОГЕ   "
+        },
+        {
+          "status": 15,
+          "status_octal": "17",
+          "address": "04726",
+          "words": 4,
+          "hex": "4845542066416a6c4f4220646c71207b41626c4f4841200a",
+          "text": "НЕТ ФАЙЛОВ ДЛЯ ШАБЛОНА "
+        },
+        {
+          "status": 16,
+          "status_octal": "20",
+          "address": "04732",
+          "words": 3,
+          "hex": "4f7b69624b4120422043644269674520200a",
+          "text": "ОШИБКА В СДВИГЕ  "
+        },
+        {
+          "status": 41,
+          "status_octal": "51",
+          "address": "04735",
+          "words": 3,
+          "hex": "54414b4f674f20694d45486920484554200a",
+          "text": "ТАКОГО ИМЕНИ НЕТ "
+        },
+        {
+          "status": 42,
+          "status_octal": "52",
+          "address": "04740",
+          "words": 4,
+          "hex": "4845424550484f4520694d71204f626c414354692020200a",
+          "text": "НЕВЕРНОЕ ИМЯ ОБЛАСТИ   "
+        },
+        {
+          "status": 48,
+          "status_octal": "60",
+          "address": "04744",
+          "words": 3,
+          "hex": "4f626c41435478207a41487154412020200a",
+          "text": "ОБЛАСТЬ ЗАНЯТА   "
+        },
+        {
+          "status": 50,
+          "status_octal": "62",
+          "address": "04747",
+          "words": 3,
+          "hex": "48452059435441484f426c454820544f4d0a",
+          "text": "НЕ УСТАНОВЛЕН ТОМ"
+        },
+        {
+          "status": 54,
+          "status_octal": "66",
+          "address": "04752",
+          "words": 3,
+          "hex": "4f7b2e204220484f4d455045544f4d41200a",
+          "text": "ОШ. В НОМЕРЕТОМА "
+        },
+        {
+          "status": 59,
+          "status_octal": "73",
+          "address": "04755",
+          "words": 3,
+          "hex": "48455420704f6c484f4d4f7e696a2020200a",
+          "text": "НЕТ ПОЛНОМОЧИЙ   "
+        },
+        {
+          "status": 60,
+          "status_octal": "74",
+          "address": "04760",
+          "words": 3,
+          "hex": "4f626c414354782f4b4154416c4f6720200a",
+          "text": "ОБЛАСТЬ/КАТАЛОГ  "
+        },
+        {
+          "status": 66,
+          "status_octal": "102",
+          "address": "04763",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        }
+      ],
+      "default_message": {
+        "words": 4,
+        "hex": "4845644f70594354694d796a204b4f64204f54424554410a",
+        "text": "НЕДОПУСТИМЫЙ КОД ОТВЕТА"
+      },
+      "ascii_date_strings": []
+    },
+    {
+      "path": "runtime/images/4001/0023-kanal.bin",
+      "sha256": "4bef71fb3d64b3950bc2629a891b31b84f720d50065d4f75d95811d3dcaea23b",
+      "file_entry": "05266",
+      "load_entry": "05266",
+      "matching_code_words": 14,
+      "expected_code_words": 14,
+      "expected_table_entries": 25,
+      "table_start": "05304",
+      "table_end": "05334",
+      "default_start": "05465",
+      "complete": true,
+      "words": 131,
+      "end_exclusive": "05471",
+      "normalized_sha256": "948ed54d52c22195fb5ebf7997f7c201c4a03a69b944b2137bef199b26718fbf",
+      "messages": [
+        {
+          "status": 0,
+          "status_octal": "0",
+          "address": "05335",
+          "words": 1,
+          "hex": "20202020200a",
+          "text": "     "
+        },
+        {
+          "status": 1,
+          "status_octal": "1",
+          "address": "05336",
+          "words": 4,
+          "hex": "544f4d2048452059435441484f2020202020426c4548200a",
+          "text": "ТОМ НЕ УСТАНО     ВЛЕН "
+        },
+        {
+          "status": 2,
+          "status_octal": "2",
+          "address": "05342",
+          "words": 2,
+          "hex": "544f4d207a4148715420200a",
+          "text": "ТОМ ЗАНЯТ  "
+        },
+        {
+          "status": 3,
+          "status_octal": "3",
+          "address": "05344",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        },
+        {
+          "status": 4,
+          "status_octal": "4",
+          "address": "05347",
+          "words": 5,
+          "hex": "484554206c4f672e20694d454869206269626c694f54454b69202020200a",
+          "text": "НЕТ ЛОГ. ИМЕНИ БИБЛИОТЕКИ    "
+        },
+        {
+          "status": 5,
+          "status_octal": "5",
+          "address": "05354",
+          "words": 5,
+          "hex": "6c4f672e20694d71206269626c694f54454b69205976452045435478200a",
+          "text": "ЛОГ. ИМЯ БИБЛИОТЕКИ УЖЕ ЕСТЬ "
+        },
+        {
+          "status": 6,
+          "status_octal": "6",
+          "address": "05361",
+          "words": 4,
+          "hex": "4845644f70594354694d4f45205041437b6950454869450a",
+          "text": "НЕДОПУСТИМОЕ РАСШИРЕНИЕ"
+        },
+        {
+          "status": 7,
+          "status_octal": "7",
+          "address": "05365",
+          "words": 4,
+          "hex": "484554204d454354412042204150586942450a0000000000",
+          "text": "НЕТ МЕСТА В АРХИВЕ"
+        },
+        {
+          "status": 8,
+          "status_octal": "10",
+          "address": "05371",
+          "words": 2,
+          "hex": "4845542066416a6c4120200a",
+          "text": "НЕТ ФАЙЛА  "
+        },
+        {
+          "status": 9,
+          "status_octal": "11",
+          "address": "05373",
+          "words": 4,
+          "hex": "4f7b69624b41204220704150414d4554504158202020200a",
+          "text": "ОШИБКА В ПАРАМЕТРАХ    "
+        },
+        {
+          "status": 10,
+          "status_octal": "12",
+          "address": "05377",
+          "words": 3,
+          "hex": "426950542e20484f4d45502070594354200a",
+          "text": "ВИРТ. НОМЕР ПУСТ "
+        },
+        {
+          "status": 11,
+          "status_octal": "13",
+          "address": "05402",
+          "words": 4,
+          "hex": "59764520454354782054414b4f6a2066416a6c202020200a",
+          "text": "УЖЕ ЕСТЬ ТАКОЙ ФАЙЛ    "
+        },
+        {
+          "status": 12,
+          "status_octal": "14",
+          "address": "05406",
+          "words": 4,
+          "hex": "48454b4f50502e20646c6948412066416a6c41202020200a",
+          "text": "НЕКОРР. ДЛИНА ФАЙЛА    "
+        },
+        {
+          "status": 13,
+          "status_octal": "15",
+          "address": "05412",
+          "words": 3,
+          "hex": "4b4154416c4f67206943704f507e4548200a",
+          "text": "КАТАЛОГ ИСПОРЧЕН "
+        },
+        {
+          "status": 14,
+          "status_octal": "16",
+          "address": "05415",
+          "words": 4,
+          "hex": "484554204d454354412042204b4154416c4f67452020200a",
+          "text": "НЕТ МЕСТА В КАТАЛОГЕ   "
+        },
+        {
+          "status": 15,
+          "status_octal": "17",
+          "address": "05421",
+          "words": 4,
+          "hex": "4845542066416a6c4f4220646c71207b41626c4f4841200a",
+          "text": "НЕТ ФАЙЛОВ ДЛЯ ШАБЛОНА "
+        },
+        {
+          "status": 16,
+          "status_octal": "20",
+          "address": "05425",
+          "words": 3,
+          "hex": "4f7b69624b4120422043644269674520200a",
+          "text": "ОШИБКА В СДВИГЕ  "
+        },
+        {
+          "status": 41,
+          "status_octal": "51",
+          "address": "05430",
+          "words": 3,
+          "hex": "54414b4f674f20694d45486920484554200a",
+          "text": "ТАКОГО ИМЕНИ НЕТ "
+        },
+        {
+          "status": 42,
+          "status_octal": "52",
+          "address": "05433",
+          "words": 4,
+          "hex": "4845424550484f4520694d71204f626c414354692020200a",
+          "text": "НЕВЕРНОЕ ИМЯ ОБЛАСТИ   "
+        },
+        {
+          "status": 48,
+          "status_octal": "60",
+          "address": "05437",
+          "words": 3,
+          "hex": "4f626c41435478207a41487154412020200a",
+          "text": "ОБЛАСТЬ ЗАНЯТА   "
+        },
+        {
+          "status": 50,
+          "status_octal": "62",
+          "address": "05442",
+          "words": 3,
+          "hex": "48452059435441484f426c454820544f4d0a",
+          "text": "НЕ УСТАНОВЛЕН ТОМ"
+        },
+        {
+          "status": 54,
+          "status_octal": "66",
+          "address": "05445",
+          "words": 3,
+          "hex": "4f7b2e204220484f4d455045544f4d41200a",
+          "text": "ОШ. В НОМЕРЕТОМА "
+        },
+        {
+          "status": 59,
+          "status_octal": "73",
+          "address": "05450",
+          "words": 3,
+          "hex": "48455420704f6c484f4d4f7e696a2020200a",
+          "text": "НЕТ ПОЛНОМОЧИЙ   "
+        },
+        {
+          "status": 60,
+          "status_octal": "74",
+          "address": "05453",
+          "words": 3,
+          "hex": "4f626c414354782f4b4154416c4f6720200a",
+          "text": "ОБЛАСТЬ/КАТАЛОГ  "
+        },
+        {
+          "status": 66,
+          "status_octal": "102",
+          "address": "05456",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        }
+      ],
+      "default_message": {
+        "words": 4,
+        "hex": "4845644f70594354694d796a204b4f64204f54424554410a",
+        "text": "НЕДОПУСТИМЫЙ КОД ОТВЕТА"
+      },
+      "ascii_date_strings": []
+    },
+    {
+      "path": "runtime/images/4001/0030-proz.bin",
+      "sha256": "11df5af52a88fefa5ba05225036d232ac6cf43eeeecb476393df64cba5bcf5fd",
+      "file_entry": "05544",
+      "load_entry": "05544",
+      "matching_code_words": 14,
+      "expected_code_words": 14,
+      "expected_table_entries": 25,
+      "table_start": "05562",
+      "table_end": "05612",
+      "default_start": "05743",
+      "complete": true,
+      "words": 131,
+      "end_exclusive": "05747",
+      "normalized_sha256": "948ed54d52c22195fb5ebf7997f7c201c4a03a69b944b2137bef199b26718fbf",
+      "messages": [
+        {
+          "status": 0,
+          "status_octal": "0",
+          "address": "05613",
+          "words": 1,
+          "hex": "20202020200a",
+          "text": "     "
+        },
+        {
+          "status": 1,
+          "status_octal": "1",
+          "address": "05614",
+          "words": 4,
+          "hex": "544f4d2048452059435441484f2020202020426c4548200a",
+          "text": "ТОМ НЕ УСТАНО     ВЛЕН "
+        },
+        {
+          "status": 2,
+          "status_octal": "2",
+          "address": "05620",
+          "words": 2,
+          "hex": "544f4d207a4148715420200a",
+          "text": "ТОМ ЗАНЯТ  "
+        },
+        {
+          "status": 3,
+          "status_octal": "3",
+          "address": "05622",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        },
+        {
+          "status": 4,
+          "status_octal": "4",
+          "address": "05625",
+          "words": 5,
+          "hex": "484554206c4f672e20694d454869206269626c694f54454b69202020200a",
+          "text": "НЕТ ЛОГ. ИМЕНИ БИБЛИОТЕКИ    "
+        },
+        {
+          "status": 5,
+          "status_octal": "5",
+          "address": "05632",
+          "words": 5,
+          "hex": "6c4f672e20694d71206269626c694f54454b69205976452045435478200a",
+          "text": "ЛОГ. ИМЯ БИБЛИОТЕКИ УЖЕ ЕСТЬ "
+        },
+        {
+          "status": 6,
+          "status_octal": "6",
+          "address": "05637",
+          "words": 4,
+          "hex": "4845644f70594354694d4f45205041437b6950454869450a",
+          "text": "НЕДОПУСТИМОЕ РАСШИРЕНИЕ"
+        },
+        {
+          "status": 7,
+          "status_octal": "7",
+          "address": "05643",
+          "words": 4,
+          "hex": "484554204d454354412042204150586942450a0000000000",
+          "text": "НЕТ МЕСТА В АРХИВЕ"
+        },
+        {
+          "status": 8,
+          "status_octal": "10",
+          "address": "05647",
+          "words": 2,
+          "hex": "4845542066416a6c4120200a",
+          "text": "НЕТ ФАЙЛА  "
+        },
+        {
+          "status": 9,
+          "status_octal": "11",
+          "address": "05651",
+          "words": 4,
+          "hex": "4f7b69624b41204220704150414d4554504158202020200a",
+          "text": "ОШИБКА В ПАРАМЕТРАХ    "
+        },
+        {
+          "status": 10,
+          "status_octal": "12",
+          "address": "05655",
+          "words": 3,
+          "hex": "426950542e20484f4d45502070594354200a",
+          "text": "ВИРТ. НОМЕР ПУСТ "
+        },
+        {
+          "status": 11,
+          "status_octal": "13",
+          "address": "05660",
+          "words": 4,
+          "hex": "59764520454354782054414b4f6a2066416a6c202020200a",
+          "text": "УЖЕ ЕСТЬ ТАКОЙ ФАЙЛ    "
+        },
+        {
+          "status": 12,
+          "status_octal": "14",
+          "address": "05664",
+          "words": 4,
+          "hex": "48454b4f50502e20646c6948412066416a6c41202020200a",
+          "text": "НЕКОРР. ДЛИНА ФАЙЛА    "
+        },
+        {
+          "status": 13,
+          "status_octal": "15",
+          "address": "05670",
+          "words": 3,
+          "hex": "4b4154416c4f67206943704f507e4548200a",
+          "text": "КАТАЛОГ ИСПОРЧЕН "
+        },
+        {
+          "status": 14,
+          "status_octal": "16",
+          "address": "05673",
+          "words": 4,
+          "hex": "484554204d454354412042204b4154416c4f67452020200a",
+          "text": "НЕТ МЕСТА В КАТАЛОГЕ   "
+        },
+        {
+          "status": 15,
+          "status_octal": "17",
+          "address": "05677",
+          "words": 4,
+          "hex": "4845542066416a6c4f4220646c71207b41626c4f4841200a",
+          "text": "НЕТ ФАЙЛОВ ДЛЯ ШАБЛОНА "
+        },
+        {
+          "status": 16,
+          "status_octal": "20",
+          "address": "05703",
+          "words": 3,
+          "hex": "4f7b69624b4120422043644269674520200a",
+          "text": "ОШИБКА В СДВИГЕ  "
+        },
+        {
+          "status": 41,
+          "status_octal": "51",
+          "address": "05706",
+          "words": 3,
+          "hex": "54414b4f674f20694d45486920484554200a",
+          "text": "ТАКОГО ИМЕНИ НЕТ "
+        },
+        {
+          "status": 42,
+          "status_octal": "52",
+          "address": "05711",
+          "words": 4,
+          "hex": "4845424550484f4520694d71204f626c414354692020200a",
+          "text": "НЕВЕРНОЕ ИМЯ ОБЛАСТИ   "
+        },
+        {
+          "status": 48,
+          "status_octal": "60",
+          "address": "05715",
+          "words": 3,
+          "hex": "4f626c41435478207a41487154412020200a",
+          "text": "ОБЛАСТЬ ЗАНЯТА   "
+        },
+        {
+          "status": 50,
+          "status_octal": "62",
+          "address": "05720",
+          "words": 3,
+          "hex": "48452059435441484f426c454820544f4d0a",
+          "text": "НЕ УСТАНОВЛЕН ТОМ"
+        },
+        {
+          "status": 54,
+          "status_octal": "66",
+          "address": "05723",
+          "words": 3,
+          "hex": "4f7b2e204220484f4d455045544f4d41200a",
+          "text": "ОШ. В НОМЕРЕТОМА "
+        },
+        {
+          "status": 59,
+          "status_octal": "73",
+          "address": "05726",
+          "words": 3,
+          "hex": "48455420704f6c484f4d4f7e696a2020200a",
+          "text": "НЕТ ПОЛНОМОЧИЙ   "
+        },
+        {
+          "status": 60,
+          "status_octal": "74",
+          "address": "05731",
+          "words": 3,
+          "hex": "4f626c414354782f4b4154416c4f6720200a",
+          "text": "ОБЛАСТЬ/КАТАЛОГ  "
+        },
+        {
+          "status": 66,
+          "status_octal": "102",
+          "address": "05734",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        }
+      ],
+      "default_message": {
+        "words": 4,
+        "hex": "4845644f70594354694d796a204b4f64204f54424554410a",
+        "text": "НЕДОПУСТИМЫЙ КОД ОТВЕТА"
+      },
+      "ascii_date_strings": []
+    },
+    {
+      "path": "runtime/images/4001/0034-more.bin",
+      "sha256": "091a1127bc77951e8dbf8cca57fa573437b65340b64dab84afbe68aa17132d55",
+      "file_entry": "03765",
+      "load_entry": "03765",
+      "matching_code_words": 11,
+      "expected_code_words": 14,
+      "expected_table_entries": 22,
+      "table_start": "04003",
+      "table_end": "04030",
+      "default_start": "04152",
+      "complete": false,
+      "missing_code_words": [
+        "04000",
+        "04001",
+        "04002"
+      ],
+      "missing_code_is_zero": true,
+      "table_is_zero": true
+    },
+    {
+      "path": "runtime/images/4001/0051-print.bin",
+      "sha256": "08b23f5cb0db9f428280d29dca8550b637ac3914caf59f8ba3955b11d9124cfc",
+      "file_entry": "06556",
+      "load_entry": "06556",
+      "matching_code_words": 14,
+      "expected_code_words": 14,
+      "expected_table_entries": 25,
+      "table_start": "06574",
+      "table_end": "06624",
+      "default_start": "06755",
+      "complete": true,
+      "words": 131,
+      "end_exclusive": "06761",
+      "normalized_sha256": "948ed54d52c22195fb5ebf7997f7c201c4a03a69b944b2137bef199b26718fbf",
+      "messages": [
+        {
+          "status": 0,
+          "status_octal": "0",
+          "address": "06625",
+          "words": 1,
+          "hex": "20202020200a",
+          "text": "     "
+        },
+        {
+          "status": 1,
+          "status_octal": "1",
+          "address": "06626",
+          "words": 4,
+          "hex": "544f4d2048452059435441484f2020202020426c4548200a",
+          "text": "ТОМ НЕ УСТАНО     ВЛЕН "
+        },
+        {
+          "status": 2,
+          "status_octal": "2",
+          "address": "06632",
+          "words": 2,
+          "hex": "544f4d207a4148715420200a",
+          "text": "ТОМ ЗАНЯТ  "
+        },
+        {
+          "status": 3,
+          "status_octal": "3",
+          "address": "06634",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        },
+        {
+          "status": 4,
+          "status_octal": "4",
+          "address": "06637",
+          "words": 5,
+          "hex": "484554206c4f672e20694d454869206269626c694f54454b69202020200a",
+          "text": "НЕТ ЛОГ. ИМЕНИ БИБЛИОТЕКИ    "
+        },
+        {
+          "status": 5,
+          "status_octal": "5",
+          "address": "06644",
+          "words": 5,
+          "hex": "6c4f672e20694d71206269626c694f54454b69205976452045435478200a",
+          "text": "ЛОГ. ИМЯ БИБЛИОТЕКИ УЖЕ ЕСТЬ "
+        },
+        {
+          "status": 6,
+          "status_octal": "6",
+          "address": "06651",
+          "words": 4,
+          "hex": "4845644f70594354694d4f45205041437b6950454869450a",
+          "text": "НЕДОПУСТИМОЕ РАСШИРЕНИЕ"
+        },
+        {
+          "status": 7,
+          "status_octal": "7",
+          "address": "06655",
+          "words": 4,
+          "hex": "484554204d454354412042204150586942450a0000000000",
+          "text": "НЕТ МЕСТА В АРХИВЕ"
+        },
+        {
+          "status": 8,
+          "status_octal": "10",
+          "address": "06661",
+          "words": 2,
+          "hex": "4845542066416a6c4120200a",
+          "text": "НЕТ ФАЙЛА  "
+        },
+        {
+          "status": 9,
+          "status_octal": "11",
+          "address": "06663",
+          "words": 4,
+          "hex": "4f7b69624b41204220704150414d4554504158202020200a",
+          "text": "ОШИБКА В ПАРАМЕТРАХ    "
+        },
+        {
+          "status": 10,
+          "status_octal": "12",
+          "address": "06667",
+          "words": 3,
+          "hex": "426950542e20484f4d45502070594354200a",
+          "text": "ВИРТ. НОМЕР ПУСТ "
+        },
+        {
+          "status": 11,
+          "status_octal": "13",
+          "address": "06672",
+          "words": 4,
+          "hex": "59764520454354782054414b4f6a2066416a6c202020200a",
+          "text": "УЖЕ ЕСТЬ ТАКОЙ ФАЙЛ    "
+        },
+        {
+          "status": 12,
+          "status_octal": "14",
+          "address": "06676",
+          "words": 4,
+          "hex": "48454b4f50502e20646c6948412066416a6c41202020200a",
+          "text": "НЕКОРР. ДЛИНА ФАЙЛА    "
+        },
+        {
+          "status": 13,
+          "status_octal": "15",
+          "address": "06702",
+          "words": 3,
+          "hex": "4b4154416c4f67206943704f507e4548200a",
+          "text": "КАТАЛОГ ИСПОРЧЕН "
+        },
+        {
+          "status": 14,
+          "status_octal": "16",
+          "address": "06705",
+          "words": 4,
+          "hex": "484554204d454354412042204b4154416c4f67452020200a",
+          "text": "НЕТ МЕСТА В КАТАЛОГЕ   "
+        },
+        {
+          "status": 15,
+          "status_octal": "17",
+          "address": "06711",
+          "words": 4,
+          "hex": "4845542066416a6c4f4220646c71207b41626c4f4841200a",
+          "text": "НЕТ ФАЙЛОВ ДЛЯ ШАБЛОНА "
+        },
+        {
+          "status": 16,
+          "status_octal": "20",
+          "address": "06715",
+          "words": 3,
+          "hex": "4f7b69624b4120422043644269674520200a",
+          "text": "ОШИБКА В СДВИГЕ  "
+        },
+        {
+          "status": 41,
+          "status_octal": "51",
+          "address": "06720",
+          "words": 3,
+          "hex": "54414b4f674f20694d45486920484554200a",
+          "text": "ТАКОГО ИМЕНИ НЕТ "
+        },
+        {
+          "status": 42,
+          "status_octal": "52",
+          "address": "06723",
+          "words": 4,
+          "hex": "4845424550484f4520694d71204f626c414354692020200a",
+          "text": "НЕВЕРНОЕ ИМЯ ОБЛАСТИ   "
+        },
+        {
+          "status": 48,
+          "status_octal": "60",
+          "address": "06727",
+          "words": 3,
+          "hex": "4f626c41435478207a41487154412020200a",
+          "text": "ОБЛАСТЬ ЗАНЯТА   "
+        },
+        {
+          "status": 50,
+          "status_octal": "62",
+          "address": "06732",
+          "words": 3,
+          "hex": "48452059435441484f426c454820544f4d0a",
+          "text": "НЕ УСТАНОВЛЕН ТОМ"
+        },
+        {
+          "status": 54,
+          "status_octal": "66",
+          "address": "06735",
+          "words": 3,
+          "hex": "4f7b2e204220484f4d455045544f4d41200a",
+          "text": "ОШ. В НОМЕРЕТОМА "
+        },
+        {
+          "status": 59,
+          "status_octal": "73",
+          "address": "06740",
+          "words": 3,
+          "hex": "48455420704f6c484f4d4f7e696a2020200a",
+          "text": "НЕТ ПОЛНОМОЧИЙ   "
+        },
+        {
+          "status": 60,
+          "status_octal": "74",
+          "address": "06743",
+          "words": 3,
+          "hex": "4f626c414354782f4b4154416c4f6720200a",
+          "text": "ОБЛАСТЬ/КАТАЛОГ  "
+        },
+        {
+          "status": 66,
+          "status_octal": "102",
+          "address": "06746",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        }
+      ],
+      "default_message": {
+        "words": 4,
+        "hex": "4845644f70594354694d796a204b4f64204f54424554410a",
+        "text": "НЕДОПУСТИМЫЙ КОД ОТВЕТА"
+      },
+      "ascii_date_strings": []
+    },
+    {
+      "path": "runtime/images/4001/0063-fprint.bin",
+      "sha256": "10f07d99b30a31ffc22dd85b8a174168431d713c7ee7184cc15c0f1f4f3ed2d9",
+      "file_entry": "05420",
+      "load_entry": "05420",
+      "matching_code_words": 14,
+      "expected_code_words": 14,
+      "expected_table_entries": 22,
+      "table_start": "05436",
+      "table_end": "05463",
+      "default_start": "05605",
+      "complete": true,
+      "words": 121,
+      "end_exclusive": "05611",
+      "normalized_sha256": "c319f9e84fe5b002e956aeb0dd56ce1122fd16655a35086287c749274cbdbd11",
+      "messages": [
+        {
+          "status": 0,
+          "status_octal": "0",
+          "address": "05464",
+          "words": 1,
+          "hex": "20202020200a",
+          "text": "     "
+        },
+        {
+          "status": 1,
+          "status_octal": "1",
+          "address": "05465",
+          "words": 4,
+          "hex": "544f4d2048452059435441484f2020202020426c4548200a",
+          "text": "ТОМ НЕ УСТАНО     ВЛЕН "
+        },
+        {
+          "status": 2,
+          "status_octal": "2",
+          "address": "05471",
+          "words": 2,
+          "hex": "544f4d207a4148715420200a",
+          "text": "ТОМ ЗАНЯТ  "
+        },
+        {
+          "status": 3,
+          "status_octal": "3",
+          "address": "05473",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        },
+        {
+          "status": 4,
+          "status_octal": "4",
+          "address": "05476",
+          "words": 5,
+          "hex": "484554206c4f672e20694d454869206269626c694f54454b69202020200a",
+          "text": "НЕТ ЛОГ. ИМЕНИ БИБЛИОТЕКИ    "
+        },
+        {
+          "status": 5,
+          "status_octal": "5",
+          "address": "05503",
+          "words": 5,
+          "hex": "6c4f672e20694d71206269626c694f54454b69205976452045435478200a",
+          "text": "ЛОГ. ИМЯ БИБЛИОТЕКИ УЖЕ ЕСТЬ "
+        },
+        {
+          "status": 6,
+          "status_octal": "6",
+          "address": "05510",
+          "words": 4,
+          "hex": "4845644f70594354694d4f45205041437b6950454869450a",
+          "text": "НЕДОПУСТИМОЕ РАСШИРЕНИЕ"
+        },
+        {
+          "status": 7,
+          "status_octal": "7",
+          "address": "05514",
+          "words": 4,
+          "hex": "484554204d454354412042204150586942450a0000000000",
+          "text": "НЕТ МЕСТА В АРХИВЕ"
+        },
+        {
+          "status": 8,
+          "status_octal": "10",
+          "address": "05520",
+          "words": 2,
+          "hex": "4845542066416a6c4120200a",
+          "text": "НЕТ ФАЙЛА  "
+        },
+        {
+          "status": 9,
+          "status_octal": "11",
+          "address": "05522",
+          "words": 4,
+          "hex": "4f7b69624b41204220704150414d4554504158202020200a",
+          "text": "ОШИБКА В ПАРАМЕТРАХ    "
+        },
+        {
+          "status": 10,
+          "status_octal": "12",
+          "address": "05526",
+          "words": 3,
+          "hex": "426950542e20484f4d45502070594354200a",
+          "text": "ВИРТ. НОМЕР ПУСТ "
+        },
+        {
+          "status": 11,
+          "status_octal": "13",
+          "address": "05531",
+          "words": 4,
+          "hex": "59764520454354782054414b4f6a2066416a6c202020200a",
+          "text": "УЖЕ ЕСТЬ ТАКОЙ ФАЙЛ    "
+        },
+        {
+          "status": 12,
+          "status_octal": "14",
+          "address": "05535",
+          "words": 4,
+          "hex": "48454b4f50502e20646c6948412066416a6c41202020200a",
+          "text": "НЕКОРР. ДЛИНА ФАЙЛА    "
+        },
+        {
+          "status": 13,
+          "status_octal": "15",
+          "address": "05541",
+          "words": 3,
+          "hex": "4b4154416c4f67206943704f507e4548200a",
+          "text": "КАТАЛОГ ИСПОРЧЕН "
+        },
+        {
+          "status": 41,
+          "status_octal": "51",
+          "address": "05550",
+          "words": 3,
+          "hex": "54414b4f674f20694d45486920484554200a",
+          "text": "ТАКОГО ИМЕНИ НЕТ "
+        },
+        {
+          "status": 42,
+          "status_octal": "52",
+          "address": "05553",
+          "words": 4,
+          "hex": "4845424550484f4520694d71204f626c414354692020200a",
+          "text": "НЕВЕРНОЕ ИМЯ ОБЛАСТИ   "
+        },
+        {
+          "status": 48,
+          "status_octal": "60",
+          "address": "05557",
+          "words": 3,
+          "hex": "4f626c41435478207a41487154412020200a",
+          "text": "ОБЛАСТЬ ЗАНЯТА   "
+        },
+        {
+          "status": 50,
+          "status_octal": "62",
+          "address": "05562",
+          "words": 3,
+          "hex": "48452059435441484f426c454820544f4d0a",
+          "text": "НЕ УСТАНОВЛЕН ТОМ"
+        },
+        {
+          "status": 54,
+          "status_octal": "66",
+          "address": "05565",
+          "words": 3,
+          "hex": "4f7b2e204220484f4d455045544f4d41200a",
+          "text": "ОШ. В НОМЕРЕТОМА "
+        },
+        {
+          "status": 59,
+          "status_octal": "73",
+          "address": "05570",
+          "words": 3,
+          "hex": "48455420704f6c484f4d4f7e696a2020200a",
+          "text": "НЕТ ПОЛНОМОЧИЙ   "
+        },
+        {
+          "status": 60,
+          "status_octal": "74",
+          "address": "05573",
+          "words": 3,
+          "hex": "4f626c414354782f4b4154416c4f6720200a",
+          "text": "ОБЛАСТЬ/КАТАЛОГ  "
+        },
+        {
+          "status": 66,
+          "status_octal": "102",
+          "address": "05576",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        }
+      ],
+      "default_message": {
+        "words": 4,
+        "hex": "4845644f70594354694d796a204b4f64204f54424554410a",
+        "text": "НЕДОПУСТИМЫЙ КОД ОТВЕТА"
+      },
+      "ascii_date_strings": []
+    },
+    {
+      "path": "runtime/images/4001/0075-recod.bin",
+      "sha256": "87a51716220b91f57a9a5e3c1248ea9e92738d7b8e15cfcc5988972fd43044a7",
+      "file_entry": "05316",
+      "load_entry": "05316",
+      "matching_code_words": 14,
+      "expected_code_words": 14,
+      "expected_table_entries": 25,
+      "table_start": "05334",
+      "table_end": "05364",
+      "default_start": "05515",
+      "complete": true,
+      "words": 131,
+      "end_exclusive": "05521",
+      "normalized_sha256": "948ed54d52c22195fb5ebf7997f7c201c4a03a69b944b2137bef199b26718fbf",
+      "messages": [
+        {
+          "status": 0,
+          "status_octal": "0",
+          "address": "05365",
+          "words": 1,
+          "hex": "20202020200a",
+          "text": "     "
+        },
+        {
+          "status": 1,
+          "status_octal": "1",
+          "address": "05366",
+          "words": 4,
+          "hex": "544f4d2048452059435441484f2020202020426c4548200a",
+          "text": "ТОМ НЕ УСТАНО     ВЛЕН "
+        },
+        {
+          "status": 2,
+          "status_octal": "2",
+          "address": "05372",
+          "words": 2,
+          "hex": "544f4d207a4148715420200a",
+          "text": "ТОМ ЗАНЯТ  "
+        },
+        {
+          "status": 3,
+          "status_octal": "3",
+          "address": "05374",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        },
+        {
+          "status": 4,
+          "status_octal": "4",
+          "address": "05377",
+          "words": 5,
+          "hex": "484554206c4f672e20694d454869206269626c694f54454b69202020200a",
+          "text": "НЕТ ЛОГ. ИМЕНИ БИБЛИОТЕКИ    "
+        },
+        {
+          "status": 5,
+          "status_octal": "5",
+          "address": "05404",
+          "words": 5,
+          "hex": "6c4f672e20694d71206269626c694f54454b69205976452045435478200a",
+          "text": "ЛОГ. ИМЯ БИБЛИОТЕКИ УЖЕ ЕСТЬ "
+        },
+        {
+          "status": 6,
+          "status_octal": "6",
+          "address": "05411",
+          "words": 4,
+          "hex": "4845644f70594354694d4f45205041437b6950454869450a",
+          "text": "НЕДОПУСТИМОЕ РАСШИРЕНИЕ"
+        },
+        {
+          "status": 7,
+          "status_octal": "7",
+          "address": "05415",
+          "words": 4,
+          "hex": "484554204d454354412042204150586942450a0000000000",
+          "text": "НЕТ МЕСТА В АРХИВЕ"
+        },
+        {
+          "status": 8,
+          "status_octal": "10",
+          "address": "05421",
+          "words": 2,
+          "hex": "4845542066416a6c4120200a",
+          "text": "НЕТ ФАЙЛА  "
+        },
+        {
+          "status": 9,
+          "status_octal": "11",
+          "address": "05423",
+          "words": 4,
+          "hex": "4f7b69624b41204220704150414d4554504158202020200a",
+          "text": "ОШИБКА В ПАРАМЕТРАХ    "
+        },
+        {
+          "status": 10,
+          "status_octal": "12",
+          "address": "05427",
+          "words": 3,
+          "hex": "426950542e20484f4d45502070594354200a",
+          "text": "ВИРТ. НОМЕР ПУСТ "
+        },
+        {
+          "status": 11,
+          "status_octal": "13",
+          "address": "05432",
+          "words": 4,
+          "hex": "59764520454354782054414b4f6a2066416a6c202020200a",
+          "text": "УЖЕ ЕСТЬ ТАКОЙ ФАЙЛ    "
+        },
+        {
+          "status": 12,
+          "status_octal": "14",
+          "address": "05436",
+          "words": 4,
+          "hex": "48454b4f50502e20646c6948412066416a6c41202020200a",
+          "text": "НЕКОРР. ДЛИНА ФАЙЛА    "
+        },
+        {
+          "status": 13,
+          "status_octal": "15",
+          "address": "05442",
+          "words": 3,
+          "hex": "4b4154416c4f67206943704f507e4548200a",
+          "text": "КАТАЛОГ ИСПОРЧЕН "
+        },
+        {
+          "status": 14,
+          "status_octal": "16",
+          "address": "05445",
+          "words": 4,
+          "hex": "484554204d454354412042204b4154416c4f67452020200a",
+          "text": "НЕТ МЕСТА В КАТАЛОГЕ   "
+        },
+        {
+          "status": 15,
+          "status_octal": "17",
+          "address": "05451",
+          "words": 4,
+          "hex": "4845542066416a6c4f4220646c71207b41626c4f4841200a",
+          "text": "НЕТ ФАЙЛОВ ДЛЯ ШАБЛОНА "
+        },
+        {
+          "status": 16,
+          "status_octal": "20",
+          "address": "05455",
+          "words": 3,
+          "hex": "4f7b69624b4120422043644269674520200a",
+          "text": "ОШИБКА В СДВИГЕ  "
+        },
+        {
+          "status": 41,
+          "status_octal": "51",
+          "address": "05460",
+          "words": 3,
+          "hex": "54414b4f674f20694d45486920484554200a",
+          "text": "ТАКОГО ИМЕНИ НЕТ "
+        },
+        {
+          "status": 42,
+          "status_octal": "52",
+          "address": "05463",
+          "words": 4,
+          "hex": "4845424550484f4520694d71204f626c414354692020200a",
+          "text": "НЕВЕРНОЕ ИМЯ ОБЛАСТИ   "
+        },
+        {
+          "status": 48,
+          "status_octal": "60",
+          "address": "05467",
+          "words": 3,
+          "hex": "4f626c41435478207a41487154412020200a",
+          "text": "ОБЛАСТЬ ЗАНЯТА   "
+        },
+        {
+          "status": 50,
+          "status_octal": "62",
+          "address": "05472",
+          "words": 3,
+          "hex": "48452059435441484f426c454820544f4d0a",
+          "text": "НЕ УСТАНОВЛЕН ТОМ"
+        },
+        {
+          "status": 54,
+          "status_octal": "66",
+          "address": "05475",
+          "words": 3,
+          "hex": "4f7b2e204220484f4d455045544f4d41200a",
+          "text": "ОШ. В НОМЕРЕТОМА "
+        },
+        {
+          "status": 59,
+          "status_octal": "73",
+          "address": "05500",
+          "words": 3,
+          "hex": "48455420704f6c484f4d4f7e696a2020200a",
+          "text": "НЕТ ПОЛНОМОЧИЙ   "
+        },
+        {
+          "status": 60,
+          "status_octal": "74",
+          "address": "05503",
+          "words": 3,
+          "hex": "4f626c414354782f4b4154416c4f6720200a",
+          "text": "ОБЛАСТЬ/КАТАЛОГ  "
+        },
+        {
+          "status": 66,
+          "status_octal": "102",
+          "address": "05506",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        }
+      ],
+      "default_message": {
+        "words": 4,
+        "hex": "4845644f70594354694d796a204b4f64204f54424554410a",
+        "text": "НЕДОПУСТИМЫЙ КОД ОТВЕТА"
+      },
+      "ascii_date_strings": []
+    },
+    {
+      "path": "runtime/images/4001/0101-mtcopy.bin",
+      "sha256": "42ea247fec8a4789aeda5f04bb133cf0c27436c205dde5956cfba64d4440998a",
+      "file_entry": "04406",
+      "load_entry": "04406",
+      "matching_code_words": 14,
+      "expected_code_words": 14,
+      "expected_table_entries": 25,
+      "table_start": "04424",
+      "table_end": "04454",
+      "default_start": "04605",
+      "complete": true,
+      "words": 131,
+      "end_exclusive": "04611",
+      "normalized_sha256": "948ed54d52c22195fb5ebf7997f7c201c4a03a69b944b2137bef199b26718fbf",
+      "messages": [
+        {
+          "status": 0,
+          "status_octal": "0",
+          "address": "04455",
+          "words": 1,
+          "hex": "20202020200a",
+          "text": "     "
+        },
+        {
+          "status": 1,
+          "status_octal": "1",
+          "address": "04456",
+          "words": 4,
+          "hex": "544f4d2048452059435441484f2020202020426c4548200a",
+          "text": "ТОМ НЕ УСТАНО     ВЛЕН "
+        },
+        {
+          "status": 2,
+          "status_octal": "2",
+          "address": "04462",
+          "words": 2,
+          "hex": "544f4d207a4148715420200a",
+          "text": "ТОМ ЗАНЯТ  "
+        },
+        {
+          "status": 3,
+          "status_octal": "3",
+          "address": "04464",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        },
+        {
+          "status": 4,
+          "status_octal": "4",
+          "address": "04467",
+          "words": 5,
+          "hex": "484554206c4f672e20694d454869206269626c694f54454b69202020200a",
+          "text": "НЕТ ЛОГ. ИМЕНИ БИБЛИОТЕКИ    "
+        },
+        {
+          "status": 5,
+          "status_octal": "5",
+          "address": "04474",
+          "words": 5,
+          "hex": "6c4f672e20694d71206269626c694f54454b69205976452045435478200a",
+          "text": "ЛОГ. ИМЯ БИБЛИОТЕКИ УЖЕ ЕСТЬ "
+        },
+        {
+          "status": 6,
+          "status_octal": "6",
+          "address": "04501",
+          "words": 4,
+          "hex": "4845644f70594354694d4f45205041437b6950454869450a",
+          "text": "НЕДОПУСТИМОЕ РАСШИРЕНИЕ"
+        },
+        {
+          "status": 7,
+          "status_octal": "7",
+          "address": "04505",
+          "words": 4,
+          "hex": "484554204d454354412042204150586942450a0000000000",
+          "text": "НЕТ МЕСТА В АРХИВЕ"
+        },
+        {
+          "status": 8,
+          "status_octal": "10",
+          "address": "04511",
+          "words": 2,
+          "hex": "4845542066416a6c4120200a",
+          "text": "НЕТ ФАЙЛА  "
+        },
+        {
+          "status": 9,
+          "status_octal": "11",
+          "address": "04513",
+          "words": 4,
+          "hex": "4f7b69624b41204220704150414d4554504158202020200a",
+          "text": "ОШИБКА В ПАРАМЕТРАХ    "
+        },
+        {
+          "status": 10,
+          "status_octal": "12",
+          "address": "04517",
+          "words": 3,
+          "hex": "426950542e20484f4d45502070594354200a",
+          "text": "ВИРТ. НОМЕР ПУСТ "
+        },
+        {
+          "status": 11,
+          "status_octal": "13",
+          "address": "04522",
+          "words": 4,
+          "hex": "59764520454354782054414b4f6a2066416a6c202020200a",
+          "text": "УЖЕ ЕСТЬ ТАКОЙ ФАЙЛ    "
+        },
+        {
+          "status": 12,
+          "status_octal": "14",
+          "address": "04526",
+          "words": 4,
+          "hex": "48454b4f50502e20646c6948412066416a6c41202020200a",
+          "text": "НЕКОРР. ДЛИНА ФАЙЛА    "
+        },
+        {
+          "status": 13,
+          "status_octal": "15",
+          "address": "04532",
+          "words": 3,
+          "hex": "4b4154416c4f67206943704f507e4548200a",
+          "text": "КАТАЛОГ ИСПОРЧЕН "
+        },
+        {
+          "status": 14,
+          "status_octal": "16",
+          "address": "04535",
+          "words": 4,
+          "hex": "484554204d454354412042204b4154416c4f67452020200a",
+          "text": "НЕТ МЕСТА В КАТАЛОГЕ   "
+        },
+        {
+          "status": 15,
+          "status_octal": "17",
+          "address": "04541",
+          "words": 4,
+          "hex": "4845542066416a6c4f4220646c71207b41626c4f4841200a",
+          "text": "НЕТ ФАЙЛОВ ДЛЯ ШАБЛОНА "
+        },
+        {
+          "status": 16,
+          "status_octal": "20",
+          "address": "04545",
+          "words": 3,
+          "hex": "4f7b69624b4120422043644269674520200a",
+          "text": "ОШИБКА В СДВИГЕ  "
+        },
+        {
+          "status": 41,
+          "status_octal": "51",
+          "address": "04550",
+          "words": 3,
+          "hex": "54414b4f674f20694d45486920484554200a",
+          "text": "ТАКОГО ИМЕНИ НЕТ "
+        },
+        {
+          "status": 42,
+          "status_octal": "52",
+          "address": "04553",
+          "words": 4,
+          "hex": "4845424550484f4520694d71204f626c414354692020200a",
+          "text": "НЕВЕРНОЕ ИМЯ ОБЛАСТИ   "
+        },
+        {
+          "status": 48,
+          "status_octal": "60",
+          "address": "04557",
+          "words": 3,
+          "hex": "4f626c41435478207a41487154412020200a",
+          "text": "ОБЛАСТЬ ЗАНЯТА   "
+        },
+        {
+          "status": 50,
+          "status_octal": "62",
+          "address": "04562",
+          "words": 3,
+          "hex": "48452059435441484f426c454820544f4d0a",
+          "text": "НЕ УСТАНОВЛЕН ТОМ"
+        },
+        {
+          "status": 54,
+          "status_octal": "66",
+          "address": "04565",
+          "words": 3,
+          "hex": "4f7b2e204220484f4d455045544f4d41200a",
+          "text": "ОШ. В НОМЕРЕТОМА "
+        },
+        {
+          "status": 59,
+          "status_octal": "73",
+          "address": "04570",
+          "words": 3,
+          "hex": "48455420704f6c484f4d4f7e696a2020200a",
+          "text": "НЕТ ПОЛНОМОЧИЙ   "
+        },
+        {
+          "status": 60,
+          "status_octal": "74",
+          "address": "04573",
+          "words": 3,
+          "hex": "4f626c414354782f4b4154416c4f6720200a",
+          "text": "ОБЛАСТЬ/КАТАЛОГ  "
+        },
+        {
+          "status": 66,
+          "status_octal": "102",
+          "address": "04576",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        }
+      ],
+      "default_message": {
+        "words": 4,
+        "hex": "4845644f70594354694d796a204b4f64204f54424554410a",
+        "text": "НЕДОПУСТИМЫЙ КОД ОТВЕТА"
+      },
+      "ascii_date_strings": []
+    },
+    {
+      "path": "runtime/images/4001/0106-copy.bin",
+      "sha256": "d5710ba2eea3ee9b0192061f17751a3a8497e19abd7754c3b09b92157cbf9acb",
+      "file_entry": "03736",
+      "load_entry": "03736",
+      "matching_code_words": 14,
+      "expected_code_words": 14,
+      "expected_table_entries": 25,
+      "table_start": "03754",
+      "table_end": "04004",
+      "default_start": "04135",
+      "complete": true,
+      "words": 131,
+      "end_exclusive": "04141",
+      "normalized_sha256": "948ed54d52c22195fb5ebf7997f7c201c4a03a69b944b2137bef199b26718fbf",
+      "messages": [
+        {
+          "status": 0,
+          "status_octal": "0",
+          "address": "04005",
+          "words": 1,
+          "hex": "20202020200a",
+          "text": "     "
+        },
+        {
+          "status": 1,
+          "status_octal": "1",
+          "address": "04006",
+          "words": 4,
+          "hex": "544f4d2048452059435441484f2020202020426c4548200a",
+          "text": "ТОМ НЕ УСТАНО     ВЛЕН "
+        },
+        {
+          "status": 2,
+          "status_octal": "2",
+          "address": "04012",
+          "words": 2,
+          "hex": "544f4d207a4148715420200a",
+          "text": "ТОМ ЗАНЯТ  "
+        },
+        {
+          "status": 3,
+          "status_octal": "3",
+          "address": "04014",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        },
+        {
+          "status": 4,
+          "status_octal": "4",
+          "address": "04017",
+          "words": 5,
+          "hex": "484554206c4f672e20694d454869206269626c694f54454b69202020200a",
+          "text": "НЕТ ЛОГ. ИМЕНИ БИБЛИОТЕКИ    "
+        },
+        {
+          "status": 5,
+          "status_octal": "5",
+          "address": "04024",
+          "words": 5,
+          "hex": "6c4f672e20694d71206269626c694f54454b69205976452045435478200a",
+          "text": "ЛОГ. ИМЯ БИБЛИОТЕКИ УЖЕ ЕСТЬ "
+        },
+        {
+          "status": 6,
+          "status_octal": "6",
+          "address": "04031",
+          "words": 4,
+          "hex": "4845644f70594354694d4f45205041437b6950454869450a",
+          "text": "НЕДОПУСТИМОЕ РАСШИРЕНИЕ"
+        },
+        {
+          "status": 7,
+          "status_octal": "7",
+          "address": "04035",
+          "words": 4,
+          "hex": "484554204d454354412042204150586942450a0000000000",
+          "text": "НЕТ МЕСТА В АРХИВЕ"
+        },
+        {
+          "status": 8,
+          "status_octal": "10",
+          "address": "04041",
+          "words": 2,
+          "hex": "4845542066416a6c4120200a",
+          "text": "НЕТ ФАЙЛА  "
+        },
+        {
+          "status": 9,
+          "status_octal": "11",
+          "address": "04043",
+          "words": 4,
+          "hex": "4f7b69624b41204220704150414d4554504158202020200a",
+          "text": "ОШИБКА В ПАРАМЕТРАХ    "
+        },
+        {
+          "status": 10,
+          "status_octal": "12",
+          "address": "04047",
+          "words": 3,
+          "hex": "426950542e20484f4d45502070594354200a",
+          "text": "ВИРТ. НОМЕР ПУСТ "
+        },
+        {
+          "status": 11,
+          "status_octal": "13",
+          "address": "04052",
+          "words": 4,
+          "hex": "59764520454354782054414b4f6a2066416a6c202020200a",
+          "text": "УЖЕ ЕСТЬ ТАКОЙ ФАЙЛ    "
+        },
+        {
+          "status": 12,
+          "status_octal": "14",
+          "address": "04056",
+          "words": 4,
+          "hex": "48454b4f50502e20646c6948412066416a6c41202020200a",
+          "text": "НЕКОРР. ДЛИНА ФАЙЛА    "
+        },
+        {
+          "status": 13,
+          "status_octal": "15",
+          "address": "04062",
+          "words": 3,
+          "hex": "4b4154416c4f67206943704f507e4548200a",
+          "text": "КАТАЛОГ ИСПОРЧЕН "
+        },
+        {
+          "status": 14,
+          "status_octal": "16",
+          "address": "04065",
+          "words": 4,
+          "hex": "484554204d454354412042204b4154416c4f67452020200a",
+          "text": "НЕТ МЕСТА В КАТАЛОГЕ   "
+        },
+        {
+          "status": 15,
+          "status_octal": "17",
+          "address": "04071",
+          "words": 4,
+          "hex": "4845542066416a6c4f4220646c71207b41626c4f4841200a",
+          "text": "НЕТ ФАЙЛОВ ДЛЯ ШАБЛОНА "
+        },
+        {
+          "status": 16,
+          "status_octal": "20",
+          "address": "04075",
+          "words": 3,
+          "hex": "4f7b69624b4120422043644269674520200a",
+          "text": "ОШИБКА В СДВИГЕ  "
+        },
+        {
+          "status": 41,
+          "status_octal": "51",
+          "address": "04100",
+          "words": 3,
+          "hex": "54414b4f674f20694d45486920484554200a",
+          "text": "ТАКОГО ИМЕНИ НЕТ "
+        },
+        {
+          "status": 42,
+          "status_octal": "52",
+          "address": "04103",
+          "words": 4,
+          "hex": "4845424550484f4520694d71204f626c414354692020200a",
+          "text": "НЕВЕРНОЕ ИМЯ ОБЛАСТИ   "
+        },
+        {
+          "status": 48,
+          "status_octal": "60",
+          "address": "04107",
+          "words": 3,
+          "hex": "4f626c41435478207a41487154412020200a",
+          "text": "ОБЛАСТЬ ЗАНЯТА   "
+        },
+        {
+          "status": 50,
+          "status_octal": "62",
+          "address": "04112",
+          "words": 3,
+          "hex": "48452059435441484f426c454820544f4d0a",
+          "text": "НЕ УСТАНОВЛЕН ТОМ"
+        },
+        {
+          "status": 54,
+          "status_octal": "66",
+          "address": "04115",
+          "words": 3,
+          "hex": "4f7b2e204220484f4d455045544f4d41200a",
+          "text": "ОШ. В НОМЕРЕТОМА "
+        },
+        {
+          "status": 59,
+          "status_octal": "73",
+          "address": "04120",
+          "words": 3,
+          "hex": "48455420704f6c484f4d4f7e696a2020200a",
+          "text": "НЕТ ПОЛНОМОЧИЙ   "
+        },
+        {
+          "status": 60,
+          "status_octal": "74",
+          "address": "04123",
+          "words": 3,
+          "hex": "4f626c414354782f4b4154416c4f6720200a",
+          "text": "ОБЛАСТЬ/КАТАЛОГ  "
+        },
+        {
+          "status": 66,
+          "status_octal": "102",
+          "address": "04126",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        }
+      ],
+      "default_message": {
+        "words": 4,
+        "hex": "4845644f70594354694d796a204b4f64204f54424554410a",
+        "text": "НЕДОПУСТИМЫЙ КОД ОТВЕТА"
+      },
+      "ascii_date_strings": []
+    },
+    {
+      "path": "runtime/images/4001/0315-comp.bin",
+      "sha256": "4a448553b9499d719f770c33e32a0cab200ca718557493e44c067a8df0858d34",
+      "file_entry": "07036",
+      "load_entry": "07036",
+      "matching_code_words": 14,
+      "expected_code_words": 14,
+      "expected_table_entries": 25,
+      "table_start": "07054",
+      "table_end": "07104",
+      "default_start": "07235",
+      "complete": true,
+      "words": 131,
+      "end_exclusive": "07241",
+      "normalized_sha256": "948ed54d52c22195fb5ebf7997f7c201c4a03a69b944b2137bef199b26718fbf",
+      "messages": [
+        {
+          "status": 0,
+          "status_octal": "0",
+          "address": "07105",
+          "words": 1,
+          "hex": "20202020200a",
+          "text": "     "
+        },
+        {
+          "status": 1,
+          "status_octal": "1",
+          "address": "07106",
+          "words": 4,
+          "hex": "544f4d2048452059435441484f2020202020426c4548200a",
+          "text": "ТОМ НЕ УСТАНО     ВЛЕН "
+        },
+        {
+          "status": 2,
+          "status_octal": "2",
+          "address": "07112",
+          "words": 2,
+          "hex": "544f4d207a4148715420200a",
+          "text": "ТОМ ЗАНЯТ  "
+        },
+        {
+          "status": 3,
+          "status_octal": "3",
+          "address": "07114",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        },
+        {
+          "status": 4,
+          "status_octal": "4",
+          "address": "07117",
+          "words": 5,
+          "hex": "484554206c4f672e20694d454869206269626c694f54454b69202020200a",
+          "text": "НЕТ ЛОГ. ИМЕНИ БИБЛИОТЕКИ    "
+        },
+        {
+          "status": 5,
+          "status_octal": "5",
+          "address": "07124",
+          "words": 5,
+          "hex": "6c4f672e20694d71206269626c694f54454b69205976452045435478200a",
+          "text": "ЛОГ. ИМЯ БИБЛИОТЕКИ УЖЕ ЕСТЬ "
+        },
+        {
+          "status": 6,
+          "status_octal": "6",
+          "address": "07131",
+          "words": 4,
+          "hex": "4845644f70594354694d4f45205041437b6950454869450a",
+          "text": "НЕДОПУСТИМОЕ РАСШИРЕНИЕ"
+        },
+        {
+          "status": 7,
+          "status_octal": "7",
+          "address": "07135",
+          "words": 4,
+          "hex": "484554204d454354412042204150586942450a0000000000",
+          "text": "НЕТ МЕСТА В АРХИВЕ"
+        },
+        {
+          "status": 8,
+          "status_octal": "10",
+          "address": "07141",
+          "words": 2,
+          "hex": "4845542066416a6c4120200a",
+          "text": "НЕТ ФАЙЛА  "
+        },
+        {
+          "status": 9,
+          "status_octal": "11",
+          "address": "07143",
+          "words": 4,
+          "hex": "4f7b69624b41204220704150414d4554504158202020200a",
+          "text": "ОШИБКА В ПАРАМЕТРАХ    "
+        },
+        {
+          "status": 10,
+          "status_octal": "12",
+          "address": "07147",
+          "words": 3,
+          "hex": "426950542e20484f4d45502070594354200a",
+          "text": "ВИРТ. НОМЕР ПУСТ "
+        },
+        {
+          "status": 11,
+          "status_octal": "13",
+          "address": "07152",
+          "words": 4,
+          "hex": "59764520454354782054414b4f6a2066416a6c202020200a",
+          "text": "УЖЕ ЕСТЬ ТАКОЙ ФАЙЛ    "
+        },
+        {
+          "status": 12,
+          "status_octal": "14",
+          "address": "07156",
+          "words": 4,
+          "hex": "48454b4f50502e20646c6948412066416a6c41202020200a",
+          "text": "НЕКОРР. ДЛИНА ФАЙЛА    "
+        },
+        {
+          "status": 13,
+          "status_octal": "15",
+          "address": "07162",
+          "words": 3,
+          "hex": "4b4154416c4f67206943704f507e4548200a",
+          "text": "КАТАЛОГ ИСПОРЧЕН "
+        },
+        {
+          "status": 14,
+          "status_octal": "16",
+          "address": "07165",
+          "words": 4,
+          "hex": "484554204d454354412042204b4154416c4f67452020200a",
+          "text": "НЕТ МЕСТА В КАТАЛОГЕ   "
+        },
+        {
+          "status": 15,
+          "status_octal": "17",
+          "address": "07171",
+          "words": 4,
+          "hex": "4845542066416a6c4f4220646c71207b41626c4f4841200a",
+          "text": "НЕТ ФАЙЛОВ ДЛЯ ШАБЛОНА "
+        },
+        {
+          "status": 16,
+          "status_octal": "20",
+          "address": "07175",
+          "words": 3,
+          "hex": "4f7b69624b4120422043644269674520200a",
+          "text": "ОШИБКА В СДВИГЕ  "
+        },
+        {
+          "status": 41,
+          "status_octal": "51",
+          "address": "07200",
+          "words": 3,
+          "hex": "54414b4f674f20694d45486920484554200a",
+          "text": "ТАКОГО ИМЕНИ НЕТ "
+        },
+        {
+          "status": 42,
+          "status_octal": "52",
+          "address": "07203",
+          "words": 4,
+          "hex": "4845424550484f4520694d71204f626c414354692020200a",
+          "text": "НЕВЕРНОЕ ИМЯ ОБЛАСТИ   "
+        },
+        {
+          "status": 48,
+          "status_octal": "60",
+          "address": "07207",
+          "words": 3,
+          "hex": "4f626c41435478207a41487154412020200a",
+          "text": "ОБЛАСТЬ ЗАНЯТА   "
+        },
+        {
+          "status": 50,
+          "status_octal": "62",
+          "address": "07212",
+          "words": 3,
+          "hex": "48452059435441484f426c454820544f4d0a",
+          "text": "НЕ УСТАНОВЛЕН ТОМ"
+        },
+        {
+          "status": 54,
+          "status_octal": "66",
+          "address": "07215",
+          "words": 3,
+          "hex": "4f7b2e204220484f4d455045544f4d41200a",
+          "text": "ОШ. В НОМЕРЕТОМА "
+        },
+        {
+          "status": 59,
+          "status_octal": "73",
+          "address": "07220",
+          "words": 3,
+          "hex": "48455420704f6c484f4d4f7e696a2020200a",
+          "text": "НЕТ ПОЛНОМОЧИЙ   "
+        },
+        {
+          "status": 60,
+          "status_octal": "74",
+          "address": "07223",
+          "words": 3,
+          "hex": "4f626c414354782f4b4154416c4f6720200a",
+          "text": "ОБЛАСТЬ/КАТАЛОГ  "
+        },
+        {
+          "status": 66,
+          "status_octal": "102",
+          "address": "07226",
+          "words": 3,
+          "hex": "426950542e20484f4d4550207a414871540a",
+          "text": "ВИРТ. НОМЕР ЗАНЯТ"
+        }
+      ],
+      "default_message": {
+        "words": 4,
+        "hex": "4845644f70594354694d796a204b4f64204f54424554410a",
+        "text": "НЕДОПУСТИМЫЙ КОД ОТВЕТА"
+      },
+      "ascii_date_strings": []
+    }
+  ],
+  "complete_groups": [
+    {
+      "normalized_sha256": "948ed54d52c22195fb5ebf7997f7c201c4a03a69b944b2137bef199b26718fbf",
+      "copies": [
+        {
+          "path": "runtime/images/4001/0002-monitr-pascal.bin",
+          "load_entry": "04573"
+        },
+        {
+          "path": "runtime/images/4001/0023-kanal.bin",
+          "load_entry": "05266"
+        },
+        {
+          "path": "runtime/images/4001/0030-proz.bin",
+          "load_entry": "05544"
+        },
+        {
+          "path": "runtime/images/4001/0051-print.bin",
+          "load_entry": "06556"
+        },
+        {
+          "path": "runtime/images/4001/0075-recod.bin",
+          "load_entry": "05316"
+        },
+        {
+          "path": "runtime/images/4001/0101-mtcopy.bin",
+          "load_entry": "04406"
+        },
+        {
+          "path": "runtime/images/4001/0106-copy.bin",
+          "load_entry": "03736"
+        },
+        {
+          "path": "runtime/images/4001/0315-comp.bin",
+          "load_entry": "07036"
+        }
+      ],
+      "table_entries": 25,
+      "words": 131,
+      "missing_comp_statuses": []
+    },
+    {
+      "normalized_sha256": "c319f9e84fe5b002e956aeb0dd56ce1122fd16655a35086287c749274cbdbd11",
+      "copies": [
+        {
+          "path": "runtime/images/4001/0063-fprint.bin",
+          "load_entry": "05420"
+        }
+      ],
+      "table_entries": 22,
+      "words": 121,
+      "missing_comp_statuses": [
+        {
+          "status": 14,
+          "status_octal": "16",
+          "text": "НЕТ МЕСТА В КАТАЛОГЕ   ",
+          "text_present_without_entry": true,
+          "text_address": "05544"
+        },
+        {
+          "status": 15,
+          "status_octal": "17",
+          "text": "НЕТ ФАЙЛОВ ДЛЯ ШАБЛОНА ",
+          "text_present_without_entry": false,
+          "text_address": null
+        },
+        {
+          "status": 16,
+          "status_octal": "20",
+          "text": "ОШИБКА В СДВИГЕ  ",
+          "text_present_without_entry": false,
+          "text_address": null
+        }
+      ]
+    }
+  ],
+  "no_equivalent_found": [
+    "arfa/koka.bin",
+    "arfa/mdupla.bin",
+    "arfa/svodka.bin",
+    "arfa/svodka2.bin",
+    "mark3.bin",
+    "pak.bin",
+    "runtime/images/4001/0011-unicop.bin",
+    "runtime/images/4001/0016-tar.bin",
+    "runtime/images/4001/0037-kermit.bin",
+    "runtime/images/4001/0047-mtd.bin",
+    "runtime/images/4001/0057-testats.bin",
+    "runtime/images/4001/0061-test.bin",
+    "runtime/images/4001/0066-box.bin",
+    "runtime/images/4001/0070-tartar.bin",
+    "runtime/images/4001/0104-orphan-0104.bin",
+    "runtime/images/4001/0112-link.bin",
+    "runtime/images/4001/0132-acc3.bin",
+    "runtime/images/4001/0172-mt.bin",
+    "runtime/images/4001/0175-link1.bin",
+    "runtime/images/4001/0215-acc2.bin",
+    "runtime/images/4001/0255-blink1.bin",
+    "runtime/images/4001/0275-blink.bin",
+    "test.bin",
+    "тестац.bin"
+  ],
+  "message_pattern_hits": {
+    "runtime/images/4001/0002-monitr-pascal.bin": [
+      {
+        "pattern": "default",
+        "file_address": "04772",
+        "byte": 0
+      },
+      {
+        "pattern": "no_file",
+        "file_address": "04676",
+        "byte": 0
+      },
+      {
+        "pattern": "damaged_catalog",
+        "file_address": "04717",
+        "byte": 0
+      }
+    ],
+    "runtime/images/4001/0023-kanal.bin": [
+      {
+        "pattern": "default",
+        "file_address": "05465",
+        "byte": 0
+      },
+      {
+        "pattern": "no_file",
+        "file_address": "05371",
+        "byte": 0
+      },
+      {
+        "pattern": "damaged_catalog",
+        "file_address": "05412",
+        "byte": 0
+      }
+    ],
+    "runtime/images/4001/0030-proz.bin": [
+      {
+        "pattern": "default",
+        "file_address": "05743",
+        "byte": 0
+      },
+      {
+        "pattern": "no_file",
+        "file_address": "05647",
+        "byte": 0
+      },
+      {
+        "pattern": "damaged_catalog",
+        "file_address": "05670",
+        "byte": 0
+      }
+    ],
+    "runtime/images/4001/0051-print.bin": [
+      {
+        "pattern": "default",
+        "file_address": "06755",
+        "byte": 0
+      },
+      {
+        "pattern": "no_file",
+        "file_address": "06661",
+        "byte": 0
+      },
+      {
+        "pattern": "damaged_catalog",
+        "file_address": "06702",
+        "byte": 0
+      }
+    ],
+    "runtime/images/4001/0063-fprint.bin": [
+      {
+        "pattern": "default",
+        "file_address": "05605",
+        "byte": 0
+      },
+      {
+        "pattern": "no_file",
+        "file_address": "05520",
+        "byte": 0
+      },
+      {
+        "pattern": "damaged_catalog",
+        "file_address": "05541",
+        "byte": 0
+      }
+    ],
+    "runtime/images/4001/0075-recod.bin": [
+      {
+        "pattern": "default",
+        "file_address": "05515",
+        "byte": 0
+      },
+      {
+        "pattern": "no_file",
+        "file_address": "05421",
+        "byte": 0
+      },
+      {
+        "pattern": "damaged_catalog",
+        "file_address": "05442",
+        "byte": 0
+      }
+    ],
+    "runtime/images/4001/0101-mtcopy.bin": [
+      {
+        "pattern": "default",
+        "file_address": "04605",
+        "byte": 0
+      },
+      {
+        "pattern": "no_file",
+        "file_address": "04511",
+        "byte": 0
+      },
+      {
+        "pattern": "damaged_catalog",
+        "file_address": "04532",
+        "byte": 0
+      }
+    ],
+    "runtime/images/4001/0106-copy.bin": [
+      {
+        "pattern": "default",
+        "file_address": "04135",
+        "byte": 0
+      },
+      {
+        "pattern": "no_file",
+        "file_address": "04041",
+        "byte": 0
+      },
+      {
+        "pattern": "damaged_catalog",
+        "file_address": "04062",
+        "byte": 0
+      }
+    ],
+    "runtime/images/4001/0315-comp.bin": [
+      {
+        "pattern": "default",
+        "file_address": "07235",
+        "byte": 0
+      },
+      {
+        "pattern": "no_file",
+        "file_address": "07141",
+        "byte": 0
+      },
+      {
+        "pattern": "damaged_catalog",
+        "file_address": "07162",
+        "byte": 0
+      }
+    ]
+  },
+  "table_pattern_hits": {
+    "runtime/images/4001/0002-monitr-pascal.bin": [
+      "04611"
+    ],
+    "runtime/images/4001/0023-kanal.bin": [
+      "05304"
+    ],
+    "runtime/images/4001/0030-proz.bin": [
+      "05562"
+    ],
+    "runtime/images/4001/0051-print.bin": [
+      "06574"
+    ],
+    "runtime/images/4001/0063-fprint.bin": [
+      "05436"
+    ],
+    "runtime/images/4001/0075-recod.bin": [
+      "05334"
+    ],
+    "runtime/images/4001/0101-mtcopy.bin": [
+      "04424"
+    ],
+    "runtime/images/4001/0106-copy.bin": [
+      "03754"
+    ],
+    "runtime/images/4001/0315-comp.bin": [
+      "07054"
+    ]
+  },
+  "more_source_zone": {
+    "volume": "/usr/local/share/besm6/4001",
+    "logical_zone": "0035",
+    "sha256": "30223751b839a6273cf96a0a6ab2e8becfcef2a59dd16661022b39740974b978",
+    "all_payload_words_zero": true
+  },
+  "chronology": {
+    "likely_later_family": "COMP: 25 table entries",
+    "basis": "Added statuses 14, 15, 16 decimal; common messages are byte-identical. The 22-entry family already contains status-14 text without a table entry.",
+    "absolute_date_established": false
+  }
+}

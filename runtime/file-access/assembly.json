@@ -1,0 +1,13 @@
+{
+  "words": 653,
+  "listing": "runtime/build/file-access/assembled.lst",
+  "image": "runtime/build/file-access/assembled.img",
+  "loaded": {
+    "DBNAME": "02012",
+    "DBFILE": "02404",
+    "DBPASC": "03034",
+    "DBCORE": "03067"
+  },
+  "converter_stubs": true,
+  "api_executed": false
+}
