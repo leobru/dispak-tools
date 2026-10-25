@@ -836,13 +836,14 @@ _); (* toFCST *)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Modified: sorting constants with bit48=1 and bit48=0
 % separately avoids replications due to non-transitive ALFA comparisons
-% (saves about 100B words of code)
+% (saves about 100B words of code).  Under (*=O-*) all constants share
+% one table, as in the original compiler, replications included.
 function addCurValToFCST: integer;
 var
     low, high, mid: integer;
     bit48:boolean;
 _(
-    bit48 := [0] <= curVal.m;
+    bit48 := ([0] <= curVal.m) and dropReload;
     if bit48 and (FcstTop = 501)  
     or not bit48 and (FcstBottom = 0) then _(
         addCurValToFCST := FcstCnt;
@@ -3803,7 +3804,7 @@ _( (* genFullExpr *);
                         genHelper;
                 _);
                 opfMULMSK: _(
-                    if arg1Const and not fixMult and
+                    if arg1Const and
                        (card(arg1Val.m) = 4) then _(
                         saved := insnList;
                         insnList := otherIns;
@@ -3812,10 +3813,10 @@ _( (* genFullExpr *);
                         arg1Const := false;
                         arg2Const := true;
                     _);
-                    if arg2Const and not fixMult and
+                    if arg2Const and
                        (card(arg2Val.m) = 4) and
                        not (47 in arg2Val.m) then _(
-                        (* m-, x * 2**k: add k to the exponent *)
+                        (* x * 2**k: add k to the exponent *)
                         prepLoad;
                         work := 47 - minel(arg2Val.m - intZero);
                         addToInsnList(KNTR);
