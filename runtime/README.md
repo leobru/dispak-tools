@@ -39,6 +39,18 @@ zones `0066–0067`. `python3 runtime/box/build.py` reproduces all 527 applicati
 words and the full runtime literally; only `02010.L` differs in the complete
 two-zone image. The build dumps the image without executing BOX commands.
 
+[MT recovery](mt/README.md) restores the tape-control utility from volume 4001
+zones `0172–0174`. `python3 runtime/mt/build.py` reproduces all 771 application
+words and all 1333 runtime words literally; only `02010.L` differs in the
+complete image. The uncatalogued MT at `0104–0105` corroborates the common
+parser and service modules after relocation.
+
+[МОНИТР recovery](monitr/README.md) restores the Pascal part of the Monitor's
+command interpreter, volume 4001 zones `0002–0010`. `python3
+runtime/monitr/build.py` reproduces the application, constants, globals and
+runtime (`02000–07431`) literally, except `02010.L`. The memory above FREE
+held buffers left in core when the image was written and is not reproduced.
+
 Four selectable libraries have been recovered as relocatable Madlen:
 
 | Profile | Source binary | Runtime words | Public entries |

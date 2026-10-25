@@ -1,0 +1,387 @@
+{
+  "reference": "runtime/images/4001/0172-mt.bin",
+  "reference_sha256": "5dbe66f34992890b56800f7165e72da2daa214b4a38ab3eb48028b2a30d2cc3c",
+  "reference_zones": [
+    "0172",
+    "0173",
+    "0174"
+  ],
+  "variant": "runtime/images/4001/0104-orphan-0104.bin",
+  "variant_sha256": "89c85ddab46970f9bc3eb7a891625b84dd8df7a21d102c03d6d4b43527214e2a",
+  "variant_zones": [
+    "0104",
+    "0105"
+  ],
+  "variant_cataloged": false,
+  "reference_code_words": 481,
+  "variant_code_words": 409,
+  "common_regions": [
+    {
+      "name": "GETCMDLI",
+      "reference_range": [
+        "02013",
+        "02051"
+      ],
+      "variant_range": [
+        "02013",
+        "02051"
+      ],
+      "words": 31,
+      "address_fixups": 13,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "\u041fPO\u0413OH",
+      "reference_range": [
+        "02052",
+        "02071"
+      ],
+      "variant_range": [
+        "02052",
+        "02071"
+      ],
+      "words": 16,
+      "address_fixups": 11,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "\u041fO\u0414\u0413OH",
+      "reference_range": [
+        "02072",
+        "02107"
+      ],
+      "variant_range": [
+        "02072",
+        "02107"
+      ],
+      "words": 14,
+      "address_fixups": 10,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "\u041fPO\u0411",
+      "reference_range": [
+        "02110",
+        "02117"
+      ],
+      "variant_range": [
+        "02110",
+        "02117"
+      ],
+      "words": 8,
+      "address_fixups": 4,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "CO\u0413\u041bACEH",
+      "reference_range": [
+        "02120",
+        "02140"
+      ],
+      "variant_range": [
+        "02120",
+        "02140"
+      ],
+      "words": 17,
+      "address_fixups": 8,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "B\u041bEKC",
+      "reference_range": [
+        "02141",
+        "02205"
+      ],
+      "variant_range": [
+        "02141",
+        "02205"
+      ],
+      "words": 37,
+      "address_fixups": 18,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "C\u041bEKC",
+      "reference_range": [
+        "02206",
+        "02260"
+      ],
+      "variant_range": [
+        "02206",
+        "02260"
+      ],
+      "words": 43,
+      "address_fixups": 12,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "DIGIT",
+      "reference_range": [
+        "02261",
+        "02315"
+      ],
+      "variant_range": [
+        "02261",
+        "02315"
+      ],
+      "words": 29,
+      "address_fixups": 10,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "DECODE",
+      "reference_range": [
+        "02316",
+        "02336"
+      ],
+      "variant_range": [
+        "02316",
+        "02336"
+      ],
+      "words": 17,
+      "address_fixups": 7,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "SCANNUM",
+      "reference_range": [
+        "02337",
+        "02402"
+      ],
+      "variant_range": [
+        "02337",
+        "02402"
+      ],
+      "words": 36,
+      "address_fixups": 19,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "READNUM",
+      "reference_range": [
+        "02403",
+        "02416"
+      ],
+      "variant_range": [
+        "02403",
+        "02416"
+      ],
+      "words": 12,
+      "address_fixups": 7,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "READAGRE",
+      "reference_range": [
+        "02417",
+        "02432"
+      ],
+      "variant_range": [
+        "02417",
+        "02432"
+      ],
+      "words": 12,
+      "address_fixups": 7,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "INITFILES",
+      "reference_range": [
+        "02433",
+        "02444"
+      ],
+      "variant_range": [
+        "02433",
+        "02444"
+      ],
+      "words": 10,
+      "address_fixups": 5,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "LIB",
+      "reference_range": [
+        "04203",
+        "04621"
+      ],
+      "variant_range": [
+        "04055",
+        "04473"
+      ],
+      "words": 271,
+      "address_fixups": 80,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "TAPEIO",
+      "reference_range": [
+        "04622",
+        "04653"
+      ],
+      "variant_range": [
+        "04474",
+        "04525"
+      ],
+      "words": 26,
+      "address_fixups": 6,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "DBPASC",
+      "reference_range": [
+        "05367",
+        "05421"
+      ],
+      "variant_range": [
+        "05241",
+        "05273"
+      ],
+      "words": 27,
+      "address_fixups": 3,
+      "equal_after_relocation": true
+    },
+    {
+      "name": "DBCORE",
+      "reference_range": [
+        "05422",
+        "05561"
+      ],
+      "variant_range": [
+        "05274",
+        "05433"
+      ],
+      "words": 96,
+      "address_fixups": 39,
+      "equal_after_relocation": true
+    }
+  ],
+  "reference_commands": [
+    {
+      "command": "\u0417B",
+      "minimum_length": 2
+    },
+    {
+      "command": "\u0417H",
+      "minimum_length": 2
+    },
+    {
+      "command": "\u0424B",
+      "minimum_length": 2
+    },
+    {
+      "command": "\u0424H",
+      "minimum_length": 2
+    },
+    {
+      "command": "\u041fH",
+      "minimum_length": 2
+    },
+    {
+      "command": "TM",
+      "minimum_length": 2
+    },
+    {
+      "command": "\u041f8",
+      "minimum_length": 2
+    },
+    {
+      "command": "\u041f32",
+      "minimum_length": 2
+    },
+    {
+      "command": "\u041f63",
+      "minimum_length": 2
+    },
+    {
+      "command": "CT",
+      "minimum_length": 2
+    },
+    {
+      "command": "FSR",
+      "minimum_length": 3
+    },
+    {
+      "command": "BSR",
+      "minimum_length": 3
+    },
+    {
+      "command": "FSF",
+      "minimum_length": 3
+    },
+    {
+      "command": "BSF",
+      "minimum_length": 3
+    },
+    {
+      "command": "REW",
+      "minimum_length": 3
+    },
+    {
+      "command": "WTM",
+      "minimum_length": 3
+    },
+    {
+      "command": "D8",
+      "minimum_length": 2
+    },
+    {
+      "command": "D32",
+      "minimum_length": 3
+    },
+    {
+      "command": "D63",
+      "minimum_length": 3
+    },
+    {
+      "command": "ERG",
+      "minimum_length": 2
+    }
+  ],
+  "variant_commands": [
+    {
+      "command": "\u0417B",
+      "minimum_length": 2
+    },
+    {
+      "command": "\u0417H",
+      "minimum_length": 2
+    },
+    {
+      "command": "\u0424B",
+      "minimum_length": 2
+    },
+    {
+      "command": "\u0424H",
+      "minimum_length": 2
+    },
+    {
+      "command": "\u041fH",
+      "minimum_length": 2
+    },
+    {
+      "command": "TM",
+      "minimum_length": 2
+    },
+    {
+      "command": "\u041f8",
+      "minimum_length": 2
+    },
+    {
+      "command": "\u041f32",
+      "minimum_length": 2
+    },
+    {
+      "command": "\u041f63",
+      "minimum_length": 2
+    },
+    {
+      "command": "CT",
+      "minimum_length": 2
+    }
+  ],
+  "device_selection": {
+    "0172": "Parses optional -T and an ALFA device name; default MT",
+    "0104": "Calls LIB with the literal MT before reading commands"
+  },
+  "chronology": "0172 has additional features; neither image supplies a build date"
+}
