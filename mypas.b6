@@ -8202,17 +8202,6 @@ _( (* programme *)
             formOperator(gen14);
         _)
     _);
-    if (curProcNesting = 1) then _(
-        curExternFile := externFileList;
-        while (curExternFile <> NIL) do _(
-            if (curExternFile@.line = 0) then _(
-                error(80); (* errUndefinedExternFile *)
-                printTextWord(curExternFile@.id);
-                writeLN;
-            _);
-            curExternFile := curExternFile@.next;
-        _)
-    _); (*23035*)
     outputObjFile;
     while (SY = PROCSY) or (SY = FUNCSY) do _(
         l2bool8z := SY = PROCSY;
@@ -8364,6 +8353,18 @@ _( (* programme *)
         errAndSkip(84 (* errErrorInDeclarations *), skipToSet);
 %        writeln(' here with ', SY, ' line ', lineCnt:0);
     until SY in statBegSys;
+% Under (*=Y+*) a later VAR part may declare a program parameter.
+    if (curProcNesting = 1) then _(
+        curExternFile := externFileList;
+        while (curExternFile <> NIL) do _(
+            if (curExternFile@.line = 0) then _(
+                error(80); (* errUndefinedExternFile *)
+                printTextWord(curExternFile@.id);
+                writeLN;
+            _);
+            curExternFile := curExternFile@.next;
+        _)
+    _); (*23035*)
     if (preDefHead <> ptr(0)) then _(
         error(85); (* errNotFullyDefinedProcedures *)
         while (preDefHead <> ptr(0)) do _(
