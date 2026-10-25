@@ -2,7 +2,8 @@
 """Extract and inventory NEWPASC memory images, including overlays, from 4001.
 
 Usage: python3 runtime/corpus.py [--volume /path/to/4001] [--output runtime]
-The volume is opened read-only. Addresses, zones and lengths in JSON are octal
+The volume is opened read-only. Missing root binaries (test.bin, тестац.bin,
+mark3.bin, pak.bin) are first dumped from volumes 4001 and 2113 with besmtool. Addresses, zones and lengths in JSON are octal
 strings; word counts are decimal. Binary outputs contain six big-endian bytes
 per word, with core address 02000 at file offset zero.
 """
@@ -13,6 +14,7 @@ import json
 import os
 from pathlib import Path
 import struct
+import subprocess
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE = 0o2000
@@ -30,6 +32,11 @@ SLUGS = {
     0o106: 'copy', 0o111: 'tabcod', 0o112: 'link', 0o132: 'acc3',
     0o172: 'mt', 0o175: 'link1', 0o215: 'acc2', 0o255: 'blink1',
     0o275: 'blink', 0o315: 'comp', 0o325: 'newker',
+}
+# Root binaries: volume, first zone (octal), number of zones.
+ROOT_IMAGES = {
+    'mark3.bin': ('2113', '01243', 3), 'pak.bin': ('2113', '01246', 4),
+    'test.bin': ('4001', '0061', 2), 'тестац.bin': ('4001', '0057', 2),
 }
 
 
@@ -141,6 +148,20 @@ def root_record(path):
                 **info)
 
 
+def fetch_roots():
+    for name, (disk, zone, length) in ROOT_IMAGES.items():
+        path = ROOT / name
+        if path.exists():
+            continue
+        # besmtool does not truncate an existing file, so dump to a new one.
+        part = path.with_name(name + '.part')
+        part.unlink(missing_ok=True)
+        subprocess.run(['besmtool', 'dump', disk, f'--start={zone}',
+                        f'--length={length}', f'--to-file={part}'],
+                       check=True, stdout=subprocess.DEVNULL)
+        part.rename(path)
+
+
 def extract(volume, output):
     raw, words = volume_words(volume)
     original_hash = sha(raw)
@@ -193,7 +214,8 @@ def extract(volume, output):
         if owner:
             record['catalog'] = owner
         images.append(record)
-    roots = [root_record(p) for p in sorted(ROOT.glob('*.bin'))]
+    fetch_roots()
+    roots = [root_record(ROOT / n) for n in sorted(ROOT_IMAGES)]
     for record in images:
         record['duplicates'] = [r['path'] for r in roots
                                 if r['sha256'] == record['sha256']]
