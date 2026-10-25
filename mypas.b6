@@ -108,6 +108,8 @@ const
     KYTA =      0310000B;
 %   KASN =      0360000B;
     KNTR =      0370000B;
+    KEADDI =    0340000B;
+    KESUBI =    0350000B;
     KATI =      0400000B;
 %   KSTI =      0410000B;
     KITA =      0420000B;
@@ -3439,7 +3441,7 @@ _( (* genEntry *)
         addToInsnList(KATX+SP);
     traceEntry(true);
     if l5bool10z then _(
-        addToInsnList(KNTR+2);
+        addToInsnList(KNTR+6);
         insnList@.next@.mode := 4;
     _);
     if l5bool9z then _(
@@ -3778,6 +3780,19 @@ _( (* genFullExpr *);
                         genHelper;
                     _);
                 opfDIV: _(
+                    if arg2Const and (card(arg2Val.m) = 4) then _(
+                        (* x div 2**k: subtract k from the exponent *)
+                        prepLoad;
+                        work := 47 - minel(arg2Val.m - intZero);
+                        if work = 0 then
+                            l3int3z := insnList@.next@.mode
+                        else _(
+                            addToInsnList(KESUBI + 64 + work);
+                            insnList@.next@.mode := 1;
+                            addToInsnList(KADD+ZERO);
+                            l3int3z := 0;
+                        _)
+                    _) else
                     if arg2Const then _(
                         prepLoad;
                         genConstDiv;
@@ -3786,6 +3801,28 @@ _( (* genFullExpr *);
                         genHelper;
                 _);
                 opfMULMSK: _(
+                    if arg1Const and not fixMult and
+                       (card(arg1Val.m) = 4) then _(
+                        saved := insnList;
+                        insnList := otherIns;
+                        otherIns := saved;
+                        arg2Val := arg1Val;
+                        arg1Const := false;
+                        arg2Const := true;
+                    _);
+                    if arg2Const and not fixMult and
+                       (card(arg2Val.m) = 4) and
+                       not (47 in arg2Val.m) then _(
+                        (* m-, x * 2**k: add k to the exponent *)
+                        prepLoad;
+                        work := 47 - minel(arg2Val.m - intZero);
+                        addToInsnList(KNTR);
+                        addToInsnList(KEADDI + 64 + work);
+                        addToInsnList(KNTR+7);
+                        addToInsnList(KADD+ZERO);
+                        l3int3z := 2;
+                        goto 10122;
+                    _);
                     if (arg1Const) then _(
                         insnList@.ilf5.m := arg1Val.m MOD [1, 3];
                     _) else _(
