@@ -3,7 +3,9 @@
 МОНИТР is the command interpreter of the ДВС cross-development Monitor on
 volume **4001**. Its Pascal part is the NEWPASC image in catalog zones
 **0002–0010** (octal), seven zones loaded from `02000`. Zone 0001, read first
-by `ЕВ7`, is not part of this recovery.
+by `ЕВ7`, is recovered separately as the [BEMSH starter](starter.md).
+`python3 runtime/monitr/build-starter.py` assembles it and runs `ЗОНГП` on a
+private disk: all 1024 words match the original zone 0001.
 
 The interpreter reads a command line, recognises `$`-commands and starts any
 other name as a program from the current library:
