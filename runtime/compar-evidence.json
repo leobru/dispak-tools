@@ -1,0 +1,507 @@
+{
+  "image": "images/4001/0315-comp.bin",
+  "sha256": "4a448553b9499d719f770c33e32a0cab200ca718557493e44c067a8df0858d34",
+  "source": "compar.b6",
+  "source_sha256": "39606c57f36cf8c4597a1e4fa764d3b48b5d2060859c81b8b1a7b1f7f5be037b",
+  "notation": "octal addresses, exclusive range ends, decimal word counts",
+  "helpers": [
+    {
+      "name": "P/STAR",
+      "start": "06320",
+      "end": "06332",
+      "words": 10,
+      "source_line": 85,
+      "role": "Packed-element assignment",
+      "calls": [
+        {
+          "address": "02147",
+          "half": "L",
+          "register": "15"
+        },
+        {
+          "address": "02157",
+          "half": "L",
+          "register": "15"
+        },
+        {
+          "address": "02545",
+          "half": "L",
+          "register": "15"
+        },
+        {
+          "address": "02556",
+          "half": "L",
+          "register": "15"
+        },
+        {
+          "address": "02712",
+          "half": "L",
+          "register": "15"
+        },
+        {
+          "address": "02723",
+          "half": "L",
+          "register": "15"
+        },
+        {
+          "address": "04043",
+          "half": "L",
+          "register": "15"
+        }
+      ]
+    },
+    {
+      "name": "P/31",
+      "start": "06600",
+      "end": "06602",
+      "words": 2,
+      "source_line": 134,
+      "role": "Nested-frame restore; preserves A in COMP",
+      "calls": []
+    },
+    {
+      "name": "P/WC",
+      "start": "06717",
+      "end": "06724",
+      "words": 5,
+      "source_line": 310,
+      "role": "Character output with field width",
+      "calls": [
+        {
+          "address": "03033",
+          "half": "L",
+          "register": "15"
+        },
+        {
+          "address": "03231",
+          "half": "L",
+          "register": "15"
+        },
+        {
+          "address": "04237",
+          "half": "L",
+          "register": "15"
+        }
+      ]
+    },
+    {
+      "name": "P/EQ",
+      "start": "06724",
+      "end": "06731",
+      "words": 5,
+      "source_line": 397,
+      "role": "Multiword array equality",
+      "calls": [
+        {
+          "address": "03440",
+          "half": "L",
+          "register": "15"
+        },
+        {
+          "address": "03554",
+          "half": "L",
+          "register": "15"
+        },
+        {
+          "address": "03670",
+          "half": "L",
+          "register": "15"
+        },
+        {
+          "address": "03745",
+          "half": "L",
+          "register": "15"
+        },
+        {
+          "address": "04233",
+          "half": "L",
+          "register": "15"
+        }
+      ]
+    },
+    {
+      "name": "P/A6",
+      "start": "06745",
+      "end": "06754",
+      "words": 7,
+      "source_line": 492,
+      "role": "ALFA output with field width",
+      "calls": [
+        {
+          "address": "04003",
+          "half": "R",
+          "register": "15"
+        },
+        {
+          "address": "04022",
+          "half": "R",
+          "register": "15"
+        },
+        {
+          "address": "04624",
+          "half": "R",
+          "register": "15"
+        },
+        {
+          "address": "04643",
+          "half": "R",
+          "register": "15"
+        }
+      ]
+    },
+    {
+      "name": "P/MI",
+      "start": "07241",
+      "end": "07244",
+      "words": 3,
+      "source_line": 547,
+      "role": "Integer multiplication result",
+      "calls": [
+        {
+          "address": "04360",
+          "half": "R",
+          "register": "15"
+        }
+      ]
+    }
+  ],
+  "externals": [
+    {
+      "name": "E6365",
+      "address": "06365",
+      "source_line": 229,
+      "role": "Read a line from the first legacy text stream",
+      "calls": [
+        {
+          "address": "02462",
+          "half": "L",
+          "register": "15"
+        }
+      ]
+    },
+    {
+      "name": "E6444",
+      "address": "06444",
+      "source_line": 171,
+      "role": "Initialize the first legacy text stream",
+      "calls": [
+        {
+          "address": "02226",
+          "half": "L",
+          "register": "15"
+        }
+      ]
+    },
+    {
+      "name": "E6602",
+      "address": "06602",
+      "source_line": 266,
+      "role": "Read a line from the second legacy text stream",
+      "calls": [
+        {
+          "address": "02634",
+          "half": "L",
+          "register": "15"
+        }
+      ]
+    },
+    {
+      "name": "E6661",
+      "address": "06661",
+      "source_line": 192,
+      "role": "Initialize the second legacy text stream",
+      "calls": [
+        {
+          "address": "02271",
+          "half": "L",
+          "register": "15"
+        }
+      ]
+    },
+    {
+      "name": "E7036",
+      "address": "07036",
+      "source_line": 538,
+      "role": "Format a monitor error code into text",
+      "calls": [
+        {
+          "address": "04317",
+          "half": "L",
+          "register": "15"
+        }
+      ],
+      "api": {
+        "name": "ERROR",
+        "use_source": "sources/4001/copy.b6",
+        "use_line": 268,
+        "declaration_recovered": false,
+        "evidence": "COPY calls ERROR(KO, TOШ) in the same error-printing wrapper; the include does not declare ERROR"
+      }
+    },
+    {
+      "name": "E7443",
+      "address": "07443",
+      "source_line": 565,
+      "role": "Parse a file specification; arguments are commented out",
+      "calls": [
+        {
+          "address": "04447",
+          "half": "R",
+          "register": "15"
+        },
+        {
+          "address": "04461",
+          "half": "R",
+          "register": "15"
+        },
+        {
+          "address": "04514",
+          "half": "L",
+          "register": "15"
+        },
+        {
+          "address": "04565",
+          "half": "L",
+          "register": "15"
+        }
+      ],
+      "api": {
+        "name": "MKNAME",
+        "declaration_source": "sources/4001/dbf.inc.b6",
+        "declaration_line": 43,
+        "parameters": [
+          "VAR PSTRING",
+          "ALFA",
+          "ALFA",
+          "VAR WORD3"
+        ],
+        "result": "INT",
+        "evidence": "Include declaration agrees with COMP argument setup and COPY use"
+      }
+    },
+    {
+      "name": "E7667",
+      "address": "07667",
+      "source_line": 584,
+      "role": "Resolve a file descriptor to an address; arguments are commented out",
+      "calls": [
+        {
+          "address": "04526",
+          "half": "R",
+          "register": "15"
+        },
+        {
+          "address": "04537",
+          "half": "L",
+          "register": "15"
+        },
+        {
+          "address": "04577",
+          "half": "R",
+          "register": "15"
+        },
+        {
+          "address": "04610",
+          "half": "L",
+          "register": "15"
+        }
+      ],
+      "api": {
+        "name": "OPENF",
+        "declaration_source": "sources/4001/dbf.inc.b6",
+        "declaration_line": 29,
+        "parameters": [
+          "VAR WORD3",
+          "BOOL",
+          "VAR INT"
+        ],
+        "result": "INT",
+        "evidence": "Include declaration agrees with COMP argument setup and COPY use"
+      }
+    }
+  ],
+  "api_source_hashes": {
+    "dbf.inc.b6": "b12cabb20a63420140f8c9e96a47fd78775e40be896a0b2f7169087e3c5df3b5",
+    "copy.b6": "1a382df82450bc2dee3712bb76034807a3527f56f31b17eef42a1b030f429917"
+  },
+  "cross_profile_comparisons": [
+    {
+      "name": "P/STAR",
+      "reference": "тестац.bin",
+      "reference_range": [
+        "03774",
+        "04006"
+      ],
+      "range": [
+        "06320",
+        "06332"
+      ],
+      "words": 10,
+      "match": true,
+      "relocations": []
+    },
+    {
+      "name": "P/3",
+      "reference": "тестац.bin",
+      "reference_range": [
+        "04016",
+        "04022"
+      ],
+      "range": [
+        "06361",
+        "06365"
+      ],
+      "words": 4,
+      "match": true,
+      "relocations": []
+    },
+    {
+      "name": "P/31",
+      "reference": "тестац.bin",
+      "reference_range": [
+        "04041",
+        "04043"
+      ],
+      "range": [
+        "06600",
+        "06602"
+      ],
+      "words": 2,
+      "match": false,
+      "relocations": null
+    },
+    {
+      "name": "P/WC",
+      "reference": "mark3.bin",
+      "reference_range": [
+        "05361",
+        "05366"
+      ],
+      "range": [
+        "06717",
+        "06724"
+      ],
+      "words": 5,
+      "match": true,
+      "relocations": [
+        {
+          "word": "06721",
+          "half": "L",
+          "reference": "05560",
+          "target": "14104"
+        },
+        {
+          "word": "06723",
+          "half": "R",
+          "reference": "05077",
+          "target": "06310"
+        }
+      ]
+    },
+    {
+      "name": "P/6A",
+      "reference": "тестац.bin",
+      "reference_range": [
+        "04037",
+        "04041"
+      ],
+      "range": [
+        "06743",
+        "06745"
+      ],
+      "words": 2,
+      "match": true,
+      "relocations": [
+        {
+          "word": "06744",
+          "half": "R",
+          "reference": "04076",
+          "target": "06502"
+        }
+      ]
+    },
+    {
+      "name": "P/A6",
+      "reference": "mark3.bin",
+      "reference_range": [
+        "05366",
+        "05375"
+      ],
+      "range": [
+        "06745",
+        "06754"
+      ],
+      "words": 7,
+      "match": true,
+      "relocations": [
+        {
+          "word": "06750",
+          "half": "L",
+          "reference": "05560",
+          "target": "14104"
+        },
+        {
+          "word": "06753",
+          "half": "L",
+          "reference": "05104",
+          "target": "06743"
+        }
+      ]
+    }
+  ],
+  "ttio": [
+    {
+      "instructions": [
+        "03775.L",
+        "03775.R",
+        "03776.L"
+      ],
+      "constant": "04732",
+      "value": 1,
+      "destination": "06335"
+    },
+    {
+      "instructions": [
+        "04672.L",
+        "04672.R",
+        "04673.L"
+      ],
+      "constant": "05407",
+      "value": 6,
+      "destination": "06335"
+    }
+  ],
+  "monout_table_changes": [
+    {
+      "reference": "03214",
+      "comp": "10506",
+      "before": "0401053141407416",
+      "after": "0401053141407417"
+    },
+    {
+      "reference": "03217",
+      "comp": "10511",
+      "before": "0705613303607417",
+      "after": "0705613303607416"
+    }
+  ],
+  "monin_table": {
+    "reference": [
+      "03264",
+      "03314"
+    ],
+    "comp": [
+      "10556",
+      "10616"
+    ],
+    "shared_prefix_words": 24,
+    "additional_words": 8
+  },
+  "common_constant_changes": [
+    {
+      "offset": "046",
+      "before": "0000000000000000",
+      "after": "0000000000100000"
+    }
+  ]
+}
