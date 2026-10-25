@@ -28,6 +28,17 @@ file-access library. `python3 runtime/more/build.py` produces a complete image
 and a private repaired volume 4001, preserving every zone outside MORE's
 three-zone allocation and leaving the original volume unchanged.
 
+[MTD recovery](mtd/README.md) restores the small tape-to-disk copier from
+volume 4001 zones `0047–0050`. `python3 runtime/mtd/build.py` rebuilds it on
+private disks: all 677 application words and the complete runtime match the
+original literally. The full two-zone image differs only in the loader value
+at `02010.L`.
+
+[BOX recovery](box/README.md) restores the Monitor utility from volume 4001
+zones `0066–0067`. `python3 runtime/box/build.py` reproduces all 527 application
+words and the full runtime literally; only `02010.L` differs in the complete
+two-zone image. The build dumps the image without executing BOX commands.
+
 Four selectable libraries have been recovered as relocatable Madlen:
 
 | Profile | Source binary | Runtime words | Public entries |

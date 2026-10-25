@@ -1,0 +1,120 @@
+{
+  "range": [
+    "02012",
+    "03030"
+  ],
+  "words": 527,
+  "code_words": 363,
+  "rebuilt_pool": "02565",
+  "globals": "02662",
+  "mismatches": 0,
+  "differences": [],
+  "runtime_fixups": [],
+  "full_image_different_words": 1,
+  "full_image_differences": [
+    {
+      "word": "02010",
+      "original": "0003060000004165",
+      "rebuilt": "0002740000004165",
+      "cause": "loader descriptor left half; right half FREE is identical"
+    }
+  ],
+  "full_image_words": 2048,
+  "full_image_identical_words": 2047,
+  "unexplained_differences": 0,
+  "regions": [
+    {
+      "name": "code",
+      "range": [
+        "02012",
+        "02564"
+      ],
+      "words": 363,
+      "identical_words": 363,
+      "bit_identical": true
+    },
+    {
+      "name": "constants",
+      "range": [
+        "02565",
+        "02661"
+      ],
+      "words": 61,
+      "identical_words": 61,
+      "bit_identical": true
+    },
+    {
+      "name": "initial_globals_and_files",
+      "range": [
+        "02662",
+        "03030"
+      ],
+      "words": 103,
+      "identical_words": 103,
+      "bit_identical": true
+    },
+    {
+      "name": "runtime",
+      "range": [
+        "03031",
+        "04164"
+      ],
+      "words": 604,
+      "identical_words": 604,
+      "bit_identical": true
+    },
+    {
+      "name": "padding",
+      "range": [
+        "04165",
+        "05777"
+      ],
+      "words": 907,
+      "identical_words": 907,
+      "bit_identical": true
+    }
+  ],
+  "application_bit_identical": true,
+  "placement": {
+    "PROGRAM": "02012",
+    "P/1D": "02662",
+    "*INPUT*": "02735",
+    "*OUTPUT*": "02773",
+    "FREE": "04165"
+  },
+  "placement_matches": true,
+  "source": "runtime/box/box.pas",
+  "source_sha256": "2a5e935d1548d47bf9ee99dbcd82a64ffadc8951e78b8a9372226bbfe2dcf9ef",
+  "compiler": {
+    "source": "mypas.b6",
+    "source_sha256": "09dde1704f6de971d861e8e915e4dbacf049e7a5ddc3945730a139e61a33c4fa",
+    "volume": "runtime/build/box/77",
+    "installed_volume_sha256": "b526ca305e1a403d14edfb8cd60515bd153cc2b5c7887904262b9d14bcfb6cda",
+    "installed_volume_unchanged": true,
+    "translator_zone": "0000",
+    "assembler_last_argument": "accumulator",
+    "assembler_constant_base_restored_by_caller": true
+  },
+  "build_source_sha256": {
+    "runtime/box/build.py": "78f539261ed18a322ef4fc4c44de6134d76c7325275db789a15ba6872bd73303",
+    "runtime/mtd/build.py": "8d481be3dfdcbcac64f3ca6edbba72009792a06d10d1d4ada9c0c432d9876da1",
+    "runtime/box/box.sym": "b2b413eeac3c7a924e17289d757b638d1b3639045c5eed9eee80ac593109b747",
+    "runtime/box/box-readable.pas": "e9cef0f5d08aa1877abfd20517d63916f9c92b8ac66fd51b3c514ce843acd8c2",
+    "runtime/comp/build.py": "e34db3090536aa4c76bc255e76dc6aaf13e1e07db1180d1f5b4fd183a87642fa",
+    "runtime/more/build.py": "120de2865fe18a60b4f24ce4905d7e41fbb1baae8d169179ad01ea440ddff3ab"
+  },
+  "library_source_sha256": "f3487841ac974eaa6e5fdc19ecc72fc1aa46d4a27f53e392cb20dc9f9ec6d399",
+  "image": "runtime/build/box/box.img",
+  "image_sha256": "5b43f8ae43f5f0bb7eb4da3c10418c367738f72d46859c1254cd27b96892c383",
+  "original": "runtime/images/4001/0066-box.bin",
+  "original_zones": [
+    "0066",
+    "0067"
+  ],
+  "original_sha256": "96951aff3c85266bb929f353cc2f7ac34d5ace1e6b79a475d9c01174a4cf59d0",
+  "original_volume_sha256": "30223751b839a6273cf96a0a6ab2e8becfcef2a59dd16661022b39740974b978",
+  "original_volume_unchanged": true,
+  "installed_volume77_sha256": "b526ca305e1a403d14edfb8cd60515bd153cc2b5c7887904262b9d14bcfb6cda",
+  "installed_volume77_unchanged": true,
+  "interactive_execution": false
+}

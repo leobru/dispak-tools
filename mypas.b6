@@ -6951,8 +6951,17 @@ _( (* standProc *)
     16: repeat (* besm *)
         expression;
         formOperator(LITINSN);
-        if (SY = RPAREN) or (SY = COMMA) then 
+        if (SY = RPAREN) or (SY = COMMA) then _(
+            if ((curVal.i div 100000B) mod 40B = 24B) and
+               (curVal.i mod 100000B > 40000B) then _(
+                (* VTM immediate; no relocation as local code. *)
+                besmInsn := curVal;
+                curVal.i := getValueOrAllocSymtab(curVal.i mod 100000B);
+                curVal.i := besmInsn.i - (besmInsn.i mod 100000B) +
+                            curVal.i;
+            _);
             form1Insn(curVal.i)
+        _)
         else  _(
             besmInsn := curVal;
             checkSymAndRead(COLON);
