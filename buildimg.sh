@@ -12,6 +12,9 @@
 #   $PERSO lists the library zones to load (default "311160 320200").
 #   If prog.pre exists, its cards (e.g. *assem stubs for externals) are
 #   put into the job before the Pascal program.
+#   With LIBCODER=1 the library PASCODER is used (as in compar.b6; its stub
+#   is 10 words, user code from 02012) instead of the 9-word inline one.
+#   $ZONE (4 octal digits, default 0000) is the scratch-disk zone written.
 
 if [ $# -lt 1 ]; then echo "Usage: $0 prog.pas [ref.bin [nzones]]"; exit 1; fi
 src=$1; ref=$2; nz=${3:-2}
@@ -38,7 +41,7 @@ cat <<EOF
 EOF
 cat "$src"
 for z in ${PERSO:-311160 320200}; do echo "*perso:$z,cont"; done
-cat <<EOF
+if [ -z "$LIBCODER" ]; then cat <<EOF
 *no li
 *assem
  Р/ВООТ:,NАМЕ,DТRАN  /01.06.84/
@@ -54,7 +57,10 @@ cat <<EOF
  ,XTA,P/CODER
  ,UJ,*1
  ,END,
-*table:p/coder(w*670000,l*$nz)
+EOF
+fi
+cat <<EOF
+*table:p/coder(w*67${ZONE:-0000},l*$(printf %o $nz))
 *main pascoder
 *execute
 *end file
@@ -64,7 +70,7 @@ EOF
 } > "$work/job.b6"
 
 dispak --path="$BESM6_PATH" -l "$work/job.b6" > "$base.img.lst" 2>&1
-besmtool dump 3777 --start=0 --length="$nz" --to-file="$base.img" >/dev/null || exit 1
+besmtool dump 3777 --start=0${ZONE:-0} --length="$nz" --to-file="$base.img" >/dev/null || exit 1
 
 if [ -n "$ref" ]; then
     if cmp -s "$base.img" "$ref"; then
