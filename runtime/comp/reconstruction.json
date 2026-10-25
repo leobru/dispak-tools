@@ -37,7 +37,6 @@
     "source": "mypas.b6",
     "source_sha256": "e3bf19647a640d95ec9f57045ec4ac811819897d2c033d1c1d899881df822833",
     "volume": "runtime/build/comp/77",
-    "sha256": "8e0fcf434184421928df0af703adeb0c6ad42074d7646dcf5e5bebafbbe91c02",
     "installed_volume_sha256": "b526ca305e1a403d14edfb8cd60515bd153cc2b5c7887904262b9d14bcfb6cda",
     "installed_volume_unchanged": true,
     "translator_zone": "0000",

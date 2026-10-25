@@ -43,7 +43,6 @@
     "source": "mypas.b6",
     "source_sha256": "e3bf19647a640d95ec9f57045ec4ac811819897d2c033d1c1d899881df822833",
     "volume": "runtime/build/more/77",
-    "sha256": "b526ca305e1a403d14edfb8cd60515bd153cc2b5c7887904262b9d14bcfb6cda",
     "installed_volume_sha256": "b526ca305e1a403d14edfb8cd60515bd153cc2b5c7887904262b9d14bcfb6cda",
     "installed_volume_unchanged": true,
     "translator_zone": "0000",
@@ -136,7 +135,7 @@
   "source_sha256": "19b91f3b47a0b425aa3c196efa9932bafaf13303fbe4a77a9e3e39d0816681da",
   "build_source_hashes": {
     "more.pas": "19b91f3b47a0b425aa3c196efa9932bafaf13303fbe4a77a9e3e39d0816681da",
-    "build.py": "72457899c89831bf349241f343a893d622bff5cafcb7540e5b9b4be02042f3db"
+    "build.py": "120de2865fe18a60b4f24ce4905d7e41fbb1baae8d169179ad01ea440ddff3ab"
   },
   "image": "runtime/build/more/more.img",
   "image_sha256": "d2877c5331f238bf5273ae5ab4e5166ed937c3ab773ed1633891f465509b3ad1",
@@ -145,7 +144,6 @@
   "interactive_execution": false,
   "volume": {
     "path": "runtime/build/more/4001",
-    "sha256": "894b0b96b51eebe4e867588e0284080555a6ef494f4e125cf20e4e59d7bf8811",
     "source_sha256": "30223751b839a6273cf96a0a6ab2e8becfcef2a59dd16661022b39740974b978",
     "replaced_zones": [
       "0034",

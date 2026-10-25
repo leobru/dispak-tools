@@ -222,7 +222,8 @@ def restored_volume(work, image):
         raise ValueError('private volume changed outside MORE\'s physical zones')
     if sha(source.read_bytes()) != expected_sha:
         raise ValueError('source volume changed during reconstruction')
-    return dict(path=str(target.relative_to(ROOT)), sha256=sha(new_raw),
+    # No volume hash: every zone written by dispak carries a time stamp.
+    return dict(path=str(target.relative_to(ROOT)),
                 source_sha256=expected_sha, replaced_zones=['0034', '0035', '0036'],
                 zone_0035_nonzero_words=sum(w != 0 for w in new_words[0o35*1024:0o36*1024]),
                 other_payload_words_unchanged=True, other_physical_zones_unchanged=True,
@@ -333,7 +334,7 @@ def rebuild_compiler(work):
     if source.read_bytes() != raw:
         raise ValueError('installed compiler volume changed')
     return dict(source='mypas.b6', source_sha256=sha((ROOT/'mypas.b6').read_bytes()),
-                volume=str(target.relative_to(ROOT)), sha256=sha(target.read_bytes()),
+                volume=str(target.relative_to(ROOT)),
                 installed_volume_sha256=sha(raw), installed_volume_unchanged=True,
                 translator_zone='0000', assembler_last_argument='accumulator',
                 assembler_constant_base_restored_by_caller=True)
