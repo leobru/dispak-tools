@@ -2613,7 +2613,8 @@ _( (* P4621 *)
             goto 4654;
         _) else if (l4int2z = 18) then _(
 4650:       P4613;
-            if (l4var4z = indexreg[1]) then _(
+            if (l4var4z = indexreg[1]) and not unrollCopy then _(
+                (* under W+, a global goes as мода off(М1): no P/1D *)
                 l4var5z := 74003B;
 4654:           l4var1z.i := macro * l4var5z + l4var6z;
                 l4var6z := allocSymtab(l4var1z.m * [12:47]);
