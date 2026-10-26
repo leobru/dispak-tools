@@ -146,7 +146,7 @@ address order (`*ZA*` is four letters); `genvars.py --common` prints them
 with their addresses.
 
 Established so far:
-- The options are `(*=p-,t-,s8,y+,o-,a4,w+*)` (`w+` for items 4 and 6
+- The options are `(*=p-,t-,s8,y+,o-,a4,w+*)` (`w+` for items 2, 4 and 6
   below); the start code matches mypas.
 - The globals at M1 are the same in all three parts (`genvars.py`). The
   message table at 051 is `array [1..58] of array [0..5] of alfa`, which
@@ -172,6 +172,8 @@ relocatable expressions, of which the compiler has a limited number.
    not as an absolute P/1D address (mypas.b6 `P4621`, case
    `l4var4z = indexreg[1]`): for an indexed global in `with`, and for a
    global passed to a `var` parameter (MKNAME, OPENF, x23470, x24156).
+   mypas does so under `(*=w+*)`; then the overlay code has no P/1D
+   addresses and does not depend on where P/1D is.
 3. A boolean value of a scalar `=` or `<>` is computed without jumps:
    `нтж b; счм 025(М1); рзб (М17); чед`, followed by `нтж 8(М1)` for `=`
    (P/1D[025] is 4000000000000000).
@@ -193,10 +195,8 @@ A store of 0C without a shift (06653) is not a difference: it is `bs := []`
 into a set field, which is left-aligned and needs no shift; reads of the same
 bits as an integer (`ba`) belong to another variant of `entry`.
 
-Remaining differences of overlay 1, all from the items above or from the
-code shift they cause (ours is 021 words shorter):
-- item 2 (43 places);
-- item 3 (seven `рзб`/`чед` sequences);
-- `мода` fillers and the form of a call that ends a branch: with the call in
-  a left half the compiler writes `уиа ret(М15); пб P`, in a right half
-  `пв P; пб ret`; the halves shift with the code (13003, 13012);
+Remaining differences of overlay 1, all from item 3 or from the code shift
+it causes (ours is 6 words longer; the pool is the same):
+- item 3 (seven `рзб`/`чед` sequences, 05302, 07647, 11463, 13326, 13654,
+  14416, 16602);
+- `мода` fillers that move with the halves after them (ten blocks).
