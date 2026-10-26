@@ -1,0 +1,24 @@
+# part address name  (octal); "* offset name" names an M1 global
+ov1 22557 P/2
+ov1 23571 P/3
+ov1 27037 P/4
+ov1 27045 P/6
+ov1 22610 P/E
+ov1 22640 P/CO
+ov1 22730 P/IT
+ov1 22773 P/WOLN
+ov1 22774 P/WL
+ov1 23024 P/GF
+ov1 23131 P/EO
+ov1 23473 P/7A
+ov1 23510 P/WI
+ov1 23575 P/WO
+ov1 23657 P/RC
+ov1 24144 P/LDAR
+ov1 25663 MKNAME
+ov1 26107 OPENF
+ov1 27051 P/IN
+ov1 27331 P/1
+ov1 20540 *INPUT*
+ov1 20576 *OUTPUT*
+ov1 20537 OVSTK

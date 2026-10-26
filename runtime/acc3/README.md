@@ -1,0 +1,167 @@
+# АСС3: structure of the overlays
+
+АСС3 is the Эльбрус-1КБ assembler (native mode) in the Monitor's system
+library on volume **4001**, catalog zones **0132–0171** (040 zones). It is not
+one core image but a NEWPASC head and two NEWPASC overlays that run one after
+the other in the same memory. Addresses and zone numbers are octal.
+
+`python3 runtime/acc3/parts.py` splits the image into `head.bin`, `ov1.bin`
+and `ov2.bin` under `runtime/build/acc3/`.
+
+## Zone map
+
+| Zones | Part | Loaded at | Loaded by |
+|---|---|---|---|
+| 0132 | head | 02000–03777 | the Monitor's RUN (stub count 1) |
+| 0133–0135 | unused | — | — |
+| 0136–0150 | overlay 1 | 04000–31777 | head (first zone), then its own stub (count 013) |
+| 0151 | unused | — | — |
+| 0152–0167 | overlay 2 | 04000–37777 | head (first zone), then its own stub (count 016) |
+| 0170–0171 | unused | — | — |
+
+An `-t` trace of an assembly (`re-dvs/jobs/asm-tables.b6` on a private copy
+of 4001) shows exactly these exchanges. The unused zones are never read, and
+no zone of АСС3 is written. The unused zones hold fragments of the same
+runtime library at other addresses (zone 0133 from 0403 matches overlay 1 at
+30116 for 765 words; zone 0151 likewise). They are most likely left over from
+earlier builds.
+
+## Head (zone 0132)
+
+The head is the only part the Monitor loads. It occupies 02000–03633: 924
+words, 508 of them non-zero.
+
+| Addresses | Words | Contents |
+|---|---:|---|
+| 02000–02012 | 11 | PASCODER stub; `02006`/`02007` exchange words (drive 040), `02010` FREE = 040000, `02011` count 1 |
+| 02013–02030 | 14 | main program |
+| 02031–02043 | 11 | constant pool (M10) |
+| 02044–02113 | 40 | P/1D |
+| 02114–03605 | 826 | globals shared with both overlays |
+| 03606–03633 | 22 | services: cell-052 read, overlay loader, P/1 |
+
+The main program takes the running file's descriptor from cell 052 (set by
+the Monitor's SETDESCR). It keeps the low 18 bits and sets a read of one zone
+into page 2 (`0010020000000000`). Then it calls the loader at `03612` with
+zone +4, and again with zone +020. The loader does one `Э70` and jumps to
+04000. After the second overlay returns, the head ends with `Э74`.
+
+P/1 (`03626`) is the NEWPASC P/1 word for word, with M1 = 02044. FREE =
+040000 puts the stack above both overlays.
+
+Globals at 02115–02650 hold message texts. No part stores there; overlay
+stores begin at M1+0605 (02651). The texts are therefore initialised data of
+the head source. Further initialised words are at 03214–03227 and
+03347–03354.
+
+## Overlays
+
+Both overlays start with an 11-word stub. The entry is at `04013`, not
+`04012`, and the FREE word `04010` is 0. Neither overlay has PMD tables or line
+numbers: every `уиа n(М16)` loads 0.
+
+| | Overlay 1 | Overlay 2 |
+|---|---|---|
+| Entry `04013` | pool 17731, start 17724 | pool 31346, start 31341 |
+| User code | 04014–17723 (about 6100 words) | 04014–31340 (about 11000 words) |
+| Runtime | 22557–31777 (P/2 at 22557) | from 33027 (P/2) |
+| Init | 27331, keeps M1 = 02044 | 36246, same code |
+
+Globals are reached as `n(М1)` with offsets up to 01176 in both overlays, so
+the three sources declare the same global variables. Overlay 1 also has seven
+absolute references into the head's globals (02000–03600); overlay 2 has none.
+
+The runtime is an older library version that is not available as source.
+Against current builds, `libmatch.py` finds only P/1, STOP*, PASCHARS and
+P/SP. Overlay 1's runtime matches overlay 2's in 2101 of 3729 words, after
+relocation, in eight blocks. These relocated copies, and the fragments in
+the unused zones, give module boundaries and relocation bits for a
+relocatable reconstruction.
+
+## Link layout
+
+The head's P/1D is 02044–03242 (length 01177: the 050 runtime words and the
+shared globals). *INPUT* is 03243 and *OUTPUT* 03301. A common follows that
+both overlays also have after their *OUTPUT*, initialised differently. It is
+a program parameter, like МОНИТР's *TTIO*, and the code reaches it by
+absolute addresses.
+
+Each overlay has, after its pool:
+- a one-word common (overlay 1: 20537) where the overlay's P/1 saves M17;
+- its own *INPUT* (20540) and *OUTPUT* (20576);
+- the same parameter common;
+- then the runtime.
+
+The overlay's P/1 keeps the head's M1. It sets the program's exit address
+(`1(М1)`) to a routine that restores M17 and returns to the head. No copy of
+P/1D is in the overlays.
+
+The loader (`sources/dubna/dis705/loader.txt`) accepts a common declaration
+only if it is not longer than the block already allocated. It places the
+modules of P/BOOT's list level by level, the module with the PROGRAM entry
+first. After each level it places the commons declared so far.
+`runtime/acc3/ovtry.py` reproduces the overlay layout this way:
+- P/BOOT declares P/1D with the head's length;
+- a 032-word root module holds PROGRAM at 02013, so P/1D lands at 02044;
+- a filler reaches 04000;
+- OVBOOT there carries the overlay stub and its P/CODER words, and declares
+  the stack cell, *INPUT* and *OUTPUT*;
+- the overlay program, named by its module name, follows at 04013, and those
+  commons come right after it.
+
+## Decompiling overlay 1
+
+`runtime/acc3/ov1.pas` is the source being recovered. `ovtry.py` builds it
+with NEWPASC compiled from `mypas.b6` and compares the user code.
+
+Tools:
+- `annotate.py` and `names.txt` give a listing with pool values, globals
+  and runtime names;
+- `calls.py` lists the runtime entries the code calls;
+- `fields.py` lists packed-field reads and stores;
+- `poolstr.py` prints pool strings as literals;
+- `skeleton.py` lists the procedures;
+- `genvars.py` and `splice.py` generate the shared declarations.
+
+Established so far:
+- The options are `(*=p-,t-,s8,y+,o-,a4*)`; the start code matches mypas.
+- The globals at M1 are the same in all three parts (`genvars.py`). The
+  message table at 051 is `array [1..58] of array [0..5] of alfa`, which
+  gives the multiplier 6 in the pool.
+- 20634–22556 are separate common blocks, program parameters after
+  *OUTPUT*; the runtime's assembler modules use them too.
+- The runtime area holds about 70 `assembler` externals (calls followed by
+  `уиа pool(М10)`) and one `fortran` procedure (23460), whose result is
+  taken from the accumulator (`x23460(a, b); p := ;`).
+- `Э63 4; или 0` is `besm(630004B, 150000B : 0); x := ;`.
+- Library: 23146 P/CW, 23150 P/6A, 23473 P/7A, 23510 P/WI, 23575 P/WO,
+  23576 P/WH (`write(x:n hex)`), 22600 P/WC, 22773 P/WOLN, 22774 P/WL.
+
+The compiler that built АСС3 differs from mypas in the ways below. MONITR,
+COMP and the other matched programs show none of them. Items 2 and 3 save
+relocatable expressions, of which the compiler has a limited number.
+1. Each `for` statement starts and ends on a word boundary (`мода`
+   fillers). So does the jump back of `repeat ... until false`. The
+   source puts a structural label `(q)` before each `for` and on the
+   bodies that need it (`do (r) _(...`, `while c do (q) ...`,
+   `...; (r) until false`).
+2. The address of a global is formed as `мода off(М1); уиа|слиа (Мk)`,
+   not as an absolute P/1D address (mypas.b6 `P4621`, case
+   `l4var4z = indexreg[1]`): for an indexed global in `with`, and for a
+   global passed to a `var` parameter (MKNAME, OPENF, x23470, x24156).
+3. A boolean value of a scalar `=` or `<>` is computed without jumps:
+   `нтж b; счм 025(М1); рзб (М17); чед`, followed by `нтж 8(М1)` for `=`
+   (P/1D[025] is 4000000000000000).
+4. A one-element set `[e]` is `сч e; пв P/SS`; mypas adds
+   `счм []; или (М17)` unless `(*=w+*)` is set.
+5. A constant may be an actual of a `var` parameter of a `fortran`
+   procedure; it is passed as the address of its pool word (06413:
+   `x23470(..., 0C)` and `x23470(..., 2443270500000000C)`). The third
+   parameter of x23470 also takes variables of any type. mypas does both
+   under `(*=c-*)`, which the source puts around such calls.
+6. A 3-word record assignment is unrolled into three `сч`/`зп` pairs;
+   mypas does so for 2 and 3 words under `(*=w+*)`, which the source sets.
+
+A store of 0C without a shift (06653) is not a difference: it is `bs := []`
+into a set field, which is left-aligned and needs no shift; reads of the same
+bits as an integer (`ba`) belong to another variant of `entry`.
