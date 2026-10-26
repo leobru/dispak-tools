@@ -3,8 +3,9 @@
 
 Usage: python3 runtime/link1/build.py [--source candidate.pas]
 
-This builds helpers.pas plus scanner.pas, not the whole linker. External
-services and P/WH have inert link stubs; compiled routines are not executed.
+This builds helpers.pas plus scanner.pas and gather.pas, not the whole
+linker. External services have inert link stubs. P/WO and its P/WH entry use
+the recovered Monitor source, as in PROZ; compiled routines are not executed.
 Private disks, HOME and all compilation artifacts stay in runtime/build/link1.
 The comparison resolves constant-pool operands and named call relocations;
 it does not claim bit identity of the original and candidate images.
@@ -46,15 +47,36 @@ ENTRIES = [('PUTTIME',0o2013), ('PUTPATH',0o2042), ('PATHLEN',0o2070),
            ('SCANDEC',0o3153), ('SCANNAME',0o3176), ('SCANFILE',0o3230),
            ('SCANALFA',0o3312), ('GETTOKEN',0o3335), ('EXPECT',0o3455),
            ('GETFILE',0o3466), ('SELECTFILES',0o3541),
-           ('PRINTSEL',0o3641), ('READJOB',0o3717)]
-ENDS = {'BINDOBJ':0o2426, 'STAMPOBJ':0o5232, 'READJOB':0o4475}
+           ('PRINTSEL',0o3641), ('READJOB',0o3717),
+           ('PUTKIND',0o5232), ('BADOBJ',0o5276), ('RESNAME',0o5472),
+           ('NEWDEF',0o6063), ('NEWSECT',0o6101), ('NEWREF',0o6121),
+           ('SAVEPREF',0o6135), ('SAVEDATA',0o6155), ('SKIPDATA',0o6175),
+           ('SAVEEXPR',0o6204), ('BINDDEF',0o6223), ('GATHER',0o6247)]
+ENDS = {'BINDOBJ':0o2426, 'STAMPOBJ':0o5232, 'READJOB':0o4475, 'GATHER':0o7221}
 EXTERNALS = {'HASHNAME':0o21540,'CMPNAME':0o21545,'NAMELEN':0o21563,
              'GETSTAMP':0o21675,'NEWKEY':0o22232,'OBJREAD':0o22234,
              'OBJEDIT':0o22236,'FILEEDIT':0o22237,'NUMOBJS':0o22254,
              'POSITION':0o22252,'SETPOS':0o22250,
              'READPAIR':0o22240,'WRITPAIR':0o22241,'PUTTEMP':0o22243,
              'CLOSE':0o22721, 'GETFILED':0o22244,'PUTFILED':0o22245,
-             'ATTACH':0o23062, 'GETDATE':0o23165, 'P/WH':0o23001}
+             'ATTACH':0o23062, 'GETDATE':0o23165,
+             'TABREAD':0o22235, 'TABGET':0o22246, 'TABPUT':0o22247,
+             'INITVEC':0o23126, 'UNPACKNM':0o21600,
+             'UNPACKKY':0o21625, 'PACKKEY':0o21613,
+             'PUTDEF':0o22247, 'PUTSECT':0o22247, 'PUTREF':0o22247}
+
+
+def output_source():
+    """Use the P/WO+P/WH module also emitted by proz/build.py.
+
+    Recreate it from tracked source so a clean LINK1 build does not require
+    the generated runtime/build/proz/runtime.madlen bundle.
+    """
+    source = (HERE.parent/'profiles/monitor/p_wo.madlen').read_text()
+    entry = ' 14,VTM,R03373\n'
+    if source.count(entry) != 1:
+        raise ValueError('expected one hexadecimal entry in Monitor P/WO')
+    return source.replace(entry, ' P/WH:,ENTRY,\n'+entry)
 
 
 def run_job(name, cards, env, timeout=180):
@@ -117,12 +139,13 @@ def main():
     compiler(env)
     source = args.source.read_text()
     source = source.replace('% SCANNER_INCLUDE', (HERE/'scanner.pas').read_text())
+    source = source.replace('% GATHER_INCLUDE', (HERE/'gather.pas').read_text())
     for n,line in enumerate(source.splitlines(),1):
         if len(line)>72:
             raise ValueError(f'{args.source}:{n}: card exceeds 72 columns')
     stubs = ''.join(f' {name}:,NAME,\n 13,UJ,\n ,END,\n' for name in EXTERNALS)
     (WORK/'3777').write_bytes(b'')
-    cards = ('*assem\n'+stubs+'*libra:13\n*call ficmemory\n'
+    cards = ('*assem\n'+output_source()+stubs+'*libra:13\n*call ficmemory\n'
              '*trans:newpasc,,320000\n'+source+'\n'
              '*perso:311160,cont\n*perso:320200,cont\n'
              '*table:p/coder(w*670175,l*12)\n*main pascoder\n*execute\n'
@@ -138,13 +161,16 @@ def main():
     old_names = analyze.load_helpers()
     old_names.update({a:n for n,a in ENTRIES})
     old_names.update({a:n for n,a in EXTERNALS.items()})
+    old_names[0o22247] = 'TABPUT'
     old_names[0o21425] = 'PADCHAR*'
     old_names[analyze.POOL] = 'POOL'
     old_names[0o21253] = 'TIMES'
+    old_names[0o16611] = 'ABORTJOB'
     old_names.update({0o23000:'P/WO',0o23001:'P/WH',0o22615:'P/08',
                       0o22670:'P/4',0o22600:'P/EL',0o22706:'P/5',
                       0o22704:'P/42',0o22712:'P/52'})
-    names = {a:n for n,a in symbols.items()}
+    names = {a:('TABPUT' if n in ('PUTDEF','PUTSECT','PUTREF') else n)
+             for n,a in symbols.items()}
     names[target_pool] = 'POOL'
     names[symbols['P/1D']+0o572] = 'TIMES'
     for offset,name in [(0o123,'CURRENTFILE'), (0o545,'OUTFILE'),
@@ -203,6 +229,8 @@ def main():
         decl = re.match(r'(?:PROCEDURE|FUNCTION|PROGRAM)\s+(\w+)',text)
         if decl:
             pending[depth] = decl[1]
+        elif text.startswith('9999:'):
+            names[symbols['PROGRAM']+int(offset,8)] = 'ABORTJOB'
         elif text.startswith('BEGIN') and depth-2 in pending:
             compiled[pending.pop(depth-2)] = symbols['PROGRAM']+int(offset,8)
     new_starts = [compiled[name] for name,_ in ENTRIES]

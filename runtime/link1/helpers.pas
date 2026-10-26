@@ -1,9 +1,10 @@
 (*=a4,y+,p-,t-,s7,s8,o-,m-*)
 program LINK1(input, output, PADCHAR);
-% LINK1, 4001/0175: recovered helpers and the complete job parser.
-% This is NOT the complete linker: most object processing and the main
-% driver remain to be recovered. The inert main below is only for
-% compiling and comparing the recovered procedures.
+label 9999;
+% LINK1, 4001/0175: helpers, job parser and definition/reference pass.
+% This is NOT the complete linker: resolution, placement, evaluation,
+% output and the main driver remain to be recovered. The inert main
+% below is only for compiling and comparing the recovered procedures.
 % Original names are unavailable (no PMD); names describe behavior.
 type
   bitset = set of 0..47;
@@ -16,14 +17,89 @@ type
         marked: boolean; next: pkey);
     2: (first6: alfa)
   end;
-  pprefix = @prefix;
-  prefix = packed record
-    tag: integer;
-    name: pkey;
-    spare: 0..7;
-    next: pprefix;
-    low: 0..32767
+  code4 = packed array [0..3] of char;
+  codeword = packed record case integer of
+    0: (word: integer); 1: (text: code4)
   end;
+  pair = packed record case integer of
+    0: (hi, lo: integer);
+    1: (first: integer; beforelen: 0..65535;
+        count: 0..65535; afterlen: 0..65535);
+    2: (header: packed record
+          kind: 0..255; flags, prefcount: 0..15;
+          datacount: 0..255; hasname: boolean;
+          spare: 0..127; low: 0..65535 end;
+        numbers: packed record entry, count, low: 0..65535 end);
+    3: (unused: integer;
+        value: packed record high: 0..4294967295;
+               low: 0..65535 end);
+    4: (signature: packed record kind: 0..255;
+                   magic: 0..16777215; low: 0..65535 end;
+        lower: integer);
+    5: (unused5: integer;
+        definition: packed record tags: set of 0..12;
+                    low: 0..34359738367 end);
+    6: (firstcode, lastcode: codeword);
+    7: (unused7: integer; version: packed record
+          high, number: 0..255; low: 0..4294967295 end);
+    8: (account: packed record high, low: 0..16777215 end;
+        unused8: integer);
+    9: (date: packed record weekday: 0..65535;
+              low: 0..4294967295 end;
+        time: packed record seconds: 0..4294967295;
+              low: 0..65535 end);
+    10: (scopeword: packed record high, count, low: 0..65535 end;
+         unused10: integer)
+  end;
+  pairs = array [0..6] of pair;
+  pprefix = @prefix;
+  prefix = packed record case integer of
+    0: (tag, rawname: integer);
+    1: (children: pprefix; kind: 0..31; defindex: 0..8191;
+        left: pprefix; name: pkey; reserved, hidden, spare: boolean;
+        next, right: pprefix)
+  end;
+  defword0 = packed record
+    first: 0..2047; count: 0..31; tags: set of 0..12;
+    spare: 0..15; name: pprefix
+  end;
+  defword1 = packed record
+    high: 0..65535; count: 0..31; first: 0..2047;
+    spare: 0..63; fileindex: 0..1023
+  end;
+  defword2 = packed record
+    scope: 0..1023; spare: 0..63; unused: 0..7;
+    entry, resolved: boolean;
+    data: packed record case integer of
+      0: (value: 0..134217727);
+      1: (spare: 0..2047; count: 0..31; first: 0..2047)
+    end
+  end;
+  pdef = @defrec;
+  defrec = packed record case integer of
+    0: (raw0, raw1, raw2: integer);
+    1: (a: defword0; b: defword1; c: defword2)
+  end;
+  psect = @sectrec;
+  sectrec = packed record case integer of
+    0: (raw0, raw1, raw2, raw3, raw4: integer);
+    1: (high0: 0..16777215; fileindex: 0..511; name: pprefix;
+        word1: integer; high2: 0..4294967295; next: 0..65535;
+        high3: 0..4294967295; previous: 0..65535;
+        entry: pprefix; low4: 0..8589934591);
+    2: (header, links: pair; lastword: integer)
+  end;
+  pref = @refrec;
+  refrec = packed record case integer of
+    0: (raw: integer);
+    1: (name: pprefix; spare: 0..3; count: 0..15;
+        first: 0..2047; low: 0..65535)
+  end;
+  namecode = packed record
+    first6, second6, third6: alfa;
+    high: 0..32767; indexed: boolean; index, low: 0..65535
+  end;
+  defkind = (absolute, unused, reloc, computed, entryval);
   pobj = @objectrec;
   objecthead = record
     name: pkey;
@@ -41,7 +117,13 @@ type
         flags: fileflags; module: 0..1073741823);
     2: (d0, d1, d2: integer;
         filedata: packed record high: 0..262143;
-                  length: 0..4095; address: 0..262143 end)
+                  length: 0..4095; address: 0..262143 end);
+    3: (n0: packed record high: 0..32767; spare: boolean;
+             ndefs, firstdef: 0..65535 end;
+        n1: packed record nsects: 0..65535; high: 0..65535;
+             firstsect: 0..65535 end;
+        n2: packed record nrefs: 0..65535; high: 0..65535;
+             firstref: 0..65535 end; w3: integer)
   end;
   psegment = @segmentrec;
   segmentrec = packed record case integer of
@@ -84,13 +166,6 @@ type
     6: (filecode: packed record module: 0..1073741823;
                  spare: 0..262143 end)
   end;
-  pair = packed record case integer of
-    0: (hi, lo: integer);
-    1: (first: integer; beforelen: 0..65535;
-        count: 0..65535; afterlen: 0..65535)
-  end;
-  pairs = array [0..4095] of pair;
-  code4 = packed array [0..3] of char;
   dateparts = array [0..3] of integer;
 var
   g0050, g0051, g0052, g0053, g0054, g0055, g0056, g0057,
@@ -115,8 +190,8 @@ var
   g0544: integer;
   OUTFILE, SCHEMAFILE, LABELFILE: objecthead;
   SYSTEMOUT: boolean;
-  KEYPOOL, g0555, OBJPOOL, FILEPOOL, SEGPOOL, g0561, g0562, g0563,
-  g0564, g0565, g0566, g0567, g0570: integer;
+  KEYPOOL, PATHPOOL, OBJPOOL, FILEPOOL, SEGPOOL, DEFPOOL, REFPOOL,
+  SECTPOOL, PREFPOOL, ENTRYPOOL, g0566, g0567, g0570: integer;
   PHASE: stage;
   TIMES: array [stzero..stlabels] of stamp;
   MONTHDAY: array [1..13] of integer;
@@ -132,6 +207,21 @@ procedure NEWKEY(POOL: integer); fortran;
 procedure OBJREAD(POOL, INDEX: integer); fortran;
 procedure OBJEDIT(POOL, INDEX: integer); fortran;
 procedure FILEEDIT(POOL, INDEX: integer); fortran;
+procedure TABREAD(POOL, INDEX: integer); fortran;
+procedure TABGET(POOL, INDEX: integer; var RESULT: pprefix);
+  fortran;
+procedure TABPUT(POOL, INDEX: integer; var VALUE: pprefix); fortran;
+procedure PUTDEF(POOL, INDEX: integer; var VALUE: defrec); fortran;
+procedure PUTSECT(POOL, INDEX: integer; var VALUE: sectrec); fortran;
+procedure PUTREF(POOL, INDEX: integer; var VALUE: refrec); fortran;
+procedure INITVEC(SIZE, LIMIT: integer; NAME: alfa; POOL: integer);
+  fortran;
+function UNPACKNM(var CODE: namecode; var FIRST: char): integer;
+  fortran;
+function UNPACKKY(var KEY: keynode; var FIRST: char): integer;
+  fortran;
+procedure PACKKEY(var FIRST: char; N: integer; var KEY: namekey);
+  fortran;
 function NUMOBJS(POOL: integer): integer; fortran;
 function POSITION(POOL: integer): integer; fortran;
 procedure SETPOS(POOL, INDEX: integer); fortran;
@@ -450,9 +540,10 @@ begin
 end;
 
 % SCANNER_INCLUDE
+% GATHER_INCLUDE
 begin
 % Compilation harness only; no linker job is executed.
-  writeln;
+  9999: writeln;
 end.D
   NAMETAB = 0C;
   ROOTPREF = 0C;

@@ -67,9 +67,10 @@ all 22 runs passed, including multi-zone input and two-sheet printing, with
 byte-identical raw printer streams. See [execution results](fprint/execution.json).
 
 [LINK1 recovery](link1/README.md) reconstructs the Elbrus-B linker from volume
-4001 zones `0175–0214`. The current partial source covers 42 routines and
-1679 of 6543 application words, including the complete link-job parser.
-`python3 runtime/link1/build.py` compiles these routines; 34 match after
+4001 zones `0175–0214`. The current partial source covers 54 routines and
+2694 of 6543 application words, including the complete link-job parser and
+definition/reference gathering pass.
+`python3 runtime/link1/build.py` compiles these routines; 45 match after
 structural normalization. This is not yet a runnable rebuilt linker.
 
 [PASCODER and overlays](pascoder/README.md) disassembles the library image writer

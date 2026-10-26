@@ -3,11 +3,11 @@
   "source": "runtime/link1/helpers.pas",
   "method": "constants, strings, named calls, and ordered local labels resolved; UTC padding omitted",
   "original_pool": "16631",
-  "rebuilt_pool": "05220",
+  "rebuilt_pool": "07206",
   "original_application_words": 6543,
-  "recovered_words": 1679,
-  "compiled_routines": 42,
-  "normalized_identical_routines": 34,
+  "recovered_words": 2694,
+  "compiled_routines": 54,
+  "normalized_identical_routines": 45,
   "procedures": [
     {
       "name": "PUTTIME",
@@ -841,6 +841,196 @@
       "rebuilt_words": 365,
       "normalized_identical": true,
       "changes": []
+    },
+    {
+      "name": "PUTKIND",
+      "original": "05232",
+      "rebuilt": "05200",
+      "original_words": 36,
+      "rebuilt_words": 36,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
+      "name": "BADOBJ",
+      "original": "05276",
+      "rebuilt": "05244",
+      "original_words": 124,
+      "rebuilt_words": 124,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
+      "name": "RESNAME",
+      "original": "05472",
+      "rebuilt": "05440",
+      "original_words": 249,
+      "rebuilt_words": 248,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
+      "name": "NEWDEF",
+      "original": "06063",
+      "rebuilt": "06030",
+      "original_words": 14,
+      "rebuilt_words": 14,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
+      "name": "NEWSECT",
+      "original": "06101",
+      "rebuilt": "06046",
+      "original_words": 16,
+      "rebuilt_words": 16,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
+      "name": "NEWREF",
+      "original": "06121",
+      "rebuilt": "06066",
+      "original_words": 12,
+      "rebuilt_words": 12,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
+      "name": "SAVEPREF",
+      "original": "06135",
+      "rebuilt": "06102",
+      "original_words": 16,
+      "rebuilt_words": 16,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
+      "name": "SAVEDATA",
+      "original": "06155",
+      "rebuilt": "06122",
+      "original_words": 16,
+      "rebuilt_words": 16,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
+      "name": "SKIPDATA",
+      "original": "06175",
+      "rebuilt": "06142",
+      "original_words": 7,
+      "rebuilt_words": 7,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
+      "name": "SAVEEXPR",
+      "original": "06204",
+      "rebuilt": "06151",
+      "original_words": 15,
+      "rebuilt_words": 15,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
+      "name": "BINDDEF",
+      "original": "06223",
+      "rebuilt": "06170",
+      "original_words": 20,
+      "rebuilt_words": 20,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
+      "name": "GATHER",
+      "original": "06247",
+      "rebuilt": "06214",
+      "original_words": 490,
+      "rebuilt_words": 490,
+      "normalized_identical": false,
+      "changes": [
+        {
+          "tag": "delete",
+          "original": [
+            876,
+            877
+          ],
+          "rebuilt": [
+            876,
+            876
+          ],
+          "old": [
+            [
+              0,
+              31,
+              false,
+              7
+            ]
+          ],
+          "new": []
+        },
+        {
+          "tag": "delete",
+          "original": [
+            893,
+            894
+          ],
+          "rebuilt": [
+            892,
+            892
+          ],
+          "old": [
+            [
+              8,
+              9,
+              false,
+              [
+                "pool",
+                "7777777777600000"
+              ]
+            ]
+          ],
+          "new": []
+        },
+        {
+          "tag": "insert",
+          "original": [
+            895,
+            895
+          ],
+          "rebuilt": [
+            893,
+            896
+          ],
+          "old": [],
+          "new": [
+            [
+              8,
+              9,
+              false,
+              [
+                "pool",
+                "0000000077777777"
+              ]
+            ],
+            [
+              1,
+              10,
+              false,
+              9
+            ],
+            [
+              12,
+              20,
+              true,
+              [
+                "symbol",
+                "*OUTPUT*"
+              ]
+            ]
+          ]
+        }
+      ]
     }
   ],
   "linked_program_executed": false,
