@@ -503,6 +503,7 @@ var (* total size 4791 words *)
 (*3651*)    objBuffer: array [1..1024] of bitset;
 (*4675*)    iso2text: array ['_052'..'_177'] of '_000'..'_077';
 (*4761*)    dropReload: boolean;
+            unrollCopy: boolean;
 (*4762*)    fcst: file of bitset; (* last *)
 %
     pasinput: text;
@@ -1240,6 +1241,7 @@ _( (* parseComment *)
         'R': readOptFlag(fuzzReals);
         'M': readOptFlag(fixMult);
         'O': readOptFlag(dropReload);
+        'W': readOptFlag(unrollCopy);
         'B': readOptVal(fileBufSize, 4);
         'K': readOptVal(heapSize, 23);
         'Z': readOptFlag(pseudoZ);
@@ -3415,6 +3417,11 @@ _( (* genEntry *)
         if not (not l5bool9z or (l5idc22z <> FORMALID) or
                (l5idr6z@.cl <> VARID)) then
             l5idc22z := VARID;
+% Under C- a constant may be a VAR argument: pass its address in the
+% constant table.
+        if l5bool9z and (l5idc22z = VARID) and
+           (l5idr6z@.cl = FORMALID) and (insnList@.ilm = ilCONST) then
+            l5idc22z := FORMALID;
 (loop)      if (l5idc22z = FORMALID) or (l5bool11z) then _(
             P4621(14);
             addToInsnList(KITA+14);
@@ -3538,10 +3545,18 @@ _); (* startInsnList *)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 procedure genCopy;
 var
-    size: integer;
+    size, k: integer;
 _(
     size := insnList@.typ@.size;
-    if (size = 1) then _(
+% Under W+ (code as in АСС3 from volume 4001) objects of 2 or 3 words are
+% copied word by word, without a loop.
+    if unrollCopy and (size > 1) and (size < 4) then _(
+        prepMultiWord;
+        genOneOp;
+        for k := 0 to size - 1 do
+            form2Insn(KXTA+I14 + k, KATX+I12 + k);
+        set145z := set145z + [12, 14];
+    _) else if (size = 1) then _(
         saved := insnList;
         insnList := otherIns;
         prepLoad;
@@ -3707,6 +3722,15 @@ _( (* genFullExpr *);
             arg2Val := otherIns@.ilf5;
         _) else
             arg2Const := false;
+% Under W+ a union with the empty set (as in [i]) is the other operand.
+        if unrollCopy and (curOP = SETOR) then _(
+            if arg1Const and (arg1Val.m = []) then _(
+                insnList := otherIns;
+                exit
+            _);
+            if arg2Const and (arg2Val.m = []) then
+                exit
+        _);
         if (curOP IN [NEOP, EQOP, LTOP, GEOP, GTOP, LEOP, INOP]) then _(
             genComparison;
         _) else _( (* 7625 *)
@@ -5278,7 +5302,9 @@ _(
                            (l4idc7z <> FORMALID) then
                             goto 13736;
                     _) else _(
-                        if (l4idc7z <> VARID) then
+% Under C- a constant may be a VAR argument too.
+                        if (l4idc7z <> VARID) and
+                           (checkTypes or (l4op6z <> GETENUM)) then
                             goto 13736;
                     _)
                 _);
@@ -8658,6 +8684,7 @@ _(
     checkTypes := true;
     fixMult := true;
     dropReload := true;
+    unrollCopy := false;
     fuzzReals := true;
     pseudoZ := ;
     checkBounds := not (44 in curVal.m);
