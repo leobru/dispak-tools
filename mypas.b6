@@ -3766,7 +3766,14 @@ _( (* genFullExpr *);
                 opfCOMM:
 7760:               tryFlip(curOP in [MUL, PLUSOP, SETAND, INTPLUS]);
                 opfHELP:
-                    genHelper;
+                    if (curOP = badop27) and arg2Const and
+                       (abs(arg2Val.i) < 64) then _(
+                        (* shift(x, n) of an integer: сда 64+n *)
+                        prepLoad;
+                        addToInsnList(ASN64 + arg2Val.i);
+                        l3int3z := 0;
+                    _) else
+                        genHelper;
                 opfASSN: _(
                     genCopy;
                     exit
