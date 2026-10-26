@@ -1,0 +1,764 @@
+{
+  "image": "runtime/images/4001/0175-link1.bin",
+  "addresses": "octal, ends exclusive; counts decimal",
+  "loader_pages": 10,
+  "loaded_words": 10240,
+  "pool": "16631",
+  "globals": "20461",
+  "runtime": "21426",
+  "free": "24716",
+  "code_words": 6543,
+  "procedures": [
+    {
+      "entry": "02013",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 23,
+      "parent": null
+    },
+    {
+      "entry": "02042",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 15,
+      "following_entry_distance": 22,
+      "parent": null
+    },
+    {
+      "entry": "02070",
+      "level": 2,
+      "parameter_store_slots": 2,
+      "frame_words": 4,
+      "following_entry_distance": 19,
+      "parent": null
+    },
+    {
+      "entry": "02113",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 10,
+      "parent": null
+    },
+    {
+      "entry": "02125",
+      "level": 2,
+      "parameter_store_slots": 2,
+      "frame_words": 6,
+      "following_entry_distance": 37,
+      "parent": null
+    },
+    {
+      "entry": "02172",
+      "level": 2,
+      "parameter_store_slots": 2,
+      "frame_words": 9,
+      "following_entry_distance": 81,
+      "parent": null
+    },
+    {
+      "entry": "02313",
+      "level": 2,
+      "parameter_store_slots": 0,
+      "frame_words": 9,
+      "following_entry_distance": 33,
+      "parent": null
+    },
+    {
+      "entry": "02354",
+      "level": 2,
+      "parameter_store_slots": 0,
+      "frame_words": 9,
+      "following_entry_distance": 71,
+      "parent": null
+    },
+    {
+      "entry": "02463",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 4,
+      "following_entry_distance": 183,
+      "parent": "03717"
+    },
+    {
+      "entry": "02752",
+      "level": 4,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 7,
+      "parent": "03335"
+    },
+    {
+      "entry": "02761",
+      "level": 4,
+      "parameter_store_slots": 2,
+      "frame_words": 3,
+      "following_entry_distance": 4,
+      "parent": "03335"
+    },
+    {
+      "entry": "02765",
+      "level": 4,
+      "parameter_store_slots": 0,
+      "frame_words": 1,
+      "following_entry_distance": 8,
+      "parent": "03335"
+    },
+    {
+      "entry": "02775",
+      "level": 4,
+      "parameter_store_slots": 0,
+      "frame_words": 1,
+      "following_entry_distance": 9,
+      "parent": "03335"
+    },
+    {
+      "entry": "03006",
+      "level": 5,
+      "parameter_store_slots": 2,
+      "frame_words": 6,
+      "following_entry_distance": 22,
+      "parent": "03034"
+    },
+    {
+      "entry": "03034",
+      "level": 4,
+      "parameter_store_slots": 1,
+      "frame_words": 20,
+      "following_entry_distance": 79,
+      "parent": "03335"
+    },
+    {
+      "entry": "03153",
+      "level": 4,
+      "parameter_store_slots": 1,
+      "frame_words": 3,
+      "following_entry_distance": 19,
+      "parent": "03335"
+    },
+    {
+      "entry": "03176",
+      "level": 4,
+      "parameter_store_slots": 0,
+      "frame_words": 2,
+      "following_entry_distance": 26,
+      "parent": "03335"
+    },
+    {
+      "entry": "03230",
+      "level": 4,
+      "parameter_store_slots": 0,
+      "frame_words": 4,
+      "following_entry_distance": 50,
+      "parent": "03335"
+    },
+    {
+      "entry": "03312",
+      "level": 4,
+      "parameter_store_slots": 0,
+      "frame_words": 2,
+      "following_entry_distance": 19,
+      "parent": "03335"
+    },
+    {
+      "entry": "03335",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 80,
+      "parent": "03717"
+    },
+    {
+      "entry": "03455",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 9,
+      "parent": "03717"
+    },
+    {
+      "entry": "03466",
+      "level": 3,
+      "parameter_store_slots": 2,
+      "frame_words": 8,
+      "following_entry_distance": 43,
+      "parent": "03717"
+    },
+    {
+      "entry": "03541",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 7,
+      "following_entry_distance": 64,
+      "parent": "03717"
+    },
+    {
+      "entry": "03641",
+      "level": 3,
+      "parameter_store_slots": 0,
+      "frame_words": 1,
+      "following_entry_distance": 46,
+      "parent": "03717"
+    },
+    {
+      "entry": "03717",
+      "level": 2,
+      "parameter_store_slots": 0,
+      "frame_words": 51,
+      "following_entry_distance": 402,
+      "parent": null
+    },
+    {
+      "entry": "04541",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 17,
+      "parent": null
+    },
+    {
+      "entry": "04562",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 24,
+      "parent": null
+    },
+    {
+      "entry": "04612",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 19,
+      "parent": null
+    },
+    {
+      "entry": "04635",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 10,
+      "parent": null
+    },
+    {
+      "entry": "04647",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 15,
+      "parent": null
+    },
+    {
+      "entry": "04666",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 3,
+      "following_entry_distance": 18,
+      "parent": null
+    },
+    {
+      "entry": "04710",
+      "level": 2,
+      "parameter_store_slots": 0,
+      "frame_words": 5,
+      "following_entry_distance": 21,
+      "parent": null
+    },
+    {
+      "entry": "04735",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 4,
+      "following_entry_distance": 21,
+      "parent": null
+    },
+    {
+      "entry": "04762",
+      "level": 2,
+      "parameter_store_slots": 0,
+      "frame_words": 6,
+      "following_entry_distance": 17,
+      "parent": null
+    },
+    {
+      "entry": "05003",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 11,
+      "parent": null
+    },
+    {
+      "entry": "05016",
+      "level": 2,
+      "parameter_store_slots": 2,
+      "frame_words": 6,
+      "following_entry_distance": 23,
+      "parent": null
+    },
+    {
+      "entry": "05045",
+      "level": 2,
+      "parameter_store_slots": 0,
+      "frame_words": 5,
+      "following_entry_distance": 18,
+      "parent": null
+    },
+    {
+      "entry": "05067",
+      "level": 2,
+      "parameter_store_slots": 0,
+      "frame_words": 4,
+      "following_entry_distance": 9,
+      "parent": null
+    },
+    {
+      "entry": "05100",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 7,
+      "following_entry_distance": 56,
+      "parent": null
+    },
+    {
+      "entry": "05170",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 8,
+      "following_entry_distance": 35,
+      "parent": null
+    },
+    {
+      "entry": "05233",
+      "level": 4,
+      "parameter_store_slots": 0,
+      "frame_words": 4,
+      "following_entry_distance": 35,
+      "parent": "05276"
+    },
+    {
+      "entry": "05276",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 6,
+      "following_entry_distance": 125,
+      "parent": "06247"
+    },
+    {
+      "entry": "05473",
+      "level": 3,
+      "parameter_store_slots": 0,
+      "frame_words": 61,
+      "following_entry_distance": 248,
+      "parent": "06247"
+    },
+    {
+      "entry": "06063",
+      "level": 3,
+      "parameter_store_slots": 0,
+      "frame_words": 1,
+      "following_entry_distance": 14,
+      "parent": "06247"
+    },
+    {
+      "entry": "06101",
+      "level": 3,
+      "parameter_store_slots": 0,
+      "frame_words": 1,
+      "following_entry_distance": 16,
+      "parent": "06247"
+    },
+    {
+      "entry": "06121",
+      "level": 3,
+      "parameter_store_slots": 0,
+      "frame_words": 1,
+      "following_entry_distance": 12,
+      "parent": "06247"
+    },
+    {
+      "entry": "06135",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 3,
+      "following_entry_distance": 16,
+      "parent": "06247"
+    },
+    {
+      "entry": "06155",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 3,
+      "following_entry_distance": 16,
+      "parent": "06247"
+    },
+    {
+      "entry": "06175",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 3,
+      "following_entry_distance": 7,
+      "parent": "06247"
+    },
+    {
+      "entry": "06204",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 3,
+      "following_entry_distance": 16,
+      "parent": "06247"
+    },
+    {
+      "entry": "06224",
+      "level": 3,
+      "parameter_store_slots": 0,
+      "frame_words": 4,
+      "following_entry_distance": 19,
+      "parent": "06247"
+    },
+    {
+      "entry": "06247",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 82,
+      "following_entry_distance": 490,
+      "parent": null
+    },
+    {
+      "entry": "07221",
+      "level": 2,
+      "parameter_store_slots": 2,
+      "frame_words": 14,
+      "following_entry_distance": 61,
+      "parent": null
+    },
+    {
+      "entry": "07316",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 8,
+      "following_entry_distance": 54,
+      "parent": null
+    },
+    {
+      "entry": "07404",
+      "level": 2,
+      "parameter_store_slots": 0,
+      "frame_words": 6,
+      "following_entry_distance": 12,
+      "parent": null
+    },
+    {
+      "entry": "07420",
+      "level": 4,
+      "parameter_store_slots": 1,
+      "frame_words": 4,
+      "following_entry_distance": 20,
+      "parent": "07444"
+    },
+    {
+      "entry": "07444",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 42,
+      "parent": "07516"
+    },
+    {
+      "entry": "07516",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 3,
+      "following_entry_distance": 99,
+      "parent": null
+    },
+    {
+      "entry": "07661",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 3,
+      "following_entry_distance": 33,
+      "parent": null
+    },
+    {
+      "entry": "07722",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 3,
+      "following_entry_distance": 148,
+      "parent": null
+    },
+    {
+      "entry": "10146",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 12,
+      "parent": null
+    },
+    {
+      "entry": "10162",
+      "level": 3,
+      "parameter_store_slots": 0,
+      "frame_words": 2,
+      "following_entry_distance": 17,
+      "parent": "12131"
+    },
+    {
+      "entry": "10203",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 151,
+      "parent": "12131"
+    },
+    {
+      "entry": "10432",
+      "level": 3,
+      "parameter_store_slots": 0,
+      "frame_words": 1,
+      "following_entry_distance": 13,
+      "parent": "12131"
+    },
+    {
+      "entry": "10447",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 20,
+      "parent": "12131"
+    },
+    {
+      "entry": "10473",
+      "level": 3,
+      "parameter_store_slots": 0,
+      "frame_words": 2,
+      "following_entry_distance": 39,
+      "parent": "12131"
+    },
+    {
+      "entry": "10542",
+      "level": 3,
+      "parameter_store_slots": 0,
+      "frame_words": 2,
+      "following_entry_distance": 23,
+      "parent": "12131"
+    },
+    {
+      "entry": "10571",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 3,
+      "following_entry_distance": 19,
+      "parent": "12131"
+    },
+    {
+      "entry": "10614",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 3,
+      "following_entry_distance": 25,
+      "parent": "12131"
+    },
+    {
+      "entry": "10645",
+      "level": 3,
+      "parameter_store_slots": 2,
+      "frame_words": 3,
+      "following_entry_distance": 33,
+      "parent": "12131"
+    },
+    {
+      "entry": "10706",
+      "level": 3,
+      "parameter_store_slots": 2,
+      "frame_words": 3,
+      "following_entry_distance": 52,
+      "parent": "12131"
+    },
+    {
+      "entry": "10772",
+      "level": 3,
+      "parameter_store_slots": 0,
+      "frame_words": 5,
+      "following_entry_distance": 47,
+      "parent": "12131"
+    },
+    {
+      "entry": "11051",
+      "level": 3,
+      "parameter_store_slots": 0,
+      "frame_words": 5,
+      "following_entry_distance": 65,
+      "parent": "12131"
+    },
+    {
+      "entry": "11152",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 4,
+      "following_entry_distance": 101,
+      "parent": "12131"
+    },
+    {
+      "entry": "11317",
+      "level": 3,
+      "parameter_store_slots": 0,
+      "frame_words": 4,
+      "following_entry_distance": 60,
+      "parent": "12131"
+    },
+    {
+      "entry": "11413",
+      "level": 3,
+      "parameter_store_slots": 0,
+      "frame_words": 1,
+      "following_entry_distance": 95,
+      "parent": "12131"
+    },
+    {
+      "entry": "11552",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 106,
+      "parent": "12131"
+    },
+    {
+      "entry": "11724",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 133,
+      "parent": "12131"
+    },
+    {
+      "entry": "12131",
+      "level": 2,
+      "parameter_store_slots": 2,
+      "frame_words": 175,
+      "following_entry_distance": 835,
+      "parent": null
+    },
+    {
+      "entry": "13634",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 25,
+      "parent": "13665"
+    },
+    {
+      "entry": "13665",
+      "level": 2,
+      "parameter_store_slots": 2,
+      "frame_words": 9,
+      "following_entry_distance": 150,
+      "parent": null
+    },
+    {
+      "entry": "14113",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 32,
+      "parent": "14153"
+    },
+    {
+      "entry": "14153",
+      "level": 2,
+      "parameter_store_slots": 1,
+      "frame_words": 21,
+      "following_entry_distance": 112,
+      "parent": null
+    },
+    {
+      "entry": "14333",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 170,
+      "parent": "14605"
+    },
+    {
+      "entry": "14605",
+      "level": 2,
+      "parameter_store_slots": 0,
+      "frame_words": 50,
+      "following_entry_distance": 159,
+      "parent": null
+    },
+    {
+      "entry": "15044",
+      "level": 3,
+      "parameter_store_slots": 1,
+      "frame_words": 2,
+      "following_entry_distance": 15,
+      "parent": "15063"
+    },
+    {
+      "entry": "15063",
+      "level": 2,
+      "parameter_store_slots": 0,
+      "frame_words": 6,
+      "following_entry_distance": 865,
+      "parent": null
+    }
+  ],
+  "runtime_entries": {
+    "21426": "P/2",
+    "21432": "P/WI",
+    "21513": "P/CW",
+    "21515": "P/EF",
+    "21520": "P/E",
+    "21523": "P/7A",
+    "21525": "P/7AD",
+    "21540": "HASHNAME",
+    "21545": "CMPNAME",
+    "21563": "NAMELEN",
+    "21675": "GETSTAMP",
+    "21721": "P/LNGPAR",
+    "22232": "NEWKEY",
+    "22234": "OBJREAD",
+    "22236": "OBJEDIT",
+    "22240": "READPAIR",
+    "22241": "WRITPAIR",
+    "22243": "PUTTEMP",
+    "22250": "SETPOS",
+    "22252": "POSITION",
+    "22254": "NUMOBJS",
+    "22256": "P/3",
+    "22307": "P/CO",
+    "22335": "P/TF",
+    "22341": "P/RF",
+    "22377": "P/IT",
+    "22401": "P/RET",
+    "22413": "P/PF",
+    "22442": "P/WOLN",
+    "22443": "P/WL",
+    "22473": "P/GF",
+    "22575": "P/EO",
+    "22600": "P/EL",
+    "22615": "P/08",
+    "22644": "P/STAR",
+    "22656": "P/6A",
+    "22660": "P/LDAR",
+    "22670": "P/4",
+    "22674": "P/IN",
+    "22704": "P/42",
+    "22706": "P/5",
+    "22712": "P/52",
+    "22715": "P/SS",
+    "22772": "P/A7",
+    "23000": "P/WO",
+    "23001": "P/WH",
+    "23221": "P/RC",
+    "23237": "P/WC",
+    "24275": "P/HT",
+    "24307": "P/LV",
+    "24315": "P/SP",
+    "24325": "P/HIDE",
+    "24330": "P/EDIH"
+  }
+}
