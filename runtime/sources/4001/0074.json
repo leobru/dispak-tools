@@ -1,0 +1,20 @@
+{
+  "volume": "4001",
+  "zone_octal": "0074",
+  "extraction": "besmtool dump 4001 --start=074 --length=1",
+  "encoding": "GOST-10859 with packed spaces and line breaks",
+  "header_words_octal": [
+    "0000000000000437",
+    "0000000000000000",
+    "0000000000000377",
+    "0000000000210502",
+    "2755017074361700",
+    "0000000000000074"
+  ],
+  "text_start_word_octal": "0006",
+  "text_end_word_inclusive_octal": "0437",
+  "packed_zone_sha256": "40c1b998fed80d7e71e01eda5a8e36852acf3ecf525cf147e150fc925647d839",
+  "utf8_sha256": "1de7c547aeb2bc4bd8ca8f2de30b348ae65521a8ebee9f52ef5c5eeaf183c6b6",
+  "lines": 130,
+  "output": "0074.txt"
+}

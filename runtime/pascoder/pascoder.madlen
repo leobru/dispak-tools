@@ -1,0 +1,134 @@
+C Recovered from PERSO 2113/1160; labels and comments are new.
+ PASCODER:,NAME,
+ MACROBSS:,SUBP,
+ P/BOOT:,SUBP,
+ P/CODER:,SUBP,
+ PROGRAM:,SUBP,
+C 000-002: M8=self, M9=descriptor. Save optional third TABLE word.
+ 8,VTM,PASCODER
+ 9,VTM,P/CODER
+ ,NTR,3B
+ 9,XTA,2B
+ 8,ATX,60B
+ 9,XTA,
+C 003-005: reject non-octal digits in the six-digit W and two-digit L.
+ 8,AAX,44B
+ ,U1A,BADW
+ 9,XTA,1B
+ 8,AAX,46B
+ ,U1A,BADL
+ 9,XTA,
+C 006-012: pack W; memory page comes from the location of P/CODER.
+ 8,APX,45B
+ 8,ATX,56B
+ ,ASN,136B
+ ,ITS,11B
+ ,ASN,112B
+ 8,ATX,57B
+ ,ASN,42B
+ 15,AOX,
+ 9,ATX,
+ 9,XTA,1B
+C 013-021: pack L; copy cell 017; derive required pages from FREE.
+ 8,APX,47B
+ ,ASN,152B
+ ,XTS,17B
+ 9,ATX,1B
+ 8,AAX,52B
+ 8,A-X,51B
+ 8,ATX,61B
+ ,ASN,112B
+ 8,A-X,57B
+ 8,ARX,51B
+ 9,ATX,2B
+ ,ATI,1B
+ 15,X-A,
+ ,U1A,SMALL
+C 022-024: optional third word replaces only the saved stack word.
+C Its five octal digits occupy TEXT character positions 3 through 7.
+ 8,XTA,60B
+ ,UZA,WRITE
+ 8,APX,50B
+ ,ASN,141B
+ 9,ATX,1B
+ ,UTC,
+C 025-030: write successive memory pages to successive disk zones.
+ WRITE:9,*70,
+ ,UTC,
+ 9,XTA,
+ 8,ARX,55B
+ 9,ATX,
+ 1,UTM,77777B
+ 1,V1M,WRITE
+ 8,A-X,51B
+C 031-040: format the zone/word range, print it, end the build job.
+ ,ASN,42B
+ 8,AUX,53B
+ 8,ATX,72B
+ 8,XTA,56B
+ 8,AUX,53B
+ 8,ATX,70B
+ 8,XTA,61B
+ ,ASN,32B
+ 8,AUX,54B
+ 8,AOX,73B
+ 8,ATX,73B
+ 1,VTM,OKTEXT
+ REPORT:8,*64,62B
+ ,UTC,
+ ,*74,
+ ,UTC,
+ BADW:1,VTM,ERRW
+ ,UJ,REPORT
+ BADL:1,VTM,ERRL
+ ,UJ,REPORT
+ SMALL:1,VTM,ERRN
+ ,UJ,REPORT
+C 044-055: masks and constants.
+ CHKW:,LOG,0000101010101010
+ GETW:,LOG,0000070707070707
+ CHKL:,LOG,0000101000000000
+ GETL:,LOG,0000070700000000
+ GETSTK:,LOG,0000070707070700
+ ONE:,LOG,0000000000000001
+ MASK15:,LOG,0000000000077777
+ DIGITS:,GOST,6H777777
+ OFFFMT:,LOG,0000040701603400
+ NEXT:,LOG,0000010000000001
+C 056-061: writable scratch words; octal offsets retained in code.
+ FIRST:,BSS,1
+ PAGE:,BSS,1
+ OVRSTK:,BSS,1
+ LAST:,BSS,1
+C 062-063: E64 descriptor; M1 points at a success or error message.
+ PRINFO:,LOG,0400000004000000
+ PRFMT:,LOG,0000000044000000
+C 064-114: GOST messages and writable fields in the success message.
+ OKTEXT:,GOST,6H'175'--> Г
+ ,GOST,6HП ЗАПИ
+ ,GOST,6HСАНА В
+ ,GOST,6H ЗОНЫ 
+ BEGNO:,BSS,1
+ ,GOST,6H:0000-
+ ENDNO:,BSS,1
+ TAIL:,GOST,6H:0000 
+ ,GOST,6H<-- '172' 
+ ERRW:,GOST,6H! ОШИБ
+ ,GOST,6HКА В У
+ ,GOST,6HКАЗАТЕ
+ ,GOST,6HЛЕ ЗАП
+ ,GOST,6HИСИ !'172'
+ ERRL:,GOST,6H! ОШИБ
+ ,GOST,6HКА В О
+ ,GOST,6HГРАНИЧ
+ ,GOST,6HИТЕЛЕ 
+ ,GOST,6HЗАПИСИ
+ ,GOST,6H !'172'   
+ ERRN:,GOST,6H! МАЛО
+ ,GOST,6H ЗОН Д
+ ,GOST,6HЛЯ ЗАП
+ ,GOST,6HИСИ ГП
+ ,GOST,6H !'172'   
+C Fill the module to 01000 words; the next module starts on a page.
+ PAD:,BSS,663B
+ ,END,

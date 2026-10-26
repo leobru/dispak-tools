@@ -57,6 +57,31 @@ all 1574 application words and all 1709 runtime words literally. The complete
 four-zone image differs only in `02010.L`; file operations are not executed
 during the build.
 
+[FPRINT recovery](fprint/README.md) restores the line-printer utility PRINTFIL
+from volume 4001 zones `0063–0065`. `python3 runtime/fprint/build.py` reproduces
+all 1275 application words and all 1541 runtime words literally, including
+its earlier file-access library. The complete three-zone image differs only
+in `02010.L`; printer and file operations are not executed during the build.
+`python3 runtime/fprint/exercise.py` exercises both images on private disks:
+all 22 runs passed, including multi-zone input and two-sheet printing, with
+byte-identical raw printer streams. See [execution results](fprint/execution.json).
+
+[PASCODER and overlays](pascoder/README.md) disassembles the library image writer
+and its separate `P/BOOT` reader. It describes the three TABLE fields, computed
+zone count, saved stack override, and АСС3's independently implemented overlay
+loading and return convention.
+
+[КАНАЛ: purpose and interface](kanal/README.md) records the preliminary analysis
+of 4001/0023 before decompilation: multiplex-channel registers, the 16-bit data
+protocol with parity and synchronization, operator commands, file transfers
+and disk requests.
+
+[PRINT: purpose and interface](print/README.md) analyzes 4001/0051: wildcard
+selection through FIRSTF/NEXTF, line-printer output, enlarged filename banners,
+alternative PC encoding, uppercase overprinting, and command-line parameters.
+The character tables are decoded statically; this image has not been exercised
+or rebuilt.
+
 Four selectable libraries have been recovered as relocatable Madlen:
 
 | Profile | Source binary | Runtime words | Public entries |

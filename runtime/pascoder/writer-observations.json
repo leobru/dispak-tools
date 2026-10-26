@@ -1,0 +1,61 @@
+{
+  "original_library": "2113/1160",
+  "observations": [
+    {
+      "name": "writer",
+      "table": "*TABLE:P/CODER(W*660123,L*2)",
+      "program": "02012",
+      "free": "02013",
+      "cell_017": "0001220000002013",
+      "saved_descriptor_words": [
+        "0000010000660123",
+        "0001220000002013",
+        "0000000000000001"
+      ],
+      "writes": [
+        "0000010000660123"
+      ],
+      "exit_octal": "01040",
+      "trace": "runtime/build/pascoder/writer-only.trace",
+      "listing": "runtime/build/pascoder/writer.lst"
+    },
+    {
+      "name": "stack-high",
+      "table": "*TABLE:P/CODER(W*660140,L*02,S*40000)",
+      "program": "02013",
+      "free": "02014",
+      "cell_017": "0001220000002014",
+      "saved_descriptor_words": [
+        "0000010000660140",
+        "0000000000040000",
+        "0000000000000001",
+        "0000000000000000"
+      ],
+      "writes": [
+        "0000010000660140"
+      ],
+      "exit_octal": "01040",
+      "trace": "runtime/build/pascoder/stack-high.trace",
+      "listing": "runtime/build/pascoder/stack-high.lst"
+    },
+    {
+      "name": "stack-zero",
+      "table": "*TABLE:P/CODER(W*660150,L*02,S*00000)",
+      "program": "02013",
+      "free": "02014",
+      "cell_017": "0001220000002014",
+      "saved_descriptor_words": [
+        "0000010000660150",
+        "0000000000000000",
+        "0000000000000001",
+        "0000000000000000"
+      ],
+      "writes": [
+        "0000010000660150"
+      ],
+      "exit_octal": "01040",
+      "trace": "runtime/build/pascoder/stack-zero.trace",
+      "listing": "runtime/build/pascoder/stack-zero.lst"
+    }
+  ]
+}

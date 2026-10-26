@@ -1,0 +1,24 @@
+{
+  "modules": [
+    {
+      "name": "PASCODER",
+      "source_library": "2113/1160",
+      "object_sha256": "04afddbc025ecc4ed90d068950e9a7b15f0e19affe25606b66bb39640db9c168",
+      "code_words": 52,
+      "constant_words": 25,
+      "bss_words": 435,
+      "total_words": 512,
+      "artifact": "runtime/build/pascoder/pascoder.obj"
+    },
+    {
+      "name": "P/BOOT",
+      "source_library": "2113/1160",
+      "object_sha256": "703518478df3f585f592cf86224a57a3a885fad8b200f48098d65353719ac17f",
+      "code_words": 6,
+      "constant_words": 1,
+      "bss_words": 0,
+      "total_words": 7,
+      "artifact": "runtime/build/pascoder/boot.obj"
+    }
+  ]
+}

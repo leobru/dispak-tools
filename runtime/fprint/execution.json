@@ -1,0 +1,323 @@
+{
+  "checked_at": "2026-10-26T04:26:52.856314+00:00",
+  "dispak": "Version: 2.6.453-bc5c0f2",
+  "private_home": true,
+  "images_unpatched": true,
+  "scenarios": [
+    {
+      "name": "usage",
+      "passed": true,
+      "printer_streams_identical": true,
+      "runs": [
+        {
+          "name": "usage",
+          "passed": true,
+          "input_bytes": 1,
+          "data_zones_read": [],
+          "printer_calls": 0,
+          "exit_status_octal": null,
+          "artifacts": "runtime/build/fprint/exercise/original/usage"
+        },
+        {
+          "name": "usage",
+          "passed": true,
+          "input_bytes": 1,
+          "data_zones_read": [],
+          "printer_calls": 0,
+          "exit_status_octal": null,
+          "artifacts": "runtime/build/fprint/exercise/rebuilt/usage"
+        }
+      ]
+    },
+    {
+      "name": "missing-file",
+      "passed": true,
+      "printer_streams_identical": true,
+      "runs": [
+        {
+          "name": "missing-file",
+          "passed": true,
+          "input_bytes": 1,
+          "data_zones_read": [],
+          "printer_calls": 0,
+          "exit_status_octal": "10",
+          "artifacts": "runtime/build/fprint/exercise/original/missing-file"
+        },
+        {
+          "name": "missing-file",
+          "passed": true,
+          "input_bytes": 1,
+          "data_zones_read": [],
+          "printer_calls": 0,
+          "exit_status_octal": "10",
+          "artifacts": "runtime/build/fprint/exercise/rebuilt/missing-file"
+        }
+      ]
+    },
+    {
+      "name": "empty-file",
+      "passed": true,
+      "printer_streams_identical": true,
+      "runs": [
+        {
+          "name": "empty-file",
+          "passed": true,
+          "input_bytes": 1,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/original/empty-file"
+        },
+        {
+          "name": "empty-file",
+          "passed": true,
+          "input_bytes": 1,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/rebuilt/empty-file"
+        }
+      ]
+    },
+    {
+      "name": "nul-terminator",
+      "passed": true,
+      "printer_streams_identical": true,
+      "runs": [
+        {
+          "name": "nul-terminator",
+          "passed": true,
+          "input_bytes": 8,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/original/nul-terminator"
+        },
+        {
+          "name": "nul-terminator",
+          "passed": true,
+          "input_bytes": 8,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/rebuilt/nul-terminator"
+        }
+      ]
+    },
+    {
+      "name": "eot-terminator",
+      "passed": true,
+      "printer_streams_identical": true,
+      "runs": [
+        {
+          "name": "eot-terminator",
+          "passed": true,
+          "input_bytes": 8,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/original/eot-terminator"
+        },
+        {
+          "name": "eot-terminator",
+          "passed": true,
+          "input_bytes": 8,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/rebuilt/eot-terminator"
+        }
+      ]
+    },
+    {
+      "name": "tabs-cr",
+      "passed": true,
+      "printer_streams_identical": true,
+      "runs": [
+        {
+          "name": "tabs-cr",
+          "passed": true,
+          "input_bytes": 9,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/original/tabs-cr"
+        },
+        {
+          "name": "tabs-cr",
+          "passed": true,
+          "input_bytes": 9,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/rebuilt/tabs-cr"
+        }
+      ]
+    },
+    {
+      "name": "formfeed-columns",
+      "passed": true,
+      "printer_streams_identical": true,
+      "runs": [
+        {
+          "name": "formfeed-columns",
+          "passed": true,
+          "input_bytes": 16,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/original/formfeed-columns"
+        },
+        {
+          "name": "formfeed-columns",
+          "passed": true,
+          "input_bytes": 16,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/rebuilt/formfeed-columns"
+        }
+      ]
+    },
+    {
+      "name": "wrap-at-63",
+      "passed": true,
+      "printer_streams_identical": true,
+      "runs": [
+        {
+          "name": "wrap-at-63",
+          "passed": true,
+          "input_bytes": 128,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/original/wrap-at-63"
+        },
+        {
+          "name": "wrap-at-63",
+          "passed": true,
+          "input_bytes": 128,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/rebuilt/wrap-at-63"
+        }
+      ]
+    },
+    {
+      "name": "two-sheets-two-zones",
+      "passed": true,
+      "printer_streams_identical": true,
+      "runs": [
+        {
+          "name": "two-sheets-two-zones",
+          "passed": true,
+          "input_bytes": 9151,
+          "data_zones_read": [
+            "0002",
+            "0003"
+          ],
+          "printer_calls": 2,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/original/two-sheets-two-zones"
+        },
+        {
+          "name": "two-sheets-two-zones",
+          "passed": true,
+          "input_bytes": 9151,
+          "data_zones_read": [
+            "0002",
+            "0003"
+          ],
+          "printer_calls": 2,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/rebuilt/two-sheets-two-zones"
+        }
+      ]
+    },
+    {
+      "name": "backspace-overstrike",
+      "passed": true,
+      "printer_streams_identical": true,
+      "runs": [
+        {
+          "name": "backspace-overstrike",
+          "passed": true,
+          "input_bytes": 6,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/original/backspace-overstrike"
+        },
+        {
+          "name": "backspace-overstrike",
+          "passed": true,
+          "input_bytes": 6,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/rebuilt/backspace-overstrike"
+        }
+      ]
+    },
+    {
+      "name": "letter-conversion",
+      "passed": true,
+      "printer_streams_identical": true,
+      "runs": [
+        {
+          "name": "letter-conversion",
+          "passed": true,
+          "input_bytes": 8,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/original/letter-conversion"
+        },
+        {
+          "name": "letter-conversion",
+          "passed": true,
+          "input_bytes": 8,
+          "data_zones_read": [
+            "0002"
+          ],
+          "printer_calls": 1,
+          "exit_status_octal": "0",
+          "artifacts": "runtime/build/fprint/exercise/rebuilt/letter-conversion"
+        }
+      ]
+    }
+  ],
+  "passed_runs": 22,
+  "input_images_unchanged": true
+}
