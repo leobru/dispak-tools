@@ -1,9 +1,9 @@
 (*=a4,y+,p-,t-,s7,s8,o-,m-*)
 program LINK1(input, output, PADCHAR);
-% LINK1, 4001/0175: initial reconstruction of the common helpers.
-% This is NOT the complete linker: the job parser and linker passes
-% have not yet been transcribed into Pascal. The empty main below is
-% only for compiling and comparing the recovered helper procedures.
+% LINK1, 4001/0175: recovered helpers and the complete job parser.
+% This is NOT the complete linker: most object processing and the main
+% driver remain to be recovered. The inert main below is only for
+% compiling and comparing the recovered procedures.
 % Original names are unavailable (no PMD); names describe behavior.
 type
   bitset = set of 0..47;
@@ -13,7 +13,8 @@ type
   keynode = packed record case integer of
     0: (text: namekey);
     1: (word0: integer; upper: 0..4294967295;
-        marked: boolean; next: pkey)
+        marked: boolean; next: pkey);
+    2: (first6: alfa)
   end;
   pprefix = @prefix;
   prefix = packed record
@@ -26,11 +27,43 @@ type
   pobj = @objectrec;
   objecthead = record
     name: pkey;
-    attr: packed record module: 0..1073741823; low: 0..262143 end;
+    attr: packed record case integer of
+      0: (module: 0..1073741823; low: 0..262143);
+      1: (filelen: 0..4095; filerest: 0..68719476735)
+    end;
+  end;
+  fileflags = set of 0..1;
+  pfile = @filerec;
+  filerec = packed record case integer of
+    0: (raw0, raw1, raw2, raw3: integer);
+    1: (name: pkey; spare0: 0..8589934591;
+        word1, word2: integer; spare3: 0..65535;
+        flags: fileflags; module: 0..1073741823);
+    2: (d0, d1, d2: integer;
+        filedata: packed record high: 0..262143;
+                  length: 0..4095; address: 0..262143 end)
+  end;
+  psegment = @segmentrec;
+  segmentrec = packed record case integer of
+    0: (limit: boolean; spare0: 0..2147483647;
+        fileindex: 0..65535);
+    1: (diskbase: 0..2097151; loadbase: 0..134217727);
+    2: (above, concatenate: boolean; length: 0..2097151;
+        spare2: 0..127; count: 0..255; low: 0..1023)
   end;
   objectrec = record
     head: objecthead;
-    rest: array [1..15] of integer
+    case integer of
+    0: (rest: array [1..15] of integer);
+    1: (w2, w3, w4, w5, w6, w7: integer;
+        owner: packed record account: set of 0..31;
+               low: 0..65535 end;
+        w9: integer;
+        calendar: packed record weekday: 0..65535;
+                  low: 0..4294967295 end;
+        created: packed record seconds: 0..4294967295;
+                 low: 0..65535 end;
+        w12, w13, w14, w15, w16: integer)
   end;
   phash = @hashtable;
   hashtable = array [0..127] of pkey;
@@ -47,7 +80,9 @@ type
     3: (a6: alfa);
     5: (first6, last6: alfa);
     4: (disk: packed record length: 0..4095;
-              address, spare: 0..262143 end)
+              address, spare: 0..262143 end);
+    6: (filecode: packed record module: 0..1073741823;
+                 spare: 0..262143 end)
   end;
   pair = packed record case integer of
     0: (hi, lo: integer);
@@ -56,23 +91,31 @@ type
   end;
   pairs = array [0..4095] of pair;
   code4 = packed array [0..3] of char;
+  dateparts = array [0..3] of integer;
 var
   g0050, g0051, g0052, g0053, g0054, g0055, g0056, g0057,
   g0060, g0061, g0062, g0063, g0064, g0065, g0066, g0067,
   g0070, g0071, g0072, g0073, g0074, g0075, g0076, g0077,
-  g0100, g0101, g0102, g0103, g0104, g0105, g0106, g0107,
+  g0100, g0101, g0102, g0103, g0104: integer;
+  BYTEPOS, RECNO: integer;
+  g0107,
   g0110, g0111, g0112, g0113, g0114, g0115, g0116: integer;
   PHASEERR: boolean;
-  g0120, g0121, g0122, g0123, g0124, g0125, g0126, g0127,
-  g0130, g0131, g0132, g0133, g0134, g0135, g0136, g0137,
+  MODULEERR: boolean;
+  g0121, g0122: integer;
+  CURRENTFILE: filerec;
+  g0127: integer;
+  SEGREC: psegment;
+  g0131, g0132, g0133, g0134, g0135, g0136, g0137,
   g0140: integer;
   NAMETAB: phash;
   ROOTPREF: pprefix;
   XLATTAB: array [char] of charclass;
   PRINTOPT: bitset;
-  g0544, g0545, g0546, g0547, g0550, g0551, g0552,
-  g0553: integer;
-  KEYPOOL, g0555, OBJPOOL, g0557, g0560, g0561, g0562, g0563,
+  g0544: integer;
+  OUTFILE, SCHEMAFILE, LABELFILE: objecthead;
+  SYSTEMOUT: boolean;
+  KEYPOOL, g0555, OBJPOOL, FILEPOOL, SEGPOOL, g0561, g0562, g0563,
   g0564, g0565, g0566, g0567, g0570: integer;
   PHASE: stage;
   TIMES: array [stzero..stlabels] of stamp;
@@ -88,12 +131,21 @@ procedure GETSTAMP(var RESULT: stamp); fortran;
 procedure NEWKEY(POOL: integer); fortran;
 procedure OBJREAD(POOL, INDEX: integer); fortran;
 procedure OBJEDIT(POOL, INDEX: integer); fortran;
+procedure FILEEDIT(POOL, INDEX: integer); fortran;
 function NUMOBJS(POOL: integer): integer; fortran;
 function POSITION(POOL: integer): integer; fortran;
 procedure SETPOS(POOL, INDEX: integer); fortran;
 procedure READPAIR(POOL: integer; var V: pair); fortran;
 procedure WRITPAIR(POOL: integer; var V: pair); fortran;
 procedure PUTTEMP(POOL: integer; var V: pair); fortran;
+procedure CLOSE(POOL: integer); fortran;
+procedure GETFILED(POOL, INDEX: integer; var RESULT: filerec);
+  fortran;
+procedure PUTFILED(POOL, INDEX: integer; var VALUE: filerec);
+  fortran;
+procedure ATTACH(MODE, ADDRESS, LENGTH: integer; NAME: alfa;
+                 STREAM: integer); fortran;
+procedure GETDATE(var RESULT: dateparts); assembler;
 
 % 02013: time measured in fiftieths of a second, MM:SS.cc.
 procedure PUTTIME(T: integer);
@@ -228,6 +280,55 @@ begin
   end;
 end;
 
+% 04475: print a phase heading once before its first diagnostic.
+procedure PHASEMSG;
+begin
+  if not PHASEERR then begin
+    write('> > >  OШИБKИ HA ЭTAПE ');
+    case PHASE of
+      stgather: write('CБOPKИ OПPEДEЛEHИЙ И CCЫЛOK');
+      stresolve: write('PAЗPEШEHИЯ CCЫЛOK');
+      stplace: write('PACПPEДEЛEHИЯ ПAMЯTИ');
+      steval: write('BЫЧИCЛEHИЯ ЗHAЧEHИЙ OБ''EKTOB');
+      stoutput: write('ФOPMИPOBAHИЯ PAЗДEЛA')
+    end;
+    writeln(' < < <'); PHASEERR := true;
+  end;
+end;
+
+% 04541: module heading, likewise emitted once per input module.
+procedure MODULEMSG(REC: pfile);
+begin
+  PHASEMSG;
+  if not MODULEERR then begin
+    writeln('* * * MOДYЛЬ ', REC@.name@.text:1, ' * * *');
+    MODULEERR := true;
+  end;
+end;
+
+% 04562: identify the input record and its position in the module.
+procedure RECORDMSG(KIND: integer);
+begin
+  write('ЗAПИCЬ TИПA <', KIND:2 hex, '> (N=', RECNO:1);
+  write(', AДPEC - ', BYTEPOS * 2 div 1024:2 oct, ':',
+        BYTEPOS * 2 mod 1024:4 oct, ')');
+end;
+
+% 04612 and 04635: preserve the file-table descriptor around input.
+procedure OPENIN(INDEX: integer);
+begin
+  GETFILED(FILEPOOL, INDEX, CURRENTFILE);
+  ATTACH(2, CURRENTFILE.filedata.address,
+         CURRENTFILE.filedata.length,
+         CURRENTFILE.name@.first6, g0567);
+  RECNO := 0; MODULEERR := false;
+end;
+
+procedure CLOSEIN(INDEX: integer);
+begin
+  PUTFILED(FILEPOOL, INDEX, CURRENTFILE); CLOSE(g0567);
+end;
+
 % 04647: report the size in bytes and in 1024-byte blocks, in octal.
 procedure PUTSIZE(N: integer);
 begin
@@ -247,10 +348,10 @@ end;
 procedure READREC(var BUFFER: pairs; N: integer);
 var I, LAST: integer;
 begin
-  g0105 := POSITION(g0567);
+  BYTEPOS := POSITION(g0567);
   LAST := N - 1;
   for I := 0 to LAST do READPAIR(g0567, BUFFER[I]);
-  g0106 := g0106 + 1;
+  RECNO := RECNO + 1;
 end;
 
 % 04735: read the body following an already-read record header.
@@ -325,6 +426,27 @@ begin
   write(DAY:2, '.', MONTH:2, '.', YEAR:2, ' ',
         SECS div 3600:2, ':', SECS div 60 mod 60:2);
   PADCHAR := ' ';
+end;
+
+% 05170: stamp an object with account, weekday and creation time.
+procedure STAMPOBJ(REC: pobj);
+var DATE: dateparts;
+    TICKS: integer;
+    ACCOUNT: bitset;
+begin
+  besm(0530010B); besm(04150011B);
+  TICKS := ;
+  besm(0500100B); (q);
+  ACCOUNT := ;
+  GETDATE(DATE);
+  with REC@ do begin
+    owner.account := ACCOUNT;
+    calendar.weekday := DATE[3];
+    created.seconds :=
+      TICKS div 50 + (MONTHDAY[DATE[1]] +
+       ((DATE[2]-81) * 365 + (DATE[2]-81) div 4) +
+       LEAPDAY(DATE[2], DATE[1]) + DATE[0] - 1) * 86400;
+  end;
 end;
 
 % SCANNER_INCLUDE

@@ -1,17 +1,20 @@
-% Recovered nested scanner of READJOB (03717). The READJOB driver
-% below remains a compilation harness; it does not parse a link job.
+% Recovered link-job parser READJOB (03717) and its nested scanner.
 procedure READJOB;
 var CH, SAVED: char;
     LINENO, FIRSTCOL, LASTCOL, COLUMN: integer;
-    l11, l12, l13, l14, l15, l16: integer;
+    NFILES, LOADADDR, DISKADDR, SEGLEN, SEGINDEX, FILEINDEX: integer;
     CLASS: charclass;
     VALUE: token;
-    l22, l23: integer;
+    ALIAS: namekey;
     KIND: tokentype;
     PUSHED: boolean;
-    l26, l27, l30, l31, l32, l33, l34, l35, l36, l37: integer;
+    LOADABOVE, CONCAT, HAVESCHEMA, HAVEOUTPUT, HAVEOBJECTS,
+    HAVEQUAL: boolean;
+    COMMONFLAGS: fileflags;
+    CURRENT: objecthead;
+    REC: pfile;
     LINEBUF: packed array [1..120] of char;
-    l64: integer;
+    LIMIT: integer;
 
 % 02426. Preserve the common GET even when returning a saved character.
 procedure NEXTCHAR;
@@ -277,6 +280,53 @@ begin
   if not (VALUE.symbol in PUNCTS) then BADJOB(7);
 end;
 
+% 03466. Intern an object-file entry and refresh its module number.
+function GETFILE(KEY: objecthead): integer;
+var I: integer;
+    REC: pfile;
+    LIMIT: integer;
+begin
+  LIMIT := NUMOBJS(FILEPOOL);
+  (search) begin
+    for I := 0 to LIMIT do begin
+      FILEEDIT(FILEPOOL, I); REC := ;
+      if REC@.name = KEY.name then exit search;
+    end;
+    I := NUMOBJS(FILEPOOL) + 1;
+    FILEEDIT(FILEPOOL, I); REC := ;
+    REC@ := [0C, 0C, 0C, 0C];
+  end;
+  with REC@ do begin name := KEY.name; module := KEY.attr.module end;
+  GETFILE := I;
+end;
+
+% 03541. Apply one per-file flag to a list of named object files.
+procedure SELECTFILES(FLAG: integer);
+var I: integer;
+    REC: pfile;
+    OBJ: objecthead;
+    LIMIT: integer;
+begin
+  if VALUE.symbol = '_016' then COMMONFLAGS := COMMONFLAGS + [FLAG];
+  repeat
+    GETTOKEN([1]);
+    FINDOBJ(VALUE.text, OBJ);
+    if OBJ.name = ptr(0) then BADJOB(10);
+    LIMIT := NUMOBJS(FILEPOOL);
+    (search) begin
+      for I := 0 to LIMIT do begin
+        FILEEDIT(FILEPOOL, I); REC := ;
+        if REC@.name = OBJ.name then exit search;
+      end;
+      FILEEDIT(FILEPOOL, NUMOBJS(FILEPOOL)+1); REC := ;
+      REC@ := [0C, 0C, 0C, 0C];
+      REC@.name := OBJ.name;
+    end;
+    with REC@ do flags := flags + [FLAG];
+    EXPECT(['_000','_015','_034']);
+  until VALUE.symbol in ['_000','_034'];
+end;
+
 % 03641. Select the listing sections requested by the link job.
 procedure PRINTSEL;
 begin
@@ -300,8 +350,154 @@ begin
   until false;
 end;
 
+% 03717. File declarations, load list and optional explicit layout.
 begin
-% Only the scanner's containing frame is built here. READJOB's driver
-% and initialization of its working state remain to be recovered.
-  LINENO := 0; COLUMN := 1; CH := ' '; PUSHED := false;
+  LINENO := 0; COLUMN := 1; PUSHED := false;
+  NEXTCHAR;
+  PRINTOPT := [2]; COMMONFLAGS := [];
+  GETTOKEN([0]);
+  if VALUE.a6 <> 'ФAЙЛЫ ' then BADJOB(11);
+  repeat
+    GETTOKEN([1]); ALIAS := VALUE.text;
+    EXPECT(['_036']); GETTOKEN([2]);
+    BINDOBJ(ALIAS, VALUE.filecode.module);
+    EXPECT(['_015','_034']);
+  until VALUE.symbol = '_034';
+  GETTOKEN([0]);
+  if VALUE.a6 <> 'ЗAГP  ' then BADJOB(12);
+  HAVESCHEMA := false; HAVEOUTPUT := ;
+  HAVEOBJECTS := ; HAVEQUAL := ;
+  NFILES := 0; SEGINDEX := ; SETPOS(SEGPOOL, 2);
+  repeat
+    GETTOKEN([1]); FINDOBJ(VALUE.text, CURRENT);
+    if CURRENT.name = ptr(0) then BADJOB(10);
+    EXPECT(['_000','_015','_020','_034']);
+    if VALUE.symbol = '_020' then begin
+      HAVEQUAL := true; GETTOKEN([0]);
+      if VALUE.a6 = 'PAЗДEЛ' then begin
+        if HAVEOUTPUT then BADJOB(13);
+        if HAVESCHEMA then BADJOB(16);
+        if not HAVEOBJECTS then BADJOB(9);
+        HAVEOUTPUT := true; OUTFILE := CURRENT;
+        SYSTEMOUT := false; LOADADDR := 1;
+        EXPECT(['_000','_015','_034']);
+      end else if VALUE.a6 = 'CИC   ' then begin
+        if HAVEOUTPUT then BADJOB(13);
+        if not HAVEOBJECTS and not HAVESCHEMA then BADJOB(9);
+        HAVEOUTPUT := true; OUTFILE := CURRENT; SYSTEMOUT := true;
+        if HAVEOBJECTS then begin
+          EXPECT(['_036']); GETTOKEN([3]); LOADADDR := VALUE.number;
+        end;
+        EXPECT(['_000','_015','_034']);
+      end else if VALUE.a6 = 'ЛИCT  ' then PRINTSEL
+      else if VALUE.a6 = 'CXEMA ' then begin
+        if HAVEOBJECTS then BADJOB(16);
+        SCHEMAFILE := CURRENT; HAVESCHEMA := true;
+        EXPECT(['_000','_015','_034']);
+      end else if VALUE.a6 = 'METKИ ' then begin
+        LABELFILE := CURRENT;
+        EXPECT(['_000','_015','_016','_034','_036']);
+        if VALUE.symbol in ['_016','_036'] then SELECTFILES(1C)
+        else COMMONFLAGS := COMMONFLAGS + [1];
+      end else BADJOB(17);
+    end else if VALUE.symbol = '_015' then begin
+      if HAVESCHEMA or HAVEQUAL then BADJOB(19);
+      NFILES := NFILES + 1; HAVEOBJECTS := true;
+      NEWKEY(SEGPOOL); SEGREC := ;
+      with SEGREC@ do begin
+        fileindex := GETFILE(CURRENT); limit := false;
+      end;
+    end;
+  until VALUE.symbol in ['_000','_034'];
+  if not HAVEOUTPUT then BADJOB(18);
+  if HAVESCHEMA then begin
+    if VALUE.symbol = '_000' then BADJOB(5);
+    GETTOKEN([1,5]);
+    if KIND = kpunct then begin
+      if VALUE.symbol = '_000' then BADJOB(5) else BADJOB(7);
+    end;
+    (layout) begin
+    repeat
+      LOADADDR := 1; DISKADDR := 0; SEGLEN := 131071;
+      LOADABOVE := true; CONCAT := false; NFILES := 0;
+      SETPOS(SEGPOOL, SEGINDEX + 2);
+      (objects) repeat
+        FINDOBJ(VALUE.text, CURRENT);
+        if CURRENT.name = ptr(0) then BADJOB(10);
+        NFILES := NFILES + 1;
+        NEWKEY(SEGPOOL); SEGREC := ;
+        with SEGREC@ do begin
+          fileindex := GETFILE(CURRENT); limit := false;
+        end;
+        EXPECT(['_000','_014','_033','_034']);
+        if VALUE.symbol <> '_014' then exit objects;
+        GETTOKEN([1]); (q);
+      until false;
+      if VALUE.symbol = '_033' then begin
+        (quals) begin
+        repeat
+          (onequal) begin
+            GETTOKEN([0,3]);
+            if KIND = knumber then LOADADDR := VALUE.number
+            else if VALUE.a6 = 'HAЗ   ' then begin
+              EXPECT(['_036']); GETTOKEN([3]); LOADADDR := VALUE.number;
+            end else if VALUE.a6 = 'HAД   ' then begin
+              EXPECT(['_014','_036']);
+              LOADABOVE := VALUE.symbol = '_014';
+              GETTOKEN([3]); DISKADDR := VALUE.number;
+              EXPECT(['_000','_015','_017','_034']);
+              CONCAT := VALUE.symbol = '_017';
+              if not CONCAT then begin
+                if VALUE.symbol = '_015' then exit onequal;
+                exit quals;
+              end else;
+            end else if VALUE.a6 = 'ДЛИ   ' then begin
+              EXPECT(['_036']); GETTOKEN([3]); SEGLEN := VALUE.number;
+            end else begin BADJOB(14); (q) exit q end;
+            EXPECT(['_000','_015','_034']);
+          end;
+        until VALUE.symbol in ['_000','_034'];
+        end;
+      end;
+      OBJEDIT(SEGPOOL, SEGINDEX); SEGREC := ;
+      with SEGREC@ do begin
+        if DISKADDR > 2097151 then BADJOB(21);
+        diskbase := DISKADDR;
+        if LOADADDR >= 32768 then BADJOB(20);
+        loadbase := LOADADDR;
+      end;
+      NEWKEY(SEGPOOL); SEGREC := ;
+      with SEGREC@ do begin
+        above := LOADABOVE; concatenate := CONCAT;
+        if SEGLEN > 131071 then BADJOB(22);
+        length := SEGLEN; count := NFILES;
+      end;
+      SEGINDEX := NUMOBJS(SEGPOOL) + 1;
+      if VALUE.symbol = '_000' then exit layout;
+      GETTOKEN([1,5]);
+    until KIND = kpunct;
+    end;
+  end else begin
+    if not HAVEOBJECTS then BADJOB(9);
+    OBJEDIT(SEGPOOL, SEGINDEX); SEGREC := ;
+    with SEGREC@ do begin
+      diskbase := 0;
+      if LOADADDR >= 32768 then BADJOB(20);
+      loadbase := LOADADDR;
+    end;
+    NEWKEY(SEGPOOL); SEGREC := ;
+    with SEGREC@ do begin
+      above := false; concatenate := false;
+      length := OUTFILE.attr.filelen * 1024;
+      count := NFILES;
+    end;
+  end;
+  if COMMONFLAGS <> [] then begin
+    LIMIT := NUMOBJS(FILEPOOL);
+    for FILEINDEX := 0 to LIMIT do begin
+      FILEEDIT(FILEPOOL, FILEINDEX); REC := ;
+      with REC@ do flags := flags mod COMMONFLAGS;
+    end;
+  end;
+  CLOSE(OBJPOOL);
 end;

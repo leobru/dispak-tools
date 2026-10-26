@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Compile LINK1 helpers and compare them structurally with 4001/0175.
+"""Compile recovered LINK1 routines and compare them with 4001/0175.
 
 Usage: python3 runtime/link1/build.py [--source candidate.pas]
 
-This currently builds only helpers.pas, not the whole linker. FORTRAN
-externals have inert link stubs; the compiled helpers are not executed.
+This builds helpers.pas plus scanner.pas, not the whole linker. External
+services and P/WH have inert link stubs; compiled routines are not executed.
 Private disks, HOME and all compilation artifacts stay in runtime/build/link1.
 The comparison resolves constant-pool operands and named call relocations;
 it does not claim bit identity of the original and candidate images.
@@ -34,21 +34,27 @@ spec.loader.exec_module(analyze)
 ENTRIES = [('PUTTIME',0o2013), ('PUTPATH',0o2042), ('PATHLEN',0o2070),
            ('NEWPHASE',0o2113), ('FINDKEY',0o2125), ('ENTERKEY',0o2172),
            ('FINDOBJ',0o2312), ('BINDOBJ',0o2353),
+           ('PHASEMSG',0o4475), ('MODULEMSG',0o4541),
+           ('RECORDMSG',0o4562), ('OPENIN',0o4612), ('CLOSEIN',0o4635),
            ('PUTSIZE',0o4647), ('PUTCODE',0o4666), ('READREC',0o4707),
            ('READBODY',0o4735), ('READPART',0o4761), ('SKIPREC',0o5003),
            ('SAVEREC',0o5016), ('WRITREC',0o5044), ('LEAPDAY',0o5066),
-           ('PUTDATE',0o5100), ('NEXTCHAR',0o2426), ('BADJOB',0o2463),
+           ('PUTDATE',0o5100), ('STAMPOBJ',0o5170),
+           ('NEXTCHAR',0o2426), ('BADJOB',0o2463),
            ('PUSHCHAR',0o2752), ('INNAME',0o2761), ('SKIPWS',0o2765),
            ('SKIPTAIL',0o2775), ('CONVERT',0o3006), ('SCANINT',0o3034),
            ('SCANDEC',0o3153), ('SCANNAME',0o3176), ('SCANFILE',0o3230),
            ('SCANALFA',0o3312), ('GETTOKEN',0o3335), ('EXPECT',0o3455),
-           ('PRINTSEL',0o3641)]
-ENDS = {'BINDOBJ':0o2426, 'PUTDATE':0o5170, 'EXPECT':0o3466, 'PRINTSEL':0o3717}
+           ('GETFILE',0o3466), ('SELECTFILES',0o3541),
+           ('PRINTSEL',0o3641), ('READJOB',0o3717)]
+ENDS = {'BINDOBJ':0o2426, 'STAMPOBJ':0o5232, 'READJOB':0o4475}
 EXTERNALS = {'HASHNAME':0o21540,'CMPNAME':0o21545,'NAMELEN':0o21563,
              'GETSTAMP':0o21675,'NEWKEY':0o22232,'OBJREAD':0o22234,
-             'OBJEDIT':0o22236,'NUMOBJS':0o22254,
+             'OBJEDIT':0o22236,'FILEEDIT':0o22237,'NUMOBJS':0o22254,
              'POSITION':0o22252,'SETPOS':0o22250,
-             'READPAIR':0o22240,'WRITPAIR':0o22241,'PUTTEMP':0o22243}
+             'READPAIR':0o22240,'WRITPAIR':0o22241,'PUTTEMP':0o22243,
+             'CLOSE':0o22721, 'GETFILED':0o22244,'PUTFILED':0o22245,
+             'ATTACH':0o23062, 'GETDATE':0o23165, 'P/WH':0o23001}
 
 
 def run_job(name, cards, env, timeout=180):
@@ -62,8 +68,9 @@ def run_job(name, cards, env, timeout=180):
                                 env=env, stdin=subprocess.DEVNULL, stdout=stream,
                                 stderr=subprocess.STDOUT, timeout=timeout)
     text = listing.read_text(encoding='utf-8-sig',errors='replace')
-    errors = re.findall(r'(?m)^ .*ERROR.*$|^ \*{6}.*$', text)
-    if result.returncode or re.search(r'IN\s+\d+\s+LINES\s+[1-9]\d*\s+ERRORS',text):
+    errors = re.findall(r'(?m)^ .*ERROR.*$|^ \*{6}.*$|^\s*OTCYTCTBYET.*$', text)
+    if (result.returncode or re.search(r'IN\s+\d+\s+LINES\s+[1-9]\d*\s+ERRORS',text)
+            or re.search(r'(?m)^\s*OTCYTCTBYET\s+\S+',text)):
         raise RuntimeError(str(listing)+'\n'+'\n'.join(errors))
     return listing
 
@@ -140,6 +147,10 @@ def main():
     names = {a:n for n,a in symbols.items()}
     names[target_pool] = 'POOL'
     names[symbols['P/1D']+0o572] = 'TIMES'
+    for offset,name in [(0o123,'CURRENTFILE'), (0o545,'OUTFILE'),
+                        (0o547,'SCHEMAFILE'), (0o551,'LABELFILE')]:
+        old_names[analyze.GLOBALS+offset] = name
+        names[symbols['P/1D']+offset] = name
 
     def insns(words,lo,hi,pool,known):
         result = []
@@ -189,7 +200,7 @@ def main():
         if not row:
             continue
         offset,depth,text = row[1],int(row[2]),row[3]
-        decl = re.match(r'(?:PROCEDURE|FUNCTION)\s+(\w+)',text)
+        decl = re.match(r'(?:PROCEDURE|FUNCTION|PROGRAM)\s+(\w+)',text)
         if decl:
             pending[depth] = decl[1]
         elif text.startswith('BEGIN') and depth-2 in pending:
@@ -200,7 +211,7 @@ def main():
     for k,(name,start) in enumerate(ENTRIES):
         end = ENDS.get(name, ENTRIES[k+1][1] if k+1<len(ENTRIES) else analyze.POOL)
         actual = new_starts[k]
-        actual_end = new_starts[k+1] if k+1<len(ENTRIES) else compiled['READJOB']
+        actual_end = new_starts[k+1] if k+1<len(ENTRIES) else compiled['LINK1']
         before = insns(old,start,end,analyze.POOL,old_names)
         after = insns(new,actual,actual_end,target_pool,names)
         changes = [dict(tag=tag,original=[i,j],rebuilt=[m,n],
@@ -212,7 +223,7 @@ def main():
                          normalized_identical=before==after,changes=changes))
         print(f'{name:8} {start:05o}/{actual:05o} '
               f'{end-start}/{actual_end-actual} words; {len(changes)} differing blocks')
-    report = dict(scope='initial helpers only; not a rebuilt LINK1 executable',
+    report = dict(scope='recovered routines only; not a rebuilt LINK1 executable',
                   source=str(args.source.relative_to(ROOT)),
                   method='constants, strings, named calls, and ordered local labels resolved; UTC padding omitted',
                   original_pool=f'{analyze.POOL:05o}',rebuilt_pool=f'{target_pool:05o}',

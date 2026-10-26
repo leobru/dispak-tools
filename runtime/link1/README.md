@@ -6,10 +6,11 @@ buffered files and name helpers. There are no PMD tables; recovered procedure,
 type and variable names are descriptive, not original source names.
 
 **This is not yet a complete decompilation or a runnable rebuilt LINK1.**
-The sources currently cover **33 routines, 1066 of 6543 application words
-(16.3%)**. The link-job driver, most object processing and the main program
-remain to be recovered. Both main bodies in the compilation harness are
-explicitly marked as incomplete.
+The sources currently cover **42 routines, 1679 of 6543 application words
+(25.7%)**. The complete link-job parser is recovered. Most object processing
+and the main program remain to be recovered; the compilation harness has an
+inert main body.
+The recovered routines cover the contiguous original region `02013–05231`.
 
 ## Image and structure
 
@@ -40,7 +41,7 @@ are not yet restored as Pascal.
 
 | Entry | Role |
 |---|---|
-| `03717` | Parse the link job |
+| `03717` | Parse the link job (recovered) |
 | `06247` | Gather object definitions and references |
 | `07221` | Resolve references |
 | `07516`, `07722` | Join sections and allocate segments |
@@ -53,8 +54,9 @@ are not yet restored as Pascal.
 ## Recovered Pascal
 
 - [helpers.pas](helpers.pas): qualified-name output, name interning, object
-  bindings, record I/O wrappers, time/date formatting and shared declarations.
-- [scanner.pas](scanner.pas): the nested scanner of READJOB, its 23 error
+  bindings, phase/module diagnostics, input and record I/O wrappers,
+  time/date formatting, object timestamps and shared declarations.
+- [scanner.pas](scanner.pas): READJOB, its nested scanner, 23 error
   messages, token representations and listing-option parser. It is inserted
   into `helpers.pas` by the builder; it is not a separate Pascal program.
 - [link1.sym](link1.sym), [names.json](names.json): recovered symbols and the
@@ -85,15 +87,34 @@ Disk-file tokens contain a packed virtual-drive/zone address and optional
 are skipped after the retained ten characters. The scanner also recognizes
 `*/` as an input terminator.
 
+READJOB first requires `ФAЙЛЫ`, followed by name/address bindings terminated
+by a semicolon, then `ЗAГP` and the load list. File qualifiers recognized in
+the image are `PAЗДEЛ`, `CИC`, `ЛИCT`, `CXEMA`, and `METKИ`. It checks output
+file uniqueness and the ordering of object files and qualifiers. The file
+table uses four-word records with a name pointer, a 30-bit module/file code
+and two selection flags; new entries are cleared with record constructors.
+The name-list selector and the final common flags operate on these flags.
+
 The listing selector recognizes the literal words `CEKЦИИ`, `PAЗДEЛ`,
 `CTAT`, `MOДYЛИ`, and `METKИ`, setting five separate bits. The all/default
-path sets only the first four bits. The enclosing command dispatch remains
-unrecovered, so this is not yet a complete command grammar.
+path sets only the first four bits.
+
+The explicit layout parser accepts object names joined by `+`, then optional
+`:` parameters: a bare load address, `HAЗ=`, `HAД=` or `HAД+`, and `ДЛИ=`.
+It retains the original punctuation handling, including `.` after `HAД`.
+Load addresses must be below 32768, disk addresses at most 2097151, and
+segment lengths at most 131071 (decimal). Each segment has a header, its
+file-index entries and a final packed length/count record. The implicit
+layout takes its length from the output-file descriptor. These are recovered
+parser operations; the complete input setup and linking workflow have not
+been executed.
 
 Date values count seconds from the beginning of 1981. `PUTDATE` reconstructs
 day/month/year and hours/minutes using the original four-year leap correction
 and saved cumulative-month table. `PUTTIME` prints time measured in
-fiftieths of a second as `MM:SS.cc`.
+fiftieths of a second as `MM:SS.cc`. STAMPOBJ obtains the account with
+`Э50 100`, time since midnight with `Э53 10`, and the date with GETDATE.
+Its packed object fields retain the account bits, weekday and creation time.
 
 One detail is deliberately retained literally: NEXTCHAR calls the entry
 corresponding to P/EL before P/EO, assigning the sentinel in the first branch
@@ -116,19 +137,20 @@ existing DISPAK launcher pattern. Installed disk lookup is preserved before
 HOME is changed. No original disk is mounted for writing. Private writable
 volumes are not hashed.
 
-The build compiles the recovered helpers and writes a scratch image with
-PASCODER. Its FORTRAN externals have inert link stubs. **Neither the recovered
+The build compiles the recovered routines and writes a scratch image with
+PASCODER. Its external services and the unavailable `P/WH` hexadecimal-output
+entry have inert link stubs. **Neither the recovered
 helpers nor LINK1's file/link operations are executed.** A successful build
 therefore establishes compilation and the static comparisons below, not
 functional equivalence of a restored linker.
 
-[recovery.json](recovery.json) records the comparison. **27 of 33 routines**
+[recovery.json](recovery.json) records the comparison. **34 of 42 routines**
 have identical normalized instruction sequences. The comparison resolves
 constant values, literal strings and named external addresses, removes UTC
 padding, and retains both local branch targets and their definitions.
 It does not establish literal word identity or reconstruct a complete runtime.
 
-The remaining six routines have the following observed differences:
+The remaining eight routines have the following observed differences:
 
 | Routine | Difference |
 |---|---|
@@ -138,11 +160,16 @@ The remaining six routines have the following observed differences:
 | SCANNAME | Direct frame-relative stores instead of materializing a base in M11 |
 | GETTOKEN | Three redundant jumps omitted |
 | PRINTSEL | One redundant jump omitted |
+| GETFILE | Two extra instructions normalize a packed field before storing it |
+| STAMPOBJ | Integer zero is read from P/1D rather than the constant pool |
 
 Two historical unused loads of a composite value parameter are retained as
 explicit BESM inserts in FINDOBJ/BINDOBJ. The arithmetic option `M-` reproduces
 the original inline variable multiplication. Extra empty labels in scanner
 loops retain calls that the current compiler otherwise turns into tail calls.
+READJOB also retains a redundant jump using `(q) exit q;`. Its complete
+366-word original body has an identical normalized instruction sequence;
+the rebuilt body occupies 365 words because of instruction packing.
 
 Listings, the combined job, scratch image and full comparison stay under
 `runtime/build/link1`. No `.bin`, generated `.dis`, or private disk is needed
@@ -150,8 +177,7 @@ in the source tree's Git history.
 
 ## Work remaining
 
-Recover the remaining READJOB helpers (`03466`, `03541`) and its driver
-(`03717`), then the definition/reference pass (`05233–07220`), section and
+Recover the definition/reference pass (including its helper at `05232`), section and
 segment placement, expression evaluator, output and label passes, statistics
 and main. The FORTRAN services and the complete runtime also need source
 reconstruction before a full LINK1 rebuild can be claimed.

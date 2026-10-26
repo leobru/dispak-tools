@@ -1,13 +1,13 @@
 {
-  "scope": "initial helpers only; not a rebuilt LINK1 executable",
+  "scope": "recovered routines only; not a rebuilt LINK1 executable",
   "source": "runtime/link1/helpers.pas",
   "method": "constants, strings, named calls, and ordered local labels resolved; UTC padding omitted",
   "original_pool": "16631",
-  "rebuilt_pool": "04063",
+  "rebuilt_pool": "05220",
   "original_application_words": 6543,
-  "recovered_words": 1066,
-  "compiled_routines": 33,
-  "normalized_identical_routines": 27,
+  "recovered_words": 1679,
+  "compiled_routines": 42,
+  "normalized_identical_routines": 34,
   "procedures": [
     {
       "name": "PUTTIME",
@@ -82,9 +82,54 @@
       "changes": []
     },
     {
+      "name": "PHASEMSG",
+      "original": "04475",
+      "rebuilt": "02423",
+      "original_words": 36,
+      "rebuilt_words": 36,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
+      "name": "MODULEMSG",
+      "original": "04541",
+      "rebuilt": "02467",
+      "original_words": 17,
+      "rebuilt_words": 17,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
+      "name": "RECORDMSG",
+      "original": "04562",
+      "rebuilt": "02510",
+      "original_words": 24,
+      "rebuilt_words": 24,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
+      "name": "OPENIN",
+      "original": "04612",
+      "rebuilt": "02540",
+      "original_words": 19,
+      "rebuilt_words": 19,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
+      "name": "CLOSEIN",
+      "original": "04635",
+      "rebuilt": "02563",
+      "original_words": 10,
+      "rebuilt_words": 10,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
       "name": "PUTSIZE",
       "original": "04647",
-      "rebuilt": "02423",
+      "rebuilt": "02575",
       "original_words": 15,
       "rebuilt_words": 15,
       "normalized_identical": true,
@@ -93,7 +138,7 @@
     {
       "name": "PUTCODE",
       "original": "04666",
-      "rebuilt": "02442",
+      "rebuilt": "02614",
       "original_words": 17,
       "rebuilt_words": 16,
       "normalized_identical": true,
@@ -102,7 +147,7 @@
     {
       "name": "READREC",
       "original": "04707",
-      "rebuilt": "02462",
+      "rebuilt": "02634",
       "original_words": 22,
       "rebuilt_words": 21,
       "normalized_identical": true,
@@ -111,7 +156,7 @@
     {
       "name": "READBODY",
       "original": "04735",
-      "rebuilt": "02507",
+      "rebuilt": "02661",
       "original_words": 20,
       "rebuilt_words": 18,
       "normalized_identical": true,
@@ -120,7 +165,7 @@
     {
       "name": "READPART",
       "original": "04761",
-      "rebuilt": "02531",
+      "rebuilt": "02703",
       "original_words": 18,
       "rebuilt_words": 16,
       "normalized_identical": true,
@@ -129,7 +174,7 @@
     {
       "name": "SKIPREC",
       "original": "05003",
-      "rebuilt": "02551",
+      "rebuilt": "02723",
       "original_words": 11,
       "rebuilt_words": 12,
       "normalized_identical": false,
@@ -239,7 +284,7 @@
     {
       "name": "SAVEREC",
       "original": "05016",
-      "rebuilt": "02565",
+      "rebuilt": "02737",
       "original_words": 22,
       "rebuilt_words": 21,
       "normalized_identical": true,
@@ -248,7 +293,7 @@
     {
       "name": "WRITREC",
       "original": "05044",
-      "rebuilt": "02612",
+      "rebuilt": "02764",
       "original_words": 18,
       "rebuilt_words": 16,
       "normalized_identical": true,
@@ -257,7 +302,7 @@
     {
       "name": "LEAPDAY",
       "original": "05066",
-      "rebuilt": "02632",
+      "rebuilt": "03004",
       "original_words": 10,
       "rebuilt_words": 10,
       "normalized_identical": true,
@@ -266,16 +311,56 @@
     {
       "name": "PUTDATE",
       "original": "05100",
-      "rebuilt": "02644",
+      "rebuilt": "03016",
       "original_words": 56,
       "rebuilt_words": 56,
       "normalized_identical": true,
       "changes": []
     },
     {
+      "name": "STAMPOBJ",
+      "original": "05170",
+      "rebuilt": "03106",
+      "original_words": 34,
+      "rebuilt_words": 34,
+      "normalized_identical": false,
+      "changes": [
+        {
+          "tag": "replace",
+          "original": [
+            4,
+            5
+          ],
+          "rebuilt": [
+            4,
+            5
+          ],
+          "old": [
+            [
+              8,
+              13,
+              false,
+              [
+                "pool",
+                "6400000000000000"
+              ]
+            ]
+          ],
+          "new": [
+            [
+              1,
+              13,
+              false,
+              9
+            ]
+          ]
+        }
+      ]
+    },
+    {
       "name": "NEXTCHAR",
       "original": "02426",
-      "rebuilt": "02734",
+      "rebuilt": "03150",
       "original_words": 29,
       "rebuilt_words": 29,
       "normalized_identical": true,
@@ -284,7 +369,7 @@
     {
       "name": "BADJOB",
       "original": "02463",
-      "rebuilt": "02771",
+      "rebuilt": "03205",
       "original_words": 183,
       "rebuilt_words": 179,
       "normalized_identical": false,
@@ -345,7 +430,7 @@
     {
       "name": "PUSHCHAR",
       "original": "02752",
-      "rebuilt": "03254",
+      "rebuilt": "03470",
       "original_words": 7,
       "rebuilt_words": 7,
       "normalized_identical": true,
@@ -354,7 +439,7 @@
     {
       "name": "INNAME",
       "original": "02761",
-      "rebuilt": "03263",
+      "rebuilt": "03477",
       "original_words": 4,
       "rebuilt_words": 4,
       "normalized_identical": true,
@@ -363,7 +448,7 @@
     {
       "name": "SKIPWS",
       "original": "02765",
-      "rebuilt": "03267",
+      "rebuilt": "03503",
       "original_words": 8,
       "rebuilt_words": 7,
       "normalized_identical": true,
@@ -372,7 +457,7 @@
     {
       "name": "SKIPTAIL",
       "original": "02775",
-      "rebuilt": "03276",
+      "rebuilt": "03512",
       "original_words": 9,
       "rebuilt_words": 8,
       "normalized_identical": true,
@@ -381,7 +466,7 @@
     {
       "name": "CONVERT",
       "original": "03006",
-      "rebuilt": "03306",
+      "rebuilt": "03522",
       "original_words": 22,
       "rebuilt_words": 20,
       "normalized_identical": true,
@@ -390,7 +475,7 @@
     {
       "name": "SCANINT",
       "original": "03034",
-      "rebuilt": "03332",
+      "rebuilt": "03546",
       "original_words": 79,
       "rebuilt_words": 77,
       "normalized_identical": false,
@@ -465,7 +550,7 @@
     {
       "name": "SCANDEC",
       "original": "03153",
-      "rebuilt": "03447",
+      "rebuilt": "03663",
       "original_words": 19,
       "rebuilt_words": 18,
       "normalized_identical": true,
@@ -474,7 +559,7 @@
     {
       "name": "SCANNAME",
       "original": "03176",
-      "rebuilt": "03471",
+      "rebuilt": "03705",
       "original_words": 26,
       "rebuilt_words": 25,
       "normalized_identical": false,
@@ -564,7 +649,7 @@
     {
       "name": "SCANFILE",
       "original": "03230",
-      "rebuilt": "03522",
+      "rebuilt": "03736",
       "original_words": 50,
       "rebuilt_words": 50,
       "normalized_identical": true,
@@ -573,7 +658,7 @@
     {
       "name": "SCANALFA",
       "original": "03312",
-      "rebuilt": "03604",
+      "rebuilt": "04020",
       "original_words": 19,
       "rebuilt_words": 19,
       "normalized_identical": true,
@@ -582,7 +667,7 @@
     {
       "name": "GETTOKEN",
       "original": "03335",
-      "rebuilt": "03627",
+      "rebuilt": "04043",
       "original_words": 80,
       "rebuilt_words": 80,
       "normalized_identical": false,
@@ -661,16 +746,64 @@
     {
       "name": "EXPECT",
       "original": "03455",
-      "rebuilt": "03747",
+      "rebuilt": "04163",
       "original_words": 9,
       "rebuilt_words": 9,
       "normalized_identical": true,
       "changes": []
     },
     {
+      "name": "GETFILE",
+      "original": "03466",
+      "rebuilt": "04174",
+      "original_words": 43,
+      "rebuilt_words": 44,
+      "normalized_identical": false,
+      "changes": [
+        {
+          "tag": "insert",
+          "original": [
+            75,
+            75
+          ],
+          "rebuilt": [
+            75,
+            77
+          ],
+          "old": [],
+          "new": [
+            [
+              8,
+              9,
+              false,
+              [
+                "pool",
+                "0000007777777777"
+              ]
+            ],
+            [
+              1,
+              10,
+              false,
+              9
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SELECTFILES",
+      "original": "03541",
+      "rebuilt": "04250",
+      "original_words": 64,
+      "rebuilt_words": 62,
+      "normalized_identical": true,
+      "changes": []
+    },
+    {
       "name": "PRINTSEL",
       "original": "03641",
-      "rebuilt": "03760",
+      "rebuilt": "04346",
       "original_words": 46,
       "rebuilt_words": 45,
       "normalized_identical": false,
@@ -699,6 +832,15 @@
           "new": []
         }
       ]
+    },
+    {
+      "name": "READJOB",
+      "original": "03717",
+      "rebuilt": "04423",
+      "original_words": 366,
+      "rebuilt_words": 365,
+      "normalized_identical": true,
+      "changes": []
     }
   ],
   "linked_program_executed": false,
