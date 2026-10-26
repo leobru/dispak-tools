@@ -111,8 +111,23 @@ first. After each level it places the commons declared so far.
 
 ## Decompiling overlay 1
 
-`runtime/acc3/ov1.pas` is the source being recovered. `ovtry.py` builds it
-with NEWPASC compiled from `mypas.b6` and compares the user code.
+`runtime/acc3/ov1.pas` is the recovered source. `ovtry.py` builds it with
+NEWPASC compiled from `mypas.b6` and compares the user code:
+```
+python3 runtime/acc3/ovtry.py ov1 runtime/acc3/ov1.pas --full --pads
+```
+All of the user code (04014–17723) and the whole constant pool (390 words)
+match, except for the differences listed at the end of this section. The
+names are invented: the overlay has no PMD tables. Procedures, globals and
+locals are named by their address (`p17204`, `g1035`, the driver's locals
+`d<offset>`), the externals of the runtime area by their entry (`x23762`).
+
+Structure: the driver p17650 (level 2) holds every other procedure. Its
+body initialises the state and calls p17204 for each statement of the
+source text, then p17534; the four labels of the driver (17700, 17706,
+17707, 17710) are the targets of the `goto`s of the error and end paths.
+p17204 (level 3) reads the mnemonic and dispatches by its code: below 256
+p14021, 257–301 a `case` over the level-4 procedures, up to 447 p14157.
 
 Tools:
 - `annotate.py` and `names.txt` give a listing with pool values, globals
@@ -123,8 +138,16 @@ Tools:
 - `skeleton.py` lists the procedures;
 - `genvars.py` and `splice.py` generate the shared declarations.
 
+NEWPASC keeps at most 89 external names longer than four letters (error 51
+otherwise; pascompl.cc has the same limit). The overlay calls about 65
+runtime externals (`x24030` is six letters), and a common block's name gets
+a star on each side. Hence the 21 parameter commons are named `za`…`zu` in
+address order (`*ZA*` is four letters); `genvars.py --common` prints them
+with their addresses.
+
 Established so far:
-- The options are `(*=p-,t-,s8,y+,o-,a4*)`; the start code matches mypas.
+- The options are `(*=p-,t-,s8,y+,o-,a4,w+*)` (`w+` for items 4 and 6
+  below); the start code matches mypas.
 - The globals at M1 are the same in all three parts (`genvars.py`). The
   message table at 051 is `array [1..58] of array [0..5] of alfa`, which
   gives the multiplier 6 in the pool.
@@ -161,7 +184,19 @@ relocatable expressions, of which the compiler has a limited number.
    under `(*=c-*)`, which the source puts around such calls.
 6. A 3-word record assignment is unrolled into three `сч`/`зп` pairs;
    mypas does so for 2 and 3 words under `(*=w+*)`, which the source sets.
+7. `shift(x, n)` of an integer by a constant is `сда 64+n`. mypas called
+   the undefined helper P/II for it; now it gives the shift. 10637,
+   `minel(bitset(shift(r.lw, -32)))` with `lw` a 16-bit integer field, is
+   `сда 64-16; счмр; нтж 9(М1); сда 64-32; нед 9(М1)`.
 
 A store of 0C without a shift (06653) is not a difference: it is `bs := []`
 into a set field, which is left-aligned and needs no shift; reads of the same
 bits as an integer (`ba`) belong to another variant of `entry`.
+
+Remaining differences of overlay 1, all from the items above or from the
+code shift they cause (ours is 021 words shorter):
+- item 2 (43 places);
+- item 3 (seven `рзб`/`чед` sequences);
+- `мода` fillers and the form of a call that ends a branch: with the call in
+  a left half the compiler writes `уиа ret(М15); пб P`, in a right half
+  `пв P; пб ret`; the halves shift with the code (13003, 13012);

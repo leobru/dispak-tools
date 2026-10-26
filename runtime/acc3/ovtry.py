@@ -2,6 +2,7 @@
 """Compile a candidate АСС3 overlay source and diff its code with the original.
 
 Usage: python3 runtime/acc3/ovtry.py ov1|ov2 source.pas [--full] [--pads]
+                                     [--range lo hi] [--dis]
 
 The source is compiled by NEWPASC built from mypas.b6 into the work
 directory (rebuilt when mypas.b6 changes) and linked with
@@ -13,7 +14,10 @@ Prints the compiler errors, the placement of the stub and commons, how
 many words of the constant pool differ, and the
 insdiff --shift of the user code (all of it with --full, else the first
 differing blocks; blocks that differ only in `мода` fillers are counted
-but shown only with --pads). Work files are kept under runtime/build/acc3/try.
+but shown only with --pads; --range keeps the blocks whose original
+addresses fall in lo..hi-1, octal; --dis also writes the disassembly of
+the built overlay to <part>.dis there). Work files are kept under
+runtime/build/acc3/try.
 Every `assembler` or `fortran` external of the source gets an empty stub
 module, so that the program links; their code is not compared. P/WH
 (write ... hex), which the standard library lacks, comes with its module
@@ -178,6 +182,15 @@ def main():
     bad = [k for k in range(end - hi)
            if words[hi - 0o4000 + k] != (built[pool - 0o2000 + k]
                                           if pool - 0o2000 + k < len(built) else None)]
+    if '--dis' in sys.argv:
+        seeds = subprocess.run([sys.executable, str(HERE/'codeseeds.py'), str(image),
+                                '2000', '4013', '4000', f'{pool:o}'],
+                               capture_output=True, text=True, check=True).stdout
+        (WORK/f'{part}.seeds').write_text(seeds)
+        listing = subprocess.run([str(ROOT/'disbesm6'), '-b', '-a2000', '-e4013',
+                                  '-n', str(WORK/f'{part}.seeds'), str(image)],
+                                 capture_output=True, text=True).stdout
+        (WORK/f'{part}.dis').write_text(listing)
     print(f'pool: {len(bad)} of {end - hi} words differ' +
           (f', first at +{bad[0]:o}' if bad else ''))
     blocks = diff.split('--- ')
@@ -186,6 +199,14 @@ def main():
             if all(line.endswith('00 22 00000') for line in b.splitlines()[1:])]
     if '--pads' not in sys.argv:
         blocks = [b for b in blocks if b not in pads]
+    if '--range' in sys.argv:
+        k = sys.argv.index('--range')
+        rlo, rhi = int(sys.argv[k+1], 8), int(sys.argv[k+2], 8)
+        def inside(block):
+            t = [int(l.split()[1], 8) for l in block.splitlines()[1:] if l.startswith('T ')]
+            m = [int(l.split()[1], 8) for l in block.splitlines()[1:] if l.startswith('M ')]
+            return any(rlo <= a < rhi for a in t) or not t and any(rlo <= a < rhi for a in m)
+        blocks = [b for b in blocks if inside(b)]
     print(f'{len(blocks)} differing blocks, {len(pads)} only in мода fillers')
     print(head + ''.join('--- ' + b for b in (blocks if '--full' in sys.argv else blocks[:6])))
 
