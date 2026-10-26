@@ -6645,9 +6645,15 @@ _(
                     if (helperNo <> 37) then    (* P/WR *)
                         error(35); (* errSecondSpecifierForWriteOnlyForReal *)
                 _) else _(
-                    if (curToken = litOct) then _(
-                        helperNo := 42; (* P/WO *)
-                        l4var15z.i := 17;
+                    if (curToken = litOct) or
+                       (curToken.i = 504570C (* HEX *)) then _(
+                        if curToken = litOct then _(
+                            helperNo := 42; (* P/WO *)
+                            l4var15z.i := 17;
+                        _) else _(
+                            helperNo := 98; (* P/WH *)
+                            l4var15z.i := 12;
+                        _);
                         if (l4typ3z@.size <> 1) then
                             error(34); (* errTypeIsNotAFileElementType *)
                         inSymbol;
@@ -8336,9 +8342,12 @@ _( (* programme *)
             repeat
                 setup(scopeBound);
                 programme(l2int18z, curIdRec);
-                if not (SY IN [FUNCSY,PROCSY,BEGINSY]) then
+% Y+ permits another declaration part after a routine body.
+                if not (SY IN [FUNCSY,PROCSY,BEGINSY]) and
+                   (not allowCompat or not (SY IN blockBegSys)) then
                     errAndSkip(errBadSymbol, skipToSet);
-            until SY IN [FUNCSY,PROCSY,BEGINSY];
+            until (SY IN [FUNCSY,PROCSY,BEGINSY]) or
+                  (allowCompat and (SY IN blockBegSys));
             rollup(scopeBound);
             exitScope(symHashTabBase);
             exitScope(typeHashTabBase);
@@ -8899,7 +8908,8 @@ _)
         6017565600000000C      (*"P/NN    "*),
         6017634300000000C      (*"P/SC    "*),
         6017444400000000C      (*"P/DD    "*),
-        6017624500000000C      (*"P/RE    "*);
+        6017624500000000C      (*"P/RE    "*),
+        6017675000000000C      (*"P/WH    "*);
     systemProcNames :=
 (*0*)   606564C                (*"     PUT"*),
         474564C                (*"     GET"*),

@@ -51,6 +51,12 @@ runtime/monitr/build.py` reproduces the application, constants, globals and
 runtime (`02000–07431`) literally, except `02010.L`. The memory above FREE
 held buffers left in core when the image was written and is not reproduced.
 
+[ПРОЗ recovery](proz/README.md) restores the interactive file viewer/editor
+from volume 4001 zones `0030–0033`. `python3 runtime/proz/build.py` reproduces
+all 1574 application words and all 1709 runtime words literally. The complete
+four-zone image differs only in `02010.L`; file operations are not executed
+during the build.
+
 Four selectable libraries have been recovered as relocatable Madlen:
 
 | Profile | Source binary | Runtime words | Public entries |
