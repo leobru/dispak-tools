@@ -146,7 +146,7 @@ address order (`*ZA*` is four letters); `genvars.py --common` prints them
 with their addresses.
 
 Established so far:
-- The options are `(*=p-,t-,s8,y+,o-,a4,w+*)` (`w+` for items 2, 4 and 6
+- The options are `(*=p-,t-,s8,y+,o-,a4,w+*)` (`w+` for items 1-4 and 6
   below); the start code matches mypas.
 - The globals at M1 are the same in all three parts (`genvars.py`). The
   message table at 051 is `array [1..58] of array [0..5] of alfa`, which
@@ -167,7 +167,9 @@ relocatable expressions, of which the compiler has a limited number.
    fillers). So does the jump back of `repeat ... until false`. The
    source puts a structural label `(q)` before each `for` and on the
    bodies that need it (`do (r) _(...`, `while c do (q) ...`,
-   `...; (r) until false`).
+   `...; (r) until false`). The step of a `for` (the load of the
+   variable after the body) also starts a word; mypas does so under
+   `(*=w+*)`.
 2. The address of a global is formed as `мода off(М1); уиа|слиа (Мk)`,
    not as an absolute P/1D address (mypas.b6 `P4621`, case
    `l4var4z = indexreg[1]`): for an indexed global in `with`, and for a
@@ -176,7 +178,9 @@ relocatable expressions, of which the compiler has a limited number.
    addresses and does not depend on where P/1D is.
 3. A boolean value of a scalar `=` or `<>` is computed without jumps:
    `нтж b; счм 025(М1); рзб (М17); чед`, followed by `нтж 8(М1)` for `=`
-   (P/1D[025] is 4000000000000000).
+   (P/1D[025] is 4000000000000000). mypas does so under `(*=w+*)`, also
+   for `=` and `<>` of sets; `in` keeps the jumps, as in the original
+   (06475).
 4. A one-element set `[e]` is `сч e; пв P/SS`; mypas adds
    `счм []; или (М17)` unless `(*=w+*)` is set.
 5. A constant may be an actual of a `var` parameter of a `fortran`
@@ -195,8 +199,8 @@ A store of 0C without a shift (06653) is not a difference: it is `bs := []`
 into a set field, which is left-aligned and needs no shift; reads of the same
 bits as an integer (`ba`) belong to another variant of `entry`.
 
-Remaining differences of overlay 1, all from item 3 or from the code shift
-it causes (ours is 6 words longer; the pool is the same):
-- item 3 (seven `рзб`/`чед` sequences, 05302, 07647, 11463, 13326, 13654,
-  14416, 16602);
-- `мода` fillers that move with the halves after them (ten blocks).
+Overlay 1 is the same as the original word for word: all of the user code
+and the pool (`ovtry.py ov1 runtime/acc3/ov1.pas --full --pads` shows no
+differing blocks). A `besm` extracode in a left half needs a `(r)` after it
+(p17534 and the driver), else the next instruction lands in the right half,
+which an extracode never returns to.
