@@ -1,0 +1,15 @@
+C Linker runtime source; provenance and placements in modules.json.
+ P/EF:,NAME,
+ R02737:7,XTA,1B
+ ,ASN,117B
+ ,ATI,16B
+ 14,UTC,
+ 13,VJM,
+ P/E:,ENTRY,
+ R02742:,NTR,3B
+ 7,MTJ,17B
+ 7,XTA,
+ ,ATI,7B
+ 15,WTC,1B
+ ,UJ,
+ ,END,

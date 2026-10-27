@@ -41,7 +41,7 @@
   },
   "compiler": {
     "source": "mypas.b6",
-    "source_sha256": "766fa83494799002c37b5850ddf65ee99e5a873b64b2e835322b49b108fa381b",
+    "source_sha256": "6963dd623cab5d5cb2227607cc8ae1996ac6891f32d29555a117640ca602751c",
     "volume": "runtime/build/more/77",
     "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
     "installed_volume_unchanged": true,
@@ -130,12 +130,12 @@
       }
     ],
     "saved_readable_source": "runtime/more/more-readable.pas",
-    "saved_readable_sha256": "d9c18c6da6c17ca044ae09bdcc1ecb8e9786d3d01158f02f80d0b506eaeb8c7d"
+    "saved_readable_sha256": "bf32809d7167c84e8f2ef3db31e1ced82e2d6d22c12671691817e1144bc0086d"
   },
-  "source_sha256": "19b91f3b47a0b425aa3c196efa9932bafaf13303fbe4a77a9e3e39d0816681da",
+  "source_sha256": "71e00880e6e8b2bed25a9e8e98f4ae96687611fdff9dd71b79537e7d94d0bf22",
   "build_source_hashes": {
-    "more.pas": "19b91f3b47a0b425aa3c196efa9932bafaf13303fbe4a77a9e3e39d0816681da",
-    "build.py": "120de2865fe18a60b4f24ce4905d7e41fbb1baae8d169179ad01ea440ddff3ab"
+    "more.pas": "71e00880e6e8b2bed25a9e8e98f4ae96687611fdff9dd71b79537e7d94d0bf22",
+    "build.py": "3be8d9f41f747f3a81841205cfa311a743217fd69e2f5903072bb0ab8bec8369"
   },
   "image": "runtime/build/more/more.img",
   "image_sha256": "d2877c5331f238bf5273ae5ab4e5166ed937c3ab773ed1633891f465509b3ad1",

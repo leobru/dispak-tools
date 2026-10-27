@@ -84,10 +84,10 @@
   },
   "placement_matches": true,
   "source": "runtime/box/box.pas",
-  "source_sha256": "2a5e935d1548d47bf9ee99dbcd82a64ffadc8951e78b8a9372226bbfe2dcf9ef",
+  "source_sha256": "68e040cfd5ac992a07d2fba674f320dfdb23f564a31698954d07e463b72d172c",
   "compiler": {
     "source": "mypas.b6",
-    "source_sha256": "766fa83494799002c37b5850ddf65ee99e5a873b64b2e835322b49b108fa381b",
+    "source_sha256": "6963dd623cab5d5cb2227607cc8ae1996ac6891f32d29555a117640ca602751c",
     "volume": "runtime/build/box/77",
     "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
     "installed_volume_unchanged": true,
@@ -99,9 +99,9 @@
     "runtime/box/build.py": "78f539261ed18a322ef4fc4c44de6134d76c7325275db789a15ba6872bd73303",
     "runtime/mtd/build.py": "8d481be3dfdcbcac64f3ca6edbba72009792a06d10d1d4ada9c0c432d9876da1",
     "runtime/box/box.sym": "b2b413eeac3c7a924e17289d757b638d1b3639045c5eed9eee80ac593109b747",
-    "runtime/box/box-readable.pas": "e9cef0f5d08aa1877abfd20517d63916f9c92b8ac66fd51b3c514ce843acd8c2",
+    "runtime/box/box-readable.pas": "ba633736f1200b0bd177ecee8a396f41d1565de74414463583d7295a289f78e1",
     "runtime/comp/build.py": "e34db3090536aa4c76bc255e76dc6aaf13e1e07db1180d1f5b4fd183a87642fa",
-    "runtime/more/build.py": "120de2865fe18a60b4f24ce4905d7e41fbb1baae8d169179ad01ea440ddff3ab"
+    "runtime/more/build.py": "3be8d9f41f747f3a81841205cfa311a743217fd69e2f5903072bb0ab8bec8369"
   },
   "library_source_sha256": "f3487841ac974eaa6e5fdc19ecc72fc1aa46d4a27f53e392cb20dc9f9ec6d399",
   "image": "runtime/build/box/box.img",

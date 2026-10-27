@@ -1,0 +1,16 @@
+C Linker runtime source; provenance and placements in modules.json.
+ GETSTAMP:,NAME,
+ P/LNGPAR:,SUBP,
+ RBASE:8,VTM,P/LNGPAR
+ ,ATI,12B
+ 1,XTA,11B
+ 10,ATX,
+ 1,XTA,11B
+ 10,ATX,1B
+ ,*53,10B
+ ,BSS,0
+ 1,AOX,11B
+ 10,STX,2B
+ 13,UJ,
+ ,BSS,0
+ ,END,

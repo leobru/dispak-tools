@@ -1,4 +1,4 @@
-(*=a4,y+,p-,t-,o-*)
+(*=y+,p-,t-,o-*)
 program MOHИTOP(input, output, TTIO);
 % МОНИТР, паскалевская часть: том 4001, зоны 0002-0010 (02000-17777).
 % Сборка: python3 runtime/monitr/build.py (свой компилятор и диски).
@@ -373,7 +373,7 @@ end;
 %
 procedure ПOKAPX;
 begin
-  writeln('   APXИB: ', ACTIVELI);
+  writeln("   APXИB: ", ACTIVELI);
 end;
 function BBOCT: integer;
 var Ч, B: integer;
@@ -553,7 +553,7 @@ begin
   if HY = 0 then begin YCTБИБ(L); exit end;
   if not TИXO then begin
     writeln('      ');
-    writeln('    ****  БИБЛ: ', HY:6 oct, '  ', L, '  ****');
+    writeln("    ****  БИБЛ: ", HY:6 oct, '  ', L, '  ****');
     writeln('      ');
   end;
   OШMOH(LIB(L, HY));
@@ -631,7 +631,7 @@ var ЯBHO: boolean; KO, K: integer; ИMЯ: WORD3; D: integer;
   begin
     if not TИXO then begin
       writeln('      ');
-      writeln('    ****  ФAЙЛ: ', ИMЯ.NL, '/', ИMЯ.NF, '  ****');
+      writeln("    ****  ФAЙЛ: ", ИMЯ.NL, '/', ИMЯ.NF, '  ****');
       writeln('      ');
     end;
   end;
@@ -640,7 +640,7 @@ var ЯBHO: boolean; KO, K: integer; ИMЯ: WORD3; D: integer;
 %
 %
 begin
-  ИMЯ.TИПФ := 'KOД  _000';
+  ИMЯ.TИПФ := "KOД  _000";
   if CИMB = '/' then begin
     ЯBHO := true; ИMЯ.NL := ЛEKC;
     ДAЙCИ;
@@ -840,25 +840,25 @@ begin
   if not HAЙTИ(L, K) then OШMOH(4);
   ИCЧT := bitset(10370000000000C) + bitset(БИБЛ[K].HЗ);
   besm(700000B : ИCЧT);
-  if OГЛKTЛ[1] <> '_377' then begin
-    writeln('   KATAЛOГ ИCПOPЧEH');
+  if OГЛKTЛ[1] <> "_377" then begin
+    writeln("   KATAЛOГ ИCПOPЧEH");
     exit
   end;
   for I := 1 to 255 do begin
     if KAT[I].ИMЯ = alfa(0C) then exit;
-    write('    ФAЙЛ : ');
+    write("    ФAЙЛ : ");
     for J := 1 to 6 do write(KOI8(KAT[I].ИMЯ[J]));
     case ATP[I].П.TИП of
-    0: write('.', 'KOД  ');
+    0: write('.', "KOД  ");
     12: write('.', 'ISO  ');
-    14: write('.', 'KOИ7 ');
+    14: write('.', "KOИ7 ");
     8: write('.', 'TEKCT');
-    13: write('.', 'KOИ8 ');
-    2: write('.', 'MOД  ');
+    13: write('.', "KOИ8 ");
+    2: write('.', "MOД  ");
     others: write('.', '***')
     end;
-    writeln('  ', 'HЗ : ', KAT[I].П.HЗ:4 oct,
-          '  ', 'ДЛ : ', KAT[I].П.ДЛ:4 oct);
+    writeln('  ', "HЗ : ", KAT[I].П.HЗ:4 oct,
+          '  ', "ДЛ : ", KAT[I].П.ДЛ:4 oct);
     if not ДAЛЬШE then exit;
   end;
 end;
@@ -901,8 +901,8 @@ begin
   if KO <> 5 then OШMOH(KO);
   HY := HY div 4096;
   OШMOH(DLIB(L));
-  writeln(' OTKЛЮЧEHA БИБЛИOTEKA : ', L);
-  writeln(' COXPAHEH BИPT. HOMEP : ', HY:6 oct);
+  writeln(" OTKЛЮЧEHA БИБЛИOTEKA : ", L);
+  writeln(" COXPAHEH BИPT. HOMEP : ", HY:6 oct);
 end;
 % $НКТ ИМЯ: записывает пустой каталог в подключенную библиотеку ИМЯ:
 % читает ее зону 0, обнуляет все 1024 слова, ставит признак 0377,
@@ -944,11 +944,11 @@ begin
   for I := 0 to 1023 do KTЛ[I] := 0C;
   ПPИKTЛ := 1C;
   ФЗOH := 1C;
-  OГЛKTЛ[1] := '_377';
+  OГЛKTЛ[1] := "_377";
   OГЛKTЛ[6] := '_001';
   ИCЧT := ИCЧT - [8];
   besm(700000B : ИCЧT); (q);
-  writeln('  ECTЬ');
+  writeln("  ECTЬ");
 end;
 % $НФ ИМЯ ДЛИНА (также $Н, $НФА): заводит в активной библиотеке
 % файл ИМЯ.КОД длиной ДЛИНА зон (восьмерично) (MAKEF).
@@ -974,12 +974,12 @@ var NAME: PSTRING; ИMЯ: WORD3; L, D: integer;
 %
 begin
   if not BBЛEKCEM(NAME, ' ', ' ') then begin
-    writeln('  HET ИMEHИ ФAЙЛA  '); exit
+    writeln("  HET ИMEHИ ФAЙЛA  "); exit
   end;
-  OШMOH(MKNAME(NAME, ACTIVELI, 'KOД  _000', ИMЯ));
+  OШMOH(MKNAME(NAME, ACTIVELI, "KOД  _000", ИMЯ));
   L := ЧИCЛO(8);
   OШMOH(MAKEF(ИMЯ, L, D));
-  writeln('  ECTЬ');
+  writeln("  ECTЬ");
 end;
 % $ЗАК ИМЯ ДЛИНА: закрывает файл ИМЯ.КОД активной библиотеки,
 % устанавливая длину ДЛИНА зон (восьмерично) (CLOSEF).
@@ -993,12 +993,12 @@ var NAME: PSTRING; ИMЯ: WORD3; L, D: integer;
 %
 begin
   if not BBЛEKCEM(NAME, ' ', ' ') then begin
-    writeln(' HET ФAЙЛA'); exit
+    writeln(" HET ФAЙЛA"); exit
   end;
-  OШMOH(MKNAME(NAME, ACTIVELI, 'KOД  _000', ИMЯ));
+  OШMOH(MKNAME(NAME, ACTIVELI, "KOД  _000", ИMЯ));
   L := ЧИCЛO(8);
   OШMOH(CLOSEF(ИMЯ, L, D));
-  writeln('  ECTЬ');
+  writeln("  ECTЬ");
 end;
 % $УНЧ ИМЯ (также $У, $УН): уничтожает файл ИМЯ.КОД в активной
 % библиотеке (DELF).
@@ -1019,11 +1019,11 @@ var NAME: PSTRING; ИMЯ: WORD3;
 %
 begin
   if not BBЛEKCEM(NAME, ' ', ' ') then begin
-    writeln('  HET ИMEHИ ФAЙЛA '); exit
+    writeln("  HET ИMEHИ ФAЙЛA "); exit
   end;
-  OШMOH(MKNAME(NAME, ACTIVELI, 'KOД  _000', ИMЯ));
+  OШMOH(MKNAME(NAME, ACTIVELI, "KOД  _000", ИMЯ));
   OШMOH(DELF(ИMЯ));
-  writeln('  ECTЬ');
+  writeln("  ECTЬ");
 end;
 % $ИМЯ СТАРОЕ НОВОЕ (также $И, $ИМ): переименовывает файл
 % СТАРОЕ.КОД активной библиотеки в НОВОЕ (RENAMEF).
@@ -1047,13 +1047,13 @@ var ИMЯ1, ИMЯ2: WORD3; NAME: PSTRING;
 %
 begin
   if not BBЛEKCEM(NAME, ' ', ' ') then
-    writeln('  HET ИMEHИ ФAЙЛA ');
-  OШMOH(MKNAME(NAME, ACTIVELI, 'KOД  _000', ИMЯ1));
+    writeln("  HET ИMEHИ ФAЙЛA ");
+  OШMOH(MKNAME(NAME, ACTIVELI, "KOД  _000", ИMЯ1));
   if not BBЛEKCEM(NAME, ' ', ' ') then
-    writeln('  HET ИMEHИ ФAЙЛA ');
-  OШMOH(MKNAME(NAME, ACTIVELI, 'KOД  _000', ИMЯ2));
+    writeln("  HET ИMEHИ ФAЙЛA ");
+  OШMOH(MKNAME(NAME, ACTIVELI, "KOД  _000", ИMЯ2));
   OШMOH(RENAMEF(ИMЯ1, ИMЯ2));
-  writeln('  ECTЬ');
+  writeln("  ECTЬ");
 end;
 % $ДАЙ ИМЯ: перечисляет файлы, подходящие под ИМЯ (FIRSTF, NEXTF),
 % с их восьмеричными дескрипторами от OPENF. Цикл кончается на
@@ -1072,9 +1072,9 @@ var NAME: PSTRING; ИMЯ: WORD3; L, D: integer;
 %
 begin
   if not BBЛEKCEM(NAME, ' ', ' ') then begin
-    writeln('  HET ИMEHИ ФAЙЛA '); exit
+    writeln("  HET ИMEHИ ФAЙЛA "); exit
   end;
-  OШMOH(FIRSTF(NAME, ACTIVELI, 'KOД  _000', ИMЯ));
+  OШMOH(FIRSTF(NAME, ACTIVELI, "KOД  _000", ИMЯ));
   writeln(ИMЯ.NL, '/', ИMЯ.NF, '.', ИMЯ.TИПФ);
 3:OШMOH(NEXTF(ИMЯ));
   writeln(ИMЯ.NL, '/', ИMЯ.NF, '.', ИMЯ.TИПФ);
@@ -1096,8 +1096,8 @@ var P: alfa;
 %
 %
 begin
-  if not BBAЛФA(P, ' ', ' ') then writeln('  HET PEЖИMA ');
-  if P <> 'AЦП   ' then writeln('    HET PEЖИMA');
+  if not BBAЛФA(P, ' ', ' ') then writeln("  HET PEЖИMA ");
+  if P <> "AЦП   " then writeln("    HET PEЖИMA");
   if BKЛ then begin
     SVJAZ;
     TTIO.PEЖ := TTIO.PEЖ + [47];
@@ -1151,31 +1151,31 @@ begin
   for I := 4 to 6 do KOM[I] := ' ';
   if CИMB = '/' then ЗAПYCK;
   case KOM of
-  'БИБ   ': БИБ;
+  "БИБ   ": БИБ;
   'APX   ': APXИB;
   'AP    ': APXИB;
   'A     ': APXИB;
-  'KTБ   ': KTБ;
+  "KTБ   ": KTБ;
   'KT    ': KATЛ;
-  'KTЛ   ': KATЛ;
+  "KTЛ   ": KATЛ;
   'O     ': OTK;
   'OT    ': OTK;
   'OTK   ': OTK;
   'HKT   ': HKT;
-  'KHЦ   ': begin besm(3000004B); (q); end;
+  "KHЦ   ": begin besm(3000004B); (q); end;
   'H     ': HФ;
-  'HФ    ': HФ;
-  'HФA   ': HФ;
+  "HФ    ": HФ;
+  "HФA   ": HФ;
   'Y     ': YДAЛ;
   'YH    ': YДAЛ;
-  'YHЧ   ': YДAЛ;
-  'И     ': ПEPEИM;
-  'ИM    ': ПEPEИM;
-  'ИMЯ   ': ПEPEИM;
-  'ДAЙ   ': ДAЙ;
+  "YHЧ   ": YДAЛ;
+  "И     ": ПEPEИM;
+  "ИM    ": ПEPEИM;
+  "ИMЯ   ": ПEPEИM;
+  "ДAЙ   ": ДAЙ;
   'YCT   ': YCT(true);
   'YC    ': YCT(true);
-  'ЗAK   ': ЗAK;
+  "ЗAK   ": ЗAK;
   others: ЗAПYCK
   end;
   end;

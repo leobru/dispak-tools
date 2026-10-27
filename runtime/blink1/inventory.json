@@ -1,0 +1,442 @@
+{
+  "image": "images/4001/0255-blink1.bin",
+  "basis": "runtime/link1/link1.pas",
+  "pool": "16704",
+  "globals": "20540",
+  "runtime": "21505",
+  "free": "24736",
+  "code_words": 6586,
+  "entries": [
+    {
+      "name": "ENTRY",
+      "address": "02012"
+    },
+    {
+      "name": "PUTTIME",
+      "address": "02013"
+    },
+    {
+      "name": "PUTPATH",
+      "address": "02042"
+    },
+    {
+      "name": "PATHLEN",
+      "address": "02070"
+    },
+    {
+      "name": "NEWPHASE",
+      "address": "02113"
+    },
+    {
+      "name": "FINDKEY",
+      "address": "02125"
+    },
+    {
+      "name": "ENTERKEY",
+      "address": "02172"
+    },
+    {
+      "name": "FINDOBJ",
+      "address": "02312"
+    },
+    {
+      "name": "BINDOBJ",
+      "address": "02353"
+    },
+    {
+      "name": "NEXTCHAR",
+      "address": "02426"
+    },
+    {
+      "name": "BADJOB",
+      "address": "02463"
+    },
+    {
+      "name": "PUSHCHAR",
+      "address": "02752"
+    },
+    {
+      "name": "INNAME",
+      "address": "02761"
+    },
+    {
+      "name": "SKIPWS",
+      "address": "02765"
+    },
+    {
+      "name": "SKIPTAIL",
+      "address": "02775"
+    },
+    {
+      "name": "CONVERT",
+      "address": "03006"
+    },
+    {
+      "name": "SCANINT",
+      "address": "03034"
+    },
+    {
+      "name": "SCANDEC",
+      "address": "03153"
+    },
+    {
+      "name": "SCANNAME",
+      "address": "03176"
+    },
+    {
+      "name": "SCANFILE",
+      "address": "03230"
+    },
+    {
+      "name": "SCANALFA",
+      "address": "03312"
+    },
+    {
+      "name": "GETTOKEN",
+      "address": "03335"
+    },
+    {
+      "name": "EXPECT",
+      "address": "03455"
+    },
+    {
+      "name": "GETFILE",
+      "address": "03466"
+    },
+    {
+      "name": "SELECTFILES",
+      "address": "03541"
+    },
+    {
+      "name": "PRINTSEL",
+      "address": "03641"
+    },
+    {
+      "name": "READJOB",
+      "address": "03717"
+    },
+    {
+      "name": "PHASEMSG",
+      "address": "04475"
+    },
+    {
+      "name": "MODULEMSG",
+      "address": "04541"
+    },
+    {
+      "name": "RECORDMSG",
+      "address": "04562"
+    },
+    {
+      "name": "OPENIN",
+      "address": "04612"
+    },
+    {
+      "name": "CLOSEIN",
+      "address": "04635"
+    },
+    {
+      "name": "PUTSIZE",
+      "address": "04647"
+    },
+    {
+      "name": "PUTCODE",
+      "address": "04666"
+    },
+    {
+      "name": "READREC",
+      "address": "04707"
+    },
+    {
+      "name": "READBODY",
+      "address": "04735"
+    },
+    {
+      "name": "READPART",
+      "address": "04761"
+    },
+    {
+      "name": "SKIPREC",
+      "address": "05003"
+    },
+    {
+      "name": "SAVEREC",
+      "address": "05016"
+    },
+    {
+      "name": "WRITREC",
+      "address": "05044"
+    },
+    {
+      "name": "LEAPDAY",
+      "address": "05066"
+    },
+    {
+      "name": "PUTDATE",
+      "address": "05100"
+    },
+    {
+      "name": "STAMPOBJ",
+      "address": "05170"
+    },
+    {
+      "name": "PUTKIND",
+      "address": "05232"
+    },
+    {
+      "name": "BADOBJ",
+      "address": "05276"
+    },
+    {
+      "name": "RESNAME",
+      "address": "05472"
+    },
+    {
+      "name": "NEWDEF",
+      "address": "06063"
+    },
+    {
+      "name": "NEWSECT",
+      "address": "06101"
+    },
+    {
+      "name": "NEWREF",
+      "address": "06121"
+    },
+    {
+      "name": "SAVEPREF",
+      "address": "06135"
+    },
+    {
+      "name": "SAVEDATA",
+      "address": "06155"
+    },
+    {
+      "name": "SKIPDATA",
+      "address": "06175"
+    },
+    {
+      "name": "SAVEEXPR",
+      "address": "06204"
+    },
+    {
+      "name": "BINDDEF",
+      "address": "06223"
+    },
+    {
+      "name": "GATHER",
+      "address": "06247"
+    },
+    {
+      "name": "RESOLVE",
+      "address": "07221"
+    },
+    {
+      "name": "UNRESMSG",
+      "address": "07316"
+    },
+    {
+      "name": "ALIGNUP",
+      "address": "07403"
+    },
+    {
+      "name": "SECTID",
+      "address": "07420"
+    },
+    {
+      "name": "BADSECT",
+      "address": "07444"
+    },
+    {
+      "name": "JOINSECT",
+      "address": "07516"
+    },
+    {
+      "name": "PUTSECTN",
+      "address": "07661"
+    },
+    {
+      "name": "LISTSECT",
+      "address": "07722"
+    },
+    {
+      "name": "OBJWHERE",
+      "address": "10146"
+    },
+    {
+      "name": "DUMPSTK",
+      "address": "10162"
+    },
+    {
+      "name": "BADEXPR",
+      "address": "10203"
+    },
+    {
+      "name": "FLUSHOUT",
+      "address": "10432"
+    },
+    {
+      "name": "PUTWORD",
+      "address": "10447"
+    },
+    {
+      "name": "GETBYTE",
+      "address": "10473"
+    },
+    {
+      "name": "GETWORD",
+      "address": "10542"
+    },
+    {
+      "name": "PUSHLIT",
+      "address": "10571"
+    },
+    {
+      "name": "RELOCATE",
+      "address": "10614"
+    },
+    {
+      "name": "PUSHDEF",
+      "address": "10645"
+    },
+    {
+      "name": "PUSHREF",
+      "address": "10712"
+    },
+    {
+      "name": "DEFATTR",
+      "address": "11001"
+    },
+    {
+      "name": "REFATTR",
+      "address": "11060"
+    },
+    {
+      "name": "EMITVAL",
+      "address": "11162"
+    },
+    {
+      "name": "EMITOPER",
+      "address": "11346"
+    },
+    {
+      "name": "FIRSTVAL",
+      "address": "11442"
+    },
+    {
+      "name": "BINARYOP",
+      "address": "11621"
+    },
+    {
+      "name": "FIELDOP",
+      "address": "11773"
+    },
+    {
+      "name": "EVALUATE",
+      "address": "12200"
+    },
+    {
+      "name": "BADVALUE",
+      "address": "13707"
+    },
+    {
+      "name": "EVALDEFS",
+      "address": "13740"
+    },
+    {
+      "name": "BADOUT",
+      "address": "14166"
+    },
+    {
+      "name": "WRITESEG",
+      "address": "14226"
+    },
+    {
+      "name": "PUTLABEL",
+      "address": "14406"
+    },
+    {
+      "name": "LABELS",
+      "address": "14660"
+    },
+    {
+      "name": "PUTTIMES",
+      "address": "15117"
+    },
+    {
+      "name": "STATS",
+      "address": "15136"
+    },
+    {
+      "name": "INITFILES",
+      "address": "15274"
+    },
+    {
+      "name": "MAIN",
+      "address": "15306"
+    },
+    {
+      "name": "STARTUP",
+      "address": "16677"
+    }
+  ],
+  "external_entries": {
+    "HASHNAME": "21617",
+    "CMPNAME": "21624",
+    "NAMELEN": "21642",
+    "GETSTAMP": "21754",
+    "NEWKEY": "22273",
+    "OBJREAD": "22275",
+    "OBJEDIT": "22277",
+    "FILEEDIT": "22300",
+    "NUMOBJS": "22315",
+    "POSITION": "22313",
+    "SETPOS": "22311",
+    "READPAIR": "22301",
+    "WRITPAIR": "22302",
+    "PUTTEMP": "22304",
+    "CLOSE": "22762",
+    "GETFILED": "22305",
+    "PUTFILED": "22306",
+    "ATTACH": "23123",
+    "GETDATE": "23226",
+    "TABREAD": "22276",
+    "TABGET": "22307",
+    "TABPUT": "22310",
+    "INITVEC": "23167",
+    "UNPACKNM": "21657",
+    "UNPACKKY": "21704",
+    "PACKKEY": "21672",
+    "PUTDEF": "22310",
+    "PUTSECT": "22310",
+    "PUTREF": "22310",
+    "GETPAIR": "22305",
+    "PUTPAIR": "22306",
+    "TABPAIR": "22307",
+    "TABFILE": "22307",
+    "PACKVAL": "23324",
+    "UNPACKVL": "23343",
+    "TABSAVE": "22310",
+    "KEYPAIR": "21720",
+    "KEYCODE": "21727",
+    "GETTEMP": "22303",
+    "READNEXT": "22271",
+    "NEWTAB": "22274",
+    "MEMINIT": "24176",
+    "MEMALLOC": "24274",
+    "B23312": "23353",
+    "B23330": "23371",
+    "B23336": "23377",
+    "B23347": "23410",
+    "B23361": "23422",
+    "B24130": "24171",
+    "B23414": "23455",
+    "B24127": "24170",
+    "B23525": "23566",
+    "B23434": "23475",
+    "B23375": "23436",
+    "B24133": "24174",
+    "B23423": "23464"
+  },
+  "framed_procedures": 87
+}

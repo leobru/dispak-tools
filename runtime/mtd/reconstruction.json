@@ -85,10 +85,10 @@
   },
   "placement_matches": true,
   "source": "runtime/mtd/mtd.pas",
-  "source_sha256": "6456d23b00ce623e72fd90baa2db7ea4a495129754d335c8dcd030e89b5323d4",
+  "source_sha256": "4c3e5d6517cfcb2a82a3b6e326f27be320dd9c31a47dbe92687f3f51172bc698",
   "compiler": {
     "source": "mypas.b6",
-    "source_sha256": "766fa83494799002c37b5850ddf65ee99e5a873b64b2e835322b49b108fa381b",
+    "source_sha256": "6963dd623cab5d5cb2227607cc8ae1996ac6891f32d29555a117640ca602751c",
     "volume": "runtime/build/mtd/77",
     "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
     "installed_volume_unchanged": true,
@@ -100,9 +100,9 @@
     "runtime/mtd/build.py": "8d481be3dfdcbcac64f3ca6edbba72009792a06d10d1d4ada9c0c432d9876da1",
     "runtime/mtd/tapeio.madlen": "4f1f181236b7c22fbc7d7256fa11f88f90fe84a93ad1cb752ef8ed21dfcb9df2",
     "runtime/mtd/mtd.sym": "4a235785a862a66998333d370f727dcbb64e8c967734b8c6aad44a73b23d4a92",
-    "runtime/mtd/mtd-readable.pas": "80844f4237d45bc02d81f0b8a3b67badbdcefea4b49e2427361a209071d25dca",
+    "runtime/mtd/mtd-readable.pas": "cb3e542b9c1f6f09e16b3f115167af75788820ceac961a53fb9411a381c5d09e",
     "runtime/comp/build.py": "e34db3090536aa4c76bc255e76dc6aaf13e1e07db1180d1f5b4fd183a87642fa",
-    "runtime/more/build.py": "120de2865fe18a60b4f24ce4905d7e41fbb1baae8d169179ad01ea440ddff3ab"
+    "runtime/more/build.py": "3be8d9f41f747f3a81841205cfa311a743217fd69e2f5903072bb0ab8bec8369"
   },
   "library_source_sha256": "f289c584da3ebc82864a63e5dd064e9883efaaef15782cfc8f8b103398f8dc13",
   "image": "runtime/build/mtd/mtd.img",

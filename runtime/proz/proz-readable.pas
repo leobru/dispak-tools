@@ -1,4 +1,4 @@
-(*=a4,y+,o-,b4*)
+(*=y+,o-,b4*)
 program ПPOЗ(input, output, TTIO);
 % Volume 4001, catalog ПРОЗ, zones 0030-0033.
 % Names follow the surviving PMD; types and labels are reconstructed.
@@ -87,7 +87,7 @@ end;
 function COГЛACEH: boolean;
 begin
   ПPOБ;
-  COГЛACEH := eof(input) or (input@ = '_344') or (input@ = 'Y');
+  COГЛACEH := eof(input) or (input@ = "_344") or (input@ = 'Y');
 end;
 
 procedure BЛEKC(var ЛEKC: alfa);
@@ -122,8 +122,8 @@ var C: char;
 begin
   C := input@;
   case C of
-    '_342': C := 'B'; '_343': C := 'C';
-    '_344': C := 'D'; '_346': C := 'F'
+    "_342": C := 'B'; "_343": C := 'C';
+    "_344": C := 'D'; "_346": C := 'F'
   end;
   if RADIX <= 10 then
     DIGIT := not eof(input) and (C >= '0') and
@@ -136,8 +136,8 @@ var C: char;
 begin
   C := input@;
   case C of
-    '_342': C := 'B'; '_343': C := 'C';
-    '_344': C := 'D'; '_346': C := 'F'
+    "_342": C := 'B'; "_343": C := 'C';
+    "_344": C := 'D'; "_346": C := 'F'
   end;
   if (RADIX <= 10) or (C < 'A') then
     DECODE := ord(C) - ord('0')
@@ -177,26 +177,26 @@ procedure ЗПЗ(ЗOHA: integer);
 var INFCЛOBO: integer;
 begin
   if ЗOHA >= MAXЗOHA then begin
-    writeln(output, 'BЫXOД ЗA ГPAHИЦY ФAЙЛA'); goto 1;
+    writeln(output, "BЫXOД ЗA ГPAHИЦY ФAЙЛA"); goto 1;
   end;
   ЗOHA := ЗOHA;
   besm(04120011B, 150000B:(0000360000000000C));
   INFCЛOBO := ;
   besm(10700004B);
-  writeln(output, 'ЗAПИCЬ=', INFCЛOBO:17 oct);
+  writeln(output, "ЗAПИCЬ=", INFCЛOBO:17 oct);
 end;
 
 procedure ЧT(ЗOHA: integer);
 var INFCЛOBO: integer;
 begin
   if ЗOHA >= MAXЗOHA then begin
-    writeln(output, 'BЫXOД ЗA ГPAHИЦY ФAЙЛA'); goto 1;
+    writeln(output, "BЫXOД ЗA ГPAHИЦY ФAЙЛA"); goto 1;
   end;
   CЧИTЗOHA := ЗOHA;
   besm(04120011B, 150000B:(0010360000000000C));
   INFCЛOBO := ;
   besm(10700004B);
-  writeln(output, 'ЧTEHИE=', INFCЛOBO:17 oct);
+  writeln(output, "ЧTEHИE=", INFCЛOBO:17 oct);
 end;
 
 procedure ЗAПИCЬ;
@@ -229,8 +229,8 @@ var I: integer;
     with BUFFER[AДPC] do
       for I := 0 to 3 do begin
         C := chars[I+1B];
-        if ((C > '_037') and (C <= '_176')) or
-           ((C > '_277') and (C < '_377')) then write(output, C:1)
+        if ((C > '_037') and (C <= 'Ч')) or
+           ((C > "_277") and (C < "_377")) then write(output, C:1)
         else write(output, '.');
       end;
   end;
@@ -267,8 +267,8 @@ label 2;
     function DECODE(RADIX: integer): integer;
     begin
       case C of
-        '_342': C := 'B'; '_343': C := 'C';
-        '_344': C := 'D'; '_346': C := 'F'
+        "_342": C := 'B'; "_343": C := 'C';
+        "_344": C := 'D'; "_346": C := 'F'
       end;
       if (RADIX <= 10) or (C < 'A') then DECODE := ord(C)-ord('0')
       else DECODE := ord(C)-ord('A')+10;
@@ -283,7 +283,7 @@ label 2;
       if 8 >= K then K1 := K1*16
       else if 16 >= K then K2 := K2*16
       else begin
-        writeln(output, 'CЛИШKOM MHOГO ЦИФP B ЧИCЛE'); goto 2;
+        writeln(output, "CЛИШKOM MHOГO ЦИФP B ЧИCЛE"); goto 2;
       end;
     end else exit;
     if 8 >= K then B := B + DECODE(16)*K1 div 16
@@ -292,11 +292,11 @@ label 2;
 
 begin
   if eof(input) then begin
-    rewrite(input); write(input, 'AДPEC CЛOBA- '); READLINE(input);
+    rewrite(input); write(input, "AДPEC CЛOBA- "); READLINE(input);
   end;
   AДPEC := SCANNUM(16, false);
   if AДPEC < 0 then begin
-    writeln(output, 'HEДOПYCTИMЫЙ AДPEC'); exit;
+    writeln(output, "HEДOПYCTИMЫЙ AДPEC"); exit;
   end;
   BHYTAДPE := AДPEC-HAЧAЛO;
   if BHYTAДPE < 0 then goto 1;
@@ -305,11 +305,11 @@ begin
   if ЗOHA <> CЧИTЗOHA then ЧT(ЗOHA);
   ФЛAГ := false;
   if eof(input) then ФЛAГ := true else
-    if input@ = '_354' then ИЗMCЛOBO := CЛOBO else
-    if input@ = '_360' then ИЗMCЛOBO := CЛOBO+1 else begin
-      writeln(output, 'HEДOПYCTИMЫЙ AДPEC'); exit;
+    if input@ = "_354" then ИЗMCЛOBO := CЛOBO else
+    if input@ = "_360" then ИЗMCЛOBO := CЛOBO+1 else begin
+      writeln(output, "HEДOПYCTИMЫЙ AДPEC"); exit;
     end;
-  rewrite(input); write(input, 'ЗAMEHA- '); READLINE(input);
+  rewrite(input); write(input, "ЗAMEHA- "); READLINE(input);
   if eof(input) then goto 1;
   if input@ = 'T' then begin
     get(input);
@@ -347,7 +347,7 @@ begin
     BUFFER[ИЗMCЛOBO+1B].value := B;
   end else begin
     I := SCANNUM(16, true);
-    if I < 0 then writeln(output, 'HEДOПYCTИMAЯ ЗAMEHA')
+    if I < 0 then writeln(output, "HEДOПYCTИMAЯ ЗAMEHA")
     else BUFFER[ИЗMCЛOBO].value := I mod 4294967295;
   end;
 2:rewrite(input);
@@ -368,7 +368,7 @@ end;
 
 begin
   writeln(output,
-    '<_077> ЭTO XИTPЫЙ ПPOЗ. BEP _077_077._077_077 <_077>');
+    "<_077> ЭTO XИTPЫЙ ПPOЗ. BEP _077_077._077_077 <_077>");
   NAMELIB := ACTIVELI;
   I := LIB(NAMELIB, HYЗЗЗЗ);
   if I <> 5 then begin WRITEERR(I); besm(740000B) end;
@@ -376,7 +376,7 @@ begin
   GETCMDLI(input);
   if not eof(input) then goto 2;
 3:
-  rewrite(input); write(input, 'ФAЙЛ _077'); READLINE(input);
+  rewrite(input); write(input, "ФAЙЛ _077"); READLINE(input);
   if eof(input) then besm(740000B);
 2:I := 1;
   while not eof(input) do begin
@@ -391,22 +391,22 @@ begin
 5:writeln(output, 'DESCRIPTOR :', integer(DESCR):17 oct);
   MAXЗOHA := DESCR.zone + DESCR.length;
   repeat
-    rewrite(input); write(input, 'HAЧAЛЬHЫЙ AДPEC _077');
+    rewrite(input); write(input, "HAЧAЛЬHЫЙ AДPEC _077");
     HAЧAЛO := READNUM(16);
   until HAЧAЛO >= 0;
 1:repeat
-    rewrite(input); write(input, 'BЫДATЬ- '); READLINE(input);
+    rewrite(input); write(input, "BЫДATЬ- "); READLINE(input);
     if eof(input) then goto 6;
     BЛEKC(ДИP);
     if CЛEKC(ДИP, '_000     ', 1) then goto 1
-    else if CЛEKC(ДИP, 'ЗAM   ', 3) then ЗAMEHA
-    else if CЛEKC(ДИP, 'KHЦ   ', 3) then besm(740000B)
+    else if CЛEKC(ДИP, "ЗAM   ", 3) then ЗAMEHA
+    else if CЛEKC(ДИP, "KHЦ   ", 3) then besm(740000B)
     else if CЛEKC(ДИP, 'K     ', 1) then
       begin FORMAT := CODE; goto 1 end
-    else if CЛEKC(ДИP, 'Ш     ', 1) then begin FORMAT := HEX; goto 1 end
+    else if CЛEKC(ДИP, "Ш     ", 1) then begin FORMAT := HEX; goto 1 end
     else if CЛEKC(ДИP, 'A.    ', 2) then CMEAЦП
     else if CЛEKC(ДИP, 'V.    ', 2) then CMEЭKP
-    else if CЛEKC(ДИP, 'ЗAП   ', 2) then ЗAПИCЬ;
+    else if CЛEKC(ДИP, "ЗAП   ", 2) then ЗAПИCЬ;
     reset(input);
     AДPEC := SCANNUM(16, false);
     if AДPEC < 0 then goto 1;
@@ -429,6 +429,6 @@ begin
   until false;
   besm(740000B);
 end.D
- HYЗЗЗЗ = 0; FILETYPE = 'KOД   '; AДPEC = -1;
+ HYЗЗЗЗ = 0; FILETYPE = "KOД   "; AДPEC = -1;
  CЧИTЗOHA = 777777B; PAЗДEЛ = [' ']
 end

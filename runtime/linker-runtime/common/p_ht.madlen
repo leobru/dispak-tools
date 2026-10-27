@@ -1,0 +1,26 @@
+C Linker runtime source; provenance and placements in modules.json.
+ P/HT:,NAME,
+ PASPMDAD:,SUBP,
+ P/E:,SUBP,
+ P/EF:,SUBP,
+ P/RC:,SUBP,
+ STOP*:,SUBP,
+ R03520:14,VTM,PASPMDAD
+ 14,XTA,
+ ,UZA,R03523
+ 13,VTM,R03523
+ 14,WTC,
+ ,UJ,
+ R03523:1,MTJ,15B
+ 14,VJM,P/RC
+ 7,XTA,1B
+ ,UTC,R03531
+ ,AAX,
+ 14,VTM,STOP*
+ ,ITS,16B
+ 15,AOX,77777B
+ 7,STX,1B
+ ,UZA,P/E
+ ,UJ,P/EF
+ R03531:,LOG,0000007777700000
+ ,END,

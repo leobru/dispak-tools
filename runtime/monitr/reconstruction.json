@@ -56,10 +56,10 @@
   ],
   "free_matches": true,
   "source": "runtime/monitr/monitr.pas",
-  "source_sha256": "9cb04b33e3f558e58e267dd4c4aa8fbf7040cf37ce3a159e65f084b5b45fba58",
+  "source_sha256": "32eabbe932fc215d5037b3fc0d65b63f87a76fc341ee0664ef0dbaaf7ac570e5",
   "compiler": {
     "source": "mypas.b6",
-    "source_sha256": "766fa83494799002c37b5850ddf65ee99e5a873b64b2e835322b49b108fa381b",
+    "source_sha256": "6963dd623cab5d5cb2227607cc8ae1996ac6891f32d29555a117640ca602751c",
     "volume": "runtime/build/monitr/77",
     "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
     "installed_volume_unchanged": true,
@@ -72,7 +72,7 @@
     "runtime/box/build.py": "78f539261ed18a322ef4fc4c44de6134d76c7325275db789a15ba6872bd73303",
     "runtime/mtd/build.py": "8d481be3dfdcbcac64f3ca6edbba72009792a06d10d1d4ada9c0c432d9876da1",
     "runtime/comp/build.py": "e34db3090536aa4c76bc255e76dc6aaf13e1e07db1180d1f5b4fd183a87642fa",
-    "runtime/more/build.py": "120de2865fe18a60b4f24ce4905d7e41fbb1baae8d169179ad01ea440ddff3ab"
+    "runtime/more/build.py": "3be8d9f41f747f3a81841205cfa311a743217fd69e2f5903072bb0ab8bec8369"
   },
   "library_source_sha256": "f0f4c584dafd606db9be559b8b9966ae86661a6699cc0cf635d381fb844c6d77",
   "image": "runtime/build/monitr/monitr.img",

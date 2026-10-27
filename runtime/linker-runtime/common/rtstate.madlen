@@ -1,0 +1,11 @@
+C Linker runtime source; provenance and placements in modules.json.
+ RTSTATE:,NAME,
+ VALSTATE:,ENTRY,
+ RBASE:,BSS,1
+ BANKREG:,ENTRY,
+ ,BSS,1
+ MEMSTATE:,ENTRY,
+ ,BSS,1
+ PASPMDAD:,ENTRY,
+ ,BSS,1
+ ,END,

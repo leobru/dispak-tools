@@ -5,7 +5,7 @@ its linked runtime. [more.pas](more.pas) reproduces the application words;
 only nine runtime call-address fields differ in the current link. The build
 uses the recovered Monitor runtime and COMP's later file-access library.
 
-The earlier readable reconstruction was saved unchanged as
+The earlier readable reconstruction was saved as
 [more-readable.pas](more-readable.pas), with its original build report in
 [readable-reconstruction.json](readable-reconstruction.json). The new source
 keeps the historical line numbers, bounds checks and instruction packing.
@@ -48,6 +48,10 @@ usual system volumes on `BESM6_PATH`:
 python3 runtime/corpus.py
 python3 runtime/more/build.py
 ```
+
+KOI-7 literals use single quotes and Cyrillic letters (`'И'`, `'Х'`,
+`'Ю'`, `'Ч'`). The builder escapes these letters only in the generated
+card deck, because GOST input otherwise merges lookalikes such as `Х` and `X`.
 
 The second command first rebuilds `mypas.b6` on a private copy of volume 77.
 It then builds a private PERSO library, compiles the Pascal source,

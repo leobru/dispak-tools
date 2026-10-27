@@ -70,8 +70,9 @@ there.
 ## Reconstruction details
 
 The image has no PMD tables (`p-`) and no range checks (`t-`). Its options are
-`a4,y+,p-,t-,o-`. Every identifier is invented, apart from external entries
-whose names are known from the volume 4001 include deck (`LIB`, `DLIB`,
+`y+,p-,t-,o-`; double quotes select KOI-8 literals. Every identifier is
+invented, apart from external entries known from the volume 4001 include
+deck (`LIB`, `DLIB`,
 `OPENF`, `MAKEF`, `CLOSEF`, `DELF`, `MKNAME`) or from COPY (`FIRSTF`,
 `NEXTF`). Absolute variables name the Monitor's shared cells:
 - `00003` is the active library;

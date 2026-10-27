@@ -1,4 +1,4 @@
-(*=a4,y+,o-*)
+(*=y+,o-*)
 program MTDSK(input, output);
 % MTD (MTDSK), volume 4001, zones 0047-0050.
 % Build: python3 runtime/mtd/build.py (private compiler and disks).
@@ -138,7 +138,7 @@ function COГЛACEH: boolean;
 %
 begin
   ПPOБ;
-  COГЛACEH := eof(input) or (input@ = '_344') or (input@ = 'Y');
+  COГЛACEH := eof(input) or (input@ = "_344") or (input@ = 'Y');
 end;
 
 procedure BЛEKC(var ЛEKC: alfa);
@@ -547,7 +547,7 @@ begin
   ПPOБ;
   NUMBER := 0;
   while not DIGIT(RADIX) do begin
-    writeln(output, 'TPEБYETCЯ ЧИCЛO ПO OCHOBAHИЮ', RADIX:3);
+    writeln(output, "TPEБYETCЯ ЧИCЛO ПO OCHOBAHИЮ", RADIX:3);
     rewrite(input);
     write(input, prompt(1320400000000000C));
     READLINE(input);

@@ -1,0 +1,16 @@
+C Linker runtime source; provenance and placements in modules.json.
+ P/HIDE:,NAME,
+ R04000:,ITA,15B
+ ,ITS,10B
+ ,ITS,7B
+ ,ITS,6B
+ 15,ATX,
+ 14,UJ,
+ P/EDIH:,ENTRY,
+ R04003:15,XTA,
+ ,STI,6B
+ ,STI,7B
+ ,STI,10B
+ ,ATI,15B
+ 14,UJ,
+ ,END,

@@ -1,0 +1,7 @@
+C Linker runtime source; provenance and placements in modules.json.
+ PASCHARS:,NAME,
+ PASZERO*:,ENTRY,
+ RBASE:,LOG,0000000000000060
+ PASMINS*:,ENTRY,
+ ,LOG,0000000000000055
+ ,END,

@@ -1,4 +1,4 @@
-(*=a4,y+,o-,b1,s7*)
+(*=y+,o-,b1,s7*)
 program PRINTFIL(input, output, TTIO);
 % FPRINT, volume 4001, zones 0063-0065; names retained from PMD.
 % Build: python3 runtime/fprint/build.py
@@ -55,7 +55,7 @@ end;
 function COГЛACEH: boolean;
 begin
   ПPOБ;
-  COГЛACEH := eof(input) or (input@ = '_344') or (input@ = 'Y');
+  COГЛACEH := eof(input) or (input@ = "_344") or (input@ = 'Y');
 end;
 
 procedure BЛEKC(var ЛEKC: alfa);
@@ -107,7 +107,7 @@ begin
   ПPOБ;
   NUMBER := 0;
   while not DIGIT(RADIX) do begin
-    writeln(output, 'TPEБYETCЯ ЧИCЛO ПO OCHOBAHИЮ', RADIX:3);
+    writeln(output, "TPEБYETCЯ ЧИCЛO ПO OCHOBAHИЮ", RADIX:3);
     rewrite(input); write(input, '-_010'); READLINE(input); ПPOБ; (q);
   end;
   while DIGIT(RADIX) do begin
@@ -214,12 +214,12 @@ begin
         if CHI < 32 then exit nextchar;
         PUTC(PCT@[ord(CH)-32]);
         DSTRIKE := DSTRIKE or (PCT1@[ord(CH)-32] <> '_017'); (q);
-        if CHW <> '_000' then begin PUTC('_173'); PUTC(chr(COL)) end
+        if CHW <> '_000' then begin PUTC('Ш'); PUTC(chr(COL)) end
         else COL := COL+1;
       end;
     end;
     if DSTRIKE then begin
-      PUTC('_173'); PUTC('_000'); COL := 0;
+      PUTC('Ш'); PUTC('_000'); COL := 0;
       (second) for S := 0 to 128 do begin
         CHW := SHEET[P,S];
         while CHW <> '_000' do (nextchar) begin
@@ -229,14 +229,14 @@ begin
           if CH = lf then exit second;
           if CHI < 32 then exit nextchar;
           CH := PCT1@[ord(CH)-32]; PUTC(CH);
-          if CHW <> '_000' then begin PUTC('_173'); PUTC(chr(COL)) end
+          if CHW <> '_000' then begin PUTC('Ш'); PUTC(chr(COL)) end
           else COL := COL+1;
         end;
       end;
     end;
-    PUTC('_214');
+    PUTC("_214");
   end; (q);
-  PUTC('_172'); (q);
+  PUTC('З'); (q);
 end;
 
 var TTIO: array [0..22] of bitset;

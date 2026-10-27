@@ -1,0 +1,16 @@
+C Linker runtime source; provenance and placements in modules.json.
+ P/SP:,NAME,
+ P/PF:,SUBP,
+ PADCHAR*:,SUBP,
+ R03772:13,UZA,
+ ,ITS,15B
+ ,UTC,PADCHAR*
+ ,XTS,
+ 12,WTC,
+ ,ATX,
+ 13,VJM,P/PF
+ 15,XTA,
+ ,STI,15B
+ 1,A+X,21B
+ ,UJ,R03772
+ ,END,

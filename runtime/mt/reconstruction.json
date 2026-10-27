@@ -476,10 +476,10 @@
     "chronology": "0172 has additional features; neither image supplies a build date"
   },
   "source": "runtime/mt/mt.pas",
-  "source_sha256": "8fff83edaafad24376be4d34f5ae518d2fc696cc57628e0374904b5591573477",
+  "source_sha256": "9a8ecb9bb6a95aba6ae82f12e24353adcbbad35eaf2c05f6c94d28fbbd6bb763",
   "compiler": {
     "source": "mypas.b6",
-    "source_sha256": "766fa83494799002c37b5850ddf65ee99e5a873b64b2e835322b49b108fa381b",
+    "source_sha256": "6963dd623cab5d5cb2227607cc8ae1996ac6891f32d29555a117640ca602751c",
     "volume": "runtime/build/mt/77",
     "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
     "installed_volume_unchanged": true,
@@ -495,10 +495,10 @@
     "runtime/mt/dbcore.madlen": "35964353ca8f43816c1d154c25628b32575320a4fb7a7b8d0f0868a803fcf4fc",
     "runtime/mt/mt.sym": "3a42c27c5e0981ce008a3d1a7ba19e35967f0808e1d4e1e06ef53df757f3c651",
     "runtime/mt/variants.py": "cc2107e8fccaf9de3bd656422f5c8c8f45a5eb2bba3a4f345c136c0fa7378a44",
-    "runtime/mt/mt-readable.pas": "f34a5b6b605ce1ca32c0a1213b5eaf55788a2d2019e56269b4f664d914fefb37",
+    "runtime/mt/mt-readable.pas": "69f22ac5b3526022dc0bb08aa6b8ae395287b7a6750e3fe4f407247b925785d6",
     "runtime/mtd/build.py": "8d481be3dfdcbcac64f3ca6edbba72009792a06d10d1d4ada9c0c432d9876da1",
     "runtime/comp/build.py": "e34db3090536aa4c76bc255e76dc6aaf13e1e07db1180d1f5b4fd183a87642fa",
-    "runtime/more/build.py": "120de2865fe18a60b4f24ce4905d7e41fbb1baae8d169179ad01ea440ddff3ab"
+    "runtime/more/build.py": "3be8d9f41f747f3a81841205cfa311a743217fd69e2f5903072bb0ab8bec8369"
   },
   "library_source_sha256": "e0ba6790992d2f0e8775dc9b687b448381bd4d9871d42668bbd425910937b7c5",
   "image": "runtime/build/mt/mt.img",

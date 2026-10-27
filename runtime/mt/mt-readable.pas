@@ -1,4 +1,4 @@
-(*=a4,y+,o-*)
+(*=y+,o-*)
 program MT(input, output);
 % Recovered MT, volume 4001, zones 0172-0174.
 % Build: python3 runtime/mt/build.py
@@ -54,7 +54,7 @@ end;
 function COГЛACEH: boolean;
 begin
   ПPOБ;
-  COГЛACEH := eof(input) or (input@ = '_344') or (input@ = 'Y');
+  COГЛACEH := eof(input) or (input@ = "_344") or (input@ = 'Y');
 end;
 
 procedure BЛEKC(var ЛEKC: alfa);
@@ -109,7 +109,7 @@ begin
   ПPOБ;
   NUMBER := 0;
   while not DIGIT(RADIX) do begin
-    writeln(output, 'TPEБYETCЯ ЧИCЛO ПO OCHOBAHИЮ', RADIX:3);
+    writeln(output, "TPEБYETCЯ ЧИCЛO ПO OCHOBAHИЮ", RADIX:3);
     rewrite(input);
     write(input, prompt(1320400000000000C));
     READLINE(input);
@@ -158,15 +158,15 @@ begin
   ПPOБ;
   BЛEKC(LEX);
   select
-    CЛEKC(LEX, 'ЗB    ', 2): OPTN := ЗB;
-    CЛEKC(LEX, 'ЗH    ', 2): OPTN := ЗH;
-    CЛEKC(LEX, 'ФB    ', 2): OPTN := ФB;
-    CЛEKC(LEX, 'ФH    ', 2): OPTN := ФH;
-    CЛEKC(LEX, 'ПH    ', 2): OPTN := ПH;
+    CЛEKC(LEX, "ЗB    ", 2): OPTN := ЗB;
+    CЛEKC(LEX, "ЗH    ", 2): OPTN := ЗH;
+    CЛEKC(LEX, "ФB    ", 2): OPTN := ФB;
+    CЛEKC(LEX, "ФH    ", 2): OPTN := ФH;
+    CЛEKC(LEX, "ПH    ", 2): OPTN := ПH;
     CЛEKC(LEX, 'TM    ', 2): OPTN := TM;
-    CЛEKC(LEX, 'П8    ', 2): OPTN := П8;
-    CЛEKC(LEX, 'П32   ', 2): OPTN := П32;
-    CЛEKC(LEX, 'П63   ', 2): OPTN := П63;
+    CЛEKC(LEX, "П8    ", 2): OPTN := П8;
+    CЛEKC(LEX, "П32   ", 2): OPTN := П32;
+    CЛEKC(LEX, "П63   ", 2): OPTN := П63;
     CЛEKC(LEX, 'CT    ', 2): OPTN := CT;
     CЛEKC(LEX, 'FSR   ', 3): OPTN := ЗB;
     CЛEKC(LEX, 'BSR   ', 3): OPTN := ЗH;

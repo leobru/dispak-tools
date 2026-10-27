@@ -1,5 +1,9 @@
 # Recovered NEWPASC runtime libraries
 
+Recovered utility sources use double quotes for KOI-8 literals and single
+quotes for KOI-7 literals. KOI-7 codes `140`–`176` are written as Cyrillic
+letters rather than octal byte escapes.
+
 The corpus contains 26 memory images extracted from volume 4001, plus the four
 root `*.bin` files. Two extracts duplicate `test.bin` and `тестац.bin`, giving
 28 distinct images. [ANALYSIS.md](ANALYSIS.md) lists their locations, startup
@@ -66,12 +70,24 @@ in `02010.L`; printer and file operations are not executed during the build.
 all 22 runs passed, including multi-zone input and two-sheet printing, with
 byte-identical raw printer streams. See [execution results](fprint/execution.json).
 
-[LINK1 recovery](link1/README.md) reconstructs the Elbrus-B linker from volume
-4001 zones `0175–0214`. The current partial source covers 54 routines and
-2694 of 6543 application words, including the complete link-job parser and
-definition/reference gathering pass.
-`python3 runtime/link1/build.py` compiles these routines; 45 match after
-structural normalization. This is not yet a runnable rebuilt linker.
+[LINK1](link1/README.md), [BLINK1](blink1/README.md),
+[LINK](link/README.md) and [BLINK](blink/README.md) recover the four Elbrus-B
+linkers. Their [real runtime libraries](linker-runtime/README.md) share 53
+relocatable Madlen source variants, selecting 49 modules per image.
+
+| Linker | Application words | Matching library words | Matching Pascal regions, with padding |
+|---|---:|---:|---:|
+| LINK1, version 2.40/1 | 6543 | 1720 / 1720 | 87 / 93 |
+| BLINK1, version 2.40/2 | 6586 | 1689 / 1689 | 87 / 93 |
+| LINK, version 2.40/3 | 6875 | 1772 / 1772 | 85 / 93 |
+| BLINK, version 2.40/3 | 6875 | 1741 / 1741 | 85 / 93 |
+
+All application entry addresses and sizes, library entries and FREE values
+match. Constant pools, P/1D, globals and file blocks match literally.
+BLINK1 adds wider address/prefix handling; LINK and BLINK also use 64-bit
+operands and 32-bit instruction formats. Private compiler copies keep K9
+and pack the instruction flags. The builds compare complete library regions
+without normalization; real link jobs have not been executed.
 
 [PASCODER and overlays](pascoder/README.md) disassembles the library image writer
 and its separate `P/BOOT` reader. It describes the three TABLE fields, computed

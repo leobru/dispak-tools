@@ -1,0 +1,9 @@
+C Linker runtime source; provenance and placements in modules.json.
+ P/41:,NAME,
+ RBASE:7,MTJ,4B
+ 4,WTC,2B
+ 3,VTM,
+ 3,WTC,2B
+ 2,VTM,
+ 13,UJ,
+ ,END,

@@ -1,4 +1,4 @@
-(*=a4,y+,p-,t-,o-*)
+(*=y+,p-,t-,o-*)
 program BOX(input, output);
 % BOX, volume 4001 zones 0066-0067; application 02012-03030.
 % Build: python3 runtime/box/build.py (private compiler and disks).
@@ -225,7 +225,7 @@ function COГЛACEH: boolean;
 %
 begin
   ПPOБ;
-  COГЛACEH := eof(input) or (input@ = '_344') or (input@ = 'Y');
+  COГЛACEH := eof(input) or (input@ = "_344") or (input@ = 'Y');
 end;
 
 procedure BЛEKC(var ЛEKC: alfa);
@@ -625,7 +625,7 @@ begin
   ПPOБ;
   NUMBER := 0;
   while not DIGIT(RADIX) do begin
-    writeln(output, 'TPEБYETCЯ ЧИCЛO ПO OCHOBAHИЮ', RADIX:3);
+    writeln(output, "TPEБYETCЯ ЧИCЛO ПO OCHOBAHИЮ", RADIX:3);
     rewrite(input);
     write(input, prompt(1320400000000000C));
     READLINE(input);
@@ -898,7 +898,7 @@ begin
   write(output, '_077'); writeln(output);
   writeln(output, 'USAGE: BOX <WHAT>');
   writeln(output,
-    '<WHAT> ::= BЫД, ПPO, COX, ЛИCT, HOBKAT <БИБ>');
+    "<WHAT> ::= BЫД, ПPO, COX, ЛИCT, HOBKAT <БИБ>");
   besm(100000B:status, 3000002B); (q);
 end;
 
@@ -1037,14 +1037,14 @@ begin
   GETCMDLI(input);
   if eof(input) then USAGE('BOX   ', 1);
   BЛEKC(command);
-  if CЛEKC(command, 'ПPO   ', 3) then begin
+  if CЛEKC(command, "ПPO   ", 3) then begin
     besm(14440014B, 16471717B, 501212B); (q);
     besm(60440003B);
-  end else if CЛEKC(command, 'BЫД   ', 3) then begin
+  end else if CЛEKC(command, "BЫД   ", 3) then begin
     besm(620042B); (q);
-  end else if CЛEKC(command, 'ЛИCT  ', 3) then begin
+  end else if CЛEKC(command, "ЛИCT  ", 3) then begin
     besm(66402000B, 660200B); (q);
-  end else if CЛEKC(command, 'ЭXO   ', 1) then begin
+  end else if CЛEKC(command, "ЭXO   ", 1) then begin
     ПPOБ;
     while not eof(input) do (q) begin
       write(output, input@); get(input); (q);
@@ -1054,6 +1054,6 @@ begin
     besm(620043B); (q);
   end else if CЛEKC(command, 'HOBKAT', 6) then NEWCATALOG
   else USAGE(command, 2);
-  writeln(output, ' ECTЬ.');
+  writeln(output, " ECTЬ.");
   besm(100000B:(0), 3000002B); (q);
 end.

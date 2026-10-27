@@ -55,14 +55,14 @@ var cw, cw1, i: integer;
   procedure SETUPP;
   begin
     if creg = false then begin
-      PUTCHAR(esc); PUTCHAR('_151'); creg := true;
+      PUTCHAR(esc); PUTCHAR('И'); creg := true;
     end;
   end;
 
   procedure SETLOW;
   begin
     if creg = true then begin
-      PUTCHAR(esc); PUTCHAR('_150'); creg := false;
+      PUTCHAR(esc); PUTCHAR('Х'); creg := false;
     end;
   end;
 
@@ -72,15 +72,15 @@ begin
   creg := false;
   SETUPP;
   while not eof(f) and not eoln(f) do begin
-    if (f@ >= '_140') and (f@ <= '_176') then begin
+    if (f@ >= 'Ю') and (f@ <= 'Ч') then begin
       SETLOW; PUTCHAR(char(bitset(f@) mod bitset(40C)));
     end else if f@ = esc then begin
       PUTCHAR(esc); get(f); PUTCHAR(f@);
-    end else if f@ < '_140' then begin
+    end else if f@ < 'Ю' then begin
       SETUPP; PUTCHAR(f@);
-    end else if (f@ >= '_300') and (f@ < '_340') then begin
+    end else if (f@ >= "_300") and (f@ < "_340") then begin
       SETLOW; PUTCHAR(char(bitset(f@) mod bitset(240C)));
-    end else if (f@ >= '_340') and (f@ < '_377') then begin
+    end else if (f@ >= "_340") and (f@ < "_377") then begin
       SETUPP; PUTCHAR(char(bitset(f@) mod bitset(200C)));
     end else begin
       SETUPP; PUTCHAR(f@);

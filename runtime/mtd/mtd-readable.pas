@@ -1,4 +1,4 @@
-(*=a4,y+,o-*)
+(*=y+,o-*)
 program MTDSK(input, output);
 % Readable MTD reconstruction. PMD names and control flow are preserved.
 % mtd.pas adds historical line-number padding for a word-exact rebuild.
@@ -41,7 +41,7 @@ end;
 function COГЛACEH: boolean;
 begin
   ПPOБ;
-  COГЛACEH := eof(input) or (input@ = '_344') or (input@ = 'Y');
+  COГЛACEH := eof(input) or (input@ = "_344") or (input@ = 'Y');
 end;
 
 procedure BЛEKC(var ЛEKC: alfa);
@@ -96,7 +96,7 @@ begin
   ПPOБ;
   NUMBER := 0;
   while not DIGIT(RADIX) do begin
-    writeln(output, 'TPEБYETCЯ ЧИCЛO ПO OCHOBAHИЮ', RADIX:3);
+    writeln(output, "TPEБYETCЯ ЧИCЛO ПO OCHOBAHИЮ", RADIX:3);
     rewrite(input);
     write(input, prompt(1320400000000000C));
     READLINE(input);

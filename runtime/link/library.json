@@ -1,0 +1,1338 @@
+{
+  "profile": "link",
+  "runtime": "22150",
+  "free": "25524",
+  "rebuilt_free": "25524",
+  "words": 1772,
+  "identical_words": 1772,
+  "bit_identical": true,
+  "placement_matches": true,
+  "modules": [
+    {
+      "name": "P/2",
+      "source": "common/p_2.madlen",
+      "start": "22150",
+      "end": "22154",
+      "words": 4,
+      "identical_words": 4,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/2",
+          "original": "22150",
+          "rebuilt": "22150"
+        }
+      ]
+    },
+    {
+      "name": "P/WI",
+      "source": "common/p_wi.madlen",
+      "start": "22154",
+      "end": "22235",
+      "words": 49,
+      "identical_words": 49,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/WI",
+          "original": "22154",
+          "rebuilt": "22154"
+        }
+      ]
+    },
+    {
+      "name": "P/CW",
+      "source": "common/p_cw.madlen",
+      "start": "22235",
+      "end": "22237",
+      "words": 2,
+      "identical_words": 2,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/CW",
+          "original": "22235",
+          "rebuilt": "22235"
+        }
+      ]
+    },
+    {
+      "name": "P/EF",
+      "source": "common/p_ef.madlen",
+      "start": "22237",
+      "end": "22245",
+      "words": 6,
+      "identical_words": 6,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/EF",
+          "original": "22237",
+          "rebuilt": "22237"
+        },
+        {
+          "name": "P/E",
+          "original": "22242",
+          "rebuilt": "22242"
+        }
+      ]
+    },
+    {
+      "name": "P/7A",
+      "source": "common/p_7a.madlen",
+      "start": "22245",
+      "end": "22262",
+      "words": 13,
+      "identical_words": 13,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/7A",
+          "original": "22245",
+          "rebuilt": "22245"
+        },
+        {
+          "name": "P/7AD",
+          "original": "22247",
+          "rebuilt": "22247"
+        }
+      ]
+    },
+    {
+      "name": "KEYS",
+      "source": "common/keys.madlen",
+      "start": "22262",
+      "end": "22417",
+      "words": 93,
+      "identical_words": 93,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "HASHNAME",
+          "original": "22262",
+          "rebuilt": "22262"
+        },
+        {
+          "name": "CMPNAME",
+          "original": "22267",
+          "rebuilt": "22267"
+        },
+        {
+          "name": "NAMELEN",
+          "original": "22305",
+          "rebuilt": "22305"
+        },
+        {
+          "name": "UNPACKNM",
+          "original": "22322",
+          "rebuilt": "22322"
+        },
+        {
+          "name": "UNPACKKY",
+          "original": "22347",
+          "rebuilt": "22347"
+        },
+        {
+          "name": "PACKKEY",
+          "original": "22335",
+          "rebuilt": "22335"
+        },
+        {
+          "name": "KEYPAIR",
+          "original": "22363",
+          "rebuilt": "22363"
+        },
+        {
+          "name": "KEYCODE",
+          "original": "22372",
+          "rebuilt": "22372"
+        },
+        {
+          "name": "KEYS",
+          "original": "22262",
+          "rebuilt": "22262"
+        }
+      ]
+    },
+    {
+      "name": "GETSTAMP",
+      "source": "common/getstamp-full.madlen",
+      "start": "22417",
+      "end": "22443",
+      "words": 20,
+      "identical_words": 20,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "GETSTAMP",
+          "original": "22417",
+          "rebuilt": "22417"
+        }
+      ]
+    },
+    {
+      "name": "P/LNGPAR",
+      "source": "common/p_lngpar.madlen",
+      "start": "22443",
+      "end": "22451",
+      "words": 6,
+      "identical_words": 6,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/LNGPAR",
+          "original": "22443",
+          "rebuilt": "22443"
+        }
+      ]
+    },
+    {
+      "name": "DBIO",
+      "source": "common/dbio.madlen",
+      "start": "22451",
+      "end": "22766",
+      "words": 205,
+      "identical_words": 205,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "NEWKEY",
+          "original": "22754",
+          "rebuilt": "22754"
+        },
+        {
+          "name": "OBJREAD",
+          "original": "22756",
+          "rebuilt": "22756"
+        },
+        {
+          "name": "OBJEDIT",
+          "original": "22760",
+          "rebuilt": "22760"
+        },
+        {
+          "name": "FILEEDIT",
+          "original": "22761",
+          "rebuilt": "22761"
+        },
+        {
+          "name": "READPAIR",
+          "original": "22762",
+          "rebuilt": "22762"
+        },
+        {
+          "name": "WRITPAIR",
+          "original": "22763",
+          "rebuilt": "22763"
+        },
+        {
+          "name": "PUTTEMP",
+          "original": "22765",
+          "rebuilt": "22765"
+        },
+        {
+          "name": "TABREAD",
+          "original": "22757",
+          "rebuilt": "22757"
+        },
+        {
+          "name": "GETTEMP",
+          "original": "22764",
+          "rebuilt": "22764"
+        },
+        {
+          "name": "READNEXT",
+          "original": "22752",
+          "rebuilt": "22752"
+        },
+        {
+          "name": "NEWTAB",
+          "original": "22755",
+          "rebuilt": "22755"
+        },
+        {
+          "name": "DBIO",
+          "original": "22451",
+          "rebuilt": "22451"
+        }
+      ]
+    },
+    {
+      "name": "TABLEIO",
+      "source": "common/tableio.madlen",
+      "start": "22766",
+      "end": "23000",
+      "words": 10,
+      "identical_words": 10,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "NUMOBJS",
+          "original": "22776",
+          "rebuilt": "22776"
+        },
+        {
+          "name": "POSITION",
+          "original": "22774",
+          "rebuilt": "22774"
+        },
+        {
+          "name": "SETPOS",
+          "original": "22772",
+          "rebuilt": "22772"
+        },
+        {
+          "name": "GETFILED",
+          "original": "22766",
+          "rebuilt": "22766"
+        },
+        {
+          "name": "GETPAIR",
+          "original": "22766",
+          "rebuilt": "22766"
+        },
+        {
+          "name": "PUTFILED",
+          "original": "22767",
+          "rebuilt": "22767"
+        },
+        {
+          "name": "PUTPAIR",
+          "original": "22767",
+          "rebuilt": "22767"
+        },
+        {
+          "name": "TABFILE",
+          "original": "22770",
+          "rebuilt": "22770"
+        },
+        {
+          "name": "TABGET",
+          "original": "22770",
+          "rebuilt": "22770"
+        },
+        {
+          "name": "TABPAIR",
+          "original": "22770",
+          "rebuilt": "22770"
+        },
+        {
+          "name": "PUTDEF",
+          "original": "22771",
+          "rebuilt": "22771"
+        },
+        {
+          "name": "PUTREF",
+          "original": "22771",
+          "rebuilt": "22771"
+        },
+        {
+          "name": "PUTSECT",
+          "original": "22771",
+          "rebuilt": "22771"
+        },
+        {
+          "name": "TABPUT",
+          "original": "22771",
+          "rebuilt": "22771"
+        },
+        {
+          "name": "TABSAVE",
+          "original": "22771",
+          "rebuilt": "22771"
+        },
+        {
+          "name": "TABLEIO",
+          "original": "22766",
+          "rebuilt": "22766"
+        }
+      ]
+    },
+    {
+      "name": "P/3",
+      "source": "common/p_3.madlen",
+      "start": "23000",
+      "end": "23004",
+      "words": 4,
+      "identical_words": 4,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/3",
+          "original": "23000",
+          "rebuilt": "23000"
+        }
+      ]
+    },
+    {
+      "name": "P/SYS",
+      "source": "common/p_sys.madlen",
+      "start": "23004",
+      "end": "23337",
+      "words": 219,
+      "identical_words": 219,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/SYS",
+          "original": "23004",
+          "rebuilt": "23004"
+        },
+        {
+          "name": "P/EL",
+          "original": "23322",
+          "rebuilt": "23322"
+        },
+        {
+          "name": "P/CO",
+          "original": "23031",
+          "rebuilt": "23031"
+        },
+        {
+          "name": "P/IT",
+          "original": "23121",
+          "rebuilt": "23121"
+        },
+        {
+          "name": "P/WL",
+          "original": "23165",
+          "rebuilt": "23165"
+        },
+        {
+          "name": "P/GF",
+          "original": "23215",
+          "rebuilt": "23215"
+        },
+        {
+          "name": "P/EO",
+          "original": "23317",
+          "rebuilt": "23317"
+        },
+        {
+          "name": "P/WOLN",
+          "original": "23164",
+          "rebuilt": "23164"
+        }
+      ]
+    },
+    {
+      "name": "P/08",
+      "source": "common/p_08.madlen",
+      "start": "23337",
+      "end": "23366",
+      "words": 23,
+      "identical_words": 23,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/08",
+          "original": "23337",
+          "rebuilt": "23337"
+        }
+      ]
+    },
+    {
+      "name": "P/STAR",
+      "source": "common/p_star.madlen",
+      "start": "23366",
+      "end": "23400",
+      "words": 10,
+      "identical_words": 10,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/STAR",
+          "original": "23366",
+          "rebuilt": "23366"
+        }
+      ]
+    },
+    {
+      "name": "P/6A",
+      "source": "common/p_6a.madlen",
+      "start": "23400",
+      "end": "23402",
+      "words": 2,
+      "identical_words": 2,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/6A",
+          "original": "23400",
+          "rebuilt": "23400"
+        }
+      ]
+    },
+    {
+      "name": "P/LDAR",
+      "source": "common/p_ldar.madlen",
+      "start": "23402",
+      "end": "23412",
+      "words": 8,
+      "identical_words": 8,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/LDAR",
+          "original": "23402",
+          "rebuilt": "23402"
+        }
+      ]
+    },
+    {
+      "name": "P/4",
+      "source": "common/p_4.madlen",
+      "start": "23412",
+      "end": "23416",
+      "words": 4,
+      "identical_words": 4,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/4",
+          "original": "23412",
+          "rebuilt": "23412"
+        }
+      ]
+    },
+    {
+      "name": "P/IN",
+      "source": "common/p_in.madlen",
+      "start": "23416",
+      "end": "23426",
+      "words": 8,
+      "identical_words": 8,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/IN",
+          "original": "23416",
+          "rebuilt": "23416"
+        }
+      ]
+    },
+    {
+      "name": "P/42",
+      "source": "common/p_42.madlen",
+      "start": "23426",
+      "end": "23430",
+      "words": 2,
+      "identical_words": 2,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/42",
+          "original": "23426",
+          "rebuilt": "23426"
+        }
+      ]
+    },
+    {
+      "name": "P/5",
+      "source": "common/p_5.madlen",
+      "start": "23430",
+      "end": "23434",
+      "words": 4,
+      "identical_words": 4,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/5",
+          "original": "23430",
+          "rebuilt": "23430"
+        }
+      ]
+    },
+    {
+      "name": "P/52",
+      "source": "common/p_52.madlen",
+      "start": "23434",
+      "end": "23437",
+      "words": 3,
+      "identical_words": 3,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/52",
+          "original": "23434",
+          "rebuilt": "23434"
+        }
+      ]
+    },
+    {
+      "name": "P/SS",
+      "source": "common/p_ss.madlen",
+      "start": "23437",
+      "end": "23441",
+      "words": 2,
+      "identical_words": 2,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/SS",
+          "original": "23437",
+          "rebuilt": "23437"
+        }
+      ]
+    },
+    {
+      "name": "P/31",
+      "source": "common/p_31.madlen",
+      "start": "23441",
+      "end": "23443",
+      "words": 2,
+      "identical_words": 2,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/31",
+          "original": "23441",
+          "rebuilt": "23441"
+        }
+      ]
+    },
+    {
+      "name": "CLOSE",
+      "source": "common/close.madlen",
+      "start": "23443",
+      "end": "23514",
+      "words": 41,
+      "identical_words": 41,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "CLOSE",
+          "original": "23443",
+          "rebuilt": "23443"
+        }
+      ]
+    },
+    {
+      "name": "P/A7",
+      "source": "common/p_a7.madlen",
+      "start": "23514",
+      "end": "23522",
+      "words": 6,
+      "identical_words": 6,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/A7",
+          "original": "23514",
+          "rebuilt": "23514"
+        }
+      ]
+    },
+    {
+      "name": "P/WO",
+      "source": "common/p_wo.madlen",
+      "start": "23522",
+      "end": "23604",
+      "words": 50,
+      "identical_words": 50,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/WO",
+          "original": "23522",
+          "rebuilt": "23522"
+        },
+        {
+          "name": "P/WH",
+          "original": "23523",
+          "rebuilt": "23523"
+        }
+      ]
+    },
+    {
+      "name": "ATTACH",
+      "source": "common/attach-full.madlen",
+      "start": "23604",
+      "end": "23707",
+      "words": 67,
+      "identical_words": 67,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "ATTACH",
+          "original": "23604",
+          "rebuilt": "23604"
+        },
+        {
+          "name": "INITVEC",
+          "original": "23650",
+          "rebuilt": "23650"
+        }
+      ]
+    },
+    {
+      "name": "GETDATE",
+      "source": "common/getdate.madlen",
+      "start": "23707",
+      "end": "23743",
+      "words": 28,
+      "identical_words": 28,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "GETDATE",
+          "original": "23707",
+          "rebuilt": "23707"
+        }
+      ]
+    },
+    {
+      "name": "P/RC",
+      "source": "common/p_rc.madlen",
+      "start": "23743",
+      "end": "23761",
+      "words": 14,
+      "identical_words": 14,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/RC",
+          "original": "23743",
+          "rebuilt": "23743"
+        }
+      ]
+    },
+    {
+      "name": "P/WC",
+      "source": "common/p_wc.madlen",
+      "start": "23761",
+      "end": "23766",
+      "words": 5,
+      "identical_words": 5,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/WC",
+          "original": "23761",
+          "rebuilt": "23761"
+        }
+      ]
+    },
+    {
+      "name": "P/MD",
+      "source": "common/p_md.madlen",
+      "start": "23766",
+      "end": "23775",
+      "words": 7,
+      "identical_words": 7,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/MD",
+          "original": "23766",
+          "rebuilt": "23766"
+        }
+      ]
+    },
+    {
+      "name": "P/41",
+      "source": "common/p_41.madlen",
+      "start": "23775",
+      "end": "24000",
+      "words": 3,
+      "identical_words": 3,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/41",
+          "original": "23775",
+          "rebuilt": "23775"
+        }
+      ]
+    },
+    {
+      "name": "P/UN",
+      "source": "common/p_un.madlen",
+      "start": "24000",
+      "end": "24005",
+      "words": 5,
+      "identical_words": 5,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/UN",
+          "original": "24000",
+          "rebuilt": "24000"
+        }
+      ]
+    },
+    {
+      "name": "VALUES",
+      "source": "common/values-64.madlen",
+      "start": "24005",
+      "end": "24743",
+      "words": 478,
+      "identical_words": 478,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "PACKVAL",
+          "original": "24005",
+          "rebuilt": "24005"
+        },
+        {
+          "name": "UNPACKVL",
+          "original": "24024",
+          "rebuilt": "24024"
+        },
+        {
+          "name": "B23312",
+          "original": "24036",
+          "rebuilt": "24036"
+        },
+        {
+          "name": "B23330",
+          "original": "24054",
+          "rebuilt": "24054"
+        },
+        {
+          "name": "B23336",
+          "original": "24062",
+          "rebuilt": "24062"
+        },
+        {
+          "name": "B23347",
+          "original": "24073",
+          "rebuilt": "24073"
+        },
+        {
+          "name": "B23361",
+          "original": "24105",
+          "rebuilt": "24105"
+        },
+        {
+          "name": "B24130",
+          "original": "24736",
+          "rebuilt": "24736"
+        },
+        {
+          "name": "B23414",
+          "original": "24140",
+          "rebuilt": "24140"
+        },
+        {
+          "name": "B24127",
+          "original": "24735",
+          "rebuilt": "24735"
+        },
+        {
+          "name": "B23525",
+          "original": "24260",
+          "rebuilt": "24260"
+        },
+        {
+          "name": "B23434",
+          "original": "24161",
+          "rebuilt": "24161"
+        },
+        {
+          "name": "B23375",
+          "original": "24121",
+          "rebuilt": "24121"
+        },
+        {
+          "name": "B24133",
+          "original": "24741",
+          "rebuilt": "24741"
+        },
+        {
+          "name": "B23423",
+          "original": "24150",
+          "rebuilt": "24150"
+        },
+        {
+          "name": "VALUES",
+          "original": "24005",
+          "rebuilt": "24005"
+        }
+      ]
+    },
+    {
+      "name": "MEMORY",
+      "source": "common/memory-full.madlen",
+      "start": "24743",
+      "end": "25103",
+      "words": 96,
+      "identical_words": 96,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "MEMINIT",
+          "original": "24743",
+          "rebuilt": "24743"
+        },
+        {
+          "name": "MEMALLOC",
+          "original": "25062",
+          "rebuilt": "25062"
+        },
+        {
+          "name": "MEMORY",
+          "original": "24743",
+          "rebuilt": "24743"
+        }
+      ]
+    },
+    {
+      "name": "P/HT",
+      "source": "common/p_ht.madlen",
+      "start": "25103",
+      "end": "25115",
+      "words": 10,
+      "identical_words": 10,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/HT",
+          "original": "25103",
+          "rebuilt": "25103"
+        }
+      ]
+    },
+    {
+      "name": "P/1",
+      "source": "common/p_1.madlen",
+      "start": "25115",
+      "end": "25123",
+      "words": 6,
+      "identical_words": 6,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/LV",
+          "original": "25115",
+          "rebuilt": "25115"
+        },
+        {
+          "name": "P/1",
+          "original": "25115",
+          "rebuilt": "25115"
+        }
+      ]
+    },
+    {
+      "name": "P/SP",
+      "source": "common/p_sp.madlen",
+      "start": "25123",
+      "end": "25131",
+      "words": 6,
+      "identical_words": 6,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/SP",
+          "original": "25123",
+          "rebuilt": "25123"
+        }
+      ]
+    },
+    {
+      "name": "PASCHARS",
+      "source": "common/paschars.madlen",
+      "start": "25131",
+      "end": "25133",
+      "words": 2,
+      "identical_words": 2,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "PASZERO*",
+          "original": "25131",
+          "rebuilt": "25131"
+        },
+        {
+          "name": "PASMINS*",
+          "original": "25132",
+          "rebuilt": "25132"
+        },
+        {
+          "name": "PASCHARS",
+          "original": "25131",
+          "rebuilt": "25131"
+        }
+      ]
+    },
+    {
+      "name": "P/HIDE",
+      "source": "common/p_hide.madlen",
+      "start": "25133",
+      "end": "25141",
+      "words": 6,
+      "identical_words": 6,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/HIDE",
+          "original": "25133",
+          "rebuilt": "25133"
+        }
+      ]
+    },
+    {
+      "name": "RTCONST",
+      "source": "common/rtconst.madlen",
+      "start": "25141",
+      "end": "25265",
+      "words": 84,
+      "identical_words": 84,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "RTCONST",
+          "original": "25141",
+          "rebuilt": "25141"
+        }
+      ]
+    },
+    {
+      "name": "RTERROR",
+      "source": "common/rterror.madlen",
+      "start": "25265",
+      "end": "25306",
+      "words": 17,
+      "identical_words": 17,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "RTERROR",
+          "original": "25265",
+          "rebuilt": "25265"
+        }
+      ]
+    },
+    {
+      "name": "STOP*",
+      "source": "common/stop.madlen",
+      "start": "25306",
+      "end": "25307",
+      "words": 1,
+      "identical_words": 1,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "STOP*",
+          "original": "25306",
+          "rebuilt": "25306"
+        }
+      ]
+    },
+    {
+      "name": "MONOUT",
+      "source": "common/monout.madlen",
+      "start": "25307",
+      "end": "25401",
+      "words": 58,
+      "identical_words": 58,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "MONOUT",
+          "original": "25307",
+          "rebuilt": "25307"
+        }
+      ]
+    },
+    {
+      "name": "MONIN",
+      "source": "common/monin.madlen",
+      "start": "25401",
+      "end": "25451",
+      "words": 40,
+      "identical_words": 40,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "MONIN",
+          "original": "25401",
+          "rebuilt": "25401"
+        }
+      ]
+    },
+    {
+      "name": "P/PRINT",
+      "source": "common/p_print.madlen",
+      "start": "25451",
+      "end": "25470",
+      "words": 15,
+      "identical_words": 15,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/PRINT",
+          "original": "25451",
+          "rebuilt": "25451"
+        }
+      ]
+    },
+    {
+      "name": "*TTIO*",
+      "source": "common/ttio.madlen",
+      "start": "25470",
+      "end": "25517",
+      "words": 23,
+      "identical_words": 23,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "*TTIO*",
+          "original": "25470",
+          "rebuilt": "25470"
+        }
+      ]
+    },
+    {
+      "name": "P/PUTERR",
+      "source": "common/p_puterr.madlen",
+      "start": "25517",
+      "end": "25520",
+      "words": 1,
+      "identical_words": 1,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "P/PUTERR",
+          "original": "25517",
+          "rebuilt": "25517"
+        }
+      ]
+    },
+    {
+      "name": "RTSTATE",
+      "source": "common/rtstate.madlen",
+      "start": "25520",
+      "end": "25524",
+      "words": 4,
+      "identical_words": 4,
+      "bit_identical": true,
+      "placement_matches": true,
+      "entries": [
+        {
+          "name": "VALSTATE",
+          "original": "25520",
+          "rebuilt": "25520"
+        },
+        {
+          "name": "BANKREG",
+          "original": "25521",
+          "rebuilt": "25521"
+        },
+        {
+          "name": "MEMSTATE",
+          "original": "25522",
+          "rebuilt": "25522"
+        },
+        {
+          "name": "PASPMDAD",
+          "original": "25523",
+          "rebuilt": "25523"
+        },
+        {
+          "name": "RTSTATE",
+          "original": "25520",
+          "rebuilt": "25520"
+        }
+      ]
+    }
+  ],
+  "differences": [],
+  "regions": [
+    {
+      "name": "application",
+      "start": "02012",
+      "end": "17345",
+      "words": 6875,
+      "identical_words": 6859,
+      "bit_identical": false,
+      "differences": [
+        {
+          "address": "03102",
+          "original": "6640310303023426",
+          "rebuilt": "6712342602200000"
+        },
+        {
+          "address": "03146",
+          "original": "0000000003003147",
+          "rebuilt": "0000000002200000"
+        },
+        {
+          "address": "03377",
+          "original": "3444000303003400",
+          "rebuilt": "3444000302200000"
+        },
+        {
+          "address": "03424",
+          "original": "3444000303003425",
+          "rebuilt": "3444000302200000"
+        },
+        {
+          "address": "03453",
+          "original": "3444000303003454",
+          "rebuilt": "3444000302200000"
+        },
+        {
+          "address": "03706",
+          "original": "3444000303003707",
+          "rebuilt": "3444000302200000"
+        },
+        {
+          "address": "05172",
+          "original": "4015001710000010",
+          "rebuilt": "0415001110000010"
+        },
+        {
+          "address": "07145",
+          "original": "0037000767104647",
+          "rebuilt": "6710464702200000"
+        },
+        {
+          "address": "10466",
+          "original": "0040001672200000",
+          "rebuilt": "0415001100400016"
+        },
+        {
+          "address": "10467",
+          "original": "0620011372400000",
+          "rebuilt": "7220000006200113"
+        },
+        {
+          "address": "10470",
+          "original": "7410000070000000",
+          "rebuilt": "7240000074100000"
+        },
+        {
+          "address": "10471",
+          "original": "0410011502610475",
+          "rebuilt": "7000000004100115"
+        },
+        {
+          "address": "10472",
+          "original": "6711044602200000",
+          "rebuilt": "0261047567110446"
+        },
+        {
+          "address": "11746",
+          "original": "1010000510030054",
+          "rebuilt": "1010005400360040"
+        },
+        {
+          "address": "11747",
+          "original": "0036004074150000",
+          "rebuilt": "1003000574150000"
+        },
+        {
+          "address": "15543",
+          "original": "0037000767104647",
+          "rebuilt": "6710464702200000"
+        }
+      ]
+    },
+    {
+      "name": "constants",
+      "start": "17345",
+      "end": "21203",
+      "words": 926,
+      "identical_words": 926,
+      "bit_identical": true,
+      "differences": []
+    },
+    {
+      "name": "P/1D",
+      "start": "21203",
+      "end": "21253",
+      "words": 40,
+      "identical_words": 40,
+      "bit_identical": true,
+      "differences": []
+    },
+    {
+      "name": "application_globals",
+      "start": "21253",
+      "end": "22053",
+      "words": 384,
+      "identical_words": 384,
+      "bit_identical": true,
+      "differences": []
+    },
+    {
+      "name": "file_blocks_and_parameters",
+      "start": "22053",
+      "end": "22150",
+      "words": 61,
+      "identical_words": 61,
+      "bit_identical": true,
+      "differences": []
+    },
+    {
+      "name": "library",
+      "start": "22150",
+      "end": "25524",
+      "words": 1772,
+      "identical_words": 1772,
+      "bit_identical": true,
+      "differences": []
+    }
+  ],
+  "header_differences": [
+    {
+      "address": "02010",
+      "original": "0005400000025524",
+      "rebuilt": "0005220000025524",
+      "reason": "environment-dependent PASCODER descriptor left half"
+    }
+  ],
+  "services_stubbed": false,
+  "linked_program_executed": false
+}

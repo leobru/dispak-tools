@@ -90,10 +90,10 @@
   },
   "placement_matches": true,
   "source": "runtime/proz/proz.pas",
-  "source_sha256": "ecdd06e40bced40ef2c49600b6e69328695bb24d1848f3da15a9b333071d7ead",
+  "source_sha256": "d0318a5619467b07e97190c2d62cb869c5328e382a348a93dbffdc59d0480030",
   "compiler": {
     "source": "mypas.b6",
-    "source_sha256": "766fa83494799002c37b5850ddf65ee99e5a873b64b2e835322b49b108fa381b",
+    "source_sha256": "6963dd623cab5d5cb2227607cc8ae1996ac6891f32d29555a117640ca602751c",
     "volume": "runtime/build/proz/77",
     "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
     "installed_volume_unchanged": true,
@@ -107,12 +107,12 @@
     "runtime/proz/p_ldarin.madlen": "e0f5396d0b1fb1dce71c5c869f3c6bb3907125e2d3ac81bb000937724eae551e",
     "runtime/proz/p_4.madlen": "eb3c85255bbb1d402e07daf54a442413160b12e4a8d88bd3df740392f3fb8169",
     "runtime/proz/proz.sym": "b8a9398e4ee9a0d8afc614021aa7a34ae7cba37348dc175c9a06e6efceea7c19",
-    "runtime/proz/proz-readable.pas": "fcf7882c06e353942662e22cf0e72299b0e7844557f7d0fd13b2c605abd1d7be",
+    "runtime/proz/proz-readable.pas": "862c6317e42f11c1ff3d362a26c250a9f386c7d1cb07a21c90dfaf4928888e95",
     "runtime/mt/build.py": "6210ef23c5ea56f72c08ae0fe590e1be13532f626a8b7377cf65013f263e8b5f",
     "runtime/mtd/build.py": "8d481be3dfdcbcac64f3ca6edbba72009792a06d10d1d4ada9c0c432d9876da1",
     "runtime/monitr/build.py": "1ff8004f46d865776da880d51bdf65015de80c14232ec200eb3a5ecf110684c7",
     "runtime/comp/build.py": "e34db3090536aa4c76bc255e76dc6aaf13e1e07db1180d1f5b4fd183a87642fa",
-    "runtime/more/build.py": "120de2865fe18a60b4f24ce4905d7e41fbb1baae8d169179ad01ea440ddff3ab"
+    "runtime/more/build.py": "3be8d9f41f747f3a81841205cfa311a743217fd69e2f5903072bb0ab8bec8369"
   },
   "library_source_sha256": "a104ec52260ed331ae59e6e1f90560c6a1b09b1e481f479f8060310a98ec2afd",
   "image": "runtime/build/proz/proz.img",

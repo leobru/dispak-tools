@@ -1,0 +1,8 @@
+C Linker runtime source; provenance and placements in modules.json.
+ P/6A:,NAME,
+ P/7A:,SUBP,
+ 1,ATX,5
+ 1,UTC,5
+ 11,VTM,
+ ,UJ,P/7A
+ ,END,

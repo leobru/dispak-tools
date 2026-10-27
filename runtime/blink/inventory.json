@@ -1,0 +1,795 @@
+{
+  "image": "images/4001/0275-blink.bin",
+  "basis": "runtime/link/link.pas",
+  "pool": "17345",
+  "globals": "21203",
+  "runtime": "22150",
+  "free": "25465",
+  "code_words": 6875,
+  "entries": [
+    {
+      "name": "ENTRY",
+      "address": "02012"
+    },
+    {
+      "name": "PUTTIME",
+      "address": "02013"
+    },
+    {
+      "name": "PUTPATH",
+      "address": "02042"
+    },
+    {
+      "name": "PATHLEN",
+      "address": "02070"
+    },
+    {
+      "name": "NEWPHASE",
+      "address": "02113"
+    },
+    {
+      "name": "FINDKEY",
+      "address": "02125"
+    },
+    {
+      "name": "ENTERKEY",
+      "address": "02172"
+    },
+    {
+      "name": "FINDOBJ",
+      "address": "02312"
+    },
+    {
+      "name": "BINDOBJ",
+      "address": "02353"
+    },
+    {
+      "name": "NEXTCHAR",
+      "address": "02426"
+    },
+    {
+      "name": "BADJOB",
+      "address": "02463"
+    },
+    {
+      "name": "PUSHCHAR",
+      "address": "02752"
+    },
+    {
+      "name": "INNAME",
+      "address": "02761"
+    },
+    {
+      "name": "SKIPWS",
+      "address": "02765"
+    },
+    {
+      "name": "SKIPTAIL",
+      "address": "02775"
+    },
+    {
+      "name": "CONVERT",
+      "address": "03006"
+    },
+    {
+      "name": "SCANINT",
+      "address": "03034"
+    },
+    {
+      "name": "SCANDEC",
+      "address": "03153"
+    },
+    {
+      "name": "SCANNAME",
+      "address": "03176"
+    },
+    {
+      "name": "SCANFILE",
+      "address": "03230"
+    },
+    {
+      "name": "SCANALFA",
+      "address": "03312"
+    },
+    {
+      "name": "GETTOKEN",
+      "address": "03335"
+    },
+    {
+      "name": "EXPECT",
+      "address": "03455"
+    },
+    {
+      "name": "GETFILE",
+      "address": "03466"
+    },
+    {
+      "name": "SELECTFILES",
+      "address": "03541"
+    },
+    {
+      "name": "PRINTSEL",
+      "address": "03641"
+    },
+    {
+      "name": "READJOB",
+      "address": "03717"
+    },
+    {
+      "name": "PHASEMSG",
+      "address": "04475"
+    },
+    {
+      "name": "MODULEMSG",
+      "address": "04541"
+    },
+    {
+      "name": "RECORDMSG",
+      "address": "04562"
+    },
+    {
+      "name": "OPENIN",
+      "address": "04612"
+    },
+    {
+      "name": "CLOSEIN",
+      "address": "04635"
+    },
+    {
+      "name": "PUTSIZE",
+      "address": "04647"
+    },
+    {
+      "name": "PUTCODE",
+      "address": "04666"
+    },
+    {
+      "name": "READREC",
+      "address": "04707"
+    },
+    {
+      "name": "READBODY",
+      "address": "04735"
+    },
+    {
+      "name": "READPART",
+      "address": "04761"
+    },
+    {
+      "name": "SKIPREC",
+      "address": "05003"
+    },
+    {
+      "name": "SAVEREC",
+      "address": "05016"
+    },
+    {
+      "name": "WRITREC",
+      "address": "05044"
+    },
+    {
+      "name": "LEAPDAY",
+      "address": "05066"
+    },
+    {
+      "name": "PUTDATE",
+      "address": "05100"
+    },
+    {
+      "name": "STAMPOBJ",
+      "address": "05170"
+    },
+    {
+      "name": "PUTKIND",
+      "address": "05232"
+    },
+    {
+      "name": "BADOBJ",
+      "address": "05276"
+    },
+    {
+      "name": "RESNAME",
+      "address": "05472"
+    },
+    {
+      "name": "NEWDEF",
+      "address": "06063"
+    },
+    {
+      "name": "NEWSECT",
+      "address": "06101"
+    },
+    {
+      "name": "NEWREF",
+      "address": "06121"
+    },
+    {
+      "name": "SAVEPREF",
+      "address": "06135"
+    },
+    {
+      "name": "SAVEDATA",
+      "address": "06155"
+    },
+    {
+      "name": "SKIPDATA",
+      "address": "06175"
+    },
+    {
+      "name": "SAVEEXPR",
+      "address": "06204"
+    },
+    {
+      "name": "BINDDEF",
+      "address": "06223"
+    },
+    {
+      "name": "GATHER",
+      "address": "06247"
+    },
+    {
+      "name": "RESOLVE",
+      "address": "07221"
+    },
+    {
+      "name": "UNRESMSG",
+      "address": "07316"
+    },
+    {
+      "name": "ALIGNUP",
+      "address": "07403"
+    },
+    {
+      "name": "SECTID",
+      "address": "07420"
+    },
+    {
+      "name": "BADSECT",
+      "address": "07444"
+    },
+    {
+      "name": "JOINSECT",
+      "address": "07516"
+    },
+    {
+      "name": "PUTSECTN",
+      "address": "07661"
+    },
+    {
+      "name": "LISTSECT",
+      "address": "07722"
+    },
+    {
+      "name": "OBJWHERE",
+      "address": "10152"
+    },
+    {
+      "name": "DUMPSTK",
+      "address": "10166"
+    },
+    {
+      "name": "BADEXPR",
+      "address": "10217"
+    },
+    {
+      "name": "FLUSHOUT",
+      "address": "10446"
+    },
+    {
+      "name": "PUTWORD",
+      "address": "10463"
+    },
+    {
+      "name": "GETBYTE",
+      "address": "10504"
+    },
+    {
+      "name": "GETWORD",
+      "address": "10553"
+    },
+    {
+      "name": "PUSHLIT",
+      "address": "10602"
+    },
+    {
+      "name": "RELOCATE",
+      "address": "10647"
+    },
+    {
+      "name": "PUSHDEF",
+      "address": "10703"
+    },
+    {
+      "name": "PUSHREF",
+      "address": "10767"
+    },
+    {
+      "name": "DEFATTR",
+      "address": "11077"
+    },
+    {
+      "name": "REFATTR",
+      "address": "11177"
+    },
+    {
+      "name": "EMITVAL",
+      "address": "11323"
+    },
+    {
+      "name": "EMITOPER",
+      "address": "11522"
+    },
+    {
+      "name": "FIRSTVAL",
+      "address": "11616"
+    },
+    {
+      "name": "BINARYOP",
+      "address": "11764"
+    },
+    {
+      "name": "FIELDOP",
+      "address": "12176"
+    },
+    {
+      "name": "EVALUATE",
+      "address": "12445"
+    },
+    {
+      "name": "BADVALUE",
+      "address": "14346"
+    },
+    {
+      "name": "EVALDEFS",
+      "address": "14377"
+    },
+    {
+      "name": "BADOUT",
+      "address": "14625"
+    },
+    {
+      "name": "WRITESEG",
+      "address": "14665"
+    },
+    {
+      "name": "PUTLABEL",
+      "address": "15045"
+    },
+    {
+      "name": "LABELS",
+      "address": "15317"
+    },
+    {
+      "name": "PUTTIMES",
+      "address": "15556"
+    },
+    {
+      "name": "STATS",
+      "address": "15575"
+    },
+    {
+      "name": "INITFILES",
+      "address": "15733"
+    },
+    {
+      "name": "MAIN",
+      "address": "15745"
+    },
+    {
+      "name": "STARTUP",
+      "address": "17340"
+    }
+  ],
+  "external_entries": {
+    "HASHNAME": "22262",
+    "CMPNAME": "22267",
+    "NAMELEN": "22305",
+    "GETSTAMP": "22417",
+    "NEWKEY": "22736",
+    "OBJREAD": "22740",
+    "OBJEDIT": "22742",
+    "FILEEDIT": "22743",
+    "NUMOBJS": "22760",
+    "POSITION": "22756",
+    "SETPOS": "22754",
+    "READPAIR": "22744",
+    "WRITPAIR": "22745",
+    "PUTTEMP": "22747",
+    "CLOSE": "23425",
+    "GETFILED": "22750",
+    "PUTFILED": "22751",
+    "ATTACH": "23566",
+    "GETDATE": "23671",
+    "TABREAD": "22741",
+    "TABGET": "22752",
+    "TABPUT": "22753",
+    "INITVEC": "23632",
+    "UNPACKNM": "22322",
+    "UNPACKKY": "22347",
+    "PACKKEY": "22335",
+    "PUTDEF": "22753",
+    "PUTSECT": "22753",
+    "PUTREF": "22753",
+    "GETPAIR": "22750",
+    "PUTPAIR": "22751",
+    "TABPAIR": "22752",
+    "TABFILE": "22752",
+    "PACKVAL": "23767",
+    "UNPACKVL": "24006",
+    "TABSAVE": "22753",
+    "KEYPAIR": "22363",
+    "KEYCODE": "22372",
+    "GETTEMP": "22746",
+    "READNEXT": "22734",
+    "NEWTAB": "22737",
+    "MEMINIT": "24725",
+    "MEMALLOC": "25023",
+    "B23312": "24020",
+    "B23330": "24036",
+    "B23336": "24044",
+    "B23347": "24055",
+    "B23361": "24067",
+    "B24130": "24720",
+    "B23414": "24122",
+    "B24127": "24717",
+    "B23525": "24242",
+    "B23434": "24143",
+    "B23375": "24103",
+    "B24133": "24723",
+    "B23423": "24132"
+  },
+  "framed_procedures": 87,
+  "link_comparison": {
+    "changed_words": 579,
+    "changed_halves": 583,
+    "constants_identical": true,
+    "globals_identical": true,
+    "relocations": [
+      {
+        "original": "22443",
+        "blink": "22425",
+        "uses": 6
+      },
+      {
+        "original": "22752",
+        "blink": "22734",
+        "uses": 10
+      },
+      {
+        "original": "22754",
+        "blink": "22736",
+        "uses": 9
+      },
+      {
+        "original": "22755",
+        "blink": "22737",
+        "uses": 1
+      },
+      {
+        "original": "22756",
+        "blink": "22740",
+        "uses": 6
+      },
+      {
+        "original": "22757",
+        "blink": "22741",
+        "uses": 24
+      },
+      {
+        "original": "22760",
+        "blink": "22742",
+        "uses": 8
+      },
+      {
+        "original": "22761",
+        "blink": "22743",
+        "uses": 17
+      },
+      {
+        "original": "22762",
+        "blink": "22744",
+        "uses": 4
+      },
+      {
+        "original": "22763",
+        "blink": "22745",
+        "uses": 2
+      },
+      {
+        "original": "22764",
+        "blink": "22746",
+        "uses": 1
+      },
+      {
+        "original": "22765",
+        "blink": "22747",
+        "uses": 1
+      },
+      {
+        "original": "22766",
+        "blink": "22750",
+        "uses": 6
+      },
+      {
+        "original": "22767",
+        "blink": "22751",
+        "uses": 4
+      },
+      {
+        "original": "22770",
+        "blink": "22752",
+        "uses": 9
+      },
+      {
+        "original": "22771",
+        "blink": "22753",
+        "uses": 7
+      },
+      {
+        "original": "22772",
+        "blink": "22754",
+        "uses": 16
+      },
+      {
+        "original": "22774",
+        "blink": "22756",
+        "uses": 17
+      },
+      {
+        "original": "22776",
+        "blink": "22760",
+        "uses": 25
+      },
+      {
+        "original": "23000",
+        "blink": "22762",
+        "uses": 38
+      },
+      {
+        "original": "23031",
+        "blink": "23013",
+        "uses": 2
+      },
+      {
+        "original": "23121",
+        "blink": "23103",
+        "uses": 1
+      },
+      {
+        "original": "23164",
+        "blink": "23146",
+        "uses": 12
+      },
+      {
+        "original": "23165",
+        "blink": "23147",
+        "uses": 99
+      },
+      {
+        "original": "23215",
+        "blink": "23177",
+        "uses": 1
+      },
+      {
+        "original": "23317",
+        "blink": "23301",
+        "uses": 1
+      },
+      {
+        "original": "23322",
+        "blink": "23304",
+        "uses": 1
+      },
+      {
+        "original": "23337",
+        "blink": "23321",
+        "uses": 9
+      },
+      {
+        "original": "23366",
+        "blink": "23350",
+        "uses": 5
+      },
+      {
+        "original": "23400",
+        "blink": "23362",
+        "uses": 65
+      },
+      {
+        "original": "23402",
+        "blink": "23364",
+        "uses": 4
+      },
+      {
+        "original": "23412",
+        "blink": "23374",
+        "uses": 11
+      },
+      {
+        "original": "23416",
+        "blink": "23400",
+        "uses": 15
+      },
+      {
+        "original": "23426",
+        "blink": "23410",
+        "uses": 15
+      },
+      {
+        "original": "23430",
+        "blink": "23412",
+        "uses": 1
+      },
+      {
+        "original": "23434",
+        "blink": "23416",
+        "uses": 1
+      },
+      {
+        "original": "23437",
+        "blink": "23421",
+        "uses": 2
+      },
+      {
+        "original": "23441",
+        "blink": "23423",
+        "uses": 26
+      },
+      {
+        "original": "23443",
+        "blink": "23425",
+        "uses": 6
+      },
+      {
+        "original": "23514",
+        "blink": "23476",
+        "uses": 11
+      },
+      {
+        "original": "23522",
+        "blink": "23504",
+        "uses": 12
+      },
+      {
+        "original": "23523",
+        "blink": "23505",
+        "uses": 13
+      },
+      {
+        "original": "23604",
+        "blink": "23566",
+        "uses": 3
+      },
+      {
+        "original": "23650",
+        "blink": "23632",
+        "uses": 11
+      },
+      {
+        "original": "23707",
+        "blink": "23671",
+        "uses": 1
+      },
+      {
+        "original": "23743",
+        "blink": "23725",
+        "uses": 5
+      },
+      {
+        "original": "23761",
+        "blink": "23743",
+        "uses": 4
+      },
+      {
+        "original": "23766",
+        "blink": "23750",
+        "uses": 1
+      },
+      {
+        "original": "23775",
+        "blink": "23757",
+        "uses": 1
+      },
+      {
+        "original": "24000",
+        "blink": "23762",
+        "uses": 2
+      },
+      {
+        "original": "24005",
+        "blink": "23767",
+        "uses": 6
+      },
+      {
+        "original": "24024",
+        "blink": "24006",
+        "uses": 3
+      },
+      {
+        "original": "24036",
+        "blink": "24020",
+        "uses": 1
+      },
+      {
+        "original": "24054",
+        "blink": "24036",
+        "uses": 1
+      },
+      {
+        "original": "24062",
+        "blink": "24044",
+        "uses": 1
+      },
+      {
+        "original": "24073",
+        "blink": "24055",
+        "uses": 1
+      },
+      {
+        "original": "24105",
+        "blink": "24067",
+        "uses": 1
+      },
+      {
+        "original": "24121",
+        "blink": "24103",
+        "uses": 1
+      },
+      {
+        "original": "24140",
+        "blink": "24122",
+        "uses": 2
+      },
+      {
+        "original": "24150",
+        "blink": "24132",
+        "uses": 1
+      },
+      {
+        "original": "24161",
+        "blink": "24143",
+        "uses": 3
+      },
+      {
+        "original": "24260",
+        "blink": "24242",
+        "uses": 3
+      },
+      {
+        "original": "24735",
+        "blink": "24717",
+        "uses": 1
+      },
+      {
+        "original": "24736",
+        "blink": "24720",
+        "uses": 1
+      },
+      {
+        "original": "24741",
+        "blink": "24723",
+        "uses": 1
+      },
+      {
+        "original": "24743",
+        "blink": "24725",
+        "uses": 1
+      },
+      {
+        "original": "25062",
+        "blink": "25023",
+        "uses": 1
+      },
+      {
+        "original": "25103",
+        "blink": "25044",
+        "uses": 1
+      },
+      {
+        "original": "25115",
+        "blink": "25056",
+        "uses": 1
+      }
+    ]
+  }
+}

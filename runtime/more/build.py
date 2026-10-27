@@ -301,7 +301,7 @@ def intactness():
                 erased_volume_zone='0035', application_before_erasure=True)
 
 
-def rebuild_compiler(work):
+def rebuild_compiler(work, compiler_source=None):
     """Build mypas.b6 on a private 77, without its trailing example job."""
     target = work/'77'
     search = os.environ.get('BESM6_PATH',
@@ -313,7 +313,8 @@ def rebuild_compiler(work):
         raise FileNotFoundError('installed volume 77 is not on BESM6_PATH')
     raw = source.read_bytes()
     target.write_bytes(raw)
-    compiler_source = (ROOT/'mypas.b6').read_text()
+    if compiler_source is None:
+        compiler_source = (ROOT/'mypas.b6').read_text()
     prefix, marker, _ = compiler_source.partition('*end record\n')
     if not marker:
         raise ValueError('compiler deck has no overlay record terminator')
@@ -333,11 +334,30 @@ def rebuild_compiler(work):
         raise ValueError('compiler rebuild failed; see '+str(listing))
     if source.read_bytes() != raw:
         raise ValueError('installed compiler volume changed')
-    return dict(source='mypas.b6', source_sha256=sha((ROOT/'mypas.b6').read_bytes()),
+    return dict(source='mypas.b6', source_sha256=sha(compiler_source.encode()),
                 volume=str(target.relative_to(ROOT)),
                 installed_volume_sha256=sha(raw), installed_volume_unchanged=True,
                 translator_zone='0000', assembler_last_argument='accumulator',
                 assembler_constant_base_restored_by_caller=True)
+
+
+def pascal_cards(source):
+    """Keep KOI-7 Cyrillic literals intact through GOST card input."""
+    alphabet = 'ЮАБЦДЕФГХИЙКЛМНОПЯРСТУЖВЬЫЗШЭЩЧ'
+    tokens = re.compile(
+        r'\(\*.*?\*\)|\{.*?\}|%[^\n]*|"(?:""|[^"])*"|'
+        r"'(?:''|[^'])*'", re.S)
+
+    def literal(match):
+        token = match[0]
+        if not token.startswith("'"):
+            return token
+        # GOST merges Х/X and other lookalikes before NEWPASC sees them.
+        # Escape only the transport deck; retain Cyrillic in the source.
+        return ''.join(f'_{0o140+alphabet.index(c):03o}'
+                       if c in alphabet else c for c in token)
+
+    return tokens.sub(literal, source)
 
 
 def main():
@@ -350,7 +370,8 @@ def main():
     job(work, 'library', '*call ficmemory\n*assem\n'+sources+
         '*to perso:670100\n*end file\n``````\nеконец\n')
     cards = '*libra:13\n*call ficmemory\n'
-    cards += '*trans:newpasc,,320000\n'+(HERE/'more.pas').read_text()+'\n'
+    cards += ('*trans:newpasc,,320000\n'+
+              pascal_cards((HERE/'more.pas').read_text())+'\n')
     cards += '*perso:311160,cont\n*perso:670100,cont\n'
     boot = BOOT
     boot = boot.replace(' P/CODER:,SUBP,',
