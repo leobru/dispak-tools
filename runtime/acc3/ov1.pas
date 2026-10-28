@@ -80,9 +80,12 @@ type bitset = set of 0..47;
           2: (fi: 0..31)
          end;
      dr = packed record e0, e1, e2: boolean; ea: 0..1023; es: s5 end;
-     c3 = packed record c0, c1, c2: boolean end;
+     w12 = packed record case integer of
+           0: (wa, wb, wc, wd, we, wf: boolean; wg, wh: 0..7);
+           1: (wi: 0..4095)
+          end;
      sv = packed record s: bitset; i: integer; ca, cb, cc: 0..65535 end;
-     w10 = packed record fa: 0..1023; fb: 0..274877906943 end;
+     w10 = packed record fa: 0..1023; fc: 0..2047; fd: 0..134217727 end;
      a10 = array [0..4095] of w10;
      p10 = @a10;
      pint = @ints;
@@ -114,7 +117,7 @@ var g0050: bitset;
     g0721: integer;
     g0722: pw;
     g0723: pt;
-    g0724: packed array [0..1023] of c3;
+    g0724: packed array [0..255] of w12;
     g1024: po;
     g1025: integer;
     g1026: word3;
@@ -173,8 +176,8 @@ var g0050: bitset;
     zu: integer; (* 22556 *)
 %
 function x22563(n: integer): integer; assembler;
-function x22567(w, n: integer): a4; assembler;
-function x22570(w, n: integer): a4; assembler;
+function x22567(n: integer): a4; assembler;
+function x22570(n: integer): a4; assembler;
 procedure x23460(a: pt; b: integer); fortran;
 procedure x23461(a: pt; b: integer); fortran;
 procedure x23470(a: pt; b: integer; var e: entry); fortran;
@@ -244,7 +247,7 @@ function OPENF(var name: word3; writing: boolean;
                var descriptor: integer): integer; assembler;
 %
 procedure p04014(n: integer);
-_( write(x22567(4, n)); write(x22570(4, n));
+_( write(x22567(n):4); write(x22570(n):4);
    write('_000' : 9 - x22563(n)) _);
 %
 function p04031(x: bitset): integer;
@@ -1127,7 +1130,7 @@ _( n := 0;
             j := j + 1; (r)
          until zr <> ',';
          if b then p05306(')', 7) else p05306(']', 7);
-         (q) for j := j downto 2 do x23763(14, 8)
+         (q) for j := j downto 2 do _( x23763(14, 8); (r) _)
       _) else p05214(7)
    _) else if (zr = '/') and (zs = '(') then _(
       x23734; x23734; p11736; p05306(')', 7); p05306('/', 7)
@@ -1208,7 +1211,7 @@ _( k := pos; n := 0; zb := [];
       if i in [5..10] then _(
          v := g1135.el;
          (q) for i := zh[i] downto 1 do _(
-            k := k + 1; x24700(v, -4, v); x24673(v, g1035@[k], v)
+            k := k + 1; x24700(v, -4, v); x24673(v, g1035@[k], v); (r)
          _);
          if n > 20 then p05214(42);
          st[n] := v; n := n + 1; i := 0
@@ -1424,7 +1427,7 @@ _( if p10230 then g1035@[g1040] := g1035@[g1040] + 4;
    if g1035@[g1040] >= 8 then
       with g1024@[k] do _( a := qa; b := qb; c := qc _)
    else
-      with zn[k] do _( a := qa2; b := qb2; c := g0724[w].c2 _);
+      with zn[k] do _( a := qa2; b := qb2; c := g0724[w].wc _);
    if b and not x23745 then p05214(17);
    if (zr = '(') or x23745 then _(
       x24031(a * 1024); x23760(15)

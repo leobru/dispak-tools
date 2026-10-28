@@ -146,7 +146,7 @@ address order (`*ZA*` is four letters); `genvars.py --common` prints them
 with their addresses.
 
 Established so far:
-- The options are `(*=p-,t-,s8,y+,o-,a4,w+*)` (`w+` for items 1-4 and 6
+- The options are `(*=p-,t-,s8,y+,o-,a4,w+*)` (`w+` for items 2-4 and 6
   below); the start code matches mypas.
 - The globals at M1 are the same in all three parts (`genvars.py`). The
   message table at 051 is `array [1..58] of array [0..5] of alfa`, which
@@ -168,8 +168,10 @@ relocatable expressions, of which the compiler has a limited number.
    source puts a structural label `(q)` before each `for` and on the
    bodies that need it (`do (r) _(...`, `while c do (q) ...`,
    `...; (r) until false`). The step of a `for` (the load of the
-   variable after the body) also starts a word; mypas does so under
-   `(*=w+*)`.
+   variable after the body) and the jump back of a `while` also start
+   a word; the source ends such bodies with an empty `(r)`
+   (`do _( ...; (r) _)`). Alignment is only ever made by such labels,
+   never by mypas.
 2. The address of a global is formed as `мода off(М1); уиа|слиа (Мk)`,
    not as an absolute P/1D address (mypas.b6 `P4621`, case
    `l4var4z = indexreg[1]`): for an indexed global in `with`, and for a
@@ -179,8 +181,11 @@ relocatable expressions, of which the compiler has a limited number.
 3. A boolean value of a scalar `=` or `<>` is computed without jumps:
    `нтж b; счм 025(М1); рзб (М17); чед`, followed by `нтж 8(М1)` for `=`
    (P/1D[025] is 4000000000000000). mypas does so under `(*=w+*)`, also
-   for `=` and `<>` of sets; `in` keeps the jumps, as in the original
-   (06475).
+   for `=` and `<>` of sets. Overlay 2 shows two more forms: an integer
+   `<`, `>`, `<=`, `>=` is the sign of the difference (`вч b; и [7];
+   чед`), and `c in s` with a constant `c` is `и [c]; чед`. Both keep
+   the jumps as the argument of `ord`; an `in` with a variable element
+   calls P/IN (06475).
 4. A one-element set `[e]` is `сч e; пв P/SS`; mypas adds
    `счм []; или (М17)` unless `(*=w+*)` is set.
 5. A constant may be an actual of a `var` parameter of a `fortran`
@@ -193,7 +198,11 @@ relocatable expressions, of which the compiler has a limited number.
 7. `shift(x, n)` of an integer by a constant is `сда 64+n`. mypas called
    the undefined helper P/II for it; now it gives the shift. 10637,
    `minel(bitset(shift(r.lw, -32)))` with `lw` a 16-bit integer field, is
-   `сда 64-16; счмр; нтж 9(М1); сда 64-32; нед 9(М1)`.
+   `сда 64-16; счмр; нтж 9(М1); сда 64-32; нед 9(М1)`. A shift by a
+   variable is `мод n; сда 64`. Under `(*=w+*)` (overlay 2) any one-word
+   value can be shifted, the result has the type of `x`, and an integer
+   shifted right or by a variable is ORed with the integer 0 (`или
+   '55'(М10)`), which turns a bit pattern into an integer.
 
 A store of 0C without a shift (06653) is not a difference: it is `bs := []`
 into a set field, which is left-aligned and needs no shift; reads of the same
@@ -204,3 +213,43 @@ and the pool (`ovtry.py ov1 runtime/acc3/ov1.pas --full --pads` shows no
 differing blocks). A `besm` extracode in a left half needs a `(r)` after it
 (p17534 and the driver), else the next instruction lands in the right half,
 which an extracode never returns to.
+
+## Decompiling overlay 2
+
+`runtime/acc3/ov2.pas` is the recovered source, built and compared the same
+way:
+```
+python3 runtime/acc3/ovtry.py ov2 runtime/acc3/ov2.pas --full --pads
+```
+All of the user code (04014–31340) and the pool (650 words, up to the
+first common at 32560) match except one word. At 16305 (p16210,
+`shift(shift(d81, 48 - m), -(48 - m))`) the original negates by
+`знак 20(М1)` (P/1D[024], all ones), mypas by `знак 15(М1)` (-1). The same
+original negates `-x34423(d83)` (25127) by `знак 15(М1)`, and no construct
+of mypas gives the first form.
+
+Structure: the driver p31255 calls p10275 (start), p16001 and p16210 (the
+first pass), p16420 (the module header), then p27034 in a loop
+(`3: p27034; goto 3`) until the end statement jumps to label 4. p27034
+(level 3) reads the mnemonic and dispatches by its code like p17204 of
+overlay 1: below 256 p23147 (machine instructions), 257–301 and 449–454
+two `case` statements over the level-4 directive procedures. After the
+loop p27254 closes the module, p30443 lists the sections, p27356 the
+cross-reference table (sorted by Shell's method) and p31025 the
+statistics with the version line `ACCEMБЛEP  Э1-KБ: BEPCИЯ 5.04 OT
+10.11.89`.
+
+Notes for the source:
+- `exit` leaves the procedure; a loop is left by `exit q` of a labelled
+  `(q) repeat`.
+- Under `(*=o-*)` mypas keeps a load right after a store, so where the
+  original stores the accumulator twice without a load the source has
+  `x := ;` (`g0626 := g0626 + 1; vd := ;`).
+- A frame slot used with two types is a local variant record
+  (`record case integer of 0: (b: hb); 1: (l: @long) end`).
+- Under `(*=a4*)` the source character `?` is 031; the original's 077 is
+  written `'_077'`, and the codes 0354, 0360, 0372, 0376 as `'_354'` etc.
+- Strings longer than about 60 characters go on a line of their own: a
+  card has 72 columns.
+- `ovtry.py` compares the pool of overlay 2 up to 32560.
+

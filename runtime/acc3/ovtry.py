@@ -46,7 +46,7 @@ INSDIFF = Path.home()/'.claude/skills/besm6-pascal-decompile/scripts/insdiff.py'
 # Original layout of each overlay: user code range and number of zones.
 LAYOUT = {'ov1': (0o4014, 0o17731, 0o13), 'ov2': (0o4014, 0o31346, 0o16)}
 # End of the constant pool (the first common after it).
-POOL_END = {'ov1': 0o20537}
+POOL_END = {'ov1': 0o20537, 'ov2': 0o32560}
 # The overlay stub's exchange word: read page 2 from drive 040, zone +4 or +020.
 EXCHANGE = {'ov1': 0o0000020000400004, 'ov2': 0o0000020000400020}
 # The loader places the modules of P/BOOT's list level by level and, after
