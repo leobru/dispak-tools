@@ -1,8 +1,7 @@
 (*=W+*)program t(output);
 (* Code as in АСС3: records of 2 and 3 words are copied without a loop,
    [i] is not ORed with [], the address of a global is
-   мода off(М1); уиа (Мk), not P/1D+off, and the step of a for
-   loop starts a word. *)
+   мода off(М1); уиа (Мk), not P/1D+off. *)
 type r2 = record a, b: integer end;
      r3 = record a, b, c: integer end;
      r4 = record a, b, c, d: integer end;

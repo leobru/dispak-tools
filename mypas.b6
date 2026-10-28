@@ -231,6 +231,9 @@ end;
 %
 ilmode = (ilCONST, il1, il2, il3);
 state = (st0, st1, st2);
+(* il3 without jumps under W+: A <> 0, omega logical; A < 0, omega
+   additive integer; A <> 0, A has one bit at most *)
+jltest = (noTest, zeroTest, signTest, bitTest);
 %
 insnltyp  = record
     next, next2: oiptr;
@@ -242,7 +245,7 @@ insnltyp  = record
     ilf7: integer;
     st: state;
     width, shift: integer;
-    zeroTest: boolean (* il3: true if A <> 0, omega logical *)
+    jl: jltest
 end;
 %
 types = record
@@ -2074,6 +2077,7 @@ var
     l3var10z, l3var11z: word;
     saved: @insnltyp;
     l3bool13z: boolean;
+    shiftOr: boolean;
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 procedure genOneOp;
@@ -2563,10 +2567,22 @@ _(
         il3: _( (* 4555 *)
             if not bool49z then
                 (* empty *)
-            else if unrollCopy and (ilf5.i = 0) and zeroTest then _(
+            else if unrollCopy and (ilf5.i = 0) and (jl = zeroTest) then _(
                 (* W+: 1 if A <> 0 (a logical test), without jumps *)
                 addToInsnList(KXTS+HIGHBIT);
                 addToInsnList(KAUX+SP);
+                addToInsnList(KACX);
+                if 16 in insnList@.regsused then
+                    addToInsnList(KAEX+E1);
+            _) else if unrollCopy and (ilf5.i = 0) and (jl = bitTest) then _(
+                (* W+: c in s, the one bit of A counted, without jumps *)
+                addToInsnList(KACX);
+                if 16 in insnList@.regsused then
+                    addToInsnList(KAEX+E1);
+            _) else if unrollCopy and (ilf5.i = 0) and (jl = signTest) then _(
+                (* W+: the sign bit of A, without jumps *)
+                curVal.m := [7];
+                addToInsnList(KAAX+I8 + getFCSToffset);
                 addToInsnList(KACX);
                 if 16 in insnList@.regsused then
                     addToInsnList(KAEX+E1);
@@ -3063,7 +3079,7 @@ _(
         insnList@.next2 := l5ins8z@.next2;
         insnList@.ilm := il3;
         insnList@.ilf5.i := l5var5z;
-        insnList@.zeroTest := false;
+        insnList@.jl := noTest;
         bool49z := true;
     _)
 _); (* genBoolAnd *)
@@ -3625,7 +3641,7 @@ _(
                     addToInsnList(KAAX+I8 + getFCSToffset);
                     insnList@.ilf5.i := 0;
                     insnList@.ilm := il3;
-                    insnList@.zeroTest := false;
+                    insnList@.jl := bitTest;
                 _)
             _); (* 7412 *)
         _) else _( (* 7413 *)
@@ -3670,7 +3686,12 @@ _(
                 tryFlip(true);
 7504:           insnList@.ilm := il3;
                 insnList@.ilf5.i := 0;
-                insnList@.zeroTest := (l3int3z = 0) or (work = 2);
+                if (l3int3z = 0) or (work = 2) then
+                    insnList@.jl := zeroTest
+                else if work = 3 then
+                    insnList@.jl := signTest
+                else
+                    insnList@.jl := noTest;
             _);
         _) else _( (* 7510 *)
             case work of
@@ -3781,11 +3802,28 @@ _( (* genFullExpr *);
                 opfCOMM:
 7760:               tryFlip(curOP in [MUL, PLUSOP, SETAND, INTPLUS]);
                 opfHELP:
-                    if (curOP = badop27) and arg2Const and
-                       (abs(arg2Val.i) < 64) then _(
-                        (* shift(x, n) of an integer: сда 64+n *)
-                        prepLoad;
-                        addToInsnList(ASN64 + arg2Val.i);
+                    if (curOP = badop27) then _(
+% Under W+ an integer shifted right or by a variable gets its
+% exponent back by an OR with the integer 0, as in АСС3.
+                        shiftOr := unrollCopy and
+                            (exprToGen@.expr1@.typ = integerType) and
+                            not (arg2Const and (arg2Val.i <= 0));
+                        if arg2Const and (abs(arg2Val.i) < 64) then _(
+                            (* shift(x, n) of an integer: сда 64+n *)
+                            prepLoad;
+                            addToInsnList(ASN64 + arg2Val.i);
+                        _) else _(
+                            (* shift(x, n), n a variable: мод n; сда 64,
+                               as the old compiler did (P/II does not
+                               exist) *)
+                            nextInsn := insnTemp[WTC];
+                            tryFlip(false);
+                            addToInsnList(ASN64);
+                        _);
+                        if shiftOr then _(
+                            curVal.i := 0;
+                            addToInsnList(KAOX+I8 + getFCSToffset);
+                        _);
                         l3int3z := 0;
                     _) else
                         genHelper;
@@ -4078,6 +4116,10 @@ _( (* genFullExpr *);
                         regsused := regsused + [0];
                     _)
                 _) else _(
+                    (* ord(i < j) and ord(c in s) jump *)
+                    if (work = fnORD) and
+                       (insnList@.jl IN [signTest, bitTest]) then
+                        insnList@.jl := noTest;
                     prepLoad;
                     if (work = 8) then _(
                         l3int3z := 2;
@@ -5382,6 +5424,7 @@ var
     argKind: kind;
     asBitset: bitset;
     stProcNo, checkMode: integer;
+    shiftType: tptr;
 _(
     curVal.i := routine@.low;
     stProcNo := curVal.i;
@@ -5427,7 +5470,10 @@ _(
        (asBitset <= [fnORD, fnSUCC, fnPRED, fnREF, fnSHIFT])) or
            ((checkMode = 5) and (asBitset <= [fnEOF..fnEOLN])) or
            ((checkMode = 6) and (asBitset <= [fnREF, fnCARD, fnMINEL])) or
-           ((checkMode = 7) and (stProcNo = fnREF))) then
+           ((checkMode = 7) and (stProcNo = fnREF)) or
+% Under W+ any one-word value can be shifted, as in АСС3.
+           ((checkMode IN [6, 7]) and unrollCopy and
+            (stProcNo = fnSHIFT))) then
         error(errNeedOtherTypesOfOperands);
     if not (asBitset <= [fnABSR, fnSUCC, fnPRED, fnSQRR, fnSHIFT]) then _(
         arg1Type := routine@.typ;
@@ -5446,7 +5492,11 @@ _(
             requiredSymErr(COMMA);
             goto 8888;
         _);
+        shiftType := arg1Type;
         expression;
+% Under W+ shift(x, n) has the type of x, not of n.
+        if unrollCopy then
+            arg1Type := shiftType;
         l5var2z := curExpr@.typ;
         l5var1z := badop27;
         if (l5var2z <> realType) and
@@ -5942,8 +5992,6 @@ _(
     checkSymAndRead(DOSY);
     statement;
     disableNorm;
-    if unrollCopy then
-        padToLeft;
     curExpr := idx;
     formOperator(LOAD);
     form1Insn(l4int6z + l4int5z);
