@@ -2567,19 +2567,22 @@ _(
         il3: _( (* 4555 *)
             if not bool49z then
                 (* empty *)
-            else if unrollCopy and (ilf5.i = 0) and (jl = zeroTest) then _(
+            else if unrollCopy and (ilf5.i = 0) and
+                (jl = zeroTest) then _(
                 (* W+: 1 if A <> 0 (a logical test), without jumps *)
                 addToInsnList(KXTS+HIGHBIT);
                 addToInsnList(KAUX+SP);
                 addToInsnList(KACX);
                 if 16 in insnList@.regsused then
                     addToInsnList(KAEX+E1);
-            _) else if unrollCopy and (ilf5.i = 0) and (jl = bitTest) then _(
+            _) else if unrollCopy and (ilf5.i = 0) and
+                (jl = bitTest) then _(
                 (* W+: c in s, the one bit of A counted, without jumps *)
                 addToInsnList(KACX);
                 if 16 in insnList@.regsused then
                     addToInsnList(KAEX+E1);
-            _) else if unrollCopy and (ilf5.i = 0) and (jl = signTest) then _(
+            _) else if unrollCopy and (ilf5.i = 0) and
+                (jl = signTest) then _(
                 (* W+: the sign bit of A, without jumps *)
                 curVal.m := [7];
                 addToInsnList(KAAX+I8 + getFCSToffset);

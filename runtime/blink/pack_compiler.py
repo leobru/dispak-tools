@@ -24,20 +24,29 @@ def prepare(work=None, linker_compat=False):
     start = source.index('insnltyp  = record\n')
     end = source.index('\nend;', start)+len('\nend;')
     node = source[start:end]
-    head, tail = node.split('    zeroTest: boolean', 1)
-    flags = ['zeroTest']+re.findall(r'\b(\w+): boolean', tail)
-    if set(flags) not in ({'zeroTest'}, FIELDS-{'ilm'}):
-        raise ValueError('unexpected insnltyp control field declarations')
-    comments = dict(zeroTest='A <> 0, logical test',
-                    signTest='A < 0, additive test',
-                    bitTest='A has at most one bit')
-    control = '    control: packed record\n        ilm: ilmode;\n'
-    for index, flag in enumerate(flags):
-        separator = ';' if index+1 < len(flags) else ''
-        control += f'        {flag}: boolean{separator} (* {comments[flag]} *)\n'
-    control += '    end;'
-    active_fields = {'ilm', *flags}
-    node = head.replace('    ilm: ilmode;', control)+'end;'
+    if '    jl: jltest\n' in node:
+        # One enumerated test field: pack it with ilm.
+        active_fields = {'ilm', 'jl'}
+        node = node.replace('    ilm: ilmode;',
+                            '    control: packed record ilm: ilmode; '
+                            'jl: jltest end;')
+        node = node.replace('    jl: jltest\n', '')
+    else:
+        head, tail = node.split('    zeroTest: boolean', 1)
+        flags = ['zeroTest']+re.findall(r'\b(\w+): boolean', tail)
+        if set(flags) not in ({'zeroTest'}, FIELDS-{'ilm'}):
+            raise ValueError('unexpected insnltyp control field declarations')
+        comments = dict(zeroTest='A <> 0, logical test',
+                        signTest='A < 0, additive test',
+                        bitTest='A has at most one bit')
+        control = '    control: packed record\n        ilm: ilmode;\n'
+        for index, flag in enumerate(flags):
+            separator = ';' if index+1 < len(flags) else ''
+            control += (f'        {flag}: boolean{separator}'
+                        f' (* {comments[flag]} *)\n')
+        control += '    end;'
+        active_fields = {'ilm', *flags}
+        node = head.replace('    ilm: ilmode;', control)+'end;'
     # The declarations above keep their field names; qualify only accesses.
     counts = Counter()
 
