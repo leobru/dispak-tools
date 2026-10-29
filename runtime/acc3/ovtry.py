@@ -128,17 +128,22 @@ def stubs(text):
     return '*assem\n' + cards if cards else ''
 
 
+def compiler():
+    """Rebuild NEWPASC into WORK/77 when mypas.b6 has changed."""
+    WORK.mkdir(parents=True, exist_ok=True)
+    stamp = WORK/'compiler.json'
+    built = json.loads(stamp.read_text()) if stamp.exists() else {}
+    if (built.get('source_sha256') != sha((ROOT/'mypas.b6').read_bytes())
+            or not (WORK/'77').exists()):
+        built = comp.more.rebuild_compiler(WORK)
+        stamp.write_text(json.dumps(built, indent=2) + '\n')
+
+
 def main():
     part, source = sys.argv[1], Path(sys.argv[2]).resolve()
     lo, hi, zones = LAYOUT[part]
     name = re.search(r'^program\s+(\S+?)\s*[(;]', source.read_text(), re.M|re.I)[1].upper()
-    WORK.mkdir(parents=True, exist_ok=True)
-    stamp = WORK/'compiler.json'
-    compiler = json.loads(stamp.read_text()) if stamp.exists() else {}
-    if (compiler.get('source_sha256') != sha((ROOT/'mypas.b6').read_bytes())
-            or not (WORK/'77').exists()):
-        compiler = comp.more.rebuild_compiler(WORK)
-        stamp.write_text(json.dumps(compiler, indent=2) + '\n')
+    compiler()
     disk = WORK/'3777'
     disk.write_bytes(b'')
     deck = ('user 419900зс5^\n'

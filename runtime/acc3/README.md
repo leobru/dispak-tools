@@ -33,7 +33,7 @@ words, 508 of them non-zero.
 
 | Addresses | Words | Contents |
 |---|---:|---|
-| 02000–02012 | 11 | PASCODER stub; `02006`/`02007` exchange words (drive 040), `02010` FREE = 040000, `02011` count 1 |
+| 02000–02012 | 11 | PASCODER stub; `02006`/`02007` exchange words (drive 040), `02010` FREE = 040000, `02011` count 1 (P/CODER is 02007–02012) |
 | 02013–02030 | 14 | main program |
 | 02031–02043 | 11 | constant pool (M10) |
 | 02044–02113 | 40 | P/1D |
@@ -53,6 +53,50 @@ Globals at 02115–02650 hold message texts. No part stores there; overlay
 stores begin at M1+0605 (02651). The texts are therefore initialised data of
 the head source. Further initialised words are at 03214–03227 and
 03347–03354.
+
+### Head source
+
+`runtime/acc3/head.pas` is the recovered source of the head. It is built
+and compared with
+```
+python3 runtime/acc3/headtry.py
+```
+All 1024 words of the zone (02000–03777) match. P/CODER is four words
+(02007–02012): `*TABLE:P/CODER(W*400000,L*3,S*40000)` gives the exchange
+word for drive 040 and FREE = 040000, above both overlays.
+
+- The options are those of the overlays plus `s5`: there is no file
+  initialisation, so the start code is only `пвл P/1(М16); пб main`.
+- The main program is
+  `besm(630004B); (r); besm(150000B : 0); g1061 := ;`, then
+  `g1165 := x03606` and `besm(110000B : 777777C, 150000B :
+  0010020000000000C); g1165 := ;` (the mask is applied to the accumulator,
+  without a load), then `x03612(g1165 + 4C)`, `x03612(g1165 + 20C)` and
+  `besm(740000B)`. The jump after `Э74` is the usual jump to P/E.
+- The pool holds the array multipliers 1, 6 and 2 of the shared types and
+  the unused `banner` constant, so the head declares the same types as
+  the overlays.
+- x03606 (`сч 52; пб (М15)`, then three data words) and x03612 (stores the
+  exchange word, does one `Э70` and jumps to the loaded code) are
+  assembler modules. `headtry.py` builds them from the image words. P/EF
+  and P/1 of the current library are the same word for word.
+- Initialised data, printed by `runtime/acc3/headdata.py` into the
+  `.data` section: the 58 messages (`g0051[k] := '...'`, one 36-character
+  string each; the head declares `t0` as `packed array [0..35] of char`,
+  the overlays, which write a message word by word, as six `alfa`), g0614 and g0617, the 64-word
+  table g0724, single words of g1134 and of the `long` records
+  g1140–g1146, the days before each month in g1150–g1163, and
+  `zh = 1, 2, 3, 4, 8, 16` in the parameter commons. Under `w+` the
+  address of `g0051[k]` takes two instructions (error 48), so the source
+  sets `w-` before `.data`.
+- The program parameters are the overlays' commons za..zk and a 150-word
+  zl. It ends where the services begin (03606), and every word up to
+  there is zero, so its real length is not known.
+- The link puts the head program on the second level, under an empty
+  root HROOT that holds the PROGRAM entry. An empty module HCOM
+  of the same level declares P/1D, *INPUT* and *OUTPUT* in that order,
+  before the program does; the program alone would declare *OUTPUT*
+  first.
 
 ## Overlays
 
