@@ -1,0 +1,2837 @@
+{
+  "build": {
+    "status": "complete",
+    "through": null,
+    "compiler_source": "/home/leob/git/leobru/dispak-tools/mypas.b6",
+    "compiler_patches": [
+      "inline_trunc",
+      "input_before_output"
+    ]
+  },
+  "normalization": "PMD entry metadata, padding, source lines, named services and variable offsets; local branches use word offsets from the routine entry; constant operands resolved to values. Not byte identity.",
+  "missing": [],
+  "extra": [
+    "SECTID"
+  ],
+  "routines": [
+    {
+      "name": "ПEЧBPE",
+      "original_entry": "02012",
+      "rebuilt_entry": "02013",
+      "original_words": 28,
+      "rebuilt_words": 28,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 42,
+      "rebuilt_instructions": 42,
+      "equal_instructions": 42
+    },
+    {
+      "name": "ПEЧИMЯOБ",
+      "original_entry": "02046",
+      "rebuilt_entry": "02047",
+      "original_words": 38,
+      "rebuilt_words": 38,
+      "frame": [
+        15,
+        15
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 56,
+      "rebuilt_instructions": 56,
+      "equal_instructions": 56
+    },
+    {
+      "name": "ДЛИПOЛИM",
+      "original_entry": "02114",
+      "rebuilt_entry": "02115",
+      "original_words": 23,
+      "rebuilt_words": 23,
+      "frame": [
+        4,
+        4
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 31,
+      "rebuilt_instructions": 31,
+      "equal_instructions": 31
+    },
+    {
+      "name": "DUMPOM",
+      "original_entry": "02143",
+      "rebuilt_entry": "02144",
+      "original_words": 21,
+      "rebuilt_words": 21,
+      "frame": [
+        5,
+        5
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 28,
+      "rebuilt_instructions": 28,
+      "equal_instructions": 28
+    },
+    {
+      "name": "DUMPPAЗД",
+      "original_entry": "02170",
+      "rebuilt_entry": "02171",
+      "original_words": 38,
+      "rebuilt_words": 38,
+      "frame": [
+        3,
+        3
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 57,
+      "rebuilt_instructions": 57,
+      "equal_instructions": 57
+    },
+    {
+      "name": "DUMPTCEГ",
+      "original_entry": "02236",
+      "rebuilt_entry": "02237",
+      "original_words": 98,
+      "rebuilt_words": 98,
+      "frame": [
+        9,
+        9
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 163,
+      "rebuilt_instructions": 163,
+      "equal_instructions": 163
+    },
+    {
+      "name": "DUMPPEЖ",
+      "original_entry": "02400",
+      "rebuilt_entry": "02401",
+      "original_words": 11,
+      "rebuilt_words": 11,
+      "frame": [
+        1,
+        1
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 9,
+      "rebuilt_instructions": 9,
+      "equal_instructions": 9
+    },
+    {
+      "name": "DUMPTOФ",
+      "original_entry": "02413",
+      "rebuilt_entry": "02414",
+      "original_words": 75,
+      "rebuilt_words": 75,
+      "frame": [
+        7,
+        7
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 121,
+      "rebuilt_instructions": 121,
+      "equal_instructions": 121
+    },
+    {
+      "name": "DUMPTAC",
+      "original_entry": "02526",
+      "rebuilt_entry": "02527",
+      "original_words": 194,
+      "rebuilt_words": 194,
+      "frame": [
+        8,
+        8
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 326,
+      "rebuilt_instructions": 326,
+      "equal_instructions": 326
+    },
+    {
+      "name": "DUMPTOБ",
+      "original_entry": "03030",
+      "rebuilt_entry": "03031",
+      "original_words": 92,
+      "rebuilt_words": 92,
+      "frame": [
+        6,
+        6
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 156,
+      "rebuilt_instructions": 156,
+      "equal_instructions": 156
+    },
+    {
+      "name": "DUMPTCC",
+      "original_entry": "03164",
+      "rebuilt_entry": "03165",
+      "original_words": 55,
+      "rebuilt_words": 55,
+      "frame": [
+        4,
+        4
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 89,
+      "rebuilt_instructions": 89,
+      "equal_instructions": 89
+    },
+    {
+      "name": "DUMPTПPE",
+      "original_entry": "03253",
+      "rebuilt_entry": "03254",
+      "original_words": 32,
+      "rebuilt_words": 32,
+      "frame": [
+        4,
+        4
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 45,
+      "rebuilt_instructions": 45,
+      "equal_instructions": 45
+    },
+    {
+      "name": "DUMPTЭM",
+      "original_entry": "03313",
+      "rebuilt_entry": "03314",
+      "original_words": 32,
+      "rebuilt_words": 32,
+      "frame": [
+        4,
+        4
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 45,
+      "rebuilt_instructions": 45,
+      "equal_instructions": 45
+    },
+    {
+      "name": "CTATИCT",
+      "original_entry": "03353",
+      "rebuilt_entry": "03354",
+      "original_words": 21,
+      "rebuilt_words": 21,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 26,
+      "rebuilt_instructions": 26,
+      "equal_instructions": 26
+    },
+    {
+      "name": "ПOИCKИME",
+      "original_entry": "03400",
+      "rebuilt_entry": "03401",
+      "original_words": 47,
+      "rebuilt_words": 47,
+      "frame": [
+        6,
+        6
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 66,
+      "rebuilt_instructions": 66,
+      "equal_instructions": 66
+    },
+    {
+      "name": "BHECИИMЯ",
+      "original_entry": "03457",
+      "rebuilt_entry": "03460",
+      "original_words": 111,
+      "rebuilt_words": 111,
+      "frame": [
+        9,
+        9
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 190,
+      "rebuilt_instructions": 190,
+      "equal_instructions": 190
+    },
+    {
+      "name": "SFILE",
+      "original_entry": "03636",
+      "rebuilt_entry": "03637",
+      "original_words": 37,
+      "rebuilt_words": 37,
+      "frame": [
+        9,
+        9
+      ],
+      "type_differences": [
+        {
+          "name": "LAST",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 56,
+      "rebuilt_instructions": 56,
+      "equal_instructions": 54
+    },
+    {
+      "name": "ASSIGN",
+      "original_entry": "03703",
+      "rebuilt_entry": "03704",
+      "original_words": 55,
+      "rebuilt_words": 55,
+      "frame": [
+        9,
+        9
+      ],
+      "type_differences": [
+        {
+          "name": "LAST",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 86,
+      "rebuilt_instructions": 86,
+      "equal_instructions": 84
+    },
+    {
+      "name": "ДAЙЛИT",
+      "original_entry": "03772",
+      "rebuilt_entry": "03773",
+      "original_words": 50,
+      "rebuilt_words": 50,
+      "frame": [
+        1,
+        1
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 77,
+      "rebuilt_instructions": 77,
+      "equal_instructions": 71
+    },
+    {
+      "name": "OШCKAH",
+      "original_entry": "04054",
+      "rebuilt_entry": "04055",
+      "original_words": 182,
+      "rebuilt_words": 191,
+      "frame": [
+        4,
+        4
+      ],
+      "type_differences": [
+        {
+          "name": "LIMIT",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 287,
+      "rebuilt_instructions": 302,
+      "equal_instructions": 244
+    },
+    {
+      "name": "BOЗЛИT",
+      "original_entry": "04342",
+      "rebuilt_entry": "04354",
+      "original_words": 14,
+      "rebuilt_words": 14,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 14,
+      "rebuilt_instructions": 14,
+      "equal_instructions": 14
+    },
+    {
+      "name": "CИMBOЛИM",
+      "original_entry": "04360",
+      "rebuilt_entry": "04372",
+      "original_words": 9,
+      "rebuilt_words": 9,
+      "frame": [
+        3,
+        3
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 5,
+      "rebuilt_instructions": 5,
+      "equal_instructions": 5
+    },
+    {
+      "name": "ПPOПPAЗД",
+      "original_entry": "04371",
+      "rebuilt_entry": "04403",
+      "original_words": 12,
+      "rebuilt_words": 12,
+      "frame": [
+        1,
+        1
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 7,
+      "rebuilt_instructions": 7,
+      "equal_instructions": 7
+    },
+    {
+      "name": "ДAЙPAЗД",
+      "original_entry": "04405",
+      "rebuilt_entry": "04417",
+      "original_words": 13,
+      "rebuilt_words": 13,
+      "frame": [
+        1,
+        1
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 8,
+      "rebuilt_instructions": 8,
+      "equal_instructions": 8
+    },
+    {
+      "name": "ЦEЛOE",
+      "original_entry": "04422",
+      "rebuilt_entry": "04434",
+      "original_words": 34,
+      "rebuilt_words": 34,
+      "frame": [
+        6,
+        6
+      ],
+      "type_differences": [
+        {
+          "name": "LIMIT",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 48,
+      "rebuilt_instructions": 48,
+      "equal_instructions": 46
+    },
+    {
+      "name": "ДAЙЦEЛOE",
+      "original_entry": "04464",
+      "rebuilt_entry": "04476",
+      "original_words": 91,
+      "rebuilt_words": 91,
+      "frame": [
+        20,
+        20
+      ],
+      "type_differences": [
+        {
+          "name": "LIMIT",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 152,
+      "rebuilt_instructions": 150,
+      "equal_instructions": 147
+    },
+    {
+      "name": "ДAЙЧИCЛO",
+      "original_entry": "04617",
+      "rebuilt_entry": "04631",
+      "original_words": 23,
+      "rebuilt_words": 23,
+      "frame": [
+        3,
+        3
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 29,
+      "rebuilt_instructions": 29,
+      "equal_instructions": 29
+    },
+    {
+      "name": "ДAЙИMЯФA",
+      "original_entry": "04646",
+      "rebuilt_entry": "04660",
+      "original_words": 36,
+      "rebuilt_words": 36,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 49,
+      "rebuilt_instructions": 49,
+      "equal_instructions": 48
+    },
+    {
+      "name": "ДAЙYKФAЙ",
+      "original_entry": "04712",
+      "rebuilt_entry": "04724",
+      "original_words": 68,
+      "rebuilt_words": 68,
+      "frame": [
+        4,
+        4
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 104,
+      "rebuilt_instructions": 104,
+      "equal_instructions": 102
+    },
+    {
+      "name": "ДAЙИMЯ",
+      "original_entry": "05016",
+      "rebuilt_entry": "05030",
+      "original_words": 29,
+      "rebuilt_words": 24,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 38,
+      "rebuilt_instructions": 30,
+      "equal_instructions": 26
+    },
+    {
+      "name": "CKAHEP",
+      "original_entry": "05053",
+      "rebuilt_entry": "05060",
+      "original_words": 78,
+      "rebuilt_words": 85,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 123,
+      "rebuilt_instructions": 133,
+      "equal_instructions": 113
+    },
+    {
+      "name": "CKAHPAЗД",
+      "original_entry": "05171",
+      "rebuilt_entry": "05205",
+      "original_words": 13,
+      "rebuilt_words": 13,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 11,
+      "rebuilt_instructions": 11,
+      "equal_instructions": 11
+    },
+    {
+      "name": "BHECИOФ",
+      "original_entry": "05206",
+      "rebuilt_entry": "05222",
+      "original_words": 47,
+      "rebuilt_words": 52,
+      "frame": [
+        8,
+        8
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 77,
+      "rebuilt_instructions": 87,
+      "equal_instructions": 77
+    },
+    {
+      "name": "YTOЧHEHИ",
+      "original_entry": "05265",
+      "rebuilt_entry": "05306",
+      "original_words": 69,
+      "rebuilt_words": 69,
+      "frame": [
+        7,
+        7
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 112,
+      "rebuilt_instructions": 112,
+      "equal_instructions": 112
+    },
+    {
+      "name": "PEЖOTЛ",
+      "original_entry": "05372",
+      "rebuilt_entry": "05413",
+      "original_words": 37,
+      "rebuilt_words": 37,
+      "frame": [
+        1,
+        1
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 51,
+      "rebuilt_instructions": 51,
+      "equal_instructions": 51
+    },
+    {
+      "name": "PEЖПEЧ",
+      "original_entry": "05437",
+      "rebuilt_entry": "05460",
+      "original_words": 50,
+      "rebuilt_words": 50,
+      "frame": [
+        1,
+        1
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 75,
+      "rebuilt_instructions": 74,
+      "equal_instructions": 74
+    },
+    {
+      "name": "PAЗБOPЗA",
+      "original_entry": "05521",
+      "rebuilt_entry": "05542",
+      "original_words": 384,
+      "rebuilt_words": 384,
+      "frame": [
+        50,
+        50
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 687,
+      "rebuilt_instructions": 687,
+      "equal_instructions": 687
+    },
+    {
+      "name": "OШИБKИHA",
+      "original_entry": "06321",
+      "rebuilt_entry": "06342",
+      "original_words": 40,
+      "rebuilt_words": 40,
+      "frame": [
+        1,
+        1
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 56,
+      "rebuilt_instructions": 56,
+      "equal_instructions": 56
+    },
+    {
+      "name": "OШИБKИBM",
+      "original_entry": "06371",
+      "rebuilt_entry": "06412",
+      "original_words": 22,
+      "rebuilt_words": 22,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 26,
+      "rebuilt_instructions": 26,
+      "equal_instructions": 26
+    },
+    {
+      "name": "KOOPД",
+      "original_entry": "06417",
+      "rebuilt_entry": "06440",
+      "original_words": 28,
+      "rebuilt_words": 28,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 39,
+      "rebuilt_instructions": 39,
+      "equal_instructions": 39
+    },
+    {
+      "name": "OTKPOЙOФ",
+      "original_entry": "06453",
+      "rebuilt_entry": "06474",
+      "original_words": 28,
+      "rebuilt_words": 23,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 41,
+      "rebuilt_instructions": 32,
+      "equal_instructions": 32
+    },
+    {
+      "name": "ЗAKPOЙOФ",
+      "original_entry": "06507",
+      "rebuilt_entry": "06523",
+      "original_words": 14,
+      "rebuilt_words": 14,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 14,
+      "rebuilt_instructions": 14,
+      "equal_instructions": 14
+    },
+    {
+      "name": "ПEЧДЛФAЙ",
+      "original_entry": "06525",
+      "rebuilt_entry": "06541",
+      "original_words": 20,
+      "rebuilt_words": 20,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 24,
+      "rebuilt_instructions": 24,
+      "equal_instructions": 24
+    },
+    {
+      "name": "ПEЧALF0",
+      "original_entry": "06551",
+      "rebuilt_entry": "06565",
+      "original_words": 28,
+      "rebuilt_words": 28,
+      "frame": [
+        3,
+        3
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 38,
+      "rebuilt_instructions": 38,
+      "equal_instructions": 36
+    },
+    {
+      "name": "ДAЙЗAП",
+      "original_entry": "06605",
+      "rebuilt_entry": "06621",
+      "original_words": 46,
+      "rebuilt_words": 33,
+      "frame": [
+        5,
+        5
+      ],
+      "type_differences": [
+        {
+          "name": "ЗAП",
+          "status": "missing"
+        },
+        {
+          "name": "BUFFER",
+          "status": "extra"
+        },
+        {
+          "name": "LAST",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 70,
+      "rebuilt_instructions": 46,
+      "equal_instructions": 42
+    },
+    {
+      "name": "ДAЙЗAПИC",
+      "original_entry": "06663",
+      "rebuilt_entry": "06662",
+      "original_words": 38,
+      "rebuilt_words": 25,
+      "frame": [
+        4,
+        4
+      ],
+      "type_differences": [
+        {
+          "name": "ЗAП",
+          "status": "missing"
+        },
+        {
+          "name": "BUFFER",
+          "status": "extra"
+        },
+        {
+          "name": "LAST",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 58,
+      "rebuilt_instructions": 34,
+      "equal_instructions": 28
+    },
+    {
+      "name": "ДAЙTEЛЗA",
+      "original_entry": "06731",
+      "rebuilt_entry": "06713",
+      "original_words": 38,
+      "rebuilt_words": 24,
+      "frame": [
+        6,
+        6
+      ],
+      "type_differences": [
+        {
+          "name": "ЗAП",
+          "status": "missing"
+        },
+        {
+          "name": "BUFFER",
+          "status": "extra"
+        },
+        {
+          "name": "LAST",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 55,
+      "rebuilt_instructions": 30,
+      "equal_instructions": 26
+    },
+    {
+      "name": "ПPOПЗAП",
+      "original_entry": "06777",
+      "rebuilt_entry": "06743",
+      "original_words": 27,
+      "rebuilt_words": 16,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [
+        {
+          "name": "ЗAП",
+          "status": "missing"
+        },
+        {
+          "name": "BUFFER",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 39,
+      "rebuilt_instructions": 18,
+      "equal_instructions": 17
+    },
+    {
+      "name": "ПEPEKYБ",
+      "original_entry": "07032",
+      "rebuilt_entry": "06763",
+      "original_words": 45,
+      "rebuilt_words": 27,
+      "frame": [
+        6,
+        6
+      ],
+      "type_differences": [
+        {
+          "name": "БATP",
+          "status": "missing"
+        },
+        {
+          "name": "V",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 70,
+      "rebuilt_instructions": 38,
+      "equal_instructions": 35
+    },
+    {
+      "name": "ЗAПBФOM",
+      "original_entry": "07107",
+      "rebuilt_entry": "07016",
+      "original_words": 23,
+      "rebuilt_words": 23,
+      "frame": [
+        5,
+        5
+      ],
+      "type_differences": [
+        {
+          "name": "ЗAП",
+          "status": "missing"
+        },
+        {
+          "name": "BUFFER",
+          "status": "extra"
+        },
+        {
+          "name": "LAST",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 29,
+      "rebuilt_instructions": 29,
+      "equal_instructions": 26
+    },
+    {
+      "name": "BИCOKOC",
+      "original_entry": "07136",
+      "rebuilt_entry": "07045",
+      "original_words": 14,
+      "rebuilt_words": 14,
+      "frame": [
+        4,
+        4
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 14,
+      "rebuilt_instructions": 14,
+      "equal_instructions": 14
+    },
+    {
+      "name": "ПEЧДATY",
+      "original_entry": "07154",
+      "rebuilt_entry": "07063",
+      "original_words": 70,
+      "rebuilt_words": 70,
+      "frame": [
+        7,
+        7
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 120,
+      "rebuilt_instructions": 120,
+      "equal_instructions": 120
+    },
+    {
+      "name": "YЧET",
+      "original_entry": "07262",
+      "rebuilt_entry": "07171",
+      "original_words": 50,
+      "rebuilt_words": 48,
+      "frame": [
+        8,
+        8
+      ],
+      "type_differences": [
+        {
+          "name": "ЗAП",
+          "status": "missing"
+        },
+        {
+          "name": "ШИФP",
+          "changes": {
+            "kind": [
+              1,
+              5
+            ]
+          }
+        },
+        {
+          "name": "REC",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 80,
+      "rebuilt_instructions": 80,
+      "equal_instructions": 70
+    },
+    {
+      "name": "AHAЛИЗTO",
+      "original_entry": "07344",
+      "rebuilt_entry": "07251",
+      "original_words": 41,
+      "rebuilt_words": 41,
+      "frame": [
+        4,
+        4
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 63,
+      "rebuilt_instructions": 63,
+      "equal_instructions": 63
+    },
+    {
+      "name": "OШMOД",
+      "original_entry": "07415",
+      "rebuilt_entry": "07322",
+      "original_words": 135,
+      "rebuilt_words": 135,
+      "frame": [
+        6,
+        6
+      ],
+      "type_differences": [
+        {
+          "name": "ПPEДOПP",
+          "changes": {
+            "enumerators": [
+              [
+                "AБC",
+                "ПAPA",
+                "ПEPEM",
+                "BЫЧ",
+                "BXOД"
+              ],
+              [
+                "ABSOLUTE",
+                "UNUSED",
+                "RELOC",
+                "COMPUTED",
+                "ENTRYVAL"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "HOBOПP",
+          "changes": {
+            "enumerators": [
+              [
+                "AБC",
+                "ПAPA",
+                "ПEPEM",
+                "BЫЧ",
+                "BXOД"
+              ],
+              [
+                "ABSOLUTE",
+                "UNUSED",
+                "RELOC",
+                "COMPUTED",
+                "ENTRYVAL"
+              ]
+            ]
+          }
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 230,
+      "rebuilt_instructions": 230,
+      "equal_instructions": 221
+    },
+    {
+      "name": "ПEPEBPИ",
+      "original_entry": "07624",
+      "rebuilt_entry": "07531",
+      "original_words": 298,
+      "rebuilt_words": 285,
+      "frame": [
+        61,
+        61
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 527,
+      "rebuilt_instructions": 507,
+      "equal_instructions": 505
+    },
+    {
+      "name": "HOBЭЛTOБ",
+      "original_entry": "10276",
+      "rebuilt_entry": "10166",
+      "original_words": 19,
+      "rebuilt_words": 19,
+      "frame": [
+        1,
+        1
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 24,
+      "rebuilt_instructions": 24,
+      "equal_instructions": 23
+    },
+    {
+      "name": "HOBЭЛTAC",
+      "original_entry": "10321",
+      "rebuilt_entry": "10211",
+      "original_words": 21,
+      "rebuilt_words": 21,
+      "frame": [
+        1,
+        1
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 28,
+      "rebuilt_instructions": 28,
+      "equal_instructions": 28
+    },
+    {
+      "name": "HOBЭЛTCC",
+      "original_entry": "10346",
+      "rebuilt_entry": "10236",
+      "original_words": 17,
+      "rebuilt_words": 17,
+      "frame": [
+        1,
+        1
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 20,
+      "rebuilt_instructions": 20,
+      "equal_instructions": 19
+    },
+    {
+      "name": "БAЗЫBKYБ",
+      "original_entry": "10367",
+      "rebuilt_entry": "10257",
+      "original_words": 27,
+      "rebuilt_words": 27,
+      "frame": [
+        3,
+        3
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 37,
+      "rebuilt_instructions": 37,
+      "equal_instructions": 35
+    },
+    {
+      "name": "ATPBKYБ",
+      "original_entry": "10422",
+      "rebuilt_entry": "10312",
+      "original_words": 22,
+      "rebuilt_words": 22,
+      "frame": [
+        3,
+        3
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 29,
+      "rebuilt_instructions": 29,
+      "equal_instructions": 27
+    },
+    {
+      "name": "KИHФBKYБ",
+      "original_entry": "10450",
+      "rebuilt_entry": "10340",
+      "original_words": 12,
+      "rebuilt_words": 12,
+      "frame": [
+        3,
+        3
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 9,
+      "rebuilt_instructions": 9,
+      "equal_instructions": 9
+    },
+    {
+      "name": "BЫPBKYБ",
+      "original_entry": "10464",
+      "rebuilt_entry": "10354",
+      "original_words": 22,
+      "rebuilt_words": 22,
+      "frame": [
+        3,
+        3
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 28,
+      "rebuilt_instructions": 28,
+      "equal_instructions": 26
+    },
+    {
+      "name": "ИMЯBTOБ",
+      "original_entry": "10512",
+      "rebuilt_entry": "10402",
+      "original_words": 25,
+      "rebuilt_words": 25,
+      "frame": [
+        4,
+        4
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 35,
+      "rebuilt_instructions": 35,
+      "equal_instructions": 32
+    },
+    {
+      "name": "CБOPOБЬE",
+      "original_entry": "10543",
+      "rebuilt_entry": "10433",
+      "original_words": 537,
+      "rebuilt_words": 542,
+      "frame": [
+        81,
+        82
+      ],
+      "type_differences": [
+        {
+          "name": "ЗAП",
+          "changes": {
+            "offset": [
+              "0047",
+              "0050"
+            ]
+          }
+        },
+        {
+          "name": "ЗAПЗAГ",
+          "changes": {
+            "offset": [
+              "0065",
+              "0066"
+            ],
+            "kind": [
+              5,
+              4
+            ]
+          }
+        },
+        {
+          "name": "HYЖHЫMET",
+          "changes": {
+            "offset": [
+              "0122",
+              "0123"
+            ]
+          }
+        },
+        {
+          "name": "TOЧHAДЛИ",
+          "changes": {
+            "offset": [
+              "0121",
+              "0122"
+            ]
+          }
+        },
+        {
+          "name": "ЗAПPAБ",
+          "changes": {
+            "offset": [
+              "0103",
+              "0104"
+            ],
+            "kind": [
+              5,
+              4
+            ]
+          }
+        },
+        {
+          "name": "YKTCC",
+          "status": "missing"
+        },
+        {
+          "name": "ЭЛTCC",
+          "status": "missing"
+        },
+        {
+          "name": "KBAHTИK",
+          "status": "missing"
+        },
+        {
+          "name": "YKTOБ",
+          "status": "missing"
+        },
+        {
+          "name": "ЭЛTOБ",
+          "status": "missing"
+        },
+        {
+          "name": "REFERENC",
+          "status": "extra"
+        },
+        {
+          "name": "L4",
+          "status": "extra"
+        },
+        {
+          "name": "NAME",
+          "status": "extra"
+        },
+        {
+          "name": "L5",
+          "status": "extra"
+        },
+        {
+          "name": "PD",
+          "status": "extra"
+        },
+        {
+          "name": "DEFINITI",
+          "status": "extra"
+        },
+        {
+          "name": "QSEC",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 979,
+      "rebuilt_instructions": 988,
+      "equal_instructions": 859
+    },
+    {
+      "name": "PAЗPEШИC",
+      "original_entry": "11574",
+      "rebuilt_entry": "11471",
+      "original_words": 68,
+      "rebuilt_words": 68,
+      "frame": [
+        14,
+        14
+      ],
+      "type_differences": [
+        {
+          "name": "YKTOБ",
+          "status": "missing"
+        },
+        {
+          "name": "LIMIT",
+          "status": "extra"
+        },
+        {
+          "name": "SPARE14",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 117,
+      "rebuilt_instructions": 117,
+      "equal_instructions": 115
+    },
+    {
+      "name": "TAБHEPAC",
+      "original_entry": "11700",
+      "rebuilt_entry": "11575",
+      "original_words": 57,
+      "rebuilt_words": 57,
+      "frame": [
+        8,
+        8
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 94,
+      "rebuilt_instructions": 94,
+      "equal_instructions": 94
+    },
+    {
+      "name": "BЫPABAДP",
+      "original_entry": "11771",
+      "rebuilt_entry": "11666",
+      "original_words": 18,
+      "rebuilt_words": 18,
+      "frame": [
+        6,
+        6
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 21,
+      "rebuilt_instructions": 21,
+      "equal_instructions": 21
+    },
+    {
+      "name": "OШCOПP",
+      "original_entry": "12013",
+      "rebuilt_entry": "11741",
+      "original_words": 46,
+      "rebuilt_words": 46,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 69,
+      "rebuilt_instructions": 71,
+      "equal_instructions": 28
+    },
+    {
+      "name": "HACTPOЙH",
+      "original_entry": "12071",
+      "rebuilt_entry": "12017",
+      "original_words": 98,
+      "rebuilt_words": 106,
+      "frame": [
+        3,
+        3
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 172,
+      "rebuilt_instructions": 184,
+      "equal_instructions": 142
+    },
+    {
+      "name": "ПEЧИMЯCE",
+      "original_entry": "12233",
+      "rebuilt_entry": "12171",
+      "original_words": 37,
+      "rebuilt_words": 37,
+      "frame": [
+        3,
+        3
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 57,
+      "rebuilt_instructions": 57,
+      "equal_instructions": 57
+    },
+    {
+      "name": "ПEЧCEKЦИ",
+      "original_entry": "12300",
+      "rebuilt_entry": "12236",
+      "original_words": 146,
+      "rebuilt_words": 157,
+      "frame": [
+        3,
+        3
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 250,
+      "rebuilt_instructions": 267,
+      "equal_instructions": 201
+    },
+    {
+      "name": "ПEЧИMЯЛO",
+      "original_entry": "12522",
+      "rebuilt_entry": "12473",
+      "original_words": 17,
+      "rebuilt_words": 17,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": true,
+      "original_instructions": 19,
+      "rebuilt_instructions": 19,
+      "equal_instructions": 19
+    },
+    {
+      "name": "DUMPCTEK",
+      "original_entry": "12543",
+      "rebuilt_entry": "12514",
+      "original_words": 36,
+      "rebuilt_words": 28,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 53,
+      "rebuilt_instructions": 38,
+      "equal_instructions": 33
+    },
+    {
+      "name": "OШMAШ",
+      "original_entry": "12607",
+      "rebuilt_entry": "12550",
+      "original_words": 156,
+      "rebuilt_words": 154,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 267,
+      "rebuilt_instructions": 264,
+      "equal_instructions": 216
+    },
+    {
+      "name": "CЛOBOBPA",
+      "original_entry": "13043",
+      "rebuilt_entry": "13002",
+      "original_words": 22,
+      "rebuilt_words": 16,
+      "frame": [
+        1,
+        1
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 28,
+      "rebuilt_instructions": 18,
+      "equal_instructions": 18
+    },
+    {
+      "name": "ЗAПBPAЗД",
+      "original_entry": "13071",
+      "rebuilt_entry": "13022",
+      "original_words": 28,
+      "rebuilt_words": 20,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 38,
+      "rebuilt_instructions": 26,
+      "equal_instructions": 22
+    },
+    {
+      "name": "ДAЙMИKPO",
+      "original_entry": "13125",
+      "rebuilt_entry": "13046",
+      "original_words": 65,
+      "rebuilt_words": 42,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 103,
+      "rebuilt_instructions": 65,
+      "equal_instructions": 37
+    },
+    {
+      "name": "ДAЙOПEP",
+      "original_entry": "13226",
+      "rebuilt_entry": "13120",
+      "original_words": 34,
+      "rebuilt_words": 26,
+      "frame": [
+        3,
+        2
+      ],
+      "type_differences": [
+        {
+          "name": "I",
+          "status": "missing"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 50,
+      "rebuilt_instructions": 34,
+      "equal_instructions": 27
+    },
+    {
+      "name": "БAЙTЫBCT",
+      "original_entry": "13270",
+      "rebuilt_entry": "13152",
+      "original_words": 45,
+      "rebuilt_words": 40,
+      "frame": [
+        4,
+        4
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 67,
+      "rebuilt_instructions": 58,
+      "equal_instructions": 49
+    },
+    {
+      "name": "ДEЛЬTAC",
+      "original_entry": "13345",
+      "rebuilt_entry": "13222",
+      "original_words": 35,
+      "rebuilt_words": 31,
+      "frame": [
+        3,
+        3
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 54,
+      "rebuilt_instructions": 47,
+      "equal_instructions": 42
+    },
+    {
+      "name": "ЗHAЧCOБ",
+      "original_entry": "13410",
+      "rebuilt_entry": "13261",
+      "original_words": 58,
+      "rebuilt_words": 55,
+      "frame": [
+        2,
+        3
+      ],
+      "type_differences": [
+        {
+          "name": "CTOБ",
+          "changes": {
+            "offset": [
+              "0003",
+              "0004"
+            ]
+          }
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 98,
+      "rebuilt_instructions": 93,
+      "equal_instructions": 64
+    },
+    {
+      "name": "ЗHAЧBHEШ",
+      "original_entry": "13502",
+      "rebuilt_entry": "13350",
+      "original_words": 80,
+      "rebuilt_words": 75,
+      "frame": [
+        2,
+        3
+      ],
+      "type_differences": [
+        {
+          "name": "CTCC",
+          "changes": {
+            "offset": [
+              "0003",
+              "0004"
+            ]
+          }
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 140,
+      "rebuilt_instructions": 133,
+      "equal_instructions": 98
+    },
+    {
+      "name": "ATPCOБ",
+      "original_entry": "13622",
+      "rebuilt_entry": "13463",
+      "original_words": 68,
+      "rebuilt_words": 67,
+      "frame": [
+        4,
+        5
+      ],
+      "type_differences": [
+        {
+          "name": "CЛOBOATP",
+          "changes": {
+            "offset": [
+              "0004",
+              "0005"
+            ]
+          }
+        },
+        {
+          "name": "CKYБA",
+          "changes": {
+            "offset": [
+              "0005",
+              "0006"
+            ]
+          }
+        },
+        {
+          "name": "CTOБ",
+          "changes": {
+            "offset": [
+              "0003",
+              "0004"
+            ]
+          }
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 115,
+      "rebuilt_instructions": 116,
+      "equal_instructions": 77
+    },
+    {
+      "name": "ATPBHEШ",
+      "original_entry": "13726",
+      "rebuilt_entry": "13566",
+      "original_words": 89,
+      "rebuilt_words": 87,
+      "frame": [
+        4,
+        5
+      ],
+      "type_differences": [
+        {
+          "name": "CЛOBOATP",
+          "changes": {
+            "offset": [
+              "0004",
+              "0005"
+            ]
+          }
+        },
+        {
+          "name": "CKYБA",
+          "changes": {
+            "offset": [
+              "0005",
+              "0006"
+            ]
+          }
+        },
+        {
+          "name": "CTCC",
+          "changes": {
+            "offset": [
+              "0003",
+              "0004"
+            ]
+          }
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 157,
+      "rebuilt_instructions": 156,
+      "equal_instructions": 111
+    },
+    {
+      "name": "ЗABEPШИO",
+      "original_entry": "14057",
+      "rebuilt_entry": "13715",
+      "original_words": 141,
+      "rebuilt_words": 130,
+      "frame": [
+        4,
+        4
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 248,
+      "rebuilt_instructions": 227,
+      "equal_instructions": 129
+    },
+    {
+      "name": "CИCПPOГ",
+      "original_entry": "14274",
+      "rebuilt_entry": "14117",
+      "original_words": 63,
+      "rebuilt_words": 63,
+      "frame": [
+        3,
+        4
+      ],
+      "type_differences": [
+        {
+          "name": "LIMIT",
+          "status": "extra"
+        },
+        {
+          "name": "GOOD",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 99,
+      "rebuilt_instructions": 100,
+      "equal_instructions": 76
+    },
+    {
+      "name": "ГPYЗЧИK",
+      "original_entry": "14373",
+      "rebuilt_entry": "14216",
+      "original_words": 106,
+      "rebuilt_words": 105,
+      "frame": [
+        1,
+        1
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 179,
+      "rebuilt_instructions": 177,
+      "equal_instructions": 102
+    },
+    {
+      "name": "ГPYППA10",
+      "original_entry": "14545",
+      "rebuilt_entry": "14367",
+      "original_words": 175,
+      "rebuilt_words": 141,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 301,
+      "rebuilt_instructions": 250,
+      "equal_instructions": 178
+    },
+    {
+      "name": "ГPYППA20",
+      "original_entry": "15024",
+      "rebuilt_entry": "14604",
+      "original_words": 199,
+      "rebuilt_words": 170,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 349,
+      "rebuilt_instructions": 301,
+      "equal_instructions": 207
+    },
+    {
+      "name": "MAШИHA",
+      "original_entry": "15333",
+      "rebuilt_entry": "15056",
+      "original_words": 966,
+      "rebuilt_words": 964,
+      "frame": [
+        185,
+        187
+      ],
+      "type_differences": [
+        {
+          "name": "БYФTEKCT",
+          "changes": {
+            "offset": [
+              "0062",
+              "0064"
+            ],
+            "kind": [
+              4,
+              5
+            ]
+          }
+        },
+        {
+          "name": "ЭЛPAЗД",
+          "status": "missing"
+        },
+        {
+          "name": "YKACT",
+          "changes": {
+            "offset": [
+              "0034",
+              "0035"
+            ]
+          }
+        },
+        {
+          "name": "PAДP",
+          "changes": {
+            "offset": [
+              "0041",
+              "0042"
+            ]
+          }
+        },
+        {
+          "name": "ЛOKTEГИ",
+          "changes": {
+            "offset": [
+              "0053",
+              "0055"
+            ],
+            "kind": [
+              5,
+              1
+            ]
+          }
+        },
+        {
+          "name": "ЭЛCTEK1",
+          "status": "missing"
+        },
+        {
+          "name": "ЭЛCTEK2",
+          "status": "missing"
+        },
+        {
+          "name": "ЛPEГOБ",
+          "changes": {
+            "offset": [
+              "0054",
+              "0056"
+            ]
+          }
+        },
+        {
+          "name": "БYФЗAГOT",
+          "status": "missing"
+        },
+        {
+          "name": "CЛEДOП",
+          "changes": {
+            "offset": [
+              "0052",
+              "0054"
+            ],
+            "kind": [
+              5,
+              1
+            ]
+          }
+        },
+        {
+          "name": "TEKOП",
+          "changes": {
+            "offset": [
+              "0051",
+              "0053"
+            ]
+          }
+        },
+        {
+          "name": "CЧБYФOП",
+          "changes": {
+            "offset": [
+              "0040",
+              "0041"
+            ]
+          }
+        },
+        {
+          "name": "БYФMИKPO",
+          "status": "missing"
+        },
+        {
+          "name": "БYФATP",
+          "status": "missing"
+        },
+        {
+          "name": "YKTCC",
+          "status": "missing"
+        },
+        {
+          "name": "YKTAC",
+          "changes": {
+            "offset": [
+              "0046",
+              "0050"
+            ]
+          }
+        },
+        {
+          "name": "CTAC",
+          "changes": {
+            "offset": [
+              "0037",
+              "0040"
+            ]
+          }
+        },
+        {
+          "name": "CTCC",
+          "status": "missing"
+        },
+        {
+          "name": "БYФOПEP",
+          "status": "missing"
+        },
+        {
+          "name": "ПOЛYOПEP",
+          "changes": {
+            "offset": [
+              "0055",
+              "0057"
+            ],
+            "kind": [
+              3,
+              1
+            ],
+            "enumerators": [
+              [
+                "ЛEB",
+                "ПPAB"
+              ],
+              null
+            ]
+          }
+        },
+        {
+          "name": "ФЛATEP",
+          "changes": {
+            "offset": [
+              "0003",
+              "0004"
+            ]
+          }
+        },
+        {
+          "name": "CTEK",
+          "changes": {
+            "offset": [
+              "0004",
+              "0005"
+            ],
+            "storage_words": [
+              20,
+              24
+            ]
+          }
+        },
+        {
+          "name": "YKTOБ",
+          "status": "missing"
+        },
+        {
+          "name": "CTOБ",
+          "changes": {
+            "offset": [
+              "0036",
+              "0037"
+            ]
+          }
+        },
+        {
+          "name": "PПPOП",
+          "status": "missing"
+        },
+        {
+          "name": "DEF",
+          "status": "extra"
+        },
+        {
+          "name": "TEMPPAIR",
+          "status": "extra"
+        },
+        {
+          "name": "WORDPAIR",
+          "status": "extra"
+        },
+        {
+          "name": "BYTEPAIR",
+          "status": "extra"
+        },
+        {
+          "name": "REFERENC",
+          "status": "extra"
+        },
+        {
+          "name": "LOOKOK",
+          "status": "extra"
+        },
+        {
+          "name": "REFNO",
+          "status": "extra"
+        },
+        {
+          "name": "SPARE27",
+          "status": "extra"
+        },
+        {
+          "name": "BYTES",
+          "status": "extra"
+        },
+        {
+          "name": "BITCOUNT",
+          "status": "extra"
+        },
+        {
+          "name": "LOOP172",
+          "status": "extra"
+        },
+        {
+          "name": "LOOP173",
+          "status": "extra"
+        },
+        {
+          "name": "LOOP174",
+          "status": "extra"
+        },
+        {
+          "name": "LOOP175",
+          "status": "extra"
+        },
+        {
+          "name": "LOOP176",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 1713,
+      "rebuilt_instructions": 1694,
+      "equal_instructions": 1215
+    },
+    {
+      "name": "OШBЫЧ",
+      "original_entry": "17241",
+      "rebuilt_entry": "16762",
+      "original_words": 30,
+      "rebuilt_words": 28,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 39,
+      "rebuilt_instructions": 36,
+      "equal_instructions": 26
+    },
+    {
+      "name": "BЫЧИCЛEH",
+      "original_entry": "17277",
+      "rebuilt_entry": "17016",
+      "original_words": 109,
+      "rebuilt_words": 153,
+      "frame": [
+        7,
+        9
+      ],
+      "type_differences": [
+        {
+          "name": "YKTAC",
+          "changes": {
+            "offset": [
+              "0010",
+              "0011"
+            ]
+          }
+        },
+        {
+          "name": "ЧЗTAC",
+          "changes": {
+            "offset": [
+              "0006",
+              "0007"
+            ]
+          }
+        },
+        {
+          "name": "CCЫЛTAC",
+          "changes": {
+            "offset": [
+              "0005",
+              "0006"
+            ]
+          }
+        },
+        {
+          "name": "YKTOБ",
+          "changes": {
+            "offset": [
+              "0007",
+              "0010"
+            ]
+          }
+        },
+        {
+          "name": "ЧЗTOБ",
+          "changes": {
+            "offset": [
+              "0004",
+              "0005"
+            ]
+          }
+        },
+        {
+          "name": "CTOФ",
+          "changes": {
+            "offset": [
+              "0003",
+              "0004"
+            ]
+          }
+        },
+        {
+          "name": "STATE",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 196,
+      "rebuilt_instructions": 272,
+      "equal_instructions": 174
+    },
+    {
+      "name": "OШЗAГP",
+      "original_entry": "17454",
+      "rebuilt_entry": "17247",
+      "original_words": 37,
+      "rebuilt_words": 35,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 51,
+      "rebuilt_instructions": 48,
+      "equal_instructions": 39
+    },
+    {
+      "name": "ЗAГPYЗИM",
+      "original_entry": "17521",
+      "rebuilt_entry": "17312",
+      "original_words": 125,
+      "rebuilt_words": 115,
+      "frame": [
+        20,
+        21
+      ],
+      "type_differences": [
+        {
+          "name": "ЗAП",
+          "changes": {
+            "kind": [
+              5,
+              4
+            ]
+          }
+        },
+        {
+          "name": "GOOD",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 227,
+      "rebuilt_instructions": 213,
+      "equal_instructions": 190
+    },
+    {
+      "name": "OБXOДЛEC",
+      "original_entry": "17716",
+      "rebuilt_entry": "17475",
+      "original_words": 251,
+      "rebuilt_words": 173,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 458,
+      "rebuilt_instructions": 313,
+      "equal_instructions": 299
+    },
+    {
+      "name": "ГEHMETKИ",
+      "original_entry": "20311",
+      "rebuilt_entry": "17752",
+      "original_words": 163,
+      "rebuilt_words": 162,
+      "frame": [
+        50,
+        50
+      ],
+      "type_differences": [
+        {
+          "name": "БYФATP",
+          "status": "missing"
+        },
+        {
+          "name": "TEMPPAIR",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 304,
+      "rebuilt_instructions": 300,
+      "equal_instructions": 299
+    },
+    {
+      "name": "ГPYППABP",
+      "original_entry": "20554",
+      "rebuilt_entry": "20214",
+      "original_words": 27,
+      "rebuilt_words": 18,
+      "frame": [
+        2,
+        2
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 35,
+      "rebuilt_instructions": 20,
+      "equal_instructions": 17
+    },
+    {
+      "name": "ПEЧCTATИ",
+      "original_entry": "20607",
+      "rebuilt_entry": "20236",
+      "original_words": 127,
+      "rebuilt_words": 107,
+      "frame": [
+        6,
+        6
+      ],
+      "type_differences": [],
+      "normalized_body_equal": false,
+      "original_instructions": 222,
+      "rebuilt_instructions": 186,
+      "equal_instructions": 161
+    },
+    {
+      "name": "ЗAГPYЗ",
+      "original_entry": "21006",
+      "rebuilt_entry": "20411",
+      "original_words": 689,
+      "rebuilt_words": 760,
+      "frame": [
+        0,
+        0
+      ],
+      "type_differences": [
+        {
+          "name": "HAЧAЛOЗA",
+          "changes": {
+            "offset": [
+              "0103",
+              "0104"
+            ]
+          }
+        },
+        {
+          "name": "I",
+          "changes": {
+            "offset": [
+              "0075",
+              "0076"
+            ]
+          }
+        },
+        {
+          "name": "HOMEPOБЬ",
+          "changes": {
+            "offset": [
+              "0072",
+              "0073"
+            ]
+          }
+        },
+        {
+          "name": "ФПPABC",
+          "changes": {
+            "offset": [
+              "0113",
+              "0114"
+            ]
+          }
+        },
+        {
+          "name": "PAЗД",
+          "changes": {
+            "offset": [
+              "0565",
+              "0567"
+            ]
+          }
+        },
+        {
+          "name": "TИПPAЗД",
+          "changes": {
+            "offset": [
+              "0550",
+              "0552"
+            ]
+          }
+        },
+        {
+          "name": "ФAЙЛPAЗД",
+          "changes": {
+            "offset": [
+              "0542",
+              "0544"
+            ]
+          }
+        },
+        {
+          "name": "ЭЛTACП",
+          "changes": {
+            "offset": [
+              "0130",
+              "0132"
+            ]
+          }
+        },
+        {
+          "name": "NЗAП",
+          "changes": {
+            "offset": [
+              "0104",
+              "0105"
+            ]
+          }
+        },
+        {
+          "name": "CTEKCT",
+          "changes": {
+            "offset": [
+              "0100",
+              "0101"
+            ]
+          }
+        },
+        {
+          "name": "ИMЯTEKCE",
+          "changes": {
+            "offset": [
+              "0135",
+              "0137"
+            ]
+          }
+        },
+        {
+          "name": "CЛOBO",
+          "changes": {
+            "offset": [
+              "0111",
+              "0112"
+            ],
+            "kind": [
+              4,
+              5
+            ]
+          }
+        },
+        {
+          "name": "TИMEH",
+          "changes": {
+            "offset": [
+              "0551",
+              "0553"
+            ]
+          }
+        },
+        {
+          "name": "AДEC",
+          "changes": {
+            "offset": [
+              "0074",
+              "0075"
+            ]
+          }
+        },
+        {
+          "name": "ФAЙЛMET",
+          "changes": {
+            "offset": [
+              "0546",
+              "0550"
+            ]
+          }
+        },
+        {
+          "name": "ДИM",
+          "changes": {
+            "offset": [
+              "0552",
+              "0554"
+            ]
+          }
+        },
+        {
+          "name": "YKДИM",
+          "changes": {
+            "offset": [
+              "0126",
+              "0130"
+            ]
+          }
+        },
+        {
+          "name": "TCEГ",
+          "changes": {
+            "offset": [
+              "0555",
+              "0557"
+            ]
+          }
+        },
+        {
+          "name": "YKTCEГ",
+          "changes": {
+            "offset": [
+              "0125",
+              "0127"
+            ]
+          }
+        },
+        {
+          "name": "HAЧAЛOДИ",
+          "changes": {
+            "offset": [
+              "0137",
+              "0141"
+            ]
+          }
+        },
+        {
+          "name": "ГЛTEГИ",
+          "changes": {
+            "offset": [
+              "0110",
+              "0111"
+            ],
+            "kind": [
+              5,
+              1
+            ]
+          }
+        },
+        {
+          "name": "BKЛЮЧEHO",
+          "changes": {
+            "offset": [
+              "0117",
+              "0120"
+            ]
+          }
+        },
+        {
+          "name": "PEГOБ",
+          "changes": {
+            "offset": [
+              "0107",
+              "0110"
+            ]
+          }
+        },
+        {
+          "name": "HAЧAЛOME",
+          "changes": {
+            "offset": [
+              "0622",
+              "0624"
+            ]
+          }
+        },
+        {
+          "name": "ФOM",
+          "changes": {
+            "offset": [
+              "0564",
+              "0566"
+            ]
+          }
+        },
+        {
+          "name": "TEKOФ",
+          "changes": {
+            "offset": [
+              "0120",
+              "0122"
+            ]
+          }
+        },
+        {
+          "name": "PEЖИMЫ",
+          "changes": {
+            "offset": [
+              "0540",
+              "0542"
+            ]
+          }
+        },
+        {
+          "name": "DEBUG",
+          "changes": {
+            "offset": [
+              "0541",
+              "0543"
+            ]
+          }
+        },
+        {
+          "name": "ИHДEKCTO",
+          "changes": {
+            "offset": [
+              "0105",
+              "0106"
+            ]
+          }
+        },
+        {
+          "name": "CKOHBЫP",
+          "changes": {
+            "offset": [
+              "0077",
+              "0100"
+            ]
+          }
+        },
+        {
+          "name": "CBЫP",
+          "changes": {
+            "offset": [
+              "0076",
+              "0077"
+            ]
+          }
+        },
+        {
+          "name": "KYБA",
+          "changes": {
+            "offset": [
+              "0563",
+              "0565"
+            ]
+          }
+        },
+        {
+          "name": "TAC",
+          "changes": {
+            "offset": [
+              "0560",
+              "0562"
+            ]
+          }
+        },
+        {
+          "name": "TCC",
+          "changes": {
+            "offset": [
+              "0557",
+              "0561"
+            ]
+          }
+        },
+        {
+          "name": "YKTAC",
+          "changes": {
+            "offset": [
+              "0124",
+              "0126"
+            ]
+          }
+        },
+        {
+          "name": "CЧAC",
+          "changes": {
+            "offset": [
+              "0102",
+              "0103"
+            ]
+          }
+        },
+        {
+          "name": "CTATЭTAП",
+          "changes": {
+            "offset": [
+              "0567",
+              "0571"
+            ]
+          }
+        },
+        {
+          "name": "TEKЭTAП",
+          "changes": {
+            "offset": [
+              "0566",
+              "0570"
+            ]
+          }
+        },
+        {
+          "name": "BEKXEШ",
+          "changes": {
+            "offset": [
+              "0136",
+              "0140"
+            ]
+          }
+        },
+        {
+          "name": "CKOHTEK",
+          "changes": {
+            "offset": [
+              "0101",
+              "0102"
+            ]
+          }
+        },
+        {
+          "name": "MTИЛ",
+          "changes": {
+            "offset": [
+              "0140",
+              "0142"
+            ]
+          }
+        },
+        {
+          "name": "PAЗPEШИЛ",
+          "changes": {
+            "offset": [
+              "0114",
+              "0115"
+            ]
+          }
+        },
+        {
+          "name": "ФAЙЛCXEM",
+          "changes": {
+            "offset": [
+              "0544",
+              "0546"
+            ]
+          }
+        },
+        {
+          "name": "TOБ",
+          "changes": {
+            "offset": [
+              "0556",
+              "0560"
+            ]
+          }
+        },
+        {
+          "name": "YKTOБ",
+          "changes": {
+            "offset": [
+              "0127",
+              "0131"
+            ]
+          }
+        },
+        {
+          "name": "ЗHAЧOK",
+          "changes": {
+            "offset": [
+              "0106",
+              "0107"
+            ]
+          }
+        },
+        {
+          "name": "TOФ",
+          "changes": {
+            "offset": [
+              "0554",
+              "0556"
+            ]
+          }
+        },
+        {
+          "name": "TЛФ",
+          "changes": {
+            "offset": [
+              "0553",
+              "0555"
+            ]
+          }
+        },
+        {
+          "name": "БЫЛИOШMO",
+          "changes": {
+            "offset": [
+              "0116",
+              "0117"
+            ]
+          }
+        },
+        {
+          "name": "TПPE",
+          "changes": {
+            "offset": [
+              "0561",
+              "0563"
+            ]
+          }
+        },
+        {
+          "name": "HOMEPПPE",
+          "changes": {
+            "offset": [
+              "0073",
+              "0074"
+            ]
+          }
+        },
+        {
+          "name": "БЫЛИOШЭT",
+          "changes": {
+            "offset": [
+              "0115",
+              "0116"
+            ]
+          }
+        },
+        {
+          "name": "TЭM",
+          "changes": {
+            "offset": [
+              "0562",
+              "0564"
+            ]
+          }
+        },
+        {
+          "name": "G0122",
+          "status": "extra"
+        },
+        {
+          "name": "G0642",
+          "status": "extra"
+        },
+        {
+          "name": "G0643",
+          "status": "extra"
+        },
+        {
+          "name": "G0073",
+          "status": "extra"
+        },
+        {
+          "name": "G0644",
+          "status": "extra"
+        },
+        {
+          "name": "G0645",
+          "status": "extra"
+        },
+        {
+          "name": "G0646",
+          "status": "extra"
+        },
+        {
+          "name": "G0647",
+          "status": "extra"
+        }
+      ],
+      "normalized_body_equal": false,
+      "original_instructions": 1282,
+      "rebuilt_instructions": 1403,
+      "equal_instructions": 1158
+    }
+  ]
+}

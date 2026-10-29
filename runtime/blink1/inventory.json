@@ -12,231 +12,231 @@
       "address": "02012"
     },
     {
-      "name": "PUTTIME",
+      "name": "ПEЧBPE",
       "address": "02013"
     },
     {
-      "name": "PUTPATH",
+      "name": "ПEЧИMЯOБ",
       "address": "02042"
     },
     {
-      "name": "PATHLEN",
+      "name": "ДЛИПOЛИM",
       "address": "02070"
     },
     {
-      "name": "NEWPHASE",
+      "name": "CTATИCT",
       "address": "02113"
     },
     {
-      "name": "FINDKEY",
+      "name": "ПOИCKИME",
       "address": "02125"
     },
     {
-      "name": "ENTERKEY",
+      "name": "BHECИИMЯ",
       "address": "02172"
     },
     {
-      "name": "FINDOBJ",
+      "name": "SFILE",
       "address": "02312"
     },
     {
-      "name": "BINDOBJ",
+      "name": "ASSIGN",
       "address": "02353"
     },
     {
-      "name": "NEXTCHAR",
+      "name": "ДAЙЛИT",
       "address": "02426"
     },
     {
-      "name": "BADJOB",
+      "name": "OШCKAH",
       "address": "02463"
     },
     {
-      "name": "PUSHCHAR",
+      "name": "BOЗЛИT",
       "address": "02752"
     },
     {
-      "name": "INNAME",
+      "name": "CИMBOЛИM",
       "address": "02761"
     },
     {
-      "name": "SKIPWS",
+      "name": "ПPOПPAЗД",
       "address": "02765"
     },
     {
-      "name": "SKIPTAIL",
+      "name": "ДAЙPAЗД",
       "address": "02775"
     },
     {
-      "name": "CONVERT",
+      "name": "ЦEЛOE",
       "address": "03006"
     },
     {
-      "name": "SCANINT",
+      "name": "ДAЙЦEЛOE",
       "address": "03034"
     },
     {
-      "name": "SCANDEC",
+      "name": "ДAЙЧИCЛO",
       "address": "03153"
     },
     {
-      "name": "SCANNAME",
+      "name": "ДAЙИMЯФA",
       "address": "03176"
     },
     {
-      "name": "SCANFILE",
+      "name": "ДAЙYKФAЙ",
       "address": "03230"
     },
     {
-      "name": "SCANALFA",
+      "name": "ДAЙИMЯ",
       "address": "03312"
     },
     {
-      "name": "GETTOKEN",
+      "name": "CKAHEP",
       "address": "03335"
     },
     {
-      "name": "EXPECT",
+      "name": "CKAHPAЗД",
       "address": "03455"
     },
     {
-      "name": "GETFILE",
+      "name": "BHECИOФ",
       "address": "03466"
     },
     {
-      "name": "SELECTFILES",
+      "name": "YTOЧHEHИ",
       "address": "03541"
     },
     {
-      "name": "PRINTSEL",
+      "name": "PEЖПEЧ",
       "address": "03641"
     },
     {
-      "name": "READJOB",
+      "name": "PAЗБOPЗA",
       "address": "03717"
     },
     {
-      "name": "PHASEMSG",
+      "name": "OШИБKИHA",
       "address": "04475"
     },
     {
-      "name": "MODULEMSG",
+      "name": "OШИБKИBM",
       "address": "04541"
     },
     {
-      "name": "RECORDMSG",
+      "name": "KOOPД",
       "address": "04562"
     },
     {
-      "name": "OPENIN",
+      "name": "OTKPOЙOФ",
       "address": "04612"
     },
     {
-      "name": "CLOSEIN",
+      "name": "ЗAKPOЙOФ",
       "address": "04635"
     },
     {
-      "name": "PUTSIZE",
+      "name": "ПEЧДЛФAЙ",
       "address": "04647"
     },
     {
-      "name": "PUTCODE",
+      "name": "ПEЧALF0",
       "address": "04666"
     },
     {
-      "name": "READREC",
+      "name": "ДAЙЗAП",
       "address": "04707"
     },
     {
-      "name": "READBODY",
+      "name": "ДAЙЗAПИC",
       "address": "04735"
     },
     {
-      "name": "READPART",
+      "name": "ДAЙTEЛЗA",
       "address": "04761"
     },
     {
-      "name": "SKIPREC",
+      "name": "ПPOПЗAП",
       "address": "05003"
     },
     {
-      "name": "SAVEREC",
+      "name": "ПEPEKYБ",
       "address": "05016"
     },
     {
-      "name": "WRITREC",
+      "name": "ЗAПBФOM",
       "address": "05044"
     },
     {
-      "name": "LEAPDAY",
+      "name": "BИCOKOC",
       "address": "05066"
     },
     {
-      "name": "PUTDATE",
+      "name": "ПEЧДATY",
       "address": "05100"
     },
     {
-      "name": "STAMPOBJ",
+      "name": "YЧET",
       "address": "05170"
     },
     {
-      "name": "PUTKIND",
+      "name": "AHAЛИЗTO",
       "address": "05232"
     },
     {
-      "name": "BADOBJ",
+      "name": "OШMOД",
       "address": "05276"
     },
     {
-      "name": "RESNAME",
+      "name": "ПEPEBPИ",
       "address": "05472"
     },
     {
-      "name": "NEWDEF",
+      "name": "HOBЭЛTOБ",
       "address": "06063"
     },
     {
-      "name": "NEWSECT",
+      "name": "HOBЭЛTAC",
       "address": "06101"
     },
     {
-      "name": "NEWREF",
+      "name": "HOBЭЛTCC",
       "address": "06121"
     },
     {
-      "name": "SAVEPREF",
+      "name": "БAЗЫBKYБ",
       "address": "06135"
     },
     {
-      "name": "SAVEDATA",
+      "name": "ATPBKYБ",
       "address": "06155"
     },
     {
-      "name": "SKIPDATA",
+      "name": "KИHФBKYБ",
       "address": "06175"
     },
     {
-      "name": "SAVEEXPR",
+      "name": "BЫPBKYБ",
       "address": "06204"
     },
     {
-      "name": "BINDDEF",
+      "name": "ИMЯBTOБ",
       "address": "06223"
     },
     {
-      "name": "GATHER",
+      "name": "CБOPOБЬE",
       "address": "06247"
     },
     {
-      "name": "RESOLVE",
+      "name": "PAЗPEШИC",
       "address": "07221"
     },
     {
-      "name": "UNRESMSG",
+      "name": "TAБHEPAC",
       "address": "07316"
     },
     {
-      "name": "ALIGNUP",
+      "name": "BЫPABAДP",
       "address": "07403"
     },
     {
@@ -244,127 +244,127 @@
       "address": "07420"
     },
     {
-      "name": "BADSECT",
+      "name": "OШCOПP",
       "address": "07444"
     },
     {
-      "name": "JOINSECT",
+      "name": "HACTPOЙH",
       "address": "07516"
     },
     {
-      "name": "PUTSECTN",
+      "name": "ПEЧИMЯCE",
       "address": "07661"
     },
     {
-      "name": "LISTSECT",
+      "name": "ПEЧCEKЦИ",
       "address": "07722"
     },
     {
-      "name": "OBJWHERE",
+      "name": "ПEЧИMЯЛO",
       "address": "10146"
     },
     {
-      "name": "DUMPSTK",
+      "name": "DUMPCTEK",
       "address": "10162"
     },
     {
-      "name": "BADEXPR",
+      "name": "OШMAШ",
       "address": "10203"
     },
     {
-      "name": "FLUSHOUT",
+      "name": "CЛOBOBPA",
       "address": "10432"
     },
     {
-      "name": "PUTWORD",
+      "name": "ЗAПBPAЗД",
       "address": "10447"
     },
     {
-      "name": "GETBYTE",
+      "name": "ДAЙMИKPO",
       "address": "10473"
     },
     {
-      "name": "GETWORD",
+      "name": "ДAЙOПEP",
       "address": "10542"
     },
     {
-      "name": "PUSHLIT",
+      "name": "БAЙTЫBCT",
       "address": "10571"
     },
     {
-      "name": "RELOCATE",
+      "name": "ДEЛЬTAC",
       "address": "10614"
     },
     {
-      "name": "PUSHDEF",
+      "name": "ЗHAЧCOБ",
       "address": "10645"
     },
     {
-      "name": "PUSHREF",
+      "name": "ЗHAЧBHEШ",
       "address": "10712"
     },
     {
-      "name": "DEFATTR",
+      "name": "ATPCOБ",
       "address": "11001"
     },
     {
-      "name": "REFATTR",
+      "name": "ATPBHEШ",
       "address": "11060"
     },
     {
-      "name": "EMITVAL",
+      "name": "ЗABEPШИO",
       "address": "11162"
     },
     {
-      "name": "EMITOPER",
+      "name": "CИCПPOГ",
       "address": "11346"
     },
     {
-      "name": "FIRSTVAL",
+      "name": "ГPYЗЧИK",
       "address": "11442"
     },
     {
-      "name": "BINARYOP",
+      "name": "ГPYППA10",
       "address": "11621"
     },
     {
-      "name": "FIELDOP",
+      "name": "ГPYППA20",
       "address": "11773"
     },
     {
-      "name": "EVALUATE",
+      "name": "MAШИHA",
       "address": "12200"
     },
     {
-      "name": "BADVALUE",
+      "name": "OШBЫЧ",
       "address": "13707"
     },
     {
-      "name": "EVALDEFS",
+      "name": "BЫЧИCЛEH",
       "address": "13740"
     },
     {
-      "name": "BADOUT",
+      "name": "OШЗAГP",
       "address": "14166"
     },
     {
-      "name": "WRITESEG",
+      "name": "ЗAГPYЗИM",
       "address": "14226"
     },
     {
-      "name": "PUTLABEL",
+      "name": "OБXOДЛEC",
       "address": "14406"
     },
     {
-      "name": "LABELS",
+      "name": "ГEHMETKИ",
       "address": "14660"
     },
     {
-      "name": "PUTTIMES",
+      "name": "ГPYППABP",
       "address": "15117"
     },
     {
-      "name": "STATS",
+      "name": "ПEЧCTATИ",
       "address": "15136"
     },
     {

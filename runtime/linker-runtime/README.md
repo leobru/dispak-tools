@@ -1,9 +1,12 @@
 # Real runtime libraries for LINK1, BLINK1, LINK and BLINK
 
-The four recovered Pascal programs now link real library modules. Every
+The four recovered Pascal programs link real library modules. Every
 library word, public entry and FREE address matches its own original image
 literally. No generated executable instruction is patched after linking.
 The builds do not execute the linkers' file operations.
+
+[Comparison with 2248](2248.md) identifies the older КОМПОН.РЕЖИМ2/3
+versions and extracts the original identifiers retained in РЕЖИМ3's PMD tables.
 
 Addresses and range ends below are octal; ends are exclusive. Word counts
 are decimal.
@@ -92,14 +95,39 @@ placement of the converters, diagnostic printer, file state and callbacks.
 Builds fail on any library, entry, FREE, constant-pool or initialized-data
 mismatch. `--explore` records discrepancies during reconstruction.
 
-### Private compiler and Pascal data
+### Compiler and Pascal data
 
-The shared builder prepares a private copy of `mypas.b6`, leaving that file
-untouched. The instruction node packs `ilm` and its three boolean flags
-into one word, occupying 11 words overall with the original K9 heap.
-Linker compatibility emits the original NTR/ATX/AMX/AVX truncation sequence
-inline and allocates INPUT before OUTPUT. ALIGNUP consequently needs no
-P/TR module or extra padding jump and matches the original instructions.
+The shared builder starts from the current `mypas.b6`; `--compiler-source`
+selects another base compiler deck. [patch_compiler.py](patch_compiler.py)
+changes exactly two things in a generated build copy: TRUNC emits the
+historical NTR/ATX/AMX/AVX sequence inline, and INPUT is allocated before
+OUTPUT. Instruction-node layout and heap options are unchanged; the shared
+source deck is not edited. This restores matching runtime placement and
+removes the extra P/TR module.
+
+The selected compiler is rebuilt on private volume 77. Prepared source is
+fingerprinted for cache reuse; private writable volumes are not hashed.
+Failed strict comparisons retain their scratch reports without overwriting
+the recorded `library.json` reports.
+
+### Historical identifiers
+
+The four Pascal sources mirror PMD-backed names from the older
+[KOMPON 2.02/3 recovery](../kompon3/README.md), including corresponding
+routines, globals, locals and enum values. For example, `READJOB` is
+`PAЗБOPЗA`, `EVALUATE` is `MAШИHA`, `KEYPOOL` is `TИMEH` and `NAMETAB`
+is `BEKXEШ`. These names come from 2248; the four 4001 images have no PMD.
+
+[historical-names.json](historical-names.json) records the correspondence,
+with locals scoped by their original descriptive routine names.
+[historical_names.py](historical_names.py) applies it to identifier tokens
+and supplies names for the analyzers and comparison listings. It preserves
+record fields, literals, external service names, program identities and
+later-only identifiers where no original name is known. Type declarations,
+data layout and control flow are unchanged.
+
+All four rebuilt images were compared with saved pre-rename images and
+were byte-for-byte identical, including their application and runtime areas.
 
 P/1 initializes the linkers' actual P/1D words and uses descriptor `02010`.
 The Pascal data initializes PADCHAR to a space. LINK1 and BLINK1 declare the

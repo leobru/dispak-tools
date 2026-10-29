@@ -1,0 +1,559 @@
+{
+  "LINK": {
+    "SEGPOOL": "TCEГ",
+    "G0076": "AДEC",
+    "SECTPOOL": "TAC",
+    "SEGREC": "YKTCEГ",
+    "PRINTOPT": "PEЖИMЫ",
+    "G0567": "ФOM",
+    "FILEPOOL": "TOФ",
+    "CURRENTF": "TEKOФ",
+    "G0054": "CTAC",
+    "G0077": "I",
+    "G0051": "HAЧCTAC",
+    "G0055": "CЧAДPAЗД",
+    "DEFPOOL": "TOБ",
+    "G0127": "YKTAC",
+    "NEXTADDR": "CЧAC",
+    "G0566": "KYБA",
+    "HALFOUT": "ФПPABC",
+    "G0102": "CTEKCT",
+    "REFPOOL": "TCC",
+    "G0057": "CPAЗД",
+    "G0050": "HMOД",
+    "PHASE": "TEKЭTAП",
+    "FIRSTREF": "HAЧMTCC",
+    "G0100": "CBЫP",
+    "OBJPOOL": "TЛФ",
+    "G0570": "PAЗД",
+    "G0065": "HAЧMTAC",
+    "OUTPAIR": "CЛOBO",
+    "G0111": "PEГOБ",
+    "LASTSECT": "ЭЛTACП",
+    "G0071": "HAЧMTOБ",
+    "G0103": "CKOHTEK",
+    "G0140": "ИMЯTEKCE",
+    "G0063": "HAЗCEГM",
+    "BYTEPOS": "HAЧAЛOЗA",
+    "G0061": "AДBЗOHE",
+    "G0072": "KOHMTOБ",
+    "G0070": "KOHMTCC",
+    "G0067": "KOHMTAC",
+    "ALLFOUND": "PAЗPEШИЛ",
+    "ROOTPREF": "HAЧAЛOДИ",
+    "PATHPOOL": "ДИM",
+    "ENTRYPOO": "TЭM",
+    "G0060": "ЗOHA",
+    "G0056": "CЧAKCEГM",
+    "RECNO": "NЗAП",
+    "G0112": "ГЛTEГИ",
+    "G0110": "ЗHAЧOK",
+    "G0107": "ИHДEKCTO",
+    "G0101": "CKOHBЫP",
+    "PREFPOOL": "TПPE",
+    "OUTFILE": "ФAЙЛPAЗД",
+    "LABELFIL": "ФAЙЛMET",
+    "KEYPOOL": "TИMEH",
+    "G0062": "AЗBЗOHE",
+    "PHASEERR": "БЫЛИOШЭT",
+    "MODULEER": "БЫЛИOШMO",
+    "G0075": "HOMEPПPE",
+    "G0074": "HOMEPOБЬ",
+    "TIMES": "CTATЭTAП",
+    "G0052": "ЧИCЛOMOД",
+    "XLATTAB": "MTИЛ",
+    "SYSTEMOU": "TИПPAЗД",
+    "NAMETAB": "BEKXEШ",
+    "G0132": "YKTOБ",
+    "G0131": "YKДИM",
+    "G0053": "CTCEГ",
+    "MONTHDAY": "HAЧAЛOME",
+    "SCHEMAFI": "ФAЙЛCXEM",
+    "G0121": "BKЛЮЧEHO",
+    "G0544": "DEBUG"
+  },
+  "HASHNAME": {},
+  "CMPNAME": {},
+  "NAMELEN": {},
+  "GETSTAMP": {},
+  "NEWKEY": {},
+  "OBJREAD": {},
+  "OBJEDIT": {},
+  "FILEEDIT": {},
+  "TABREAD": {},
+  "TABGET": {},
+  "TABPUT": {},
+  "PUTDEF": {},
+  "PUTSECT": {},
+  "PUTREF": {},
+  "INITVEC": {},
+  "UNPACKKY": {},
+  "PACKKEY": {},
+  "NUMOBJS": {},
+  "POSITION": {},
+  "SETPOS": {},
+  "READPAIR": {},
+  "WRITPAIR": {},
+  "PUTTEMP": {},
+  "CLOSE": {},
+  "GETFILED": {},
+  "PUTFILED": {},
+  "GETPAIR": {},
+  "PUTPAIR": {},
+  "TABPAIR": {},
+  "TABFILE": {},
+  "ATTACH": {},
+  "GETDATE": {},
+  "PUTTIME": {
+    "T": "BPEMЯ"
+  },
+  "PUTPATH": {
+    "COUNT": "YPИM",
+    "P": "YKДИM",
+    "PART": "BHYTPИMЯ"
+  },
+  "PATHLEN": {
+    "COUNT": "ДЛИHA",
+    "P": "YKДИM"
+  },
+  "NEWPHASE": {
+    "N": "ЭTAП"
+  },
+  "FINDKEY": {
+    "CUR": "YKИMЯ",
+    "KEY": "ИMЯ"
+  },
+  "ENTERKEY": {
+    "CUR": "YKИMЯT",
+    "FRESH": "YKИMЯ",
+    "PREV": "YKИMЯП",
+    "BUCKET": "CXEШ",
+    "KEY": "HOBИMЯ"
+  },
+  "FINDOBJ": {
+    "NAME": "YKИMЯ",
+    "I": "CTЛФ",
+    "REC": "YKTЛФ",
+    "KEY": "ЛOГ",
+    "RESULT": "ФИЗ"
+  },
+  "BINDOBJ": {
+    "NAME": "YKИMЯ",
+    "I": "CTЛФ",
+    "REC": "YKTЛФ",
+    "MODULE": "ФИMЯ",
+    "KEY": "ИMЯ"
+  },
+  "READJOB": {
+    "VALUE": "ЛEKC",
+    "LOADADDR": "HAЗCEГ",
+    "NFILES": "ЧФAЙЛOB",
+    "HAVEOBJE": "БЫЛИOФ",
+    "HAVESCHE": "ПOCXEME",
+    "HAVEOUTP": "БЫЛBЫXФ",
+    "SEGINDEX": "CHAЧCEГ",
+    "COMMONFL": "MACФЛ",
+    "KIND": "TИЛEKC",
+    "FILEINDE": "CTOФ",
+    "HAVEQUAL": "БЫЛИKBAЛ",
+    "SEGLEN": "MДЛИCEГ",
+    "DISKADDR": "HAДCEГ",
+    "CURRENT": "ДECФAЙЛA",
+    "PUSHED": "ФИЗБYФ",
+    "LOADABOV": "ФOTHAД",
+    "LINENO": "ЧCTPOK",
+    "COLUMN": "HЛИT",
+    "REC": "YKTOФ",
+    "CH": "ЛИT",
+    "LASTCOL": "KOHЛEKC",
+    "FIRSTCOL": "HAЧЛEKC",
+    "CLASS": "TИЛ",
+    "SAVED": "БYФЛИT"
+  },
+  "NEXTCHAR": {},
+  "BADJOB": {
+    "I": "I",
+    "ERROR": "HOMOШ"
+  },
+  "GETTOKEN": {
+    "EXPECT": "CЛEKC"
+  },
+  "PUSHCHAR": {
+    "C": "ЛИTC"
+  },
+  "INNAME": {
+    "C": "TИЛ"
+  },
+  "SKIPWS": {},
+  "SKIPTAIL": {},
+  "SCANINT": {
+    "COUNT": "ЧC",
+    "DIGIT": "KOД",
+    "TAIL": "TИПЦ",
+    "SCALE": "MACШTAБ",
+    "I": "I",
+    "BUFFER": "БYФ",
+    "RESULT": "ЧИC"
+  },
+  "CONVERT": {
+    "ACCUM": "J",
+    "I": "I",
+    "BASE": "OCH"
+  },
+  "SCANDEC": {
+    "COUNT": "I",
+    "RESULT": "ЧИC"
+  },
+  "SCANNAME": {
+    "I": "I"
+  },
+  "SCANFILE": {
+    "ADDRESS": "I",
+    "UNIT": "HY",
+    "ZONE": "ЗЗ"
+  },
+  "SCANALFA": {
+    "I": "I"
+  },
+  "EXPECT": {
+    "PUNCTS": "MPAЗ"
+  },
+  "GETFILE": {
+    "I": "CTOФ",
+    "KEY": "ДECФAЙЛA",
+    "REC": "YKTOФ"
+  },
+  "SELECTFILES": {
+    "OBJ": "ДECФAЙЛA",
+    "I": "CTOФ",
+    "REC": "YKTOФ",
+    "FLAG": "ФЛAГ"
+  },
+  "PRINTSEL": {},
+  "PHASEMSG": {},
+  "MODULEMSG": {
+    "REC": "YKTOФ"
+  },
+  "RECORDMSG": {
+    "KIND": "TИПЗ"
+  },
+  "OPENIN": {
+    "INDEX": "CTOФ"
+  },
+  "CLOSEIN": {
+    "INDEX": "CTOФ"
+  },
+  "PUTSIZE": {
+    "N": "ДЛ"
+  },
+  "PUTCODE": {
+    "I": "I",
+    "CODE": "A"
+  },
+  "READREC": {
+    "I": "I",
+    "N": "L"
+  },
+  "READBODY": {
+    "I": "I"
+  },
+  "READPART": {
+    "I": "I",
+    "N": "L",
+    "FIRST": "N"
+  },
+  "SKIPREC": {},
+  "SAVEREC": {
+    "I": "I",
+    "LAST": "ЧИCЛOCЛO"
+  },
+  "WRITREC": {
+    "I": "I",
+    "N": "L"
+  },
+  "LEAPDAY": {
+    "YEAR": "ГOД",
+    "MONTH": "MEC"
+  },
+  "PUTDATE": {
+    "YEAR": "ГOД",
+    "DAYS": "CYTKИ",
+    "MONTH": "MECЯЦ",
+    "SECS": "CEKYHДЫ",
+    "T": "BPEMЯ",
+    "DAY": "ЧИCЛO"
+  },
+  "STAMPOBJ": {
+    "DATE": "БYДA",
+    "TICKS": "BPE",
+    "ACCOUNT": "ШИФP"
+  },
+  "GATHER": {
+    "BUFFER": "ЗAП",
+    "HEADER": "ЗAПЗAГ",
+    "DATALEN": "ЧИCЛOATP",
+    "BODYLEN": "ЧИCЛOCЛO",
+    "NENTRY": "ЧЗTЭM",
+    "FILEIDX": "CMOДTOФ",
+    "CURSEC": "CTAC",
+    "EXTRALEN": "ЧИCЛOBЫP",
+    "DEFIDX": "CTOБHOB",
+    "TAIL": "ЗAПPAБ",
+    "PREFLEN": "ЧИCЛOБAЗ",
+    "NSEC": "ЧЗTAC",
+    "NREF": "ЧЗTCC",
+    "NPREF": "ЧЗTПPE",
+    "NDEF": "ЧЗTOБ",
+    "GOODEND": "TOЧHAДЛИ",
+    "FIRSTSEC": "HAЧMTAC",
+    "FIRSTREF": "HAЧMTCC",
+    "FIRSTDEF": "HAЧMTOБ",
+    "SECTION": "ЭЛTAC",
+    "REFIDX": "CTCCHOB",
+    "PSEC": "YKTAC",
+    "PREVSEC": "CTACПPEД",
+    "PFNODE": "ЭЛTЭM",
+    "NEWSEC": "CTACHOB",
+    "LABELSON": "HYЖHЫMET",
+    "I": "I",
+    "ENTRYNOD": "YKДИMTEK",
+    "PR": "ЭЛTПPE"
+  },
+  "UNPACKNM": {},
+  "BADOBJ": {
+    "OLDKIND": "ПPEДOПP",
+    "OLDFILE": "YKTOФПPE",
+    "OLDDEF": "YKTOБ",
+    "NEWKIND": "HOBOПP",
+    "ERROR": "HOMOШ"
+  },
+  "PUTKIND": {
+    "PLURAL": "ПAДEЖ",
+    "REC": "YKTOБ"
+  },
+  "RESNAME": {
+    "NODE": "YKДИM",
+    "INDEX": "HПPE",
+    "LENGTH": "ДЛKBAHTA",
+    "ORDER": "PEЗ",
+    "NPARTS": "ЧYPИM",
+    "MODE": "TИПOБ",
+    "K": "I",
+    "FIRST": "HAЧYP",
+    "J": "ДЛKBA",
+    "CODE": "KBAHT",
+    "PARENT": "YKГЛABA",
+    "KEYREF": "YKYPИM",
+    "ITER": "YPИM",
+    "SP": "YKTAC",
+    "RP": "YKTCC",
+    "PREVIOUS": "YKПPEДOK",
+    "KEY": "БYФИMЯOБ",
+    "DP": "YKTOБ",
+    "CHARS": "БYФИMЯ",
+    "PARTS": "BHYTPИMЯ"
+  },
+  "NEWDEF": {},
+  "NEWSECT": {},
+  "NEWREF": {},
+  "SAVEPREF": {
+    "N": "ЧИCЛOБAЗ",
+    "RESERVED": "I"
+  },
+  "SAVEDATA": {
+    "N": "ЧИCЛOATP",
+    "RESERVED": "I"
+  },
+  "SKIPDATA": {
+    "N": "ЧИCЛOCЛO",
+    "FIRST": "I"
+  },
+  "SAVEEXPR": {
+    "N": "ДЛИHABЫP",
+    "RESERVED": "I"
+  },
+  "BINDDEF": {
+    "INDEX": "CTOБHOB",
+    "CODE": "KBAHT"
+  },
+  "RESOLVE": {
+    "I": "CTCC",
+    "LAST": "CHEPA",
+    "HEAD": "CHAЧHEP",
+    "DEFNO": "CCЫЛTOБ",
+    "COUNT": "ЧЗTCC",
+    "R": "YKTCC",
+    "PREV": "YKTCCП",
+    "FILEIDX": "CTOФ",
+    "F": "YKTOФ",
+    "SPARE5": "HAЧTCC"
+  },
+  "UNRESMSG": {
+    "COLUMN": "ЗAHЯЛ",
+    "INDEX": "CHEPA",
+    "FIRST": "ПEPBOE",
+    "WIDTH": "ДЛИHAИM",
+    "R": "YKTCC",
+    "FILEIDX": "CTOФ",
+    "F": "YKTOФ"
+  },
+  "ALIGNUP": {
+    "TOP": "M",
+    "STEP": "P",
+    "START": "AДPEC",
+    "POWER": "ГPAHЬ"
+  },
+  "JOINSECT": {
+    "STARTADD": "HACEK",
+    "REC": "YKTAC"
+  },
+  "BADSECT": {
+    "ERROR": "HOMOШ"
+  },
+  "SECTID": {},
+  "PUTSECTN": {
+    "WIDTH": "ЗAHЯЛ",
+    "REC": "YKTAC"
+  },
+  "LISTSECT": {
+    "REC": "YKTAC",
+    "F": "YKTOФ"
+  },
+  "OBJWHERE": {
+    "NAME": "ИMЯ"
+  },
+  "EVALUATE": {
+    "TOP": "YKACT",
+    "OPCODE": "TEKOП",
+    "COUNT": "PAДP",
+    "DEFNO": "CTOБ",
+    "SECTNO": "CTAC",
+    "SAVETAG": "ЛOKTEГИ",
+    "INSECT": "ФЛATEP",
+    "SPARE32": "CЛEДOП",
+    "SAVEMODE": "ЛPEГOБ",
+    "COMMAND": "БYФTEKCT",
+    "STACK": "CTEK",
+    "CURSOR": "CЧБYФOП",
+    "WORDHALF": "ПOЛYOПEP",
+    "SEC": "YKTAC",
+    "BITSTART": "ГПPAB",
+    "RESERVED": "ГЛEB"
+  },
+  "PACKVAL": {},
+  "UNPACKVL": {},
+  "B23312": {},
+  "B23330": {},
+  "B23336": {},
+  "B23347": {},
+  "B23361": {},
+  "B24130": {},
+  "B23414": {},
+  "B24127": {},
+  "B23525": {},
+  "B23434": {},
+  "B23375": {},
+  "B24133": {},
+  "B23423": {},
+  "TABSAVE": {},
+  "DUMPSTK": {
+    "I": "I"
+  },
+  "BADEXPR": {
+    "ERROR": "HOMOШ"
+  },
+  "FLUSHOUT": {},
+  "PUTWORD": {
+    "WORD": "ПCЛ"
+  },
+  "GETBYTE": {},
+  "GETWORD": {},
+  "PUSHLIT": {
+    "I": "I",
+    "N": "ЧБ"
+  },
+  "RELOCATE": {
+    "INDEX": "HOMCEK",
+    "SEC": "YKTAC"
+  },
+  "PUSHDEF": {
+    "INDEX": "CTOБ"
+  },
+  "PUSHREF": {
+    "INDEX": "CTCC"
+  },
+  "DEFATTR": {
+    "INDEX": "CTOБ",
+    "OFFSET": "CЛOBOATP",
+    "FIRST": "CKYБA"
+  },
+  "REFATTR": {
+    "INDEX": "CTCC",
+    "OFFSET": "CЛOBOATP",
+    "FIRST": "CKYБA"
+  },
+  "EMITVAL": {
+    "VALUE": "PAДP",
+    "N": "ГЛYБИHA",
+    "LOWPART": "OCT"
+  },
+  "EMITOPER": {
+    "KIND": "PAБOTA"
+  },
+  "FIRSTVAL": {},
+  "BINARYOP": {
+    "OP": "KOП"
+  },
+  "FIELDOP": {
+    "OP": "KOП"
+  },
+  "EVALDEFS": {
+    "SECNO": "CCЫЛTAC",
+    "NSECTS": "ЧЗTAC",
+    "NDEFS": "ЧЗTOБ",
+    "SECTION": "YKTAC",
+    "FILEIDX": "CTOФ",
+    "DEFINITI": "YKTOБ"
+  },
+  "BADVALUE": {
+    "ERROR": "HOMOШ"
+  },
+  "WRITESEG": {
+    "BUFFER": "ЗAП",
+    "SECNO": "CTAC",
+    "FILEIDX": "CMOДTOФ",
+    "SECTION": "YKTAC",
+    "SPARE20": "ДЛTEKCT",
+    "SPARE19": "ДЛBЫP"
+  },
+  "BADOUT": {
+    "ERROR": "HOMOШ"
+  },
+  "LABELS": {
+    "I": "I",
+    "HEADER": "ЗAПЗAГ",
+    "MODNAME": "БYФИMЯ",
+    "DEFINITI": "YKTOБ",
+    "DEFBUF": "ЗAПЗHAЧ",
+    "PREFBUF": "ЗAППPEФ",
+    "COUNT": "ЧИCЛOATP"
+  },
+  "KEYPAIR": {},
+  "KEYCODE": {},
+  "GETTEMP": {},
+  "PUTLABEL": {
+    "NODE": "YЗEЛ"
+  },
+  "STATS": {
+    "N": "ЭTAП",
+    "COUNTER": "BИД",
+    "SAVED": "БYФCTAT"
+  },
+  "PUTTIMES": {
+    "S": "ЭTAП"
+  },
+  "MEMINIT": {},
+  "MEMALLOC": {},
+  "READNEXT": {},
+  "NEWTAB": {}
+}

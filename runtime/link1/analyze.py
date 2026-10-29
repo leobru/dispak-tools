@@ -19,6 +19,8 @@ sys.path.insert(0, str(HERE.parent))
 sys.path.insert(0, str(HERE.parents[1]))
 from corpus import read_words, find_volume
 from libmatch import operand, mask, match_at, DATA_MODULES
+sys.path.insert(0,str(HERE.parent/'linker-runtime'))
+import historical_names as historical
 
 BASE, POOL, GLOBALS, RUNTIME, FREE = 0o2000, 0o16631, 0o20461, 0o21426, 0o24716
 IMAGE = HERE.parent / 'images/4001/0175-link1.bin'
@@ -68,7 +70,7 @@ def load_helpers():
                    0o23000:'P/WO',0o23001:'P/WH'})
     if (HERE/'names.json').exists():
         result.update({int(k,8):v for k,v in json.loads((HERE/'names.json').read_text()).items()})
-    return result
+    return {a:historical.symbol(n) for a,n in result.items()}
 
 
 def describe(value):

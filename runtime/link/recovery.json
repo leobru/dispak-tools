@@ -26,7 +26,7 @@
       "changes": []
     },
     {
-      "name": "PUTTIME",
+      "name": "ПEЧBPE",
       "original": "02013",
       "rebuilt": "02013",
       "original_words": 23,
@@ -37,7 +37,7 @@
       "changes": []
     },
     {
-      "name": "PUTPATH",
+      "name": "ПEЧИMЯOБ",
       "original": "02042",
       "rebuilt": "02042",
       "original_words": 22,
@@ -48,7 +48,7 @@
       "changes": []
     },
     {
-      "name": "PATHLEN",
+      "name": "ДЛИПOЛИM",
       "original": "02070",
       "rebuilt": "02070",
       "original_words": 19,
@@ -59,7 +59,7 @@
       "changes": []
     },
     {
-      "name": "NEWPHASE",
+      "name": "CTATИCT",
       "original": "02113",
       "rebuilt": "02113",
       "original_words": 10,
@@ -70,7 +70,7 @@
       "changes": []
     },
     {
-      "name": "FINDKEY",
+      "name": "ПOИCKИME",
       "original": "02125",
       "rebuilt": "02125",
       "original_words": 37,
@@ -81,7 +81,7 @@
       "changes": []
     },
     {
-      "name": "ENTERKEY",
+      "name": "BHECИИMЯ",
       "original": "02172",
       "rebuilt": "02172",
       "original_words": 80,
@@ -92,7 +92,7 @@
       "changes": []
     },
     {
-      "name": "FINDOBJ",
+      "name": "SFILE",
       "original": "02312",
       "rebuilt": "02312",
       "original_words": 33,
@@ -103,7 +103,7 @@
       "changes": []
     },
     {
-      "name": "BINDOBJ",
+      "name": "ASSIGN",
       "original": "02353",
       "rebuilt": "02353",
       "original_words": 43,
@@ -114,7 +114,7 @@
       "changes": []
     },
     {
-      "name": "NEXTCHAR",
+      "name": "ДAЙЛИT",
       "original": "02426",
       "rebuilt": "02426",
       "original_words": 29,
@@ -125,7 +125,7 @@
       "changes": []
     },
     {
-      "name": "BADJOB",
+      "name": "OШCKAH",
       "original": "02463",
       "rebuilt": "02463",
       "original_words": 183,
@@ -136,7 +136,7 @@
       "changes": []
     },
     {
-      "name": "PUSHCHAR",
+      "name": "BOЗЛИT",
       "original": "02752",
       "rebuilt": "02752",
       "original_words": 7,
@@ -147,7 +147,7 @@
       "changes": []
     },
     {
-      "name": "INNAME",
+      "name": "CИMBOЛИM",
       "original": "02761",
       "rebuilt": "02761",
       "original_words": 4,
@@ -158,7 +158,7 @@
       "changes": []
     },
     {
-      "name": "SKIPWS",
+      "name": "ПPOПPAЗД",
       "original": "02765",
       "rebuilt": "02765",
       "original_words": 8,
@@ -169,7 +169,7 @@
       "changes": []
     },
     {
-      "name": "SKIPTAIL",
+      "name": "ДAЙPAЗД",
       "original": "02775",
       "rebuilt": "02775",
       "original_words": 9,
@@ -180,7 +180,7 @@
       "changes": []
     },
     {
-      "name": "CONVERT",
+      "name": "ЦEЛOE",
       "original": "03006",
       "rebuilt": "03006",
       "original_words": 22,
@@ -191,7 +191,7 @@
       "changes": []
     },
     {
-      "name": "SCANINT",
+      "name": "ДAЙЦEЛOE",
       "original": "03034",
       "rebuilt": "03034",
       "original_words": 79,
@@ -268,7 +268,7 @@
       ]
     },
     {
-      "name": "SCANDEC",
+      "name": "ДAЙЧИCЛO",
       "original": "03153",
       "rebuilt": "03153",
       "original_words": 19,
@@ -279,7 +279,7 @@
       "changes": []
     },
     {
-      "name": "SCANNAME",
+      "name": "ДAЙИMЯФA",
       "original": "03176",
       "rebuilt": "03176",
       "original_words": 26,
@@ -290,7 +290,7 @@
       "changes": []
     },
     {
-      "name": "SCANFILE",
+      "name": "ДAЙYKФAЙ",
       "original": "03230",
       "rebuilt": "03230",
       "original_words": 50,
@@ -301,7 +301,7 @@
       "changes": []
     },
     {
-      "name": "SCANALFA",
+      "name": "ДAЙИMЯ",
       "original": "03312",
       "rebuilt": "03312",
       "original_words": 19,
@@ -312,7 +312,7 @@
       "changes": []
     },
     {
-      "name": "GETTOKEN",
+      "name": "CKAHEP",
       "original": "03335",
       "rebuilt": "03335",
       "original_words": 80,
@@ -393,7 +393,7 @@
       ]
     },
     {
-      "name": "EXPECT",
+      "name": "CKAHPAЗД",
       "original": "03455",
       "rebuilt": "03455",
       "original_words": 9,
@@ -404,7 +404,7 @@
       "changes": []
     },
     {
-      "name": "GETFILE",
+      "name": "BHECИOФ",
       "original": "03466",
       "rebuilt": "03466",
       "original_words": 43,
@@ -415,7 +415,7 @@
       "changes": []
     },
     {
-      "name": "SELECTFILES",
+      "name": "YTOЧHEHИ",
       "original": "03541",
       "rebuilt": "03541",
       "original_words": 64,
@@ -426,7 +426,7 @@
       "changes": []
     },
     {
-      "name": "PRINTSEL",
+      "name": "PEЖПEЧ",
       "original": "03641",
       "rebuilt": "03641",
       "original_words": 46,
@@ -461,7 +461,7 @@
       ]
     },
     {
-      "name": "READJOB",
+      "name": "PAЗБOPЗA",
       "original": "03717",
       "rebuilt": "03717",
       "original_words": 366,
@@ -472,7 +472,7 @@
       "changes": []
     },
     {
-      "name": "PHASEMSG",
+      "name": "OШИБKИHA",
       "original": "04475",
       "rebuilt": "04475",
       "original_words": 36,
@@ -483,7 +483,7 @@
       "changes": []
     },
     {
-      "name": "MODULEMSG",
+      "name": "OШИБKИBM",
       "original": "04541",
       "rebuilt": "04541",
       "original_words": 17,
@@ -494,7 +494,7 @@
       "changes": []
     },
     {
-      "name": "RECORDMSG",
+      "name": "KOOPД",
       "original": "04562",
       "rebuilt": "04562",
       "original_words": 24,
@@ -505,7 +505,7 @@
       "changes": []
     },
     {
-      "name": "OPENIN",
+      "name": "OTKPOЙOФ",
       "original": "04612",
       "rebuilt": "04612",
       "original_words": 19,
@@ -516,7 +516,7 @@
       "changes": []
     },
     {
-      "name": "CLOSEIN",
+      "name": "ЗAKPOЙOФ",
       "original": "04635",
       "rebuilt": "04635",
       "original_words": 10,
@@ -527,7 +527,7 @@
       "changes": []
     },
     {
-      "name": "PUTSIZE",
+      "name": "ПEЧДЛФAЙ",
       "original": "04647",
       "rebuilt": "04647",
       "original_words": 15,
@@ -538,7 +538,7 @@
       "changes": []
     },
     {
-      "name": "PUTCODE",
+      "name": "ПEЧALF0",
       "original": "04666",
       "rebuilt": "04666",
       "original_words": 17,
@@ -549,7 +549,7 @@
       "changes": []
     },
     {
-      "name": "READREC",
+      "name": "ДAЙЗAП",
       "original": "04707",
       "rebuilt": "04707",
       "original_words": 22,
@@ -560,7 +560,7 @@
       "changes": []
     },
     {
-      "name": "READBODY",
+      "name": "ДAЙЗAПИC",
       "original": "04735",
       "rebuilt": "04735",
       "original_words": 20,
@@ -571,7 +571,7 @@
       "changes": []
     },
     {
-      "name": "READPART",
+      "name": "ДAЙTEЛЗA",
       "original": "04761",
       "rebuilt": "04761",
       "original_words": 18,
@@ -582,7 +582,7 @@
       "changes": []
     },
     {
-      "name": "SKIPREC",
+      "name": "ПPOПЗAП",
       "original": "05003",
       "rebuilt": "05003",
       "original_words": 11,
@@ -593,7 +593,7 @@
       "changes": []
     },
     {
-      "name": "SAVEREC",
+      "name": "ПEPEKYБ",
       "original": "05016",
       "rebuilt": "05016",
       "original_words": 22,
@@ -604,7 +604,7 @@
       "changes": []
     },
     {
-      "name": "WRITREC",
+      "name": "ЗAПBФOM",
       "original": "05044",
       "rebuilt": "05044",
       "original_words": 18,
@@ -615,7 +615,7 @@
       "changes": []
     },
     {
-      "name": "LEAPDAY",
+      "name": "BИCOKOC",
       "original": "05066",
       "rebuilt": "05066",
       "original_words": 10,
@@ -626,7 +626,7 @@
       "changes": []
     },
     {
-      "name": "PUTDATE",
+      "name": "ПEЧДATY",
       "original": "05100",
       "rebuilt": "05100",
       "original_words": 56,
@@ -637,7 +637,7 @@
       "changes": []
     },
     {
-      "name": "STAMPOBJ",
+      "name": "YЧET",
       "original": "05170",
       "rebuilt": "05170",
       "original_words": 34,
@@ -679,7 +679,7 @@
       ]
     },
     {
-      "name": "PUTKIND",
+      "name": "AHAЛИЗTO",
       "original": "05232",
       "rebuilt": "05232",
       "original_words": 36,
@@ -690,7 +690,7 @@
       "changes": []
     },
     {
-      "name": "BADOBJ",
+      "name": "OШMOД",
       "original": "05276",
       "rebuilt": "05276",
       "original_words": 124,
@@ -701,7 +701,7 @@
       "changes": []
     },
     {
-      "name": "RESNAME",
+      "name": "ПEPEBPИ",
       "original": "05472",
       "rebuilt": "05472",
       "original_words": 249,
@@ -712,7 +712,7 @@
       "changes": []
     },
     {
-      "name": "NEWDEF",
+      "name": "HOBЭЛTOБ",
       "original": "06063",
       "rebuilt": "06063",
       "original_words": 14,
@@ -723,7 +723,7 @@
       "changes": []
     },
     {
-      "name": "NEWSECT",
+      "name": "HOBЭЛTAC",
       "original": "06101",
       "rebuilt": "06101",
       "original_words": 16,
@@ -734,7 +734,7 @@
       "changes": []
     },
     {
-      "name": "NEWREF",
+      "name": "HOBЭЛTCC",
       "original": "06121",
       "rebuilt": "06121",
       "original_words": 12,
@@ -745,7 +745,7 @@
       "changes": []
     },
     {
-      "name": "SAVEPREF",
+      "name": "БAЗЫBKYБ",
       "original": "06135",
       "rebuilt": "06135",
       "original_words": 16,
@@ -756,7 +756,7 @@
       "changes": []
     },
     {
-      "name": "SAVEDATA",
+      "name": "ATPBKYБ",
       "original": "06155",
       "rebuilt": "06155",
       "original_words": 16,
@@ -767,7 +767,7 @@
       "changes": []
     },
     {
-      "name": "SKIPDATA",
+      "name": "KИHФBKYБ",
       "original": "06175",
       "rebuilt": "06175",
       "original_words": 7,
@@ -778,7 +778,7 @@
       "changes": []
     },
     {
-      "name": "SAVEEXPR",
+      "name": "BЫPBKYБ",
       "original": "06204",
       "rebuilt": "06204",
       "original_words": 15,
@@ -789,7 +789,7 @@
       "changes": []
     },
     {
-      "name": "BINDDEF",
+      "name": "ИMЯBTOБ",
       "original": "06223",
       "rebuilt": "06223",
       "original_words": 20,
@@ -800,7 +800,7 @@
       "changes": []
     },
     {
-      "name": "GATHER",
+      "name": "CБOPOБЬE",
       "original": "06247",
       "rebuilt": "06247",
       "original_words": 490,
@@ -832,7 +832,7 @@
       ]
     },
     {
-      "name": "RESOLVE",
+      "name": "PAЗPEШИC",
       "original": "07221",
       "rebuilt": "07221",
       "original_words": 61,
@@ -843,7 +843,7 @@
       "changes": []
     },
     {
-      "name": "UNRESMSG",
+      "name": "TAБHEPAC",
       "original": "07316",
       "rebuilt": "07316",
       "original_words": 53,
@@ -854,7 +854,7 @@
       "changes": []
     },
     {
-      "name": "ALIGNUP",
+      "name": "BЫPABAДP",
       "original": "07403",
       "rebuilt": "07403",
       "original_words": 13,
@@ -876,7 +876,7 @@
       "changes": []
     },
     {
-      "name": "BADSECT",
+      "name": "OШCOПP",
       "original": "07444",
       "rebuilt": "07444",
       "original_words": 42,
@@ -887,7 +887,7 @@
       "changes": []
     },
     {
-      "name": "JOINSECT",
+      "name": "HACTPOЙH",
       "original": "07516",
       "rebuilt": "07516",
       "original_words": 99,
@@ -898,7 +898,7 @@
       "changes": []
     },
     {
-      "name": "PUTSECTN",
+      "name": "ПEЧИMЯCE",
       "original": "07661",
       "rebuilt": "07661",
       "original_words": 33,
@@ -909,7 +909,7 @@
       "changes": []
     },
     {
-      "name": "LISTSECT",
+      "name": "ПEЧCEKЦИ",
       "original": "07722",
       "rebuilt": "07722",
       "original_words": 152,
@@ -920,7 +920,7 @@
       "changes": []
     },
     {
-      "name": "OBJWHERE",
+      "name": "ПEЧИMЯЛO",
       "original": "10152",
       "rebuilt": "10152",
       "original_words": 12,
@@ -931,7 +931,7 @@
       "changes": []
     },
     {
-      "name": "DUMPSTK",
+      "name": "DUMPCTEK",
       "original": "10166",
       "rebuilt": "10166",
       "original_words": 25,
@@ -942,7 +942,7 @@
       "changes": []
     },
     {
-      "name": "BADEXPR",
+      "name": "OШMAШ",
       "original": "10217",
       "rebuilt": "10217",
       "original_words": 151,
@@ -953,7 +953,7 @@
       "changes": []
     },
     {
-      "name": "FLUSHOUT",
+      "name": "CЛOBOBPA",
       "original": "10446",
       "rebuilt": "10446",
       "original_words": 13,
@@ -964,7 +964,7 @@
       "changes": []
     },
     {
-      "name": "PUTWORD",
+      "name": "ЗAПBPAЗД",
       "original": "10463",
       "rebuilt": "10463",
       "original_words": 17,
@@ -996,7 +996,7 @@
       ]
     },
     {
-      "name": "GETBYTE",
+      "name": "ДAЙMИKPO",
       "original": "10504",
       "rebuilt": "10504",
       "original_words": 39,
@@ -1007,7 +1007,7 @@
       "changes": []
     },
     {
-      "name": "GETWORD",
+      "name": "ДAЙOПEP",
       "original": "10553",
       "rebuilt": "10553",
       "original_words": 23,
@@ -1018,7 +1018,7 @@
       "changes": []
     },
     {
-      "name": "PUSHLIT",
+      "name": "БAЙTЫBCT",
       "original": "10602",
       "rebuilt": "10602",
       "original_words": 37,
@@ -1029,7 +1029,7 @@
       "changes": []
     },
     {
-      "name": "RELOCATE",
+      "name": "ДEЛЬTAC",
       "original": "10647",
       "rebuilt": "10647",
       "original_words": 28,
@@ -1040,7 +1040,7 @@
       "changes": []
     },
     {
-      "name": "PUSHDEF",
+      "name": "ЗHAЧCOБ",
       "original": "10703",
       "rebuilt": "10703",
       "original_words": 52,
@@ -1051,7 +1051,7 @@
       "changes": []
     },
     {
-      "name": "PUSHREF",
+      "name": "ЗHAЧBHEШ",
       "original": "10767",
       "rebuilt": "10767",
       "original_words": 72,
@@ -1062,7 +1062,7 @@
       "changes": []
     },
     {
-      "name": "DEFATTR",
+      "name": "ATPCOБ",
       "original": "11077",
       "rebuilt": "11077",
       "original_words": 64,
@@ -1073,7 +1073,7 @@
       "changes": []
     },
     {
-      "name": "REFATTR",
+      "name": "ATPBHEШ",
       "original": "11177",
       "rebuilt": "11177",
       "original_words": 84,
@@ -1084,7 +1084,7 @@
       "changes": []
     },
     {
-      "name": "EMITVAL",
+      "name": "ЗABEPШИO",
       "original": "11323",
       "rebuilt": "11323",
       "original_words": 127,
@@ -1095,7 +1095,7 @@
       "changes": []
     },
     {
-      "name": "EMITOPER",
+      "name": "CИCПPOГ",
       "original": "11522",
       "rebuilt": "11522",
       "original_words": 60,
@@ -1106,7 +1106,7 @@
       "changes": []
     },
     {
-      "name": "FIRSTVAL",
+      "name": "ГPYЗЧИK",
       "original": "11616",
       "rebuilt": "11616",
       "original_words": 102,
@@ -1171,7 +1171,7 @@
       ]
     },
     {
-      "name": "BINARYOP",
+      "name": "ГPYППA10",
       "original": "11764",
       "rebuilt": "11764",
       "original_words": 138,
@@ -1182,7 +1182,7 @@
       "changes": []
     },
     {
-      "name": "FIELDOP",
+      "name": "ГPYППA20",
       "original": "12176",
       "rebuilt": "12176",
       "original_words": 167,
@@ -1193,7 +1193,7 @@
       "changes": []
     },
     {
-      "name": "EVALUATE",
+      "name": "MAШИHA",
       "original": "12445",
       "rebuilt": "12445",
       "original_words": 961,
@@ -1204,7 +1204,7 @@
       "changes": []
     },
     {
-      "name": "BADVALUE",
+      "name": "OШBЫЧ",
       "original": "14346",
       "rebuilt": "14346",
       "original_words": 25,
@@ -1215,7 +1215,7 @@
       "changes": []
     },
     {
-      "name": "EVALDEFS",
+      "name": "BЫЧИCЛEH",
       "original": "14377",
       "rebuilt": "14377",
       "original_words": 150,
@@ -1226,7 +1226,7 @@
       "changes": []
     },
     {
-      "name": "BADOUT",
+      "name": "OШЗAГP",
       "original": "14625",
       "rebuilt": "14625",
       "original_words": 32,
@@ -1237,7 +1237,7 @@
       "changes": []
     },
     {
-      "name": "WRITESEG",
+      "name": "ЗAГPYЗИM",
       "original": "14665",
       "rebuilt": "14665",
       "original_words": 112,
@@ -1248,7 +1248,7 @@
       "changes": []
     },
     {
-      "name": "PUTLABEL",
+      "name": "OБXOДЛEC",
       "original": "15045",
       "rebuilt": "15045",
       "original_words": 170,
@@ -1259,7 +1259,7 @@
       "changes": []
     },
     {
-      "name": "LABELS",
+      "name": "ГEHMETKИ",
       "original": "15317",
       "rebuilt": "15317",
       "original_words": 159,
@@ -1291,7 +1291,7 @@
       ]
     },
     {
-      "name": "PUTTIMES",
+      "name": "ГPYППABP",
       "original": "15556",
       "rebuilt": "15556",
       "original_words": 15,
@@ -1302,7 +1302,7 @@
       "changes": []
     },
     {
-      "name": "STATS",
+      "name": "ПEЧCTATИ",
       "original": "15575",
       "rebuilt": "15575",
       "original_words": 94,

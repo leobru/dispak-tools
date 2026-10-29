@@ -5,7 +5,8 @@ label 9999;
 % Build: python3 runtime/link1/build.py (compile and compare only).
 % Linked with the recovered runtime; linker is not run by build.
 % Remaining compiler differences are listed in README.md/recovery.json.
-% Original names are unavailable (no PMD); names describe behavior.
+% Shared names follow KOMPON 2.02/3 PMD on volume 2248.
+% Other names describe behavior; these images have no PMD.
 type
   uint8 = 0..255;
   uint16 = 0..177777B;
@@ -97,7 +98,7 @@ type
   end;
   sectspace = (spnone, spkp, spdp, sprp);
   joinmode = (jmnone, jmconcat, jmoverlap, jmforbid);
-  evalform = (fmshort, fmprefix, fmword, fmhalf);
+  evalform = (POБK, POБПФK, POБCЛ, POБПCЛ);
   psect = @sectrec;
   sectrec = packed record case integer of
     0: (raw0, raw1, raw2, raw3, raw4: integer);
@@ -167,52 +168,52 @@ type
     created: packed record seconds: uint32; low: uint16 end;
     after: array [12..16] of integer
   end;
-  metric = (mtcpu, mtwait, mttotal);
+  metric = (ЦП, KOM, ACTP);
   stamp = array [metric] of integer;
-  stage = (stzero, stinit, stparse, stgather, stresolve, stplace,
-           steval, stoutput, stlabels, stend);
+  stage = (CYMMA, ШAГИHИЦ, ШAГЗAДAH, ШAГCБOPK, ШAГPAЗPE, ШAГPAЗME,
+           ШAГBЫЧ, ШAГЗAГP, ШAГГEHME, stend);
   evalstate = (evnone, evdone, evmixed, evwait);
-  ordering = (same, after, before);
-  charclass = (letter, digit, white, punct, atend);
+  ordering = (PB, БЛ, MH);
+  charclass = (БYKBA, ЦИФPA, PAЗЛИT, CПEЦЛИT, ЗAПPЛИT);
   dateparts = array [0..3] of integer;
 var
-  g0050, g0051, g0052, g0053, g0054, g0055, g0056, g0057,
-  g0060, g0061, g0062, g0063, g0064, g0065: integer;
-  FIRSTREF: integer;
-  g0067,
-  g0070, g0071, g0072, g0073, g0074, g0075, g0076, g0077,
-  g0100, g0101, g0102, g0103: integer;
-  NEXTADDR: integer;
-  BYTEPOS, RECNO: integer;
-  g0107,
-  g0110: integer;
-  g0111: evalform;
-  g0112: integer;
-  OUTPAIR: pair;
-  HALFOUT: boolean;
-  ALLFOUND: boolean;
-  PHASEERR: boolean;
-  MODULEERR: boolean;
-  g0121, g0122: boolean;
-  CURRENTFILE: filerec;
-  g0127: psect;
-  SEGREC: psegment;
-  g0131: pprefix;
-  g0132: pdef;
-  LASTSECT: sectrec;
-  g0140: pprefix;
-  NAMETAB: phash;
-  ROOTPREF: pprefix;
-  XLATTAB: array [char] of charclass;
-  PRINTOPT: bitset;
-  g0544: integer;
-  OUTFILE, SCHEMAFILE, LABELFILE: objecthead;
-  SYSTEMOUT: boolean;
-  KEYPOOL, PATHPOOL, OBJPOOL, FILEPOOL, SEGPOOL, DEFPOOL, REFPOOL,
-  SECTPOOL, PREFPOOL, ENTRYPOOL, g0566, g0567, g0570: integer;
-  PHASE: stage;
-  TIMES: array [stzero..stlabels] of stamp;
-  MONTHDAY: array [1..13] of integer;
+  HMOД, HAЧCTAC, ЧИCЛOMOД, CTCEГ, CTAC, CЧAДPAЗД, CЧAKCEГM, CPAЗД,
+  ЗOHA, AДBЗOHE, AЗBЗOHE, HAЗCEГM, g0064, HAЧMTAC: integer;
+  HAЧMTCC: integer;
+  KOHMTAC,
+  KOHMTCC, HAЧMTOБ, KOHMTOБ, g0073, HOMEPOБЬ, HOMEPПPE, AДEC, I,
+  CBЫP, CKOHBЫP, CTEKCT, CKOHTEK: integer;
+  CЧAC: integer;
+  HAЧAЛOЗA, NЗAП: integer;
+  ИHДEKCTO,
+  ЗHAЧOK: integer;
+  PEГOБ: evalform;
+  ГЛTEГИ: integer;
+  CЛOBO: pair;
+  ФПPABC: boolean;
+  PAЗPEШИЛ: boolean;
+  БЫЛИOШЭT: boolean;
+  БЫЛИOШMO: boolean;
+  BKЛЮЧEHO, g0122: boolean;
+  TEKOФ: filerec;
+  YKTAC: psect;
+  YKTCEГ: psegment;
+  YKДИM: pprefix;
+  YKTOБ: pdef;
+  ЭЛTACП: sectrec;
+  ИMЯTEKCE: pprefix;
+  BEKXEШ: phash;
+  HAЧAЛOДИ: pprefix;
+  MTИЛ: array [char] of charclass;
+  PEЖИMЫ: bitset;
+  DEBUG: integer;
+  ФAЙЛPAЗД, ФAЙЛCXEM, ФAЙЛMET: objecthead;
+  TИПPAЗД: boolean;
+  TИMEH, ДИM, TЛФ, TOФ, TCEГ, TOБ, TCC,
+  TAC, TПPE, TЭM, KYБA, ФOM, PAЗД: integer;
+  TEKЭTAП: stage;
+  CTATЭTAП: array [CYMMA..ШAГГEHME] of stamp;
+  HAЧAЛOME: array [1..13] of integer;
   g0642: evalstate;
   g0643, g0644, g0645, g0646, g0647: integer;
   PADCHAR: char;
@@ -260,144 +261,144 @@ procedure GETDATE(var RESULT: dateparts); assembler;
 
 
 % 02013: time measured in fiftieths of a second, MM:SS.cc.
-procedure PUTTIME(T: integer);
+procedure ПEЧBPE(BPEMЯ: integer);
 begin
   PADCHAR := '0';
-  write(T div 3000 mod 100:2, ':', T div 50 mod 60:2,
-        '.', T * 2 mod 100:2);
+  write(BPEMЯ div 3000 mod 100:2, ':', BPEMЯ div 50 mod 60:2,
+        '.', BPEMЯ * 2 mod 100:2);
   PADCHAR := ' ';
 end;
 
 % 02042: collect namespace components, print in reverse order.
-procedure PUTPATH(P: pprefix);
-var PART: array [1..12] of pkey;
-    COUNT: integer;
+procedure ПEЧИMЯOБ(YKДИM: pprefix);
+var BHYTPИMЯ: array [1..12] of pkey;
+    YPИM: integer;
 begin
-  COUNT := 0;
-  (q) while (P <> ROOTPREF) and (P <> ptr(0)) do (r) begin
-    COUNT := COUNT + 1;
-    PART[COUNT] := P@.name;
-    P := P@.next;
+  YPИM := 0;
+  (q) while (YKДИM <> HAЧAЛOДИ) and (YKДИM <> ptr(0)) do (r) begin
+    YPИM := YPИM + 1;
+    BHYTPИMЯ[YPИM] := YKДИM@.name;
+    YKДИM := YKДИM@.next;
   end;
-  (q) for COUNT := COUNT downto 1 do (r) write(PART[COUNT]@.text);
+  (q) for YPИM := YPИM downto 1 do (r) write(BHYTPИMЯ[YPИM]@.text);
 end;
 
 % 02070: length of the same qualified name.
-function PATHLEN(P: pprefix): integer;
-var COUNT: integer;
+function ДЛИПOЛИM(YKДИM: pprefix): integer;
+var ДЛИHA: integer;
 begin
-  COUNT := 0;
-  (q) while (P <> ROOTPREF) and (P <> ptr(0)) do (r) begin
-    COUNT := NAMELEN(P@.name@) + COUNT;
-    P := P@.next;
+  ДЛИHA := 0;
+  (q) while (YKДИM <> HAЧAЛOДИ) and (YKДИM <> ptr(0)) do (r) begin
+    ДЛИHA := NAMELEN(YKДИM@.name@) + ДЛИHA;
+    YKДИM := YKДИM@.next;
   end;
-  PATHLEN := COUNT;
+  ДЛИПOЛИM := ДЛИHA;
 end;
 
 % 02113: save accounting values at the start of a linker phase.
-procedure NEWPHASE(N: stage);
+procedure CTATИCT(ЭTAП: stage);
 begin
-  GETSTAMP(TIMES[N]);
-  PHASE := succ(N);
-  PHASEERR := false;
+  GETSTAMP(CTATЭTAП[ЭTAП]);
+  TEKЭTAП := succ(ЭTAП);
+  БЫЛИOШЭT := false;
 end;
 
 % 02125: lookup in one sorted hash bucket. CMPNAME returns raw 0/1/2.
-function FINDKEY(KEY: namekey): pkey;
-var CUR: pkey;
+function ПOИCKИME(ИMЯ: namekey): pkey;
+var YKИMЯ: pkey;
 begin
-  CUR := NAMETAB@[HASHNAME(KEY)];
-  FINDKEY := ptr(0);
-  (q) while CUR <> ptr(0) do (r)
-    case CMPNAME(KEY, CUR@) of
-      same: begin FINDKEY := CUR; exit end;
-      after: CUR := CUR@.next;
-      before: exit
+  YKИMЯ := BEKXEШ@[HASHNAME(ИMЯ)];
+  ПOИCKИME := ptr(0);
+  (q) while YKИMЯ <> ptr(0) do (r)
+    case CMPNAME(ИMЯ, YKИMЯ@) of
+      PB: begin ПOИCKИME := YKИMЯ; exit end;
+      БЛ: YKИMЯ := YKИMЯ@.next;
+      MH: exit
     end;
 end;
 
 % 02172: insert a name, preserving the sorted bucket chain.
-function ENTERKEY(KEY: namekey): pkey;
-var BUCKET: integer;
-    FRESH, CUR, PREV: pkey;
+function BHECИИMЯ(HOBИMЯ: namekey): pkey;
+var CXEШ: integer;
+    YKИMЯ, YKИMЯT, YKИMЯП: pkey;
 begin
-  BUCKET := HASHNAME(KEY);
-  CUR := NAMETAB@[BUCKET];
-  if CUR = ptr(0) then begin
-    NEWKEY(KEYPOOL); FRESH := ;
-    NAMETAB@[BUCKET] := ;
-    with FRESH@ do begin text := KEY; next := ptr(0) end;
+  CXEШ := HASHNAME(HOBИMЯ);
+  YKИMЯT := BEKXEШ@[CXEШ];
+  if YKИMЯT = ptr(0) then begin
+    NEWKEY(TИMEH); YKИMЯ := ;
+    BEKXEШ@[CXEШ] := ;
+    with YKИMЯ@ do begin text := HOBИMЯ; next := ptr(0) end;
   end else begin
-    PREV := ptr(0);
+    YKИMЯП := ptr(0);
     (search) repeat
-      case CMPNAME(KEY, CUR@) of
-        same: begin ENTERKEY := CUR; exit end;
-        after: begin PREV := CUR; CUR := CUR@.next end;
-        before: exit search
+      case CMPNAME(HOBИMЯ, YKИMЯT@) of
+        PB: begin BHECИИMЯ := YKИMЯT; exit end;
+        БЛ: begin YKИMЯП := YKИMЯT; YKИMЯT := YKИMЯT@.next end;
+        MH: exit search
       end;
-    until CUR = ptr(0);
-    NEWKEY(KEYPOOL); FRESH := ;
-    with FRESH@ do begin text := KEY; next := CUR end;
-    if PREV = ptr(0) then NAMETAB@[BUCKET] := FRESH
-    else PREV@.next := FRESH;
+    until YKИMЯT = ptr(0);
+    NEWKEY(TИMEH); YKИMЯ := ;
+    with YKИMЯ@ do begin text := HOBИMЯ; next := YKИMЯT end;
+    if YKИMЯП = ptr(0) then BEKXEШ@[CXEШ] := YKИMЯ
+    else YKИMЯП@.next := YKИMЯ;
   end;
-  ENTERKEY := FRESH;
+  BHECИИMЯ := YKИMЯ;
 end;
 
 % 02312: lookup an object by its interned name.
-procedure FINDOBJ(KEY: namekey; var RESULT: objecthead);
-var REC: pobj;
-    I: integer;
-    NAME: pkey;
+procedure SFILE(ЛOГ: namekey; var ФИЗ: objecthead);
+var YKTЛФ: pobj;
+    CTЛФ: integer;
+    YKИMЯ: pkey;
     LAST: integer;
 begin
 % Historical compiler loaded the first word of the value parameter
 % again after P/LNGPAR; the current compiler omits that unused load.
   besm(010100005B);
-  NAME := FINDKEY(KEY);
-  RESULT.name := ptr(0);
-  if NAME = ptr(0) then exit;
-  LAST := NUMOBJS(OBJPOOL);
-  (*q*) for I := 0 to LAST do (r) begin
-    OBJREAD(OBJPOOL, I); REC := ;
-    if REC@.head.name = NAME then begin
-      RESULT := REC@.head;
+  YKИMЯ := ПOИCKИME(ЛOГ);
+  ФИЗ.name := ptr(0);
+  if YKИMЯ = ptr(0) then exit;
+  LAST := NUMOBJS(TЛФ);
+  (*q*) for CTЛФ := 0 to LAST do (r) begin
+    OBJREAD(TЛФ, CTЛФ); YKTЛФ := ;
+    if YKTЛФ@.head.name = YKИMЯ then begin
+      ФИЗ := YKTЛФ@.head;
       exit;
     end;
   end;
 end;
 
 % 02353: associate an interned name with a module number.
-procedure BINDOBJ(KEY: namekey; MODULE: integer);
-var REC: pobj;
-    NAME: pkey;
-    I, LAST: integer;
+procedure ASSIGN(ИMЯ: namekey; ФИMЯ: integer);
+var YKTЛФ: pobj;
+    YKИMЯ: pkey;
+    CTЛФ, LAST: integer;
 begin
-% Same historical value-parameter load as in FINDOBJ.
+% Same historical value-parameter load as in SFILE.
   besm(010100005B);
-  NAME := ENTERKEY(KEY);
+  YKИMЯ := BHECИИMЯ(ИMЯ);
   (x);
-  LAST := NUMOBJS(OBJPOOL);
-  (*q*) for I := 0 to LAST do (r) begin
-    OBJEDIT(OBJPOOL, I); REC := ;
-    with REC@ do if head.name = NAME then begin
-      head.attr.module := MODULE;
+  LAST := NUMOBJS(TЛФ);
+  (*q*) for CTЛФ := 0 to LAST do (r) begin
+    OBJEDIT(TЛФ, CTЛФ); YKTЛФ := ;
+    with YKTЛФ@ do if head.name = YKИMЯ then begin
+      head.attr.module := ФИMЯ;
       exit;
     end;
   end;
   (x);
-  OBJEDIT(OBJPOOL, NUMOBJS(OBJPOOL)+1); REC := ;
-  with REC@ do begin
-    head.name := NAME;
-    head.attr.module := MODULE;
+  OBJEDIT(TЛФ, NUMOBJS(TЛФ)+1); YKTЛФ := ;
+  with YKTЛФ@ do begin
+    head.name := YKИMЯ;
+    head.attr.module := ФИMЯ;
   end;
 end;
 
-% Recovered link-job parser READJOB (03717) and its nested scanner.
-procedure READJOB;
+% Recovered link-job parser PAЗБOPЗA (03717) and its nested scanner.
+procedure PAЗБOPЗA;
 type
   charbits = set of '_000'..'_057';
-  tokentype = (kalfa, kname, kfile, knumber, kdecimal, kpunct);
+  tokentype = (ИMЯ, ФAЙЛ, YKФAЙЛ, ЦEЛOE, ЧИCЛO, PAЗД);
   token = record case integer of
     0: (text: namekey);
     1: (number: integer);
@@ -409,55 +410,55 @@ type
     6: (filecode: packed record module: 0..7777777777B;
                  spare: 0..777777B end)
   end;
-var CH, SAVED: char;
-    LINENO, FIRSTCOL, LASTCOL, COLUMN: integer;
-    NFILES, LOADADDR, DISKADDR, SEGLEN, SEGINDEX, FILEINDEX: integer;
-    CLASS: charclass;
-    VALUE: token;
-    ALIAS: namekey;
-    KIND: tokentype;
-    PUSHED: boolean;
-    LOADABOVE, CONCAT, HAVESCHEMA, HAVEOUTPUT, HAVEOBJECTS,
-    HAVEQUAL: boolean;
-    COMMONFLAGS: fileflags;
-    CURRENT: objecthead;
-    REC: pfile;
-    LINEBUF: packed array [1..120] of char;
+var ЛИT, БYФЛИT: char;
+    ЧCTPOK, HAЧЛEKC, KOHЛEKC, HЛИT: integer;
+    ЧФAЙЛOB, HAЗCEГ, HAДCEГ, MДЛИCEГ, CHAЧCEГ, CTOФ: integer;
+    TИЛ: charclass;
+    ЛEKC: token;
+    БYФЛEKC: namekey;
+    TИЛEKC: tokentype;
+    ФИЗБYФ: boolean;
+    ФOTHAД, CONCAT, ПOCXEME, БЫЛBЫXФ, БЫЛИOФ,
+    БЫЛИKBAЛ: boolean;
+    MACФЛ: fileflags;
+    ДECФAЙЛA: objecthead;
+    YKTOФ: pfile;
+    CTPOKA: packed array [1..120] of char;
     LIMIT: integer;
 
 % 02426. Preserve the common GET even when returning a saved character.
-procedure NEXTCHAR;
+procedure ДAЙЛИT;
 begin
-  if PUSHED then begin
-    CH := SAVED; PUSHED := false;
-  end else if eoln(input) then CH := '_037'
+  if ФИЗБYФ then begin
+    ЛИT := БYФЛИT; ФИЗБYФ := false;
+  end else if eoln(input) then ЛИT := '_037'
   else if eof(input) then begin
-    CH := '_012';
-    LINEBUF[COLUMN] := CH;
-    COLUMN := 0;
-    LINENO := LINENO + 1;
+    ЛИT := '_012';
+    CTPOKA[HЛИT] := ЛИT;
+    HЛИT := 0;
+    ЧCTPOK := ЧCTPOK + 1;
   end else begin
-    CH := input@;
-    LINEBUF[COLUMN] := CH;
+    ЛИT := input@;
+    CTPOKA[HЛИT] := ЛИT;
   end;
-  if CH <> '_037' then begin get(input); COLUMN := COLUMN + 1 end;
-  CLASS := XLATTAB[CH];
+  if ЛИT <> '_037' then begin get(input); HЛИT := HЛИT + 1 end;
+  TИЛ := MTИЛ[ЛИT];
 end;
 
 % 02463. Message selection is inserted from the image's ISO literals.
-procedure BADJOB(ERROR: integer);
+procedure OШCKAH(HOMOШ: integer);
 var I, LIMIT: integer;
 begin
   writeln("* * *  OШИБKA B ЗAДAHИИ KOMПOHOBЩИKY * * *");
-  write('CTPOKA ', LINENO:1, ' : ');
-  case ERROR of
+  write('CTPOKA ', ЧCTPOK:1, ' : ');
+  case HOMOШ of
     0: writeln("OШИБKA B ЦEЛOM");
     1: writeln("HEДOПYCTИMЫЙ BИPTYAЛЬHЫЙ HOMEP");
     2: writeln("HEДOПYCTИMЫЙ HOMEP ЗOHЫ");
     3: writeln("HEBEPHAЯ ДЛИHA ФAЙЛA");
     4: writeln("OTCYTCTBYET ДЛИHA ФAЙЛA");
     5: writeln("BCTPETИЛCЯ KOHEЦ BBOДHOГO ФAЙЛA");
-    6: begin COLUMN := COLUMN + 1;
+    6: begin HЛИT := HЛИT + 1;
       writeln("HEДOПYCTИMЫЙ CИMBOЛ") end;
     7: writeln("HEBEPHЫЙ PAЗДEЛИTEЛЬ");
     15: writeln("HEДOПYCTИMЫЙ OTЛAДOЧHЫЙ ФЛAГ");
@@ -475,1094 +476,1097 @@ begin
     20: writeln("AДPEC ЗAГPYЗKИ БOЛЬШE MAKCИMAЛЬHO ДOПYCTИMOГO");
     21: writeln("AДPEC HA ДИCKE БOЛЬШE MAKCИMAЛЬHO ДOПYCTИMOГO");
     22: writeln("ДЛИHA CEГMEHTA БOЛЬШE MAKCИMAЛЬHO ДOПYCTИMOЙ");
-    others: writeln("OШCИC=", ERROR:1, '!!!')
+    others: writeln("OШCИC=", HOMOШ:1, '!!!')
   end;
-  if CH <> '_037' then begin
-    LASTCOL := COLUMN - 1;
-    (q) while CH <> '_012' do (r) NEXTCHAR;
-    COLUMN := 1;
-    (q) while LINEBUF[COLUMN] <> '_012' do (r) begin
-      write(LINEBUF[COLUMN]); COLUMN := COLUMN + 1;
+  if ЛИT <> '_037' then begin
+    KOHЛEKC := HЛИT - 1;
+    (q) while ЛИT <> '_012' do (r) ДAЙЛИT;
+    HЛИT := 1;
+    (q) while CTPOKA[HЛИT] <> '_012' do (r) begin
+      write(CTPOKA[HЛИT]); HЛИT := HЛИT + 1;
     end;
     writeln;
-    if FIRSTCOL >= LASTCOL then LASTCOL := COLUMN;
-    (q) for I := 2 to FIRSTCOL do (r) write(' ');
-    LIMIT := LASTCOL - 1;
-    (*q*) for I := FIRSTCOL to LIMIT do (r) write('^');
+    if HAЧЛEKC >= KOHЛEKC then KOHЛEKC := HЛИT;
+    (q) for I := 2 to HAЧЛEKC do (r) write(' ');
+    LIMIT := KOHЛEKC - 1;
+    (*q*) for I := HAЧЛEKC to LIMIT do (r) write('^');
     (x);
     writeln;
   end else writeln('<EOF>');
   besm(0740000B);
 end;
 
-% 03335's helpers are nested one level deeper than BADJOB/NEXTCHAR.
-procedure GETTOKEN(EXPECT: bitset);
+% 03335's helpers are nested one level deeper than OШCKAH/ДAЙЛИT.
+procedure CKAHEP(CЛEKC: bitset);
 
 % 02752.
-procedure PUSHCHAR(C: char);
+procedure BOЗЛИT(ЛИTC: char);
 begin
-  SAVED := CH; PUSHED := true; CH := C; CLASS := XLATTAB[CH];
+  БYФЛИT := ЛИT; ФИЗБYФ := true; ЛИT := ЛИTC; TИЛ := MTИЛ[ЛИT];
 end;
 
 % 02761.
-function INNAME(C: charclass): boolean;
+function CИMBOЛИM(TИЛ: charclass): boolean;
 begin
-  INNAME := C in [letter, digit];
+  CИMBOЛИM := TИЛ in [БYKBA, ЦИФPA];
 end;
 
 % 02765.
-procedure SKIPWS;
+procedure ПPOПPAЗД;
 begin
-  (q) while CLASS = white do (r) begin NEXTCHAR; (q); end;
+  (q) while TИЛ = PAЗЛИT do (r) begin ДAЙЛИT; (q); end;
 end;
 
 % 02775.
-procedure SKIPTAIL;
+procedure ДAЙPAЗД;
 begin
-  (q) while not (CLASS in [white, punct, atend]) do (r) begin
-    NEXTCHAR; (q);
+  (q) while not (TИЛ in [PAЗЛИT, CПEЦЛИT, ЗAПPЛИT]) do (r) begin
+    ДAЙЛИT; (q);
   end;
 end;
 
 % 03034. Numeric suffixes H/B/З/C/Д select hex, octal, 1024-scaled
 % octal, 256-scaled octal and decimal. Unsuffixed numbers are octal.
-procedure SCANINT(var RESULT: integer);
-var COUNT, I, DIGIT, SCALE: integer;
-    BUFFER: array [1..12] of char;
-    TAIL: char;
+procedure ДAЙЦEЛOE(var ЧИC: integer);
+var ЧC, I, KOД, MACШTAБ: integer;
+    БYФ: array [1..12] of char;
+    TИПЦ: char;
     LIMIT: integer;
 
 % 03006.
-  function CONVERT(BASE: integer): integer;
-  var I, ACCUM, LIMIT: integer;
+  function ЦEЛOE(OCH: integer): integer;
+  var I, J, LIMIT: integer;
   begin
-    ACCUM := 0;
+    J := 0;
     (x);
-    LIMIT := COUNT - 1;
+    LIMIT := ЧC - 1;
     (*q*) for I to LIMIT do (r) begin
-      DIGIT := ord(BUFFER[I]) - 48;
-      if (DIGIT < 0) or (DIGIT >= BASE) then BADJOB(0);
-      ACCUM := ACCUM * BASE + DIGIT;
+      KOД := ord(БYФ[I]) - 48;
+      if (KOД < 0) or (KOД >= OCH) then OШCKAH(0);
+      J := J * OCH + KOД;
     end;
     (x);
-    CONVERT := ACCUM;
+    ЦEЛOE := J;
   end;
 
 begin
-  COUNT := 1;
+  ЧC := 1;
   repeat
-    if COUNT > 12 then BADJOB(0);
-    BUFFER[COUNT] := CH;
-    COUNT := COUNT + 1;
-    NEXTCHAR;
-  until CLASS in [white, punct, atend];
+    if ЧC > 12 then OШCKAH(0);
+    БYФ[ЧC] := ЛИT;
+    ЧC := ЧC + 1;
+    ДAЙЛИT;
+  until TИЛ in [PAЗЛИT, CПEЦЛИT, ЗAПPЛИT];
   (x);
-  COUNT := COUNT - 1;
-  TAIL := BUFFER[COUNT];
-  RESULT := 0;
-  SCALE := 1;
-  if TAIL = 'H' then begin
-    LIMIT := COUNT - 1;
+  ЧC := ЧC - 1;
+  TИПЦ := БYФ[ЧC];
+  ЧИC := 0;
+  MACШTAБ := 1;
+  if TИПЦ = 'H' then begin
+    LIMIT := ЧC - 1;
     (*q*) for I to LIMIT do (r) begin
-      DIGIT := ord(BUFFER[I]) - 31;
-      if DIGIT in [17..26] then DIGIT := DIGIT - 17
-      else if DIGIT in [34..39] then DIGIT := DIGIT - 34 + 10
-      else BADJOB(0);
-      RESULT := RESULT * 16 + DIGIT;
+      KOД := ord(БYФ[I]) - 31;
+      if KOД in [17..26] then KOД := KOД - 17
+      else if KOД in [34..39] then KOД := KOД - 34 + 10
+      else OШCKAH(0);
+      ЧИC := ЧИC * 16 + KOД;
     end;
     (x);
-  end else if TAIL = 'B' then RESULT := CONVERT(8)
-  else if TAIL = "_372" then begin
-    SCALE := 1024; RESULT := CONVERT(8);
-  end else if TAIL = 'C' then begin
-    SCALE := 256; RESULT := CONVERT(8);
-  end else if TAIL = "_344" then RESULT := CONVERT(10)
-  else begin COUNT := COUNT + 1; RESULT := CONVERT(8) end;
-  RESULT := RESULT * SCALE;
+  end else if TИПЦ = 'B' then ЧИC := ЦEЛOE(8)
+  else if TИПЦ = "_372" then begin
+    MACШTAБ := 1024; ЧИC := ЦEЛOE(8);
+  end else if TИПЦ = 'C' then begin
+    MACШTAБ := 256; ЧИC := ЦEЛOE(8);
+  end else if TИПЦ = "_344" then ЧИC := ЦEЛOE(10)
+  else begin ЧC := ЧC + 1; ЧИC := ЦEЛOE(8) end;
+  ЧИC := ЧИC * MACШTAБ;
 end;
 
 % 03153. Decimal parser used where the grammar requests decimal input.
-procedure SCANDEC(var RESULT: integer);
-var COUNT: integer;
+procedure ДAЙЧИCЛO(var ЧИC: integer);
+var I: integer;
 begin
-  COUNT := 0; RESULT := ;
+  I := 0; ЧИC := ;
   repeat
-    RESULT := RESULT * 10 + ord(CH) - 48;
-    COUNT := COUNT + 1;
-    if COUNT > 12 then BADJOB(0);
-    NEXTCHAR;
-  until CLASS <> digit;
+    ЧИC := ЧИC * 10 + ord(ЛИT) - 48;
+    I := I + 1;
+    if I > 12 then OШCKAH(0);
+    ДAЙЛИT;
+  until TИЛ <> ЦИФPA;
   (x);
 end;
 
 % 03176.
-procedure SCANNAME;
+procedure ДAЙИMЯФA;
 var I: integer;
 begin
 %  with VALUE do begin
 %    first6 := '      '; last6 := '    _000_000';
 %  end;
-  VALUE := [ '      ', '    _000_000' ];
+  ЛEKC := [ '      ', '    _000_000' ];
   I := 1;
-  (q) while INNAME(CLASS) and (I <= 10) do (r) begin
-    VALUE.text[I] := CH;
+  (q) while CИMBOЛИM(TИЛ) and (I <= 10) do (r) begin
+    ЛEKC.text[I] := ЛИT;
     I := I + 1;
-    NEXTCHAR;
+    ДAЙЛИT;
     (q);
   end;
-  SKIPTAIL;
-  if CH = '.' then begin NEXTCHAR; SKIPTAIL end;
+  ДAЙPAЗД;
+  if ЛИT = '.' then begin ДAЙЛИT; ДAЙPAЗД end;
 end;
 
 % 03230. Packed disk address: virtual drive 16..55, zone 0..3995.
-procedure SCANFILE;
-var ADDRESS, UNIT, ZONE: integer;
+procedure ДAЙYKФAЙ;
+var I, HY, ЗЗ: integer;
 begin
-  SCANINT(ADDRESS);
-  UNIT := ADDRESS div 4096;
-  ZONE := ADDRESS mod 4096;
-  if (UNIT < 16) or (UNIT > 55) then BADJOB(1);
-  if ZONE > 3995 then BADJOB(2);
-  VALUE.disk.address := ADDRESS;
-  SKIPWS;
-  if CH = ':' then begin
-    NEXTCHAR; SKIPWS;
-    if CLASS = digit then begin
-      SCANINT(ADDRESS);
-      if ADDRESS > 127 then BADJOB(3);
-      VALUE.disk.length := ADDRESS;
-    end else BADJOB(4);
-  end else VALUE.disk.length := 127;
+  ДAЙЦEЛOE(I);
+  HY := I div 4096;
+  ЗЗ := I mod 4096;
+  if (HY < 16) or (HY > 55) then OШCKAH(1);
+  if ЗЗ > 3995 then OШCKAH(2);
+  ЛEKC.disk.address := I;
+  ПPOПPAЗД;
+  if ЛИT = ':' then begin
+    ДAЙЛИT; ПPOПPAЗД;
+    if TИЛ = ЦИФPA then begin
+      ДAЙЦEЛOE(I);
+      if I > 127 then OШCKAH(3);
+      ЛEKC.disk.length := I;
+    end else OШCKAH(4);
+  end else ЛEKC.disk.length := 127;
 end;
 
 % 03312.
-procedure SCANALFA;
+procedure ДAЙИMЯ;
 var I: integer;
 begin
-  VALUE.a6 := '      '; I := 1;
+  ЛEKC.a6 := '      '; I := 1;
   repeat
-    VALUE.text[I] := CH;
-    NEXTCHAR; I := I + 1;
+    ЛEKC.text[I] := ЛИT;
+    ДAЙЛИT; I := I + 1;
     (x);
-  until not INNAME(CLASS) or (I > 6);
-  SKIPTAIL;
+  until not CИMBOЛИM(TИЛ) or (I > 6);
+  ДAЙPAЗД;
 end;
 
-% 03335. EXPECT bits 0..5 select the token representations accepted.
+% 03335. CKAHPAЗД bits 0..5 select the token representations accepted.
 begin
-  SKIPWS;
-  if CH = '(' then begin
-    NEXTCHAR;
-    if CH = '*' then begin
+  ПPOПPAЗД;
+  if ЛИT = '(' then begin
+    ДAЙЛИT;
+    if ЛИT = '*' then begin
       (comment) repeat
-        NEXTCHAR;
-        if CH = '*' then begin
-          NEXTCHAR;
-          if CH = ')' then begin NEXTCHAR; exit comment end;
+        ДAЙЛИT;
+        if ЛИT = '*' then begin
+          ДAЙЛИT;
+          if ЛИT = ')' then begin ДAЙЛИT; exit comment end;
         end;
-      until CH = '_037';
-      if CH = '_037' then BADJOB(5);
-      SKIPWS;
-    end else PUSHCHAR('(');
+      until ЛИT = '_037';
+      if ЛИT = '_037' then OШCKAH(5);
+      ПPOПPAЗД;
+    end else BOЗЛИT('(');
   end;
-  FIRSTCOL := COLUMN - 1;
-  if CLASS = letter then
-    if 1 in EXPECT then begin SCANNAME; KIND := kname end
-    else if 0 in EXPECT then begin SCANALFA; KIND := kalfa end
-    else BADJOB(6)
-  else if CLASS = digit then
-    if 2 in EXPECT then begin SCANFILE; KIND := kfile end
-    else if 3 in EXPECT then begin SCANINT(VALUE.number);
-      KIND := knumber end
-    else if 4 in EXPECT then begin SCANDEC(VALUE.number);
-      KIND := kdecimal end
-    else BADJOB(6)
-  else if CLASS = punct then
-    if 5 in EXPECT then begin
-      if CH = '*' then begin
-        NEXTCHAR;
-        if CH = '/' then CH := '_037' else PUSHCHAR('*');
+  HAЧЛEKC := HЛИT - 1;
+  if TИЛ = БYKBA then
+    if 1 in CЛEKC then begin ДAЙИMЯФA; TИЛEKC := ФAЙЛ end
+    else if 0 in CЛEKC then begin ДAЙИMЯ; TИЛEKC := ИMЯ end
+    else OШCKAH(6)
+  else if TИЛ = ЦИФPA then
+    if 2 in CЛEKC then begin ДAЙYKФAЙ; TИЛEKC := YKФAЙЛ end
+    else if 3 in CЛEKC then begin ДAЙЦEЛOE(ЛEKC.number);
+      TИЛEKC := ЦEЛOE end
+    else if 4 in CЛEKC then begin ДAЙЧИCЛO(ЛEKC.number);
+      TИЛEKC := ЧИCЛO end
+    else OШCKAH(6)
+  else if TИЛ = CПEЦЛИT then
+    if 5 in CЛEKC then begin
+      if ЛИT = '*' then begin
+        ДAЙЛИT;
+        if ЛИT = '/' then ЛИT := '_037' else BOЗЛИT('*');
       end;
-      VALUE.symbol := chr(ord(CH) - 31);
-      KIND := kpunct;
-      NEXTCHAR;
-    end else BADJOB(6)
-  else if CLASS = atend then BADJOB(6);
+      ЛEKC.symbol := chr(ord(ЛИT) - 31);
+      TИЛEKC := PAЗД;
+      ДAЙЛИT;
+    end else OШCKAH(6)
+  else if TИЛ = ЗAПPЛИT then OШCKAH(6);
 end;
 
 % 03455. Punctuation is represented as ord(character)-31.
-procedure EXPECT(PUNCTS: charbits);
+procedure CKAHPAЗД(MPAЗ: charbits);
 begin
-  GETTOKEN([5]);
-  if not (VALUE.symbol in PUNCTS) then BADJOB(7);
+  CKAHEP([5]);
+  if not (ЛEKC.symbol in MPAЗ) then OШCKAH(7);
 end;
 
 % 03466. Intern an object-file entry and refresh its module number.
-function GETFILE(KEY: objecthead): integer;
+function BHECИOФ(ДECФAЙЛA: objecthead): integer;
 label 1;
-var I: integer;
-    REC: pfile;
+var CTOФ: integer;
+    YKTOФ: pfile;
 begin
-  (*q*) for I := 0 to NUMOBJS(FILEPOOL) do (r) begin
-    FILEEDIT(FILEPOOL, I); REC := ;
-    if REC@.name = KEY.name then goto 1;
+  (*q*) for CTOФ := 0 to NUMOBJS(TOФ) do (r) begin
+    FILEEDIT(TOФ, CTOФ); YKTOФ := ;
+    if YKTOФ@.name = ДECФAЙЛA.name then goto 1;
   end;
-  I := NUMOBJS(FILEPOOL) + 1;
-  FILEEDIT(FILEPOOL, I); REC := ;
-  REC@ := [0C, 0C, 0C, 0C];
-  1: with REC@ do begin
-    name := KEY.name; module := shift(integer(KEY.attr), 18);
+  CTOФ := NUMOBJS(TOФ) + 1;
+  FILEEDIT(TOФ, CTOФ); YKTOФ := ;
+  YKTOФ@ := [0C, 0C, 0C, 0C];
+  1: with YKTOФ@ do begin
+    name := ДECФAЙЛA.name; module := shift(integer(ДECФAЙЛA.attr), 18);
   end;
-  GETFILE := I;
+  BHECИOФ := CTOФ;
 end;
 
 % 03541. Apply one per-file flag to a list of named object files.
-procedure SELECTFILES(FLAG: integer);
-var I: integer;
-    REC: pfile;
-    OBJ: objecthead;
+procedure YTOЧHEHИ(ФЛAГ: integer);
+var CTOФ: integer;
+    YKTOФ: pfile;
+    ДECФAЙЛA: objecthead;
     LIMIT: integer;
 begin
-  if VALUE.symbol = '_016' then COMMONFLAGS := COMMONFLAGS + [FLAG];
+  if ЛEKC.symbol = '_016' then MACФЛ := MACФЛ + [ФЛAГ];
   repeat
-    GETTOKEN([1]);
-    FINDOBJ(VALUE.text, OBJ);
-    if OBJ.name = ptr(0) then BADJOB(10);
+    CKAHEP([1]);
+    SFILE(ЛEKC.text, ДECФAЙЛA);
+    if ДECФAЙЛA.name = ptr(0) then OШCKAH(10);
     (search) begin
-      LIMIT := NUMOBJS(FILEPOOL);
-      (*q*) for I := 0 to LIMIT do (r) begin
-        FILEEDIT(FILEPOOL, I); REC := ;
-        if REC@.name = OBJ.name then exit search;
+      LIMIT := NUMOBJS(TOФ);
+      (*q*) for CTOФ := 0 to LIMIT do (r) begin
+        FILEEDIT(TOФ, CTOФ); YKTOФ := ;
+        if YKTOФ@.name = ДECФAЙЛA.name then exit search;
       end;
-      FILEEDIT(FILEPOOL, NUMOBJS(FILEPOOL)+1); REC := ;
-      REC@ := [0C, 0C, 0C, 0C];
-      REC@.name := OBJ.name;
+      FILEEDIT(TOФ, NUMOBJS(TOФ)+1); YKTOФ := ;
+      YKTOФ@ := [0C, 0C, 0C, 0C];
+      YKTOФ@.name := ДECФAЙЛA.name;
     end;
-    with REC@ do flags := flags + [FLAG];
-    EXPECT(['_000','_015','_034']);
+    with YKTOФ@ do flags := flags + [ФЛAГ];
+    CKAHPAЗД(['_000','_015','_034']);
     (x);
-  until VALUE.symbol in ['_000','_034'];
+  until ЛEKC.symbol in ['_000','_034'];
   (x);
 end;
 
 % 03641. Select the listing sections requested by the link job.
-procedure PRINTSEL;
+procedure PEЖПEЧ;
 begin
-  GETTOKEN([0,5]);
-  if KIND = kpunct then begin
-    if VALUE.symbol in ['_000','_015','_034'] then begin
-      PRINTOPT := PRINTOPT + [0..3]; exit;
+  CKAHEP([0,5]);
+  if TИЛEKC = PAЗД then begin
+    if ЛEKC.symbol in ['_000','_015','_034'] then begin
+      PEЖИMЫ := PEЖИMЫ + [0..3]; exit;
     end;
-    if VALUE.symbol = '_036' then GETTOKEN([0]) else BADJOB(7);
+    if ЛEKC.symbol = '_036' then CKAHEP([0]) else OШCKAH(7);
   end;
   repeat
-    if VALUE.a6 = "CEKЦИИ" then PRINTOPT := PRINTOPT + [1]
-    else if VALUE.a6 = "PAЗДEЛ" then PRINTOPT := PRINTOPT + [2]
-    else if VALUE.a6 = 'CTAT  ' then PRINTOPT := PRINTOPT + [3]
-    else if VALUE.a6 = "MOДYЛИ" then PRINTOPT := PRINTOPT + [0]
-    else if VALUE.a6 = "METKИ " then PRINTOPT := PRINTOPT + [4]
-    else BADJOB(8);
-    EXPECT(['_015','_034']);
-    if VALUE.symbol = '_034' then exit;
-    GETTOKEN([0]);
+    if ЛEKC.a6 = "CEKЦИИ" then PEЖИMЫ := PEЖИMЫ + [1]
+    else if ЛEKC.a6 = "PAЗДEЛ" then PEЖИMЫ := PEЖИMЫ + [2]
+    else if ЛEKC.a6 = 'CTAT  ' then PEЖИMЫ := PEЖИMЫ + [3]
+    else if ЛEKC.a6 = "MOДYЛИ" then PEЖИMЫ := PEЖИMЫ + [0]
+    else if ЛEKC.a6 = "METKИ " then PEЖИMЫ := PEЖИMЫ + [4]
+    else OШCKAH(8);
+    CKAHPAЗД(['_015','_034']);
+    if ЛEKC.symbol = '_034' then exit;
+    CKAHEP([0]);
     (x);
   until false;
 end;
 
 % 03717. File declarations, load list and optional explicit layout.
 begin
-  LINENO := 0; COLUMN := 1; PUSHED := false;
-  NEXTCHAR;
-  PRINTOPT := [2]; COMMONFLAGS := [];
-  GETTOKEN([0]);
-  if VALUE.a6 <> "ФAЙЛЫ " then BADJOB(11);
+  ЧCTPOK := 0; HЛИT := 1; ФИЗБYФ := false;
+  ДAЙЛИT;
+  PEЖИMЫ := [2]; MACФЛ := [];
+  CKAHEP([0]);
+  if ЛEKC.a6 <> "ФAЙЛЫ " then OШCKAH(11);
   repeat
-    GETTOKEN([1]); ALIAS := VALUE.text;
-    EXPECT(['_036']); GETTOKEN([2]);
-    BINDOBJ(ALIAS, VALUE.filecode.module);
-    EXPECT(['_015','_034']);
-  until VALUE.symbol = '_034';
+    CKAHEP([1]); БYФЛEKC := ЛEKC.text;
+    CKAHPAЗД(['_036']); CKAHEP([2]);
+    ASSIGN(БYФЛEKC, ЛEKC.filecode.module);
+    CKAHPAЗД(['_015','_034']);
+  until ЛEKC.symbol = '_034';
   (x);
-  GETTOKEN([0]);
-  if VALUE.a6 <> "ЗAГP  " then BADJOB(12);
-  HAVESCHEMA := false; HAVEOUTPUT := ;
-  HAVEOBJECTS := ; HAVEQUAL := ;
-  NFILES := 0; SEGINDEX := ; SETPOS(SEGPOOL, 2);
+  CKAHEP([0]);
+  if ЛEKC.a6 <> "ЗAГP  " then OШCKAH(12);
+  ПOCXEME := false; БЫЛBЫXФ := ;
+  БЫЛИOФ := ; БЫЛИKBAЛ := ;
+  ЧФAЙЛOB := 0; CHAЧCEГ := ; SETPOS(TCEГ, 2);
   repeat
-    GETTOKEN([1]); FINDOBJ(VALUE.text, CURRENT);
-    if CURRENT.name = ptr(0) then BADJOB(10);
-    EXPECT(['_000','_015','_020','_034']);
-    if VALUE.symbol = '_020' then begin
-      HAVEQUAL := true; GETTOKEN([0]);
-      if VALUE.a6 = "PAЗДEЛ" then begin
-        if HAVEOUTPUT then BADJOB(13);
-        if HAVESCHEMA then BADJOB(16);
-        if not HAVEOBJECTS then BADJOB(9);
-        HAVEOUTPUT := true; OUTFILE := CURRENT;
-        SYSTEMOUT := false; LOADADDR := 1;
-        EXPECT(['_000','_015','_034']);
-      end else if VALUE.a6 = "CИC   " then begin
-        if HAVEOUTPUT then BADJOB(13);
-        if not HAVEOBJECTS and not HAVESCHEMA then BADJOB(9);
-        HAVEOUTPUT := true; OUTFILE := CURRENT; SYSTEMOUT := true;
-        if HAVEOBJECTS then begin
-          EXPECT(['_036']); GETTOKEN([3]); LOADADDR := VALUE.number;
+    CKAHEP([1]); SFILE(ЛEKC.text, ДECФAЙЛA);
+    if ДECФAЙЛA.name = ptr(0) then OШCKAH(10);
+    CKAHPAЗД(['_000','_015','_020','_034']);
+    if ЛEKC.symbol = '_020' then begin
+      БЫЛИKBAЛ := true; CKAHEP([0]);
+      if ЛEKC.a6 = "PAЗДEЛ" then begin
+        if БЫЛBЫXФ then OШCKAH(13);
+        if ПOCXEME then OШCKAH(16);
+        if not БЫЛИOФ then OШCKAH(9);
+        БЫЛBЫXФ := true; ФAЙЛPAЗД := ДECФAЙЛA;
+        TИПPAЗД := false; HAЗCEГ := 1;
+        CKAHPAЗД(['_000','_015','_034']);
+      end else if ЛEKC.a6 = "CИC   " then begin
+        if БЫЛBЫXФ then OШCKAH(13);
+        if not БЫЛИOФ and not ПOCXEME then OШCKAH(9);
+        БЫЛBЫXФ := true; ФAЙЛPAЗД := ДECФAЙЛA; TИПPAЗД := true;
+        if БЫЛИOФ then begin
+          CKAHPAЗД(['_036']); CKAHEP([3]); HAЗCEГ := ЛEKC.number;
         end;
-        EXPECT(['_000','_015','_034']);
-      end else if VALUE.a6 = "ЛИCT  " then PRINTSEL
-      else if VALUE.a6 = 'CXEMA ' then begin
-        if HAVEOBJECTS then BADJOB(16);
-        SCHEMAFILE := CURRENT; HAVESCHEMA := true;
-        EXPECT(['_000','_015','_034']);
-      end else if VALUE.a6 = "METKИ " then begin
-        LABELFILE := CURRENT;
-        EXPECT(['_000','_015','_016','_034','_036']);
-        if VALUE.symbol in ['_016','_036'] then SELECTFILES(1C)
-        else COMMONFLAGS := COMMONFLAGS + [1];
-      end else BADJOB(17);
-    end else if VALUE.symbol = '_015' then begin
-      if HAVESCHEMA or HAVEQUAL then BADJOB(19);
-      NFILES := NFILES + 1; HAVEOBJECTS := true;
-      NEWKEY(SEGPOOL); SEGREC := ;
-      with SEGREC@ do begin
-        fileindex := GETFILE(CURRENT); limit := false;
+        CKAHPAЗД(['_000','_015','_034']);
+      end else if ЛEKC.a6 = "ЛИCT  " then PEЖПEЧ
+      else if ЛEKC.a6 = 'CXEMA ' then begin
+        if БЫЛИOФ then OШCKAH(16);
+        ФAЙЛCXEM := ДECФAЙЛA; ПOCXEME := true;
+        CKAHPAЗД(['_000','_015','_034']);
+      end else if ЛEKC.a6 = "METKИ " then begin
+        ФAЙЛMET := ДECФAЙЛA;
+        CKAHPAЗД(['_000','_015','_016','_034','_036']);
+        if ЛEKC.symbol in ['_016','_036'] then YTOЧHEHИ(1C)
+        else MACФЛ := MACФЛ + [1];
+      end else OШCKAH(17);
+    end else if ЛEKC.symbol = '_015' then begin
+      if ПOCXEME or БЫЛИKBAЛ then OШCKAH(19);
+      ЧФAЙЛOB := ЧФAЙЛOB + 1; БЫЛИOФ := true;
+      NEWKEY(TCEГ); YKTCEГ := ;
+      with YKTCEГ@ do begin
+        fileindex := BHECИOФ(ДECФAЙЛA); limit := false;
       end;
     end;
-  until VALUE.symbol in ['_000','_034'];
+  until ЛEKC.symbol in ['_000','_034'];
   (x);
-  if not HAVEOUTPUT then BADJOB(18);
-  if HAVESCHEMA then begin
-    if VALUE.symbol = '_000' then BADJOB(5);
-    GETTOKEN([1,5]);
-    if KIND = kpunct then
-      if VALUE.symbol = '_000' then BADJOB(5) else BADJOB(7);
+  if not БЫЛBЫXФ then OШCKAH(18);
+  if ПOCXEME then begin
+    if ЛEKC.symbol = '_000' then OШCKAH(5);
+    CKAHEP([1,5]);
+    if TИЛEKC = PAЗД then
+      if ЛEKC.symbol = '_000' then OШCKAH(5) else OШCKAH(7);
     (layout) repeat
-      LOADADDR := 1; DISKADDR := 0; SEGLEN := 377777B;
-      LOADABOVE := true; CONCAT := false; NFILES := 0;
-      SETPOS(SEGPOOL, SEGINDEX + 2);
+      HAЗCEГ := 1; HAДCEГ := 0; MДЛИCEГ := 377777B;
+      ФOTHAД := true; CONCAT := false; ЧФAЙЛOB := 0;
+      SETPOS(TCEГ, CHAЧCEГ + 2);
       (objects) repeat
-        FINDOBJ(VALUE.text, CURRENT);
-        if CURRENT.name = ptr(0) then BADJOB(10);
-        NFILES := NFILES + 1;
-        NEWKEY(SEGPOOL); SEGREC := ;
-        with SEGREC@ do begin
-          fileindex := GETFILE(CURRENT); limit := false;
+        SFILE(ЛEKC.text, ДECФAЙЛA);
+        if ДECФAЙЛA.name = ptr(0) then OШCKAH(10);
+        ЧФAЙЛOB := ЧФAЙЛOB + 1;
+        NEWKEY(TCEГ); YKTCEГ := ;
+        with YKTCEГ@ do begin
+          fileindex := BHECИOФ(ДECФAЙЛA); limit := false;
         end;
-        EXPECT(['_000','_014','_033','_034']);
-        if VALUE.symbol <> '_014' then exit objects;
-        GETTOKEN([1]); (q);
+        CKAHPAЗД(['_000','_014','_033','_034']);
+        if ЛEKC.symbol <> '_014' then exit objects;
+        CKAHEP([1]); (q);
       until false;
-      if VALUE.symbol = '_033' then
+      if ЛEKC.symbol = '_033' then
         (quals) repeat
           (onequal) begin
-            GETTOKEN([0,3]);
-            if KIND = knumber then LOADADDR := VALUE.number
-            else if VALUE.a6 = "HAЗ   " then begin
-              EXPECT(['_036']); GETTOKEN([3]); LOADADDR := VALUE.number;
-            end else if VALUE.a6 = "HAД   " then begin
-              EXPECT(['_014','_036']);
-              LOADABOVE := VALUE.symbol = '_014';
-              GETTOKEN([3]); DISKADDR := VALUE.number;
-              EXPECT(['_000','_015','_017','_034']);
-              CONCAT := VALUE.symbol = '_017';
+            CKAHEP([0,3]);
+            if TИЛEKC = ЦEЛOE then HAЗCEГ := ЛEKC.number
+            else if ЛEKC.a6 = "HAЗ   " then begin
+              CKAHPAЗД(['_036']); CKAHEP([3]); HAЗCEГ := ЛEKC.number;
+            end else if ЛEKC.a6 = "HAД   " then begin
+              CKAHPAЗД(['_014','_036']);
+              ФOTHAД := ЛEKC.symbol = '_014';
+              CKAHEP([3]); HAДCEГ := ЛEKC.number;
+              CKAHPAЗД(['_000','_015','_017','_034']);
+              CONCAT := ЛEKC.symbol = '_017';
               if not CONCAT then begin
-                if VALUE.symbol = '_015' then exit onequal;
+                if ЛEKC.symbol = '_015' then exit onequal;
                 exit quals;
               end else;
-            end else if VALUE.a6 = "ДЛИ   " then begin
-              EXPECT(['_036']); GETTOKEN([3]); SEGLEN := VALUE.number;
-            end else begin BADJOB(14); (q) exit q end;
-            EXPECT(['_000','_015','_034']);
+            end else if ЛEKC.a6 = "ДЛИ   " then begin
+              CKAHPAЗД(['_036']); CKAHEP([3]); MДЛИCEГ := ЛEKC.number;
+            end else begin OШCKAH(14); (q) exit q end;
+            CKAHPAЗД(['_000','_015','_034']);
           end;
-        until VALUE.symbol in ['_000','_034'];
-      OBJEDIT(SEGPOOL, SEGINDEX); SEGREC := ;
-      with SEGREC@ do begin
-        if DISKADDR > 7777777B then BADJOB(21);
-        diskbase := DISKADDR;
-        if LOADADDR >= 100000B then BADJOB(20);
-        loadbase := LOADADDR;
+        until ЛEKC.symbol in ['_000','_034'];
+      OBJEDIT(TCEГ, CHAЧCEГ); YKTCEГ := ;
+      with YKTCEГ@ do begin
+        if HAДCEГ > 7777777B then OШCKAH(21);
+        diskbase := HAДCEГ;
+        if HAЗCEГ >= 100000B then OШCKAH(20);
+        loadbase := HAЗCEГ;
       end;
-      NEWKEY(SEGPOOL); SEGREC := ;
-      with SEGREC@ do begin
-        above := LOADABOVE; concatenate := CONCAT;
-        if SEGLEN > 377777B then BADJOB(22);
-        length := SEGLEN; count := NFILES;
+      NEWKEY(TCEГ); YKTCEГ := ;
+      with YKTCEГ@ do begin
+        above := ФOTHAД; concatenate := CONCAT;
+        if MДЛИCEГ > 377777B then OШCKAH(22);
+        length := MДЛИCEГ; count := ЧФAЙЛOB;
       end;
-      SEGINDEX := NUMOBJS(SEGPOOL) + 1;
-      if VALUE.symbol = '_000' then exit layout;
-      GETTOKEN([1,5]);
-    until KIND = kpunct;
+      CHAЧCEГ := NUMOBJS(TCEГ) + 1;
+      if ЛEKC.symbol = '_000' then exit layout;
+      CKAHEP([1,5]);
+    until TИЛEKC = PAЗД;
   end else begin
-    if not HAVEOBJECTS then BADJOB(9);
-    OBJEDIT(SEGPOOL, SEGINDEX); SEGREC := ;
-    with SEGREC@ do begin
+    if not БЫЛИOФ then OШCKAH(9);
+    OBJEDIT(TCEГ, CHAЧCEГ); YKTCEГ := ;
+    with YKTCEГ@ do begin
       diskbase := 0;
-      if LOADADDR >= 100000B then BADJOB(20);
-      loadbase := LOADADDR;
+      if HAЗCEГ >= 100000B then OШCKAH(20);
+      loadbase := HAЗCEГ;
     end;
-    NEWKEY(SEGPOOL); SEGREC := ;
-    with SEGREC@ do begin
+    NEWKEY(TCEГ); YKTCEГ := ;
+    with YKTCEГ@ do begin
       above := false; concatenate := false;
-      length := OUTFILE.attr.filelen * 1024;
-      count := NFILES;
+      length := ФAЙЛPAЗД.attr.filelen * 1024;
+      count := ЧФAЙЛOB;
     end;
   end;
-  if COMMONFLAGS <> [] then begin
+  if MACФЛ <> [] then begin
     (x);
-    LIMIT := NUMOBJS(FILEPOOL);
-    (*q*) for FILEINDEX := 0 to LIMIT do (r) begin
-      FILEEDIT(FILEPOOL, FILEINDEX); REC := ;
-      with REC@ do flags := flags mod COMMONFLAGS;
+    LIMIT := NUMOBJS(TOФ);
+    (*q*) for CTOФ := 0 to LIMIT do (r) begin
+      FILEEDIT(TOФ, CTOФ); YKTOФ := ;
+      with YKTOФ@ do flags := flags mod MACФЛ;
     end;
   end;
-  CLOSE(OBJPOOL);
+  CLOSE(TЛФ);
 end;
 
 % 04475: print a phase heading once before its first diagnostic.
-procedure PHASEMSG;
+procedure OШИБKИHA;
 begin
-  if not PHASEERR then begin
+  if not БЫЛИOШЭT then begin
     write("> > >  OШИБKИ HA ЭTAПE ");
-    case PHASE of
-      stgather: write("CБOPKИ OПPEДEЛEHИЙ И CCЫЛOK");
-      stresolve: write("PAЗPEШEHИЯ CCЫЛOK");
-      stplace: write("PACПPEДEЛEHИЯ ПAMЯTИ");
-      steval: write("BЫЧИCЛEHИЯ ЗHAЧEHИЙ OБ'EKTOB");
-      stoutput: write("ФOPMИPOBAHИЯ PAЗДEЛA")
+    case TEKЭTAП of
+      ШAГCБOPK: write("CБOPKИ OПPEДEЛEHИЙ И CCЫЛOK");
+      ШAГPAЗPE: write("PAЗPEШEHИЯ CCЫЛOK");
+      ШAГPAЗME: write("PACПPEДEЛEHИЯ ПAMЯTИ");
+      ШAГBЫЧ: write("BЫЧИCЛEHИЯ ЗHAЧEHИЙ OБ'EKTOB");
+      ШAГЗAГP: write("ФOPMИPOBAHИЯ PAЗДEЛA")
     end;
-    writeln(' < < <'); PHASEERR := true;
+    writeln(' < < <'); БЫЛИOШЭT := true;
   end;
 end;
 
 % 04541: module heading, likewise emitted once per input module.
-procedure MODULEMSG(REC: pfile);
+procedure OШИБKИBM(YKTOФ: pfile);
 begin
-  PHASEMSG;
-  if not MODULEERR then begin
-    writeln("* * * MOДYЛЬ ", REC@.name@.text:1, ' * * *');
-    MODULEERR := true;
+  OШИБKИHA;
+  if not БЫЛИOШMO then begin
+    writeln("* * * MOДYЛЬ ", YKTOФ@.name@.text:1, ' * * *');
+    БЫЛИOШMO := true;
   end;
 end;
 
 % 04562: identify the input record and its position in the module.
-procedure RECORDMSG(KIND: integer);
+procedure KOOPД(TИПЗ: integer);
 begin
-  write("ЗAПИCЬ TИПA <", KIND:2 hex, '> (N=', RECNO:1);
-  write(", AДPEC - ", BYTEPOS * 2 div 1024:2 oct, ':',
-        BYTEPOS * 2 mod 1024:4 oct, ')');
+  write("ЗAПИCЬ TИПA <", TИПЗ:2 hex, '> (N=', NЗAП:1);
+  write(", AДPEC - ", HAЧAЛOЗA * 2 div 1024:2 oct, ':',
+        HAЧAЛOЗA * 2 mod 1024:4 oct, ')');
 end;
 
 % 04612 and 04635: preserve the file-table descriptor around input.
-procedure OPENIN(INDEX: integer);
+procedure OTKPOЙOФ(CTOФ: integer);
 begin
-  GETFILED(FILEPOOL, INDEX, CURRENTFILE);
-  ATTACH(2, CURRENTFILE.filedata.address,
-         CURRENTFILE.filedata.length,
-         CURRENTFILE.name@.first6, g0567);
-  RECNO := 0; MODULEERR := false;
+  GETFILED(TOФ, CTOФ, TEKOФ);
+  ATTACH(2, TEKOФ.filedata.address,
+         TEKOФ.filedata.length,
+         TEKOФ.name@.first6, ФOM);
+  NЗAП := 0; БЫЛИOШMO := false;
 end;
 
-procedure CLOSEIN(INDEX: integer);
+procedure ЗAKPOЙOФ(CTOФ: integer);
 begin
-  PUTFILED(FILEPOOL, INDEX, CURRENTFILE); CLOSE(g0567);
+  PUTFILED(TOФ, CTOФ, TEKOФ); CLOSE(ФOM);
 end;
 
 % 04647: report the size in bytes and in 1024-byte blocks, in octal.
-procedure PUTSIZE(N: integer);
+procedure ПEЧДЛФAЙ(ДЛ: integer);
 begin
-  N := (N + 1) * 2;
-  write(N:5 oct, 'B (', (N + 1024 - 1) div 1024:3 oct, ')');
+  ДЛ := (ДЛ + 1) * 2;
+  write(ДЛ:5 oct, 'B (', (ДЛ + 1024 - 1) div 1024:3 oct, ')');
 end;
 
 % 04666: four-byte translator identifier, with NULs blanked.
-procedure PUTCODE(CODE: code4);
+procedure ПEЧALF0(A: code4);
 var I: integer;
 begin
   (q) for I := 0 to 3 do (r)
-    if CODE[I] = '_000' then write(' ') else write(CODE[I]);
+    if A[I] = '_000' then write(' ') else write(A[I]);
 end;
 
 % 04707: read N pairs; retain input position and record number.
-procedure READREC(var BUFFER: pairs; N: integer);
+procedure ДAЙЗAП(var BUFFER: pairs; L: integer);
 var I, LAST: integer;
 begin
-  BYTEPOS := POSITION(g0567);
+  HAЧAЛOЗA := POSITION(ФOM);
   (x);
-  LAST := N - 1;
-  (*q*) for I := 0 to LAST do (r) READPAIR(g0567, BUFFER[I]);
+  LAST := L - 1;
+  (*q*) for I := 0 to LAST do (r) READPAIR(ФOM, BUFFER[I]);
   (x);
-  RECNO := RECNO + 1;
+  NЗAП := NЗAП + 1;
 end;
 
 % 04735: read the body following an already-read record header.
-procedure READBODY(var BUFFER: pairs);
+procedure ДAЙЗAПИC(var BUFFER: pairs);
 var I, LAST: integer;
 begin
   with BUFFER[0] do begin
     (x);
     LAST := BUFFER[0].count - 1;
   end;
-  (*q*) for I := 1 to LAST do (r) READPAIR(g0567, BUFFER[I]);
+  (*q*) for I := 1 to LAST do (r) READPAIR(ФOM, BUFFER[I]);
   (x);
 end;
 
 % 04761: read a slice into a larger pair buffer.
-procedure READPART(var BUFFER: pairs; FIRST, N: integer);
+procedure ДAЙTEЛЗA(var BUFFER: pairs; N, L: integer);
 var I, LAST: integer;
 begin
   (x);
-  LAST := N - 1;
-  (*q*) for I := 0 to LAST do (r) READPAIR(g0567, BUFFER[FIRST+I]);
+  LAST := L - 1;
+  (*q*) for I := 0 to LAST do (r) READPAIR(ФOM, BUFFER[N+I]);
   (x);
 end;
 
 % 05003: skip the unread tail of a record.
-procedure SKIPREC(var BUFFER: pairs);
+procedure ПPOПЗAП(var BUFFER: pairs);
 begin
-  SETPOS(g0567, POSITION(g0567) + BUFFER[0].count - 1);
+  SETPOS(ФOM, POSITION(ФOM) + BUFFER[0].count - 1);
 end;
 
 % 05016: save input pairs in the temporary file, return its first index.
-function SAVEREC(LAST: integer): integer;
+function ПEPEKYБ(ЧИCЛOCЛO: integer): integer;
 var I: integer;
     V: pair;
 begin
-  I := NUMOBJS(g0566) + 1;
-  SAVEREC := ;
-  SETPOS(g0566, I);
-  (q) for I to LAST do (r) begin
-    READPAIR(g0567, V);
-    PUTTEMP(g0566, V);
+  I := NUMOBJS(KYБA) + 1;
+  ПEPEKYБ := ;
+  SETPOS(KYБA, I);
+  (q) for I to ЧИCЛOCЛO do (r) begin
+    READPAIR(ФOM, V);
+    PUTTEMP(KYБA, V);
   end;
 end;
 
 % 05044: write N pairs to the current object stream.
-procedure WRITREC(var BUFFER: pairs; N: integer);
+procedure ЗAПBФOM(var BUFFER: pairs; L: integer);
 var I, LAST: integer;
 begin
   (x);
-  LAST := N - 1;
-  (*q*) for I := 0 to LAST do (r) WRITPAIR(g0567, BUFFER[I]);
+  LAST := L - 1;
+  (*q*) for I := 0 to LAST do (r) WRITPAIR(ФOM, BUFFER[I]);
   (x);
 end;
 
 % 05066: calendar correction after February in a leap year.
-function LEAPDAY(YEAR, MONTH: integer): integer;
+function BИCOKOC(ГOД, MEC: integer): integer;
 begin
-  if (YEAR mod 4 = 0) and (MONTH > 2) then LEAPDAY := 1
-  else LEAPDAY := 0;
+  if (ГOД mod 4 = 0) and (MEC > 2) then BИCOKOC := 1
+  else BИCOKOC := 0;
 end;
 
 % 05100: timestamp counts seconds since the beginning of 1981.
-procedure PUTDATE(T: integer);
-var SECS, DAYS, DAY, MONTH, YEAR: integer;
+procedure ПEЧДATY(BPEMЯ: integer);
+var CEKYHДЫ, CYTKИ, ЧИCЛO, MECЯЦ, ГOД: integer;
 begin
   PADCHAR := '0';
-  DAYS := T div 86400;
-  SECS := T mod 86400;
-  YEAR := DAYS div 365;
-  DAYS := DAYS mod 365 - YEAR div 4;
-  if DAYS < 0 then begin
-    YEAR := YEAR - 1;
-    DAYS := DAYS + 365;
+  CYTKИ := BPEMЯ div 86400;
+  CEKYHДЫ := BPEMЯ mod 86400;
+  ГOД := CYTKИ div 365;
+  CYTKИ := CYTKИ mod 365 - ГOД div 4;
+  if CYTKИ < 0 then begin
+    ГOД := ГOД - 1;
+    CYTKИ := CYTKИ + 365;
   end;
-  YEAR := YEAR + 81;
-  MONTH := DAYS div 31 + 2;
-  if MONTHDAY[MONTH] + LEAPDAY(YEAR, MONTH) > DAYS then
-    MONTH := MONTH - 1;
-  DAY := DAYS - MONTHDAY[MONTH] - LEAPDAY(YEAR, MONTH) + 1;
-  write(DAY:2, '.', MONTH:2, '.', YEAR:2, ' ',
-        SECS div 3600:2, ':', SECS div 60 mod 60:2);
+  ГOД := ГOД + 81;
+  MECЯЦ := CYTKИ div 31 + 2;
+  if HAЧAЛOME[MECЯЦ] + BИCOKOC(ГOД, MECЯЦ) > CYTKИ then
+    MECЯЦ := MECЯЦ - 1;
+  ЧИCЛO := CYTKИ - HAЧAЛOME[MECЯЦ] - BИCOKOC(ГOД, MECЯЦ) + 1;
+  write(ЧИCЛO:2, '.', MECЯЦ:2, '.', ГOД:2, ' ',
+        CEKYHДЫ div 3600:2, ':', CEKYHДЫ div 60 mod 60:2);
   PADCHAR := ' ';
 end;
 
 % 05170: stamp an object with account, weekday and creation time.
-procedure STAMPOBJ(REC: pobj);
-var DATE: dateparts;
-    TICKS: integer;
-    ACCOUNT: bitset;
+procedure YЧET(REC: pobj);
+var БYДA: dateparts;
+    BPE: integer;
+    ШИФP: bitset;
 begin
   besm(0530010B); besm(04150011B);
-  TICKS := ;
+  BPE := ;
   besm(0500100B); (q);
-  ACCOUNT := ;
-  GETDATE(DATE);
+  ШИФP := ;
+  GETDATE(БYДA);
   with REC@ do begin
-    owner.account := ACCOUNT;
-    calendar.weekday := DATE[3];
+    owner.account := ШИФP;
+    calendar.weekday := БYДA[3];
     created.seconds :=
-      TICKS div 50 + (MONTHDAY[DATE[1]] +
-       ((DATE[2]-81) * 365 + (DATE[2]-81) div 4) +
-       LEAPDAY(DATE[2], DATE[1]) + DATE[0] - 1) * 86400;
+      BPE div 50 + (HAЧAЛOME[БYДA[1]] +
+       ((БYДA[2]-81) * 365 + (БYДA[2]-81) div 4) +
+       BИCOKOC(БYДA[2], БYДA[1]) + БYДA[0] - 1) * 86400;
   end;
 end;
 
 % Definition/reference pass of LINK1, beginning at 05232.
-procedure GATHER(FILEIDX: integer);
+procedure CБOPOБЬE(CMOДTOФ: integer);
 type
   namecode = packed record
     first6, second6, third6: alfa;
     high: uint15; indexed: boolean; index, low: uint16
   end;
 var l4, l5: integer;
-    FIRSTDEF, NDEF, FIRSTSEC, NSEC, FIRSTREF, NREF: integer;
-    NPREF, NENTRY, CURSEC, PREVSEC, NEWSEC, DEFIDX, REFIDX: integer;
-    I, BODYLEN, EXTRALEN, DATALEN, PREFLEN: integer;
-    SECTION: sectrec;
-    PSEC, QSEC: psect;
+    HAЧMTOБ, ЧЗTOБ, HAЧMTAC, ЧЗTAC, HAЧMTCC, ЧЗTCC: integer;
+    ЧЗTПPE, ЧЗTЭM, CTAC, CTACПPEД, CTACHOB, CTOБHOB, CTCCHOB: integer;
+    I, ЧИCЛOCЛO, ЧИCЛOBЫP, ЧИCЛOATP, ЧИCЛOБAЗ: integer;
+    ЭЛTAC: sectrec;
+    YKTAC, QSEC: psect;
     DEFINITION: defrec;
     PD: pdef;
     REFERENCE: refrec;
-    PR: pref;
-    PFNODE: pprefix;
-    ENTRYNODE: pprefix;
+    ЭЛTПPE: pref;
+    ЭЛTЭM: pprefix;
+    YKДИMTEK: pprefix;
     NAME: pprefix;
-    BUFFER: record case integer of
+    ЗAП: record case integer of
       0: (data: pairs);
       1: (head: pair; code: namecode; pad: array [1..8] of integer)
     end;
-    HEADER, TAIL: pairs;
-    GOODEND, LABELSON: boolean;
+    ЗAПЗAГ, ЗAПPAБ: pairs;
+    TOЧHAДЛИ, HYЖHЫMET: boolean;
 
 function UNPACKNM(var CODE: namecode; var FIRST: char): integer;
   fortran;
 
 % 05276. Fatal object-file diagnostics return to the main abort label.
-procedure BADOBJ(ERROR: integer);
-var NEWKIND, OLDKIND: defkind;
-    OLDDEF: pdef;
-    OLDFILE: pfile;
+procedure OШMOД(HOMOШ: integer);
+var HOBOПP, ПPEДOПP: defkind;
+    YKTOБ: pdef;
+    YKTOФПPE: pfile;
 
 % 05232. Print the definition class, return its precedence.
-function PUTKIND(REC: pdef; PLURAL: boolean): defkind;
+function AHAЛИЗTO(YKTOБ: pdef; ПAДEЖ: boolean): defkind;
 begin
-  with REC@ do
+  with YKTOБ@ do
     if c.entry then begin
-      if PLURAL then write("BXOДA") else write("BXOД");
-      PUTKIND := entryval;
+      if ПAДEЖ then write("BXOДA") else write("BXOД");
+      AHAЛИЗTO := entryval;
     end else begin
       if not c.resolved then begin
-        write("BЫЧ."); PUTKIND := computed
+        write("BЫЧ."); AHAЛИЗTO := computed
       end
       else if c.scope <> 0 then begin
-        write("ПEP."); PUTKIND := reloc
+        write("ПEP."); AHAЛИЗTO := reloc
       end
-      else begin write("AБC."); PUTKIND := absolute end;
-      if PLURAL then write("ЗHAЧEHИЯ") else write("ЗHAЧEHИE");
+      else begin write("AБC."); AHAЛИЗTO := absolute end;
+      if ПAДEЖ then write("ЗHAЧEHИЯ") else write("ЗHAЧEHИE");
     end;
 end;
 
 begin
-  MODULEMSG(ref(CURRENTFILE));
-  case ERROR of
+  OШИБKИBM(ref(TEKOФ));
+  case HOMOШ of
     0: begin
-      RECORDMSG(BUFFER.data[0].header.kind);
+      KOOPД(ЗAП.data[0].header.kind);
       writeln(" : HEДOПYCTИMЫЙ HOMEP ПPEФИKCA");
     end;
     1: begin
-      RECORDMSG(BUFFER.data[0].header.kind);
+      KOOPД(ЗAП.data[0].header.kind);
       writeln(" : HEДOПYCTИMЫЙ HOMEP ЭЛ.MOДYЛЯ");
     end;
     3: begin
       write("ПOBTOPHOE OПPEДEЛEHИE ГЛOБAЛЬHOГO ");
-      NEWKIND := PUTKIND(ref(DEFINITION), true);
-      write(' '''); PUTPATH(NAME); writeln(''',');
+      HOBOПP := AHAЛИЗTO(ref(DEFINITION), true);
+      write(' '''); ПEЧИMЯOБ(NAME); writeln(''',');
       write("PAHEE OПPEДEЛEHHOГO B MOДYЛE ");
-      TABREAD(DEFPOOL, NAME@.defindex); OLDDEF := ;
-      OBJREAD(FILEPOOL, OLDDEF@.b.fileindex); OLDFILE := ;
-      write(OLDFILE@.name@.text:1, ' KAK ');
-      OLDKIND := PUTKIND(OLDDEF, false); writeln('.');
-      if NEWKIND >= OLDKIND then begin
-        NAME@.defindex := DEFIDX; OLDFILE := ref(CURRENTFILE);
+      TABREAD(TOБ, NAME@.defindex); YKTOБ := ;
+      OBJREAD(TOФ, YKTOБ@.b.fileindex); YKTOФПPE := ;
+      write(YKTOФПPE@.name@.text:1, ' KAK ');
+      ПPEДOПP := AHAЛИЗTO(YKTOБ, false); writeln('.');
+      if HOBOПP >= ПPEДOПP then begin
+        NAME@.defindex := CTOБHOB; YKTOФПPE := ref(TEKOФ);
       end;
       writeln("ИCПOЛЬ-HO OПPEДEЛEHИE ИЗ MOДYЛЯ ",
-              OLDFILE@.name@.text:1, '.');
+              YKTOФПPE@.name@.text:1, '.');
       exit;
     end;
     4: writeln("ИCПOPЧEH OБ'EKTHЫЙ MOДYЛЬ - ",
                "OTCYTCTBYET ЗAПИCЬ ЗAГOЛOBKA");
     5: begin
-      RECORDMSG(BUFFER.data[0].header.kind);
+      KOOPД(ЗAП.data[0].header.kind);
       writeln(" HAXOДИTCЯ HE HA CBOEM MECTE");
     end;
     6: begin
-      RECORDMSG(BUFFER.data[0].header.kind);
+      KOOPД(ЗAП.data[0].header.kind);
       writeln(" : HEДOПYCTИMЫЙ TИП ЗAПИCИ");
     end;
     others: begin
-      RECORDMSG(BUFFER.data[0].header.kind);
-      writeln(" OШCИC=", ERROR:1, '!!!');
+      KOOPД(ЗAП.data[0].header.kind);
+      writeln(" OШCИC=", HOMOШ:1, '!!!');
     end
   end;
   goto 9999;
 end;
 
 % 05472. Expand an indexed name and intern its dotted components.
-function RESNAME(MODE: integer; CODE: namecode): pprefix;
-var INDEX, LENGTH, FIRST, NPARTS, J, ITER, K: integer;
-    ORDER: ordering;
-    CHARS: array [1..24] of char;
-    KEY: namekey;
-    PARTS: array [1..12] of pkey;
-    NODE, PARENT, PREVIOUS: pprefix;
-    KEYREF: pkey;
-    DP: pdef;
-    RP: pref;
-    SP: psect;
+function ПEPEBPИ(TИПOБ: integer; KBAHT: namecode): pprefix;
+var HПPE, ДЛKBAHTA, HAЧYP, ЧYPИM, ДЛKBA, YPИM, I: integer;
+    PEЗ: ordering;
+    БYФИMЯ: array [1..24] of char;
+    БYФИMЯOБ: namekey;
+    BHYTPИMЯ: array [1..12] of pkey;
+    YKДИM, YKГЛABA, YKПPEДOK: pprefix;
+    YKYPИM: pkey;
+    YKTOБ: pdef;
+    YKTCC: pref;
+    YKTAC: psect;
 begin
-  INDEX := CODE.index; LENGTH := 0;
-  if INDEX = 0 then NODE := ROOTPREF
+  HПPE := KBAHT.index; ДЛKBAHTA := 0;
+  if HПPE = 0 then YKДИM := HAЧAЛOДИ
   else begin
-    if CODE.indexed then
-      case MODE of
+    if KBAHT.indexed then
+      case TИПOБ of
         4,6: begin
-          if INDEX > NDEF then BADOBJ(0);
-          TABREAD(DEFPOOL, FIRSTDEF+INDEX-1); DP := ;
-          NODE := DP@.a.name;
+          if HПPE > ЧЗTOБ then OШMOД(0);
+          TABREAD(TOБ, HAЧMTOБ+HПPE-1); YKTOБ := ;
+          YKДИM := YKTOБ@.a.name;
         end;
         8: begin
-          if INDEX > NREF then BADOBJ(0);
-          TABREAD(REFPOOL, FIRSTREF+INDEX-1); RP := ;
-          NODE := RP@.name;
+          if HПPE > ЧЗTCC then OШMOД(0);
+          TABREAD(TCC, HAЧMTCC+HПPE-1); YKTCC := ;
+          YKДИM := YKTCC@.name;
         end;
         3: begin
-          if INDEX > NPREF then BADOBJ(0);
-          TABGET(PREFPOOL, INDEX-1, NODE);
+          if HПPE > ЧЗTПPE then OШMOД(0);
+          TABGET(TПPE, HПPE-1, YKДИM);
         end;
         1: begin
-          if INDEX > NENTRY then BADOBJ(1);
-          TABGET(ENTRYPOOL, INDEX-1, NODE);
+          if HПPE > ЧЗTЭM then OШMOД(1);
+          TABGET(TЭM, HПPE-1, YKДИM);
         end;
         2: begin
-          if INDEX > NSEC then BADOBJ(0);
-          TABREAD(SECTPOOL, FIRSTSEC+INDEX-1); SP := ;
-          NODE := SP@.name;
+          if HПPE > ЧЗTAC then OШMOД(0);
+          TABREAD(TAC, HAЧMTAC+HПPE-1); YKTAC := ;
+          YKДИM := YKTAC@.name;
         end;
-        others: BADOBJ(2)
+        others: OШMOД(2)
       end
     else begin
-      if INDEX > NPREF then BADOBJ(0);
-      TABGET(PREFPOOL, INDEX-1, NODE);
+      if HПPE > ЧЗTПPE then OШMOД(0);
+      TABGET(TПPE, HПPE-1, YKДИM);
     end;
-    if CODE.first6[1] <> '.' then
-      with NODE@ do begin
-        LENGTH := UNPACKKY(name@, CHARS[1]); NODE := next;
+    if KBAHT.first6[1] <> '.' then
+      with YKДИM@ do begin
+        ДЛKBAHTA := UNPACKKY(name@, БYФИMЯ[1]); YKДИM := next;
       end;
   end;
-  LENGTH := UNPACKNM(CODE, CHARS[LENGTH+1]) + LENGTH;
-  if LENGTH = 0 then begin RESNAME := ptr(0); exit end;
-  FIRST := 1; NPARTS := ;
-  (q) for K := 2 to LENGTH do (r) begin
-    J := K-FIRST;
-    if (CHARS[K] <> '.') and (J <= 10) then begin
+  ДЛKBAHTA := UNPACKNM(KBAHT, БYФИMЯ[ДЛKBAHTA+1]) + ДЛKBAHTA;
+  if ДЛKBAHTA = 0 then begin ПEPEBPИ := ptr(0); exit end;
+  HAЧYP := 1; ЧYPИM := ;
+  (q) for I := 2 to ДЛKBAHTA do (r) begin
+    ДЛKBA := I-HAЧYP;
+    if (БYФИMЯ[I] <> '.') and (ДЛKBA <= 10) then begin
     end else begin
-      PACKKEY(CHARS[FIRST], J, KEY);
-      PARTS[NPARTS] := ENTERKEY(KEY);
-      NPARTS := NPARTS+1; FIRST := K;
+      PACKKEY(БYФИMЯ[HAЧYP], ДЛKBA, БYФИMЯOБ);
+      BHYTPИMЯ[ЧYPИM] := BHECИИMЯ(БYФИMЯOБ);
+      ЧYPИM := ЧYPИM+1; HAЧYP := I;
     end;
   end;
-  PACKKEY(CHARS[FIRST], LENGTH-FIRST+1, KEY);
-  PARTS[NPARTS] := ENTERKEY(KEY);
-  (q) for ITER to NPARTS do (r) begin
-    PARENT := NODE; NODE := NODE@.children; KEYREF := PARTS[ITER];
+  PACKKEY(БYФИMЯ[HAЧYP], ДЛKBAHTA-HAЧYP+1, БYФИMЯOБ);
+  BHYTPИMЯ[ЧYPИM] := BHECИИMЯ(БYФИMЯOБ);
+  (q) for YPИM to ЧYPИM do (r) begin
+    YKГЛABA := YKДИM; YKДИM := YKДИM@.children; YKYPИM :=
+  BHYTPИMЯ[YPИM];
     (newnode) begin
-    if NODE = ptr(0) then begin
-      NEWKEY(PATHPOOL); NODE := ;
-      PARENT@.children := NODE;
+    if YKДИM = ptr(0) then begin
+      NEWKEY(ДИM); YKДИM := ;
+      YKГЛABA@.children := YKДИM;
     end else begin
       (search) repeat
-        PREVIOUS := NODE;
-        with NODE@ do
-        ORDER := CMPNAME(KEYREF@.text, name@);
-        case ORDER of
-          same: exit search;
-          after: NODE := NODE@.right;
-          before: NODE := NODE@.left
+        YKПPEДOK := YKДИM;
+        with YKДИM@ do
+        PEЗ := CMPNAME(YKYPИM@.text, name@);
+        case PEЗ of
+          PB: exit search;
+          БЛ: YKДИM := YKДИM@.right;
+          MH: YKДИM := YKДИM@.left
         end;
-      until NODE = ptr(0);
-      if ORDER = same then exit newnode;
-      NEWKEY(PATHPOOL); NODE := ;
-      with PREVIOUS@ do
-        if ORDER = after then right := NODE else left := NODE;
+      until YKДИM = ptr(0);
+      if PEЗ = PB then exit newnode;
+      NEWKEY(ДИM); YKДИM := ;
+      with YKПPEДOK@ do
+        if PEЗ = БЛ then right := YKДИM else left := YKДИM;
     end;
-    NODE@ := [0C, 0C];
-    with NODE@ do begin next := PARENT; name := KEYREF end;
+    YKДИM@ := [0C, 0C];
+    with YKДИM@ do begin next := YKГЛABA; name := YKYPИM end;
     end;
   end;
-  RESNAME := NODE;
-  if (MODE = 6) or (MODE = 4) then
-    with NODE@ do begin kind := MODE; hidden := not LABELSON end;
+  ПEPEBPИ := YKДИM;
+  if (TИПOБ = 6) or (TИПOБ = 4) then
+    with YKДИM@ do begin kind := TИПOБ; hidden := not HYЖHЫMET end;
 end;
 
 % 06063, 06101, 06121. Initialize the next table record and index.
-procedure NEWDEF;
+procedure HOBЭЛTOБ;
 begin
-  DEFIDX := NUMOBJS(DEFPOOL)+1;
-  if NDEF = 0 then FIRSTDEF := DEFIDX;
-  NDEF := NDEF+1; DEFINITION := [0C, 0C, 0C];
+  CTOБHOB := NUMOBJS(TOБ)+1;
+  if ЧЗTOБ = 0 then HAЧMTOБ := CTOБHOB;
+  ЧЗTOБ := ЧЗTOБ+1; DEFINITION := [0C, 0C, 0C];
 end;
 
-procedure NEWSECT;
+procedure HOBЭЛTAC;
 begin
-  NEWSEC := NUMOBJS(SECTPOOL)+1;
-  if NSEC = 0 then FIRSTSEC := NEWSEC;
-  NSEC := NSEC+1; SECTION := [0C, 0C, 0C, 0C, 0C];
+  CTACHOB := NUMOBJS(TAC)+1;
+  if ЧЗTAC = 0 then HAЧMTAC := CTACHOB;
+  ЧЗTAC := ЧЗTAC+1; ЭЛTAC := [0C, 0C, 0C, 0C, 0C];
 end;
 
-procedure NEWREF;
+procedure HOBЭЛTCC;
 begin
-  REFIDX := NUMOBJS(REFPOOL)+1;
-  if NREF = 0 then FIRSTREF := REFIDX;
-  NREF := NREF+1; REFERENCE := [0C];
+  CTCCHOB := NUMOBJS(TCC)+1;
+  if ЧЗTCC = 0 then HAЧMTCC := CTCCHOB;
+  ЧЗTCC := ЧЗTCC+1; REFERENCE := [0C];
 end;
 
 % 06135, 06155, 06175, 06204. Preserve variable record tails.
-procedure SAVEPREF(N: integer);
-var RESERVED: integer;
+procedure БAЗЫBKYБ(ЧИCЛOБAЗ: integer);
+var I: integer;
 begin
-  if N <> 0 then begin
-    DEFINITION.a.count := N; DEFINITION.a.first := SAVEREC(N);
+  if ЧИCЛOБAЗ <> 0 then begin
+    DEFINITION.a.count := ЧИCЛOБAЗ; DEFINITION.a.first :=
+  ПEPEKYБ(ЧИCЛOБAЗ);
   end;
 end;
 
-procedure SAVEDATA(N: integer);
-var RESERVED: integer;
+procedure ATPBKYБ(ЧИCЛOATP: integer);
+var I: integer;
 begin
-  if N <> 0 then begin
-    DEFINITION.b.count := N; DEFINITION.b.first := SAVEREC(N);
+  if ЧИCЛOATP <> 0 then begin
+    DEFINITION.b.count := ЧИCЛOATP; DEFINITION.b.first :=
+  ПEPEKYБ(ЧИCЛOATP);
   end;
 end;
 
-procedure SKIPDATA(N: integer);
-var FIRST: integer;
+procedure KИHФBKYБ(ЧИCЛOCЛO: integer);
+var I: integer;
 begin
-  if N <> 0 then FIRST := SAVEREC(N);
+  if ЧИCЛOCЛO <> 0 then I := ПEPEKYБ(ЧИCЛOCЛO);
 end;
 
-procedure SAVEEXPR(N: integer);
-var RESERVED: integer;
+procedure BЫPBKYБ(ДЛИHABЫP: integer);
+var I: integer;
 begin
-  if N <> 0 then begin
-    DEFINITION.c.data.count := N;
-    DEFINITION.c.data.first := SAVEREC(N);
+  if ДЛИHABЫP <> 0 then begin
+    DEFINITION.c.data.count := ДЛИHABЫP;
+    DEFINITION.c.data.first := ПEPEKYБ(ДЛИHABЫP);
   end;
 end;
 
 % 06223. Bind a global definition to its namespace node.
-function BINDDEF(INDEX: integer; var CODE: namecode): pprefix;
+function ИMЯBTOБ(CTOБHOB: integer; var KBAHT: namecode): pprefix;
 begin
-  NAME := RESNAME(6, CODE); BINDDEF := ;
+  NAME := ПEPEBPИ(6, KBAHT); ИMЯBTOБ := ;
   with NAME@ do
-    if defindex <> 0 then BADOBJ(3) else defindex := INDEX;
+    if defindex <> 0 then OШMOД(3) else defindex := CTOБHOB;
 end;
 
 % 06247. Read the object stream and gather its table records.
 begin
-  OPENIN(FILEIDX);
-  FIRSTSEC := 0; FIRSTREF := ; FIRSTDEF := ; NSEC := ;
-  NREF := ; NDEF := ; NPREF := ; NENTRY := ;
-  GOODEND := true; LABELSON := 1 in CURRENTFILE.flags;
-  READREC(HEADER, 1);
-  if (HEADER[0].header.kind <> 0) or
-     (HEADER[0].signature.magic <> 11259375) then BADOBJ(4);
-  READBODY(HEADER);
+  OTKPOЙOФ(CMOДTOФ);
+  HAЧMTAC := 0; HAЧMTCC := ; HAЧMTOБ := ; ЧЗTAC := ;
+  ЧЗTCC := ; ЧЗTOБ := ; ЧЗTПPE := ; ЧЗTЭM := ;
+  TOЧHAДЛИ := true; HYЖHЫMET := 1 in TEKOФ.flags;
+  ДAЙЗAП(ЗAПЗAГ, 1);
+  if (ЗAПЗAГ[0].header.kind <> 0) or
+     (ЗAПЗAГ[0].signature.magic <> 11259375) then OШMOД(4);
+  ДAЙЗAПИC(ЗAПЗAГ);
   (records) repeat
-    READREC(BUFFER.data, 1);
-    case BUFFER.data[0].header.kind of
-      0: BADOBJ(5);
-      10: SKIPREC(BUFFER.data);
+    ДAЙЗAП(ЗAП.data, 1);
+    case ЗAП.data[0].header.kind of
+      0: OШMOД(5);
+      10: ПPOПЗAП(ЗAП.data);
       2: begin
-        READBODY(BUFFER.data); NEWSECT;
-        SECTION.header := BUFFER.data[0];
-        SECTION.links := BUFFER.data[3];
-        SECTION.name := RESNAME(2, BUFFER.code);
-        if BUFFER.data[0].numbers.entry <> 0 then begin
-          if BUFFER.data[0].numbers.entry > NENTRY then BADOBJ(1);
-          TABGET(ENTRYPOOL, BUFFER.data[0].numbers.entry-1, ENTRYNODE);
-          SECTION.entry := ENTRYNODE;
-        end else SECTION.entry := ptr(0);
-        SECTION.fileindex := FILEIDX;
-        CURSEC := g0051;
+        ДAЙЗAПИC(ЗAП.data); HOBЭЛTAC;
+        ЭЛTAC.header := ЗAП.data[0];
+        ЭЛTAC.links := ЗAП.data[3];
+        ЭЛTAC.name := ПEPEBPИ(2, ЗAП.code);
+        if ЗAП.data[0].numbers.entry <> 0 then begin
+          if ЗAП.data[0].numbers.entry > ЧЗTЭM then OШMOД(1);
+          TABGET(TЭM, ЗAП.data[0].numbers.entry-1, YKДИMTEK);
+          ЭЛTAC.entry := YKДИMTEK;
+        end else ЭЛTAC.entry := ptr(0);
+        ЭЛTAC.fileindex := CMOДTOФ;
+        CTAC := HAЧCTAC;
         repeat
-          PREVSEC := CURSEC;
-          TABREAD(SECTPOOL, CURSEC); PSEC := ;
-          CURSEC := PSEC@.next;
-        until (CURSEC = g0051) or (PSEC@.name = SECTION.name);
-        TABREAD(SECTPOOL, CURSEC); QSEC := ;
-        (q) while (QSEC@.name = SECTION.name) and (CURSEC <> g0051) do
+          CTACПPEД := CTAC;
+          TABREAD(TAC, CTAC); YKTAC := ;
+          CTAC := YKTAC@.next;
+        until (CTAC = HAЧCTAC) or (YKTAC@.name = ЭЛTAC.name);
+        TABREAD(TAC, CTAC); QSEC := ;
+        (q) while (QSEC@.name = ЭЛTAC.name) and (CTAC <> HAЧCTAC) do
           (r)
         begin
-          PREVSEC := CURSEC; CURSEC := PSEC@.next; PSEC := QSEC;
-          TABREAD(SECTPOOL, CURSEC); QSEC := ;
+          CTACПPEД := CTAC; CTAC := YKTAC@.next; YKTAC := QSEC;
+          TABREAD(TAC, CTAC); QSEC := ;
         end;
-        SECTION.next := CURSEC; SECTION.previous := PREVSEC;
-        PSEC@.next := NEWSEC; QSEC@.previous := NEWSEC;
-        PUTSECT(SECTPOOL, NEWSEC, SECTION);
+        ЭЛTAC.next := CTAC; ЭЛTAC.previous := CTACПPEД;
+        YKTAC@.next := CTACHOB; QSEC@.previous := CTACHOB;
+        PUTSECT(TAC, CTACHOB, ЭЛTAC);
       end;
       1: begin
-        READBODY(BUFFER.data);
-        if NENTRY = 0 then INITVEC(1, 256, "T ЭMOД", ENTRYPOOL);
-        ENTRYNODE := RESNAME(1, BUFFER.code);
-        NENTRY := NENTRY+1;
-        TABPUT(ENTRYPOOL, NENTRY-1, ENTRYNODE);
+        ДAЙЗAПИC(ЗAП.data);
+        if ЧЗTЭM = 0 then INITVEC(1, 256, "T ЭMOД", TЭM);
+        YKДИMTEK := ПEPEBPИ(1, ЗAП.code);
+        ЧЗTЭM := ЧЗTЭM+1;
+        TABPUT(TЭM, ЧЗTЭM-1, YKДИMTEK);
       end;
       3: begin
-        READBODY(BUFFER.data);
-        if NPREF = 0 then INITVEC(1, 512, "T ПPEФ", PREFPOOL);
-        PFNODE := RESNAME(3, BUFFER.code);
-        NPREF := NPREF+1; TABPUT(PREFPOOL, NPREF-1, PFNODE);
+        ДAЙЗAПИC(ЗAП.data);
+        if ЧЗTПPE = 0 then INITVEC(1, 512, "T ПPEФ", TПPE);
+        ЭЛTЭM := ПEPEBPИ(3, ЗAП.code);
+        ЧЗTПPE := ЧЗTПPE+1; TABPUT(TПPE, ЧЗTПPE-1, ЭЛTЭM);
       end;
       4: begin
-        NEWDEF;
+        HOBЭЛTOБ;
         DEFINITION.c.entry := true; DEFINITION.c.resolved := true;
-        DEFINITION.b.fileindex := FILEIDX;
-        DEFINITION.a.tags := BUFFER.data[0].definition.tags;
-        BODYLEN := BUFFER.data[0].numbers.count;
-        PREFLEN := BUFFER.data[0].header.prefcount;
-        DATALEN := BUFFER.data[0].header.datacount;
-        if BUFFER.data[0].header.hasname then begin
-          READPART(BUFFER.data, 1, 2);
-          DEFINITION.a.name := BINDDEF(DEFIDX, BUFFER.code);
-          BODYLEN := BODYLEN-2;
+        DEFINITION.b.fileindex := CMOДTOФ;
+        DEFINITION.a.tags := ЗAП.data[0].definition.tags;
+        ЧИCЛOCЛO := ЗAП.data[0].numbers.count;
+        ЧИCЛOБAЗ := ЗAП.data[0].header.prefcount;
+        ЧИCЛOATP := ЗAП.data[0].header.datacount;
+        if ЗAП.data[0].header.hasname then begin
+          ДAЙTEЛЗA(ЗAП.data, 1, 2);
+          DEFINITION.a.name := ИMЯBTOБ(CTOБHOB, ЗAП.code);
+          ЧИCЛOCЛO := ЧИCЛOCЛO-2;
         end;
-        READPART(TAIL, 0, 1);
-        DEFINITION.c.scope := TAIL[0].scopeword.count;
-        DEFINITION.c.data.value := TAIL[0].value.high;
-        SAVEPREF(PREFLEN); SAVEDATA(DATALEN);
-        SKIPDATA(BODYLEN-PREFLEN-DATALEN-2);
-        PUTDEF(DEFPOOL, DEFIDX, DEFINITION);
+        ДAЙTEЛЗA(ЗAПPAБ, 0, 1);
+        DEFINITION.c.scope := ЗAПPAБ[0].scopeword.count;
+        DEFINITION.c.data.value := ЗAПPAБ[0].value.high;
+        БAЗЫBKYБ(ЧИCЛOБAЗ); ATPBKYБ(ЧИCЛOATP);
+        KИHФBKYБ(ЧИCЛOCЛO-ЧИCЛOБAЗ-ЧИCЛOATP-2);
+        PUTDEF(TOБ, CTOБHOB, DEFINITION);
       end;
-      5: SKIPREC(BUFFER.data);
+      5: ПPOПЗAП(ЗAП.data);
       6: begin
-        NEWDEF; DEFINITION.b.fileindex := FILEIDX;
-        BODYLEN := BUFFER.data[0].numbers.count;
-        EXTRALEN := BUFFER.data[0].numbers.entry;
-        DATALEN := BUFFER.data[0].header.datacount;
-        if BUFFER.data[0].header.hasname then begin
-          READPART(BUFFER.data, 1, 2);
-          DEFINITION.a.name := BINDDEF(DEFIDX, BUFFER.code);
-          BODYLEN := BODYLEN-2;
+        HOBЭЛTOБ; DEFINITION.b.fileindex := CMOДTOФ;
+        ЧИCЛOCЛO := ЗAП.data[0].numbers.count;
+        ЧИCЛOBЫP := ЗAП.data[0].numbers.entry;
+        ЧИCЛOATP := ЗAП.data[0].header.datacount;
+        if ЗAП.data[0].header.hasname then begin
+          ДAЙTEЛЗA(ЗAП.data, 1, 2);
+          DEFINITION.a.name := ИMЯBTOБ(CTOБHOB, ЗAП.code);
+          ЧИCЛOCЛO := ЧИCЛOCЛO-2;
         end;
-        if EXTRALEN <> 0 then SAVEEXPR(EXTRALEN)
+        if ЧИCЛOBЫP <> 0 then BЫPBKYБ(ЧИCЛOBЫP)
         else begin
-          DEFINITION.c.resolved := true; BODYLEN := BODYLEN-1;
-          READPART(TAIL, 0, 1);
-          DEFINITION.c.scope := TAIL[0].scopeword.count;
-          DEFINITION.c.data.value := TAIL[0].value.high;
+          DEFINITION.c.resolved := true; ЧИCЛOCЛO := ЧИCЛOCЛO-1;
+          ДAЙTEЛЗA(ЗAПPAБ, 0, 1);
+          DEFINITION.c.scope := ЗAПPAБ[0].scopeword.count;
+          DEFINITION.c.data.value := ЗAПPAБ[0].value.high;
         end;
-        SAVEDATA(DATALEN);
-        SKIPDATA(BODYLEN-EXTRALEN-DATALEN-1);
-        PUTDEF(DEFPOOL, DEFIDX, DEFINITION);
+        ATPBKYБ(ЧИCЛOATP);
+        KИHФBKYБ(ЧИCЛOCЛO-ЧИCЛOBЫP-ЧИCЛOATP-1);
+        PUTDEF(TOБ, CTOБHOB, DEFINITION);
       end;
-      7: SKIPREC(BUFFER.data);
+      7: ПPOПЗAП(ЗAП.data);
       8: begin
-        READPART(BUFFER.data, 1, 2); NEWREF;
-        REFERENCE.name := RESNAME(8, BUFFER.code);
-        DATALEN := BUFFER.data[0].numbers.count-3;
-        if DATALEN <> 0 then begin
-          REFERENCE.count := DATALEN;
-          REFERENCE.first := SAVEREC(DATALEN);
+        ДAЙTEЛЗA(ЗAП.data, 1, 2); HOBЭЛTCC;
+        REFERENCE.name := ПEPEBPИ(8, ЗAП.code);
+        ЧИCЛOATP := ЗAП.data[0].numbers.count-3;
+        if ЧИCЛOATP <> 0 then begin
+          REFERENCE.count := ЧИCЛOATP;
+          REFERENCE.first := ПEPEKYБ(ЧИCЛOATP);
         end;
-        PUTREF(REFPOOL, REFIDX, REFERENCE);
+        PUTREF(TCC, CTCCHOB, REFERENCE);
       end;
-      9: begin GOODEND := false; exit records end;
+      9: begin TOЧHAДЛИ := false; exit records end;
       255: exit records;
-      others: BADOBJ(6)
+      others: OШMOД(6)
     end;
   until false;
-  CURRENTFILE.n1.firstsect := FIRSTSEC;
-  CURRENTFILE.n1.nsects := NSEC;
-  CURRENTFILE.n0.firstdef := FIRSTDEF; CURRENTFILE.n0.ndefs := NDEF;
-  CURRENTFILE.n2.firstref := FIRSTREF; CURRENTFILE.n2.nrefs := NREF;
-  if 0 in PRINTOPT then begin
-    write(' ', CURRENTFILE.name@.text, ' [',
-          CURRENTFILE.filedata.address:6 oct, '] ');
-    PUTCODE(HEADER[2].firstcode.text);
-    PUTCODE(HEADER[2].lastcode.text);
-    PUTCODE(HEADER[3].firstcode.text);
-    write(' .', HEADER[0].version.number:1);
-    if GOODEND then write(' ') else write('*');
-    PUTSIZE(NUMOBJS(g0567)); write(' ');
-    PUTDATE(HEADER[5].time.seconds);
+  TEKOФ.n1.firstsect := HAЧMTAC;
+  TEKOФ.n1.nsects := ЧЗTAC;
+  TEKOФ.n0.firstdef := HAЧMTOБ; TEKOФ.n0.ndefs := ЧЗTOБ;
+  TEKOФ.n2.firstref := HAЧMTCC; TEKOФ.n2.nrefs := ЧЗTCC;
+  if 0 in PEЖИMЫ then begin
+    write(' ', TEKOФ.name@.text, ' [',
+          TEKOФ.filedata.address:6 oct, '] ');
+    ПEЧALF0(ЗAПЗAГ[2].firstcode.text);
+    ПEЧALF0(ЗAПЗAГ[2].lastcode.text);
+    ПEЧALF0(ЗAПЗAГ[3].firstcode.text);
+    write(' .', ЗAПЗAГ[0].version.number:1);
+    if TOЧHAДЛИ then write(' ') else write('*');
+    ПEЧДЛФAЙ(NUMOBJS(ФOM)); write(' ');
+    ПEЧДATY(ЗAПЗAГ[5].time.seconds);
     write(' ',
-          shift(integer(bitset(HEADER[4].hi)*[0..31]), 24):6 hex,
+          shift(integer(bitset(ЗAПЗAГ[4].hi)*[0..31]), 24):6 hex,
           " ЭBM-",
-          HEADER[5].date.weekday:1, '  ');
-    PUTCODE(HEADER[1].firstcode.text);
-    PUTCODE(HEADER[1].lastcode.text);
-    writeln(NSEC:6, NDEF:9, NREF:8, NENTRY:5, NPREF:5);
+          ЗAПЗAГ[5].date.weekday:1, '  ');
+    ПEЧALF0(ЗAПЗAГ[1].firstcode.text);
+    ПEЧALF0(ЗAПЗAГ[1].lastcode.text);
+    writeln(ЧЗTAC:6, ЧЗTOБ:9, ЧЗTCC:8, ЧЗTЭM:5, ЧЗTПPE:5);
   end;
-  if NPREF <> 0 then CLOSE(PREFPOOL);
-  if NENTRY <> 0 then CLOSE(ENTRYPOOL);
-  CLOSEIN(FILEIDX);
+  if ЧЗTПPE <> 0 then CLOSE(TПPE);
+  if ЧЗTЭM <> 0 then CLOSE(TЭM);
+  ЗAKPOЙOФ(CMOДTOФ);
 end;
 % Reference resolution and section placement, from 07221.
-function RESOLVE(FILEIDX: integer): boolean;
-var SPARE5, COUNT, I, DEFNO, HEAD, LAST: integer;
-    F: pfile;
-    R, PREV: pref;
+function PAЗPEШИC(CTOФ: integer): boolean;
+var HAЧTCC, ЧЗTCC, CTCC, CCЫЛTOБ, CHAЧHEP, CHEPA: integer;
+    YKTOФ: pfile;
+    YKTCC, YKTCCП: pref;
     SPARE14, LIMIT: integer;
 begin
-  OBJEDIT(FILEPOOL, FILEIDX); F := ;
-  with F@ do begin FIRSTREF := n2.firstref; COUNT := n2.nrefs end;
-  RESOLVE := true; HEAD := 0; LAST := ;
+  OBJEDIT(TOФ, CTOФ); YKTOФ := ;
+  with YKTOФ@ do begin HAЧMTCC := n2.firstref; ЧЗTCC := n2.nrefs end;
+  PAЗPEШИC := true; CHAЧHEP := 0; CHEPA := ;
   (x);
-  LIMIT := FIRSTREF+COUNT-1;
-  (q) for I := FIRSTREF to LIMIT do (r) begin
-    FILEEDIT(REFPOOL, I); R := ;
-    with R@ do DEFNO := name@.defindex;
-    if DEFNO = 0 then begin
-      ALLFOUND := false; RESOLVE := ;
-      if LAST = 0 then HEAD := I
+  LIMIT := HAЧMTCC+ЧЗTCC-1;
+  (q) for CTCC := HAЧMTCC to LIMIT do (r) begin
+    FILEEDIT(TCC, CTCC); YKTCC := ;
+    with YKTCC@ do CCЫЛTOБ := name@.defindex;
+    if CCЫЛTOБ = 0 then begin
+      PAЗPEШИЛ := false; PAЗPEШИC := ;
+      if CHEPA = 0 then CHAЧHEP := CTCC
       else begin
-        FILEEDIT(REFPOOL, LAST); PREV := ; PREV@.link := I;
+        FILEEDIT(TCC, CHEPA); YKTCCП := ; YKTCCП@.link := CTCC;
       end;
-      LAST := I;
-    end else begin R@.resolved := true; R@.link := DEFNO end;
+      CHEPA := CTCC;
+    end else begin YKTCC@.resolved := true; YKTCC@.link := CCЫЛTOБ end;
   end;
-  F@.unresolved.first := HEAD;
+  YKTOФ@.unresolved.first := CHAЧHEP;
 end;
 
 % 07316. Print the unresolved-reference chain, wrapping at column 128.
-procedure UNRESMSG(FILEIDX: integer);
-var INDEX, COLUMN, WIDTH: integer;
-    F: pfile;
-    R: pref;
-    FIRST: boolean;
+procedure TAБHEPAC(CTOФ: integer);
+var CHEPA, ЗAHЯЛ, ДЛИHAИM: integer;
+    YKTOФ: pfile;
+    YKTCC: pref;
+    ПEPBOE: boolean;
 begin
-  TABREAD(FILEPOOL, FILEIDX); F := ;
-  with F@ do begin
-    INDEX := unresolved.first;
+  TABREAD(TOФ, CTOФ); YKTOФ := ;
+  with YKTOФ@ do begin
+    CHEPA := unresolved.first;
     write("MOДYЛЬ ", name@.text, ' : ');
   end;
-  COLUMN := 18; FIRST := true;
-  (q) while INDEX <> 0 do (r) begin
-    TABREAD(REFPOOL, INDEX); R := ;
-    with R@ do WIDTH := PATHLEN(R@.name)+2;
-    if COLUMN+WIDTH > 128 then begin
-      writeln; write(' ':20); COLUMN := 18; FIRST := true;
+  ЗAHЯЛ := 18; ПEPBOE := true;
+  (q) while CHEPA <> 0 do (r) begin
+    TABREAD(TCC, CHEPA); YKTCC := ;
+    with YKTCC@ do ДЛИHAИM := ДЛИПOЛИM(YKTCC@.name)+2;
+    if ЗAHЯЛ+ДЛИHAИM > 128 then begin
+      writeln; write(' ':20); ЗAHЯЛ := 18; ПEPBOE := true;
     end;
-    if not FIRST then write(', ') else FIRST := false;
-    PUTPATH(R@.name);
-    COLUMN := COLUMN+WIDTH; INDEX := R@.link;
+    if not ПEPBOE then write(', ') else ПEPBOE := false;
+    ПEЧИMЯOБ(YKTCC@.name);
+    ЗAHЯЛ := ЗAHЯЛ+ДЛИHAИM; CHEPA := YKTCC@.link;
   end;
   writeln;
 end;
 
 % 07403. Round START upward to a multiple of 2**POWER.
-function ALIGNUP(START, POWER: integer): integer;
-var TOP, STEP: integer;
+function BЫPABAДP(AДPEC, ГPAHЬ: integer): integer;
+var M, P: integer;
 begin
-  STEP := trunc(exp(POWER * 0.69314718056));
-  TOP := START+STEP-1; ALIGNUP := TOP-TOP mod STEP;
+  P := trunc(exp(ГPAHЬ * 0.69314718056));
+  M := AДPEC+P-1; BЫPABAДP := M-M mod P;
 end;
 
 % 07516. Append compatible section records or overlap equal-sized ones.
-procedure JOINSECT(REC: psect);
-var STARTADDR: integer;
+procedure HACTPOЙH(YKTAC: psect);
+var HACEK: integer;
 
 % 07444. Fatal section-joining diagnostics.
-procedure BADSECT(ERROR: integer);
+procedure OШCOПP(HOMOШ: integer);
 
 % 07420. Identify a section and its originating module.
 procedure SECTID(REC: psect);
@@ -1570,87 +1574,87 @@ var RESERVED: integer;
     F: pfile;
 begin
   with REC@ do begin
-    PUTPATH(name); write(' (');
-    TABREAD(FILEPOOL, fileindex); F := ;
+    ПEЧИMЯOБ(name); write(' (');
+    TABREAD(TOФ, fileindex); F := ;
     write(F@.name@.text, ')');
   end;
 end;
 
 begin
   writeln("* * *  OШИБKA ПPИ ", "COПPЯЖEHИИ CEKЦИЙ   * * *");
-  case ERROR of
+  case HOMOШ of
     0: begin
       write("HECOBMECTИMЫE ATPИБYTЫ CEKЦИЙ ");
-      SECTID(REC); write(" И "); SECTID(ref(LASTSECT));
+      SECTID(YKTAC); write(" И "); SECTID(ref(ЭЛTACП));
     end;
     1: begin
       write("HECOOTBETCTBИE ДЛИH CEKЦИЙ ");
-      SECTID(REC); write(" И "); SECTID(ref(LASTSECT));
+      SECTID(YKTAC); write(" И "); SECTID(ref(ЭЛTACП));
     end;
     2: begin
-      write("ЗAПPEЩEHHЫЙ ATPИБYT CEKЦИИ "); SECTID(REC);
+      write("ЗAПPEЩEHHЫЙ ATPИБYT CEKЦИИ "); SECTID(YKTAC);
     end;
     3: begin
-      write("HEДOПYCTИMЫЙ ATPИБYT CEKЦИИ "); SECTID(REC);
+      write("HEДOПYCTИMЫЙ ATPИБYT CEKЦИИ "); SECTID(YKTAC);
     end
   end;
   writeln; goto 9999;
 end;
 
 begin
-  with REC@ do begin
+  with YKTAC@ do begin
     if length = 0 then exit;
-    if name = LASTSECT.name then begin
-      if (space <> LASTSECT.space) or
-         (alignment <> LASTSECT.alignment) or
-         (join <> LASTSECT.join) or
-         (rights <> LASTSECT.rights) then BADSECT(0);
+    if name = ЭЛTACП.name then begin
+      if (space <> ЭЛTACП.space) or
+         (alignment <> ЭЛTACП.alignment) or
+         (join <> ЭЛTACП.join) or
+         (rights <> ЭЛTACП.rights) then OШCOПP(0);
       case join of
         jmoverlap: begin
-          if length <> LASTSECT.length then BADSECT(1);
-          REC@.base := LASTSECT.base; offset := LASTSECT.offset;
+          if length <> ЭЛTACП.length then OШCOПP(1);
+          YKTAC@.base := ЭЛTACП.base; offset := ЭЛTACП.offset;
         end;
         jmconcat: begin
-          STARTADDR := ALIGNUP(NEXTADDR, alignment);
-          NEXTADDR := length+STARTADDR; REC@.base := STARTADDR;
-          offset := STARTADDR;
+          HACEK := BЫPABAДP(CЧAC, alignment);
+          CЧAC := length+HACEK; YKTAC@.base := HACEK;
+          offset := HACEK;
         end;
-        jmforbid: BADSECT(2);
-        others: BADSECT(3)
+        jmforbid: OШCOПP(2);
+        others: OШCOПP(3)
       end;
     end else begin
-      STARTADDR := ALIGNUP(NEXTADDR, alignment);
-      NEXTADDR := length+STARTADDR;
-      REC@.base := STARTADDR; offset := STARTADDR;
-      LASTSECT := REC@;
+      HACEK := BЫPABAДP(CЧAC, alignment);
+      CЧAC := length+HACEK;
+      YKTAC@.base := HACEK; offset := HACEK;
+      ЭЛTACП := YKTAC@;
     end;
   end;
 end;
 
 % 07661. Qualified section/elementary-module name, padded to 17 columns.
-procedure PUTSECTN(REC: psect);
-var WIDTH: integer;
+procedure ПEЧИMЯCE(YKTAC: psect);
+var ЗAHЯЛ: integer;
 begin
-  with REC@ do begin
-    WIDTH := PATHLEN(REC@.name); PUTPATH(REC@.name);
+  with YKTAC@ do begin
+    ЗAHЯЛ := ДЛИПOЛИM(YKTAC@.name); ПEЧИMЯOБ(YKTAC@.name);
     if entry <> ptr(0) then begin
-      WIDTH := PATHLEN(entry)+WIDTH+1;
-      write('.'); PUTPATH(entry);
+      ЗAHЯЛ := ДЛИПOЛИM(entry)+ЗAHЯЛ+1;
+      write('.'); ПEЧИMЯOБ(entry);
     end;
-    if WIDTH > 17 then begin writeln; write(' ':17) end
-    else if WIDTH < 17 then write(' ':17-WIDTH);
+    if ЗAHЯЛ > 17 then begin writeln; write(' ':17) end
+    else if ЗAHЯЛ < 17 then write(' ':17-ЗAHЯЛ);
   end;
 end;
 
 % 07722. List a placed section and its storage/protection attributes.
-procedure LISTSECT(REC: psect);
-var F: pfile;
+procedure ПEЧCEKЦИ(YKTAC: psect);
+var YKTOФ: pfile;
 begin
-  with REC@ do begin
+  with YKTAC@ do begin
     if length = 0 then exit;
-    PUTSECTN(REC); write(' ');
-    TABREAD(FILEPOOL, fileindex); F := ;
-    write(F@.name@.text, ' ', base:9 oct, ' ',
+    ПEЧИMЯCE(YKTAC); write(' ');
+    TABREAD(TOФ, fileindex); YKTOФ := ;
+    write(YKTOФ@.name@.text, ' ', base:9 oct, ' ',
           length+base-1:9 oct, ' ', length:9 oct);
     case alignment of
       0: write("  CЛOBO");
@@ -1676,14 +1680,14 @@ begin
 end;
 
 % 10146. Introduce a global object name or a local object number.
-procedure OBJWHERE(NAME: pprefix);
+procedure ПEЧИMЯЛO(ИMЯ: pprefix);
 begin
-  if NAME <> ptr(0) then begin
-    write("ГЛOБAЛЬHЫЙ OБ'EKT "); PUTPATH(NAME);
-  end else write("ЛOKAЛЬHЫЙ OБ'EKT N", g0107:1);
+  if ИMЯ <> ptr(0) then begin
+    write("ГЛOБAЛЬHЫЙ OБ'EKT "); ПEЧИMЯOБ(ИMЯ);
+  end else write("ЛOKAЛЬHЫЙ OБ'EKT N", ИHДEKCTO:1);
 end;
 % Expression evaluator and its nested helpers, 10162-13633.
-function EVALUATE(INSECT: boolean): boolean;
+function MAШИHA(ФЛATEP: boolean): boolean;
 label 100, 200;
 type
   stackval = packed record case integer of
@@ -1715,20 +1719,20 @@ type
                 low: uint16 end)
   end;
   cmdpair = record left, right: cmdword end;
-var STACK: array [1..12] of stackval;
-    TOP, REFNO, DEFNO, SECTNO, CURSOR, COUNT, RESERVED,
-    BITSTART, BITCOUNT: integer;
+var CTEK: array [1..12] of stackval;
+    YKACT, REFNO, CTOБ, CTAC, CЧБYФOП, PAДP, ГЛEB,
+    ГПPAB, BITCOUNT: integer;
     LOOKOK: boolean;
     SPARE27: integer;
-    SEC: psect;
+    YKTAC: psect;
     DEF: pdef;
     REFERENCE: pref;
-    OPCODE: opcodeval;
-    SPARE32, SAVETAG: integer;
-    SAVEMODE: evalform;
-    WORDHALF: integer;
+    TEKOП: opcodeval;
+    CЛEДOП, ЛOKTEГИ: integer;
+    ЛPEГOБ: evalform;
+    ПOЛYOПEP: integer;
     BYTEPAIR, WORDPAIR: pair;
-    COMMAND: cmdpair;
+    БYФTEKCT: cmdpair;
     TEMPPAIR: pair;
     BYTES: array [1..128] of char;
     LOOP172, LOOP173, LOOP174, LOOP175, LOOP176: integer;
@@ -1753,19 +1757,19 @@ function B23423(var A: stackval; MASK: integer): integer; fortran;
 procedure TABSAVE(POOL, INDEX: integer; var VALUE: pair); fortran;
 
 % 10162. Diagnostic dump of the twelve-word operand stack.
-procedure DUMPSTK;
+procedure DUMPCTEK;
 var I: integer;
 begin
   write('CTEK');
-  (q) for I to TOP do (r) write(' ', I:1, ' = ', STACK[I].word:16 oct);
+  (q) for I to YKACT do (r) write(' ', I:1, ' = ', CTEK[I].word:16 oct);
   writeln;
 end;
 
 % 10203. Fatal expression/relocation diagnostics.
-procedure BADEXPR(ERROR: integer);
+procedure OШMAШ(HOMOШ: integer);
 begin
-  MODULEMSG(ref(CURRENTFILE));
-  case ERROR of
+  OШИБKИBM(ref(TEKOФ));
+  case HOMOШ of
     0: writeln("ПPEBЫШEHA ДЛИHA CEГMEHTA");
     1: writeln("ИCЧEPПAHЫ OПEPAЦИИ B BЫPAЖEHИИ");
     17: writeln(
@@ -1779,44 +1783,44 @@ begin
     6: writeln("B KOHЦE BЫPAЖEHИЯ CTEK HE ПYCT");
     7: writeln("ИCЧEPПAHЫ OПEPAHДЫ B OПEPATOPE");
     8: writeln("HEBEPHЫЙ KOП ПФ-KOMAHДЫ");
-    9: writeln("HEPEAЛИЗOBAHHAЯ MИKPOOПEPAЦИЯ ", OPCODE.word:2 hex);
-    10: writeln("HEДOПYCTИMAЯ MИKPOOПEPAЦИЯ ", OPCODE.word:2 hex);
+    9: writeln("HEPEAЛИЗOBAHHAЯ MИKPOOПEPAЦИЯ ", TEKOП.word:2 hex);
+    10: writeln("HEДOПYCTИMAЯ MИKPOOПEPAЦИЯ ", TEKOП.word:2 hex);
     11: writeln(
-      "HEBEPHOE ИCПOЛЬЗOBAHИE MИKPOOПEPAЦИИ ", OPCODE.word:2 hex);
+      "HEBEPHOE ИCПOЛЬЗOBAHИE MИKPOOПEPAЦИИ ", TEKOП.word:2 hex);
     12: writeln("HEBEPHAЯ CCЫЛKA HA BHEШHИЙ OБ'EKT : ", REFNO:0,
-                ' (MAX=', g0070:0, ')');
-    13: writeln("HEBEPHЫЙ HOMEP OБ'EKTA : ", DEFNO:0,
-                ' (MAX=', g0072:0, ')');
-    15: writeln("HEДOПYCTИMЫE ГPAHИЦЫ ПOЛЯ : ", 48+BITSTART:1,
-                '..', BITCOUNT+BITSTART+1:1);
-    16: writeln("HEBEPHЫЙ HOMEP ATPИБYTA : ", g0077:0);
-    others: writeln("OШCИC=", ERROR:1, '!!!')
+                ' (MAX=', KOHMTCC:0, ')');
+    13: writeln("HEBEPHЫЙ HOMEP OБ'EKTA : ", CTOБ:0,
+                ' (MAX=', KOHMTOБ:0, ')');
+    15: writeln("HEДOПYCTИMЫE ГPAHИЦЫ ПOЛЯ : ", 48+ГПPAB:1,
+                '..', BITCOUNT+ГПPAB+1:1);
+    16: writeln("HEBEPHЫЙ HOMEP ATPИБYTA : ", I:0);
+    others: writeln("OШCИC=", HOMOШ:1, '!!!')
   end;
-  if INSECT then begin
-    write("CEKЦИЯ "); PUTPATH(g0140);
-    write(' : ', NEXTADDR:9 oct, ', '); RECORDMSG(10);
-  end else OBJWHERE(g0140);
+  if ФЛATEP then begin
+    write("CEKЦИЯ "); ПEЧИMЯOБ(ИMЯTEKCE);
+    write(' : ', CЧAC:9 oct, ', '); KOOPД(10);
+  end else ПEЧИMЯЛO(ИMЯTEKCE);
   writeln; goto 9999;
 end;
 
 % 10432. Store a packed output pair and advance its word address.
-procedure FLUSHOUT;
+procedure CЛOBOBPA;
 begin
-  if g0057 >= g0056 then BADEXPR(0);
-  PUTPAIR(g0570, g0057, OUTPAIR);
-  g0057 := g0057+1; NEXTADDR := NEXTADDR+1;
+  if CPAЗД >= CЧAKCEГM then OШMAШ(0);
+  PUTPAIR(PAЗД, CPAЗД, CЛOBO);
+  CPAЗД := CPAЗД+1; CЧAC := CЧAC+1;
 end;
 
 % 10447. Pack successive 24-bit values into the output pair.
-procedure PUTWORD(WORD: integer);
+procedure ЗAПBPAЗД(ПCЛ: integer);
 begin
-  if HALFOUT then begin
-    OUTPAIR.hi := integer(bitset(OUTPAIR.hi)+bitset(WORD)*[24..31]);
-    OUTPAIR.lo := shift(WORD, -32);
-  end else OUTPAIR.hi := shift(WORD, -24);
-  if HALFOUT then begin FLUSHOUT; HALFOUT := false end
+  if ФПPABC then begin
+    CЛOBO.hi := integer(bitset(CЛOBO.hi)+bitset(ПCЛ)*[24..31]);
+    CЛOBO.lo := shift(ПCЛ, -32);
+  end else CЛOBO.hi := shift(ПCЛ, -24);
+  if ФПPABC then begin CЛOBOBPA; ФПPABC := false end
   else begin
-    OUTPAIR.packedout.tag := shift(SAVETAG, 43); HALFOUT := true;
+    CЛOBO.packedout.tag := shift(ЛOKTEГИ, 43); ФПPABC := true;
   end;
 end;
 
@@ -1824,660 +1828,662 @@ end;
 % Refill up to 128 bytes, or stop at the end of the expression stream.
 % UNPCK stores six characters: the extra two overlap the next group.
 % Its final two stores reach LOOP172/LOOP173, just as in the image.
-function GETBYTE: integer;
+function ДAЙMИKPO: integer;
 begin
-  if CURSOR > 128 then begin
-    if g0100 >= g0101 then BADEXPR(1);
-    CURSOR := 1;
+  if CЧБYФOП > 128 then begin
+    if CBЫP >= CKOHBЫP then OШMAШ(1);
+    CЧБYФOП := 1;
     repeat
-      if INSECT then GETPAIR(g0567, g0100, BYTEPAIR)
-      else TABPAIR(g0566, g0100, BYTEPAIR);
-      g0100 := g0100+1;
-      unpck(BYTES[CURSOR], BYTEPAIR.first6);
-      CURSOR := CURSOR+4;
-      unpck(BYTES[CURSOR], BYTEPAIR.last6);
-      CURSOR := CURSOR+4;
+      if ФЛATEP then GETPAIR(ФOM, CBЫP, BYTEPAIR)
+      else TABPAIR(KYБA, CBЫP, BYTEPAIR);
+      CBЫP := CBЫP+1;
+      unpck(BYTES[CЧБYФOП], BYTEPAIR.first6);
+      CЧБYФOП := CЧБYФOП+4;
+      unpck(BYTES[CЧБYФOП], BYTEPAIR.last6);
+      CЧБYФOП := CЧБYФOП+4;
       (x);
-    until (CURSOR > 128) or (g0100 = g0101);
-    CURSOR := 1;
+    until (CЧБYФOП > 128) or (CBЫP = CKOHBЫP);
+    CЧБYФOП := 1;
   end;
-  GETBYTE := ord(BYTES[CURSOR]); CURSOR := CURSOR+1;
+  ДAЙMИKPO := ord(BYTES[CЧБYФOП]); CЧБYФOП := CЧБYФOП+1;
 end;
 
 % 10542. Read alternate 24-bit values in the high 32 bits of two words.
-function GETWORD: integer;
+function ДAЙOПEP: integer;
 begin
-  if WORDHALF = 0C then begin
-    if g0102 >= g0103 then BADEXPR(7);
-    GETPAIR(g0567, g0102, WORDPAIR); g0102 := g0102+1;
-    GETWORD := WORDPAIR.data0.value;
-    WORDHALF := 1C;
+  if ПOЛYOПEP = 0C then begin
+    if CTEKCT >= CKOHTEK then OШMAШ(7);
+    GETPAIR(ФOM, CTEKCT, WORDPAIR); CTEKCT := CTEKCT+1;
+    ДAЙOПEP := WORDPAIR.data0.value;
+    ПOЛYOПEP := 1C;
   end else begin
-    GETWORD := WORDPAIR.data1.value;
-    WORDHALF := 0C;
+    ДAЙOПEP := WORDPAIR.data1.value;
+    ПOЛYOПEP := 0C;
   end;
 end;
 
 % 10571. Push N big-endian bytes, right aligned in a stack word.
-procedure PUSHLIT(N: integer);
+procedure БAЙTЫBCT(ЧБ: integer);
 var I: integer;
 begin
-  TOP := TOP+1; STACK[TOP] := [0C];
-  with STACK[TOP] do
-    (q) for I := 7-N to 6 do (r)
-      bits := bitset(shift(word, -8))+bitset(chr(GETBYTE));
+  YKACT := YKACT+1; CTEK[YKACT] := [0C];
+  with CTEK[YKACT] do
+    (q) for I := 7-ЧБ to 6 do (r)
+      bits := bitset(shift(word, -8))+bitset(chr(ДAЙMИKPO));
 end;
 
 % 10614. Convert the current value to an integer, add the section delta,
 % and convert it back with the original external value service.
-procedure RELOCATE(INDEX: integer);
-var SEC: psect;
+procedure ДEЛЬTAC(HOMCEK: integer);
+var YKTAC: psect;
 begin
-  INDEX := INDEX+g0065-1;
-  if INDEX >= g0067 then BADEXPR(4);
-  TABREAD(SECTPOOL, INDEX); SEC := ;
-  with SEC@ do
-    PACKVAL(UNPACKVL(STACK[TOP])+(base-high2), STACK[TOP]);
+  HOMCEK := HOMCEK+HAЧMTAC-1;
+  if HOMCEK >= KOHMTAC then OШMAШ(4);
+  TABREAD(TAC, HOMCEK); YKTAC := ;
+  with YKTAC@ do
+    PACKVAL(UNPACKVL(CTEK[YKACT])+(base-high2), CTEK[YKACT]);
 end;
 
 % 10645. Push the resolved address of a definition, reduced to 15 bits.
-function PUSHDEF(INDEX: integer): boolean;
+function ЗHAЧCOБ(CTOБ: integer): boolean;
 begin
-  INDEX := INDEX+g0071-1;
-  if INDEX >= g0072 then BADEXPR(13);
-  FILEEDIT(DEFPOOL, INDEX); DEF := ; TOP := TOP+1;
+  CTOБ := CTOБ+HAЧMTOБ-1;
+  if CTOБ >= KOHMTOБ then OШMAШ(13);
+  FILEEDIT(TOБ, CTOБ); DEF := ; YKACT := YKACT+1;
   with DEF@ do
     if c.ready then begin
-      PUSHDEF := true;
-      STACK[TOP].word := c.data.value mod 100000B;
-      PACKVAL(STACK[TOP].word, STACK[TOP]); DEF@.c.used := true;
-    end else PUSHDEF := false;
+      ЗHAЧCOБ := true;
+      CTEK[YKACT].word := c.data.value mod 100000B;
+      PACKVAL(CTEK[YKACT].word, CTEK[YKACT]); DEF@.c.used := true;
+    end else ЗHAЧCOБ := false;
 end;
 
 % 10706. Push zero for reference zero, or use its bound definition.
 % As in the image, an early exit does not assign the Boolean result.
-function PUSHREF(INDEX: integer): boolean;
+function ЗHAЧBHEШ(CTCC: integer): boolean;
 begin
-  TOP := TOP+1; STACK[TOP] := [0C];
-  if INDEX = 0 then exit;
-  INDEX := INDEX+FIRSTREF-1;
-  if INDEX >= g0070 then BADEXPR(12);
-  FILEEDIT(REFPOOL, INDEX); REFERENCE := ;
+  YKACT := YKACT+1; CTEK[YKACT] := [0C];
+  if CTCC = 0 then exit;
+  CTCC := CTCC+HAЧMTCC-1;
+  if CTCC >= KOHMTCC then OШMAШ(12);
+  FILEEDIT(TCC, CTCC); REFERENCE := ;
   with REFERENCE@ do begin
     used := true;
     if not resolved then exit;
-    FILEEDIT(DEFPOOL, link); DEF := ;
+    FILEEDIT(TOБ, link); DEF := ;
   end;
   with DEF@ do
     if c.ready then begin
-      PUSHREF := true;
-      STACK[TOP].word := c.data.value mod 100000B;
-      PACKVAL(STACK[TOP].word, STACK[TOP]); DEF@.c.used := true;
-    end else PUSHREF := false;
+      ЗHAЧBHEШ := true;
+      CTEK[YKACT].word := c.data.value mod 100000B;
+      PACKVAL(CTEK[YKACT].word, CTEK[YKACT]); DEF@.c.used := true;
+    end else ЗHAЧBHEШ := false;
 end;
 
 % 10771. Push a 48-bit attribute from saved definition pair records.
-function DEFATTR(INDEX, OFFSET: integer): boolean;
-var FIRST: integer;
+function ATPCOБ(CTOБ, CЛOBOATP: integer): boolean;
+var CKYБA: integer;
 begin
-  INDEX := INDEX+g0071-1;
-  if INDEX >= g0072 then BADEXPR(13);
-  FILEEDIT(DEFPOOL, INDEX); DEF := ;
+  CTOБ := CTOБ+HAЧMTOБ-1;
+  if CTOБ >= KOHMTOБ then OШMAШ(13);
+  FILEEDIT(TOБ, CTOБ); DEF := ;
   with DEF@ do
     if c.ready then begin
-      DEFATTR := true;
-      if OFFSET >= b.count then BADEXPR(16);
-      FIRST := b.first+OFFSET; c.used := true;
-    end else begin DEFATTR := false; exit end;
-  TABPAIR(g0566, FIRST, TEMPPAIR); TOP := TOP+1;
-  STACK[TOP].bits := bitset(chr(TEMPPAIR.data1.value));
-  STACK[TOP].bits := STACK[TOP].bits+
+      ATPCOБ := true;
+      if CЛOBOATP >= b.count then OШMAШ(16);
+      CKYБA := b.first+CЛOBOATP; c.used := true;
+    end else begin ATPCOБ := false; exit end;
+  TABPAIR(KYБA, CKYБA, TEMPPAIR); YKACT := YKACT+1;
+  CTEK[YKACT].bits := bitset(chr(TEMPPAIR.data1.value));
+  CTEK[YKACT].bits := CTEK[YKACT].bits+
                     bitset(shift(TEMPPAIR.data0.value, -24));
 end;
 
 % 11050. Corresponding attribute lookup through the reference table.
 % Zero/unbound references retain the original unassigned-result exits.
-function REFATTR(INDEX, OFFSET: integer): boolean;
-var FIRST: integer;
+function ATPBHEШ(CTCC, CЛOBOATP: integer): boolean;
+var CKYБA: integer;
 begin
-  TOP := TOP+1; STACK[TOP] := [0C];
-  if INDEX = 0 then exit;
-  INDEX := INDEX+FIRSTREF-1;
-  if INDEX >= g0070 then BADEXPR(12);
-  FILEEDIT(REFPOOL, INDEX); REFERENCE := ;
+  YKACT := YKACT+1; CTEK[YKACT] := [0C];
+  if CTCC = 0 then exit;
+  CTCC := CTCC+HAЧMTCC-1;
+  if CTCC >= KOHMTCC then OШMAШ(12);
+  FILEEDIT(TCC, CTCC); REFERENCE := ;
   with REFERENCE@ do begin
     used := true;
     if not resolved then exit;
-    FILEEDIT(DEFPOOL, link); DEF := ;
+    FILEEDIT(TOБ, link); DEF := ;
   end;
   with DEF@ do
     if c.ready then begin
-      REFATTR := true;
-      if OFFSET >= b.count then BADEXPR(16);
-      FIRST := b.first+OFFSET; c.used := true;
-    end else begin REFATTR := false; exit end;
-  TABPAIR(g0566, FIRST, TEMPPAIR);
-  STACK[TOP].bits := bitset(chr(TEMPPAIR.data1.value));
-  STACK[TOP].bits := STACK[TOP].bits+
+      ATPBHEШ := true;
+      if CЛOBOATP >= b.count then OШMAШ(16);
+      CKYБA := b.first+CЛOBOATP; c.used := true;
+    end else begin ATPBHEШ := false; exit end;
+  TABPAIR(KYБA, CKYБA, TEMPPAIR);
+  CTEK[YKACT].bits := bitset(chr(TEMPPAIR.data1.value));
+  CTEK[YKACT].bits := CTEK[YKACT].bits+
                     bitset(shift(TEMPPAIR.data0.value, -24));
 end;
 
 % 11152. Consume exactly N stack values and emit the requested form.
-procedure EMITVAL(N: integer);
-var VALUE, LOWPART: integer;
+procedure ЗABEPШИO(ГЛYБИHA: integer);
+var PAДP, OCT: integer;
 begin
-  if TOP-N < 0 then BADEXPR(5)
-  else if TOP-N > 0 then BADEXPR(6);
-  (q) for TOP := TOP downto 1 do (r)
-    case SAVEMODE of
-      fmshort, fmprefix: begin
-        VALUE := UNPACKVL(STACK[TOP]);
-        if (VALUE < -100000B) or (VALUE >= 100000B) then BADEXPR(17);
-        VALUE := (VALUE+100000B) mod 100000B;
-        if SAVEMODE = fmprefix then begin
-          LOWPART := VALUE mod 100000B; VALUE := VALUE-LOWPART;
+  if YKACT-ГЛYБИHA < 0 then OШMAШ(5)
+  else if YKACT-ГЛYБИHA > 0 then OШMAШ(6);
+  (q) for YKACT := YKACT downto 1 do (r)
+    case ЛPEГOБ of
+      POБK, POБПФK: begin
+        PAДP := UNPACKVL(CTEK[YKACT]);
+        if (PAДP < -100000B) or (PAДP >= 100000B) then OШMAШ(17);
+        PAДP := (PAДP+100000B) mod 100000B;
+        if ЛPEГOБ = POБПФK then begin
+          OCT := PAДP mod 100000B; PAДP := PAДP-OCT;
         end;
-        if not COMMAND.left.longinst.longform then begin
-          if VALUE >= 70000B then begin
-            COMMAND.left.shortins.negative := true;
-            VALUE := VALUE-70000B;
+        if not БYФTEKCT.left.longinst.longform then begin
+          if PAДP >= 70000B then begin
+            БYФTEKCT.left.shortins.negative := true;
+            PAДP := PAДP-70000B;
           end;
-          if VALUE >= 4096 then BADEXPR(3);
+          if PAДP >= 4096 then OШMAШ(3);
         end;
-        if SAVEMODE = fmprefix then begin
-          COMMAND.right.bits := COMMAND.right.bits+
-                                bitset(shift(LOWPART, -16));
-          PUTWORD(COMMAND.right.data.value);
+        if ЛPEГOБ = POБПФK then begin
+          БYФTEKCT.right.bits := БYФTEKCT.right.bits+
+                                bitset(shift(OCT, -16));
+          ЗAПBPAЗД(БYФTEKCT.right.data.value);
         end;
-        COMMAND.left.bits := COMMAND.left.bits+
-                             bitset(shift(VALUE, -16));
-        PUTWORD(COMMAND.left.data.value);
+        БYФTEKCT.left.bits := БYФTEKCT.left.bits+
+                             bitset(shift(PAДP, -16));
+        ЗAПBPAЗД(БYФTEKCT.left.data.value);
       end;
-      fmhalf: PUTWORD(STACK[TOP].word);
-      fmword:
-        if INSECT then begin
-          PUTWORD(STACK[TOP].halves.high);
-          PUTWORD(STACK[TOP].halves.low);
-        end else if TOP = N then g0110 := UNPACKVL(STACK[TOP])
+      POБПCЛ: ЗAПBPAЗД(CTEK[YKACT].word);
+      POБCЛ:
+        if ФЛATEP then begin
+          ЗAПBPAЗД(CTEK[YKACT].halves.high);
+          ЗAПBPAЗД(CTEK[YKACT].halves.low);
+        end else if YKACT = ГЛYБИHA then ЗHAЧOK := UNPACKVL(CTEK[YKACT])
         else begin
-          TEMPPAIR.hi := shift(STACK[TOP].halves.high, -16);
-          TEMPPAIR.lo := shift(STACK[TOP].word, -16);
-          TABSAVE(g0566, g0102, TEMPPAIR); g0102 := g0102+1;
+          TEMPPAIR.hi := shift(CTEK[YKACT].halves.high, -16);
+          TEMPPAIR.lo := shift(CTEK[YKACT].word, -16);
+          TABSAVE(KYБA, CTEKCT, TEMPPAIR); CTEKCT := CTEKCT+1;
         end;
       others: ;
     end;
 end;
 
 % 11317. Emit a saved operator block, binding its initial reference.
-procedure EMITOPER;
-var KIND: integer;
+procedure CИCПPOГ;
+var PAБOTA: integer;
     GOOD: boolean;
     LIMIT: integer;
 begin
-  COMMAND.left.word := GETWORD;
-  COUNT := COMMAND.left.count.low;
-  KIND := COMMAND.left.header.kind;
-  RESERVED := COMMAND.left.header.length;
-  COMMAND.left.word := 0C; SAVEMODE := fmshort;
-  case KIND of
+  БYФTEKCT.left.word := ДAЙOПEP;
+  PAДP := БYФTEKCT.left.count.low;
+  PAБOTA := БYФTEKCT.left.header.kind;
+  ГЛEB := БYФTEKCT.left.header.length;
+  БYФTEKCT.left.word := 0C; ЛPEГOБ := POБK;
+  case PAБOTA of
     1, 3: begin
-      GOOD := PUSHDEF(COUNT); COMMAND.left.instr.code := 3528;
-      EMITVAL(1);
+      GOOD := ЗHAЧCOБ(PAДP); БYФTEKCT.left.instr.code := 3528;
+      ЗABEPШИO(1);
     end;
     2, 4: begin
-      GOOD := PUSHREF(COUNT); COMMAND.left.instr.code := 3528;
-      EMITVAL(1);
+      GOOD := ЗHAЧBHEШ(PAДP); БYФTEKCT.left.instr.code := 3528;
+      ЗABEPШИO(1);
     end;
-    5: begin COMMAND.left.instr.code := 3520; EMITVAL(1) end;
+    5: begin БYФTEKCT.left.instr.code := 3520; ЗABEPШИO(1) end;
     others: ;
   end;
-  LIMIT := RESERVED-1;
-  (*q*) for g0077 to LIMIT do (r) PUTWORD(GETWORD);
+  LIMIT := ГЛEB-1;
+  (*q*) for I to LIMIT do (r) ЗAПBPAЗД(ДAЙOПEP);
   (x);
 end;
 
 % 11413. Load an instruction address or raw operand into slot one.
-procedure FIRSTVAL;
+procedure ГPYЗЧИK;
 begin
-  case SAVEMODE of
-    fmshort: begin
-      COMMAND.left.word := shift(GETWORD, -16);
-      if COMMAND.left.longinst.longform then begin
-        STACK[1].word := COMMAND.left.longinst.address;
-        COMMAND.left.bits := COMMAND.left.bits*
+  case ЛPEГOБ of
+    POБK: begin
+      БYФTEKCT.left.word := shift(ДAЙOПEP, -16);
+      if БYФTEKCT.left.longinst.longform then begin
+        CTEK[1].word := БYФTEKCT.left.longinst.address;
+        БYФTEKCT.left.bits := БYФTEKCT.left.bits*
                             bitset(0017760000000000C);
       end else begin
-        STACK[1].word := COMMAND.left.shortins.address;
-        if COMMAND.left.shortins.negative then
-          STACK[1].word := STACK[1].word-4096;
-        COMMAND.left.bits := COMMAND.left.bits*
+        CTEK[1].word := БYФTEKCT.left.shortins.address;
+        if БYФTEKCT.left.shortins.negative then
+          CTEK[1].word := CTEK[1].word-4096;
+        БYФTEKCT.left.bits := БYФTEKCT.left.bits*
                             bitset(0017776000000000C);
       end;
-      PACKVAL(STACK[1].word, STACK[1]);
+      PACKVAL(CTEK[1].word, CTEK[1]);
     end;
-    fmprefix: begin
-      COMMAND.right.word := shift(GETWORD, -16);
-      COMMAND.left.word := shift(GETWORD, -16);
-      if COMMAND.right.longinst.longform then begin
-        if COMMAND.right.longinst.opcode = 2 then
-          COUNT := COMMAND.right.longinst.address
-        else BADEXPR(8);
-        COMMAND.right.bits := COMMAND.right.bits*
+    POБПФK: begin
+      БYФTEKCT.right.word := shift(ДAЙOПEP, -16);
+      БYФTEKCT.left.word := shift(ДAЙOПEP, -16);
+      if БYФTEKCT.right.longinst.longform then begin
+        if БYФTEKCT.right.longinst.opcode = 2 then
+          PAДP := БYФTEKCT.right.longinst.address
+        else OШMAШ(8);
+        БYФTEKCT.right.bits := БYФTEKCT.right.bits*
                              bitset(0017760000000000C);
-      end else BADEXPR(8);
-      if COMMAND.left.longinst.longform then begin
-        STACK[1].word := COMMAND.left.longinst.address+COUNT;
-        COMMAND.left.bits := COMMAND.left.bits*
+      end else OШMAШ(8);
+      if БYФTEKCT.left.longinst.longform then begin
+        CTEK[1].word := БYФTEKCT.left.longinst.address+PAДP;
+        БYФTEKCT.left.bits := БYФTEKCT.left.bits*
                             bitset(0017760000000000C);
       end else begin
-        STACK[1].word := COMMAND.left.shortins.address+COUNT;
-        if COMMAND.left.shortins.negative then
-          STACK[1].word := STACK[1].word-4096;
-        COMMAND.left.bits := COMMAND.left.bits*
+        CTEK[1].word := БYФTEKCT.left.shortins.address+PAДP;
+        if БYФTEKCT.left.shortins.negative then
+          CTEK[1].word := CTEK[1].word-4096;
+        БYФTEKCT.left.bits := БYФTEKCT.left.bits*
                             bitset(0017776000000000C);
       end;
-      if STACK[1].word >= 400000000B then
-        STACK[1].word := STACK[1].word-100000B;
-      PACKVAL(STACK[1].word, STACK[1]);
+      if CTEK[1].word >= 400000000B then
+        CTEK[1].word := CTEK[1].word-100000B;
+      PACKVAL(CTEK[1].word, CTEK[1]);
     end;
-    fmhalf: STACK[1].bits := bitset(chr(GETWORD));
-    fmword: begin
-      SPARE32 := GETWORD;
-      STACK[1].bits := bitset(chr(GETWORD));
+    POБПCЛ: CTEK[1].bits := bitset(chr(ДAЙOПEP));
+    POБCЛ: begin
+      CЛEДOП := ДAЙOПEP;
+      CTEK[1].bits := bitset(chr(ДAЙOПEP));
 % The code overwrites the low word here; retain it literally.
-      STACK[1].word := shift(SPARE32, -24);
+      CTEK[1].word := shift(CЛEДOП, -24);
     end;
     others: ;
   end;
-  TOP := 1;
+  YKACT := 1;
 end;
 
 % 11552. Binary micro-operations. External names retain their addresses
 % pending recovery of the value-arithmetic module itself.
-procedure BINARYOP(OP: integer);
+procedure ГPYППA10(KOП: integer);
 begin
-  if TOP < 2 then BADEXPR(5);
-  TOP := TOP-1;
-  case OP of
-    0: B23312(STACK[TOP], STACK[TOP+1], STACK[TOP]);
-    1: B23330(STACK[TOP], STACK[TOP+1], STACK[TOP]);
-    2: B23336(STACK[TOP], STACK[TOP+1], STACK[TOP]);
-    3: B23347(STACK[TOP], STACK[TOP+1], STACK[TOP]);
-    4: B23361(STACK[TOP], STACK[TOP+1], STACK[TOP]);
-    5: B24130(STACK[TOP], STACK[TOP+1], STACK[TOP]);
-    6: B23414(STACK[TOP], STACK[TOP+1], STACK[TOP]);
-    7: B24127(STACK[TOP], STACK[TOP+1], STACK[TOP]);
-    8: BADEXPR(9);
-    others: BADEXPR(10)
+  if YKACT < 2 then OШMAШ(5);
+  YKACT := YKACT-1;
+  case KOП of
+    0: B23312(CTEK[YKACT], CTEK[YKACT+1], CTEK[YKACT]);
+    1: B23330(CTEK[YKACT], CTEK[YKACT+1], CTEK[YKACT]);
+    2: B23336(CTEK[YKACT], CTEK[YKACT+1], CTEK[YKACT]);
+    3: B23347(CTEK[YKACT], CTEK[YKACT+1], CTEK[YKACT]);
+    4: B23361(CTEK[YKACT], CTEK[YKACT+1], CTEK[YKACT]);
+    5: B24130(CTEK[YKACT], CTEK[YKACT+1], CTEK[YKACT]);
+    6: B23414(CTEK[YKACT], CTEK[YKACT+1], CTEK[YKACT]);
+    7: B24127(CTEK[YKACT], CTEK[YKACT+1], CTEK[YKACT]);
+    8: OШMAШ(9);
+    others: OШMAШ(10)
   end;
 end;
 
 % 11724. Field operations, shifts and remaining unary micro-operations.
-procedure FIELDOP(OP: integer);
+procedure ГPYППA20(KOП: integer);
 begin
-  case OP of
+  case KOП of
     0: begin
-      if TOP < 3 then BADEXPR(5);
-      B23525(STACK[TOP], STACK[TOP-1].word, STACK[TOP-2].word,
-             STACK[TOP-2]);
-      TOP := TOP-2;
+      if YKACT < 3 then OШMAШ(5);
+      B23525(CTEK[YKACT], CTEK[YKACT-1].word, CTEK[YKACT-2].word,
+             CTEK[YKACT-2]);
+      YKACT := YKACT-2;
     end;
     1: begin
-      BITSTART := GETBYTE; BITCOUNT := GETBYTE;
-      B23525(STACK[TOP], BITSTART, BITCOUNT, STACK[TOP]);
+      ГПPAB := ДAЙMИKPO; BITCOUNT := ДAЙMИKPO;
+      B23525(CTEK[YKACT], ГПPAB, BITCOUNT, CTEK[YKACT]);
     end;
     2: begin
-      if TOP < 2 then BADEXPR(5);
-      BITSTART := GETBYTE; BITCOUNT := GETBYTE;
-      B23525(STACK[TOP], BITSTART, BITCOUNT, STACK[TOP]);
-      B23414(STACK[TOP], STACK[TOP-1], STACK[TOP-1]); TOP := TOP-1;
+      if YKACT < 2 then OШMAШ(5);
+      ГПPAB := ДAЙMИKPO; BITCOUNT := ДAЙMИKPO;
+      B23525(CTEK[YKACT], ГПPAB, BITCOUNT, CTEK[YKACT]);
+      B23414(CTEK[YKACT], CTEK[YKACT-1], CTEK[YKACT-1]); YKACT :=
+  YKACT-1;
     end;
     3: begin
-      BITSTART := GETBYTE-48; BITCOUNT := GETBYTE-BITSTART-1;
-      if BITSTART > 0 then BADEXPR(15)
-      else if BITSTART <> 0 then
-        B23434(STACK[TOP], BITSTART, STACK[TOP]);
-      if BITCOUNT <> 0 then B23434(STACK[TOP], BITCOUNT, STACK[TOP]);
+      ГПPAB := ДAЙMИKPO-48; BITCOUNT := ДAЙMИKPO-ГПPAB-1;
+      if ГПPAB > 0 then OШMAШ(15)
+      else if ГПPAB <> 0 then
+        B23434(CTEK[YKACT], ГПPAB, CTEK[YKACT]);
+      if BITCOUNT <> 0 then B23434(CTEK[YKACT], BITCOUNT, CTEK[YKACT]);
     end;
-    4: B23375(STACK[TOP], STACK[TOP]);
-    5: B24133(STACK[TOP], STACK[TOP]);
-    6: B23434(STACK[TOP], 12, STACK[TOP]);
-    7: STACK[TOP].word := B23423(STACK[TOP], 4095);
-    others: BADEXPR(10)
+    4: B23375(CTEK[YKACT], CTEK[YKACT]);
+    5: B24133(CTEK[YKACT], CTEK[YKACT]);
+    6: B23434(CTEK[YKACT], 12, CTEK[YKACT]);
+    7: CTEK[YKACT].word := B23423(CTEK[YKACT], 4095);
+    others: OШMAШ(10)
   end;
 end;
 
 % 12131. Process a section stream, or one definition expression.
 begin
-  CURSOR := 129;
-  if INSECT then begin
-    g0057 := NEXTADDR-g0063+g0055; WORDHALF := 0C;
-    if HALFOUT then begin
-      GETPAIR(g0570, g0057, OUTPAIR); OPCODE.word := GETWORD;
+  CЧБYФOП := 129;
+  if ФЛATEP then begin
+    CPAЗД := CЧAC-HAЗCEГM+CЧAДPAЗД; ПOЛYOПEP := 0C;
+    if ФПPABC then begin
+      GETPAIR(PAЗД, CPAЗД, CЛOBO); TEKOП.word := ДAЙOПEP;
     end;
-  end else g0111 := fmword;
-  EVALUATE := true;
+  end else PEГOБ := POБCЛ;
+  MAШИHA := true;
   repeat
-    repeat OPCODE.word := GETBYTE until OPCODE.word <> 0;
+    repeat TEKOП.word := ДAЙMИKPO until TEKOП.word <> 0;
     (x);
-    SAVETAG := g0112; SAVEMODE := evalform(g0111); TOP := 0;
-    if (OPCODE.word >= 130) and (OPCODE.word <= 143) then begin
-      if ((OPCODE.fields.low in [7..9, 11..13]) and HALFOUT) or
-         not INSECT then BADEXPR(11);
-      case OPCODE.fields.low of
+    ЛOKTEГИ := ГЛTEГИ; ЛPEГOБ := evalform(PEГOБ); YKACT := 0;
+    if (TEKOП.word >= 130) and (TEKOП.word <= 143) then begin
+      if ((TEKOП.fields.low in [7..9, 11..13]) and ФПPABC) or
+         not ФЛATEP then OШMAШ(11);
+      case TEKOП.fields.low of
         2: begin
-          OPCODE.word := GETBYTE;
-          g0112 := integer(bitset(shift(OPCODE.word, -43))*[0..4]);
+          TEKOП.word := ДAЙMИKPO;
+          ГЛTEГИ := integer(bitset(shift(TEKOП.word, -43))*[0..4]);
         end;
-        3: EMITOPER;
-        4: g0111 := fmshort;
-        5: g0111 := fmprefix;
-        6: g0111 := fmhalf;
-        7: g0111 := fmword;
+        3: CИCПPOГ;
+        4: PEГOБ := POБK;
+        5: PEГOБ := POБПФK;
+        6: PEГOБ := POБПCЛ;
+        7: PEГOБ := POБCЛ;
         8: begin
-          if GETBYTE <> 0 then BADEXPR(9);
-          GETPAIR(g0570, g0057-1, OUTPAIR);
-          LOOP172 := GETBYTE;
-          (q) for g0077 := 0 to LOOP172 do (r) FLUSHOUT;
+          if ДAЙMИKPO <> 0 then OШMAШ(9);
+          GETPAIR(PAЗД, CPAЗД-1, CЛOBO);
+          LOOP172 := ДAЙMИKPO;
+          (q) for I := 0 to LOOP172 do (r) CЛOBOBPA;
         end;
         9: begin
-          COUNT := GETBYTE*256; COUNT := (GETBYTE)+COUNT;
-          if COUNT <> 0 then BADEXPR(9);
-          GETPAIR(g0570, g0057-1, OUTPAIR);
-          COUNT := GETBYTE*256; LOOP173 := (GETBYTE)+COUNT;
-          (*q*) for g0077 := 0 to LOOP173 do (r) FLUSHOUT;
+          PAДP := ДAЙMИKPO*256; PAДP := (ДAЙMИKPO)+PAДP;
+          if PAДP <> 0 then OШMAШ(9);
+          GETPAIR(PAЗД, CPAЗД-1, CЛOBO);
+          PAДP := ДAЙMИKPO*256; LOOP173 := (ДAЙMИKPO)+PAДP;
+          (*q*) for I := 0 to LOOP173 do (r) CЛOBOBPA;
           (x);
         end;
         10: begin
-          LOOP174 := GETBYTE;
-          (q) for g0077 := 0 to LOOP174 do (r) PUTWORD(GETWORD);
+          LOOP174 := ДAЙMИKPO;
+          (q) for I := 0 to LOOP174 do (r) ЗAПBPAЗД(ДAЙOПEP);
         end;
         11: begin
-          OUTPAIR.hi := 0C; OUTPAIR.lo := ;
-          OUTPAIR.packedout.tag := shift(SAVETAG, 43);
-          LOOP175 := GETBYTE;
-          (q) for g0077 := 0 to LOOP175 do (r) FLUSHOUT;
+          CЛOBO.hi := 0C; CЛOBO.lo := ;
+          CЛOBO.packedout.tag := shift(ЛOKTEГИ, 43);
+          LOOP175 := ДAЙMИKPO;
+          (q) for I := 0 to LOOP175 do (r) CЛOBOBPA;
         end;
         12: begin
-          OUTPAIR.hi := 0C; OUTPAIR.lo := ;
-          OUTPAIR.packedout.tag := shift(SAVETAG, 43);
-          COUNT := GETBYTE*256; LOOP176 := (GETBYTE)+COUNT;
-          (*q*) for g0077 := 0 to LOOP176 do (r) FLUSHOUT;
+          CЛOBO.hi := 0C; CЛOBO.lo := ;
+          CЛOBO.packedout.tag := shift(ЛOKTEГИ, 43);
+          PAДP := ДAЙMИKPO*256; LOOP176 := (ДAЙMИKPO)+PAДP;
+          (*q*) for I := 0 to LOOP176 do (r) CЛOBOBPA;
           (x);
         end;
         13: begin
-          COMMAND.left.data.value := GETWORD;
-          LOOKOK := PUSHREF(COMMAND.left.shortins.address);
-          OUTPAIR.hi := integer(
-            bitset(shift(COMMAND.left.instr.code, -36))+
-            bitset(shift(STACK[1].word, -16)));
-          OUTPAIR.packedout.tag := shift(SAVETAG, 43);
-          g0077 := GETWORD; OUTPAIR.lo := 0C; FLUSHOUT;
+          БYФTEKCT.left.data.value := ДAЙOПEP;
+          LOOKOK := ЗHAЧBHEШ(БYФTEKCT.left.shortins.address);
+          CЛOBO.hi := integer(
+            bitset(shift(БYФTEKCT.left.instr.code, -36))+
+            bitset(shift(CTEK[1].word, -16)));
+          CЛOBO.packedout.tag := shift(ЛOKTEГИ, 43);
+          I := ДAЙOПEP; CЛOBO.lo := 0C; CЛOBOBPA;
         end;
-        14: BADEXPR(10);
+        14: OШMAШ(10);
         15: exit
       end;
       goto 100;
     end;
-    if (OPCODE.low7.value >= 106) and
-       (OPCODE.low7.value <= 108) then begin
-      if not INSECT then BADEXPR(11);
-      200: case OPCODE.fields.low of
+    if (TEKOП.low7.value >= 106) and
+       (TEKOП.low7.value <= 108) then begin
+      if not ФЛATEP then OШMAШ(11);
+      200: case TEKOП.fields.low of
         10: begin
-          if HALFOUT then BADEXPR(11);
-          SAVETAG := integer(bitset(SAVETAG)-[1]);
+          if ФПPABC then OШMAШ(11);
+          ЛOKTEГИ := integer(bitset(ЛOKTEГИ)-[1]);
         end;
         11: begin
-          if HALFOUT then BADEXPR(11);
-          SPARE32 := GETBYTE;
-          SAVETAG := integer(bitset(shift(SPARE32, -43))*[0..4]);
+          if ФПPABC then OШMAШ(11);
+          CЛEДOП := ДAЙMИKPO;
+          ЛOKTEГИ := integer(bitset(shift(CЛEДOП, -43))*[0..4]);
         end;
-        12: SAVEMODE := fmprefix
+        12: ЛPEГOБ := POБПФK
       end;
-      if OPCODE.fields.final = 1 then begin
-        case SAVEMODE of
-          fmshort, fmhalf: PUTWORD(GETWORD);
-          fmprefix, fmword: begin
-            PUTWORD(GETWORD); PUTWORD(GETWORD)
+      if TEKOП.fields.final = 1 then begin
+        case ЛPEГOБ of
+          POБK, POБПCЛ: ЗAПBPAЗД(ДAЙOПEP);
+          POБПФK, POБCЛ: begin
+            ЗAПBPAЗД(ДAЙOПEP); ЗAПBPAЗД(ДAЙOПEP)
           end;
           others: ;
         end;
         goto 100;
       end;
-      OPCODE.word := GETBYTE;
-      if (OPCODE.low7.value = 106) or (OPCODE.low7.value = 107) then
+      TEKOП.word := ДAЙMИKPO;
+      if (TEKOП.low7.value = 106) or (TEKOП.low7.value = 107) then
         goto 200;
     end;
-    if INSECT then FIRSTVAL;
+    if ФЛATEP then ГPYЗЧИK;
     (expr) repeat
-      case OPCODE.fields.group of
+      case TEKOП.fields.group of
         0:
-          if OPCODE.fields.final = 0 then
-            case OPCODE.fields.low of
+          if TEKOП.fields.final = 0 then
+            case TEKOП.fields.low of
               0: ;
-              1: PUSHLIT(1);
-              2: PUSHLIT(2);
-              3: PUSHLIT(3);
-              4: PUSHLIT(4);
-              5: PUSHLIT(5);
-              6: PUSHLIT(6);
-              7: BADEXPR(9);
-              8: BADEXPR(9);
+              1: БAЙTЫBCT(1);
+              2: БAЙTЫBCT(2);
+              3: БAЙTЫBCT(3);
+              4: БAЙTЫBCT(4);
+              5: БAЙTЫBCT(5);
+              6: БAЙTЫBCT(6);
+              7: OШMAШ(9);
+              8: OШMAШ(9);
               9: begin
-                TOP := TOP+1; STACK[TOP].word := STACK[TOP-1].word;
+                YKACT := YKACT+1; CTEK[YKACT].word :=
+  CTEK[YKACT-1].word;
               end;
               10: begin
-                if TOP < 2 then BADEXPR(5);
-                STACK[11].word := STACK[TOP-1].word;
-                STACK[TOP-1].word := STACK[TOP].word;
-                STACK[TOP].word := STACK[11].word;
+                if YKACT < 2 then OШMAШ(5);
+                CTEK[11].word := CTEK[YKACT-1].word;
+                CTEK[YKACT-1].word := CTEK[YKACT].word;
+                CTEK[YKACT].word := CTEK[11].word;
               end;
               11: begin
-                if TOP < 3 then BADEXPR(5);
-                STACK[12].word := STACK[TOP-2].word;
-                STACK[TOP-2].word := STACK[TOP-1].word;
-                STACK[TOP-1].word := STACK[12].word;
+                if YKACT < 3 then OШMAШ(5);
+                CTEK[12].word := CTEK[YKACT-2].word;
+                CTEK[YKACT-2].word := CTEK[YKACT-1].word;
+                CTEK[YKACT-1].word := CTEK[12].word;
               end;
               12: begin
-                if TOP < 3 then BADEXPR(5);
-                STACK[12].word := STACK[TOP-2].word;
-                STACK[11].word := STACK[TOP-1].word;
-                STACK[TOP-2].word := STACK[TOP].word;
-                STACK[TOP-1].word := STACK[12].word;
-                STACK[TOP].word := STACK[11].word;
+                if YKACT < 3 then OШMAШ(5);
+                CTEK[12].word := CTEK[YKACT-2].word;
+                CTEK[11].word := CTEK[YKACT-1].word;
+                CTEK[YKACT-2].word := CTEK[YKACT].word;
+                CTEK[YKACT-1].word := CTEK[12].word;
+                CTEK[YKACT].word := CTEK[11].word;
               end;
               13: begin
-                if TOP < 3 then BADEXPR(5);
-                STACK[12].word := STACK[TOP-2].word;
-                STACK[11].word := STACK[TOP-1].word;
-                STACK[TOP-1].word := STACK[TOP].word;
-                STACK[TOP-2].word := STACK[11].word;
-                STACK[TOP].word := STACK[12].word;
+                if YKACT < 3 then OШMAШ(5);
+                CTEK[12].word := CTEK[YKACT-2].word;
+                CTEK[11].word := CTEK[YKACT-1].word;
+                CTEK[YKACT-1].word := CTEK[YKACT].word;
+                CTEK[YKACT-2].word := CTEK[11].word;
+                CTEK[YKACT].word := CTEK[12].word;
               end;
               14: begin
-                if TOP < 3 then BADEXPR(5);
-                STACK[12].word := STACK[TOP-2].word;
-                STACK[TOP-2].word := STACK[TOP].word;
-                STACK[TOP].word := STACK[12].word;
+                if YKACT < 3 then OШMAШ(5);
+                CTEK[12].word := CTEK[YKACT-2].word;
+                CTEK[YKACT-2].word := CTEK[YKACT].word;
+                CTEK[YKACT].word := CTEK[12].word;
               end;
-              15: BADEXPR(10)
+              15: OШMAШ(10)
             end
           else begin
-            case OPCODE.fields.low of
-              0: EMITVAL(1);
-              1: begin SPARE32 := GETBYTE; EMITVAL(SPARE32) end;
-              others: BADEXPR(11)
+            case TEKOП.fields.low of
+              0: ЗABEPШИO(1);
+              1: begin CЛEДOП := ДAЙMИKPO; ЗABEPШИO(CЛEДOП) end;
+              others: OШMAШ(11)
             end;
             exit expr;
           end;
-        1: BINARYOP(OPCODE.fields.low);
-        2: FIELDOP(OPCODE.fields.low);
+        1: ГPYППA10(TEKOП.fields.low);
+        2: ГPYППA20(TEKOП.fields.low);
         3:
-          case OPCODE.fields.low of
-            0: if not PUSHDEF(GETBYTE) then begin
-                 EVALUATE := false; exit
+          case TEKOП.fields.low of
+            0: if not ЗHAЧCOБ(ДAЙMИKPO) then begin
+                 MAШИHA := false; exit
                end;
             1: begin
-              COUNT := GETBYTE*256;
-              if not PUSHDEF((GETBYTE)+COUNT) then begin
-                EVALUATE := false; exit
+              PAДP := ДAЙMИKPO*256;
+              if not ЗHAЧCOБ((ДAЙMИKPO)+PAДP) then begin
+                MAШИHA := false; exit
               end;
             end;
             2: begin
-              if TOP < 1 then BADEXPR(5); TOP := TOP-1;
-              if not PUSHDEF(STACK[TOP+1].index.low) then begin
-                EVALUATE := false; exit
+              if YKACT < 1 then OШMAШ(5); YKACT := YKACT-1;
+              if not ЗHAЧCOБ(CTEK[YKACT+1].index.low) then begin
+                MAШИHA := false; exit
               end;
             end;
-            3: BADEXPR(10);
-            4: if not PUSHREF(GETBYTE) then begin
-                 EVALUATE := false; exit
+            3: OШMAШ(10);
+            4: if not ЗHAЧBHEШ(ДAЙMИKPO) then begin
+                 MAШИHA := false; exit
                end;
             5: begin
-              COUNT := GETBYTE*256;
-              if not PUSHREF((GETBYTE)+COUNT) then begin
-                EVALUATE := false; exit
+              PAДP := ДAЙMИKPO*256;
+              if not ЗHAЧBHEШ((ДAЙMИKPO)+PAДP) then begin
+                MAШИHA := false; exit
               end;
             end;
             6: begin
-              if TOP < 1 then BADEXPR(5); TOP := TOP-1;
-              if not PUSHREF(STACK[TOP+1].index.low) then begin
-                EVALUATE := false; exit
+              if YKACT < 1 then OШMAШ(5); YKACT := YKACT-1;
+              if not ЗHAЧBHEШ(CTEK[YKACT+1].index.low) then begin
+                MAШИHA := false; exit
               end;
             end;
-            7: BADEXPR(10);
-            8: BADEXPR(9);
-            9: BADEXPR(10);
-            10: BADEXPR(9);
-            11, 12, 13, 14, 15: BADEXPR(10)
+            7: OШMAШ(10);
+            8: OШMAШ(9);
+            9: OШMAШ(10);
+            10: OШMAШ(9);
+            11, 12, 13, 14, 15: OШMAШ(10)
           end;
         4:
-          case OPCODE.fields.low of
+          case TEKOП.fields.low of
             0: begin
-              COUNT := GETBYTE; DEFNO := GETBYTE;
-              if not DEFATTR(DEFNO, COUNT) then begin
-                EVALUATE := false; exit
+              PAДP := ДAЙMИKPO; CTOБ := ДAЙMИKPO;
+              if not ATPCOБ(CTOБ, PAДP) then begin
+                MAШИHA := false; exit
               end;
             end;
             1: begin
-              COUNT := GETBYTE; DEFNO := GETBYTE*256;
-              if not DEFATTR((GETBYTE)+DEFNO, COUNT) then begin
-                EVALUATE := false; exit
+              PAДP := ДAЙMИKPO; CTOБ := ДAЙMИKPO*256;
+              if not ATPCOБ((ДAЙMИKPO)+CTOБ, PAДP) then begin
+                MAШИHA := false; exit
               end;
             end;
             2: begin
-              if TOP < 1 then BADEXPR(5); TOP := TOP-1;
-              if not DEFATTR(STACK[TOP+1].index.low, GETBYTE) then
-              begin EVALUATE := false; exit end;
+              if YKACT < 1 then OШMAШ(5); YKACT := YKACT-1;
+              if not ATPCOБ(CTEK[YKACT+1].index.low, ДAЙMИKPO) then
+              begin MAШИHA := false; exit end;
             end;
-            3: BADEXPR(10);
+            3: OШMAШ(10);
             4: begin
-              COUNT := GETBYTE;
-              if not REFATTR(GETBYTE, COUNT) then begin
-                EVALUATE := false; exit
+              PAДP := ДAЙMИKPO;
+              if not ATPBHEШ(ДAЙMИKPO, PAДP) then begin
+                MAШИHA := false; exit
               end;
             end;
             5: begin
-              COUNT := GETBYTE; DEFNO := GETBYTE*256;
-              if not REFATTR((GETBYTE)+DEFNO, COUNT) then begin
-                EVALUATE := false; exit
+              PAДP := ДAЙMИKPO; CTOБ := ДAЙMИKPO*256;
+              if not ATPBHEШ((ДAЙMИKPO)+CTOБ, PAДP) then begin
+                MAШИHA := false; exit
               end;
             end;
             6: begin
-              if TOP < 1 then BADEXPR(5); TOP := TOP-1;
-              if not REFATTR(STACK[TOP+1].index.low, GETBYTE) then
-              begin EVALUATE := false; exit end;
+              if YKACT < 1 then OШMAШ(5); YKACT := YKACT-1;
+              if not ATPBHEШ(CTEK[YKACT+1].index.low, ДAЙMИKPO) then
+              begin MAШИHA := false; exit end;
             end;
-            7: BADEXPR(10);
+            7: OШMAШ(10);
             8: begin
-              if TOP < 1 then BADEXPR(5); TOP := TOP-1;
-              if not DEFATTR(GETBYTE, STACK[TOP+1].index.low) then
-              begin EVALUATE := false; exit end;
+              if YKACT < 1 then OШMAШ(5); YKACT := YKACT-1;
+              if not ATPCOБ(ДAЙMИKPO, CTEK[YKACT+1].index.low) then
+              begin MAШИHA := false; exit end;
             end;
             9: begin
-              if TOP < 1 then BADEXPR(5); DEFNO := GETBYTE*256;
-              TOP := TOP-1;
-              if not DEFATTR((GETBYTE)+DEFNO,
-                            STACK[TOP+1].index.low) then
-              begin EVALUATE := false; exit end;
+              if YKACT < 1 then OШMAШ(5); CTOБ := ДAЙMИKPO*256;
+              YKACT := YKACT-1;
+              if not ATPCOБ((ДAЙMИKPO)+CTOБ,
+                            CTEK[YKACT+1].index.low) then
+              begin MAШИHA := false; exit end;
             end;
             10: begin
-              if TOP < 2 then BADEXPR(5); TOP := TOP-2;
-              if not DEFATTR(STACK[TOP+2].index.low,
-                            STACK[TOP+1].index.low) then
-              begin EVALUATE := false; exit end;
+              if YKACT < 2 then OШMAШ(5); YKACT := YKACT-2;
+              if not ATPCOБ(CTEK[YKACT+2].index.low,
+                            CTEK[YKACT+1].index.low) then
+              begin MAШИHA := false; exit end;
             end;
-            11: BADEXPR(10);
+            11: OШMAШ(10);
             12: begin
-              if TOP < 1 then BADEXPR(5); TOP := TOP-1;
-              if not REFATTR(GETBYTE, STACK[TOP+1].index.low) then
-              begin EVALUATE := false; exit end;
+              if YKACT < 1 then OШMAШ(5); YKACT := YKACT-1;
+              if not ATPBHEШ(ДAЙMИKPO, CTEK[YKACT+1].index.low) then
+              begin MAШИHA := false; exit end;
             end;
             13: begin
-              if TOP < 1 then BADEXPR(5); DEFNO := GETBYTE*256;
-              TOP := TOP-1;
-              if not REFATTR((GETBYTE)+DEFNO,
-                            STACK[TOP+1].index.low) then
-              begin EVALUATE := false; exit end;
+              if YKACT < 1 then OШMAШ(5); CTOБ := ДAЙMИKPO*256;
+              YKACT := YKACT-1;
+              if not ATPBHEШ((ДAЙMИKPO)+CTOБ,
+                            CTEK[YKACT+1].index.low) then
+              begin MAШИHA := false; exit end;
             end;
             14: begin
-              if TOP < 2 then BADEXPR(5); TOP := TOP-2;
-              if not REFATTR(STACK[TOP+2].index.low,
-                            STACK[TOP+1].index.low) then
-              begin EVALUATE := false; exit end;
+              if YKACT < 2 then OШMAШ(5); YKACT := YKACT-2;
+              if not ATPBHEШ(CTEK[YKACT+2].index.low,
+                            CTEK[YKACT+1].index.low) then
+              begin MAШИHA := false; exit end;
             end;
-            15: BADEXPR(10)
+            15: OШMAШ(10)
           end;
-        5: BADEXPR(10);
+        5: OШMAШ(10);
         6:
-          case OPCODE.fields.low of
+          case TEKOП.fields.low of
             0: begin
-              if TOP < 1 then BADEXPR(5);
-              SECTNO := STACK[TOP].index.low+g0065-1;
-              if SECTNO >= g0067 then BADEXPR(4);
-              TABREAD(SECTPOOL, SECTNO); SEC := ;
-              STACK[TOP].word := SEC@.base mod 100000B;
-              PACKVAL(STACK[TOP].word, STACK[TOP]);
+              if YKACT < 1 then OШMAШ(5);
+              CTAC := CTEK[YKACT].index.low+HAЧMTAC-1;
+              if CTAC >= KOHMTAC then OШMAШ(4);
+              TABREAD(TAC, CTAC); YKTAC := ;
+              CTEK[YKACT].word := YKTAC@.base mod 100000B;
+              PACKVAL(CTEK[YKACT].word, CTEK[YKACT]);
             end;
-            1: RELOCATE(1);
-            2: RELOCATE(2);
-            3: RELOCATE(3);
-            4: RELOCATE(4);
-            5: RELOCATE(5);
-            6: RELOCATE(6);
-            7: RELOCATE(7);
-            8: begin SECTNO := GETBYTE; RELOCATE(SECTNO) end;
+            1: ДEЛЬTAC(1);
+            2: ДEЛЬTAC(2);
+            3: ДEЛЬTAC(3);
+            4: ДEЛЬTAC(4);
+            5: ДEЛЬTAC(5);
+            6: ДEЛЬTAC(6);
+            7: ДEЛЬTAC(7);
+            8: begin CTAC := ДAЙMИKPO; ДEЛЬTAC(CTAC) end;
             9: begin
-              SECTNO := GETBYTE;
-              SECTNO := SECTNO*8+(GETBYTE); RELOCATE(SECTNO);
+              CTAC := ДAЙMИKPO;
+              CTAC := CTAC*8+(ДAЙMИKPO); ДEЛЬTAC(CTAC);
               (q);
             end;
-            10, 11, 12: BADEXPR(11);
-            13, 14, 15: BADEXPR(10)
+            10, 11, 12: OШMAШ(11);
+            13, 14, 15: OШMAШ(10)
           end;
-        7: BADEXPR(10)
+        7: OШMAШ(10)
       end;
-      if OPCODE.fields.final = 1 then begin EMITVAL(1); exit expr end;
-      OPCODE.word := GETBYTE;
+      if TEKOП.fields.final = 1 then begin ЗABEPШИO(1); exit expr end;
+      TEKOП.word := ДAЙMИKPO;
     until false;
-    if not INSECT then exit;
+    if not ФЛATEP then exit;
     100: ;
   until false;
 end;
 % 13634-14112. Evaluate the definitions gathered from one input module.
 % The return state records completed and pending work in this pass.
-function EVALDEFS(FILEIDX: integer): evalstate;
-var NDEFS, SECNO, NSECTS: integer;
-    DEFINITION: pdef;
-    SECTION: psect;
+function BЫЧИCЛEH(CTOФ: integer): evalstate;
+var ЧЗTOБ, CCЫЛTAC, ЧЗTAC: integer;
+    YKTOБ: pdef;
+    YKTAC: psect;
     STATE: evalstate;
 
 % 13634. Fatal definition-value diagnostics.
-procedure BADVALUE(ERROR: integer);
+procedure OШBЫЧ(HOMOШ: integer);
 begin
-  MODULEMSG(ref(CURRENTFILE)); OBJWHERE(g0140);
-  case ERROR of
-    0: writeln(" - HEBEPHЫЙ HOMEP CEKЦИИ : ", SECNO:1);
+  OШИБKИBM(ref(TEKOФ)); ПEЧИMЯЛO(ИMЯTEKCE);
+  case HOMOШ of
+    0: writeln(" - HEBEPHЫЙ HOMEP CEKЦИИ : ", CCЫЛTAC:1);
     1: writeln(" - AДPEC BHE ДOПYCTИMOГO ДИAПAЗOHA");
     others: ;
   end;
@@ -2485,40 +2491,40 @@ begin
 end;
 
 begin
-  TABFILE(FILEPOOL, FILEIDX, CURRENTFILE);
-  with CURRENTFILE do begin
-    g0071 := n0.firstdef; NDEFS := n0.ndefs;
-    g0072 := g0071+NDEFS;
-    FIRSTREF := n2.firstref; g0070 := n2.nrefs+FIRSTREF;
-    g0065 := n1.firstsect; NSECTS := n1.nsects;
-    g0067 := g0065+NSECTS;
+  TABFILE(TOФ, CTOФ, TEKOФ);
+  with TEKOФ do begin
+    HAЧMTOБ := n0.firstdef; ЧЗTOБ := n0.ndefs;
+    KOHMTOБ := HAЧMTOБ+ЧЗTOБ;
+    HAЧMTCC := n2.firstref; KOHMTCC := n2.nrefs+HAЧMTCC;
+    HAЧMTAC := n1.firstsect; ЧЗTAC := n1.nsects;
+    KOHMTAC := HAЧMTAC+ЧЗTAC;
   end;
-  MODULEERR := false; STATE := evnone;
-  (q) for g0107 to NDEFS do (r) begin
-    FILEEDIT(DEFPOOL, g0071+g0107-1); DEFINITION := ;
-    with DEFINITION@ do
+  БЫЛИOШMO := false; STATE := evnone;
+  (q) for ИHДEKCTO to ЧЗTOБ do (r) begin
+    FILEEDIT(TOБ, HAЧMTOБ+ИHДEKCTO-1); YKTOБ := ;
+    with YKTOБ@ do
       if not c.ready then begin
-        g0140 := a.name;
+        ИMЯTEKCE := a.name;
         if c.resolved then begin
-          SECNO := c.scope;
-          if SECNO <> 0 then begin
-            if SECNO > NSECTS then BADVALUE(0);
-            SECNO := g0065+SECNO-1; c.scope := ;
-            TABREAD(SECTPOOL, SECNO); SECTION := ;
-            with SECTION@ do
-              DEFINITION@.c.data.value :=
-                DEFINITION@.c.data.value+(base-high2);
+          CCЫЛTAC := c.scope;
+          if CCЫЛTAC <> 0 then begin
+            if CCЫЛTAC > ЧЗTAC then OШBЫЧ(0);
+            CCЫЛTAC := HAЧMTAC+CCЫЛTAC-1; c.scope := ;
+            TABREAD(TAC, CCЫЛTAC); YKTAC := ;
+            with YKTAC@ do
+              YKTOБ@.c.data.value :=
+                YKTOБ@.c.data.value+(base-high2);
           end;
-          DEFINITION@.c.ready := true;
+          YKTOБ@.c.ready := true;
           case STATE of
             evnone: STATE := evdone;
             evwait: STATE := evmixed;
           end;
         end else begin
-          g0100 := DEFINITION@.c.data.first;
-          g0101 := DEFINITION@.c.data.count+g0100;
-          g0102 := NUMOBJS(g0566)+1; g0103 := ;
-          if not EVALUATE(false) then
+          CBЫP := YKTOБ@.c.data.first;
+          CKOHBЫP := YKTOБ@.c.data.count+CBЫP;
+          CTEKCT := NUMOBJS(KYБA)+1; CKOHTEK := ;
+          if not MAШИHA(false) then
             case STATE of
               evnone: STATE := evwait;
               evdone: STATE := evmixed;
@@ -2529,81 +2535,81 @@ begin
               evnone: STATE := evdone;
               evwait: STATE := evmixed;
             end;
-            if (g0110 < -100000B) or (g0110 >= 100000B) then
-              BADVALUE(1);
-            DEFINITION@.c.data.value := g0110;
-            DEFINITION@.c.resolved := true;
-            DEFINITION@.c.ready := true;
-            if g0103 < g0102 then begin
-              DEFINITION@.b.first := g0103;
+            if (ЗHAЧOK < -100000B) or (ЗHAЧOK >= 100000B) then
+              OШBЫЧ(1);
+            YKTOБ@.c.data.value := ЗHAЧOK;
+            YKTOБ@.c.resolved := true;
+            YKTOБ@.c.ready := true;
+            if CKOHTEK < CTEKCT then begin
+              YKTOБ@.b.first := CKOHTEK;
 % Retain the original signed difference in the five-bit field.
-              DEFINITION@.b.count := g0103-g0102;
+              YKTOБ@.b.count := CKOHTEK-CTEKCT;
             end;
           end;
         end;
       end;
   end;
-  EVALDEFS := STATE;
+  BЫЧИCЛEH := STATE;
 end;
 % 14113-14332. Evaluate section records in one input module.
-procedure WRITESEG(FILEIDX: integer);
-var BUFFER: pairs;
-    SECNO, SPARE19, SPARE20: integer;
-    SECTION: psect;
+procedure ЗAГPYЗИM(CMOДTOФ: integer);
+var ЗAП: pairs;
+    CTAC, ДЛBЫP, ДЛTEKCT: integer;
+    YKTAC: psect;
     GOOD: boolean;
 
 % 14113. Fatal section-output diagnostics.
-procedure BADOUT(ERROR: integer);
+procedure OШЗAГP(HOMOШ: integer);
 begin
-  MODULEMSG(ref(CURRENTFILE)); RECORDMSG(BUFFER[0].header.kind);
-  case ERROR of
+  OШИБKИBM(ref(TEKOФ)); KOOPД(ЗAП[0].header.kind);
+  case HOMOШ of
     0: writeln(" : HEBEPHЫЙ HOMEP CEKЦИИ");
     1: writeln(" : HEДOПYCTИMЫЙ TИП ЗAПИCИ");
-    others: writeln("OШCИC=", ERROR:1, '!!!')
+    others: writeln("OШCИC=", HOMOШ:1, '!!!')
   end;
   goto 9999;
 end;
 
 begin
-  OPENIN(FILEIDX);
-  with CURRENTFILE do begin
-    g0065 := n1.firstsect; g0067 := n1.nsects+g0065;
-    FIRSTREF := n2.firstref; g0070 := n2.nrefs+FIRSTREF;
-    g0071 := n0.firstdef; g0072 := n0.ndefs+g0071;
+  OTKPOЙOФ(CMOДTOФ);
+  with TEKOФ do begin
+    HAЧMTAC := n1.firstsect; KOHMTAC := n1.nsects+HAЧMTAC;
+    HAЧMTCC := n2.firstref; KOHMTCC := n2.nrefs+HAЧMTCC;
+    HAЧMTOБ := n0.firstdef; KOHMTOБ := n0.ndefs+HAЧMTOБ;
   end;
   (records) repeat
-    READREC(BUFFER, 1);
-    case BUFFER[0].header.kind of
-      0, 1, 2, 3, 4, 5, 6, 7, 8, 9: SKIPREC(BUFFER);
+    ДAЙЗAП(ЗAП, 1);
+    case ЗAП[0].header.kind of
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9: ПPOПЗAП(ЗAП);
       10: begin
 % The section index is the following 16-bit field in the header word.
-        SECNO := BUFFER[0].scopeword.count+g0065-1;
-        if SECNO >= g0067 then BADOUT(0);
-        OBJEDIT(SECTPOOL, SECNO); SECTION := ;
-        g0100 := BYTEPOS+1;
-        g0102 := BUFFER[0].numbers.entry+BYTEPOS+1; g0101 := ;
-        g0103 := BUFFER[0].numbers.count+BYTEPOS;
-        with SECTION@ do begin
-          g0111 := state.mode;
-          g0112 := integer(bitset(shift(raw0, -19))*[0..4]);
-          HALFOUT := state.half; NEXTADDR := offset; g0140 := name;
+        CTAC := ЗAП[0].scopeword.count+HAЧMTAC-1;
+        if CTAC >= KOHMTAC then OШЗAГP(0);
+        OBJEDIT(TAC, CTAC); YKTAC := ;
+        CBЫP := HAЧAЛOЗA+1;
+        CTEKCT := ЗAП[0].numbers.entry+HAЧAЛOЗA+1; CKOHBЫP := ;
+        CKOHTEK := ЗAП[0].numbers.count+HAЧAЛOЗA;
+        with YKTAC@ do begin
+          PEГOБ := state.mode;
+          ГЛTEГИ := integer(bitset(shift(raw0, -19))*[0..4]);
+          ФПPABC := state.half; CЧAC := offset; ИMЯTEKCE := name;
         end;
-        GOOD := EVALUATE(true);
-        with SECTION@ do begin
-          state.mode := g0111; rights := bitset(g0112);
-          state.half := HALFOUT; offset := NEXTADDR;
+        GOOD := MAШИHA(true);
+        with YKTAC@ do begin
+          state.mode := PEГOБ; rights := bitset(ГЛTEГИ);
+          state.half := ФПPABC; offset := CЧAC;
         end;
-        if HALFOUT then PUTPAIR(g0570, g0057, OUTPAIR);
-        SETPOS(g0567, g0103);
+        if ФПPABC then PUTPAIR(PAЗД, CPAЗД, CЛOBO);
+        SETPOS(ФOM, CKOHTEK);
       end;
       255: exit records;
-      others: BADOUT(1)
+      others: OШЗAГP(1)
     end;
   until false;
-  CLOSEIN(FILEIDX);
+  ЗAKPOЙOФ(CMOДTOФ);
 end;
 % 14333-15043. Emit an object-format file describing the linked names.
-procedure LABELS;
+procedure ГEHMETKИ;
 type
   namecode = packed record
     first6, second6, third6: alfa;
@@ -2613,133 +2619,134 @@ type
        0: (data: pairs);
        1: (head: pair; code: namecode)
      end;
-var HEADER, PREFBUF, DEFBUF: LABELREC;
-    DEFINITION: pdef;
-    MODNAME: namekey;
+var ЗAПЗAГ, ЗAППPEФ, ЗAПЗHAЧ: LABELREC;
+    YKTOБ: pdef;
+    БYФИMЯ: namekey;
     TEMPPAIR: pair;
-    COUNT, I: integer;
+    ЧИCЛOATP, I: integer;
 
 procedure KEYPAIR(var KEY: namekey; var RESULT: pair); fortran;
 procedure KEYCODE(var KEY: namekey; var RESULT: namecode); fortran;
 procedure GETTEMP(POOL: integer; var RESULT: pair); fortran;
 
 % 14333. Traverse namespace children and their search trees.
-procedure PUTLABEL(NODE: pprefix);
+procedure OБXOДЛEC(YЗEЛ: pprefix);
 begin
-  if NODE = ptr(0) then exit;
-  with NODE@ do
+  if YЗEЛ = ptr(0) then exit;
+  with YЗEЛ@ do
     if (kind = 6) and not hidden then begin
-      KEYCODE(name@.text, DEFBUF.code);
-      DEFBUF.code.index := NODE@.next@.defindex;
-      DEFBUF.code.indexed := NODE@.next@.kind = 6;
-      if NODE@.defindex <> 0 then begin
-        TABREAD(DEFPOOL, NODE@.defindex); DEFINITION := ;
-        with DEFINITION@ do begin
-          DEFBUF.data[3].value.high := c.data.value;
-          COUNT := b.count; DEFBUF.data[0].header.datacount := ;
-          if COUNT <> 0 then begin
-            DEFBUF.data[0].count := COUNT+4; SETPOS(g0566, b.first);
-          end else DEFBUF.data[0].count := 4;
+      KEYCODE(name@.text, ЗAПЗHAЧ.code);
+      ЗAПЗHAЧ.code.index := YЗEЛ@.next@.defindex;
+      ЗAПЗHAЧ.code.indexed := YЗEЛ@.next@.kind = 6;
+      if YЗEЛ@.defindex <> 0 then begin
+        TABREAD(TOБ, YЗEЛ@.defindex); YKTOБ := ;
+        with YKTOБ@ do begin
+          ЗAПЗHAЧ.data[3].value.high := c.data.value;
+          ЧИCЛOATP := b.count; ЗAПЗHAЧ.data[0].header.datacount := ;
+          if ЧИCЛOATP <> 0 then begin
+            ЗAПЗHAЧ.data[0].count := ЧИCЛOATP+4; SETPOS(KYБA, b.first);
+          end else ЗAПЗHAЧ.data[0].count := 4;
         end;
-        WRITREC(DEFBUF.data, 4);
-        (q) for I to COUNT do (r) begin
-          GETTEMP(g0566, TEMPPAIR); WRITPAIR(g0567, TEMPPAIR);
+        ЗAПBФOM(ЗAПЗHAЧ.data, 4);
+        (q) for I to ЧИCЛOATP do (r) begin
+          GETTEMP(KYБA, TEMPPAIR); WRITPAIR(ФOM, TEMPPAIR);
         end;
       end else begin
-        DEFBUF.data[0].count := 4; DEFBUF.data[3].value.high := 0;
-        DEFBUF.data[0].header.datacount := 0;
-        WRITREC(DEFBUF.data, 4);
+        ЗAПЗHAЧ.data[0].count := 4; ЗAПЗHAЧ.data[3].value.high := 0;
+        ЗAПЗHAЧ.data[0].header.datacount := 0;
+        ЗAПBФOM(ЗAПЗHAЧ.data, 4);
       end;
-      NODE@.defindex := g0074; g0074 := g0074+1;
-    end else if NODE@.children <> ptr(0) then begin
-      KEYCODE(NODE@.name@.text, PREFBUF.code);
-      if NODE@.next <> ROOTPREF then begin
-        PREFBUF.code.index := NODE@.next@.defindex;
-        PREFBUF.code.indexed := true;
+      YЗEЛ@.defindex := HOMEPOБЬ; HOMEPOБЬ := HOMEPOБЬ+1;
+    end else if YЗEЛ@.children <> ptr(0) then begin
+      KEYCODE(YЗEЛ@.name@.text, ЗAППPEФ.code);
+      if YЗEЛ@.next <> HAЧAЛOДИ then begin
+        ЗAППPEФ.code.index := YЗEЛ@.next@.defindex;
+        ЗAППPEФ.code.indexed := true;
       end;
-      WRITREC(PREFBUF.data, 3);
-      NODE@.defindex := g0075; g0075 := g0075+1;
+      ЗAПBФOM(ЗAППPEФ.data, 3);
+      YЗEЛ@.defindex := HOMEPПPE; HOMEPПPE := HOMEPПPE+1;
     end;
-  PUTLABEL(NODE@.children); PUTLABEL(NODE@.left); PUTLABEL(NODE@.right);
+  OБXOДЛEC(YЗEЛ@.children); OБXOДЛEC(YЗEЛ@.left); OБXOДЛEC(YЗEЛ@.right);
 end;
 
 begin
-  ATTACH(2, LABELFILE.attr.disk.address, LABELFILE.attr.disk.length,
-         LABELFILE.name@.first6, g0567);
-  HEADER := [0C, 0C, 0C, 0C, 0C, 0C, 0C, 0C, 0C, 0C, 0C, 0C];
-  HEADER.data[0].signature.kind := 0;
-  HEADER.data[0].signature.magic := 11259375;
-  HEADER.data[0].version.number := 2; HEADER.data[0].count := 6;
-  MODNAME := "KOMПOH-1  "; KEYPAIR(MODNAME, HEADER.data[1]);
-  KEYPAIR(LABELFILE.name@.text, HEADER.data[2]);
-  HEADER.data[3].firstcode.text := '    ';
-  STAMPOBJ(ref(HEADER)); WRITREC(HEADER.data, 6);
-  PREFBUF := [0C, 0C, 0C, 0C, 0C, 0C];
-  PREFBUF.data[0].signature.kind := 3; PREFBUF.data[0].count := 3;
-  DEFBUF := [0C, 0C, 0C, 0C, 0C, 0C, 0C, 0C];
-  DEFBUF.data[0].signature.kind := 6;
-  DEFBUF.data[0].header.hasname := true;
-  PUTLABEL(ROOTPREF@.children);
-  PREFBUF := [0C, 0C, 0C, 0C, 0C, 0C];
-  PREFBUF.data[0].signature.kind := 255; PREFBUF.data[0].count := 1;
-  WRITREC(PREFBUF.data, 1);
+  ATTACH(2, ФAЙЛMET.attr.disk.address, ФAЙЛMET.attr.disk.length,
+         ФAЙЛMET.name@.first6, ФOM);
+  ЗAПЗAГ := [0C, 0C, 0C, 0C, 0C, 0C, 0C, 0C, 0C, 0C, 0C, 0C];
+  ЗAПЗAГ.data[0].signature.kind := 0;
+  ЗAПЗAГ.data[0].signature.magic := 11259375;
+  ЗAПЗAГ.data[0].version.number := 2; ЗAПЗAГ.data[0].count := 6;
+  БYФИMЯ := "KOMПOH-1  "; KEYPAIR(БYФИMЯ, ЗAПЗAГ.data[1]);
+  KEYPAIR(ФAЙЛMET.name@.text, ЗAПЗAГ.data[2]);
+  ЗAПЗAГ.data[3].firstcode.text := '    ';
+  YЧET(ref(ЗAПЗAГ)); ЗAПBФOM(ЗAПЗAГ.data, 6);
+  ЗAППPEФ := [0C, 0C, 0C, 0C, 0C, 0C];
+  ЗAППPEФ.data[0].signature.kind := 3; ЗAППPEФ.data[0].count := 3;
+  ЗAПЗHAЧ := [0C, 0C, 0C, 0C, 0C, 0C, 0C, 0C];
+  ЗAПЗHAЧ.data[0].signature.kind := 6;
+  ЗAПЗHAЧ.data[0].header.hasname := true;
+  OБXOДЛEC(HAЧAЛOДИ@.children);
+  ЗAППPEФ := [0C, 0C, 0C, 0C, 0C, 0C];
+  ЗAППPEФ.data[0].signature.kind := 255; ЗAППPEФ.data[0].count := 1;
+  ЗAПBФOM(ЗAППPEФ.data, 1);
 % The remaining lines print the output-file summary.
   writeln(' ');
   write("ЗAПИCAH OБ'EKTHЫЙ MOДYЛЬ <");
-  write(LABELFILE.name@.text);
+  write(ФAЙЛMET.name@.text);
   writeln(">, COДEPЖAЩИЙ ГЛOБAЛЬHЫE OПPEДEЛEHИЯ");
   write("ФAЙЛ : ");
-  write(LABELFILE.name@.text, ' [', LABELFILE.attr.disk.address:6 oct);
-  write("], ДЛИHA : "); PUTSIZE(NUMOBJS(g0567));
-  writeln(", OБ'EKTOB : ", g0074-1:1);
-  CLOSE(g0567);
+  write(ФAЙЛMET.name@.text, ' [', ФAЙЛMET.attr.disk.address:6 oct);
+  write("], ДЛИHA : "); ПEЧДЛФAЙ(NUMOBJS(ФOM));
+  writeln(", OБ'EKTOB : ", HOMEPOБЬ-1:1);
+  CLOSE(ФOM);
 end;
 % 15044-15220. Convert saved cumulative stamps to per-phase timings.
-procedure STATS;
-var COUNTER: metric;
-    SAVED: stamp;
-    N: stage;
+procedure ПEЧCTATИ;
+var BИД: metric;
+    БYФCTAT: stamp;
+    ЭTAП: stage;
 
-procedure PUTTIMES(S: stage);
+procedure ГPYППABP(ЭTAП: stage);
 begin
-  (q) for COUNTER := mtcpu to mttotal do (r) begin
-    write(' '); PUTTIME(TIMES[S][COUNTER]);
+  (q) for BИД := ЦП to ACTP do (r) begin
+    write(' '); ПEЧBPE(CTATЭTAП[ЭTAП][BИД]);
   end;
   writeln;
 end;
 
 begin
-  SAVED := TIMES[pred(PHASE)];
-  (q) for N := pred(PHASE) downto stinit do (r)
-    (q) for COUNTER := mtcpu to mttotal do (r)
-      TIMES[N][COUNTER] := TIMES[N][COUNTER]-TIMES[pred(N)][COUNTER];
-  (q) for COUNTER := mtcpu to mttotal do (r)
-    TIMES[stzero][COUNTER] := SAVED[COUNTER]-TIMES[stzero][COUNTER];
+  БYФCTAT := CTATЭTAП[pred(TEKЭTAП)];
+  (q) for ЭTAП := pred(TEKЭTAП) downto ШAГИHИЦ do (r)
+    (q) for BИД := ЦП to ACTP do (r)
+      CTATЭTAП[ЭTAП][BИД] :=
+  CTATЭTAП[ЭTAП][BИД]-CTATЭTAП[pred(ЭTAП)][BИД];
+  (q) for BИД := ЦП to ACTP do (r)
+    CTATЭTAП[CYMMA][BИД] := БYФCTAT[BИД]-CTATЭTAП[CYMMA][BИД];
   writeln(' ');
   writeln("CTATИCTИKA ПO PAБOTE KOMПOHOBЩИKA":48);
   writeln(' ');
-  write("ИHИЦИAЛИЗAЦИЯ ...................."); PUTTIMES(stinit);
-  write("PAЗБOP ЗAДAHИЯ ..................."); PUTTIMES(stparse);
-  if PHASE > stgather then begin
-    write("CБOPKA OПPEДEЛEHИЙ И CCЫЛOK ......"); PUTTIMES(stgather);
+  write("ИHИЦИAЛИЗAЦИЯ ...................."); ГPYППABP(ШAГИHИЦ);
+  write("PAЗБOP ЗAДAHИЯ ..................."); ГPYППABP(ШAГЗAДAH);
+  if TEKЭTAП > ШAГCБOPK then begin
+    write("CБOPKA OПPEДEЛEHИЙ И CCЫЛOK ......"); ГPYППABP(ШAГCБOPK);
   end;
-  if PHASE > stresolve then begin
-    write("PAЗPEШEHИE CCЫЛOK ................"); PUTTIMES(stresolve);
+  if TEKЭTAП > ШAГPAЗPE then begin
+    write("PAЗPEШEHИE CCЫЛOK ................"); ГPYППABP(ШAГPAЗPE);
   end;
-  if PHASE > stplace then begin
-    write("PACПPEДEЛEHИE ПAMЯTИ ............."); PUTTIMES(stplace);
+  if TEKЭTAП > ШAГPAЗME then begin
+    write("PACПPEДEЛEHИE ПAMЯTИ ............."); ГPYППABP(ШAГPAЗME);
   end;
-  if PHASE > steval then begin
-    write("BЫЧИCЛEHИE ЗHAЧEHИЙ OБ'EKTOB ....."); PUTTIMES(steval);
+  if TEKЭTAП > ШAГBЫЧ then begin
+    write("BЫЧИCЛEHИE ЗHAЧEHИЙ OБ'EKTOB ....."); ГPYППABP(ШAГBЫЧ);
   end;
-  if PHASE > stoutput then begin
-    write("ЗAПИCЬ BЫПOЛHЯEMOГO PAЗДEЛA ......"); PUTTIMES(stoutput);
+  if TEKЭTAП > ШAГЗAГP then begin
+    write("ЗAПИCЬ BЫПOЛHЯEMOГO PAЗДEЛA ......"); ГPYППABP(ШAГЗAГP);
   end;
-  if PHASE > stlabels then begin
-    write("ПOPOЖДEHИE ФAЙЛA METOK ..........."); PUTTIMES(stlabels);
+  if TEKЭTAП > ШAГГEHME then begin
+    write("ПOPOЖДEHИE ФAЙЛA METOK ..........."); ГPYППABP(ШAГГEHME);
   end;
   writeln('-------- -------- --------':61);
-  write(' ':34); PUTTIMES(stzero);
+  write(' ':34); ГPYППABP(CYMMA);
 end;
 % Main linker driver; service sources are in linker-runtime.
 procedure MEMINIT(PAGES, MODE, FLAGS: integer); assembler;
@@ -2749,41 +2756,41 @@ procedure NEWTAB(POOL: integer); fortran;
 
 begin
   writeln("_014 -= KOMПOHOBЩИK ЭЛЬБPYC-Б : BEPCИЯ 2.40/1 =-");
-  GETSTAMP(TIMES[stzero]);
+  GETSTAMP(CTATЭTAП[CYMMA]);
   MEMINIT(32, 3, 0);
-  g0076 := ord(MEMALLOC(512)); NAMETAB := ;
-  g0076 := g0076+127+1; KEYPOOL := ;
-  g0076 := g0076+31+8; PATHPOOL := ;
-  g0076 := g0076+31+8; OBJPOOL := ;
-  g0076 := g0076+0+8; FILEPOOL := ;
-  g0076 := g0076+3+8; SEGPOOL := ;
-  g0076 := g0076+1+8; DEFPOOL := ;
-  g0076 := g0076+96+8; REFPOOL := ;
-  g0076 := g0076+63+8; SECTPOOL := ;
-  g0076 := g0076+7+8; PREFPOOL := ;
-  g0076 := g0076+1+8; ENTRYPOOL := ;
-  g0076 := g0076+0+8; g0566 := ;
-  g0076 := g0076+15+8; g0567 := ;
-  g0076 := g0076+8; g0570 := ; g0076 := g0076+8;
-  g0076 := g0076-ord(NAMETAB);
-  if g0076 > 512 then begin writeln('LDES=', g0076:4 oct); halt end;
-  INITVEC(2, 4095, " TИMEH", KEYPOOL);
-  INITVEC(2, 4095, " ДИM  ", PATHPOOL);
-  INITVEC(2, 99, " TЛФ  ", OBJPOOL);
-  INITVEC(4, 255, " TOФ  ", FILEPOOL);
-  INITVEC(1, 511, " TCEГ ", SEGPOOL);
-  INITVEC(3, 8191, " TOБ  ", DEFPOOL);
-  INITVEC(1, 37777B, ' TCC  ', REFPOOL);
-  INITVEC(5, 399, ' TAC  ', SECTPOOL);
-  INITVEC(2, 2047, " KYБA ", g0566);
-  (q) for g0077 := 0 to 127 do (r) NAMETAB@[g0077] := ptr(0);
-  OBJEDIT(PATHPOOL, 0); g0131 := ; ROOTPREF := ;
-  g0131@ := [0C, 0C];
-  FILEEDIT(DEFPOOL, 0); g0132 := ; g0132@ := [0C, 0C, 0C];
-  FILEEDIT(REFPOOL, 0);
-  BINDOBJ("CИCBЫB    ", 1); BINDOBJ("CИCBBOД   ", 2);
-  NEWPHASE(stinit); READJOB; NEWPHASE(stparse);
-  if 0 in PRINTOPT then begin
+  AДEC := ord(MEMALLOC(512)); BEKXEШ := ;
+  AДEC := AДEC+127+1; TИMEH := ;
+  AДEC := AДEC+31+8; ДИM := ;
+  AДEC := AДEC+31+8; TЛФ := ;
+  AДEC := AДEC+0+8; TOФ := ;
+  AДEC := AДEC+3+8; TCEГ := ;
+  AДEC := AДEC+1+8; TOБ := ;
+  AДEC := AДEC+96+8; TCC := ;
+  AДEC := AДEC+63+8; TAC := ;
+  AДEC := AДEC+7+8; TПPE := ;
+  AДEC := AДEC+1+8; TЭM := ;
+  AДEC := AДEC+0+8; KYБA := ;
+  AДEC := AДEC+15+8; ФOM := ;
+  AДEC := AДEC+8; PAЗД := ; AДEC := AДEC+8;
+  AДEC := AДEC-ord(BEKXEШ);
+  if AДEC > 512 then begin writeln('LDES=', AДEC:4 oct); halt end;
+  INITVEC(2, 4095, " TИMEH", TИMEH);
+  INITVEC(2, 4095, " ДИM  ", ДИM);
+  INITVEC(2, 99, " TЛФ  ", TЛФ);
+  INITVEC(4, 255, " TOФ  ", TOФ);
+  INITVEC(1, 511, " TCEГ ", TCEГ);
+  INITVEC(3, 8191, " TOБ  ", TOБ);
+  INITVEC(1, 37777B, ' TCC  ', TCC);
+  INITVEC(5, 399, ' TAC  ', TAC);
+  INITVEC(2, 2047, " KYБA ", KYБA);
+  (q) for I := 0 to 127 do (r) BEKXEШ@[I] := ptr(0);
+  OBJEDIT(ДИM, 0); YKДИM := ; HAЧAЛOДИ := ;
+  YKДИM@ := [0C, 0C];
+  FILEEDIT(TOБ, 0); YKTOБ := ; YKTOБ@ := [0C, 0C, 0C];
+  FILEEDIT(TCC, 0);
+  ASSIGN("CИCBЫB    ", 1); ASSIGN("CИCBBOД   ", 2);
+  CTATИCT(ШAГИHИЦ); PAЗБOPЗA; CTATИCT(ШAГЗAДAH);
+  if 0 in PEЖИMЫ then begin
     writeln(' ');
     writeln("CBEДEHИЯ OБ OБ'EKTHЫX MOДYЛЯX":74);
     writeln('-----------------------------':74); writeln(' ');
@@ -2796,60 +2803,60 @@ begin
     writeln(
 ' - --------    ---------- ------ -------- ------ ---------');
   end;
-  SETPOS(SEGPOOL, 0);
+  SETPOS(TCEГ, 0);
   repeat
-    g0051 := NUMOBJS(SECTPOOL)+1;
-    NEWTAB(SECTPOOL); g0127 := ; g0127@ := [0C, 0C, 0C, 0C, 0C];
-    with g0127@ do begin next := g0051; previous := g0051 end;
-    OBJEDIT(SEGPOOL, POSITION(SEGPOOL)+1); SEGREC := ;
-    SEGREC@.low := g0051;
-    (x); g0643 := SEGREC@.count;
-    (q) for g0050 to g0643 do (r) begin
-      READNEXT(SEGPOOL); SEGREC := ; GATHER(SEGREC@.fileindex);
+    HAЧCTAC := NUMOBJS(TAC)+1;
+    NEWTAB(TAC); YKTAC := ; YKTAC@ := [0C, 0C, 0C, 0C, 0C];
+    with YKTAC@ do begin next := HAЧCTAC; previous := HAЧCTAC end;
+    OBJEDIT(TCEГ, POSITION(TCEГ)+1); YKTCEГ := ;
+    YKTCEГ@.low := HAЧCTAC;
+    (x); g0643 := YKTCEГ@.count;
+    (q) for HMOД to g0643 do (r) begin
+      READNEXT(TCEГ); YKTCEГ := ; CБOPOБЬE(YKTCEГ@.fileindex);
     end;
-  until POSITION(SEGPOOL) > NUMOBJS(SEGPOOL);
-  NEWPHASE(stgather); SETPOS(SEGPOOL, 0);
+  until POSITION(TCEГ) > NUMOBJS(TCEГ);
+  CTATИCT(ШAГCБOPK); SETPOS(TCEГ, 0);
   repeat
-    OBJREAD(SEGPOOL, POSITION(SEGPOOL)+1); SEGREC := ;
-    (x); g0644 := SEGREC@.count;
-    (q) for g0050 to g0644 do (r) begin
-      NEWKEY(SEGPOOL); SEGREC := ;
-      with SEGREC@ do limit := RESOLVE(SEGREC@.fileindex);
+    OBJREAD(TCEГ, POSITION(TCEГ)+1); YKTCEГ := ;
+    (x); g0644 := YKTCEГ@.count;
+    (q) for HMOД to g0644 do (r) begin
+      NEWKEY(TCEГ); YKTCEГ := ;
+      with YKTCEГ@ do limit := PAЗPEШИC(YKTCEГ@.fileindex);
     end;
-  until POSITION(SEGPOOL) > NUMOBJS(SEGPOOL);
-  if not ALLFOUND then begin
+  until POSITION(TCEГ) > NUMOBJS(TCEГ);
+  if not PAЗPEШИЛ then begin
     writeln(' ');
     writeln('  ---------------------------------------------');
     writeln("  !  H E P A З P E Ш E H H Ы E   C C Ы Л K И  !");
     writeln('  ---------------------------------------------');
     writeln(' ');
-    SETPOS(SEGPOOL, 0);
+    SETPOS(TCEГ, 0);
     repeat
-      OBJREAD(SEGPOOL, POSITION(SEGPOOL)+1); SEGREC := ;
-      (x); g0645 := SEGREC@.count;
-      (q) for g0050 to g0645 do (r) begin
-        READNEXT(SEGPOOL); SEGREC := ;
-        with SEGREC@ do if not limit then UNRESMSG(fileindex);
+      OBJREAD(TCEГ, POSITION(TCEГ)+1); YKTCEГ := ;
+      (x); g0645 := YKTCEГ@.count;
+      (q) for HMOД to g0645 do (r) begin
+        READNEXT(TCEГ); YKTCEГ := ;
+        with YKTCEГ@ do if not limit then TAБHEPAC(fileindex);
       end;
-    until POSITION(SEGPOOL) > NUMOBJS(SEGPOOL);
+    until POSITION(TCEГ) > NUMOBJS(TCEГ);
   end;
-  NEWPHASE(stresolve); SETPOS(SEGPOOL, 0);
-  LASTSECT := [0C, 0C, 0C, 0C, 0C];
+  CTATИCT(ШAГPAЗPE); SETPOS(TCEГ, 0);
+  ЭЛTACП := [0C, 0C, 0C, 0C, 0C];
   repeat
-    READNEXT(SEGPOOL); SEGREC := ;
-    g0063 := SEGREC@.loadbase; NEXTADDR := ;
-    READNEXT(SEGPOOL); SEGREC := ;
-    with SEGREC@ do SETPOS(SEGPOOL, POSITION(SEGPOOL)+count);
-    g0051 := SEGREC@.low;
-    TABREAD(SECTPOOL, g0051); g0127 := ; g0054 := g0127@.next;
-    (q) while g0054 <> g0051 do (r) begin
-      FILEEDIT(SECTPOOL, g0054); g0127 := ; JOINSECT(g0127);
-      g0054 := g0127@.next;
+    READNEXT(TCEГ); YKTCEГ := ;
+    HAЗCEГM := YKTCEГ@.loadbase; CЧAC := ;
+    READNEXT(TCEГ); YKTCEГ := ;
+    with YKTCEГ@ do SETPOS(TCEГ, POSITION(TCEГ)+count);
+    HAЧCTAC := YKTCEГ@.low;
+    TABREAD(TAC, HAЧCTAC); YKTAC := ; CTAC := YKTAC@.next;
+    (q) while CTAC <> HAЧCTAC do (r) begin
+      FILEEDIT(TAC, CTAC); YKTAC := ; HACTPOЙH(YKTAC);
+      CTAC := YKTAC@.next;
     end;
-    TABREAD(SECTPOOL, g0054); g0127 := ;
-    g0127@.length := NEXTADDR-g0063;
-  until POSITION(SEGPOOL) > NUMOBJS(SEGPOOL);
-  if 1 in PRINTOPT then begin
+    TABREAD(TAC, CTAC); YKTAC := ;
+    YKTAC@.length := CЧAC-HAЗCEГM;
+  until POSITION(TCEГ) > NUMOBJS(TCEГ);
+  if 1 in PEЖИMЫ then begin
     writeln('_014');
     writeln("CBEДEHИЯ O ПPOГPAMMHЫX CEKЦИЯX":60);
     writeln('------------------------------':60); writeln(' ');
@@ -2857,64 +2864,64 @@ begin
     writeln("   BЫPAB.     ATPИБYTЫ");
     write('    --- ------      ------    ------     -----     -----');
     writeln('   ------     --------');
-    SETPOS(SEGPOOL, 1);
+    SETPOS(TCEГ, 1);
     repeat
-      READNEXT(SEGPOOL); SEGREC := ;
-      with SEGREC@ do SETPOS(SEGPOOL, POSITION(SEGPOOL)+count+1);
-      g0051 := SEGREC@.low;
-      TABREAD(SECTPOOL, g0051); g0127 := ; g0054 := g0127@.next;
-      (q) while g0054 <> g0051 do (r) begin
-        TABREAD(SECTPOOL, g0054); g0127 := ; LISTSECT(g0127);
-        g0054 := g0127@.next;
+      READNEXT(TCEГ); YKTCEГ := ;
+      with YKTCEГ@ do SETPOS(TCEГ, POSITION(TCEГ)+count+1);
+      HAЧCTAC := YKTCEГ@.low;
+      TABREAD(TAC, HAЧCTAC); YKTAC := ; CTAC := YKTAC@.next;
+      (q) while CTAC <> HAЧCTAC do (r) begin
+        TABREAD(TAC, CTAC); YKTAC := ; ПEЧCEKЦИ(YKTAC);
+        CTAC := YKTAC@.next;
       end;
-    until POSITION(SEGPOOL) > NUMOBJS(SEGPOOL);
+    until POSITION(TCEГ) > NUMOBJS(TCEГ);
   end;
-  NEWPHASE(stplace);
+  CTATИCT(ШAГPAЗME);
   (values) repeat
-    SETPOS(SEGPOOL, 0); g0121 := true; g0122 := false;
+    SETPOS(TCEГ, 0); BKЛЮЧEHO := true; g0122 := false;
     repeat
-      OBJREAD(SEGPOOL, POSITION(SEGPOOL)+1); SEGREC := ;
-      (x); g0646 := SEGREC@.count;
-      (q) for g0050 to g0646 do (r) begin
-        READNEXT(SEGPOOL); SEGREC := ;
-        with SEGREC@ do
+      OBJREAD(TCEГ, POSITION(TCEГ)+1); YKTCEГ := ;
+      (x); g0646 := YKTCEГ@.count;
+      (q) for HMOД to g0646 do (r) begin
+        READNEXT(TCEГ); YKTCEГ := ;
+        with YKTCEГ@ do
           if not flags.ready then begin
-            g0642 := EVALDEFS(SEGREC@.fileindex);
-            SEGREC@.flags.ready := g0642 in [evnone, evdone];
+            g0642 := BЫЧИCЛEH(YKTCEГ@.fileindex);
+            YKTCEГ@.flags.ready := g0642 in [evnone, evdone];
             g0122 := g0122 or (g0642 in [evdone, evmixed]);
-            g0121 := g0121 and not (g0642 in [evmixed, evwait]);
+            BKЛЮЧEHO := BKЛЮЧEHO and not (g0642 in [evmixed, evwait]);
           end;
       end;
-    until POSITION(SEGPOOL) > NUMOBJS(SEGPOOL);
-    if g0121 then exit values;
+    until POSITION(TCEГ) > NUMOBJS(TCEГ);
+    if BKЛЮЧEHO then exit values;
     if not g0122 then begin
-      SETPOS(SEGPOOL, 0);
+      SETPOS(TCEГ, 0);
       repeat
-        OBJREAD(SEGPOOL, POSITION(SEGPOOL)+1); SEGREC := ;
-        (x); g0647 := SEGREC@.count;
-        (q) for g0050 to g0647 do (r) begin
-          READNEXT(SEGPOOL); SEGREC := ;
-          with SEGREC@ do
+        OBJREAD(TCEГ, POSITION(TCEГ)+1); YKTCEГ := ;
+        (x); g0647 := YKTCEГ@.count;
+        (q) for HMOД to g0647 do (r) begin
+          READNEXT(TCEГ); YKTCEГ := ;
+          with YKTCEГ@ do
             if not flags.ready then begin
-              TABFILE(FILEPOOL, fileindex, CURRENTFILE);
-              g0071 := CURRENTFILE.n0.firstdef;
-              g0073 := CURRENTFILE.n0.ndefs;
-              (q) for g0107 to g0073 do (r) begin
-                TABREAD(DEFPOOL, g0071+g0107-1); g0132 := ;
-                with g0132@ do
+              TABFILE(TOФ, fileindex, TEKOФ);
+              HAЧMTOБ := TEKOФ.n0.firstdef;
+              g0073 := TEKOФ.n0.ndefs;
+              (q) for ИHДEKCTO to g0073 do (r) begin
+                TABREAD(TOБ, HAЧMTOБ+ИHДEKCTO-1); YKTOБ := ;
+                with YKTOБ@ do
                   if not c.ready then begin
-                    MODULEMSG(ref(CURRENTFILE)); OBJWHERE(a.name);
+                    OШИБKИBM(ref(TEKOФ)); ПEЧИMЯЛO(a.name);
                     writeln(" - HEBOЗMOЖHO BЫЧИCЛИTЬ ЗHAЧEHИE");
                     goto 9999;
                   end;
               end;
             end;
         end;
-      until POSITION(SEGPOOL) > NUMOBJS(SEGPOOL);
+      until POSITION(TCEГ) > NUMOBJS(TCEГ);
     end;
   until false;
-  NEWPHASE(steval);
-  if 2 in PRINTOPT then begin
+  CTATИCT(ШAГBЫЧ);
+  if 2 in PEЖИMЫ then begin
     writeln('_014');
     writeln("CBEДEHИЯ O CEГMEHTAX":38);
     writeln('-------- - ---------':38); writeln(' ');
@@ -2923,87 +2930,88 @@ begin
     writeln(
 '  ----- ------     ------     -----   ---------- -- -----');
   end;
-  ATTACH(2, OUTFILE.attr.disk.address, OUTFILE.attr.disk.length,
-         OUTFILE.name@.first6, g0570);
-  g0055 := 0; SETPOS(SEGPOOL, 0);
+  ATTACH(2, ФAЙЛPAЗД.attr.disk.address, ФAЙЛPAЗД.attr.disk.length,
+         ФAЙЛPAЗД.name@.first6, PAЗД);
+  CЧAДPAЗД := 0; SETPOS(TCEГ, 0);
   repeat
-    READNEXT(SEGPOOL); SEGREC := ;
-    with SEGREC@ do begin g0064 := diskbase; g0063 := loadbase end;
-    READNEXT(SEGPOOL); SEGREC := ;
-    with SEGREC@ do begin
-      if above then g0055 := g0055+g0064 else g0055 := g0064;
+    READNEXT(TCEГ); YKTCEГ := ;
+    with YKTCEГ@ do begin g0064 := diskbase; HAЗCEГM := loadbase end;
+    READNEXT(TCEГ); YKTCEГ := ;
+    with YKTCEГ@ do begin
+      if above then CЧAДPAЗД := CЧAДPAЗД+g0064 else CЧAДPAЗД := g0064;
       if not concatenate then begin
-        g0060 := g0055 div 1024; g0061 := g0055 mod 1024;
-        g0062 := g0063 mod 1024;
-        if g0062 < g0061 then g0060 := g0060+1;
-        g0055 := g0060*1024+g0062;
+        ЗOHA := CЧAДPAЗД div 1024; AДBЗOHE := CЧAДPAЗД mod 1024;
+        AЗBЗOHE := HAЗCEГM mod 1024;
+        if AЗBЗOHE < AДBЗOHE then ЗOHA := ЗOHA+1;
+        CЧAДPAЗД := ЗOHA*1024+AЗBЗOHE;
       end;
-      g0051 := low; g0052 := count; g0056 := length+g0055;
+      HAЧCTAC := low; ЧИCЛOMOД := count; CЧAKCEГM := length+CЧAДPAЗД;
     end;
-    (q) for g0050 to g0052 do (r) begin
-      READNEXT(SEGPOOL); SEGREC := ; WRITESEG(SEGREC@.fileindex);
+    (q) for HMOД to ЧИCЛOMOД do (r) begin
+      READNEXT(TCEГ); YKTCEГ := ; ЗAГPYЗИM(YKTCEГ@.fileindex);
     end;
-    TABREAD(SECTPOOL, g0051); g0127 := ;
-    with g0127@ do begin g0054 := next; g0056 := length+g0063-1 end;
-    g0061 := g0055; g0055 := g0127@.length+g0055;
-    OUTPAIR.hi := 7777777777777777C; OUTPAIR.lo := ;
-    PUTPAIR(g0570, g0055, OUTPAIR);
-    if 2 in PRINTOPT then begin
-      ALLFOUND := true;
-      (q) while g0054 <> g0051 do (r) begin
-        TABREAD(SECTPOOL, g0054); g0127 := ;
-        with g0127@ do begin g0140 := name; g0054 := next end;
-        PUTSECTN(g0127);
-        if ALLFOUND then begin
-          writeln(' ', g0063:9 oct, ' ', g0056:9 oct, ' ',
-            g0061*2 div 1024:4 oct, ':', g0061*2 mod 1024:4 oct, '-',
-            g0055*2 div 1024:4 oct, ':', g0055*2 mod 1024:4 oct);
-          ALLFOUND := false;
+    TABREAD(TAC, HAЧCTAC); YKTAC := ;
+    with YKTAC@ do begin CTAC := next; CЧAKCEГM := length+HAЗCEГM-1 end;
+    AДBЗOHE := CЧAДPAЗД; CЧAДPAЗД := YKTAC@.length+CЧAДPAЗД;
+    CЛOBO.hi := 7777777777777777C; CЛOBO.lo := ;
+    PUTPAIR(PAЗД, CЧAДPAЗД, CЛOBO);
+    if 2 in PEЖИMЫ then begin
+      PAЗPEШИЛ := true;
+      (q) while CTAC <> HAЧCTAC do (r) begin
+        TABREAD(TAC, CTAC); YKTAC := ;
+        with YKTAC@ do begin ИMЯTEKCE := name; CTAC := next end;
+        ПEЧИMЯCE(YKTAC);
+        if PAЗPEШИЛ then begin
+          writeln(' ', HAЗCEГM:9 oct, ' ', CЧAKCEГM:9 oct, ' ',
+            AДBЗOHE*2 div 1024:4 oct, ':', AДBЗOHE*2 mod 1024:4 oct,
+  '-',
+            CЧAДPAЗД*2 div 1024:4 oct, ':', CЧAДPAЗД*2 mod 1024:4 oct);
+          PAЗPEШИЛ := false;
         end else writeln;
-        TABREAD(SECTPOOL, g0054); g0127 := ;
-        (q) while g0127@.name = g0140 do (r) begin
-          g0054 := g0127@.next;
-          TABREAD(SECTPOOL, g0054); g0127 := ;
+        TABREAD(TAC, CTAC); YKTAC := ;
+        (q) while YKTAC@.name = ИMЯTEKCE do (r) begin
+          CTAC := YKTAC@.next;
+          TABREAD(TAC, CTAC); YKTAC := ;
         end;
       end;
     end;
-  until POSITION(SEGPOOL) > NUMOBJS(SEGPOOL);
+  until POSITION(TCEГ) > NUMOBJS(TCEГ);
   writeln(' ');
   write("CИCTEMHЫЙ BЫПOЛHЯEMЫЙ PAЗДEЛ ЗAПИCAH B ФAЙЛ ");
-  write(OUTFILE.name@.text, ' [', OUTFILE.attr.disk.address:6 oct);
-  write("], ДЛИHA : "); PUTSIZE(g0057); writeln;
-  CLOSE(g0570); NEWPHASE(stoutput);
-  if LABELFILE.name <> ptr(0) then begin LABELS; NEWPHASE(stlabels) end;
-  9999: if 3 in PRINTOPT then STATS;
+  write(ФAЙЛPAЗД.name@.text, ' [', ФAЙЛPAЗД.attr.disk.address:6 oct);
+  write("], ДЛИHA : "); ПEЧДЛФAЙ(CPAЗД); writeln;
+  CLOSE(PAЗД); CTATИCT(ШAГЗAГP);
+  if ФAЙЛMET.name <> ptr(0) then begin ГEHMETKИ; CTATИCT(ШAГГEHME) end;
+  9999: if 3 in PEЖИMЫ then ПEЧCTATИ;
   writeln(' '); writeln("=== KOHEЦ PAБOTЫ KOMПOHOBЩИKA ===");
   repeat besm(0740000B); (x); until false;
   (x);
 end.D
   PADCHAR = ' ';
-  NAMETAB = 0C;
-  ROOTPREF = 0C;
-  g0074 = 1;
-  g0075 = 1;
-  ALLFOUND = true;
-  XLATTAB =
-    atend:10,
-    white,
-    atend:20,
-    punct,
-    white,
-    atend:7,
-    punct:8,
-    digit:10,
-    punct:6,
-    atend,
-    letter:26,
-    atend:6,
-    letter:26,
-    atend:69,
-    letter:31,
-    atend,
-    letter:31,
-    atend;
-  MONTHDAY = 0, 31, 59, 90, 120, 151, 181,
+  BEKXEШ = 0C;
+  HAЧAЛOДИ = 0C;
+  HOMEPOБЬ = 1;
+  HOMEPПPE = 1;
+  PAЗPEШИЛ = true;
+  MTИЛ =
+    ЗAПPЛИT:10,
+    PAЗЛИT,
+    ЗAПPЛИT:20,
+    CПEЦЛИT,
+    PAЗЛИT,
+    ЗAПPЛИT:7,
+    CПEЦЛИT:8,
+    ЦИФPA:10,
+    CПEЦЛИT:6,
+    ЗAПPЛИT,
+    БYKBA:26,
+    ЗAПPЛИT:6,
+    БYKBA:26,
+    ЗAПPЛИT:69,
+    БYKBA:31,
+    ЗAПPЛИT,
+    БYKBA:31,
+    ЗAПPЛИT;
+  HAЧAЛOME = 0, 31, 59, 90, 120, 151, 181,
              212, 243, 273, 304, 334, 365
 end

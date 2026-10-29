@@ -75,6 +75,8 @@ byte-identical raw printer streams. See [execution results](fprint/execution.jso
 linkers. Their [real runtime libraries](linker-runtime/README.md) share 53
 relocatable Madlen source variants, selecting 49 modules per image.
 
+Current build results:
+
 | Linker | Application words | Matching library words | Matching Pascal regions, with padding |
 |---|---:|---:|---:|
 | LINK1, version 2.40/1 | 6543 | 1720 / 1720 | 87 / 93 |
@@ -85,8 +87,9 @@ relocatable Madlen source variants, selecting 49 modules per image.
 All application entry addresses and sizes, library entries and FREE values
 match. Constant pools, P/1D, globals and file blocks match literally.
 BLINK1 adds wider address/prefix handling; LINK and BLINK also use 64-bit
-operands and 32-bit instruction formats. Private compiler copies keep K9
-and pack the instruction flags. The builds compare complete library regions
+operands and 32-bit instruction formats. Builds start from `mypas.b6`,
+with an optional `--compiler-source` override, and apply only the historical
+TRUNC and file-allocation patches. They compare complete library regions
 without normalization; real link jobs have not been executed.
 
 [PASCODER and overlays](pascoder/README.md) disassembles the library image writer

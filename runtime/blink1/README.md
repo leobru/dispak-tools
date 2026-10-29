@@ -3,7 +3,8 @@
 BLINK1 is version **2.40/2** of the Elbrus-B linker, extracted from volume
 4001 zones `0255–0274`. [blink1.pas](blink1.pas) was recovered using the
 complete [LINK1 source](../link1/link1.pas), version 2.40/1, as its basis.
-Names are inherited descriptive names; the original contains no PMD tables.
+Shared routine and variable names follow the older KOMPON PMD tables;
+unmapped names remain descriptive. This image contains no PMD tables.
 
 The source covers all **6586 application words**, `02012–16703`.
 It compiles, and all **93 code regions** have their original entry addresses
@@ -13,6 +14,12 @@ All **924 constant words**, P/1D, globals and file blocks match exactly.
 The [real runtime](../linker-runtime/README.md) reproduces all **1689 library
 words** and their placements literally. The linker is not executed during
 the build. [library.json](library.json) records the full comparison.
+
+Shared PMD-backed identifiers were mirrored from
+[KOMPON 2.02/3](../kompon3/README.md); the
+[correspondence table](../linker-runtime/historical-names.json) records
+the names and scopes. Rebuilding after the renames produced an image
+byte-for-byte identical to the pre-rename build.
 
 ## Build and inspect
 
@@ -60,20 +67,20 @@ load addresses below `134217728` instead of `32768`. Definition results and
 section base addresses are sign-extended from 27 bits before passing to
 the value-arithmetic services. Expression output accepts values in
 `[-134217728, 134217728)` and reduces them modulo `134217728`.
-EVALDEFS applies the same wider bounds to computed definitions.
+BЫЧИCЛEH applies the same wider bounds to computed definitions.
 
 Five routines account for the entire **43-word** increase:
 
 | Routine | BLINK1 entry | LINK1 words | BLINK1 words | Recovered change |
 |---|---|---:|---:|---|
-| PUSHDEF | `10645` | 33 | 37 | Replaced the 15-bit reduction with 27-bit sign extension |
-| PUSHREF | `10712` | 51 | 55 | Applied the same conversion through a bound reference |
-| EMITVAL | `11162` | 101 | 116 | Added wider range checks, long-address checks and opcode-10 prefix splitting |
-| FIRSTVAL | `11442` | 95 | 111 | Sign-extended long instruction addresses and accepted opcode-10 prefixes |
-| EVALUATE | `12200` | 835 | 839 | Sign-extended the section base instead of retaining its low 15 bits |
+| ЗHAЧCOБ | `10645` | 33 | 37 | Replaced the 15-bit reduction with 27-bit sign extension |
+| ЗHAЧBHEШ | `10712` | 51 | 55 | Applied the same conversion through a bound reference |
+| ЗABEPШИO | `11162` | 101 | 116 | Added wider range checks, long-address checks and opcode-10 prefix splitting |
+| ГPYЗЧИK | `11442` | 95 | 111 | Sign-extended long instruction addresses and accepted opcode-10 prefixes |
+| MAШИHA | `12200` | 835 | 839 | Sign-extended the section base instead of retaining its low 15 bits |
 
-FIRSTVAL accepts prefix opcode 2 directly and opcode 10 with its address
-multiplied by 4096. EMITVAL's corresponding split uses division and remainder
+ГPYЗЧИK accepts prefix opcode 2 directly and opcode 10 with its address
+multiplied by 4096. ЗABEPШИO's corresponding split uses division and remainder
 by 4096; the original tests the opcode in `COMMAND.left` at this point.
 This detail is preserved in the Pascal source.
 
@@ -89,12 +96,12 @@ change region lengths or entry addresses:
 
 | Routine | Difference |
 |---|---|
-| SCANINT | A restore-helper call replaces a tail call, and one redundant jump is omitted |
-| GETTOKEN | Three redundant jumps are omitted |
-| PRINTSEL | One redundant jump is omitted |
-| STAMPOBJ | Integer zero comes from P/1D instead of the constant pool |
-| GATHER | One redundant NTR 7 before PUTSIZE is omitted |
-| LABELS | One redundant NTR 7 before PUTSIZE is omitted |
+| ДAЙЦEЛOE | A restore-helper call replaces a tail call, and one redundant jump is omitted |
+| CKAHEP | Three redundant jumps are omitted |
+| PEЖПEЧ | One redundant jump is omitted |
+| YЧET | Integer zero comes from P/1D instead of the constant pool |
+| CБOPOБЬE | One redundant NTR 7 before ПEЧДЛФAЙ is omitted |
+| ГEHMETKИ | One redundant NTR 7 before ПEЧДЛФAЙ is omitted |
 
 The loop pattern and 15 explicit `(*q*)` exceptions are inherited from
 LINK1. All 56 loops retain `(r)`. Empty pointers use `ptr(0)`.
@@ -102,7 +109,7 @@ LINK1. All 56 loops retain `(r)`. Empty pointers use `ptr(0)`.
 The current comparison has a padded symbolic edit cost of **12**; this is
 an instruction/label alignment measure, not a count of differing image words.
 All 924 constant words now match literally. Declaring the hash-array type
-before the pair-array type restored their original order. ALIGNUP uses the
-private compiler's inline truncation and matches without a padding jump.
+before the pair-array type restored their original order. BЫPABAДP uses the
+compiler's inline truncation and matches without a padding jump.
 The separate runtime disassemblies are `original-runtime.dis` and
 `rebuilt-runtime.dis`. Real link jobs remain unexercised.

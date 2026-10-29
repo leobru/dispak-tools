@@ -18,6 +18,8 @@ HERE = Path(__file__).resolve().parent
 sys.path[:0] = [str(HERE.parent), str(HERE.parents[1])]
 from corpus import read_words, find_volume
 from libmatch import operand
+sys.path.insert(0,str(HERE.parent/'linker-runtime'))
+import historical_names as historical
 
 
 def load_module(name, path):
@@ -122,7 +124,7 @@ def load_helpers():
     result.update({GLOBALS:'P/1D', GLOBALS+0o650:'*INPUT*',
                    GLOBALS+0o706:'*OUTPUT*', POOL:'POOL',
                    reference_address(0o23000):'P/WO'})
-    return result
+    return {a:historical.symbol(n) for a,n in result.items()}
 
 
 def main():
@@ -149,7 +151,7 @@ def main():
                      basis='runtime/link/link.pas', pool=f'{POOL:05o}',
                      globals=f'{GLOBALS:05o}', runtime=f'{RUNTIME:05o}',
                      free=f'{FREE:05o}', code_words=POOL-0o2012,
-                     entries=[dict(name=n, address=f'{a:05o}') for n, a in data['entries']],
+                     entries=[dict(name=historical.routine(n), address=f'{a:05o}') for n, a in data['entries']],
                      external_entries={n:f'{a:05o}' for n, a in data['externals'].items()},
                      framed_procedures=len(data['frames']),
                      link_comparison=dict(changed_words=data['changed_words'],
@@ -157,9 +159,9 @@ def main():
                                           constants_identical=True,
                                           globals_identical=True,
                                           relocations=data['changed_relocations']))
-    (HERE/'inventory.json').write_text(json.dumps(inventory, indent=2)+'\n')
+    (HERE/'inventory.json').write_text(json.dumps(inventory, ensure_ascii=False, indent=2)+'\n')
     (HERE/'names.json').write_text(json.dumps(
-        {f'{a:05o}':n for n,a in data['entries']}, indent=2)+'\n')
+        {f'{a:05o}':historical.routine(n) for n,a in data['entries']}, ensure_ascii=False, indent=2)+'\n')
     (HERE/'blink.sym').write_text(''.join(
         f'{a:05o} {"D" if POOL<=a<RUNTIME or n.startswith("*") else "C"} {n}\n'
         for a, n in sorted(names.items())))

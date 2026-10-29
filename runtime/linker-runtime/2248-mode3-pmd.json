@@ -1,0 +1,2333 @@
+[
+  {
+    "reference": "02013",
+    "table": "22304",
+    "name": "ПEЧBPE",
+    "line": 731,
+    "variables": [
+      {
+        "name": "BPEMЯ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "02047",
+    "table": "22324",
+    "name": "ПEЧИMЯOБ",
+    "line": 746,
+    "variables": [
+      {
+        "name": "YKДИM",
+        "descriptor": "4000100000500003"
+      },
+      {
+        "name": "BHYTPИMЯ",
+        "descriptor": "0001400000400004"
+      },
+      {
+        "name": "YPИM",
+        "descriptor": "0000100000100020"
+      }
+    ]
+  },
+  {
+    "reference": "02115",
+    "table": "22341",
+    "name": "ДЛИПOЛИM",
+    "line": 763,
+    "variables": [
+      {
+        "name": "YKДИM",
+        "descriptor": "4000100000500004"
+      },
+      {
+        "name": "ДЛИHA",
+        "descriptor": "0000100000100005"
+      }
+    ]
+  },
+  {
+    "reference": "02145",
+    "table": "22350",
+    "name": "DUMPOM",
+    "line": 805,
+    "variables": [
+      {
+        "name": "CЛOBO",
+        "descriptor": "0000200000400005"
+      },
+      {
+        "name": "AДPEC",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "02171",
+    "table": "22367",
+    "name": "DUMPPAЗД",
+    "line": 812,
+    "variables": [
+      {
+        "name": "CЛOBO",
+        "descriptor": "4000200000400003"
+      },
+      {
+        "name": "TEГ",
+        "descriptor": "0000100062300004"
+      }
+    ]
+  },
+  {
+    "reference": "02237",
+    "table": "22406",
+    "name": "DUMPTCEГ",
+    "line": 829,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100003"
+      },
+      {
+        "name": "ЭЛTCEГ0",
+        "descriptor": "0000100000500007"
+      },
+      {
+        "name": "ЭЛTCEГ1",
+        "descriptor": "0000100000500010"
+      },
+      {
+        "name": "YKTCEГ",
+        "descriptor": "4000100000500011"
+      },
+      {
+        "name": "ДЛTCEГ",
+        "descriptor": "0000100000100006"
+      },
+      {
+        "name": "HCEГ",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "ЧM",
+        "descriptor": "0000100000100005"
+      }
+    ]
+  },
+  {
+    "reference": "02401",
+    "table": "22463",
+    "name": "DUMPPEЖ",
+    "line": 856,
+    "variables": []
+  },
+  {
+    "reference": "02414",
+    "table": "22472",
+    "name": "DUMPTOФ",
+    "line": 863,
+    "variables": [
+      {
+        "name": "ЭЛTOФ",
+        "descriptor": "0000400000500004"
+      },
+      {
+        "name": "CTOФ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "02527",
+    "table": "22531",
+    "name": "DUMPTAC",
+    "line": 882,
+    "variables": [
+      {
+        "name": "ЭЛTAC",
+        "descriptor": "0000500000500004"
+      },
+      {
+        "name": "CTAC",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "03031",
+    "table": "22622",
+    "name": "DUMPTOБ",
+    "line": 932,
+    "variables": [
+      {
+        "name": "ЭЛTOБ",
+        "descriptor": "0000300000500004"
+      },
+      {
+        "name": "CTOБ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "03165",
+    "table": "22663",
+    "name": "DUMPTCC",
+    "line": 956,
+    "variables": [
+      {
+        "name": "ЭЛTCC",
+        "descriptor": "0000100000500004"
+      },
+      {
+        "name": "CTCC",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "03254",
+    "table": "22711",
+    "name": "DUMPTПPE",
+    "line": 972,
+    "variables": [
+      {
+        "name": "ЭЛTПPE",
+        "descriptor": "4000100000500004"
+      },
+      {
+        "name": "CTПPE",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "03314",
+    "table": "22731",
+    "name": "DUMPTЭM",
+    "line": 983,
+    "variables": [
+      {
+        "name": "ЭЛTЭM",
+        "descriptor": "4000100000500004"
+      },
+      {
+        "name": "CTЭM",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "03354",
+    "table": "22760",
+    "name": "CTATИCT",
+    "line": 998,
+    "variables": [
+      {
+        "name": "ЭTAП",
+        "descriptor": "0000100447300003"
+      }
+    ]
+  },
+  {
+    "reference": "03401",
+    "table": "22766",
+    "name": "ПOИCKИME",
+    "line": 1009,
+    "variables": [
+      {
+        "name": "YKИMЯ",
+        "descriptor": "4000100000500007"
+      },
+      {
+        "name": "ИMЯ",
+        "descriptor": "0000200000400005"
+      }
+    ]
+  },
+  {
+    "reference": "03460",
+    "table": "22777",
+    "name": "BHECИИMЯ",
+    "line": 1024,
+    "variables": [
+      {
+        "name": "YKИMЯП",
+        "descriptor": "4000100000500012"
+      },
+      {
+        "name": "YKИMЯT",
+        "descriptor": "4000100000500011"
+      },
+      {
+        "name": "YKИMЯ",
+        "descriptor": "4000100000500010"
+      },
+      {
+        "name": "HOBИMЯ",
+        "descriptor": "0000200000400005"
+      },
+      {
+        "name": "CXEШ",
+        "descriptor": "0000100000100007"
+      }
+    ]
+  },
+  {
+    "reference": "03640",
+    "table": "23017",
+    "name": "SFILE",
+    "line": 1063,
+    "variables": [
+      {
+        "name": "ФИЗ",
+        "descriptor": "4000200000500004"
+      },
+      {
+        "name": "YKИMЯ",
+        "descriptor": "4000100000500011"
+      },
+      {
+        "name": "ЛOГ",
+        "descriptor": "0000200000400005"
+      },
+      {
+        "name": "CTЛФ",
+        "descriptor": "0000100000100010"
+      },
+      {
+        "name": "YKTЛФ",
+        "descriptor": "4000100000500007"
+      }
+    ]
+  },
+  {
+    "reference": "03705",
+    "table": "23034",
+    "name": "ASSIGN",
+    "line": 1081,
+    "variables": [
+      {
+        "name": "YKИMЯ",
+        "descriptor": "4000100000500010"
+      },
+      {
+        "name": "ФИMЯ",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "ИMЯ",
+        "descriptor": "0000200000400005"
+      },
+      {
+        "name": "CTЛФ",
+        "descriptor": "0000100000100011"
+      },
+      {
+        "name": "YKTЛФ",
+        "descriptor": "4000100000500007"
+      }
+    ]
+  },
+  {
+    "reference": "03773",
+    "table": "23053",
+    "name": "ДAЙЛИT",
+    "line": 1178,
+    "variables": []
+  },
+  {
+    "reference": "04055",
+    "table": "23061",
+    "name": "OШCKAH",
+    "line": 1194,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "HOMOШ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "04343",
+    "table": "23257",
+    "name": "BOЗЛИT",
+    "line": 1268,
+    "variables": [
+      {
+        "name": "ЛИTC",
+        "descriptor": "0000100000200003"
+      }
+    ]
+  },
+  {
+    "reference": "04361",
+    "table": "23271",
+    "name": "CИMBOЛИM",
+    "line": 1273,
+    "variables": [
+      {
+        "name": "TИЛ",
+        "descriptor": "0000100764300004"
+      }
+    ]
+  },
+  {
+    "reference": "04372",
+    "table": "23276",
+    "name": "ПPOПPAЗД",
+    "line": 1278,
+    "variables": []
+  },
+  {
+    "reference": "04406",
+    "table": "23301",
+    "name": "ДAЙPAЗД",
+    "line": 1283,
+    "variables": []
+  },
+  {
+    "reference": "04423",
+    "table": "23306",
+    "name": "ЦEЛOE",
+    "line": 1295,
+    "variables": [
+      {
+        "name": "OCH",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "I",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "J",
+        "descriptor": "0000100000100006"
+      }
+    ]
+  },
+  {
+    "reference": "04465",
+    "table": "23320",
+    "name": "ДAЙЦEЛOE",
+    "line": 1305,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "KOД",
+        "descriptor": "0000100000100006"
+      },
+      {
+        "name": "БYФ",
+        "descriptor": "0001400000400010"
+      },
+      {
+        "name": "TИПЦ",
+        "descriptor": "0000100000200024"
+      },
+      {
+        "name": "ЧC",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "MACШTAБ",
+        "descriptor": "0000100000100007"
+      },
+      {
+        "name": "ЧИC",
+        "descriptor": "4000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "04620",
+    "table": "23355",
+    "name": "ДAЙЧИCЛO",
+    "line": 1335,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "ЧИC",
+        "descriptor": "4000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "04647",
+    "table": "23365",
+    "name": "ДAЙИMЯФA",
+    "line": 1346,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "04713",
+    "table": "23375",
+    "name": "ДAЙYKФAЙ",
+    "line": 1359,
+    "variables": [
+      {
+        "name": "ЗЗ",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "I",
+        "descriptor": "0000100000100003"
+      },
+      {
+        "name": "HY",
+        "descriptor": "0000100000100004"
+      }
+    ]
+  },
+  {
+    "reference": "05017",
+    "table": "23415",
+    "name": "ДAЙИMЯ",
+    "line": 1381,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "05054",
+    "table": "23422",
+    "name": "CKAHEP",
+    "line": 1389,
+    "variables": [
+      {
+        "name": "CЛEKC",
+        "descriptor": "0000100000500003"
+      }
+    ]
+  },
+  {
+    "reference": "05172",
+    "table": "23436",
+    "name": "CKAHPAЗД",
+    "line": 1444,
+    "variables": [
+      {
+        "name": "MPAЗ",
+        "descriptor": "0000100000500003"
+      }
+    ]
+  },
+  {
+    "reference": "05207",
+    "table": "23443",
+    "name": "BHECИOФ",
+    "line": 1454,
+    "variables": [
+      {
+        "name": "ДECФAЙЛA",
+        "descriptor": "0000200000500005"
+      },
+      {
+        "name": "YKTOФ",
+        "descriptor": "4000100000500010"
+      },
+      {
+        "name": "CTOФ",
+        "descriptor": "0000100000100007"
+      }
+    ]
+  },
+  {
+    "reference": "05266",
+    "table": "23460",
+    "name": "YTOЧHEHИ",
+    "line": 1473,
+    "variables": [
+      {
+        "name": "ФЛAГ",
+        "descriptor": "0000101156300003"
+      },
+      {
+        "name": "ДECФAЙЛA",
+        "descriptor": "0000200000500006"
+      },
+      {
+        "name": "YKTOФ",
+        "descriptor": "4000100000500005"
+      },
+      {
+        "name": "CTOФ",
+        "descriptor": "0000100000100004"
+      }
+    ]
+  },
+  {
+    "reference": "05373",
+    "table": "23477",
+    "name": "PEЖOTЛ",
+    "line": 1493,
+    "variables": []
+  },
+  {
+    "reference": "05440",
+    "table": "23511",
+    "name": "PEЖПEЧ",
+    "line": 1513,
+    "variables": []
+  },
+  {
+    "reference": "05522",
+    "table": "23533",
+    "name": "PAЗБOPЗA",
+    "line": 1538,
+    "variables": [
+      {
+        "name": "БЫЛИKBAЛ",
+        "descriptor": "0000100407300032"
+      },
+      {
+        "name": "ФOTHAД",
+        "descriptor": "0000100407300026"
+      },
+      {
+        "name": "MACФЛ",
+        "descriptor": "0000100000500033"
+      },
+      {
+        "name": "HЛИT",
+        "descriptor": "0000100000100010"
+      },
+      {
+        "name": "БYФЛИT",
+        "descriptor": "0000100000200004"
+      },
+      {
+        "name": "ЛИT",
+        "descriptor": "0000100000200003"
+      },
+      {
+        "name": "CHAЧCEГ",
+        "descriptor": "0000100000100015"
+      },
+      {
+        "name": "MДЛИCEГ",
+        "descriptor": "0000100000100014"
+      },
+      {
+        "name": "HAДCEГ",
+        "descriptor": "0000100000100013"
+      },
+      {
+        "name": "HAЗCEГ",
+        "descriptor": "0000100000100012"
+      },
+      {
+        "name": "CTPOKA",
+        "descriptor": "0002400000400037"
+      },
+      {
+        "name": "TИЛEKC",
+        "descriptor": "0000101225300024"
+      },
+      {
+        "name": "БYФЛEKC",
+        "descriptor": "0000200000500022"
+      },
+      {
+        "name": "ЛEKC",
+        "descriptor": "0000200000500020"
+      },
+      {
+        "name": "KOHЛEKC",
+        "descriptor": "0000100000100007"
+      },
+      {
+        "name": "HAЧЛEKC",
+        "descriptor": "0000100000100006"
+      },
+      {
+        "name": "ДECФAЙЛA",
+        "descriptor": "0000200000500034"
+      },
+      {
+        "name": "ЧФAЙЛOB",
+        "descriptor": "0000100000100011"
+      },
+      {
+        "name": "БЫЛИOФ",
+        "descriptor": "0000100407300031"
+      },
+      {
+        "name": "ПOCXEME",
+        "descriptor": "0000100407300027"
+      },
+      {
+        "name": "ФИЗБYФ",
+        "descriptor": "0000100407300025"
+      },
+      {
+        "name": "TИЛ",
+        "descriptor": "0000100764300017"
+      },
+      {
+        "name": "ЧCTPOK",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "YKTOФ",
+        "descriptor": "4000100000500036"
+      },
+      {
+        "name": "CTOФ",
+        "descriptor": "0000100000100016"
+      },
+      {
+        "name": "БЫЛBЫXФ",
+        "descriptor": "0000100407300030"
+      }
+    ]
+  },
+  {
+    "reference": "06322",
+    "table": "23666",
+    "name": "OШИБKИHA",
+    "line": 1708,
+    "variables": []
+  },
+  {
+    "reference": "06372",
+    "table": "23723",
+    "name": "OШИБKИBM",
+    "line": 1724,
+    "variables": [
+      {
+        "name": "YKTOФ",
+        "descriptor": "4000100000500003"
+      }
+    ]
+  },
+  {
+    "reference": "06420",
+    "table": "23734",
+    "name": "KOOPД",
+    "line": 1733,
+    "variables": [
+      {
+        "name": "TИПЗ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "06454",
+    "table": "23750",
+    "name": "OTKPOЙOФ",
+    "line": 1741,
+    "variables": [
+      {
+        "name": "CTOФ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "06510",
+    "table": "23756",
+    "name": "ЗAKPOЙOФ",
+    "line": 1751,
+    "variables": [
+      {
+        "name": "CTOФ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "06526",
+    "table": "23763",
+    "name": "ПEЧДЛФAЙ",
+    "line": 1757,
+    "variables": [
+      {
+        "name": "ДЛ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "06552",
+    "table": "23771",
+    "name": "ПEЧALF0",
+    "line": 1765,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "A",
+        "descriptor": "0000100000400003"
+      }
+    ]
+  },
+  {
+    "reference": "06607",
+    "table": "24000",
+    "name": "ДAЙЗAП",
+    "line": 1776,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "L",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "ЗAП",
+        "descriptor": "4001600000500003"
+      }
+    ]
+  },
+  {
+    "reference": "06664",
+    "table": "24011",
+    "name": "ДAЙЗAПИC",
+    "line": 1789,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "ЗAП",
+        "descriptor": "4001600000500003"
+      }
+    ]
+  },
+  {
+    "reference": "06733",
+    "table": "24020",
+    "name": "ДAЙTEЛЗA",
+    "line": 1802,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100006"
+      },
+      {
+        "name": "L",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "ЗAП",
+        "descriptor": "4001600000500003"
+      },
+      {
+        "name": "N",
+        "descriptor": "0000100000100004"
+      }
+    ]
+  },
+  {
+    "reference": "07000",
+    "table": "24033",
+    "name": "ПPOПЗAП",
+    "line": 1812,
+    "variables": [
+      {
+        "name": "ЗAП",
+        "descriptor": "4001600000500003"
+      }
+    ]
+  },
+  {
+    "reference": "07033",
+    "table": "24042",
+    "name": "ПEPEKYБ",
+    "line": 1823,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "ЧИCЛOCЛO",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "БATP",
+        "descriptor": "0000200000400006"
+      }
+    ]
+  },
+  {
+    "reference": "07111",
+    "table": "24055",
+    "name": "ЗAПBФOM",
+    "line": 1840,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "L",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "ЗAП",
+        "descriptor": "4001600000500003"
+      }
+    ]
+  },
+  {
+    "reference": "07140",
+    "table": "24066",
+    "name": "BИCOKOC",
+    "line": 1850,
+    "variables": [
+      {
+        "name": "MEC",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "ГOД",
+        "descriptor": "0000100000100004"
+      }
+    ]
+  },
+  {
+    "reference": "07155",
+    "table": "24075",
+    "name": "ПEЧДATY",
+    "line": 1864,
+    "variables": [
+      {
+        "name": "CEKYHДЫ",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "MECЯЦ",
+        "descriptor": "0000100000100007"
+      },
+      {
+        "name": "ГOД",
+        "descriptor": "0000100000100010"
+      },
+      {
+        "name": "BPEMЯ",
+        "descriptor": "0000100000100003"
+      },
+      {
+        "name": "ЧИCЛO",
+        "descriptor": "0000100000100006"
+      },
+      {
+        "name": "CYTKИ",
+        "descriptor": "0000100000100005"
+      }
+    ]
+  },
+  {
+    "reference": "07263",
+    "table": "24124",
+    "name": "YЧET",
+    "line": 1884,
+    "variables": [
+      {
+        "name": "ЗAП",
+        "descriptor": "4001600000500003"
+      },
+      {
+        "name": "ШИФP",
+        "descriptor": "0000100000100011"
+      },
+      {
+        "name": "BPE",
+        "descriptor": "0000100000100010"
+      },
+      {
+        "name": "БYДA",
+        "descriptor": "0000400000400004"
+      }
+    ]
+  },
+  {
+    "reference": "07346",
+    "table": "24140",
+    "name": "AHAЛИЗTO",
+    "line": 1960,
+    "variables": [
+      {
+        "name": "ПAДEЖ",
+        "descriptor": "0000100407300005"
+      },
+      {
+        "name": "YKTOБ",
+        "descriptor": "4000100000500004"
+      }
+    ]
+  },
+  {
+    "reference": "07416",
+    "table": "24165",
+    "name": "OШMOД",
+    "line": 1982,
+    "variables": [
+      {
+        "name": "HOMOШ",
+        "descriptor": "0000100000100003"
+      },
+      {
+        "name": "ПPEДOПP",
+        "descriptor": "0000101660300005"
+      },
+      {
+        "name": "HOBOПP",
+        "descriptor": "0000101660300004"
+      },
+      {
+        "name": "YKTOБ",
+        "descriptor": "4000100000500006"
+      },
+      {
+        "name": "YKTOФПPE",
+        "descriptor": "4000100000500007"
+      }
+    ]
+  },
+  {
+    "reference": "07626",
+    "table": "24275",
+    "name": "ПEPEBPИ",
+    "line": 2053,
+    "variables": [
+      {
+        "name": "YKГЛABA",
+        "descriptor": "4000100000500071"
+      },
+      {
+        "name": "I",
+        "descriptor": "0000100000100020"
+      },
+      {
+        "name": "ДЛKBA",
+        "descriptor": "0000100000100016"
+      },
+      {
+        "name": "YKДИM",
+        "descriptor": "4000100000500070"
+      },
+      {
+        "name": "KBAHT",
+        "descriptor": "0000400000500006"
+      },
+      {
+        "name": "БYФИMЯOБ",
+        "descriptor": "0000200000400052"
+      },
+      {
+        "name": "YKПPEДOK",
+        "descriptor": "4000100000500072"
+      },
+      {
+        "name": "BHYTPИMЯ",
+        "descriptor": "0001400000400054"
+      },
+      {
+        "name": "БYФИMЯ",
+        "descriptor": "0003000000400022"
+      },
+      {
+        "name": "ДЛKBAHTA",
+        "descriptor": "0000100000100013"
+      },
+      {
+        "name": "YKTAC",
+        "descriptor": "4000100000500076"
+      },
+      {
+        "name": "YKTCC",
+        "descriptor": "4000100000500075"
+      },
+      {
+        "name": "PEЗ",
+        "descriptor": "0000101772300021"
+      },
+      {
+        "name": "YKYPИM",
+        "descriptor": "4000100000500073"
+      },
+      {
+        "name": "YPИM",
+        "descriptor": "0000100000100017"
+      },
+      {
+        "name": "ЧYPИM",
+        "descriptor": "0000100000100015"
+      },
+      {
+        "name": "YKTOБ",
+        "descriptor": "4000100000500074"
+      },
+      {
+        "name": "TИПOБ",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "HПPE",
+        "descriptor": "0000100000100012"
+      },
+      {
+        "name": "HAЧYP",
+        "descriptor": "0000100000100014"
+      }
+    ]
+  },
+  {
+    "reference": "10277",
+    "table": "24357",
+    "name": "HOBЭЛTOБ",
+    "line": 2157,
+    "variables": []
+  },
+  {
+    "reference": "10322",
+    "table": "24362",
+    "name": "HOBЭЛTAC",
+    "line": 2164,
+    "variables": []
+  },
+  {
+    "reference": "10347",
+    "table": "24365",
+    "name": "HOBЭЛTCC",
+    "line": 2171,
+    "variables": []
+  },
+  {
+    "reference": "10370",
+    "table": "24370",
+    "name": "БAЗЫBKYБ",
+    "line": 2182,
+    "variables": [
+      {
+        "name": "ЧИCЛOБAЗ",
+        "descriptor": "0000100000100003"
+      },
+      {
+        "name": "I",
+        "descriptor": "0000100000100004"
+      }
+    ]
+  },
+  {
+    "reference": "10423",
+    "table": "24402",
+    "name": "ATPBKYБ",
+    "line": 2195,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "ЧИCЛOATP",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "10451",
+    "table": "24413",
+    "name": "KИHФBKYБ",
+    "line": 2208,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "ЧИCЛOCЛO",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "10465",
+    "table": "24422",
+    "name": "BЫPBKYБ",
+    "line": 2219,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "ДЛИHABЫP",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "10514",
+    "table": "24433",
+    "name": "ИMЯBTOБ",
+    "line": 2231,
+    "variables": [
+      {
+        "name": "KBAHT",
+        "descriptor": "4000400000500005"
+      },
+      {
+        "name": "CTOБHOB",
+        "descriptor": "0000100000100004"
+      }
+    ]
+  },
+  {
+    "reference": "10544",
+    "table": "24442",
+    "name": "CБOPOБЬE",
+    "line": 2241,
+    "variables": [
+      {
+        "name": "ЧИCЛOБAЗ",
+        "descriptor": "0000100000100027"
+      },
+      {
+        "name": "I",
+        "descriptor": "0000100000100023"
+      },
+      {
+        "name": "ЗAП",
+        "descriptor": "0001600000500047"
+      },
+      {
+        "name": "ЗAПЗAГ",
+        "descriptor": "0001600000500065"
+      },
+      {
+        "name": "HYЖHЫMET",
+        "descriptor": "0000100407300122"
+      },
+      {
+        "name": "CTCCHOB",
+        "descriptor": "0000100000100022"
+      },
+      {
+        "name": "CTOБHOB",
+        "descriptor": "0000100000100021"
+      },
+      {
+        "name": "CTACHOB",
+        "descriptor": "0000100000100020"
+      },
+      {
+        "name": "TOЧHAДЛИ",
+        "descriptor": "0000100407300121"
+      },
+      {
+        "name": "ЧИCЛOCЛO",
+        "descriptor": "0000100000100024"
+      },
+      {
+        "name": "ЧИCЛOATP",
+        "descriptor": "0000100000100026"
+      },
+      {
+        "name": "ЧИCЛOBЫP",
+        "descriptor": "0000100000100025"
+      },
+      {
+        "name": "ЗAПPAБ",
+        "descriptor": "0001600000500103"
+      },
+      {
+        "name": "YKTCC",
+        "descriptor": "4000100000500043"
+      },
+      {
+        "name": "ЭЛTCC",
+        "descriptor": "0000100000500042"
+      },
+      {
+        "name": "YKTAC",
+        "descriptor": "4000100000500035"
+      },
+      {
+        "name": "ЭЛTAC",
+        "descriptor": "0000500000500030"
+      },
+      {
+        "name": "CTAC",
+        "descriptor": "0000100000100016"
+      },
+      {
+        "name": "ЧЗTCC",
+        "descriptor": "0000100000100013"
+      },
+      {
+        "name": "HAЧMTCC",
+        "descriptor": "0000100000100012"
+      },
+      {
+        "name": "ЧЗTAC",
+        "descriptor": "0000100000100011"
+      },
+      {
+        "name": "HAЧMTAC",
+        "descriptor": "0000100000100010"
+      },
+      {
+        "name": "YKДИMTEK",
+        "descriptor": "4000100000500046"
+      },
+      {
+        "name": "KBAHTИK",
+        "descriptor": "0000200000400004"
+      },
+      {
+        "name": "CTACПPEД",
+        "descriptor": "0000100000100017"
+      },
+      {
+        "name": "YKTOБ",
+        "descriptor": "4000100000500041"
+      },
+      {
+        "name": "ЭЛTOБ",
+        "descriptor": "0000300000500036"
+      },
+      {
+        "name": "ЧЗTOБ",
+        "descriptor": "0000100000100007"
+      },
+      {
+        "name": "HAЧMTOБ",
+        "descriptor": "0000100000100006"
+      },
+      {
+        "name": "CMOДTOФ",
+        "descriptor": "0000100000100003"
+      },
+      {
+        "name": "ЭЛTПPE",
+        "descriptor": "4000100000500044"
+      },
+      {
+        "name": "ЧЗTПPE",
+        "descriptor": "0000100000100014"
+      },
+      {
+        "name": "ЭЛTЭM",
+        "descriptor": "4000100000500045"
+      },
+      {
+        "name": "ЧЗTЭM",
+        "descriptor": "0000100000100015"
+      }
+    ]
+  },
+  {
+    "reference": "11575",
+    "table": "24573",
+    "name": "PAЗPEШИC",
+    "line": 2421,
+    "variables": [
+      {
+        "name": "YKTCCП",
+        "descriptor": "4000100000500015"
+      },
+      {
+        "name": "CHAЧHEP",
+        "descriptor": "0000100000100011"
+      },
+      {
+        "name": "CHEPA",
+        "descriptor": "0000100000100012"
+      },
+      {
+        "name": "YKTCC",
+        "descriptor": "4000100000500014"
+      },
+      {
+        "name": "CTCC",
+        "descriptor": "0000100000100007"
+      },
+      {
+        "name": "ЧЗTCC",
+        "descriptor": "0000100000100006"
+      },
+      {
+        "name": "HAЧTCC",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "YKTOБ",
+        "descriptor": "4000100000500016"
+      },
+      {
+        "name": "CCЫЛTOБ",
+        "descriptor": "0000100000100010"
+      },
+      {
+        "name": "YKTOФ",
+        "descriptor": "4000100000500013"
+      },
+      {
+        "name": "CTOФ",
+        "descriptor": "0000100000100004"
+      }
+    ]
+  },
+  {
+    "reference": "11701",
+    "table": "24624",
+    "name": "TAБHEPAC",
+    "line": 2461,
+    "variables": [
+      {
+        "name": "ДЛИHAИM",
+        "descriptor": "0000100000100006"
+      },
+      {
+        "name": "ЗAHЯЛ",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "ПEPBOE",
+        "descriptor": "0000100407300011"
+      },
+      {
+        "name": "CHEPA",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "YKTCC",
+        "descriptor": "4000100000500010"
+      },
+      {
+        "name": "YKTOФ",
+        "descriptor": "4000100000500007"
+      },
+      {
+        "name": "CTOФ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "11773",
+    "table": "24650",
+    "name": "BЫPABAДP",
+    "line": 2491,
+    "variables": [
+      {
+        "name": "P",
+        "descriptor": "0000100000100007"
+      },
+      {
+        "name": "M",
+        "descriptor": "0000100000100006"
+      },
+      {
+        "name": "ГPAHЬ",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "AДPEC",
+        "descriptor": "0000100000100004"
+      }
+    ]
+  },
+  {
+    "reference": "12014",
+    "table": "24664",
+    "name": "OШCOПP",
+    "line": 2506,
+    "variables": [
+      {
+        "name": "HOMOШ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "12072",
+    "table": "24727",
+    "name": "HACTPOЙH",
+    "line": 2523,
+    "variables": [
+      {
+        "name": "HACEK",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "YKTAC",
+        "descriptor": "4000100000500003"
+      }
+    ]
+  },
+  {
+    "reference": "12234",
+    "table": "24737",
+    "name": "ПEЧИMЯCE",
+    "line": 2555,
+    "variables": [
+      {
+        "name": "ЗAHЯЛ",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "YKTAC",
+        "descriptor": "4000100000500003"
+      }
+    ]
+  },
+  {
+    "reference": "12301",
+    "table": "24746",
+    "name": "ПEЧCEKЦИ",
+    "line": 2575,
+    "variables": [
+      {
+        "name": "YKTAC",
+        "descriptor": "4000100000500003"
+      },
+      {
+        "name": "YKTOФ",
+        "descriptor": "4000100000500004"
+      }
+    ]
+  },
+  {
+    "reference": "12523",
+    "table": "25004",
+    "name": "ПEЧИMЯЛO",
+    "line": 2621,
+    "variables": [
+      {
+        "name": "ИMЯ",
+        "descriptor": "4000100000500003"
+      }
+    ]
+  },
+  {
+    "reference": "12544",
+    "table": "25020",
+    "name": "DUMPCTEK",
+    "line": 2679,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "12610",
+    "table": "25026",
+    "name": "OШMAШ",
+    "line": 2693,
+    "variables": [
+      {
+        "name": "HOMOШ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "13044",
+    "table": "25177",
+    "name": "CЛOBOBPA",
+    "line": 2748,
+    "variables": []
+  },
+  {
+    "reference": "13072",
+    "table": "25203",
+    "name": "ЗAПBPAЗД",
+    "line": 2756,
+    "variables": [
+      {
+        "name": "ПCЛ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "13126",
+    "table": "25211",
+    "name": "ДAЙMИKPO",
+    "line": 2773,
+    "variables": []
+  },
+  {
+    "reference": "13227",
+    "table": "25217",
+    "name": "ДAЙOПEP",
+    "line": 2800,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100004"
+      }
+    ]
+  },
+  {
+    "reference": "13271",
+    "table": "25226",
+    "name": "БAЙTЫBCT",
+    "line": 2818,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "ЧБ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "13346",
+    "table": "25235",
+    "name": "ДEЛЬTAC",
+    "line": 2839,
+    "variables": [
+      {
+        "name": "HOMCEK",
+        "descriptor": "0000100000100003"
+      },
+      {
+        "name": "YKTAC",
+        "descriptor": "4000100000500004"
+      }
+    ]
+  },
+  {
+    "reference": "13411",
+    "table": "25244",
+    "name": "ЗHAЧCOБ",
+    "line": 2852,
+    "variables": [
+      {
+        "name": "CTOБ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "13503",
+    "table": "25253",
+    "name": "ЗHAЧBHEШ",
+    "line": 2871,
+    "variables": [
+      {
+        "name": "CTCC",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "13624",
+    "table": "25261",
+    "name": "ATPCOБ",
+    "line": 2896,
+    "variables": [
+      {
+        "name": "CЛOBOATP",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "CKYБA",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "CTOБ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "13730",
+    "table": "25272",
+    "name": "ATPBHEШ",
+    "line": 2919,
+    "variables": [
+      {
+        "name": "CЛOBOATP",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "CKYБA",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "CTCC",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "14060",
+    "table": "25303",
+    "name": "ЗABEPШИO",
+    "line": 2948,
+    "variables": [
+      {
+        "name": "OCT",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "PAДP",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "ГЛYБИHA",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "14275",
+    "table": "25321",
+    "name": "CИCПPOГ",
+    "line": 3019,
+    "variables": [
+      {
+        "name": "PAБOTA",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "14374",
+    "table": "25330",
+    "name": "ГPYЗЧИK",
+    "line": 3045,
+    "variables": []
+  },
+  {
+    "reference": "14546",
+    "table": "25340",
+    "name": "ГPYППA10",
+    "line": 3132,
+    "variables": [
+      {
+        "name": "KOП",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "15025",
+    "table": "25345",
+    "name": "ГPYППA20",
+    "line": 3170,
+    "variables": [
+      {
+        "name": "KOП",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "15334",
+    "table": "25360",
+    "name": "MAШИHA",
+    "line": 3209,
+    "variables": [
+      {
+        "name": "БYФTEKCT",
+        "descriptor": "0000200000400062"
+      },
+      {
+        "name": "ЭЛPAЗД",
+        "descriptor": "0000100000500045"
+      },
+      {
+        "name": "YKACT",
+        "descriptor": "0000100000100034"
+      },
+      {
+        "name": "PAДP",
+        "descriptor": "0000100000100041"
+      },
+      {
+        "name": "ГЛEB",
+        "descriptor": "0000100000100043"
+      },
+      {
+        "name": "ЛOKTEГИ",
+        "descriptor": "0000100000500053"
+      },
+      {
+        "name": "ЭЛCTEK1",
+        "descriptor": "0000200000500030"
+      },
+      {
+        "name": "ЭЛCTEK2",
+        "descriptor": "0000200000500032"
+      },
+      {
+        "name": "ЛPEГOБ",
+        "descriptor": "0000103052300054"
+      },
+      {
+        "name": "БYФЗAГOT",
+        "descriptor": "0000200000400060"
+      },
+      {
+        "name": "CЛEДOП",
+        "descriptor": "0000100000500052"
+      },
+      {
+        "name": "TEKOП",
+        "descriptor": "0000100000500051"
+      },
+      {
+        "name": "CЧБYФOП",
+        "descriptor": "0000100000100040"
+      },
+      {
+        "name": "БYФMИKPO",
+        "descriptor": "0000200000400056"
+      },
+      {
+        "name": "БYФATP",
+        "descriptor": "0000200000400064"
+      },
+      {
+        "name": "ГПPAB",
+        "descriptor": "0000100000100044"
+      },
+      {
+        "name": "YKTCC",
+        "descriptor": "4000100000500050"
+      },
+      {
+        "name": "YKTAC",
+        "descriptor": "4000100000500046"
+      },
+      {
+        "name": "CTAC",
+        "descriptor": "0000100000100037"
+      },
+      {
+        "name": "CTCC",
+        "descriptor": "0000100000100035"
+      },
+      {
+        "name": "БYФOПEP",
+        "descriptor": "0020000000400066"
+      },
+      {
+        "name": "ПOЛYOПEP",
+        "descriptor": "0000103056300055"
+      },
+      {
+        "name": "ФЛATEP",
+        "descriptor": "0000100407300003"
+      },
+      {
+        "name": "CTEK",
+        "descriptor": "0002400000400004"
+      },
+      {
+        "name": "YKTOБ",
+        "descriptor": "4000100000500047"
+      },
+      {
+        "name": "CTOБ",
+        "descriptor": "0000100000100036"
+      },
+      {
+        "name": "PПPOП",
+        "descriptor": "0000100000100042"
+      }
+    ]
+  },
+  {
+    "reference": "17242",
+    "table": "25463",
+    "name": "OШBЫЧ",
+    "line": 3588,
+    "variables": [
+      {
+        "name": "HOMOШ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "17300",
+    "table": "25503",
+    "name": "BЫЧИCЛEH",
+    "line": 3598,
+    "variables": [
+      {
+        "name": "YKTAC",
+        "descriptor": "4000100000500010"
+      },
+      {
+        "name": "ЧЗTAC",
+        "descriptor": "0000100000100006"
+      },
+      {
+        "name": "CCЫЛTAC",
+        "descriptor": "0000100000100005"
+      },
+      {
+        "name": "YKTOБ",
+        "descriptor": "4000100000500007"
+      },
+      {
+        "name": "ЧЗTOБ",
+        "descriptor": "0000100000100004"
+      },
+      {
+        "name": "CTOФ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "17455",
+    "table": "25522",
+    "name": "OШЗAГP",
+    "line": 3645,
+    "variables": [
+      {
+        "name": "HOMOШ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "17522",
+    "table": "25540",
+    "name": "ЗAГPYЗИM",
+    "line": 3658,
+    "variables": [
+      {
+        "name": "ДЛTEKCT",
+        "descriptor": "0000100000100024"
+      },
+      {
+        "name": "ЗAП",
+        "descriptor": "0001600000500004"
+      },
+      {
+        "name": "ДЛBЫP",
+        "descriptor": "0000100000100023"
+      },
+      {
+        "name": "YKTAC",
+        "descriptor": "4000100000500025"
+      },
+      {
+        "name": "CTAC",
+        "descriptor": "0000100000100022"
+      },
+      {
+        "name": "CMOДTOФ",
+        "descriptor": "0000100000100003"
+      }
+    ]
+  },
+  {
+    "reference": "17717",
+    "table": "25562",
+    "name": "OБXOДЛEC",
+    "line": 3723,
+    "variables": [
+      {
+        "name": "YЗEЛ",
+        "descriptor": "4000100000500003"
+      }
+    ]
+  },
+  {
+    "reference": "20312",
+    "table": "25602",
+    "name": "ГEHMETKИ",
+    "line": 3785,
+    "variables": [
+      {
+        "name": "I",
+        "descriptor": "0000100000100063"
+      },
+      {
+        "name": "ЗAПЗHAЧ",
+        "descriptor": "0001600000500037"
+      },
+      {
+        "name": "ЗAПЗAГ",
+        "descriptor": "0001600000500003"
+      },
+      {
+        "name": "БYФИMЯ",
+        "descriptor": "0000200000400056"
+      },
+      {
+        "name": "ЧИCЛOATP",
+        "descriptor": "0000100000100062"
+      },
+      {
+        "name": "БYФATP",
+        "descriptor": "0000200000400060"
+      },
+      {
+        "name": "ЗAППPEФ",
+        "descriptor": "0001600000500021"
+      },
+      {
+        "name": "YKTOБ",
+        "descriptor": "4000100000500055"
+      }
+    ]
+  },
+  {
+    "reference": "20555",
+    "table": "25655",
+    "name": "ГPYППABP",
+    "line": 3834,
+    "variables": [
+      {
+        "name": "ЭTAП",
+        "descriptor": "0000100447300003"
+      }
+    ]
+  },
+  {
+    "reference": "20610",
+    "table": "25665",
+    "name": "ПEЧCTATИ",
+    "line": 3841,
+    "variables": [
+      {
+        "name": "BИД",
+        "descriptor": "0000103362300003"
+      },
+      {
+        "name": "ЭTAП",
+        "descriptor": "0000100447300007"
+      },
+      {
+        "name": "БYФCTAT",
+        "descriptor": "0000300000400004"
+      }
+    ]
+  },
+  {
+    "reference": "22273",
+    "table": "26306",
+    "name": "ЗAГPYЗ",
+    "line": 4167,
+    "variables": [
+      {
+        "name": "HAЧAЛOЗA",
+        "descriptor": "0000100000100103"
+      },
+      {
+        "name": "I",
+        "descriptor": "0000100000100075"
+      },
+      {
+        "name": "HOMEPOБЬ",
+        "descriptor": "0000100000100072"
+      },
+      {
+        "name": "ФПPABC",
+        "descriptor": "0000100407300113"
+      },
+      {
+        "name": "PAЗД",
+        "descriptor": "4000100000000565"
+      },
+      {
+        "name": "TИПPAЗД",
+        "descriptor": "0000104004300550"
+      },
+      {
+        "name": "ФAЙЛPAЗД",
+        "descriptor": "0000200000500542"
+      },
+      {
+        "name": "ЭЛTACП",
+        "descriptor": "0000500000500130"
+      },
+      {
+        "name": "NЗAП",
+        "descriptor": "0000100000100104"
+      },
+      {
+        "name": "CTEKCT",
+        "descriptor": "0000100000100100"
+      },
+      {
+        "name": "CPAЗД",
+        "descriptor": "0000100000100057"
+      },
+      {
+        "name": "CЧAДPAЗД",
+        "descriptor": "0000100000100055"
+      },
+      {
+        "name": "ИMЯTEKCE",
+        "descriptor": "4000100000500135"
+      },
+      {
+        "name": "CЛOBO",
+        "descriptor": "0000200000400111"
+      },
+      {
+        "name": "TИMEH",
+        "descriptor": "4000100000000551"
+      },
+      {
+        "name": "AДEC",
+        "descriptor": "0000100000100074"
+      },
+      {
+        "name": "ФAЙЛMET",
+        "descriptor": "0000200000500546"
+      },
+      {
+        "name": "ДИM",
+        "descriptor": "4000100000000552"
+      },
+      {
+        "name": "YKДИM",
+        "descriptor": "4000100000500126"
+      },
+      {
+        "name": "HAЗCEГM",
+        "descriptor": "0000100000100063"
+      },
+      {
+        "name": "CЧAKCEГM",
+        "descriptor": "0000100000100056"
+      },
+      {
+        "name": "TCEГ",
+        "descriptor": "4000100000000555"
+      },
+      {
+        "name": "YKTCEГ",
+        "descriptor": "4000100000500125"
+      },
+      {
+        "name": "CTCEГ",
+        "descriptor": "0000100000100053"
+      },
+      {
+        "name": "HAЧAЛOДИ",
+        "descriptor": "4000100000500137"
+      },
+      {
+        "name": "ГЛTEГИ",
+        "descriptor": "0000100000500110"
+      },
+      {
+        "name": "ЗOHA",
+        "descriptor": "0000100000100060"
+      },
+      {
+        "name": "AЗBЗOHE",
+        "descriptor": "0000100000100062"
+      },
+      {
+        "name": "AДBЗOHE",
+        "descriptor": "0000100000100061"
+      },
+      {
+        "name": "BKЛЮЧEHO",
+        "descriptor": "0000100407300117"
+      },
+      {
+        "name": "PEГOБ",
+        "descriptor": "0000103052300107"
+      },
+      {
+        "name": "ЧИCЛOMOД",
+        "descriptor": "0000100000100052"
+      },
+      {
+        "name": "HMOД",
+        "descriptor": "0000100000100050"
+      },
+      {
+        "name": "HAЧAЛOME",
+        "descriptor": "0001500000400622"
+      },
+      {
+        "name": "ФOM",
+        "descriptor": "4000100000000564"
+      },
+      {
+        "name": "TEKOФ",
+        "descriptor": "0000400000500120"
+      },
+      {
+        "name": "PEЖИMЫ",
+        "descriptor": "0000100000500540"
+      },
+      {
+        "name": "DEBUG",
+        "descriptor": "0000100000500541"
+      },
+      {
+        "name": "ИHДEKCTO",
+        "descriptor": "0000100000100105"
+      },
+      {
+        "name": "CKOHBЫP",
+        "descriptor": "0000100000100077"
+      },
+      {
+        "name": "CBЫP",
+        "descriptor": "0000100000100076"
+      },
+      {
+        "name": "KYБA",
+        "descriptor": "4000100000000563"
+      },
+      {
+        "name": "TAC",
+        "descriptor": "4000100000000560"
+      },
+      {
+        "name": "TCC",
+        "descriptor": "4000100000000557"
+      },
+      {
+        "name": "YKTAC",
+        "descriptor": "4000100000500124"
+      },
+      {
+        "name": "CЧAC",
+        "descriptor": "0000100000100102"
+      },
+      {
+        "name": "KOHMTCC",
+        "descriptor": "0000100000100067"
+      },
+      {
+        "name": "KOHMTAC",
+        "descriptor": "0000100000100066"
+      },
+      {
+        "name": "HAЧMTCC",
+        "descriptor": "0000100000100065"
+      },
+      {
+        "name": "HAЧMTAC",
+        "descriptor": "0000100000100064"
+      },
+      {
+        "name": "CTAC",
+        "descriptor": "0000100000100054"
+      },
+      {
+        "name": "HAЧCTAC",
+        "descriptor": "0000100000100051"
+      },
+      {
+        "name": "CTATЭTAП",
+        "descriptor": "0003300000400567"
+      },
+      {
+        "name": "TEKЭTAП",
+        "descriptor": "0000100447300566"
+      },
+      {
+        "name": "BEKXEШ",
+        "descriptor": "4000100000400136"
+      },
+      {
+        "name": "CKOHTEK",
+        "descriptor": "0000100000100101"
+      },
+      {
+        "name": "MTИЛ",
+        "descriptor": "0040000000400140"
+      },
+      {
+        "name": "PAЗPEШИЛ",
+        "descriptor": "0000100407300114"
+      },
+      {
+        "name": "ФAЙЛCXEM",
+        "descriptor": "0000200000500544"
+      },
+      {
+        "name": "TOБ",
+        "descriptor": "4000100000000556"
+      },
+      {
+        "name": "YKTOБ",
+        "descriptor": "4000100000500127"
+      },
+      {
+        "name": "KOHMTOБ",
+        "descriptor": "0000100000100071"
+      },
+      {
+        "name": "HAЧMTOБ",
+        "descriptor": "0000100000100070"
+      },
+      {
+        "name": "ЗHAЧOK",
+        "descriptor": "0000100000100106"
+      },
+      {
+        "name": "TOФ",
+        "descriptor": "4000100000000554"
+      },
+      {
+        "name": "TЛФ",
+        "descriptor": "4000100000000553"
+      },
+      {
+        "name": "БЫЛИOШMO",
+        "descriptor": "0000100407300116"
+      },
+      {
+        "name": "TПPE",
+        "descriptor": "4000100000000561"
+      },
+      {
+        "name": "HOMEPПPE",
+        "descriptor": "0000100000100073"
+      },
+      {
+        "name": "БЫЛИOШЭT",
+        "descriptor": "0000100407300115"
+      },
+      {
+        "name": "TЭM",
+        "descriptor": "4000100000000562"
+      }
+    ]
+  }
+]

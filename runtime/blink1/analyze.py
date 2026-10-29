@@ -17,6 +17,8 @@ HERE = Path(__file__).resolve().parent
 sys.path[:0] = [str(HERE.parent), str(HERE.parents[1])]
 from corpus import read_words
 from libmatch import operand
+sys.path.insert(0,str(HERE.parent/'linker-runtime'))
+import historical_names as historical
 
 
 def load_module(name, path):
@@ -126,7 +128,7 @@ def load_helpers():
     result.update({address:name for name, address in data['externals'].items()})
     result.update({GLOBALS:'P/1D', GLOBALS+0o650:'*INPUT*',
                    GLOBALS+0o706:'*OUTPUT*', POOL:'POOL'})
-    return result
+    return {a:historical.symbol(n) for a,n in result.items()}
 
 
 def main():
@@ -153,12 +155,12 @@ def main():
                      basis='runtime/link1/link1.pas', pool=f'{POOL:05o}',
                      globals=f'{GLOBALS:05o}', runtime=f'{RUNTIME:05o}',
                      free=f'{FREE:05o}', code_words=POOL-0o2012,
-                     entries=[dict(name=n, address=f'{a:05o}') for n, a in data['entries']],
+                     entries=[dict(name=historical.routine(n), address=f'{a:05o}') for n, a in data['entries']],
                      external_entries={n:f'{a:05o}' for n, a in data['externals'].items()},
                      framed_procedures=len(data['frames']))
-    (HERE/'inventory.json').write_text(json.dumps(inventory, indent=2)+'\n')
+    (HERE/'inventory.json').write_text(json.dumps(inventory, ensure_ascii=False, indent=2)+'\n')
     (HERE/'names.json').write_text(json.dumps(
-        {f'{a:05o}':n for n,a in data['entries']}, indent=2)+'\n')
+        {f'{a:05o}':historical.routine(n) for n,a in data['entries']}, ensure_ascii=False, indent=2)+'\n')
     (HERE/'blink1.sym').write_text(''.join(
         f'{a:05o} {"D" if POOL<=a<RUNTIME or n.startswith("*") else "C"} {n}\n'
         for a, n in sorted(names.items())))

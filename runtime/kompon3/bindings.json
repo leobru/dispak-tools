@@ -1,0 +1,1967 @@
+{
+  "globals": {
+    "ROOTPREF": [
+      [
+        "HAЧAЛOДИ",
+        5
+      ]
+    ],
+    "PHASE": [
+      [
+        "TEKЭTAП",
+        10
+      ]
+    ],
+    "PHASEERR": [
+      [
+        "БЫЛИOШЭT",
+        3
+      ]
+    ],
+    "KEYPOOL": [
+      [
+        "TИMEH",
+        4
+      ]
+    ],
+    "OBJPOOL": [
+      [
+        "TЛФ",
+        9
+      ]
+    ],
+    "XLATTAB": [
+      [
+        "MTИЛ",
+        2
+      ]
+    ],
+    "FILEPOOL": [
+      [
+        "TOФ",
+        19
+      ]
+    ],
+    "PRINTOPT": [
+      [
+        "PEЖИMЫ",
+        19
+      ]
+    ],
+    "SEGPOOL": [
+      [
+        "TCEГ",
+        53
+      ]
+    ],
+    "SYSTEMOU": [
+      [
+        "TИПPAЗД",
+        2
+      ]
+    ],
+    "SEGREC": [
+      [
+        "YKTCEГ",
+        19
+      ]
+    ],
+    "OUTFILE": [
+      [
+        "ФAЙЛPAЗД",
+        4
+      ]
+    ],
+    "MODULEER": [
+      [
+        "БЫЛИOШMO",
+        3
+      ]
+    ],
+    "RECNO": [
+      [
+        "NЗAП",
+        4
+      ]
+    ],
+    "BYTEPOS": [
+      [
+        "HAЧAЛOЗA",
+        6
+      ]
+    ],
+    "CURRENTF": [
+      [
+        "TEKOФ",
+        18
+      ]
+    ],
+    "G0567": [
+      [
+        "ФOM",
+        19
+      ]
+    ],
+    "G0566": [
+      [
+        "KYБA",
+        12
+      ]
+    ],
+    "DEFPOOL": [
+      [
+        "TOБ",
+        14
+      ]
+    ],
+    "REFPOOL": [
+      [
+        "TCC",
+        11
+      ]
+    ],
+    "PREFPOOL": [
+      [
+        "TПPE",
+        4
+      ],
+      [
+        "TЭM",
+        1
+      ]
+    ],
+    "ENTRYPOO": [
+      [
+        "TЭM",
+        5
+      ]
+    ],
+    "SECTPOOL": [
+      [
+        "TAC",
+        21
+      ]
+    ],
+    "PATHPOOL": [
+      [
+        "ДИM",
+        5
+      ]
+    ],
+    "G0051": [
+      [
+        "HAЧCTAC",
+        15
+      ]
+    ],
+    "FIRSTREF": [
+      [
+        "HAЧMTCC",
+        9
+      ]
+    ],
+    "ALLFOUND": [
+      [
+        "PAЗPEШИЛ",
+        5
+      ]
+    ],
+    "LASTSECT": [
+      [
+        "ЭЛTACП",
+        8
+      ]
+    ],
+    "NEXTADDR": [
+      [
+        "CЧAC",
+        12
+      ]
+    ],
+    "G0107": [
+      [
+        "ИHДEKCTO",
+        4
+      ]
+    ],
+    "G0070": [
+      [
+        "KOHMTCC",
+        5
+      ]
+    ],
+    "G0072": [
+      [
+        "KOHMTOБ",
+        5
+      ]
+    ],
+    "G0077": [
+      [
+        "I",
+        16
+      ]
+    ],
+    "G0140": [
+      [
+        "ИMЯTEKCE",
+        7
+      ]
+    ],
+    "G0057": [
+      [
+        "CPAЗД",
+        10
+      ]
+    ],
+    "G0056": [
+      [
+        "CЧAKCEГM",
+        4
+      ]
+    ],
+    "G0570": [
+      [
+        "PAЗД",
+        9
+      ]
+    ],
+    "HALFOUT": [
+      [
+        "ФПPABC",
+        11
+      ]
+    ],
+    "G0100": [
+      [
+        "CBЫP",
+        9
+      ]
+    ],
+    "G0101": [
+      [
+        "CKOHBЫP",
+        4
+      ]
+    ],
+    "G0102": [
+      [
+        "CTEKCT",
+        11
+      ]
+    ],
+    "G0103": [
+      [
+        "CKOHTEK",
+        7
+      ]
+    ],
+    "G0065": [
+      [
+        "HAЧMTAC",
+        8
+      ]
+    ],
+    "G0067": [
+      [
+        "KOHMTAC",
+        5
+      ]
+    ],
+    "G0071": [
+      [
+        "HAЧMTOБ",
+        7
+      ]
+    ],
+    "G0110": [
+      [
+        "ЗHAЧOK",
+        4
+      ]
+    ],
+    "G0063": [
+      [
+        "HAЗCEГM",
+        6
+      ]
+    ],
+    "G0055": [
+      [
+        "CЧAДPAЗД",
+        14
+      ]
+    ],
+    "G0111": [
+      [
+        "PEГOБ",
+        8
+      ]
+    ],
+    "G0112": [
+      [
+        "ГЛTEГИ",
+        4
+      ]
+    ],
+    "OUTPAIR": [
+      [
+        "CЛOBO",
+        8
+      ]
+    ],
+    "G0074": [
+      [
+        "HOMEPOБЬ",
+        3
+      ],
+      [
+        "DEBUG",
+        1
+      ]
+    ],
+    "G0075": [
+      [
+        "HOMEPПPE",
+        3
+      ]
+    ],
+    "LABELFIL": [
+      [
+        "ФAЙЛMET",
+        4
+      ]
+    ],
+    "TIMES": [
+      [
+        "CTATЭTAП",
+        3
+      ]
+    ],
+    "G0076": [
+      [
+        "AДEC",
+        33
+      ]
+    ],
+    "NAMETAB": [
+      [
+        "BEKXEШ",
+        2
+      ]
+    ],
+    "G0131": [
+      [
+        "YKДИM",
+        1
+      ]
+    ],
+    "G0132": [
+      [
+        "YKTOБ",
+        1
+      ]
+    ],
+    "G0127": [
+      [
+        "YKTAC",
+        13
+      ]
+    ],
+    "G0050": [
+      [
+        "HMOД",
+        10
+      ]
+    ],
+    "G0054": [
+      [
+        "CTAC",
+        16
+      ]
+    ],
+    "G0064": [
+      [
+        "CЧAДPAЗД",
+        1
+      ]
+    ],
+    "G0060": [
+      [
+        "ЗOHA",
+        4
+      ]
+    ],
+    "G0061": [
+      [
+        "AДBЗOHE",
+        5
+      ]
+    ],
+    "G0062": [
+      [
+        "AЗBЗOHE",
+        3
+      ]
+    ],
+    "G0052": [
+      [
+        "ЧИCЛOMOД",
+        2
+      ]
+    ]
+  },
+  "locals": {
+    "PUTTIME": {
+      "T": [
+        [
+          "BPEMЯ",
+          3
+        ]
+      ]
+    },
+    "PUTPATH": {
+      "COUNT": [
+        [
+          "YPИM",
+          6
+        ]
+      ],
+      "P": [
+        [
+          "YKДИM",
+          3
+        ]
+      ]
+    },
+    "PATHLEN": {
+      "COUNT": [
+        [
+          "ДЛИHA",
+          4
+        ]
+      ],
+      "P": [
+        [
+          "YKДИM",
+          3
+        ]
+      ]
+    },
+    "NEWPHASE": {
+      "N": [
+        [
+          "ЭTAП",
+          2
+        ]
+      ]
+    },
+    "FINDKEY": {
+      "CUR": [
+        [
+          "YKИMЯ",
+          4
+        ]
+      ]
+    },
+    "ENTERKEY": {
+      "BUCKET": [
+        [
+          "CXEШ",
+          1
+        ]
+      ],
+      "CUR": [
+        [
+          "YKИMЯT",
+          7
+        ]
+      ],
+      "FRESH": [
+        [
+          "YKИMЯ",
+          5
+        ]
+      ],
+      "PREV": [
+        [
+          "YKИMЯП",
+          3
+        ]
+      ]
+    },
+    "FINDOBJ": {
+      "KEY": [
+        [
+          "ЛOГ",
+          1
+        ]
+      ],
+      "NAME": [
+        [
+          "YKИMЯ",
+          3
+        ]
+      ],
+      "I": [
+        [
+          "CTЛФ",
+          3
+        ]
+      ],
+      "REC": [
+        [
+          "YKTЛФ",
+          1
+        ]
+      ]
+    },
+    "BINDOBJ": {
+      "KEY": [
+        [
+          "ИMЯ",
+          1
+        ]
+      ],
+      "NAME": [
+        [
+          "YKИMЯ",
+          3
+        ]
+      ],
+      "I": [
+        [
+          "CTЛФ",
+          3
+        ]
+      ],
+      "REC": [
+        [
+          "YKTЛФ",
+          2
+        ]
+      ],
+      "MODULE": [
+        [
+          "ФИMЯ",
+          2
+        ]
+      ]
+    },
+    "NEXTCHAR": {},
+    "BADJOB": {
+      "ERROR": [
+        [
+          "HOMOШ",
+          2
+        ]
+      ],
+      "I": [
+        [
+          "I",
+          4
+        ]
+      ]
+    },
+    "PUSHCHAR": {
+      "C": [
+        [
+          "ЛИTC",
+          1
+        ]
+      ]
+    },
+    "INNAME": {
+      "C": [
+        [
+          "TИЛ",
+          1
+        ]
+      ]
+    },
+    "SKIPWS": {},
+    "SKIPTAIL": {},
+    "CONVERT": {
+      "ACCUM": [
+        [
+          "J",
+          4
+        ]
+      ],
+      "BASE": [
+        [
+          "OCH",
+          2
+        ]
+      ],
+      "I": [
+        [
+          "I",
+          2
+        ]
+      ]
+    },
+    "SCANINT": {
+      "COUNT": [
+        [
+          "ЧC",
+          9
+        ]
+      ],
+      "SCALE": [
+        [
+          "MACШTAБ",
+          6
+        ]
+      ],
+      "TAIL": [
+        [
+          "TИПЦ",
+          6
+        ]
+      ],
+      "DIGIT": [
+        [
+          "KOД",
+          8
+        ]
+      ],
+      "I": [
+        [
+          "I",
+          2
+        ]
+      ]
+    },
+    "SCANDEC": {
+      "COUNT": [
+        [
+          "I",
+          4
+        ]
+      ]
+    },
+    "SCANNAME": {
+      "I": [
+        [
+          "I",
+          5
+        ]
+      ]
+    },
+    "SCANFILE": {
+      "ADDRESS": [
+        [
+          "I",
+          5
+        ]
+      ],
+      "UNIT": [
+        [
+          "HY",
+          3
+        ]
+      ],
+      "ZONE": [
+        [
+          "ЗЗ",
+          2
+        ]
+      ]
+    },
+    "SCANALFA": {
+      "I": [
+        [
+          "I",
+          5
+        ]
+      ]
+    },
+    "GETTOKEN": {
+      "EXPECT": [
+        [
+          "CЛEKC",
+          6
+        ]
+      ]
+    },
+    "EXPECT": {
+      "PUNCTS": [
+        [
+          "MPAЗ",
+          1
+        ]
+      ]
+    },
+    "GETFILE": {
+      "I": [
+        [
+          "CTOФ",
+          6
+        ]
+      ],
+      "REC": [
+        [
+          "YKTOФ",
+          2
+        ]
+      ],
+      "KEY": [
+        [
+          "ДECФAЙЛA",
+          3
+        ]
+      ]
+    },
+    "SELECTFI": {
+      "FLAG": [
+        [
+          "ФЛAГ",
+          2
+        ]
+      ],
+      "OBJ": [
+        [
+          "ДECФAЙЛA",
+          3
+        ]
+      ],
+      "I": [
+        [
+          "CTOФ",
+          3
+        ]
+      ],
+      "REC": [
+        [
+          "YKTOФ",
+          2
+        ]
+      ]
+    },
+    "PRINTSEL": {},
+    "READJOB": {
+      "LINENO": [
+        [
+          "ЧCTPOK",
+          1
+        ]
+      ],
+      "COLUMN": [
+        [
+          "HЛИT",
+          1
+        ]
+      ],
+      "PUSHED": [
+        [
+          "ФИЗБYФ",
+          1
+        ]
+      ],
+      "COMMONFL": [
+        [
+          "MACФЛ",
+          5
+        ]
+      ],
+      "VALUE": [
+        [
+          "ЛEKC",
+          28
+        ]
+      ],
+      "HAVESCHE": [
+        [
+          "ПOCXEME",
+          6
+        ]
+      ],
+      "HAVEOUTP": [
+        [
+          "БЫЛBЫXФ",
+          6
+        ]
+      ],
+      "HAVEOBJE": [
+        [
+          "БЫЛИOФ",
+          7
+        ]
+      ],
+      "HAVEQUAL": [
+        [
+          "БЫЛИKBAЛ",
+          3
+        ]
+      ],
+      "NFILES": [
+        [
+          "ЧФAЙЛOB",
+          7
+        ]
+      ],
+      "SEGINDEX": [
+        [
+          "CHAЧCEГ",
+          5
+        ]
+      ],
+      "CURRENT": [
+        [
+          "ДECФAЙЛA",
+          2
+        ]
+      ],
+      "LOADADDR": [
+        [
+          "HAЗCEГ",
+          9
+        ]
+      ],
+      "KIND": [
+        [
+          "TИЛEKC",
+          3
+        ]
+      ],
+      "DISKADDR": [
+        [
+          "HAДCEГ",
+          2
+        ],
+        [
+          "ФOTHAД",
+          1
+        ]
+      ],
+      "SEGLEN": [
+        [
+          "MДЛИCEГ",
+          2
+        ]
+      ],
+      "CONCAT": [
+        [
+          "ФOTHAД",
+          1
+        ],
+        [
+          "ЧФAЙЛOB",
+          1
+        ]
+      ],
+      "LOADABOV": [
+        [
+          "ФOTHAД",
+          1
+        ],
+        [
+          "MДЛИCEГ",
+          1
+        ]
+      ],
+      "FILEINDE": [
+        [
+          "CTOФ",
+          3
+        ]
+      ],
+      "REC": [
+        [
+          "YKTOФ",
+          1
+        ]
+      ]
+    },
+    "PHASEMSG": {},
+    "MODULEMS": {},
+    "RECORDMS": {
+      "KIND": [
+        [
+          "TИПЗ",
+          1
+        ]
+      ]
+    },
+    "OPENIN": {
+      "INDEX": [
+        [
+          "CTOФ",
+          1
+        ]
+      ]
+    },
+    "CLOSEIN": {
+      "INDEX": [
+        [
+          "CTOФ",
+          1
+        ]
+      ]
+    },
+    "PUTSIZE": {
+      "N": [
+        [
+          "ДЛ",
+          4
+        ]
+      ]
+    },
+    "PUTCODE": {
+      "I": [
+        [
+          "I",
+          4
+        ]
+      ]
+    },
+    "READREC": {
+      "N": [
+        [
+          "L",
+          1
+        ]
+      ],
+      "I": [
+        [
+          "I",
+          3
+        ]
+      ]
+    },
+    "READBODY": {
+      "I": [
+        [
+          "I",
+          3
+        ]
+      ]
+    },
+    "READPART": {
+      "N": [
+        [
+          "L",
+          1
+        ]
+      ],
+      "FIRST": [
+        [
+          "N",
+          1
+        ]
+      ],
+      "I": [
+        [
+          "I",
+          3
+        ]
+      ]
+    },
+    "SKIPREC": {},
+    "SAVEREC": {
+      "I": [
+        [
+          "I",
+          4
+        ]
+      ],
+      "LAST": [
+        [
+          "ЧИCЛOCЛO",
+          1
+        ]
+      ]
+    },
+    "WRITREC": {
+      "N": [
+        [
+          "L",
+          1
+        ]
+      ],
+      "I": [
+        [
+          "I",
+          3
+        ]
+      ]
+    },
+    "LEAPDAY": {
+      "YEAR": [
+        [
+          "ГOД",
+          1
+        ]
+      ],
+      "MONTH": [
+        [
+          "MEC",
+          1
+        ]
+      ]
+    },
+    "PUTDATE": {
+      "T": [
+        [
+          "BPEMЯ",
+          2
+        ]
+      ],
+      "DAYS": [
+        [
+          "CYTKИ",
+          9
+        ],
+        [
+          "MECЯЦ",
+          1
+        ]
+      ],
+      "SECS": [
+        [
+          "CEKYHДЫ",
+          3
+        ]
+      ],
+      "YEAR": [
+        [
+          "ГOД",
+          9
+        ]
+      ],
+      "MONTH": [
+        [
+          "MECЯЦ",
+          6
+        ]
+      ],
+      "DAY": [
+        [
+          "ЧИCЛO",
+          2
+        ]
+      ]
+    },
+    "STAMPOBJ": {
+      "TICKS": [
+        [
+          "BPE",
+          2
+        ]
+      ],
+      "ACCOUNT": [
+        [
+          "ШИФP",
+          2
+        ]
+      ],
+      "DATE": [
+        [
+          "БYДA",
+          6
+        ]
+      ]
+    },
+    "PUTKIND": {
+      "PLURAL": [
+        [
+          "ПAДEЖ",
+          2
+        ]
+      ]
+    },
+    "BADOBJ": {
+      "ERROR": [
+        [
+          "HOMOШ",
+          2
+        ]
+      ],
+      "NEWKIND": [
+        [
+          "HOBOПP",
+          2
+        ]
+      ],
+      "OLDDEF": [
+        [
+          "YKTOБ",
+          2
+        ]
+      ],
+      "OLDFILE": [
+        [
+          "YKTOФПPE",
+          2
+        ]
+      ],
+      "OLDKIND": [
+        [
+          "ПPEДOПP",
+          2
+        ]
+      ]
+    },
+    "RESNAME": {
+      "CODE": [
+        [
+          "KBAHT",
+          3
+        ]
+      ],
+      "INDEX": [
+        [
+          "HПPE",
+          14
+        ]
+      ],
+      "LENGTH": [
+        [
+          "ДЛKBAHTA",
+          8
+        ]
+      ],
+      "NODE": [
+        [
+          "YKДИM",
+          18
+        ]
+      ],
+      "MODE": [
+        [
+          "TИПOБ",
+          4
+        ]
+      ],
+      "DP": [
+        [
+          "YKTOБ",
+          1
+        ]
+      ],
+      "RP": [
+        [
+          "YKTCC",
+          1
+        ]
+      ],
+      "SP": [
+        [
+          "YKTAC",
+          1
+        ]
+      ],
+      "FIRST": [
+        [
+          "HAЧYP",
+          4
+        ]
+      ],
+      "NPARTS": [
+        [
+          "ЧYPИM",
+          4
+        ]
+      ],
+      "K": [
+        [
+          "I",
+          4
+        ]
+      ],
+      "J": [
+        [
+          "ДЛKBA",
+          3
+        ]
+      ],
+      "ORDER": [
+        [
+          "PEЗ",
+          5
+        ]
+      ],
+      "PARENT": [
+        [
+          "YKГЛABA",
+          2
+        ]
+      ],
+      "KEY": [
+        [
+          "БYФИMЯOБ",
+          1
+        ]
+      ],
+      "KEYREF": [
+        [
+          "YKYPИM",
+          2
+        ]
+      ],
+      "PREVIOUS": [
+        [
+          "YKПPEДOK",
+          1
+        ]
+      ],
+      "ITER": [
+        [
+          "YPИM",
+          2
+        ]
+      ]
+    },
+    "NEWDEF": {},
+    "NEWSECT": {},
+    "NEWREF": {},
+    "SAVEPREF": {
+      "N": [
+        [
+          "ЧИCЛOБAЗ",
+          3
+        ]
+      ]
+    },
+    "SAVEDATA": {
+      "N": [
+        [
+          "ЧИCЛOATP",
+          3
+        ]
+      ]
+    },
+    "SKIPDATA": {
+      "N": [
+        [
+          "ЧИCЛOCЛO",
+          2
+        ]
+      ],
+      "FIRST": [
+        [
+          "I",
+          1
+        ]
+      ]
+    },
+    "SAVEEXPR": {
+      "N": [
+        [
+          "ДЛИHABЫP",
+          3
+        ]
+      ]
+    },
+    "BINDDEF": {
+      "INDEX": [
+        [
+          "CTOБHOB",
+          1
+        ]
+      ]
+    },
+    "GATHER": {
+      "FILEIDX": [
+        [
+          "CMOДTOФ",
+          5
+        ]
+      ],
+      "FIRSTSEC": [
+        [
+          "HAЧMTAC",
+          2
+        ]
+      ],
+      "FIRSTREF": [
+        [
+          "HAЧMTCC",
+          2
+        ]
+      ],
+      "FIRSTDEF": [
+        [
+          "HAЧMTOБ",
+          2
+        ]
+      ],
+      "NSEC": [
+        [
+          "ЧЗTAC",
+          3
+        ]
+      ],
+      "NREF": [
+        [
+          "ЧЗTCC",
+          3
+        ]
+      ],
+      "NDEF": [
+        [
+          "ЧЗTOБ",
+          3
+        ]
+      ],
+      "NPREF": [
+        [
+          "ЧЗTПPE",
+          3
+        ],
+        [
+          "ЧЗTЭM",
+          3
+        ]
+      ],
+      "NENTRY": [
+        [
+          "ЧЗTЭM",
+          5
+        ]
+      ],
+      "GOODEND": [
+        [
+          "TOЧHAДЛИ",
+          3
+        ]
+      ],
+      "LABELSON": [
+        [
+          "HYЖHЫMET",
+          1
+        ]
+      ],
+      "HEADER": [
+        [
+          "ЗAПЗAГ",
+          11
+        ]
+      ],
+      "BUFFER": [
+        [
+          "ЗAП",
+          14
+        ]
+      ],
+      "ENTRYNOD": [
+        [
+          "ЭЛTЭM",
+          1
+        ]
+      ],
+      "CURSEC": [
+        [
+          "CTAC",
+          5
+        ]
+      ],
+      "PREVSEC": [
+        [
+          "CTACПPEД",
+          1
+        ],
+        [
+          "CTACHOB",
+          1
+        ]
+      ],
+      "PSEC": [
+        [
+          "YKTAC",
+          1
+        ]
+      ],
+      "SECTION": [
+        [
+          "ЭЛTAC",
+          1
+        ]
+      ],
+      "NEWSEC": [
+        [
+          "CTACПPEД",
+          1
+        ],
+        [
+          "CTACHOB",
+          1
+        ]
+      ],
+      "PFNODE": [
+        [
+          "ЭЛTЭM",
+          1
+        ]
+      ],
+      "BODYLEN": [
+        [
+          "ЧИCЛOCЛO",
+          10
+        ]
+      ],
+      "PREFLEN": [
+        [
+          "ЧИCЛOБAЗ",
+          3
+        ]
+      ],
+      "DATALEN": [
+        [
+          "ЧИCЛOATP",
+          10
+        ]
+      ],
+      "DEFIDX": [
+        [
+          "CTOБHOB",
+          4
+        ]
+      ],
+      "TAIL": [
+        [
+          "ЗAПPAБ",
+          4
+        ]
+      ],
+      "EXTRALEN": [
+        [
+          "ЧИCЛOBЫP",
+          4
+        ]
+      ],
+      "REFIDX": [
+        [
+          "CTCCHOB",
+          1
+        ]
+      ]
+    },
+    "RESOLVE": {
+      "FILEIDX": [
+        [
+          "CTOФ",
+          1
+        ]
+      ],
+      "F": [
+        [
+          "YKTOФ",
+          1
+        ]
+      ],
+      "COUNT": [
+        [
+          "ЧЗTCC",
+          2
+        ]
+      ],
+      "HEAD": [
+        [
+          "CHAЧHEP",
+          3
+        ]
+      ],
+      "LAST": [
+        [
+          "CHEPA",
+          4
+        ]
+      ],
+      "I": [
+        [
+          "CTCC",
+          6
+        ]
+      ],
+      "R": [
+        [
+          "YKTCC",
+          1
+        ]
+      ],
+      "DEFNO": [
+        [
+          "CCЫЛTOБ",
+          3
+        ]
+      ],
+      "PREV": [
+        [
+          "YKTCCП",
+          1
+        ]
+      ]
+    },
+    "UNRESMSG": {
+      "FILEIDX": [
+        [
+          "CTOФ",
+          1
+        ]
+      ],
+      "F": [
+        [
+          "YKTOФ",
+          1
+        ]
+      ],
+      "INDEX": [
+        [
+          "CHEPA",
+          4
+        ]
+      ],
+      "COLUMN": [
+        [
+          "ЗAHЯЛ",
+          5
+        ]
+      ],
+      "FIRST": [
+        [
+          "ПEPBOE",
+          4
+        ]
+      ],
+      "R": [
+        [
+          "YKTCC",
+          1
+        ]
+      ],
+      "WIDTH": [
+        [
+          "ДЛИHAИM",
+          3
+        ]
+      ]
+    },
+    "ALIGNUP": {
+      "POWER": [
+        [
+          "ГPAHЬ",
+          1
+        ]
+      ],
+      "STEP": [
+        [
+          "P",
+          3
+        ]
+      ],
+      "START": [
+        [
+          "AДPEC",
+          1
+        ]
+      ],
+      "TOP": [
+        [
+          "M",
+          3
+        ]
+      ]
+    },
+    "BADSECT": {},
+    "JOINSECT": {
+      "STARTADD": [
+        [
+          "HACEK",
+          8
+        ]
+      ]
+    },
+    "PUTSECTN": {
+      "WIDTH": [
+        [
+          "ЗAHЯЛ",
+          6
+        ]
+      ]
+    },
+    "LISTSECT": {
+      "REC": [
+        [
+          "YKTAC",
+          1
+        ]
+      ],
+      "F": [
+        [
+          "YKTOФ",
+          1
+        ]
+      ]
+    },
+    "OBJWHERE": {
+      "NAME": [
+        [
+          "ИMЯ",
+          2
+        ]
+      ]
+    },
+    "DUMPSTK": {
+      "I": [
+        [
+          "I",
+          5
+        ]
+      ]
+    },
+    "BADEXPR": {
+      "ERROR": [
+        [
+          "HOMOШ",
+          2
+        ]
+      ]
+    },
+    "FLUSHOUT": {},
+    "PUTWORD": {
+      "WORD": [
+        [
+          "ПCЛ",
+          1
+        ]
+      ]
+    },
+    "GETBYTE": {},
+    "GETWORD": {},
+    "PUSHLIT": {
+      "N": [
+        [
+          "ЧБ",
+          4
+        ]
+      ],
+      "I": [
+        [
+          "I",
+          5
+        ]
+      ]
+    },
+    "RELOCATE": {
+      "INDEX": [
+        [
+          "HOMCEK",
+          4
+        ]
+      ],
+      "SEC": [
+        [
+          "YKTAC",
+          1
+        ]
+      ]
+    },
+    "PUSHDEF": {
+      "INDEX": [
+        [
+          "CTOБ",
+          4
+        ]
+      ]
+    },
+    "PUSHREF": {
+      "INDEX": [
+        [
+          "CTCC",
+          5
+        ]
+      ]
+    },
+    "DEFATTR": {
+      "INDEX": [
+        [
+          "CTOБ",
+          4
+        ]
+      ],
+      "OFFSET": [
+        [
+          "CЛOBOATP",
+          2
+        ]
+      ],
+      "FIRST": [
+        [
+          "CKYБA",
+          2
+        ]
+      ]
+    },
+    "REFATTR": {
+      "INDEX": [
+        [
+          "CTCC",
+          5
+        ]
+      ],
+      "OFFSET": [
+        [
+          "CЛOBOATP",
+          2
+        ]
+      ],
+      "FIRST": [
+        [
+          "CKYБA",
+          2
+        ]
+      ]
+    },
+    "EMITVAL": {
+      "N": [
+        [
+          "ГЛYБИHA",
+          3
+        ]
+      ],
+      "VALUE": [
+        [
+          "PAДP",
+          14
+        ]
+      ],
+      "LOWPART": [
+        [
+          "OCT",
+          2
+        ]
+      ]
+    },
+    "EMITOPER": {
+      "KIND": [
+        [
+          "PAБOTA",
+          2
+        ]
+      ]
+    },
+    "FIRSTVAL": {},
+    "BINARYOP": {
+      "OP": [
+        [
+          "KOП",
+          1
+        ]
+      ]
+    },
+    "FIELDOP": {
+      "OP": [
+        [
+          "KOП",
+          1
+        ]
+      ]
+    },
+    "EVALUATE": {
+      "CURSOR": [
+        [
+          "CЧБYФOП",
+          1
+        ]
+      ],
+      "INSECT": [
+        [
+          "ФЛATEP",
+          5
+        ]
+      ],
+      "WORDHALF": [
+        [
+          "ПOЛYOПEP",
+          1
+        ]
+      ],
+      "OPCODE": [
+        [
+          "TEKOП",
+          27
+        ]
+      ],
+      "SAVETAG": [
+        [
+          "ЛOKTEГИ",
+          7
+        ]
+      ],
+      "SAVEMODE": [
+        [
+          "ЛPEГOБ",
+          3
+        ]
+      ],
+      "TOP": [
+        [
+          "YKACT",
+          80
+        ]
+      ],
+      "COUNT": [
+        [
+          "PAДP",
+          18
+        ]
+      ],
+      "COMMAND": [
+        [
+          "БYФTEKCT",
+          2
+        ]
+      ],
+      "STACK": [
+        [
+          "CTEK",
+          1
+        ]
+      ],
+      "SPARE32": [
+        [
+          "CЛEДOП",
+          4
+        ]
+      ],
+      "DEFNO": [
+        [
+          "CTOБ",
+          10
+        ]
+      ],
+      "SECTNO": [
+        [
+          "CTAC",
+          9
+        ]
+      ],
+      "SEC": [
+        [
+          "YKTAC",
+          1
+        ]
+      ]
+    },
+    "BADVALUE": {
+      "ERROR": [
+        [
+          "HOMOШ",
+          1
+        ]
+      ]
+    },
+    "EVALDEFS": {
+      "FILEIDX": [
+        [
+          "CTOФ",
+          1
+        ]
+      ],
+      "NDEFS": [
+        [
+          "ЧЗTOБ",
+          3
+        ]
+      ],
+      "NSECTS": [
+        [
+          "ЧЗTAC",
+          3
+        ]
+      ],
+      "DEFINITI": [
+        [
+          "YKTOБ",
+          1
+        ]
+      ],
+      "SECNO": [
+        [
+          "CCЫЛTAC",
+          6
+        ]
+      ],
+      "SECTION": [
+        [
+          "YKTAC",
+          1
+        ]
+      ]
+    },
+    "BADOUT": {
+      "ERROR": [
+        [
+          "HOMOШ",
+          2
+        ]
+      ]
+    },
+    "WRITESEG": {
+      "FILEIDX": [
+        [
+          "CMOДTOФ",
+          2
+        ]
+      ],
+      "BUFFER": [
+        [
+          "ЗAП",
+          4
+        ]
+      ],
+      "SECNO": [
+        [
+          "CTAC",
+          3
+        ]
+      ],
+      "SECTION": [
+        [
+          "YKTAC",
+          1
+        ]
+      ]
+    },
+    "PUTLABEL": {
+      "NODE": [
+        [
+          "YЗEЛ",
+          1
+        ]
+      ]
+    },
+    "LABELS": {},
+    "PUTTIMES": {
+      "S": [
+        [
+          "ЭTAП",
+          1
+        ]
+      ]
+    },
+    "STATS": {
+      "N": [
+        [
+          "ЭTAП",
+          5
+        ]
+      ],
+      "COUNTER": [
+        [
+          "BИД",
+          4
+        ]
+      ],
+      "SAVED": [
+        [
+          "BИД",
+          1
+        ]
+      ]
+    },
+    "LINK": {}
+  }
+}

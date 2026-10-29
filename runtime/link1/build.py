@@ -5,6 +5,8 @@ Usage: python3 runtime/link1/build.py [--source candidate.pas]
        python3 runtime/link1/build.py --disassemble-only
 
 This builds the combined link1.pas in the original routine order.
+The base compiler defaults to mypas.b6; a generated copy changes only
+TRUNC emission and INPUT/OUTPUT allocation order for historical matching.
 Real runtime modules are selected from runtime/linker-runtime. The library,
 its public entries, constants, globals and file blocks are compared literally.
 The compiled linker is not executed.
@@ -39,43 +41,47 @@ from libmatch import load_symbols, operand
 spec = importlib.util.spec_from_file_location('link1analyze', HERE/'analyze.py')
 analyze = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(analyze)
+spec = importlib.util.spec_from_file_location('linker_historical_names',
+                               HERE.parent/'linker-runtime/historical_names.py')
+historical = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(historical)
 
-ENTRIES = [('ENTRY',0o2012), ('PUTTIME',0o2013), ('PUTPATH',0o2042), ('PATHLEN',0o2070),
-           ('NEWPHASE',0o2113), ('FINDKEY',0o2125), ('ENTERKEY',0o2172),
-           ('FINDOBJ',0o2312), ('BINDOBJ',0o2353),
-           ('PHASEMSG',0o4475), ('MODULEMSG',0o4541),
-           ('RECORDMSG',0o4562), ('OPENIN',0o4612), ('CLOSEIN',0o4635),
-           ('PUTSIZE',0o4647), ('PUTCODE',0o4666), ('READREC',0o4707),
-           ('READBODY',0o4735), ('READPART',0o4761), ('SKIPREC',0o5003),
-           ('SAVEREC',0o5016), ('WRITREC',0o5044), ('LEAPDAY',0o5066),
-           ('PUTDATE',0o5100), ('STAMPOBJ',0o5170),
-           ('NEXTCHAR',0o2426), ('BADJOB',0o2463),
-           ('PUSHCHAR',0o2752), ('INNAME',0o2761), ('SKIPWS',0o2765),
-           ('SKIPTAIL',0o2775), ('CONVERT',0o3006), ('SCANINT',0o3034),
-           ('SCANDEC',0o3153), ('SCANNAME',0o3176), ('SCANFILE',0o3230),
-           ('SCANALFA',0o3312), ('GETTOKEN',0o3335), ('EXPECT',0o3455),
-           ('GETFILE',0o3466), ('SELECTFILES',0o3541),
-           ('PRINTSEL',0o3641), ('READJOB',0o3717),
-           ('PUTKIND',0o5232), ('BADOBJ',0o5276), ('RESNAME',0o5472),
-           ('NEWDEF',0o6063), ('NEWSECT',0o6101), ('NEWREF',0o6121),
-           ('SAVEPREF',0o6135), ('SAVEDATA',0o6155), ('SKIPDATA',0o6175),
-           ('SAVEEXPR',0o6204), ('BINDDEF',0o6223), ('GATHER',0o6247),
-           ('RESOLVE',0o7221), ('UNRESMSG',0o7316), ('ALIGNUP',0o7403),
-           ('SECTID',0o7420), ('BADSECT',0o7444), ('JOINSECT',0o7516),
-           ('PUTSECTN',0o7661), ('LISTSECT',0o7722), ('OBJWHERE',0o10146),
-           ('DUMPSTK',0o10162), ('BADEXPR',0o10203), ('FLUSHOUT',0o10432),
-           ('PUTWORD',0o10447), ('GETBYTE',0o10473), ('GETWORD',0o10542),
-           ('PUSHLIT',0o10571), ('RELOCATE',0o10614), ('PUSHDEF',0o10645),
-           ('PUSHREF',0o10706), ('DEFATTR',0o10771), ('REFATTR',0o11050),
-           ('EMITVAL',0o11152), ('EMITOPER',0o11317), ('FIRSTVAL',0o11413),
-           ('BINARYOP',0o11552), ('FIELDOP',0o11724), ('EVALUATE',0o12131),
-           ('BADVALUE',0o13634), ('EVALDEFS',0o13665),
-           ('BADOUT',0o14113), ('WRITESEG',0o14153),
-           ('PUTLABEL',0o14333), ('LABELS',0o14605),
-           ('PUTTIMES',0o15044), ('STATS',0o15063),
+ENTRIES = [('ENTRY',0o2012), ('ПEЧBPE',0o2013), ('ПEЧИMЯOБ',0o2042), ('ДЛИПOЛИM',0o2070),
+           ('CTATИCT',0o2113), ('ПOИCKИME',0o2125), ('BHECИИMЯ',0o2172),
+           ('SFILE',0o2312), ('ASSIGN',0o2353),
+           ('OШИБKИHA',0o4475), ('OШИБKИBM',0o4541),
+           ('KOOPД',0o4562), ('OTKPOЙOФ',0o4612), ('ЗAKPOЙOФ',0o4635),
+           ('ПEЧДЛФAЙ',0o4647), ('ПEЧALF0',0o4666), ('ДAЙЗAП',0o4707),
+           ('ДAЙЗAПИC',0o4735), ('ДAЙTEЛЗA',0o4761), ('ПPOПЗAП',0o5003),
+           ('ПEPEKYБ',0o5016), ('ЗAПBФOM',0o5044), ('BИCOKOC',0o5066),
+           ('ПEЧДATY',0o5100), ('YЧET',0o5170),
+           ('ДAЙЛИT',0o2426), ('OШCKAH',0o2463),
+           ('BOЗЛИT',0o2752), ('CИMBOЛИM',0o2761), ('ПPOПPAЗД',0o2765),
+           ('ДAЙPAЗД',0o2775), ('ЦEЛOE',0o3006), ('ДAЙЦEЛOE',0o3034),
+           ('ДAЙЧИCЛO',0o3153), ('ДAЙИMЯФA',0o3176), ('ДAЙYKФAЙ',0o3230),
+           ('ДAЙИMЯ',0o3312), ('CKAHEP',0o3335), ('CKAHPAЗД',0o3455),
+           ('BHECИOФ',0o3466), ('YTOЧHEHИ',0o3541),
+           ('PEЖПEЧ',0o3641), ('PAЗБOPЗA',0o3717),
+           ('AHAЛИЗTO',0o5232), ('OШMOД',0o5276), ('ПEPEBPИ',0o5472),
+           ('HOBЭЛTOБ',0o6063), ('HOBЭЛTAC',0o6101), ('HOBЭЛTCC',0o6121),
+           ('БAЗЫBKYБ',0o6135), ('ATPBKYБ',0o6155), ('KИHФBKYБ',0o6175),
+           ('BЫPBKYБ',0o6204), ('ИMЯBTOБ',0o6223), ('CБOPOБЬE',0o6247),
+           ('PAЗPEШИC',0o7221), ('TAБHEPAC',0o7316), ('BЫPABAДP',0o7403),
+           ('SECTID',0o7420), ('OШCOПP',0o7444), ('HACTPOЙH',0o7516),
+           ('ПEЧИMЯCE',0o7661), ('ПEЧCEKЦИ',0o7722), ('ПEЧИMЯЛO',0o10146),
+           ('DUMPCTEK',0o10162), ('OШMAШ',0o10203), ('CЛOBOBPA',0o10432),
+           ('ЗAПBPAЗД',0o10447), ('ДAЙMИKPO',0o10473), ('ДAЙOПEP',0o10542),
+           ('БAЙTЫBCT',0o10571), ('ДEЛЬTAC',0o10614), ('ЗHAЧCOБ',0o10645),
+           ('ЗHAЧBHEШ',0o10706), ('ATPCOБ',0o10771), ('ATPBHEШ',0o11050),
+           ('ЗABEPШИO',0o11152), ('CИCПPOГ',0o11317), ('ГPYЗЧИK',0o11413),
+           ('ГPYППA10',0o11552), ('ГPYППA20',0o11724), ('MAШИHA',0o12131),
+           ('OШBЫЧ',0o13634), ('BЫЧИCЛEH',0o13665),
+           ('OШЗAГP',0o14113), ('ЗAГPYЗИM',0o14153),
+           ('OБXOДЛEC',0o14333), ('ГEHMETKИ',0o14605),
+           ('ГPYППABP',0o15044), ('ПEЧCTATИ',0o15063),
            ('INITFILES',0o15221), ('MAIN',0o15233), ('STARTUP',0o16624)]
-ENDS = {'BINDOBJ':0o2426, 'STAMPOBJ':0o5232, 'READJOB':0o4475,
-        'GATHER':0o7221, 'OBJWHERE':0o10162, 'STARTUP':0o16631}
+ENDS = {'ASSIGN':0o2426, 'YЧET':0o5232, 'PAЗБOPЗA':0o4475,
+        'CБOPOБЬE':0o7221, 'ПEЧИMЯЛO':0o10162, 'STARTUP':0o16631}
 ENTRIES.sort(key=lambda entry: entry[1])
 EXTERNALS = {'HASHNAME':0o21540,'CMPNAME':0o21545,'NAMELEN':0o21563,
              'GETSTAMP':0o21675,'NEWKEY':0o22232,'OBJREAD':0o22234,
@@ -104,12 +110,12 @@ def reference_address(address):
     return address
 
 
-def load_private_compiler():
-    spec = importlib.util.spec_from_file_location('linker_private_compiler',
-                               HERE.parent/'blink/pack_compiler.py')
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
+def prepare_compiler(source_path=None):
+    spec = importlib.util.spec_from_file_location('linker_compiler_patches',
+                               HERE.parent/'linker-runtime/patch_compiler.py')
+    patches = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(patches)
+    return patches.prepare(WORK, source_path or ROOT/'mypas.b6')
 
 
 def runtime_library():
@@ -182,6 +188,8 @@ def compiler(env):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source',type=Path,default=HERE/SOURCE_NAME)
+    parser.add_argument('--compiler-source',type=Path,default=ROOT/'mypas.b6',
+                        help='base compiler deck (default: working-tree mypas.b6)')
     parser.add_argument('--disassemble-only', action='store_true',
                         help='use the existing helpers.img and compiler listing')
     parser.add_argument('--explore',action='store_true',
@@ -198,9 +206,8 @@ def main():
     listing = WORK/'helpers.lst'
     image = WORK/'helpers.img'
     if not args.disassemble_only:
-        private = load_private_compiler()
         global COMPILER_SOURCE
-        COMPILER_SOURCE = private.prepare(WORK,linker_compat=True)
+        COMPILER_SOURCE = prepare_compiler(args.compiler_source.resolve())
         compiler(env)
         source = args.source.read_text()
         for n,line in enumerate(source.splitlines(),1):
@@ -243,8 +250,6 @@ def main():
     old, new = read_words(analyze.IMAGE), read_words(image)
     library_report = runtime_library().compare(PROGRAM_NAME.lower(),old,new,symbols)
     (WORK/'library-comparison.json').write_text(json.dumps(library_report,indent=2)+'\n')
-    if args.source == (HERE/SOURCE_NAME).resolve():
-        (HERE/'library.json').write_text(json.dumps(library_report,indent=2)+'\n')
     runtime_library().disassemble(PROGRAM_NAME.lower(),old,new,symbols,WORK,
                                   analyze.F1,analyze.F2)
     if not args.explore and (not library_report['bit_identical'] or
@@ -253,14 +258,16 @@ def main():
                             any(not r['bit_identical'] for r in library_report['regions'][1:]) or
                             any(d['reason']=='unexplained' for d in library_report['header_differences'])):
         raise ValueError('runtime mismatch; see '+str(WORK/'library-comparison.json'))
+    if args.source == (HERE/SOURCE_NAME).resolve():
+        (HERE/'library.json').write_text(json.dumps(library_report,indent=2)+'\n')
     target_pool = new[symbols['PROGRAM']-0o2000] >> 24 & 0o77777
     old_names = analyze.load_helpers()
     old_names.update({a:n for n,a in ENTRIES})
     old_names.update({a:n for n,a in EXTERNALS.items()})
     old_names.update({reference_address(address):name for address,name in {
         0o22244:'GETFILED',0o22245:'PUTFILED',0o22246:'TABGET',
-        0o22247:'TABPUT',0o23256:'P/UN',0o20574:'OUTPAIR',
-        0o21425:'PADCHAR*',0o21253:'TIMES',0o16611:'ABORTJOB',
+        0o22247:'TABPUT',0o23256:'P/UN',0o20574:'CЛOBO',
+        0o21425:'PADCHAR*',0o21253:'CTATЭTAП',0o16611:'ABORTJOB',
         0o23000:'P/WO',0o23001:'P/WH',0o22615:'P/08',0o22670:'P/4',
         0o22600:'P/EL',0o22706:'P/5',0o22704:'P/42',0o22712:'P/52',
         0o23244:'P/MD',0o23253:'P/41',0o24307:'P/LV'}.items()})
@@ -274,12 +281,12 @@ def main():
                    TABFILE='TABGET', PUTDEF='TABPUT', PUTSECT='TABPUT',
                    PUTREF='TABPUT', TABSAVE='TABPUT')
     names.update({symbols[n]:aliases.get(n,n) for n in EXTERNALS})
-    names[symbols['P/1D']+0o113] = 'OUTPAIR'
+    names[symbols['P/1D']+0o113] = 'CЛOBO'
     names[target_pool] = 'POOL'
-    names[symbols['P/1D']+0o572] = 'TIMES'
-    for offset,name in [(0o123,'CURRENTFILE'), (0o545,'OUTFILE'),
-                        (0o547,'SCHEMAFILE'), (0o551,'LABELFILE'),
-                        (0o133,'LASTSECT')]:
+    names[symbols['P/1D']+0o572] = 'CTATЭTAП'
+    for offset,name in [(0o123,'TEKOФ'), (0o545,'ФAЙЛPAЗД'),
+                        (0o547,'ФAЙЛCXEM'), (0o551,'ФAЙЛMET'),
+                        (0o133,'ЭЛTACП')]:
         old_names[analyze.GLOBALS+offset] = name
         names[symbols['P/1D']+offset] = name
 
@@ -346,7 +353,7 @@ def main():
         offset,depth,text = row[1],int(row[2]),row[3]
         decl = re.match(r'(?:PROCEDURE|FUNCTION|PROGRAM)\s+(\w+)',text)
         if decl:
-            pending[depth] = decl[1]
+            pending[depth] = historical.routine(decl[1])
         elif text.startswith('9999:'):
             names[symbols['PROGRAM']+int(offset,8)] = 'ABORTJOB'
         elif text.startswith('BEGIN') and depth-2 in pending:
@@ -355,6 +362,8 @@ def main():
                     MAIN=compiled[PROGRAM_NAME]+0o12, STARTUP=target_pool-5)
     new_starts = [compiled[name] for name,_ in ENTRIES]
     names.update({a:n for (n,_),a in zip(ENTRIES,new_starts)})
+    old_names = {a:historical.symbol(n) for a,n in old_names.items()}
+    names = {a:historical.symbol(n) for a,n in names.items()}
     def disassembly(instructions):
         for instruction in instructions:
             if instruction[0] == 'define_label':
@@ -394,6 +403,7 @@ def main():
     listings = [header,header]
     rows = []
     for k,(name,start) in enumerate(ENTRIES):
+        display_name = historical.routine(name)
         end = ENDS.get(name, ENTRIES[k+1][1] if k+1<len(ENTRIES) else analyze.POOL)
         actual = new_starts[k]
         actual_end = min((a for a in new_starts if a>actual),default=target_pool)
@@ -401,7 +411,8 @@ def main():
         for side,words,lo,hi,pool,known in [
                 (0,old,start,end,analyze.POOL,old_names),
                 (1,new,actual,actual_end,target_pool,names)]:
-            listings[side] += f'\n; {name}: {lo:05o}-{hi-1:05o} ({hi-lo} words)\n{name}:\n'
+            listings[side] += (f'\n; {display_name}: {lo:05o}-{hi-1:05o} '
+                               f'({hi-lo} words)\n{display_name}:\n')
             padded.append(insns(words,lo,hi,pool,known,keep_padding=True))
             listings[side] += '\n'.join(disassembly(padded[-1]))+'\n'
         before = insns(old,start,end,analyze.POOL,old_names)
@@ -410,7 +421,7 @@ def main():
                         old=before[i:j],new=after[m:n])
                    for tag,i,j,m,n in difflib.SequenceMatcher(None,before,after,autojunk=False).get_opcodes()
                    if tag!='equal']
-        rows.append(dict(name=name,original=f'{start:05o}',rebuilt=f'{actual:05o}',
+        rows.append(dict(name=display_name,original=f'{start:05o}',rebuilt=f'{actual:05o}',
                          original_words=end-start,rebuilt_words=actual_end-actual,
                          normalized_identical=before==after,
                          padded_identical=padded[0]==padded[1],
@@ -418,7 +429,7 @@ def main():
                              for tag,i,j,m,n in difflib.SequenceMatcher(
                                  None,padded[0],padded[1],autojunk=False).get_opcodes()
                              if tag!='equal'), changes=changes))
-        print(f'{name:8} {start:05o}/{actual:05o} '
+        print(f'{display_name:8} {start:05o}/{actual:05o} '
               f'{end-start}/{actual_end-actual} words; {len(changes)} differing blocks')
     global_changes = [dict(offset=f'{offset:04o}',
                            original=f'{old[analyze.GLOBALS+offset-0o2000]:016o}',
@@ -443,9 +454,9 @@ def main():
                   library_bit_identical=library_report['bit_identical'],
                   library_report=str((HERE/'library.json').relative_to(ROOT)),
                   bit_identical_rebuild=False)
-    (WORK/'comparison.json').write_text(json.dumps(report,indent=2)+'\n')
+    (WORK/'comparison.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
     if args.source == (HERE/SOURCE_NAME).resolve():
-        (HERE/'recovery.json').write_text(json.dumps(report,indent=2)+'\n')
+        (HERE/'recovery.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
     for filename,text in zip(['original.dis','rebuilt.dis'],listings):
         path = WORK/filename
         path.write_text(text)

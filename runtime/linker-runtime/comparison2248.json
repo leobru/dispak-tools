@@ -1,0 +1,492 @@
+{
+  "images": {
+    "kompon2": {
+      "volume": "2248",
+      "first_zone": "2540",
+      "last_zone": "2557",
+      "version": "1.02/2",
+      "producer_stamp": "KOMПOH-1",
+      "entry": "02011",
+      "pool": "16103",
+      "globals": "17674",
+      "runtime": "20633",
+      "free": "24320",
+      "loaded_zones": 10,
+      "loaded_end_exclusive": "26000",
+      "application_words": 6202,
+      "constant_area_words": 889,
+      "framed_procedures": 86,
+      "pmd_scopes": 0,
+      "power_bound_uses": [
+        {
+          "address": "04247",
+          "half": "L",
+          "opcode": "5",
+          "power": 15
+        },
+        {
+          "address": "04324",
+          "half": "L",
+          "opcode": "5",
+          "power": 15
+        },
+        {
+          "address": "10762",
+          "half": "R",
+          "opcode": "5",
+          "power": 15
+        },
+        {
+          "address": "10766",
+          "half": "R",
+          "opcode": "4",
+          "power": 15
+        },
+        {
+          "address": "11317",
+          "half": "L",
+          "opcode": "5",
+          "power": 15
+        },
+        {
+          "address": "13507",
+          "half": "R",
+          "opcode": "5",
+          "power": 15
+        }
+      ]
+    },
+    "kompon3": {
+      "volume": "2248",
+      "first_zone": "2560",
+      "last_zone": "2577",
+      "version": "2.02/3",
+      "producer_stamp": "KOMПOH-1",
+      "entry": "02011",
+      "pool": "22300",
+      "globals": "26527",
+      "runtime": "27467",
+      "free": "33712",
+      "loaded_zones": 13,
+      "loaded_end_exclusive": "34000",
+      "application_words": 8375,
+      "constant_area_words": 2199,
+      "framed_procedures": 99,
+      "pmd_scopes": 100,
+      "power_bound_uses": [
+        {
+          "address": "06134",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "06235",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "13452",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "13572",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "14110",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "14114",
+          "half": "R",
+          "opcode": "4",
+          "power": 27
+        },
+        {
+          "address": "14506",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "17070",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "17420",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        }
+      ]
+    },
+    "link1": {
+      "volume": "4001",
+      "first_zone": "0175",
+      "last_zone": "0214",
+      "version": "2.40/1",
+      "producer_stamp": "KOMПOH-1",
+      "entry": "02012",
+      "pool": "16631",
+      "globals": "20461",
+      "runtime": "21426",
+      "free": "24716",
+      "loaded_zones": 10,
+      "loaded_end_exclusive": "26000",
+      "application_words": 6543,
+      "constant_area_words": 920,
+      "framed_procedures": 87,
+      "pmd_scopes": 0,
+      "power_bound_uses": [
+        {
+          "address": "04317",
+          "half": "L",
+          "opcode": "5",
+          "power": 15
+        },
+        {
+          "address": "04403",
+          "half": "R",
+          "opcode": "5",
+          "power": 15
+        },
+        {
+          "address": "11174",
+          "half": "R",
+          "opcode": "5",
+          "power": 15
+        },
+        {
+          "address": "11200",
+          "half": "R",
+          "opcode": "4",
+          "power": 15
+        },
+        {
+          "address": "11516",
+          "half": "L",
+          "opcode": "5",
+          "power": 15
+        },
+        {
+          "address": "14050",
+          "half": "L",
+          "opcode": "5",
+          "power": 15
+        }
+      ]
+    },
+    "blink1": {
+      "volume": "4001",
+      "first_zone": "0255",
+      "last_zone": "0274",
+      "version": "2.40/2",
+      "producer_stamp": "KOMПOH-2",
+      "entry": "02012",
+      "pool": "16704",
+      "globals": "20540",
+      "runtime": "21505",
+      "free": "24736",
+      "loaded_zones": 10,
+      "loaded_end_exclusive": "26000",
+      "application_words": 6586,
+      "constant_area_words": 924,
+      "framed_procedures": 87,
+      "pmd_scopes": 0,
+      "power_bound_uses": [
+        {
+          "address": "04317",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "04403",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "10673",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "10762",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "11204",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "11210",
+          "half": "R",
+          "opcode": "4",
+          "power": 27
+        },
+        {
+          "address": "11457",
+          "half": "L",
+          "opcode": "5",
+          "power": 15
+        },
+        {
+          "address": "11547",
+          "half": "L",
+          "opcode": "5",
+          "power": 15
+        },
+        {
+          "address": "11565",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "13553",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "14123",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        }
+      ]
+    },
+    "link": {
+      "volume": "4001",
+      "first_zone": "0112",
+      "last_zone": "0131",
+      "version": "2.40/3",
+      "producer_stamp": "KOMПOH-3",
+      "entry": "02012",
+      "pool": "17345",
+      "globals": "21203",
+      "runtime": "22150",
+      "free": "25524",
+      "loaded_zones": 10,
+      "loaded_end_exclusive": "26000",
+      "application_words": 6875,
+      "constant_area_words": 926,
+      "framed_procedures": 87,
+      "pmd_scopes": 0,
+      "power_bound_uses": [
+        {
+          "address": "04317",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "04403",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "10740",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "11051",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "11347",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "11353",
+          "half": "R",
+          "opcode": "4",
+          "power": 27
+        },
+        {
+          "address": "11725",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "14203",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "14562",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        }
+      ]
+    },
+    "blink": {
+      "volume": "4001",
+      "first_zone": "0275",
+      "last_zone": "0314",
+      "version": "2.40/3",
+      "producer_stamp": "KOMПOH-3",
+      "entry": "02012",
+      "pool": "17345",
+      "globals": "21203",
+      "runtime": "22150",
+      "free": "25465",
+      "loaded_zones": 10,
+      "loaded_end_exclusive": "26000",
+      "application_words": 6875,
+      "constant_area_words": 926,
+      "framed_procedures": 87,
+      "pmd_scopes": 0,
+      "power_bound_uses": [
+        {
+          "address": "04317",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "04403",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "10740",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "11051",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "11347",
+          "half": "R",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "11353",
+          "half": "R",
+          "opcode": "4",
+          "power": 27
+        },
+        {
+          "address": "11725",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "14203",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        },
+        {
+          "address": "14562",
+          "half": "L",
+          "opcode": "5",
+          "power": 27
+        }
+      ]
+    }
+  },
+  "comparisons": [
+    {
+      "old": "kompon2",
+      "new": "link1",
+      "instruction_similarity": 0.828122,
+      "matched_instructions": 9547,
+      "old_instructions": 11248,
+      "new_instructions": 11809
+    },
+    {
+      "old": "kompon2",
+      "new": "blink1",
+      "instruction_similarity": 0.825461,
+      "matched_instructions": 9551,
+      "old_instructions": 11248,
+      "new_instructions": 11893
+    },
+    {
+      "old": "kompon2",
+      "new": "link",
+      "instruction_similarity": 0.7893,
+      "matched_instructions": 9354,
+      "old_instructions": 11248,
+      "new_instructions": 12454
+    },
+    {
+      "old": "kompon2",
+      "new": "blink",
+      "instruction_similarity": 0.7893,
+      "matched_instructions": 9354,
+      "old_instructions": 11248,
+      "new_instructions": 12454
+    },
+    {
+      "old": "kompon3",
+      "new": "link1",
+      "instruction_similarity": 0.696318,
+      "matched_instructions": 9362,
+      "old_instructions": 15081,
+      "new_instructions": 11809
+    },
+    {
+      "old": "kompon3",
+      "new": "blink1",
+      "instruction_similarity": 0.696819,
+      "matched_instructions": 9398,
+      "old_instructions": 15081,
+      "new_instructions": 11893
+    },
+    {
+      "old": "kompon3",
+      "new": "link",
+      "instruction_similarity": 0.740803,
+      "matched_instructions": 10199,
+      "old_instructions": 15081,
+      "new_instructions": 12454
+    },
+    {
+      "old": "kompon3",
+      "new": "blink",
+      "instruction_similarity": 0.740803,
+      "matched_instructions": 10199,
+      "old_instructions": 15081,
+      "new_instructions": 12454
+    }
+  ],
+  "normalization": "UTC 0 omitted; M10 operands resolved to raw constants; long operands >=02000 replaced by address marker; other operands retained",
+  "limitation": "Similarity measures structural resemblance, not semantic equivalence or valid relocations."
+}

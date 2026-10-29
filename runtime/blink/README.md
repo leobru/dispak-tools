@@ -3,8 +3,14 @@
 BLINK comes from volume 4001 zones `0275–0314`. Its Pascal application is
 the same version **2.40/3** as [LINK](../link/README.md), with producer stamp
 `КОМПОН-3`. [blink.pas](blink.pas) is based on LINK's complete source.
-Routine and variable names are inherited descriptive names; there are no
-original PMD tables.
+Shared routine and variable names follow the older KOMPON PMD tables;
+unmapped names remain descriptive. This image contains no PMD tables.
+
+Shared PMD-backed identifiers were mirrored from
+[KOMPON 2.02/3](../kompon3/README.md); the
+[correspondence table](../linker-runtime/historical-names.json) records
+the names and scopes. Rebuilding after the renames produced an image
+byte-for-byte identical to the pre-rename build.
 
 ## Relationship to LINK
 
@@ -56,22 +62,14 @@ source artifacts.
 - [blink.sym](blink.sym), [names.json](names.json): recovered symbols.
 - [recovery.json](recovery.json): per-region compilation comparison.
 
-## Private compiler copy
+## Compiler
 
-[pack_compiler.py](pack_compiler.py) prepares
-`runtime/build/blink/mypas-packed.b6` from the current `mypas.b6`.
-In `insnltyp`, `control` is a one-word packed record containing the two-bit
-`ilm` and the three flags `zeroTest`, `signTest`, `bitTest`. It replaces
-the old `ilm` word and the three separate boolean words: the node occupies
-**11 words instead of 14**. Field accesses, including those inside `with`,
-refer to `control`; whole-node assignments still copy all fields.
-
-The compiler keeps its original **K9** heap. It also emits the original
-inline TRUNC sequence and allocates INPUT before OUTPUT. This packed copy successfully
-compiles EVALUATE and the complete application, whereas the current
-unpacked compiler exhausts its heap in EVALUATE. `mypas.b6` is not edited.
-The generated private source is fingerprinted for compiler-cache reuse;
-private volumes are not hashed by this build.
+The shared builder starts from `mypas.b6`; `--compiler-source` selects
+another base compiler deck. The [compatibility script](../linker-runtime/patch_compiler.py) changes only inline TRUNC emission
+and INPUT-before-OUTPUT allocation in the generated build copy. It leaves
+instruction-node layout and heap options unchanged. Compiler source is
+fingerprinted for cache reuse; private volume 77 and HOME remain under the
+build directory. Private writable volumes are not hashed.
 
 ## Compilation comparison
 
@@ -81,8 +79,8 @@ is **17**. All **926 constant words** and **384 application global words**
 match literally at their original addresses.
 
 The remaining eight differences are the same ones documented for LINK:
-SCANINT, GETTOKEN, PRINTSEL, STAMPOBJ, GATHER, ALIGNUP, PUTWORD, FIRSTVAL and
-LABELS. See [LINK's instruction differences](../link/README.md#remaining-instruction-differences).
+ДAЙЦEЛOE, CKAHEP, PEЖПEЧ, YЧET, CБOPOБЬE, BЫPABAДP, ЗAПBPAЗД, ГPYЗЧИK and
+ГEHMETKИ. See [LINK's instruction differences](../link/README.md#remaining-instruction-differences).
 All loop markers, explicit `(*q*)` exceptions and padding are inherited
 from LINK. Empty pointers use `ptr(0)`; large binary-round integer
 constants retain their octal `B` notation.

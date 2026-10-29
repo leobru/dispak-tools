@@ -3,8 +3,8 @@
 LINK is version **2.40/3** of the Elbrus-B linker from volume 4001 zones
 `0112–0131`. [link.pas](link.pas) was recovered using
 [LINK1's complete Pascal source](../link1/link1.pas), version 2.40/1.
-Routine and variable names are inherited descriptive names; the original
-image has no PMD tables.
+Shared routine and variable names follow the older KOMPON PMD tables;
+unmapped names remain descriptive. This image contains no PMD tables.
 
 The source compiles and covers the complete **6875-word application region
 `02012–17344`**. All **93 compared regions** have their original entry
@@ -17,6 +17,12 @@ The [real runtime](../linker-runtime/README.md) reproduces all **1772 library
 words**, their entries and FREE literally. P/1D and file blocks also match.
 [library.json](library.json) records the complete comparison. The linker
 is not executed during the build.
+
+Shared PMD-backed identifiers were mirrored from
+[KOMPON 2.02/3](../kompon3/README.md); the
+[correspondence table](../linker-runtime/historical-names.json) records
+the names and scopes. Rebuilding after the renames produced an image
+byte-for-byte identical to the pre-rename build.
 
 ## Build and inspect
 
@@ -38,7 +44,7 @@ files, generated `.dis` files and private volumes are not source artifacts.
 
 The analyzer pairs the same 87 procedure frames by nesting level and
 parameter count. It infers consistent service relocations from aligned
-original code. PUTTIME, RELOCATE and BINARYOP also provide corresponding
+original code. ПEЧBPE, ДEЛЬTAC and ГPYППA10 also provide corresponding
 fixed-order call sequences, including the wider value conversions.
 The build compares the recovered source against LINK's own original image.
 
@@ -65,22 +71,22 @@ retain the LINK1 structure. The principal changes are in the expression
 evaluator and target instruction format:
 
 - An operand occupies two BESM-6 words: a 48-bit low part and a 16-bit high
-  part. DUMPSTK prints four plus twelve hexadecimal digits. Stack shuffles
+  part. DUMPCTEK prints four plus twelve hexadecimal digits. Stack shuffles
   copy the complete two-word values, and the arithmetic service declarations
-  use the wider record type. EVALUATE's frame grows from 175 to 187 words.
-- PUSHLIT accepts up to eight bytes. Its first loop fills the two high bytes;
+  use the wider record type. MAШИHA's frame grows from 175 to 187 words.
+- БAЙTЫBCT accepts up to eight bytes. Its first loop fills the two high bytes;
   its second loop shifts bytes into the low 48 bits. The micro-operation
-  cases for seven- and eight-byte literals now call PUSHLIT.
-- GETWORD and PUTWORD transfer 32-bit chunks in the high 32 bits of the
+  cases for seven- and eight-byte literals now call БAЙTЫBCT.
+- ДAЙOПEP and ЗAПBPAЗД transfer 32-bit chunks in the high 32 bits of the
   two-word file records. Attribute loading and full-word expression output
   explicitly move the parts between file pairs and the operand representation.
 - Load-address checks and definition results use the wider 27-bit bounds
-  also seen in BLINK1. PUSHDEF, PUSHREF and section-base evaluation explicitly
+  also seen in BLINK1. ЗHAЧCOБ, ЗHAЧBHEШ and section-base evaluation explicitly
   sign-extend bit 26 before calling the value conversion service.
 - An instruction has a four-bit register and an eight-bit opcode. Opcode
   63 uses the main format's 12-bit address. The additional format has a
-  signed 20-bit address: a sign bit plus 19 low bits. FIRSTVAL recognizes
-  prefix opcodes 58 and 57 and multiplies their address by 4096. EMITVAL
+  signed 20-bit address: a sign bit plus 19 low bits. ГPYЗЧИK recognizes
+  prefix opcodes 58 and 57 and multiplies their address by 4096. ЗABEPШИO
   splits a prefixed address by division and remainder by 4096 and applies
   the format-specific bounds.
 - Diagnostic field boundaries are based on 64 bits. Section and segment
@@ -93,7 +99,7 @@ are recorded in the comparison report. External `B…` identifiers retain
 their LINK1 names; the inventory records their actual LINK entry addresses.
 
 The source retains the observed packing operations literally, including
-the differing shift sequences used by attribute loading and FIRSTVAL.
+the differing shift sequences used by attribute loading and ГPYЗЧИK.
 
 ## Remaining instruction differences
 
@@ -101,28 +107,28 @@ Six differences are inherited from the LINK1 recovery:
 
 | Routine | Difference |
 |---|---|
-| SCANINT | A restore-helper call replaces a tail call; one redundant jump is omitted |
-| GETTOKEN | Three redundant jumps are omitted |
-| PRINTSEL | One redundant jump is omitted |
-| STAMPOBJ | Integer zero comes from P/1D instead of the constant pool |
-| GATHER | One redundant NTR 7 before PUTSIZE is omitted |
-| LABELS | One redundant NTR 7 before PUTSIZE is omitted |
+| ДAЙЦEЛOE | A restore-helper call replaces a tail call; one redundant jump is omitted |
+| CKAHEP | Three redundant jumps are omitted |
+| PEЖПEЧ | One redundant jump is omitted |
+| YЧET | Integer zero comes from P/1D instead of the constant pool |
+| CБOPOБЬE | One redundant NTR 7 before ПEЧДЛФAЙ is omitted |
+| ГEHMETKИ | One redundant NTR 7 before ПEЧДЛФAЙ is omitted |
 
 Two further compiler-generation differences remain:
 
-- PUTWORD normalizes `ord(HALFOUT)` with an extra `AOX 11(1)` before loading
+- ЗAПBPAЗД normalizes `ord(ФПPABC)` with an extra `AOX 11(1)` before loading
   the index register. The lower index bits are unchanged; a call's UTC filler
   moves, keeping the original 17-word size.
-- FIRSTVAL evaluates the shifted temporary before loading the existing low
+- ГPYЗЧИK evaluates the shifted temporary before loading the existing low
   word for the final bitwise union. The original loads the low word first.
   Both produce the same union; the region retains its original 102 words.
 
 The padded symbolic edit cost is **17**, an instruction/label comparison
 measure rather than a count of differing image words. All loop labels and
-explicit `(*q*)` exceptions are retained from LINK1; the new PUSHLIT loop
+explicit `(*q*)` exceptions are retained from LINK1; the new БAЙTЫBCT loop
 uses `(q) ... do (r)`. Empty pointers use `ptr(0)`.
 
-ALIGNUP now uses the private compiler's original inline truncation without
+BЫPABAДP uses inline truncation without
 P/TR or a padding jump. The separate runtime disassemblies are
 `original-runtime.dis` and `rebuilt-runtime.dis`. Real link jobs remain
 unexercised.

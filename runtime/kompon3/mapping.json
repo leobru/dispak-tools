@@ -1,0 +1,824 @@
+[
+  {
+    "modern": "PUTTIME",
+    "candidates": [
+      [
+        "ПEЧBPE",
+        51
+      ]
+    ]
+  },
+  {
+    "modern": "PUTPATH",
+    "candidates": [
+      [
+        "ПEЧИMЯOБ",
+        39
+      ]
+    ]
+  },
+  {
+    "modern": "PATHLEN",
+    "candidates": [
+      [
+        "ДЛИПOЛИM",
+        35
+      ]
+    ]
+  },
+  {
+    "modern": "NEWPHASE",
+    "candidates": [
+      [
+        "CTATИCT",
+        12
+      ],
+      [
+        "DUMPOM",
+        4
+      ]
+    ]
+  },
+  {
+    "modern": "FINDKEY",
+    "candidates": [
+      [
+        "ПOИCKИME",
+        63
+      ]
+    ]
+  },
+  {
+    "modern": "ENTERKEY",
+    "candidates": [
+      [
+        "BHECИИMЯ",
+        132
+      ]
+    ]
+  },
+  {
+    "modern": "FINDOBJ",
+    "candidates": [
+      [
+        "SFILE",
+        62
+      ]
+    ]
+  },
+  {
+    "modern": "BINDOBJ",
+    "candidates": [
+      [
+        "ASSIGN",
+        77
+      ]
+    ]
+  },
+  {
+    "modern": "NEXTCHAR",
+    "candidates": [
+      [
+        "ДAЙЛИT",
+        52
+      ]
+    ]
+  },
+  {
+    "modern": "BADJOB",
+    "candidates": [
+      [
+        "OШCKAH",
+        285
+      ]
+    ]
+  },
+  {
+    "modern": "PUSHCHAR",
+    "candidates": [
+      [
+        "BOЗЛИT",
+        16
+      ]
+    ]
+  },
+  {
+    "modern": "INNAME",
+    "candidates": [
+      [
+        "CИMBOЛИM",
+        13
+      ]
+    ]
+  },
+  {
+    "modern": "SKIPWS",
+    "candidates": [
+      [
+        "ПPOПPAЗД",
+        14
+      ]
+    ]
+  },
+  {
+    "modern": "SKIPTAIL",
+    "candidates": [
+      [
+        "ДAЙPAЗД",
+        15
+      ]
+    ]
+  },
+  {
+    "modern": "CONVERT",
+    "candidates": [
+      [
+        "ЦEЛOE",
+        43
+      ]
+    ]
+  },
+  {
+    "modern": "SCANINT",
+    "candidates": [
+      [
+        "ДAЙЦEЛOE",
+        138
+      ]
+    ]
+  },
+  {
+    "modern": "SCANDEC",
+    "candidates": [
+      [
+        "ДAЙЧИCЛO",
+        37
+      ]
+    ]
+  },
+  {
+    "modern": "SCANNAME",
+    "candidates": [
+      [
+        "ДAЙИMЯФA",
+        44
+      ]
+    ]
+  },
+  {
+    "modern": "SCANFILE",
+    "candidates": [
+      [
+        "ДAЙYKФAЙ",
+        87
+      ]
+    ]
+  },
+  {
+    "modern": "SCANALFA",
+    "candidates": [
+      [
+        "ДAЙИMЯ",
+        33
+      ]
+    ]
+  },
+  {
+    "modern": "GETTOKEN",
+    "candidates": [
+      [
+        "CKAHEP",
+        128
+      ]
+    ]
+  },
+  {
+    "modern": "EXPECT",
+    "candidates": [
+      [
+        "CKAHPAЗД",
+        19
+      ]
+    ]
+  },
+  {
+    "modern": "GETFILE",
+    "candidates": [
+      [
+        "BHECИOФ",
+        82
+      ]
+    ]
+  },
+  {
+    "modern": "SELECTFI",
+    "candidates": [
+      [
+        "YTOЧHEHИ",
+        113
+      ]
+    ]
+  },
+  {
+    "modern": "PRINTSEL",
+    "candidates": [
+      [
+        "PEЖПEЧ",
+        56
+      ],
+      [
+        "PEЖOTЛ",
+        7
+      ]
+    ]
+  },
+  {
+    "modern": "READJOB",
+    "candidates": [
+      [
+        "PAЗБOPЗA",
+        461
+      ]
+    ]
+  },
+  {
+    "modern": "PHASEMSG",
+    "candidates": [
+      [
+        "OШИБKИHA",
+        60
+      ]
+    ]
+  },
+  {
+    "modern": "MODULEMS",
+    "candidates": [
+      [
+        "OШИБKИBM",
+        30
+      ]
+    ]
+  },
+  {
+    "modern": "RECORDMS",
+    "candidates": [
+      [
+        "KOOPД",
+        44
+      ]
+    ]
+  },
+  {
+    "modern": "OPENIN",
+    "candidates": [
+      [
+        "OTKPOЙOФ",
+        26
+      ]
+    ]
+  },
+  {
+    "modern": "CLOSEIN",
+    "candidates": [
+      [
+        "ЗAKPOЙOФ",
+        20
+      ]
+    ]
+  },
+  {
+    "modern": "PUTSIZE",
+    "candidates": [
+      [
+        "ПEЧДЛФAЙ",
+        32
+      ]
+    ]
+  },
+  {
+    "modern": "PUTCODE",
+    "candidates": [
+      [
+        "ПEЧALF0",
+        31
+      ]
+    ]
+  },
+  {
+    "modern": "READREC",
+    "candidates": [
+      [
+        "ДAЙЗAП",
+        35
+      ]
+    ]
+  },
+  {
+    "modern": "READBODY",
+    "candidates": [
+      [
+        "ДAЙЗAПИC",
+        36
+      ]
+    ]
+  },
+  {
+    "modern": "READPART",
+    "candidates": [
+      [
+        "ДAЙTEЛЗA",
+        35
+      ]
+    ]
+  },
+  {
+    "modern": "SKIPREC",
+    "candidates": [
+      [
+        "ПPOПЗAП",
+        24
+      ]
+    ]
+  },
+  {
+    "modern": "SAVEREC",
+    "candidates": [
+      [
+        "ПEPEKYБ",
+        42
+      ]
+    ]
+  },
+  {
+    "modern": "WRITREC",
+    "candidates": [
+      [
+        "ЗAПBФOM",
+        31
+      ]
+    ]
+  },
+  {
+    "modern": "LEAPDAY",
+    "candidates": [
+      [
+        "BИCOKOC",
+        22
+      ]
+    ]
+  },
+  {
+    "modern": "PUTDATE",
+    "candidates": [
+      [
+        "ПEЧДATY",
+        106
+      ]
+    ]
+  },
+  {
+    "modern": "STAMPOBJ",
+    "candidates": [
+      [
+        "YЧET",
+        67
+      ]
+    ]
+  },
+  {
+    "modern": "PUTKIND",
+    "candidates": [
+      [
+        "AHAЛИЗTO",
+        70
+      ]
+    ]
+  },
+  {
+    "modern": "BADOBJ",
+    "candidates": [
+      [
+        "OШMOД",
+        215
+      ]
+    ]
+  },
+  {
+    "modern": "RESNAME",
+    "candidates": [
+      [
+        "ПEPEBPИ",
+        434
+      ]
+    ]
+  },
+  {
+    "modern": "NEWDEF",
+    "candidates": [
+      [
+        "HOBЭЛTOБ",
+        29
+      ]
+    ]
+  },
+  {
+    "modern": "NEWSECT",
+    "candidates": [
+      [
+        "HOBЭЛTAC",
+        34
+      ]
+    ]
+  },
+  {
+    "modern": "NEWREF",
+    "candidates": [
+      [
+        "HOBЭЛTCC",
+        25
+      ]
+    ]
+  },
+  {
+    "modern": "SAVEPREF",
+    "candidates": [
+      [
+        "БAЗЫBKYБ",
+        29
+      ]
+    ]
+  },
+  {
+    "modern": "SAVEDATA",
+    "candidates": [
+      [
+        "ATPBKYБ",
+        29
+      ]
+    ]
+  },
+  {
+    "modern": "SKIPDATA",
+    "candidates": [
+      [
+        "KИHФBKYБ",
+        17
+      ]
+    ]
+  },
+  {
+    "modern": "SAVEEXPR",
+    "candidates": [
+      [
+        "BЫPBKYБ",
+        29
+      ]
+    ]
+  },
+  {
+    "modern": "BINDDEF",
+    "candidates": [
+      [
+        "ИMЯBTOБ",
+        36
+      ]
+    ]
+  },
+  {
+    "modern": "GATHER",
+    "candidates": [
+      [
+        "CБOPOБЬE",
+        721
+      ]
+    ]
+  },
+  {
+    "modern": "RESOLVE",
+    "candidates": [
+      [
+        "PAЗPEШИC",
+        108
+      ]
+    ]
+  },
+  {
+    "modern": "UNRESMSG",
+    "candidates": [
+      [
+        "TAБHEPAC",
+        101
+      ]
+    ]
+  },
+  {
+    "modern": "ALIGNUP",
+    "candidates": [
+      [
+        "BЫPABAДP",
+        30
+      ]
+    ]
+  },
+  {
+    "modern": "SECTID",
+    "candidates": [
+      [
+        "OШCOПP",
+        2
+      ]
+    ]
+  },
+  {
+    "modern": "BADSECT",
+    "candidates": [
+      [
+        "OШCOПP",
+        40
+      ]
+    ]
+  },
+  {
+    "modern": "JOINSECT",
+    "candidates": [
+      [
+        "HACTPOЙH",
+        141
+      ]
+    ]
+  },
+  {
+    "modern": "PUTSECTN",
+    "candidates": [
+      [
+        "ПEЧИMЯCE",
+        66
+      ]
+    ]
+  },
+  {
+    "modern": "LISTSECT",
+    "candidates": [
+      [
+        "ПEЧCEKЦИ",
+        247
+      ]
+    ]
+  },
+  {
+    "modern": "OBJWHERE",
+    "candidates": [
+      [
+        "ПEЧИMЯЛO",
+        27
+      ]
+    ]
+  },
+  {
+    "modern": "DUMPSTK",
+    "candidates": [
+      [
+        "DUMPCTEK",
+        45
+      ]
+    ]
+  },
+  {
+    "modern": "BADEXPR",
+    "candidates": [
+      [
+        "OШMAШ",
+        261
+      ]
+    ]
+  },
+  {
+    "modern": "FLUSHOUT",
+    "candidates": [
+      [
+        "CЛOBOBPA",
+        25
+      ]
+    ]
+  },
+  {
+    "modern": "PUTWORD",
+    "candidates": [
+      [
+        "ЗAПBPAЗД",
+        21
+      ]
+    ]
+  },
+  {
+    "modern": "GETBYTE",
+    "candidates": [
+      [
+        "ДAЙMИKPO",
+        20
+      ],
+      [
+        "ДAЙOПEP",
+        11
+      ]
+    ]
+  },
+  {
+    "modern": "GETWORD",
+    "candidates": [
+      [
+        "ДAЙOПEP",
+        9
+      ]
+    ]
+  },
+  {
+    "modern": "PUSHLIT",
+    "candidates": [
+      [
+        "БAЙTЫBCT",
+        57
+      ]
+    ]
+  },
+  {
+    "modern": "RELOCATE",
+    "candidates": [
+      [
+        "ДEЛЬTAC",
+        42
+      ]
+    ]
+  },
+  {
+    "modern": "PUSHDEF",
+    "candidates": [
+      [
+        "ЗHAЧCOБ",
+        50
+      ]
+    ]
+  },
+  {
+    "modern": "PUSHREF",
+    "candidates": [
+      [
+        "ЗHAЧBHEШ",
+        78
+      ]
+    ]
+  },
+  {
+    "modern": "DEFATTR",
+    "candidates": [
+      [
+        "ATPCOБ",
+        70
+      ]
+    ]
+  },
+  {
+    "modern": "REFATTR",
+    "candidates": [
+      [
+        "ATPBHEШ",
+        101
+      ]
+    ]
+  },
+  {
+    "modern": "EMITVAL",
+    "candidates": [
+      [
+        "ЗABEPШИO",
+        148
+      ]
+    ]
+  },
+  {
+    "modern": "EMITOPER",
+    "candidates": [
+      [
+        "CИCПPOГ",
+        66
+      ]
+    ]
+  },
+  {
+    "modern": "FIRSTVAL",
+    "candidates": [
+      [
+        "ГPYЗЧИK",
+        107
+      ]
+    ]
+  },
+  {
+    "modern": "BINARYOP",
+    "candidates": [
+      [
+        "ГPYППA10",
+        96
+      ]
+    ]
+  },
+  {
+    "modern": "FIELDOP",
+    "candidates": [
+      [
+        "ГPYППA20",
+        139
+      ]
+    ]
+  },
+  {
+    "modern": "EVALUATE",
+    "candidates": [
+      [
+        "MAШИHA",
+        1008
+      ]
+    ]
+  },
+  {
+    "modern": "BADVALUE",
+    "candidates": [
+      [
+        "OШBЫЧ",
+        43
+      ]
+    ]
+  },
+  {
+    "modern": "EVALDEFS",
+    "candidates": [
+      [
+        "BЫЧИCЛEH",
+        90
+      ]
+    ]
+  },
+  {
+    "modern": "BADOUT",
+    "candidates": [
+      [
+        "OШЗAГP",
+        60
+      ]
+    ]
+  },
+  {
+    "modern": "WRITESEG",
+    "candidates": [
+      [
+        "ЗAГPYЗИM",
+        148
+      ]
+    ]
+  },
+  {
+    "modern": "PUTLABEL",
+    "candidates": [
+      [
+        "OБXOДЛEC",
+        312
+      ]
+    ]
+  },
+  {
+    "modern": "LABELS",
+    "candidates": [
+      [
+        "ГEHMETKИ",
+        285
+      ]
+    ]
+  },
+  {
+    "modern": "PUTTIMES",
+    "candidates": [
+      [
+        "ГPYППABP",
+        23
+      ]
+    ]
+  },
+  {
+    "modern": "STATS",
+    "candidates": [
+      [
+        "ПEЧCTATИ",
+        156
+      ]
+    ]
+  },
+  {
+    "modern": "LINK",
+    "candidates": [
+      [
+        "ЗAГPYЗ",
+        902
+      ]
+    ]
+  }
+]

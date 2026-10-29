@@ -1,0 +1,5367 @@
+[
+  {
+    "name": "ПEЧBPE",
+    "entry": "02012",
+    "level": 2,
+    "parameters": 1,
+    "frame": 2,
+    "line": 731,
+    "pmd": "22304",
+    "variables": [
+      {
+        "name": "BPEMЯ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "02046",
+    "words": 28
+  },
+  {
+    "name": "ПEЧИMЯOБ",
+    "entry": "02046",
+    "level": 2,
+    "parameters": 1,
+    "frame": 15,
+    "line": 746,
+    "pmd": "22324",
+    "variables": [
+      {
+        "name": "YKДИM",
+        "offset": "0003",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "BHYTPИMЯ",
+        "offset": "0004",
+        "size": 12,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0001400000400004",
+        "type_hint": "array",
+        "storage_words": 12
+      },
+      {
+        "name": "YPИM",
+        "offset": "0020",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100020",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "02114",
+    "words": 38
+  },
+  {
+    "name": "ДЛИПOЛИM",
+    "entry": "02114",
+    "level": 2,
+    "parameters": 2,
+    "frame": 4,
+    "line": 763,
+    "pmd": "22341",
+    "variables": [
+      {
+        "name": "YKДИM",
+        "offset": "0004",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500004",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ДЛИHA",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "02143",
+    "words": 23
+  },
+  {
+    "name": "DUMPOM",
+    "entry": "02143",
+    "level": 2,
+    "parameters": 2,
+    "frame": 5,
+    "line": 805,
+    "pmd": "22350",
+    "variables": [
+      {
+        "name": "CЛOBO",
+        "offset": "0005",
+        "size": 2,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000200000400005",
+        "type_hint": "array",
+        "storage_words": 2
+      },
+      {
+        "name": "AДPEC",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "02170",
+    "words": 21
+  },
+  {
+    "name": "DUMPPAЗД",
+    "entry": "02170",
+    "level": 2,
+    "parameters": 1,
+    "frame": 3,
+    "line": 812,
+    "pmd": "22367",
+    "variables": [
+      {
+        "name": "CЛOBO",
+        "offset": "0003",
+        "size": 2,
+        "kind": 4,
+        "indirect": true,
+        "descriptor": "4000200000400003",
+        "type_hint": "array",
+        "storage_words": 1
+      },
+      {
+        "name": "TEГ",
+        "offset": "0004",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100062300004",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22362",
+        "enumerators": [
+          "TЛИH",
+          "TПEP",
+          "TЧT",
+          "TPEЗ",
+          "TЗП"
+        ]
+      }
+    ],
+    "end": "02236",
+    "words": 38
+  },
+  {
+    "name": "DUMPTCEГ",
+    "entry": "02236",
+    "level": 2,
+    "parameters": 0,
+    "frame": 9,
+    "line": 829,
+    "pmd": "22406",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЭЛTCEГ0",
+        "offset": "0007",
+        "size": 1,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000100000500007",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ЭЛTCEГ1",
+        "offset": "0010",
+        "size": 1,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000100000500010",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTCEГ",
+        "offset": "0011",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500011",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ДЛTCEГ",
+        "offset": "0006",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100006",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HCEГ",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧM",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "02400",
+    "words": 98
+  },
+  {
+    "name": "DUMPPEЖ",
+    "entry": "02400",
+    "level": 2,
+    "parameters": 0,
+    "frame": 1,
+    "line": 856,
+    "pmd": "22463",
+    "variables": [],
+    "end": "02413",
+    "words": 11
+  },
+  {
+    "name": "DUMPTOФ",
+    "entry": "02413",
+    "level": 2,
+    "parameters": 0,
+    "frame": 7,
+    "line": 863,
+    "pmd": "22472",
+    "variables": [
+      {
+        "name": "ЭЛTOФ",
+        "offset": "0004",
+        "size": 4,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000400000500004",
+        "type_hint": "set_or_record",
+        "storage_words": 4
+      },
+      {
+        "name": "CTOФ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "02526",
+    "words": 75
+  },
+  {
+    "name": "DUMPTAC",
+    "entry": "02526",
+    "level": 2,
+    "parameters": 0,
+    "frame": 8,
+    "line": 882,
+    "pmd": "22531",
+    "variables": [
+      {
+        "name": "ЭЛTAC",
+        "offset": "0004",
+        "size": 5,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000500000500004",
+        "type_hint": "set_or_record",
+        "storage_words": 5
+      },
+      {
+        "name": "CTAC",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "03030",
+    "words": 194
+  },
+  {
+    "name": "DUMPTOБ",
+    "entry": "03030",
+    "level": 2,
+    "parameters": 0,
+    "frame": 6,
+    "line": 932,
+    "pmd": "22622",
+    "variables": [
+      {
+        "name": "ЭЛTOБ",
+        "offset": "0004",
+        "size": 3,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000300000500004",
+        "type_hint": "set_or_record",
+        "storage_words": 3
+      },
+      {
+        "name": "CTOБ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "03164",
+    "words": 92
+  },
+  {
+    "name": "DUMPTCC",
+    "entry": "03164",
+    "level": 2,
+    "parameters": 0,
+    "frame": 4,
+    "line": 956,
+    "pmd": "22663",
+    "variables": [
+      {
+        "name": "ЭЛTCC",
+        "offset": "0004",
+        "size": 1,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000100000500004",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CTCC",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "03253",
+    "words": 55
+  },
+  {
+    "name": "DUMPTПPE",
+    "entry": "03253",
+    "level": 2,
+    "parameters": 0,
+    "frame": 4,
+    "line": 972,
+    "pmd": "22711",
+    "variables": [
+      {
+        "name": "ЭЛTПPE",
+        "offset": "0004",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500004",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CTПPE",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "03313",
+    "words": 32
+  },
+  {
+    "name": "DUMPTЭM",
+    "entry": "03313",
+    "level": 2,
+    "parameters": 0,
+    "frame": 4,
+    "line": 983,
+    "pmd": "22731",
+    "variables": [
+      {
+        "name": "ЭЛTЭM",
+        "offset": "0004",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500004",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CTЭM",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "03353",
+    "words": 32
+  },
+  {
+    "name": "CTATИCT",
+    "entry": "03353",
+    "level": 2,
+    "parameters": 1,
+    "frame": 2,
+    "line": 998,
+    "pmd": "22760",
+    "variables": [
+      {
+        "name": "ЭTAП",
+        "offset": "0003",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100447300003",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22747",
+        "enumerators": [
+          "CYMMA",
+          "ШAГИHИЦ",
+          "ШAГЗAДAH",
+          "ШAГCБOPK",
+          "ШAГPAЗPE",
+          "ШAГPAЗME",
+          "ШAГBЫЧ",
+          "ШAГЗAГP",
+          "ШAГГEHME"
+        ]
+      }
+    ],
+    "end": "03400",
+    "words": 21
+  },
+  {
+    "name": "ПOИCKИME",
+    "entry": "03400",
+    "level": 2,
+    "parameters": 2,
+    "frame": 6,
+    "line": 1009,
+    "pmd": "22766",
+    "variables": [
+      {
+        "name": "YKИMЯ",
+        "offset": "0007",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500007",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ИMЯ",
+        "offset": "0005",
+        "size": 2,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000200000400005",
+        "type_hint": "array",
+        "storage_words": 2
+      }
+    ],
+    "end": "03457",
+    "words": 47
+  },
+  {
+    "name": "BHECИИMЯ",
+    "entry": "03457",
+    "level": 2,
+    "parameters": 2,
+    "frame": 9,
+    "line": 1024,
+    "pmd": "22777",
+    "variables": [
+      {
+        "name": "YKИMЯП",
+        "offset": "0012",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500012",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "YKИMЯT",
+        "offset": "0011",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500011",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "YKИMЯ",
+        "offset": "0010",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500010",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "HOBИMЯ",
+        "offset": "0005",
+        "size": 2,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000200000400005",
+        "type_hint": "array",
+        "storage_words": 2
+      },
+      {
+        "name": "CXEШ",
+        "offset": "0007",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100007",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "03636",
+    "words": 111
+  },
+  {
+    "name": "SFILE",
+    "entry": "03636",
+    "level": 2,
+    "parameters": 2,
+    "frame": 9,
+    "line": 1063,
+    "pmd": "23017",
+    "variables": [
+      {
+        "name": "ФИЗ",
+        "offset": "0004",
+        "size": 2,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000200000500004",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "YKИMЯ",
+        "offset": "0011",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500011",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ЛOГ",
+        "offset": "0005",
+        "size": 2,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000200000400005",
+        "type_hint": "array",
+        "storage_words": 2
+      },
+      {
+        "name": "CTЛФ",
+        "offset": "0010",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100010",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTЛФ",
+        "offset": "0007",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500007",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "03703",
+    "words": 37
+  },
+  {
+    "name": "ASSIGN",
+    "entry": "03703",
+    "level": 2,
+    "parameters": 2,
+    "frame": 9,
+    "line": 1081,
+    "pmd": "23034",
+    "variables": [
+      {
+        "name": "YKИMЯ",
+        "offset": "0010",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500010",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ФИMЯ",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ИMЯ",
+        "offset": "0005",
+        "size": 2,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000200000400005",
+        "type_hint": "array",
+        "storage_words": 2
+      },
+      {
+        "name": "CTЛФ",
+        "offset": "0011",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100011",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTЛФ",
+        "offset": "0007",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500007",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "03772",
+    "words": 55
+  },
+  {
+    "name": "ДAЙЛИT",
+    "entry": "03772",
+    "level": 3,
+    "parameters": 0,
+    "frame": 1,
+    "line": 1178,
+    "pmd": "23053",
+    "variables": [],
+    "end": "04054",
+    "words": 50
+  },
+  {
+    "name": "OШCKAH",
+    "entry": "04054",
+    "level": 3,
+    "parameters": 1,
+    "frame": 4,
+    "line": 1194,
+    "pmd": "23061",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HOMOШ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "04342",
+    "words": 182
+  },
+  {
+    "name": "BOЗЛИT",
+    "entry": "04342",
+    "level": 4,
+    "parameters": 1,
+    "frame": 2,
+    "line": 1268,
+    "pmd": "23257",
+    "variables": [
+      {
+        "name": "ЛИTC",
+        "offset": "0003",
+        "size": 1,
+        "kind": 2,
+        "indirect": false,
+        "descriptor": "0000100000200003",
+        "type_hint": "char",
+        "storage_words": 1
+      }
+    ],
+    "end": "04360",
+    "words": 14
+  },
+  {
+    "name": "CИMBOЛИM",
+    "entry": "04360",
+    "level": 4,
+    "parameters": 2,
+    "frame": 3,
+    "line": 1273,
+    "pmd": "23271",
+    "variables": [
+      {
+        "name": "TИЛ",
+        "offset": "0004",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100764300004",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "23264",
+        "enumerators": [
+          "БYKBA",
+          "ЦИФPA",
+          "PAЗЛИT",
+          "CПEЦЛИT",
+          "ЗAПPЛИT"
+        ]
+      }
+    ],
+    "end": "04371",
+    "words": 9
+  },
+  {
+    "name": "ПPOПPAЗД",
+    "entry": "04371",
+    "level": 4,
+    "parameters": 0,
+    "frame": 1,
+    "line": 1278,
+    "pmd": "23276",
+    "variables": [],
+    "end": "04405",
+    "words": 12
+  },
+  {
+    "name": "ДAЙPAЗД",
+    "entry": "04405",
+    "level": 4,
+    "parameters": 0,
+    "frame": 1,
+    "line": 1283,
+    "pmd": "23301",
+    "variables": [],
+    "end": "04422",
+    "words": 13
+  },
+  {
+    "name": "ЦEЛOE",
+    "entry": "04422",
+    "level": 5,
+    "parameters": 2,
+    "frame": 6,
+    "line": 1295,
+    "pmd": "23306",
+    "variables": [
+      {
+        "name": "OCH",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "I",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "J",
+        "offset": "0006",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100006",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "04464",
+    "words": 34
+  },
+  {
+    "name": "ДAЙЦEЛOE",
+    "entry": "04464",
+    "level": 4,
+    "parameters": 1,
+    "frame": 20,
+    "line": 1305,
+    "pmd": "23320",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "KOД",
+        "offset": "0006",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100006",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "БYФ",
+        "offset": "0010",
+        "size": 12,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0001400000400010",
+        "type_hint": "array",
+        "storage_words": 12
+      },
+      {
+        "name": "TИПЦ",
+        "offset": "0024",
+        "size": 1,
+        "kind": 2,
+        "indirect": false,
+        "descriptor": "0000100000200024",
+        "type_hint": "char",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧC",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "MACШTAБ",
+        "offset": "0007",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100007",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧИC",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": true,
+        "descriptor": "4000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "04617",
+    "words": 91
+  },
+  {
+    "name": "ДAЙЧИCЛO",
+    "entry": "04617",
+    "level": 4,
+    "parameters": 1,
+    "frame": 3,
+    "line": 1335,
+    "pmd": "23355",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧИC",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": true,
+        "descriptor": "4000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "04646",
+    "words": 23
+  },
+  {
+    "name": "ДAЙИMЯФA",
+    "entry": "04646",
+    "level": 4,
+    "parameters": 0,
+    "frame": 2,
+    "line": 1346,
+    "pmd": "23365",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "04712",
+    "words": 36
+  },
+  {
+    "name": "ДAЙYKФAЙ",
+    "entry": "04712",
+    "level": 4,
+    "parameters": 0,
+    "frame": 4,
+    "line": 1359,
+    "pmd": "23375",
+    "variables": [
+      {
+        "name": "ЗЗ",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "I",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HY",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "05016",
+    "words": 68
+  },
+  {
+    "name": "ДAЙИMЯ",
+    "entry": "05016",
+    "level": 4,
+    "parameters": 0,
+    "frame": 2,
+    "line": 1381,
+    "pmd": "23415",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "05053",
+    "words": 29
+  },
+  {
+    "name": "CKAHEP",
+    "entry": "05053",
+    "level": 3,
+    "parameters": 1,
+    "frame": 2,
+    "line": 1389,
+    "pmd": "23422",
+    "variables": [
+      {
+        "name": "CЛEKC",
+        "offset": "0003",
+        "size": 1,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000100000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "05171",
+    "words": 78
+  },
+  {
+    "name": "CKAHPAЗД",
+    "entry": "05171",
+    "level": 3,
+    "parameters": 1,
+    "frame": 2,
+    "line": 1444,
+    "pmd": "23436",
+    "variables": [
+      {
+        "name": "MPAЗ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000100000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "05206",
+    "words": 13
+  },
+  {
+    "name": "BHECИOФ",
+    "entry": "05206",
+    "level": 3,
+    "parameters": 2,
+    "frame": 8,
+    "line": 1454,
+    "pmd": "23443",
+    "variables": [
+      {
+        "name": "ДECФAЙЛA",
+        "offset": "0005",
+        "size": 2,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000200000500005",
+        "type_hint": "set_or_record",
+        "storage_words": 2
+      },
+      {
+        "name": "YKTOФ",
+        "offset": "0010",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500010",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CTOФ",
+        "offset": "0007",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100007",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "05265",
+    "words": 47
+  },
+  {
+    "name": "YTOЧHEHИ",
+    "entry": "05265",
+    "level": 3,
+    "parameters": 1,
+    "frame": 7,
+    "line": 1473,
+    "pmd": "23460",
+    "variables": [
+      {
+        "name": "ФЛAГ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000101156300003",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "23456",
+        "enumerators": [
+          "ФЛOTЛ",
+          "ФЛMET"
+        ]
+      },
+      {
+        "name": "ДECФAЙЛA",
+        "offset": "0006",
+        "size": 2,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000200000500006",
+        "type_hint": "set_or_record",
+        "storage_words": 2
+      },
+      {
+        "name": "YKTOФ",
+        "offset": "0005",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500005",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CTOФ",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "05372",
+    "words": 69
+  },
+  {
+    "name": "PEЖOTЛ",
+    "entry": "05372",
+    "level": 3,
+    "parameters": 0,
+    "frame": 1,
+    "line": 1493,
+    "pmd": "23477",
+    "variables": [],
+    "end": "05437",
+    "words": 37
+  },
+  {
+    "name": "PEЖПEЧ",
+    "entry": "05437",
+    "level": 3,
+    "parameters": 0,
+    "frame": 1,
+    "line": 1513,
+    "pmd": "23511",
+    "variables": [],
+    "end": "05521",
+    "words": 50
+  },
+  {
+    "name": "PAЗБOPЗA",
+    "entry": "05521",
+    "level": 2,
+    "parameters": 0,
+    "frame": 50,
+    "line": 1538,
+    "pmd": "23533",
+    "variables": [
+      {
+        "name": "БЫЛИKBAЛ",
+        "offset": "0032",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300032",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "name": "ФOTHAД",
+        "offset": "0026",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300026",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "name": "MACФЛ",
+        "offset": "0033",
+        "size": 1,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000100000500033",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "HЛИT",
+        "offset": "0010",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100010",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "БYФЛИT",
+        "offset": "0004",
+        "size": 1,
+        "kind": 2,
+        "indirect": false,
+        "descriptor": "0000100000200004",
+        "type_hint": "char",
+        "storage_words": 1
+      },
+      {
+        "name": "ЛИT",
+        "offset": "0003",
+        "size": 1,
+        "kind": 2,
+        "indirect": false,
+        "descriptor": "0000100000200003",
+        "type_hint": "char",
+        "storage_words": 1
+      },
+      {
+        "name": "CHAЧCEГ",
+        "offset": "0015",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100015",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "MДЛИCEГ",
+        "offset": "0014",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100014",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HAДCEГ",
+        "offset": "0013",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100013",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HAЗCEГ",
+        "offset": "0012",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100012",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CTPOKA",
+        "offset": "0037",
+        "size": 20,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0002400000400037",
+        "type_hint": "array",
+        "storage_words": 20
+      },
+      {
+        "name": "TИЛEKC",
+        "offset": "0024",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000101225300024",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "23525",
+        "enumerators": [
+          "ИMЯ",
+          "ФAЙЛ",
+          "YKФAЙЛ",
+          "ЦEЛOE",
+          "ЧИCЛO",
+          "PAЗД"
+        ]
+      },
+      {
+        "name": "БYФЛEKC",
+        "offset": "0022",
+        "size": 2,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000200000500022",
+        "type_hint": "set_or_record",
+        "storage_words": 2
+      },
+      {
+        "name": "ЛEKC",
+        "offset": "0020",
+        "size": 2,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000200000500020",
+        "type_hint": "set_or_record",
+        "storage_words": 2
+      },
+      {
+        "name": "KOHЛEKC",
+        "offset": "0007",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100007",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HAЧЛEKC",
+        "offset": "0006",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100006",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ДECФAЙЛA",
+        "offset": "0034",
+        "size": 2,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000200000500034",
+        "type_hint": "set_or_record",
+        "storage_words": 2
+      },
+      {
+        "name": "ЧФAЙЛOB",
+        "offset": "0011",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100011",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "БЫЛИOФ",
+        "offset": "0031",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300031",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "name": "ПOCXEME",
+        "offset": "0027",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300027",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "name": "ФИЗБYФ",
+        "offset": "0025",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300025",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "name": "TИЛ",
+        "offset": "0017",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100764300017",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "23264",
+        "enumerators": [
+          "БYKBA",
+          "ЦИФPA",
+          "PAЗЛИT",
+          "CПEЦЛИT",
+          "ЗAПPЛИT"
+        ]
+      },
+      {
+        "name": "ЧCTPOK",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTOФ",
+        "offset": "0036",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500036",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CTOФ",
+        "offset": "0016",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100016",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "БЫЛBЫXФ",
+        "offset": "0030",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300030",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      }
+    ],
+    "end": "06321",
+    "words": 384
+  },
+  {
+    "name": "OШИБKИHA",
+    "entry": "06321",
+    "level": 2,
+    "parameters": 0,
+    "frame": 1,
+    "line": 1708,
+    "pmd": "23666",
+    "variables": [],
+    "end": "06371",
+    "words": 40
+  },
+  {
+    "name": "OШИБKИBM",
+    "entry": "06371",
+    "level": 2,
+    "parameters": 1,
+    "frame": 2,
+    "line": 1724,
+    "pmd": "23723",
+    "variables": [
+      {
+        "name": "YKTOФ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "06417",
+    "words": 22
+  },
+  {
+    "name": "KOOPД",
+    "entry": "06417",
+    "level": 2,
+    "parameters": 1,
+    "frame": 2,
+    "line": 1733,
+    "pmd": "23734",
+    "variables": [
+      {
+        "name": "TИПЗ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "06453",
+    "words": 28
+  },
+  {
+    "name": "OTKPOЙOФ",
+    "entry": "06453",
+    "level": 2,
+    "parameters": 1,
+    "frame": 2,
+    "line": 1741,
+    "pmd": "23750",
+    "variables": [
+      {
+        "name": "CTOФ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "06507",
+    "words": 28
+  },
+  {
+    "name": "ЗAKPOЙOФ",
+    "entry": "06507",
+    "level": 2,
+    "parameters": 1,
+    "frame": 2,
+    "line": 1751,
+    "pmd": "23756",
+    "variables": [
+      {
+        "name": "CTOФ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "06525",
+    "words": 14
+  },
+  {
+    "name": "ПEЧДЛФAЙ",
+    "entry": "06525",
+    "level": 2,
+    "parameters": 1,
+    "frame": 2,
+    "line": 1757,
+    "pmd": "23763",
+    "variables": [
+      {
+        "name": "ДЛ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "06551",
+    "words": 20
+  },
+  {
+    "name": "ПEЧALF0",
+    "entry": "06551",
+    "level": 2,
+    "parameters": 1,
+    "frame": 3,
+    "line": 1765,
+    "pmd": "23771",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "A",
+        "offset": "0003",
+        "size": 1,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000100000400003",
+        "type_hint": "array",
+        "storage_words": 1
+      }
+    ],
+    "end": "06605",
+    "words": 28
+  },
+  {
+    "name": "ДAЙЗAП",
+    "entry": "06605",
+    "level": 2,
+    "parameters": 2,
+    "frame": 5,
+    "line": 1776,
+    "pmd": "24000",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "L",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЗAП",
+        "offset": "0003",
+        "size": 14,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4001600000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "06663",
+    "words": 46
+  },
+  {
+    "name": "ДAЙЗAПИC",
+    "entry": "06663",
+    "level": 2,
+    "parameters": 1,
+    "frame": 4,
+    "line": 1789,
+    "pmd": "24011",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЗAП",
+        "offset": "0003",
+        "size": 14,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4001600000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "06731",
+    "words": 38
+  },
+  {
+    "name": "ДAЙTEЛЗA",
+    "entry": "06731",
+    "level": 2,
+    "parameters": 3,
+    "frame": 6,
+    "line": 1802,
+    "pmd": "24020",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0006",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100006",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "L",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЗAП",
+        "offset": "0003",
+        "size": 14,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4001600000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "N",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "06777",
+    "words": 38
+  },
+  {
+    "name": "ПPOПЗAП",
+    "entry": "06777",
+    "level": 2,
+    "parameters": 1,
+    "frame": 2,
+    "line": 1812,
+    "pmd": "24033",
+    "variables": [
+      {
+        "name": "ЗAП",
+        "offset": "0003",
+        "size": 14,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4001600000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "07032",
+    "words": 27
+  },
+  {
+    "name": "ПEPEKYБ",
+    "entry": "07032",
+    "level": 2,
+    "parameters": 2,
+    "frame": 6,
+    "line": 1823,
+    "pmd": "24042",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧИCЛOCЛO",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "БATP",
+        "offset": "0006",
+        "size": 2,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000200000400006",
+        "type_hint": "array",
+        "storage_words": 2
+      }
+    ],
+    "end": "07107",
+    "words": 45
+  },
+  {
+    "name": "ЗAПBФOM",
+    "entry": "07107",
+    "level": 2,
+    "parameters": 2,
+    "frame": 5,
+    "line": 1840,
+    "pmd": "24055",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "L",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЗAП",
+        "offset": "0003",
+        "size": 14,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4001600000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "07136",
+    "words": 23
+  },
+  {
+    "name": "BИCOKOC",
+    "entry": "07136",
+    "level": 2,
+    "parameters": 3,
+    "frame": 4,
+    "line": 1850,
+    "pmd": "24066",
+    "variables": [
+      {
+        "name": "MEC",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ГOД",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "07154",
+    "words": 14
+  },
+  {
+    "name": "ПEЧДATY",
+    "entry": "07154",
+    "level": 2,
+    "parameters": 1,
+    "frame": 7,
+    "line": 1864,
+    "pmd": "24075",
+    "variables": [
+      {
+        "name": "CEKYHДЫ",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "MECЯЦ",
+        "offset": "0007",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100007",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ГOД",
+        "offset": "0010",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100010",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "BPEMЯ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧИCЛO",
+        "offset": "0006",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100006",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CYTKИ",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "07262",
+    "words": 70
+  },
+  {
+    "name": "YЧET",
+    "entry": "07262",
+    "level": 2,
+    "parameters": 1,
+    "frame": 8,
+    "line": 1884,
+    "pmd": "24124",
+    "variables": [
+      {
+        "name": "ЗAП",
+        "offset": "0003",
+        "size": 14,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4001600000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ШИФP",
+        "offset": "0011",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100011",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "BPE",
+        "offset": "0010",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100010",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "БYДA",
+        "offset": "0004",
+        "size": 4,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000400000400004",
+        "type_hint": "array",
+        "storage_words": 4
+      }
+    ],
+    "end": "07344",
+    "words": 50
+  },
+  {
+    "name": "AHAЛИЗTO",
+    "entry": "07344",
+    "level": 4,
+    "parameters": 3,
+    "frame": 4,
+    "line": 1960,
+    "pmd": "24140",
+    "variables": [
+      {
+        "name": "ПAДEЖ",
+        "offset": "0005",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300005",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "name": "YKTOБ",
+        "offset": "0004",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500004",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "07415",
+    "words": 41
+  },
+  {
+    "name": "OШMOД",
+    "entry": "07415",
+    "level": 3,
+    "parameters": 1,
+    "frame": 6,
+    "line": 1982,
+    "pmd": "24165",
+    "variables": [
+      {
+        "name": "HOMOШ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ПPEДOПP",
+        "offset": "0005",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000101660300005",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "24160",
+        "enumerators": [
+          "AБC",
+          "ПAPA",
+          "ПEPEM",
+          "BЫЧ",
+          "BXOД"
+        ]
+      },
+      {
+        "name": "HOBOПP",
+        "offset": "0004",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000101660300004",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "24160",
+        "enumerators": [
+          "AБC",
+          "ПAPA",
+          "ПEPEM",
+          "BЫЧ",
+          "BXOД"
+        ]
+      },
+      {
+        "name": "YKTOБ",
+        "offset": "0006",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500006",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTOФПPE",
+        "offset": "0007",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500007",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "07624",
+    "words": 135
+  },
+  {
+    "name": "ПEPEBPИ",
+    "entry": "07624",
+    "level": 3,
+    "parameters": 3,
+    "frame": 61,
+    "line": 2053,
+    "pmd": "24275",
+    "variables": [
+      {
+        "name": "YKГЛABA",
+        "offset": "0071",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500071",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "I",
+        "offset": "0020",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100020",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ДЛKBA",
+        "offset": "0016",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100016",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKДИM",
+        "offset": "0070",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500070",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "KBAHT",
+        "offset": "0006",
+        "size": 4,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000400000500006",
+        "type_hint": "set_or_record",
+        "storage_words": 4
+      },
+      {
+        "name": "БYФИMЯOБ",
+        "offset": "0052",
+        "size": 2,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000200000400052",
+        "type_hint": "array",
+        "storage_words": 2
+      },
+      {
+        "name": "YKПPEДOK",
+        "offset": "0072",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500072",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "BHYTPИMЯ",
+        "offset": "0054",
+        "size": 12,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0001400000400054",
+        "type_hint": "array",
+        "storage_words": 12
+      },
+      {
+        "name": "БYФИMЯ",
+        "offset": "0022",
+        "size": 24,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0003000000400022",
+        "type_hint": "array",
+        "storage_words": 24
+      },
+      {
+        "name": "ДЛKBAHTA",
+        "offset": "0013",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100013",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTAC",
+        "offset": "0076",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500076",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTCC",
+        "offset": "0075",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500075",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "PEЗ",
+        "offset": "0021",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000101772300021",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "24272",
+        "enumerators": [
+          "PB",
+          "БЛ",
+          "MH"
+        ]
+      },
+      {
+        "name": "YKYPИM",
+        "offset": "0073",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500073",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "YPИM",
+        "offset": "0017",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100017",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧYPИM",
+        "offset": "0015",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100015",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTOБ",
+        "offset": "0074",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500074",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "TИПOБ",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HПPE",
+        "offset": "0012",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100012",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HAЧYP",
+        "offset": "0014",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100014",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "10276",
+    "words": 298
+  },
+  {
+    "name": "HOBЭЛTOБ",
+    "entry": "10276",
+    "level": 3,
+    "parameters": 0,
+    "frame": 1,
+    "line": 2157,
+    "pmd": "24357",
+    "variables": [],
+    "end": "10321",
+    "words": 19
+  },
+  {
+    "name": "HOBЭЛTAC",
+    "entry": "10321",
+    "level": 3,
+    "parameters": 0,
+    "frame": 1,
+    "line": 2164,
+    "pmd": "24362",
+    "variables": [],
+    "end": "10346",
+    "words": 21
+  },
+  {
+    "name": "HOBЭЛTCC",
+    "entry": "10346",
+    "level": 3,
+    "parameters": 0,
+    "frame": 1,
+    "line": 2171,
+    "pmd": "24365",
+    "variables": [],
+    "end": "10367",
+    "words": 17
+  },
+  {
+    "name": "БAЗЫBKYБ",
+    "entry": "10367",
+    "level": 3,
+    "parameters": 1,
+    "frame": 3,
+    "line": 2182,
+    "pmd": "24370",
+    "variables": [
+      {
+        "name": "ЧИCЛOБAЗ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "I",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "10422",
+    "words": 27
+  },
+  {
+    "name": "ATPBKYБ",
+    "entry": "10422",
+    "level": 3,
+    "parameters": 1,
+    "frame": 3,
+    "line": 2195,
+    "pmd": "24402",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧИCЛOATP",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "10450",
+    "words": 22
+  },
+  {
+    "name": "KИHФBKYБ",
+    "entry": "10450",
+    "level": 3,
+    "parameters": 1,
+    "frame": 3,
+    "line": 2208,
+    "pmd": "24413",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧИCЛOCЛO",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "10464",
+    "words": 12
+  },
+  {
+    "name": "BЫPBKYБ",
+    "entry": "10464",
+    "level": 3,
+    "parameters": 1,
+    "frame": 3,
+    "line": 2219,
+    "pmd": "24422",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ДЛИHABЫP",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "10512",
+    "words": 22
+  },
+  {
+    "name": "ИMЯBTOБ",
+    "entry": "10512",
+    "level": 3,
+    "parameters": 3,
+    "frame": 4,
+    "line": 2231,
+    "pmd": "24433",
+    "variables": [
+      {
+        "name": "KBAHT",
+        "offset": "0005",
+        "size": 4,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000400000500005",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CTOБHOB",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "10543",
+    "words": 25
+  },
+  {
+    "name": "CБOPOБЬE",
+    "entry": "10543",
+    "level": 2,
+    "parameters": 1,
+    "frame": 81,
+    "line": 2241,
+    "pmd": "24442",
+    "variables": [
+      {
+        "name": "ЧИCЛOБAЗ",
+        "offset": "0027",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100027",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "I",
+        "offset": "0023",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100023",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЗAП",
+        "offset": "0047",
+        "size": 14,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0001600000500047",
+        "type_hint": "set_or_record",
+        "storage_words": 14
+      },
+      {
+        "name": "ЗAПЗAГ",
+        "offset": "0065",
+        "size": 14,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0001600000500065",
+        "type_hint": "set_or_record",
+        "storage_words": 14
+      },
+      {
+        "name": "HYЖHЫMET",
+        "offset": "0122",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300122",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "name": "CTCCHOB",
+        "offset": "0022",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100022",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CTOБHOB",
+        "offset": "0021",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100021",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CTACHOB",
+        "offset": "0020",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100020",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "TOЧHAДЛИ",
+        "offset": "0121",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300121",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "name": "ЧИCЛOCЛO",
+        "offset": "0024",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100024",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧИCЛOATP",
+        "offset": "0026",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100026",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧИCЛOBЫP",
+        "offset": "0025",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100025",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЗAПPAБ",
+        "offset": "0103",
+        "size": 14,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0001600000500103",
+        "type_hint": "set_or_record",
+        "storage_words": 14
+      },
+      {
+        "name": "YKTCC",
+        "offset": "0043",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500043",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ЭЛTCC",
+        "offset": "0042",
+        "size": 1,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000100000500042",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTAC",
+        "offset": "0035",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500035",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ЭЛTAC",
+        "offset": "0030",
+        "size": 5,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000500000500030",
+        "type_hint": "set_or_record",
+        "storage_words": 5
+      },
+      {
+        "name": "CTAC",
+        "offset": "0016",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100016",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧЗTCC",
+        "offset": "0013",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100013",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HAЧMTCC",
+        "offset": "0012",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100012",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧЗTAC",
+        "offset": "0011",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100011",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HAЧMTAC",
+        "offset": "0010",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100010",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKДИMTEK",
+        "offset": "0046",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500046",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "KBAHTИK",
+        "offset": "0004",
+        "size": 2,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000200000400004",
+        "type_hint": "array",
+        "storage_words": 2
+      },
+      {
+        "name": "CTACПPEД",
+        "offset": "0017",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100017",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTOБ",
+        "offset": "0041",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500041",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ЭЛTOБ",
+        "offset": "0036",
+        "size": 3,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000300000500036",
+        "type_hint": "set_or_record",
+        "storage_words": 3
+      },
+      {
+        "name": "ЧЗTOБ",
+        "offset": "0007",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100007",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HAЧMTOБ",
+        "offset": "0006",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100006",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CMOДTOФ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЭЛTПPE",
+        "offset": "0044",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500044",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧЗTПPE",
+        "offset": "0014",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100014",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЭЛTЭM",
+        "offset": "0045",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500045",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧЗTЭM",
+        "offset": "0015",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100015",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "11574",
+    "words": 537
+  },
+  {
+    "name": "PAЗPEШИC",
+    "entry": "11574",
+    "level": 2,
+    "parameters": 2,
+    "frame": 14,
+    "line": 2421,
+    "pmd": "24573",
+    "variables": [
+      {
+        "name": "YKTCCП",
+        "offset": "0015",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500015",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CHAЧHEP",
+        "offset": "0011",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100011",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CHEPA",
+        "offset": "0012",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100012",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTCC",
+        "offset": "0014",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500014",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CTCC",
+        "offset": "0007",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100007",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧЗTCC",
+        "offset": "0006",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100006",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HAЧTCC",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTOБ",
+        "offset": "0016",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500016",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CCЫЛTOБ",
+        "offset": "0010",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100010",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTOФ",
+        "offset": "0013",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500013",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CTOФ",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "11700",
+    "words": 68
+  },
+  {
+    "name": "TAБHEPAC",
+    "entry": "11700",
+    "level": 2,
+    "parameters": 1,
+    "frame": 8,
+    "line": 2461,
+    "pmd": "24624",
+    "variables": [
+      {
+        "name": "ДЛИHAИM",
+        "offset": "0006",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100006",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЗAHЯЛ",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ПEPBOE",
+        "offset": "0011",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300011",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "name": "CHEPA",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTCC",
+        "offset": "0010",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500010",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTOФ",
+        "offset": "0007",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500007",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CTOФ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "11771",
+    "words": 57
+  },
+  {
+    "name": "BЫPABAДP",
+    "entry": "11771",
+    "level": 2,
+    "parameters": 3,
+    "frame": 6,
+    "line": 2491,
+    "pmd": "24650",
+    "variables": [
+      {
+        "name": "P",
+        "offset": "0007",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100007",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "M",
+        "offset": "0006",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100006",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ГPAHЬ",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "AДPEC",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "12013",
+    "words": 18
+  },
+  {
+    "name": "OШCOПP",
+    "entry": "12013",
+    "level": 3,
+    "parameters": 1,
+    "frame": 2,
+    "line": 2506,
+    "pmd": "24664",
+    "variables": [
+      {
+        "name": "HOMOШ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "12071",
+    "words": 46
+  },
+  {
+    "name": "HACTPOЙH",
+    "entry": "12071",
+    "level": 2,
+    "parameters": 1,
+    "frame": 3,
+    "line": 2523,
+    "pmd": "24727",
+    "variables": [
+      {
+        "name": "HACEK",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTAC",
+        "offset": "0003",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "12233",
+    "words": 98
+  },
+  {
+    "name": "ПEЧИMЯCE",
+    "entry": "12233",
+    "level": 2,
+    "parameters": 1,
+    "frame": 3,
+    "line": 2555,
+    "pmd": "24737",
+    "variables": [
+      {
+        "name": "ЗAHЯЛ",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTAC",
+        "offset": "0003",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "12300",
+    "words": 37
+  },
+  {
+    "name": "ПEЧCEKЦИ",
+    "entry": "12300",
+    "level": 2,
+    "parameters": 1,
+    "frame": 3,
+    "line": 2575,
+    "pmd": "24746",
+    "variables": [
+      {
+        "name": "YKTAC",
+        "offset": "0003",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTOФ",
+        "offset": "0004",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500004",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "12522",
+    "words": 146
+  },
+  {
+    "name": "ПEЧИMЯЛO",
+    "entry": "12522",
+    "level": 2,
+    "parameters": 1,
+    "frame": 2,
+    "line": 2621,
+    "pmd": "25004",
+    "variables": [
+      {
+        "name": "ИMЯ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "12543",
+    "words": 17
+  },
+  {
+    "name": "DUMPCTEK",
+    "entry": "12543",
+    "level": 3,
+    "parameters": 0,
+    "frame": 2,
+    "line": 2679,
+    "pmd": "25020",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "12607",
+    "words": 36
+  },
+  {
+    "name": "OШMAШ",
+    "entry": "12607",
+    "level": 3,
+    "parameters": 1,
+    "frame": 2,
+    "line": 2693,
+    "pmd": "25026",
+    "variables": [
+      {
+        "name": "HOMOШ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "13043",
+    "words": 156
+  },
+  {
+    "name": "CЛOBOBPA",
+    "entry": "13043",
+    "level": 3,
+    "parameters": 0,
+    "frame": 1,
+    "line": 2748,
+    "pmd": "25177",
+    "variables": [],
+    "end": "13071",
+    "words": 22
+  },
+  {
+    "name": "ЗAПBPAЗД",
+    "entry": "13071",
+    "level": 3,
+    "parameters": 1,
+    "frame": 2,
+    "line": 2756,
+    "pmd": "25203",
+    "variables": [
+      {
+        "name": "ПCЛ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "13125",
+    "words": 28
+  },
+  {
+    "name": "ДAЙMИKPO",
+    "entry": "13125",
+    "level": 3,
+    "parameters": 0,
+    "frame": 2,
+    "line": 2773,
+    "pmd": "25211",
+    "variables": [],
+    "end": "13226",
+    "words": 65
+  },
+  {
+    "name": "ДAЙOПEP",
+    "entry": "13226",
+    "level": 3,
+    "parameters": 0,
+    "frame": 3,
+    "line": 2800,
+    "pmd": "25217",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "13270",
+    "words": 34
+  },
+  {
+    "name": "БAЙTЫBCT",
+    "entry": "13270",
+    "level": 3,
+    "parameters": 1,
+    "frame": 4,
+    "line": 2818,
+    "pmd": "25226",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧБ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "13345",
+    "words": 45
+  },
+  {
+    "name": "ДEЛЬTAC",
+    "entry": "13345",
+    "level": 3,
+    "parameters": 1,
+    "frame": 3,
+    "line": 2839,
+    "pmd": "25235",
+    "variables": [
+      {
+        "name": "HOMCEK",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTAC",
+        "offset": "0004",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500004",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "13410",
+    "words": 35
+  },
+  {
+    "name": "ЗHAЧCOБ",
+    "entry": "13410",
+    "level": 3,
+    "parameters": 1,
+    "frame": 2,
+    "line": 2852,
+    "pmd": "25244",
+    "variables": [
+      {
+        "name": "CTOБ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "13502",
+    "words": 58
+  },
+  {
+    "name": "ЗHAЧBHEШ",
+    "entry": "13502",
+    "level": 3,
+    "parameters": 1,
+    "frame": 2,
+    "line": 2871,
+    "pmd": "25253",
+    "variables": [
+      {
+        "name": "CTCC",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "13622",
+    "words": 80
+  },
+  {
+    "name": "ATPCOБ",
+    "entry": "13622",
+    "level": 3,
+    "parameters": 2,
+    "frame": 4,
+    "line": 2896,
+    "pmd": "25261",
+    "variables": [
+      {
+        "name": "CЛOBOATP",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CKYБA",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CTOБ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "13726",
+    "words": 68
+  },
+  {
+    "name": "ATPBHEШ",
+    "entry": "13726",
+    "level": 3,
+    "parameters": 2,
+    "frame": 4,
+    "line": 2919,
+    "pmd": "25272",
+    "variables": [
+      {
+        "name": "CЛOBOATP",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CKYБA",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CTCC",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "14057",
+    "words": 89
+  },
+  {
+    "name": "ЗABEPШИO",
+    "entry": "14057",
+    "level": 3,
+    "parameters": 1,
+    "frame": 4,
+    "line": 2948,
+    "pmd": "25303",
+    "variables": [
+      {
+        "name": "OCT",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "PAДP",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ГЛYБИHA",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "14274",
+    "words": 141
+  },
+  {
+    "name": "CИCПPOГ",
+    "entry": "14274",
+    "level": 3,
+    "parameters": 0,
+    "frame": 3,
+    "line": 3019,
+    "pmd": "25321",
+    "variables": [
+      {
+        "name": "PAБOTA",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "14373",
+    "words": 63
+  },
+  {
+    "name": "ГPYЗЧИK",
+    "entry": "14373",
+    "level": 3,
+    "parameters": 0,
+    "frame": 1,
+    "line": 3045,
+    "pmd": "25330",
+    "variables": [],
+    "end": "14545",
+    "words": 106
+  },
+  {
+    "name": "ГPYППA10",
+    "entry": "14545",
+    "level": 3,
+    "parameters": 1,
+    "frame": 2,
+    "line": 3132,
+    "pmd": "25340",
+    "variables": [
+      {
+        "name": "KOП",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "15024",
+    "words": 175
+  },
+  {
+    "name": "ГPYППA20",
+    "entry": "15024",
+    "level": 3,
+    "parameters": 1,
+    "frame": 2,
+    "line": 3170,
+    "pmd": "25345",
+    "variables": [
+      {
+        "name": "KOП",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "15333",
+    "words": 199
+  },
+  {
+    "name": "MAШИHA",
+    "entry": "15333",
+    "level": 2,
+    "parameters": 1,
+    "frame": 185,
+    "line": 3209,
+    "pmd": "25360",
+    "variables": [
+      {
+        "name": "БYФTEKCT",
+        "offset": "0062",
+        "size": 2,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000200000400062",
+        "type_hint": "array",
+        "storage_words": 2
+      },
+      {
+        "name": "ЭЛPAЗД",
+        "offset": "0045",
+        "size": 1,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000100000500045",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "YKACT",
+        "offset": "0034",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100034",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "PAДP",
+        "offset": "0041",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100041",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ГЛEB",
+        "offset": "0043",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100043",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЛOKTEГИ",
+        "offset": "0053",
+        "size": 1,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000100000500053",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ЭЛCTEK1",
+        "offset": "0030",
+        "size": 2,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000200000500030",
+        "type_hint": "set_or_record",
+        "storage_words": 2
+      },
+      {
+        "name": "ЭЛCTEK2",
+        "offset": "0032",
+        "size": 2,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000200000500032",
+        "type_hint": "set_or_record",
+        "storage_words": 2
+      },
+      {
+        "name": "ЛPEГOБ",
+        "offset": "0054",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000103052300054",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "25352",
+        "enumerators": [
+          "POБK",
+          "POБПФK",
+          "POБCЛ",
+          "POБПCЛ"
+        ]
+      },
+      {
+        "name": "БYФЗAГOT",
+        "offset": "0060",
+        "size": 2,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000200000400060",
+        "type_hint": "array",
+        "storage_words": 2
+      },
+      {
+        "name": "CЛEДOП",
+        "offset": "0052",
+        "size": 1,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000100000500052",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "TEKOП",
+        "offset": "0051",
+        "size": 1,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000100000500051",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CЧБYФOП",
+        "offset": "0040",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100040",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "БYФMИKPO",
+        "offset": "0056",
+        "size": 2,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000200000400056",
+        "type_hint": "array",
+        "storage_words": 2
+      },
+      {
+        "name": "БYФATP",
+        "offset": "0064",
+        "size": 2,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000200000400064",
+        "type_hint": "array",
+        "storage_words": 2
+      },
+      {
+        "name": "ГПPAB",
+        "offset": "0044",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100044",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTCC",
+        "offset": "0050",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500050",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTAC",
+        "offset": "0046",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500046",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CTAC",
+        "offset": "0037",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100037",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CTCC",
+        "offset": "0035",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100035",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "БYФOПEP",
+        "offset": "0066",
+        "size": 128,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0020000000400066",
+        "type_hint": "array",
+        "storage_words": 128
+      },
+      {
+        "name": "ПOЛYOПEP",
+        "offset": "0055",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000103056300055",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "25356",
+        "enumerators": [
+          "ЛEB",
+          "ПPAB"
+        ]
+      },
+      {
+        "name": "ФЛATEP",
+        "offset": "0003",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300003",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "name": "CTEK",
+        "offset": "0004",
+        "size": 20,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0002400000400004",
+        "type_hint": "array",
+        "storage_words": 20
+      },
+      {
+        "name": "YKTOБ",
+        "offset": "0047",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500047",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CTOБ",
+        "offset": "0036",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100036",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "PПPOП",
+        "offset": "0042",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100042",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "17241",
+    "words": 966
+  },
+  {
+    "name": "OШBЫЧ",
+    "entry": "17241",
+    "level": 3,
+    "parameters": 1,
+    "frame": 2,
+    "line": 3588,
+    "pmd": "25463",
+    "variables": [
+      {
+        "name": "HOMOШ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "17277",
+    "words": 30
+  },
+  {
+    "name": "BЫЧИCЛEH",
+    "entry": "17277",
+    "level": 2,
+    "parameters": 1,
+    "frame": 7,
+    "line": 3598,
+    "pmd": "25503",
+    "variables": [
+      {
+        "name": "YKTAC",
+        "offset": "0010",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500010",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧЗTAC",
+        "offset": "0006",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100006",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CCЫЛTAC",
+        "offset": "0005",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100005",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTOБ",
+        "offset": "0007",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500007",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ЧЗTOБ",
+        "offset": "0004",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100004",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CTOФ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "17454",
+    "words": 109
+  },
+  {
+    "name": "OШЗAГP",
+    "entry": "17454",
+    "level": 3,
+    "parameters": 1,
+    "frame": 2,
+    "line": 3645,
+    "pmd": "25522",
+    "variables": [
+      {
+        "name": "HOMOШ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "17521",
+    "words": 37
+  },
+  {
+    "name": "ЗAГPYЗИM",
+    "entry": "17521",
+    "level": 2,
+    "parameters": 1,
+    "frame": 20,
+    "line": 3658,
+    "pmd": "25540",
+    "variables": [
+      {
+        "name": "ДЛTEKCT",
+        "offset": "0024",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100024",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЗAП",
+        "offset": "0004",
+        "size": 14,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0001600000500004",
+        "type_hint": "set_or_record",
+        "storage_words": 14
+      },
+      {
+        "name": "ДЛBЫP",
+        "offset": "0023",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100023",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTAC",
+        "offset": "0025",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500025",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CTAC",
+        "offset": "0022",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100022",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CMOДTOФ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100003",
+        "type_hint": "integer",
+        "storage_words": 1
+      }
+    ],
+    "end": "17716",
+    "words": 125
+  },
+  {
+    "name": "OБXOДЛEC",
+    "entry": "17716",
+    "level": 3,
+    "parameters": 1,
+    "frame": 2,
+    "line": 3723,
+    "pmd": "25562",
+    "variables": [
+      {
+        "name": "YЗEЛ",
+        "offset": "0003",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "20311",
+    "words": 251
+  },
+  {
+    "name": "ГEHMETKИ",
+    "entry": "20311",
+    "level": 2,
+    "parameters": 0,
+    "frame": 50,
+    "line": 3785,
+    "pmd": "25602",
+    "variables": [
+      {
+        "name": "I",
+        "offset": "0063",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100063",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЗAПЗHAЧ",
+        "offset": "0037",
+        "size": 14,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0001600000500037",
+        "type_hint": "set_or_record",
+        "storage_words": 14
+      },
+      {
+        "name": "ЗAПЗAГ",
+        "offset": "0003",
+        "size": 14,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0001600000500003",
+        "type_hint": "set_or_record",
+        "storage_words": 14
+      },
+      {
+        "name": "БYФИMЯ",
+        "offset": "0056",
+        "size": 2,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000200000400056",
+        "type_hint": "array",
+        "storage_words": 2
+      },
+      {
+        "name": "ЧИCЛOATP",
+        "offset": "0062",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100062",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "БYФATP",
+        "offset": "0060",
+        "size": 2,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000200000400060",
+        "type_hint": "array",
+        "storage_words": 2
+      },
+      {
+        "name": "ЗAППPEФ",
+        "offset": "0021",
+        "size": 14,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0001600000500021",
+        "type_hint": "set_or_record",
+        "storage_words": 14
+      },
+      {
+        "name": "YKTOБ",
+        "offset": "0055",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500055",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      }
+    ],
+    "end": "20554",
+    "words": 163
+  },
+  {
+    "name": "ГPYППABP",
+    "entry": "20554",
+    "level": 3,
+    "parameters": 1,
+    "frame": 2,
+    "line": 3834,
+    "pmd": "25655",
+    "variables": [
+      {
+        "name": "ЭTAП",
+        "offset": "0003",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100447300003",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22747",
+        "enumerators": [
+          "CYMMA",
+          "ШAГИHИЦ",
+          "ШAГЗAДAH",
+          "ШAГCБOPK",
+          "ШAГPAЗPE",
+          "ШAГPAЗME",
+          "ШAГBЫЧ",
+          "ШAГЗAГP",
+          "ШAГГEHME"
+        ]
+      }
+    ],
+    "end": "20607",
+    "words": 27
+  },
+  {
+    "name": "ПEЧCTATИ",
+    "entry": "20607",
+    "level": 2,
+    "parameters": 0,
+    "frame": 6,
+    "line": 3841,
+    "pmd": "25665",
+    "variables": [
+      {
+        "name": "BИД",
+        "offset": "0003",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000103362300003",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "25662",
+        "enumerators": [
+          "ЦП",
+          "KOM",
+          "ACTP"
+        ]
+      },
+      {
+        "name": "ЭTAП",
+        "offset": "0007",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100447300007",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22747",
+        "enumerators": [
+          "CYMMA",
+          "ШAГИHИЦ",
+          "ШAГЗAДAH",
+          "ШAГCБOPK",
+          "ШAГPAЗPE",
+          "ШAГPAЗME",
+          "ШAГBЫЧ",
+          "ШAГЗAГP",
+          "ШAГГEHME"
+        ]
+      },
+      {
+        "name": "БYФCTAT",
+        "offset": "0004",
+        "size": 3,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000300000400004",
+        "type_hint": "array",
+        "storage_words": 3
+      }
+    ],
+    "end": "21006",
+    "words": 127
+  },
+  {
+    "name": "ЗAГPYЗ",
+    "entry": "21006",
+    "level": 1,
+    "parameters": 0,
+    "frame": 0,
+    "line": 4167,
+    "pmd": "26306",
+    "variables": [
+      {
+        "name": "HAЧAЛOЗA",
+        "offset": "0103",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100103",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "I",
+        "offset": "0075",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100075",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HOMEPOБЬ",
+        "offset": "0072",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100072",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ФПPABC",
+        "offset": "0113",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300113",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "name": "PAЗД",
+        "offset": "0565",
+        "size": 1,
+        "kind": 0,
+        "indirect": true,
+        "descriptor": "4000100000000565",
+        "type_hint": "real",
+        "storage_words": 1
+      },
+      {
+        "name": "TИПPAЗД",
+        "offset": "0550",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000104004300550",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "26304",
+        "enumerators": [
+          "BЫП",
+          "CИC"
+        ]
+      },
+      {
+        "name": "ФAЙЛPAЗД",
+        "offset": "0542",
+        "size": 2,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000200000500542",
+        "type_hint": "set_or_record",
+        "storage_words": 2
+      },
+      {
+        "name": "ЭЛTACП",
+        "offset": "0130",
+        "size": 5,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000500000500130",
+        "type_hint": "set_or_record",
+        "storage_words": 5
+      },
+      {
+        "name": "NЗAП",
+        "offset": "0104",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100104",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CTEKCT",
+        "offset": "0100",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100100",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CPAЗД",
+        "offset": "0057",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100057",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CЧAДPAЗД",
+        "offset": "0055",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100055",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ИMЯTEKCE",
+        "offset": "0135",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500135",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CЛOBO",
+        "offset": "0111",
+        "size": 2,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0000200000400111",
+        "type_hint": "array",
+        "storage_words": 2
+      },
+      {
+        "name": "TИMEH",
+        "offset": "0551",
+        "size": 1,
+        "kind": 0,
+        "indirect": true,
+        "descriptor": "4000100000000551",
+        "type_hint": "real",
+        "storage_words": 1
+      },
+      {
+        "name": "AДEC",
+        "offset": "0074",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100074",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ФAЙЛMET",
+        "offset": "0546",
+        "size": 2,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000200000500546",
+        "type_hint": "set_or_record",
+        "storage_words": 2
+      },
+      {
+        "name": "ДИM",
+        "offset": "0552",
+        "size": 1,
+        "kind": 0,
+        "indirect": true,
+        "descriptor": "4000100000000552",
+        "type_hint": "real",
+        "storage_words": 1
+      },
+      {
+        "name": "YKДИM",
+        "offset": "0126",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500126",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "HAЗCEГM",
+        "offset": "0063",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100063",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CЧAKCEГM",
+        "offset": "0056",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100056",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "TCEГ",
+        "offset": "0555",
+        "size": 1,
+        "kind": 0,
+        "indirect": true,
+        "descriptor": "4000100000000555",
+        "type_hint": "real",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTCEГ",
+        "offset": "0125",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500125",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CTCEГ",
+        "offset": "0053",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100053",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HAЧAЛOДИ",
+        "offset": "0137",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500137",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ГЛTEГИ",
+        "offset": "0110",
+        "size": 1,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000100000500110",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ЗOHA",
+        "offset": "0060",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100060",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "AЗBЗOHE",
+        "offset": "0062",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100062",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "AДBЗOHE",
+        "offset": "0061",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100061",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "BKЛЮЧEHO",
+        "offset": "0117",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300117",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "name": "PEГOБ",
+        "offset": "0107",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000103052300107",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "25352",
+        "enumerators": [
+          "POБK",
+          "POБПФK",
+          "POБCЛ",
+          "POБПCЛ"
+        ]
+      },
+      {
+        "name": "ЧИCЛOMOД",
+        "offset": "0052",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100052",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HMOД",
+        "offset": "0050",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100050",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HAЧAЛOME",
+        "offset": "0622",
+        "size": 13,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0001500000400622",
+        "type_hint": "array",
+        "storage_words": 13
+      },
+      {
+        "name": "ФOM",
+        "offset": "0564",
+        "size": 1,
+        "kind": 0,
+        "indirect": true,
+        "descriptor": "4000100000000564",
+        "type_hint": "real",
+        "storage_words": 1
+      },
+      {
+        "name": "TEKOФ",
+        "offset": "0120",
+        "size": 4,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000400000500120",
+        "type_hint": "set_or_record",
+        "storage_words": 4
+      },
+      {
+        "name": "PEЖИMЫ",
+        "offset": "0540",
+        "size": 1,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000100000500540",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "DEBUG",
+        "offset": "0541",
+        "size": 1,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000100000500541",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "ИHДEKCTO",
+        "offset": "0105",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100105",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CKOHBЫP",
+        "offset": "0077",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100077",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CBЫP",
+        "offset": "0076",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100076",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "KYБA",
+        "offset": "0563",
+        "size": 1,
+        "kind": 0,
+        "indirect": true,
+        "descriptor": "4000100000000563",
+        "type_hint": "real",
+        "storage_words": 1
+      },
+      {
+        "name": "TAC",
+        "offset": "0560",
+        "size": 1,
+        "kind": 0,
+        "indirect": true,
+        "descriptor": "4000100000000560",
+        "type_hint": "real",
+        "storage_words": 1
+      },
+      {
+        "name": "TCC",
+        "offset": "0557",
+        "size": 1,
+        "kind": 0,
+        "indirect": true,
+        "descriptor": "4000100000000557",
+        "type_hint": "real",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTAC",
+        "offset": "0124",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500124",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "CЧAC",
+        "offset": "0102",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100102",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "KOHMTCC",
+        "offset": "0067",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100067",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "KOHMTAC",
+        "offset": "0066",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100066",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HAЧMTCC",
+        "offset": "0065",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100065",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HAЧMTAC",
+        "offset": "0064",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100064",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CTAC",
+        "offset": "0054",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100054",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HAЧCTAC",
+        "offset": "0051",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100051",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "CTATЭTAП",
+        "offset": "0567",
+        "size": 27,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0003300000400567",
+        "type_hint": "array",
+        "storage_words": 27
+      },
+      {
+        "name": "TEKЭTAП",
+        "offset": "0566",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100447300566",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22747",
+        "enumerators": [
+          "CYMMA",
+          "ШAГИHИЦ",
+          "ШAГЗAДAH",
+          "ШAГCБOPK",
+          "ШAГPAЗPE",
+          "ШAГPAЗME",
+          "ШAГBЫЧ",
+          "ШAГЗAГP",
+          "ШAГГEHME"
+        ]
+      },
+      {
+        "name": "BEKXEШ",
+        "offset": "0136",
+        "size": 1,
+        "kind": 4,
+        "indirect": true,
+        "descriptor": "4000100000400136",
+        "type_hint": "array",
+        "storage_words": 1
+      },
+      {
+        "name": "CKOHTEK",
+        "offset": "0101",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100101",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "MTИЛ",
+        "offset": "0140",
+        "size": 256,
+        "kind": 4,
+        "indirect": false,
+        "descriptor": "0040000000400140",
+        "type_hint": "array",
+        "storage_words": 256
+      },
+      {
+        "name": "PAЗPEШИЛ",
+        "offset": "0114",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300114",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "name": "ФAЙЛCXEM",
+        "offset": "0544",
+        "size": 2,
+        "kind": 5,
+        "indirect": false,
+        "descriptor": "0000200000500544",
+        "type_hint": "set_or_record",
+        "storage_words": 2
+      },
+      {
+        "name": "TOБ",
+        "offset": "0556",
+        "size": 1,
+        "kind": 0,
+        "indirect": true,
+        "descriptor": "4000100000000556",
+        "type_hint": "real",
+        "storage_words": 1
+      },
+      {
+        "name": "YKTOБ",
+        "offset": "0127",
+        "size": 1,
+        "kind": 5,
+        "indirect": true,
+        "descriptor": "4000100000500127",
+        "type_hint": "set_or_record",
+        "storage_words": 1
+      },
+      {
+        "name": "KOHMTOБ",
+        "offset": "0071",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100071",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "HAЧMTOБ",
+        "offset": "0070",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100070",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "ЗHAЧOK",
+        "offset": "0106",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100106",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "TOФ",
+        "offset": "0554",
+        "size": 1,
+        "kind": 0,
+        "indirect": true,
+        "descriptor": "4000100000000554",
+        "type_hint": "real",
+        "storage_words": 1
+      },
+      {
+        "name": "TЛФ",
+        "offset": "0553",
+        "size": 1,
+        "kind": 0,
+        "indirect": true,
+        "descriptor": "4000100000000553",
+        "type_hint": "real",
+        "storage_words": 1
+      },
+      {
+        "name": "БЫЛИOШMO",
+        "offset": "0116",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300116",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "name": "TПPE",
+        "offset": "0561",
+        "size": 1,
+        "kind": 0,
+        "indirect": true,
+        "descriptor": "4000100000000561",
+        "type_hint": "real",
+        "storage_words": 1
+      },
+      {
+        "name": "HOMEPПPE",
+        "offset": "0073",
+        "size": 1,
+        "kind": 1,
+        "indirect": false,
+        "descriptor": "0000100000100073",
+        "type_hint": "integer",
+        "storage_words": 1
+      },
+      {
+        "name": "БЫЛИOШЭT",
+        "offset": "0115",
+        "size": 1,
+        "kind": 3,
+        "indirect": false,
+        "descriptor": "0000100407300115",
+        "type_hint": "enum",
+        "storage_words": 1,
+        "enum_table": "22707",
+        "enumerators": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "name": "TЭM",
+        "offset": "0562",
+        "size": 1,
+        "kind": 0,
+        "indirect": true,
+        "descriptor": "4000100000000562",
+        "type_hint": "real",
+        "storage_words": 1
+      }
+    ],
+    "end": "22267",
+    "words": 689
+  }
+]
