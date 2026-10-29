@@ -272,8 +272,7 @@ types = record
                  elsize:    integer);
     kindRecord: (ptr1,
                  ptr2:      irptr;
-                 flag,
-                 pckrec:    boolean);
+                 flag:      boolean);
     kindCases:  (sel:       word;
                  first,
                  next:      tptr;
@@ -345,9 +344,10 @@ identrec = record
     FIELDID:
             (maybeUnused: integer;
              uptype: tptr;
-             pckfield:  boolean;
-             shift:     integer;
-             width:     integer);
+             pf:        packed record
+                            pckfield:     boolean;
+                            shift, width: 0..63
+                        end);
     ROUTINEID:
             (low: integer;
              high: word;
@@ -3979,12 +3979,12 @@ _( (* genFullExpr *);
                 curIdRec := exprToGen@.id2;
                 with insnList@ do _(
                     ilf6 := ilf6 + curIdRec@.offset;
-                    if (curIdRec@.pckfield) then _(
+                    if (curIdRec@.pf.pckfield) then _(
                         case st of
                         st0:
-                            shift := curIdRec@.shift;
+                            shift := curIdRec@.pf.shift;
                         st1: _(
-                            shift := shift + curIdRec@.shift;
+                            shift := shift + curIdRec@.pf.shift;
                             if not (S6 IN optSflags.m) then
                                 shift := shift +
                                            curIdRec@.uptype@.bits - 48;
@@ -3994,10 +3994,10 @@ _( (* genFullExpr *);
                                 error(errUsingVarAfterIndexingPackedArray)
                             else _(
                                 P5155;
-                                insnList@.shift := curIdRec@.shift;
+                                insnList@.shift := curIdRec@.pf.shift;
                             _)
                         end; (* 10235*)
-                        insnList@.width := curIdRec@.width;
+                        insnList@.width := curIdRec@.pf.width;
                         insnList@.st := st1;
                         insnList@.regsused := insnList@.regsused + [0];
                     _)
@@ -4468,7 +4468,8 @@ var
 procedure addFieldToHash;
 _(
     curEnum@ := [curIdent, , typeHashTabBase[bucket], ,
-                    FIELDID, NIL, curType, isPacked];
+                    FIELDID, NIL, curType];
+    curEnum@.pf.pckfield := isPacked;
     typeHashTabBase[bucket] := curEnum;
 _); (* addFieldToHash *)
 %
@@ -4495,17 +4496,17 @@ _(
         curField@.typ := selType;
 (q)     if (isPacked) then _(
             l5var1z := selType@.bits;
-            curField@.width := l5var1z;
+            curField@.pf.width := l5var1z;
             if (l5var1z <> 48) then _(
                 for pairIdx to cases.count do
 11523:          _(
                     l5var6z := ref(cases.pairs[pairIdx]);
                     if (l5var6z@.first >= l5var1z) then _(
-                        curField@.shift := 48 - l5var6z@.first;
+                        curField@.pf.shift := 48 - l5var6z@.first;
                         curField@.offset := l5var6z@.second;
                         if not (S6 IN optSflags.m) then
-                            curField@.shift := 48 - curField@.width -
-                                                  curField@.shift;
+                            curField@.pf.shift := 48 - curField@.pf.width -
+                                                  curField@.pf.shift;
                         l5var6z@.first := l5var6z@.first - l5var1z;
                         if l5var6z@.first = 0 then _(
                             cases.pairs[pairIdx] :=
@@ -4533,20 +4534,20 @@ _(
                 goto 11523;
             _)
         _); (* 11615 *)
-        curField@.pckfield := false;
+        curField@.pf.pckfield := false;
         curField@.offset := cases.size;
         cases.size := cases.size + selType@.size;
 11622:
         if (PASINFOR.listMode = 3) then _(
             write(' ':16);
-            if (curField@.pckfield) then
+            if (curField@.pf.pckfield) then
                 write('PACKED');
             write(' FIELD ');
             printTextWord(curField@.id);
             write('.OFFSET=', curField@.offset:5 oct, 'B');
-            if (curField@.pckfield) then _(
-                write('.<<=SHIFT=', curField@.shift:2,
-                      '. WIDTH=', curField@.width:2, ' BITS');
+            if (curField@.pf.pckfield) then _(
+                write('.<<=SHIFT=', curField@.pf.shift:2,
+                      '. WIDTH=', curField@.pf.width:2, ' BITS');
             _) else _(
                 write('.WORDS=', selType@.size:0);
             _);
@@ -4571,7 +4572,7 @@ _( (* parseRecordDecl *)
             _) else _(
                 if (hashTravPtr <> NIL) then
                     error(errIdentAlreadyDefined);
-                new(curEnum = 10);
+                new(curEnum = 8);
                 addFieldToHash;
                 if (l4var6z = NIL) then _(
                     curField := curEnum;
@@ -4611,7 +4612,7 @@ _( (* parseRecordDecl *)
             if (SY = COLON) then _(
                 if (curEnum <> NIL) then
                     error(errIdentAlreadyDefined);
-                new(curEnum = 10);
+                new(curEnum = 8);
                 curIdent := l4var8z;
                 bucket := l4var9z;
                 addFieldToHash;
@@ -4804,7 +4805,7 @@ _( (* parseTypeRef *)
             goto 12247;
         _);
         if (SY = RECORDSY) then _( (* 12446 *)
-            new(curType = 7);
+            new(curType = 6);
             typ121z := curType;
             with curType@ do _(
                 size := 0;
@@ -4813,7 +4814,6 @@ _( (* parseTypeRef *)
                 ptr1 := NIL;
                 first := NIL;
                 flag := false;
-                pckrec := isPacked;
             _);
             cases.size := 0;
             cases.count := 0;
