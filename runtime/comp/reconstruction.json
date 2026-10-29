@@ -5,7 +5,7 @@
   "original_sha256": "4a448553b9499d719f770c33e32a0cab200ca718557493e44c067a8df0858d34",
   "source_sha256": {
     "comp.pas": "c10da545f927c4296e50732ff441f5f031e4f1456a63286d50dc499eccb5150c",
-    "mypas.b6": "0189eda173863bf7a7544565727918849efb30fca6ce6db37e0651bc2ae44f5b",
+    "mypas.b6": "4883945fed317eba27cf1676363636bd900be61165bc4af2979293c0c87e9963",
     "runtime/comp/build.py": "e34db3090536aa4c76bc255e76dc6aaf13e1e07db1180d1f5b4fd183a87642fa"
   },
   "compared": [
@@ -35,7 +35,7 @@
   ],
   "compiler": {
     "source": "mypas.b6",
-    "source_sha256": "0189eda173863bf7a7544565727918849efb30fca6ce6db37e0651bc2ae44f5b",
+    "source_sha256": "4883945fed317eba27cf1676363636bd900be61165bc4af2979293c0c87e9963",
     "volume": "runtime/build/comp/77",
     "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
     "installed_volume_unchanged": true,

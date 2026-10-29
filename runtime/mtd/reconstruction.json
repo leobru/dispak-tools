@@ -88,7 +88,7 @@
   "source_sha256": "4c3e5d6517cfcb2a82a3b6e326f27be320dd9c31a47dbe92687f3f51172bc698",
   "compiler": {
     "source": "mypas.b6",
-    "source_sha256": "0189eda173863bf7a7544565727918849efb30fca6ce6db37e0651bc2ae44f5b",
+    "source_sha256": "4883945fed317eba27cf1676363636bd900be61165bc4af2979293c0c87e9963",
     "volume": "runtime/build/mtd/77",
     "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
     "installed_volume_unchanged": true,

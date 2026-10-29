@@ -93,7 +93,7 @@
   "source_sha256": "d0318a5619467b07e97190c2d62cb869c5328e382a348a93dbffdc59d0480030",
   "compiler": {
     "source": "mypas.b6",
-    "source_sha256": "0189eda173863bf7a7544565727918849efb30fca6ce6db37e0651bc2ae44f5b",
+    "source_sha256": "4883945fed317eba27cf1676363636bd900be61165bc4af2979293c0c87e9963",
     "volume": "runtime/build/proz/77",
     "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
     "installed_volume_unchanged": true,

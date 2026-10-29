@@ -6435,10 +6435,12 @@ type
             true:  (b: bitset)
         end;
 var
-    dsize, setcount: integer;
-    l4var3z, l4var4z, l4var5z: word;
+    dsize, setcount, strSize: integer;
+    (* The current run of values: its start in FCST and its length
+       in words; destOffset is its offset from the lvalue. *)
+    runStart, runLen, l4var5z: word;
     boundary: eptr;
-    l4var7z, l4var8z, l4var9z: word;
+    l4var7z, l4var8z, destOffset: word;
     F: file of DATAREC;
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -6459,29 +6461,29 @@ _); (* allocDataRef *)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 _( (* P16432 *)
-    l5var1z.a[0] := allocDataRef(l4var4z.i);
-    if (FcstCnt = l4var3z.i) then _(
+    l5var1z.a[0] := allocDataRef(runLen.i);
+    if (FcstCnt = runStart.i) then _(
         curVal := l4var8z;
         curVal.i := addCurValToFCST;
     _) else _(
-        curVal := l4var3z;
+        curVal := runStart;
     _);
     l5var1z.a[1] := allocSymtab([12,23] + curVal.m * halfWord);
     l5var1z.a[2] := allocDataRef(l5arg1z);
-    if (l4var9z.i = 0) then _(
+    if (destOffset.i = 0) then _(
         curVal := l4var7z;
         besm(ASN64+24);
         curVal := ;
     _) else _(
-        curVal.i := allocSymtab(l4var7z.m + l4var9z.m * halfWord);
+        curVal.i := allocSymtab(l4var7z.m + destOffset.m * halfWord);
     _);
     l5var1z.a[3] := curVal.i;
-    l4var9z.i := l5arg1z * l4var4z.i + l4var9z.i;
+    destOffset.i := l5arg1z * runLen.i + destOffset.i;
     F@ := l5var1z;
     put(F);
     setcount := setcount + 1;
-    l4var4z.i := 0;
-    l4var3z.i := FcstCnt;
+    runLen.i := 0;
+    runStart.i := FcstCnt;
 _); (* P16432 *)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -6515,13 +6517,21 @@ _( (* parseData *)
         if (objBufIdx <> 1) then
             error(errVarTooComplex);
         l4var7z.m := (leftInsn * [12,13,14,15,16,17,18,19,20,21,22,23]);
-        l4var3z.i := FcstCnt;
-        l4var4z.i := 0;
-        l4var9z.i := 0;
+        runStart.i := FcstCnt;
+        runLen.i := 0;
+        destOffset.i := 0;
         repeat (* 16574 *)
             expression;
-            formOperator(LITINSN);
-            l4var8z := curVal;
+            (* A string longer than 6 characters is already in FCST. *)
+            strSize := 1;
+            if (curExpr@.op = GETENUM) and (curExpr@.typ <> NIL) then
+                strSize := curExpr@.typ@.size;
+            if (strSize > 1) then
+                l4var8z := curExpr@.d1
+            else _(
+                formOperator(LITINSN);
+                l4var8z := curVal;
+            _);
             if (SY = COLON) then _(
                 inSymbol;
                 l4var5z := curToken;
@@ -6532,18 +6542,24 @@ _( (* parseData *)
                     inSymbol;
             _) else
                 l4var5z.i := 1;
-            if (l4var5z.i <> 1) then _(
-                if (l4var4z.i <> 0) then
+            if (strSize > 1) then _(
+                if (runLen.i <> 0) then
                     P16432(1);
-                l4var4z.i := 1;
+                runStart := l4var8z;
+                runLen.i := strSize;
+                P16432(l4var5z.i);
+            _) else if (l4var5z.i <> 1) then _(
+                if (runLen.i <> 0) then
+                    P16432(1);
+                runLen.i := 1;
                 P16432(l4var5z.i);
             _) else _(
-                l4var4z.i := l4var4z.i + 1;
+                runLen.i := runLen.i + 1;
                 if (SY = COMMA) then _(
                     curVal := l4var8z;
                     toFCST;
                 _) else _(
-                    if (l4var4z.i <> 1) then _(
+                    if (runLen.i <> 1) then _(
                         curVal := l4var8z;
                         toFCST;
                     _);
