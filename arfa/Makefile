@@ -24,3 +24,11 @@ mdupla.be.silver: mdupla.be
 
 mdupla.gold:
 	./textdump.sh 2113 1726 3 737 > $@
+
+# BUST is built by *call overlay: zone 1703 holds the overlay catalog,
+# 1704-1706 the packed image, which unpacks to addresses 0770-010001.
+bust.bin:
+	rm -f bust.ovl
+	besmtool dump 2113 --start=01704 --length=3 --to-file=bust.ovl
+	../tools/ovl2bin < bust.ovl > $@
+	rm bust.ovl

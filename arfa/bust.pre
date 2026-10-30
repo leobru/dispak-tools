@@ -1,0 +1,10 @@
+*assem
+ PARAM:,NAME,
+ 15,UJ,
+ ,END,
+ RDCAT:,NAME,
+ 15,UJ,
+ ,END,
+ USED:,NAME,
+ 15,UJ,
+ ,END,

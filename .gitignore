@@ -58,3 +58,4 @@ pascompl
 
 # Build output
 /build/
+/tools/ovl2bin
