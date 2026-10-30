@@ -91,7 +91,7 @@ struct opcode {
   { "счим",	0x023000, 0x0bf000, OPCODE_REG1,	BASIC },
   { "уии",	0x024000, 0x0bf000, OPCODE_REG1,	BASIC },
   { "сли",	0x025000, 0x0bf000, OPCODE_REG1,	BASIC },
-/*  { "Э46",	0x026000, 0x0bf000, OPCODE_IMM,		BASIC },*/
+  { "соп",	0x026000, 0x0bf000, OPCODE_STR1,	PRIV },
   { "Э47",	0x027000, 0x0bf000, OPCODE_IMM,		BASIC },
   { "Э50",	0x028000, 0x0bf000, OPCODE_IMMEX,	BASIC },
   { "Э51",	0x029000, 0x0bf000, OPCODE_IMMEX,	BASIC },
@@ -219,6 +219,8 @@ bool hasname(uint32 addr) {
 #define W_TEXT          8192
 #define W_JMPTAB        16384
 #define W_KONK          32768
+#define W_ITM           (1<<16)
+#define W_ITMLO         (1<<17)
 #define W_DONE		(1<<31)
 
 typedef struct actpoint_t {
@@ -998,6 +1000,58 @@ std::string get_text_word(uint64 word) {
     return ret;
 }
 
+// ITM (Автокод ИТМ) character code, as defined by the GOST->ITM table ИТАБЛ in В6В7.
+static const char * itm_to_utf[256] = {
+/* 000 */ "0", "1", "2", "3", "4", "5", "6", "7",
+/* 010 */ "8", "9", nullptr, nullptr, nullptr, nullptr, nullptr, " ",
+/* 020 */ nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+/* 030 */ nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+/* 040 */ " ", "’", "◇", "_", "|", ";", ",", ".",
+/* 050 */ "‾", ")", nullptr, "[", "⩾", "⊃", ":", "=",
+/* 060 */ "∨", "+", "%", "!", "‘", "÷", "]", "/",
+/* 070 */ "-", "∧", "×", "{ВК}", "⩽", "≡", "(", nullptr,
+/* 100 */ nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+/* 110 */ nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+/* 120 */ nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+/* 130 */ nullptr, nullptr, nullptr, nullptr, "\"", "Ъ", "°", "′",
+/* 140 */ "{КИ}", nullptr, "{ПОЗ}", "↑", nullptr, "¬", "<", ">",
+/* 150 */ "―", nullptr, "≠", nullptr, nullptr, nullptr, nullptr, nullptr,
+/* 160 */ nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+/* 170 */ "*", nullptr, nullptr, "{ПС}", nullptr, nullptr, "⏨", nullptr,
+/* 200 */ nullptr, "Т", nullptr, "О", nullptr, "Н", "N", "М",
+/* 210 */ nullptr, "L", "R", "G", "I", "Р", "С", "V",
+/* 220 */ "Е", "Z", "D", "В", "S", "У", "F", "Х",
+/* 230 */ "А", "W", "J", nullptr, "U", "Q", "К", nullptr,
+/* 240 */ nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+/* 250 */ nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+/* 260 */ nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+/* 270 */ nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+/* 300 */ nullptr, "Щ", nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+/* 310 */ nullptr, "Л", nullptr, "Г", "И", "П", "Ц", "Ж",
+/* 320 */ "Э", "З", "Д", "Б", "Ш", "Ы", "Ф", "Ь",
+/* 330 */ nullptr, "Ч", "Й", nullptr, "Ю", "Я", nullptr, nullptr,
+/* 340 */ nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+/* 350 */ nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+/* 360 */ nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+/* 370 */ nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+};
+
+bool is_itm(int s) {
+    return itm_to_utf[s & 0377] != nullptr;
+}
+
+std::string get_itm_word(uint64 word, bool lo_first) {
+    std::string ret;
+    for (int i = 0; i < 6; ++i) {
+        int ch = (word >> (lo_first ? 8*i : 40-8*i)) & 0377;
+        if (itm_to_utf[ch])
+            ret += itm_to_utf[ch];
+        else
+            ret += strprintf("\\%03o", ch);
+    }
+    return ret;
+}
+
 void prshort(uint32 val, int cmdaddr, uint32 flags = 0) {
     bool good_addr = val && maybe_addr(val);
     int reg = val >> 20;
@@ -1072,10 +1126,10 @@ std::string literal(uint32 addr, int flags = 0) {
     int good_gost = count_good(bytes, is_good_gost);
     int good_iso = count_good(bytes, is_good_iso);
     int i;
-    if (!(flags & W_ISO) && (good_gost == 6 || (flags & W_GOST))) {
+    if (!(flags & W_ITM) && !(flags & W_ISO) && (good_gost == 6 || (flags & W_GOST))) {
 	return gostlit(bytes, flags & W_GOST, good_gost);
     }
-    if (good_iso == 6 || (flags & W_ISO)) {
+    if (!(flags & W_ITM) && (good_iso == 6 || (flags & W_ISO))) {
         return isolit(bytes);
     }
     ret = val == 0xffffffffffffLL ? "в'-1'" :
@@ -1086,9 +1140,17 @@ std::string literal(uint32 addr, int flags = 0) {
 	strprintf ("в'%016llo'", val);
     if (flags & W_TEXT)
       ret += " TEXT " + get_text_word(val);
-    else {
+    else if (flags & W_ITM) {
+      if (val)
+        ((ret += " ITM '") += get_itm_word(val, flags & W_ITMLO)) += "'";
+    } else {
     int good_iso_with_parity = count_good(bytes, is_good_iso_with_even_parity);
-    if (good_iso == 6) {
+    int letters = 0;
+    for (i = 0; i < 6; ++i)
+	letters += bytes[i] >= 0200;
+    if (good_iso != 6 && count_good(bytes, is_itm) == 6 && letters >= 4) {
+	((ret += " ITM '") += get_itm_word(val, false)) += "' возм.";
+    } else if (good_iso == 6) {
 	std::string s;
 	for (i = 0; i < 6; ++i) {
 	    s += unicode_to_utf8 (koi7_to_unicode[bytes[i]]);
@@ -1123,7 +1185,7 @@ void prconst (uint32 addr, uint32 limit)
             putchar ('\t');
         }
         // Erase "weak" flags which must not spill onto next words
-        flags &= ~W_HEX;
+        flags &= ~(W_HEX|W_ITM|W_ITMLO);
         flags |= prsym (addr);
         split_bytes(addr, bytes);
         good_gost = count_good(bytes, is_good_gost);
@@ -1131,7 +1193,7 @@ void prconst (uint32 addr, uint32 limit)
         bool rel_l = nonconst(addr*2);
         bool rel_r = nonconst(addr*2+1);
         uint32 ex_addr = mflags[addr] & W_ADDR;
-        uint32 forced = flags & (W_HEX|W_REAL|W_ISO|W_TEXT);
+        uint32 forced = flags & (W_HEX|W_REAL|W_ISO|W_TEXT|W_ITM|W_ITMLO);
         bool konk = flags & W_KONK;
         if (!rel_l && !rel_r && forced) {
             printf ("\tконд\t%s\n", literal(addr, forced).c_str());
@@ -1557,8 +1619,19 @@ prsection (uint32 addr, uint32 limit)
                 }
                 continue;
             }
-            if (! (mflags[addr] & W_NORIGHT) ||
-                rel_r || (opcode != 0 && opcode != 02200000)) {
+            // After ПВ in a left half ("пвл") BEMSH does not fill the
+            // right half by itself, so print it whatever it holds.
+            bool call_left = ((memory[addr] >> 24) & 03700000) == 03100000;
+            // A filler before an unlabelled data word must be explicit,
+            // or BEMSH would put that word into this right half.
+            if ((mflags[addr] & W_NORIGHT) && opcode == 02200000 && !rel_r &&
+                addr + 1 < limit && !(mflags[addr+1] & (W_STARTBB|W_CODE)) &&
+                findsym(addr+1)->n_value != addr+1) {
+                printf("%s\tмода\n", srcflag ? "" : "\t\t\t");
+                continue;
+            }
+            if (! (mflags[addr] & W_NORIGHT) || call_left ||
+                rel_r || opcode != 02200000) {
                 if (srcflag == 0) {
                     printf("      ");
                     prcode (opcode);
@@ -1596,6 +1669,8 @@ int gettype(const std::string & str) {
     case 'T': case 't': return W_DATA|W_TEXT;
     case 'J': case 'j': return W_DATA|W_JMPTAB|W_KONK;
     case 'K': case 'k': return W_DATA|W_KONK;
+    case 'M': case 'm': return W_DATA|W_ITM;
+    case 'N': case 'n': return W_DATA|W_ITM|W_ITMLO;
     case 'U': case 'u': return W_UNSET;
     case 'A': case 'a': return W_CODE|W_NOEXEC;
     }
@@ -1664,6 +1739,16 @@ void make_syms(uint32 addr, uint32 limit)
         struct nlist * sym;
         if (mflags[addr] & W_UNSET)
             continue;
+        // A word "ПБ x / мода" (filler in the right half) means the next
+        // instruction started a new word in the source, i.e. it carried a
+        // label; e.g. the skip return (1(М11)) of a subroutine called by
+        // "ПВ" just before that ПБ. Without a label BEMSH would pack it into
+        // the right half. (No label is needed after ПВ itself: BEMSH always
+        // puts ПВ in a right half.)
+        if ((mflags[addr] & W_CODE) && addr > 0 &&
+            (mflags[addr-1] & (W_CODE|W_NORIGHT)) == (W_CODE|W_NORIGHT) &&
+            (memory[addr-1] & 0xffffff) == 02200000)
+            mflags[addr] |= W_STARTBB;
         if ((mflags[addr] & (W_STARTBB|W_CODE)) == (W_STARTBB|W_CODE)) {
             sym = findsym(addr);
             if (sym->n_value != addr) {
