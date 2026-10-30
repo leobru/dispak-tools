@@ -15,3 +15,12 @@ koka.be.silver: koka.be
 
 koka.gold:
 	./textdump.sh 2113 1727 3 468 > $@
+
+mdupla: mdupla.gold mdupla.be.silver
+	diff -q $^
+
+mdupla.be.silver: mdupla.be
+	./zongp.pl -v mdupla.be 1
+
+mdupla.gold:
+	./textdump.sh 2113 1726 3 737 > $@
