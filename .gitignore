@@ -48,11 +48,9 @@ pascompl
 *.idb
 *.pdb
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# Decompilation artifacts
+*.lst
+*.dis
+
+# Extracted binaries
+*.bin
