@@ -7076,9 +7076,10 @@ _( (* standProc *)
         expression;
         formOperator(LITINSN);
         if (SY = RPAREN) or (SY = COMMA) then _(
-            if ((curVal.i div 100000B) mod 40B = 24B) and
+            if ((curVal.i div 100000B) mod 40B >= 20B) and
                (curVal.i mod 100000B > 40000B) then _(
-                (* VTM immediate; no relocation as local code. *)
+(* A long address, e.g. VTM immediate or UJ 76000B; such an address
+   in the object code would mean a symbol, so it goes through one. *)
                 besmInsn := curVal;
                 curVal.i := getValueOrAllocSymtab(curVal.i mod 100000B);
                 curVal.i := besmInsn.i - (besmInsn.i mod 100000B) +
