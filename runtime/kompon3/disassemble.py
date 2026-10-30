@@ -5,7 +5,9 @@ import json
 import sys
 
 HERE=Path(__file__).resolve().parent
-sys.path[:0]=[str(HERE.parent),str(HERE.parents[1])]
+sys.path.insert(0,str(HERE.parent))
+from paths import TOOLS, BUILD
+sys.path.insert(1,str(TOOLS))
 from corpus import read_words
 from libmatch import operand
 
@@ -35,7 +37,7 @@ def main():
     # Reviewed entries; alignment votes can confuse the two prologue calls.
     names.update({0o27473:'P/SC',0o27600:'P/DA',0o27765:'P/LNGPAR',
                   0o30723:'P/WX',0o27430:'*OUTPUT*',0o27466:'PADCHAR*'})
-    words=read_words(HERE.parent/'build/kompon3/original.bin')
+    words=read_words(BUILD/'kompon3/original.bin')
     def varname(vs,offset):
         for v in vs:
             base=int(v['offset'],8)

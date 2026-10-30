@@ -14,6 +14,7 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
+from paths import ROOT, BUILD, IMAGES
 from corpus import BASE, GOST, pack, read_words
 from build import environment
 
@@ -206,16 +207,16 @@ def run_case(output, image, case):
                 data_zones_read=reads, printer_calls=prints,
                 exit_status_octal=(None if case.get("status", 0) is None else
                                    f'{case.get("status", 0):o}'),
-                artifacts=str(directory.relative_to(HERE.parent.parent)),
+                artifacts=str(directory.relative_to(ROOT)),
                 _text=printed, _raw=(directory / 'print.raw').read_bytes())
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--rebuilt', type=Path, default=HERE.parent / 'build/fprint/fprint.img')
-    parser.add_argument('--output', type=Path, default=HERE.parent / 'build/fprint/exercise')
+    parser.add_argument('--rebuilt', type=Path, default=BUILD / 'fprint/fprint.img')
+    parser.add_argument('--output', type=Path, default=BUILD / 'fprint/exercise')
     args = parser.parse_args()
-    original = HERE.parent / 'images/4001/0063-fprint.bin'
+    original = IMAGES / '4001/0063-fprint.bin'
     rebuilt = args.rebuilt.resolve()
     old, new = read_words(original), read_words(rebuilt)
     differences = [BASE+i for i, (a, b) in enumerate(zip(old, new)) if a != b]

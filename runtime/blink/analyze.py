@@ -15,10 +15,13 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path[:0] = [str(HERE.parent), str(HERE.parents[1])]
+sys.path.insert(0, str(HERE.parent))
+import paths
+from paths import ROOT, TOOLS, PROGRAMS, IMAGES
+sys.path.insert(1, str(TOOLS))
 from corpus import read_words, find_volume
 from libmatch import operand
-sys.path.insert(0,str(HERE.parent/'linker-runtime'))
+sys.path.insert(0,str(paths.RUNTIME/'linker-runtime'))
 import historical_names as historical
 
 
@@ -29,9 +32,9 @@ def load_module(name, path):
     return module
 
 
-LINK = load_module('blink_link_reference', HERE.parent/'link/analyze.py')
+LINK = load_module('blink_link_reference', PROGRAMS/'link/analyze.py')
 BASE, POOL, GLOBALS, RUNTIME, FREE = 0o2000, 0o17345, 0o21203, 0o22150, 0o25465
-IMAGE = HERE.parent/'images/4001/0275-blink.bin'
+IMAGE = IMAGES/'4001/0275-blink.bin'
 F1, F2 = LINK.F1, LINK.F2
 
 
@@ -112,7 +115,7 @@ def load_helpers():
     data = profile()
     result = {int(address, 8):name for address, _, name in
               (line.split() for line in
-               (HERE.parent/'analysis/4001-0275-blink.sym').read_text().splitlines())
+               (paths.RUNTIME/'analysis/4001-0275-blink.sym').read_text().splitlines())
               if int(address, 8) < FREE}
     for address, name in LINK.load_helpers().items():
         if BASE <= address < RUNTIME:
@@ -147,8 +150,8 @@ def main():
                 halves.append(f'{reg:02o},{mnemonic},{value:05o}'+note)
             print(f'{address:05o} {halves[0]:72} {halves[1]}')
         return
-    inventory = dict(image=str(IMAGE.relative_to(HERE.parent)),
-                     basis='runtime/link/link.pas', pool=f'{POOL:05o}',
+    inventory = dict(image=str(IMAGE.relative_to(paths.RUNTIME)),
+                     basis=str((PROGRAMS/'link/link.pas').relative_to(ROOT)), pool=f'{POOL:05o}',
                      globals=f'{GLOBALS:05o}', runtime=f'{RUNTIME:05o}',
                      free=f'{FREE:05o}', code_words=POOL-0o2012,
                      entries=[dict(name=historical.routine(n), address=f'{a:05o}') for n, a in data['entries']],

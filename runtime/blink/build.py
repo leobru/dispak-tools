@@ -9,16 +9,17 @@ The real runtime is compared literally; the linker itself is not executed.
 """
 from pathlib import Path
 import analyze
+from paths import PROGRAMS, BUILD
 
 HERE = Path(__file__).resolve().parent
 
 
 def main():
     data = analyze.profile()
-    shared = analyze.load_module('blink_shared_build', HERE.parent/'link1/build.py')
+    shared = analyze.load_module('blink_shared_build', PROGRAMS/'link1/build.py')
     shared.__doc__ = __doc__
     shared.HERE = HERE
-    shared.WORK = HERE.parent/'build/blink'
+    shared.WORK = BUILD/'blink'
     shared.SOURCE_NAME = 'blink.pas'
     shared.PROGRAM_NAME = 'BLINK'
     shared.SCRATCH_ZONE = 0o275

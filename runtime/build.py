@@ -20,12 +20,12 @@ import re
 import subprocess
 import sys
 
-from corpus import ROOT, BASE, read_words
+from paths import ROOT, TOOLS, RUNTIME, BUILD
+from corpus import BASE, read_words
 from recover import generate
-sys.path.insert(0,str(ROOT))
+sys.path.insert(0,str(TOOLS))
 from libmatch import load_symbols
 
-DIRECTORY=Path(__file__).resolve().parent
 HEADER='''user 419900зс5^
 dis 31(2113)32(77)33(2148-440)34(2048)66(3777-wr)67(3776-wr)^
 eeb1a3
@@ -98,9 +98,9 @@ def job(work,name,cards):
 
 
 def library(profile,with_gaps=False):
-    meta=generate(profile,DIRECTORY)
-    work=DIRECTORY/'build'/profile
-    directory=DIRECTORY/'profiles'/profile
+    meta=generate(profile,RUNTIME)
+    work=BUILD/profile
+    directory=RUNTIME/'profiles'/profile
     source=''.join((directory/name).read_text()
                    for name in meta.get('sources',['runtime.madlen']))
     if with_gaps:
@@ -247,7 +247,7 @@ def audit(listing,meta):
 def golden(profile):
     work,meta=library(profile,True)
     ref=read_words(ROOT/meta['source'])
-    config=json.loads((DIRECTORY/'profiles.json').read_text())[profile]
+    config=json.loads((RUNTIME/'profiles.json').read_text())[profile]
     common_start=min(int(c['address'],8) for c in config['common'].values())
     prefix=['*libra:13','*call ficmemory','*assem',' GOLDEN:,NAME,',
             ' PROGRAM:,ENTRY,']
@@ -286,8 +286,8 @@ def run(profile,source):
     check_image(image,listing,meta)
     text=execute(runwork,image,listing)
     print(f'Program listing: {listing}')
-    return dict(listing=str(listing.relative_to(DIRECTORY)),
-                image=str(image.relative_to(DIRECTORY)),output=text)
+    return dict(listing=str(listing.relative_to(RUNTIME)),
+                image=str(image.relative_to(RUNTIME)),output=text)
 
 
 def execute(work,image,listing):

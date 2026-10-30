@@ -26,8 +26,6 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[1]
-WORK = HERE.parent/'build/link1'
 SOURCE_NAME = 'link1.pas'
 PROGRAM_NAME = 'LINK1'
 SCRATCH_ZONE = 0o175
@@ -35,14 +33,16 @@ COMPILER_SOURCE = None
 NAMEKEY_LITERALS = [(0o20017, 'KOMПOH-1'),
                     (0o20201, 'CИCBЫB'), (0o20203, 'CИCBBOД')]
 sys.path.insert(0, str(HERE.parent))
-sys.path.insert(0, str(ROOT))
+from paths import ROOT, TOOLS, COMPILER, RUNTIME, PROGRAMS, BUILD
+sys.path.insert(0, str(TOOLS))
+WORK = BUILD/'link1'
 from corpus import read_words, sha
 from libmatch import load_symbols, operand
 spec = importlib.util.spec_from_file_location('link1analyze', HERE/'analyze.py')
 analyze = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(analyze)
 spec = importlib.util.spec_from_file_location('linker_historical_names',
-                               HERE.parent/'linker-runtime/historical_names.py')
+                               RUNTIME/'linker-runtime/historical_names.py')
 historical = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(historical)
 
@@ -112,15 +112,15 @@ def reference_address(address):
 
 def prepare_compiler(source_path=None):
     spec = importlib.util.spec_from_file_location('linker_compiler_patches',
-                               HERE.parent/'linker-runtime/patch_compiler.py')
+                               RUNTIME/'linker-runtime/patch_compiler.py')
     patches = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(patches)
-    return patches.prepare(WORK, source_path or ROOT/'mypas.b6')
+    return patches.prepare(WORK, source_path or COMPILER/'mypas.b6')
 
 
 def runtime_library():
     spec = importlib.util.spec_from_file_location('linker_runtime_library',
-                               HERE.parent/'linker-runtime/library.py')
+                               RUNTIME/'linker-runtime/library.py')
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -150,7 +150,7 @@ def run_job(name, cards, env, timeout=180):
 
 
 def compiler(env):
-    source_path = COMPILER_SOURCE or ROOT/'mypas.b6'
+    source_path = COMPILER_SOURCE or COMPILER/'mypas.b6'
     source = source_path.read_text()
     fingerprint = sha(source.encode())
     stamp = WORK/'compiler.json'
@@ -158,7 +158,7 @@ def compiler(env):
         if json.loads(stamp.read_text()).get('source_sha256') == fingerprint:
             return
     for other in ['link1','blink1','link','blink','acc3/try','fprint','proz','mt']:
-        directory = HERE.parent/'build'/other
+        directory = BUILD/other
         if directory == WORK:
             continue
         saved = directory/'compiler.json'
@@ -171,7 +171,7 @@ def compiler(env):
             stamp.write_text(json.dumps(dict(source=str(source_path.relative_to(ROOT)),
                                              source_sha256=fingerprint),indent=2)+'\n')
             return
-    spec = importlib.util.spec_from_file_location('morebuild', HERE.parent/'more/build.py')
+    spec = importlib.util.spec_from_file_location('morebuild', PROGRAMS/'more/build.py')
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     saved_env = os.environ.copy()
@@ -188,7 +188,7 @@ def compiler(env):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source',type=Path,default=HERE/SOURCE_NAME)
-    parser.add_argument('--compiler-source',type=Path,default=ROOT/'mypas.b6',
+    parser.add_argument('--compiler-source',type=Path,default=COMPILER/'mypas.b6',
                         help='base compiler deck (default: working-tree mypas.b6)')
     parser.add_argument('--disassemble-only', action='store_true',
                         help='use the existing helpers.img and compiler listing')
@@ -231,10 +231,11 @@ def main():
                     raise ValueError(f'{args.source}:{n}: loop do requires (r)')
         metadata, runtime = runtime_library().sources(PROGRAM_NAME.lower())
         (WORK/'runtime.madlen').write_text(runtime)
+        # Both scratch disks are mounted by every job, the library job included.
         (WORK/'3776').write_bytes(b'')
+        (WORK/'3777').write_bytes(b'')
         run_job('library','*assem\n'+runtime+'*to perso:660100\n'
                 '*end file\n``````\nеконец\n',env)
-        (WORK/'3777').write_bytes(b'')
         cards = ('*libra:13\n*call yesmemory\n'
                  '*trans:newpasc,,320000\n'+source+'\n'
                  '*perso:311160,cont\n*perso:320200,cont\n'

@@ -24,6 +24,7 @@ import sys
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE.parent))
+from paths import BUILD
 import ovtry
 from corpus import read_words
 
@@ -70,7 +71,7 @@ def main():
     source = Path(sys.argv[1] if len(sys.argv) > 1 else HERE/'head.pas').resolve()
     text = source.read_text()
     name = re.search(r'^program\s+(\S+?)\s*[(;]', text, re.M|re.I)[1].upper()
-    words = read_words(HERE.parent/'build/acc3/head.bin')
+    words = read_words(BUILD/'acc3/head.bin')
     work = ovtry.WORK
     ovtry.compiler()
     disk = work/'3777'

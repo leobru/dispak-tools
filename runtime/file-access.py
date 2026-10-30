@@ -17,14 +17,15 @@ import json
 from pathlib import Path
 import sys
 
-from corpus import BASE, ROOT, pack, read_words, sha
+from paths import ROOT, TOOLS, IMAGES
+from corpus import BASE, pack, read_words, sha
 from recover import LONG, SHORT
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(TOOLS))
 from libmatch import mask, operand
 
 HERE = Path(__file__).resolve().parent
 DEST = HERE / 'file-access'
-REFERENCE = ROOT / 'runtime/images/4001/0315-comp.bin'
+REFERENCE = IMAGES / '4001/0315-comp.bin'
 # Keep the complete M8-relative bundles: entry points alone omit their pools,
 # parser, and other routines sharing the same base. Ends are exclusive.
 MODULES = [

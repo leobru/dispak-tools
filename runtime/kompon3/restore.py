@@ -10,8 +10,12 @@ import json
 from pathlib import Path
 import re
 
+import sys
+
 HERE=Path(__file__).resolve().parent
-WORK=HERE.parent/'build/kompon3'
+sys.path.insert(0,str(HERE.parent))
+from paths import PROGRAMS, BUILD
+WORK=BUILD/'kompon3'
 TOKENS=re.compile(r'\(\*.*?\*\)|\{.*?\}|%[^\n]*|"(?:""|[^"])*"|'
                   r"'(?:''|[^'])*'|[A-Za-zА-Яа-я_][A-Za-zА-Яа-я_0-9]*|"
                   r':=|\S',re.S)
@@ -100,7 +104,7 @@ def cards(source):
 
 
 def main():
-    source=(HERE.parent/'link/link.pas').read_text()
+    source=(PROGRAMS/'link/link.pas').read_text()
     if 'procedure ПEЧBPE(' in source:
         # LINK already carries the PMD-backed names. Keep the original
         # legacy correspondence files as evidence; do not apply them twice.

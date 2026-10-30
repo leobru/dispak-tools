@@ -215,6 +215,12 @@ generates the corresponding Madlen and fixups. `P/08` and other packed-field
 tables have explicit data-pointer relocations, rather than guessed instruction
 operands.
 
+The scripts locate the tools, the compiler, the program directories, the
+build output and the extracted images through [paths.py](paths.py), not
+through their own location. `python3 runtime/regress.py run` runs every build
+and analysis and records a fingerprint of all results;
+`regress.py compare A B` lists the results that differ between two runs.
+
 ## Validation
 
 ```sh

@@ -17,22 +17,23 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
-from corpus import BASE, ROOT, pack, read_words, sha, find_volume, volume_words
+from paths import ROOT, COMPILER, PROGRAMS, BUILD, IMAGES, CORPUS
+from corpus import BASE, pack, read_words, sha, find_volume, volume_words
 from build import job, environment
 from libmatch import load_symbols, operand
 
-spec = importlib.util.spec_from_file_location('compbuild', HERE.parent/'comp/build.py')
+spec = importlib.util.spec_from_file_location('compbuild', PROGRAMS/'comp/build.py')
 comp = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(comp)
-ORIGINAL = HERE.parent/'images/4001/0030-proz.bin'
-WORK = HERE.parent/'build/proz'
+ORIGINAL = IMAGES/'4001/0030-proz.bin'
+WORK = BUILD/'proz'
 
 
 def library_sources():
-    spec = importlib.util.spec_from_file_location('mtbuild', HERE.parent/'mt/build.py')
+    spec = importlib.util.spec_from_file_location('mtbuild', PROGRAMS/'mt/build.py')
     mt = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mt)
-    spec = importlib.util.spec_from_file_location('monitrbuild', HERE.parent/'monitr/build.py')
+    spec = importlib.util.spec_from_file_location('monitrbuild', PROGRAMS/'monitr/build.py')
     monitr = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(monitr)
     text = monitr.add_entries(mt.library_sources(), 'LIB', {0o31:'OPENF'})
@@ -48,7 +49,7 @@ def library_sources():
 
 def references(volume, disk):
     """Extract missing reference binaries with besmtool; never rewrite one."""
-    manifest = json.loads((HERE.parent/'corpus.json').read_text())
+    manifest = json.loads((CORPUS).read_text())
     env = os.environ.copy()
     env['BESM6_PATH'] = str(volume.parent)
     for stem, zone, count in [('0030-proz', 0o30, 4),
@@ -147,7 +148,7 @@ def main():
     WORK.mkdir(parents=True,exist_ok=True)
     original_disk = find_volume()
     raw, disk = volume_words(original_disk)
-    expected = json.loads((HERE.parent/'corpus.json').read_text())['volume']['sha256']
+    expected = json.loads((CORPUS).read_text())['volume']['sha256']
     if sha(raw) != expected:
         raise ValueError('volume 4001 differs from the cataloged reference')
     references(original_disk, disk)
@@ -158,7 +159,7 @@ def main():
     installed77_hash = sha(installed77.read_bytes())
     # Reuse the private-compiler build; cache only while mypas.b6 is unchanged.
     stamp = WORK/'compiler.json'
-    compiler_hash = sha((ROOT/'mypas.b6').read_bytes())
+    compiler_hash = sha((COMPILER/'mypas.b6').read_bytes())
     compiler = json.loads(stamp.read_text()) if stamp.exists() else {}
     if compiler.get('source_sha256') != compiler_hash or not (WORK/'77').exists():
         compiler = comp.more.rebuild_compiler(WORK)
@@ -205,9 +206,9 @@ def main():
                       for p in [HERE/'build.py', HERE/'p_a7.madlen',
                                 HERE/'p_ldarin.madlen', HERE/'p_4.madlen',
                                 HERE/'proz.sym', HERE/'proz-readable.pas',
-                                HERE.parent/'mt/build.py',
-                                HERE.parent/'mtd/build.py',
-                                HERE.parent/'monitr/build.py',
+                                PROGRAMS/'mt/build.py',
+                                PROGRAMS/'mtd/build.py',
+                                PROGRAMS/'monitr/build.py',
                                 comp.HERE/'build.py', comp.more.HERE/'build.py']},
                   library_source_sha256=sha(sources.encode()),
                   image=str(image.relative_to(ROOT)),

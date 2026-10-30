@@ -13,8 +13,9 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-WORK = HERE.parent / 'build/pascoder'
 sys.path.insert(0, str(HERE.parent))
+from paths import ROOT, BUILD
+WORK = BUILD / 'pascoder'
 from build import environment
 from corpus import GOST, pack, read_words
 
@@ -199,7 +200,7 @@ def main():
                             code_words=obj.ncode, constant_words=obj.nconst,
                             bss_words=obj.nbss,
                             total_words=obj.ncode + obj.nconst + obj.nbss,
-                            artifact=str((WORK / (stem + '.obj')).relative_to(HERE.parent.parent))))
+                            artifact=str((WORK / (stem + '.obj')).relative_to(ROOT))))
         print(f'{name}: {obj.ncode} code-section words, {obj.nconst} constants, {obj.nbss} BSS')
     (HERE / 'modules.json').write_text(json.dumps(dict(modules=modules), indent=2) + '\n')
 

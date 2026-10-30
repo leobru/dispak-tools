@@ -12,9 +12,9 @@ import argparse
 import json
 from pathlib import Path
 
+from paths import RUNTIME
 from corpus import find_volume, pack, sha, volume_words
 
-DIRECTORY = Path(__file__).resolve().parent
 KOI7 = ''.join(chr(i) for i in range(96)) + 'ЮАБЦДЕФГХИЙКЛМНОПЯРСТУЖВЬЫЗШЭЩЧ' + chr(127)
 
 
@@ -55,7 +55,7 @@ def location(address):
 def extract(volume):
     raw, words = volume_words(volume)
     digest = sha(raw)
-    output = DIRECTORY/'sources/4001'
+    output = RUNTIME/'sources/4001'
     output.mkdir(parents=True, exist_ok=True)
     files = []
     for name,first,last in [('dbf.inc.b6',5,6),('copy.b6',6,8)]:

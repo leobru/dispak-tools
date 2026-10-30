@@ -12,8 +12,9 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-WORK = HERE.parent/'build/monitr-starter'
 sys.path.insert(0, str(HERE.parent))
+from paths import BUILD
+WORK = BUILD/'monitr-starter'
 from corpus import find_volume, pack, read_words, volume_words
 
 

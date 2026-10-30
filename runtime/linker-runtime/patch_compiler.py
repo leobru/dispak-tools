@@ -7,10 +7,12 @@ The instruction-node declaration, heap option and source deck are preserved.
 """
 import argparse
 from pathlib import Path
+import sys
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[1]
-WORK = HERE.parent/'build/link1'
+sys.path.insert(0, str(HERE.parent))
+from paths import COMPILER, BUILD
+WORK = BUILD/'link1'
 
 
 def patch(source):
@@ -37,7 +39,7 @@ def patch(source):
 
 
 def prepare(work=WORK, source_path=None):
-    source_path = source_path or ROOT/'mypas.b6'
+    source_path = source_path or COMPILER/'mypas.b6'
     source = patch(source_path.read_text())
     for n, line in enumerate(source.splitlines(), 1):
         if len(line) > 120:
@@ -50,7 +52,7 @@ def prepare(work=WORK, source_path=None):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--source', type=Path, default=ROOT/'mypas.b6')
+    parser.add_argument('--source', type=Path, default=COMPILER/'mypas.b6')
     parser.add_argument('--work', type=Path, default=WORK)
     args = parser.parse_args()
     print(prepare(args.work, args.source))

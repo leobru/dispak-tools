@@ -17,14 +17,15 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[1]
-sys.path[:0] = [str(ROOT), str(HERE.parent)]
+sys.path.insert(0, str(HERE.parent))
+from paths import ROOT, TOOLS, RUNTIME, PROGRAMS, BUILD, IMAGES
+sys.path.insert(0, str(TOOLS))
 from corpus import read_words, find_volume
 from libmatch import operand
 from recover import LONG, SHORT
 
 LIBPAS = Path('/home/leob/git/besm6/mesm6/toolchain/libpas')
-MONITOR = HERE.parent/'profiles/monitor'
+MONITOR = RUNTIME/'profiles/monitor'
 BASE = 0o2000
 
 
@@ -36,9 +37,9 @@ def load(name, path):
 
 
 def configuration(name):
-    a = load(name+'_runtime_analysis', HERE.parent/name/'analyze.py')
+    a = load(name+'_runtime_analysis', PROGRAMS/name/'analyze.py')
     if name == 'link1':
-        b = load('link1_runtime_builder', HERE.parent/name/'build.py')
+        b = load('link1_runtime_builder', PROGRAMS/name/'build.py')
         externals, translate = b.EXTERNALS, lambda address: address
     else:
         externals, translate = a.profile()['externals'], a.reference_address
@@ -317,13 +318,13 @@ def source_for(origin):
     if origin.startswith('libpas/'):
         return (LIBPAS/origin[7:]).read_text()
     if origin.startswith('proz/'):
-        return (HERE.parent/origin).read_text()
+        return (PROGRAMS/origin).read_text()
     return (MONITOR/origin).read_text()
 
 
 def prepare(name):
     a, externals, translate = configuration(name)
-    comp_image = HERE.parent/'images/4001/0315-comp.bin'
+    comp_image = IMAGES/'4001/0315-comp.bin'
     if not comp_image.exists():
         volume = find_volume()
         env = {**os.environ,'BESM6_PATH':str(volume.parent)}
@@ -404,12 +405,12 @@ def prepare(name):
                 source = source.replace('0401053141407416','0401053141407417')
                 source = source.replace('0705613303607417','0705613303607416')
             elif origin == 'monin.madlen':
-                comp = read_words(HERE.parent/'images/4001/0315-comp.bin')
+                comp = read_words(IMAGES/'4001/0315-comp.bin')
                 extra = ''.join(f' ,LOG,{w:016o}\n' for w in comp[0o10606-BASE:0o10616-BASE])
                 source = source.replace(' R03314:',extra+' R03314:')
             m['provenance'] = ('besm6/mesm6/toolchain/libpas/'+origin[7:]
                                if origin.startswith('libpas/') else
-                               str((HERE.parent/origin if origin.startswith('proz/')
+                               str((PROGRAMS/origin if origin.startswith('proz/')
                                     else MONITOR/origin).relative_to(ROOT)))
         else:
             source = custom(words,m,modules,symbols,positions[0o24457])
@@ -478,7 +479,7 @@ def share():
         (HERE/name/'modules.json').write_text(json.dumps(data,indent=2)+'\n')
     # Retain the temporary per-image sources as build artifacts, not sources.
     for profile,path in moved:
-        archive = HERE.parent/'build/linker-runtime/unshared'/profile/path.name
+        archive = BUILD/'linker-runtime/unshared'/profile/path.name
         archive.parent.mkdir(parents=True,exist_ok=True)
         path.replace(archive)
     print(sum(len(v) for v in groups.values()),'shared source variants')

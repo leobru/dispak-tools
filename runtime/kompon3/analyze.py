@@ -16,8 +16,10 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-WORK = HERE.parent/'build/kompon3'
-sys.path[:0] = [str(HERE.parent),str(HERE.parents[1])]
+sys.path.insert(0, str(HERE.parent))
+from paths import TOOLS, RUNTIME, PROGRAMS, BUILD
+sys.path.insert(1, str(TOOLS))
+WORK = BUILD/'kompon3'
 from corpus import read_words
 from libmatch import load_symbols, operand
 
@@ -29,8 +31,8 @@ def module(name,path):
     return result
 
 
-CMP = module('kompon_comparison',HERE.parent/'linker-runtime/compare2248.py')
-SK = module('kompon_frames',HERE.parent/'acc3/skeleton.py')
+CMP = module('kompon_comparison',RUNTIME/'linker-runtime/compare2248.py')
+SK = module('kompon_frames',PROGRAMS/'acc3/skeleton.py')
 
 
 def scopes(words, tables, pool):
@@ -115,7 +117,7 @@ def main():
     subprocess.run(['besmtool','dump','2248','--start=02560','--length=16',
                     '--to-file='+str(image)],check=True,stdout=subprocess.DEVNULL)
     old=read_words(image)
-    original_tables=json.loads((HERE.parent/'linker-runtime/2248-mode3-pmd.json').read_text())
+    original_tables=json.loads((RUNTIME/'linker-runtime/2248-mode3-pmd.json').read_text())
     old_scopes=scopes(old,original_tables,0o22300)
     (HERE/'inventory.json').write_text(json.dumps(old_scopes,ensure_ascii=False,indent=2)+'\n')
     reference=WORK/'reference.img'

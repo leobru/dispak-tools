@@ -12,8 +12,10 @@ from pathlib import Path
 import sys
 
 HERE=Path(__file__).resolve().parent
-WORK=HERE.parent/'build/kompon3'
-sys.path[:0]=[str(HERE.parent),str(HERE.parents[1])]
+sys.path.insert(0,str(HERE.parent))
+from paths import TOOLS, BUILD
+sys.path.insert(1,str(TOOLS))
+WORK=BUILD/'kompon3'
 from corpus import read_words
 from libmatch import load_symbols, operand
 from disassemble import F1, F2

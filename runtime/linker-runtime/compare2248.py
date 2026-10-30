@@ -14,11 +14,13 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path[:0] = [str(HERE.parent), str(HERE.parents[1])]
+sys.path.insert(0, str(HERE.parent))
+from paths import TOOLS, PROGRAMS, BUILD
+sys.path.insert(1, str(TOOLS))
 from corpus import read_words
 from libmatch import operand
 
-WORK = HERE.parent/'build/linker-2248'
+WORK = BUILD/'linker-2248'
 PROFILES = [('kompon2','2248','02540'), ('kompon3','2248','02560'),
             ('link1','4001','0175'), ('blink1','4001','0255'),
             ('link','4001','0112'), ('blink','4001','0275')]
@@ -77,7 +79,7 @@ def keys(words, entry, pool):
 
 def main():
     WORK.mkdir(parents=True,exist_ok=True)
-    spec = importlib.util.spec_from_file_location('frames', HERE.parent/'acc3/skeleton.py')
+    spec = importlib.util.spec_from_file_location('frames', PROGRAMS/'acc3/skeleton.py')
     frames = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(frames)
     images, sequences = {}, {}

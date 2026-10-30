@@ -16,7 +16,8 @@ import sys
 import tempfile
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from paths import TOOLS
 BRANCH = {'26', '27', '30', '31', '34', '35', '37'}
 
 
@@ -24,7 +25,7 @@ def decode(image, base, entry, seeds):
     with tempfile.NamedTemporaryFile('w', suffix='.sym', delete=False) as f:
         f.write(''.join(f'{a:05o} C -\n' for a in sorted(seeds)))
         name = f.name
-    out = subprocess.run([str(ROOT/'disbesm6'), '-b', f'-a{base:o}', f'-e{entry:o}',
+    out = subprocess.run([str(TOOLS/'disbesm6'), '-b', f'-a{base:o}', f'-e{entry:o}',
                           '-n', name, str(image)], capture_output=True, text=True)
     Path(name).unlink()
     return out.stdout

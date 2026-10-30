@@ -12,12 +12,13 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
-sys.path.insert(0, str(HERE.parent.parent))
-from corpus import BASE, ROOT, read_words, sha
+from paths import ROOT, TOOLS, IMAGES
+sys.path.insert(0, str(TOOLS))
+from corpus import BASE, read_words, sha
 from libmatch import match_at, operand
 
-REFERENCE = HERE.parent/'images/4001/0172-mt.bin'
-VARIANT = HERE.parent/'images/4001/0104-orphan-0104.bin'
+REFERENCE = IMAGES/'4001/0172-mt.bin'
+VARIANT = IMAGES/'4001/0104-orphan-0104.bin'
 KOI7 = (''.join(chr(i) for i in range(96)) +
         'ЮАБЦДЕФГХИЙКЛМНОПЯРСТУЖВЬЫЗШЭЩЧ' + chr(127))
 

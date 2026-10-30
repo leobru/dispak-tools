@@ -15,9 +15,10 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
+import paths
 from corpus import read_words
 
-BUILD = HERE.parent/'build/acc3'
+BUILD = paths.BUILD/'acc3'
 P1D = 0o2044
 CODE = {'head': (0o2000, 0o2013, 0o2031), 'ov1': (0o4000, 0o4014, 0o17731),
         'ov2': (0o4000, 0o4014, 0o31346)}

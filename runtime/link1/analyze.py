@@ -16,14 +16,16 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
-sys.path.insert(0, str(HERE.parents[1]))
+import paths
+from paths import ROOT, TOOLS, PROGRAMS, IMAGES
+sys.path.insert(0, str(TOOLS))
 from corpus import read_words, find_volume
 from libmatch import operand, mask, match_at, DATA_MODULES
-sys.path.insert(0,str(HERE.parent/'linker-runtime'))
+sys.path.insert(0,str(paths.RUNTIME/'linker-runtime'))
 import historical_names as historical
 
 BASE, POOL, GLOBALS, RUNTIME, FREE = 0o2000, 0o16631, 0o20461, 0o21426, 0o24716
-IMAGE = HERE.parent / 'images/4001/0175-link1.bin'
+IMAGE = IMAGES / '4001/0175-link1.bin'
 F1 = ('ATX STX MOD XTS A+X A-X X-A AMX XTA AAX AEX ARX AVX AOX A/X A*X '
       'APX AUX ACX ANX E+X E-X ASX XTR RTE YTA *32 EXT E+N E-N ASN NTR '
       'ATI STI ITA ITS MTJ J+M *46 *47').split()
@@ -51,10 +53,10 @@ def ensure_images():
 
 def load_helpers():
     ensure_images()
-    ref = read_words(HERE.parent/'images/4001/0255-blink1.bin')
+    ref = read_words(IMAGES/'4001/0255-blink1.bin')
     words = read_words(IMAGE)
     result = {}
-    for line in (HERE.parent/'analysis/4001-0255-blink1.sym').read_text().splitlines():
+    for line in (paths.RUNTIME/'analysis/4001-0255-blink1.sym').read_text().splitlines():
         address, kind, name = line.split()
         start = int(address, 8)
         hits = [BASE+pos for pos in range(RUNTIME-BASE, FREE-BASE-4)
@@ -109,7 +111,7 @@ def main():
             print(f'{a:05o} {parts[0]:68} {parts[1]}' +
                   (f'  <{names[a]}>' if a in names else ''))
         return
-    spec = importlib.util.spec_from_file_location('skeleton', HERE.parent/'acc3/skeleton.py')
+    spec = importlib.util.spec_from_file_location('skeleton', PROGRAMS/'acc3/skeleton.py')
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     records = []
@@ -118,7 +120,7 @@ def main():
                             parameter_store_slots=params, frame_words=frame,
                             following_entry_distance=length,
                             parent=f'{parent:05o}' if parent else None))
-    report = dict(image='runtime/images/4001/0175-link1.bin',
+    report = dict(image=str(IMAGE.relative_to(ROOT)),
                   addresses='octal, ends exclusive; counts decimal',
                   loader_pages=words[9], loaded_words=words[9]*1024,
                   pool=f'{POOL:05o}', globals=f'{GLOBALS:05o}',

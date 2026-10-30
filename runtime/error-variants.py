@@ -13,13 +13,14 @@ from pathlib import Path
 import re
 import sys
 
-from corpus import BASE, ROOT, find_volume, pack, read_words, sha, volume_words
-sys.path.insert(0, str(ROOT))
+from paths import ROOT, TOOLS, IMAGES
+from corpus import BASE, find_volume, pack, read_words, sha, volume_words
+sys.path.insert(0, str(TOOLS))
 from libmatch import mask, operand
 
 HERE = Path(__file__).resolve().parent
 DEST = HERE/'file-access'
-REFERENCE = ROOT/'runtime/images/4001/0315-comp.bin'
+REFERENCE = IMAGES/'4001/0315-comp.bin'
 KOI7 = ''.join(chr(i) for i in range(96)) + 'ЮАБЦДЕФГХИЙКЛМНОПЯРСТУЖВЬЫЗШЭЩЧ' + chr(127)
 LOOKALIKES = str.maketrans('ABCEHKMOPTXY', 'АВСЕНКМОРТХУ')
 

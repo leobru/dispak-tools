@@ -30,18 +30,18 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[1]
 sys.path.insert(0, str(HERE.parent))
+from paths import TOOLS, COMPILER, PROGRAMS, BUILD
 from corpus import pack, read_words, sha
 import importlib.util
 import json
 
-spec = importlib.util.spec_from_file_location('compbuild', HERE.parent/'comp/build.py')
+spec = importlib.util.spec_from_file_location('compbuild', PROGRAMS/'comp/build.py')
 comp = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(comp)
 
-WORK = HERE.parent/'build/acc3/try'
-PROZ_RUNTIME = HERE.parent/'build/proz/runtime.madlen'
+WORK = BUILD/'acc3/try'
+PROZ_RUNTIME = BUILD/'proz/runtime.madlen'
 INSDIFF = Path.home()/'.claude/skills/besm6-pascal-decompile/scripts/insdiff.py'
 # Original layout of each overlay: user code range and number of zones.
 LAYOUT = {'ov1': (0o4014, 0o17731, 0o13), 'ov2': (0o4014, 0o31346, 0o16)}
@@ -133,7 +133,7 @@ def compiler():
     WORK.mkdir(parents=True, exist_ok=True)
     stamp = WORK/'compiler.json'
     built = json.loads(stamp.read_text()) if stamp.exists() else {}
-    if (built.get('source_sha256') != sha((ROOT/'mypas.b6').read_bytes())
+    if (built.get('source_sha256') != sha((COMPILER/'mypas.b6').read_bytes())
             or not (WORK/'77').exists()):
         built = comp.more.rebuild_compiler(WORK)
         stamp.write_text(json.dumps(built, indent=2) + '\n')
@@ -176,7 +176,7 @@ def main():
                     'PATH': '/usr/local/bin:/usr/bin:/bin'}, check=True,
                    stdout=subprocess.DEVNULL)
     ref = WORK/f'{part}-ref.bin'
-    words = read_words(HERE.parent/'build/acc3'/f'{part}.bin')
+    words = read_words(BUILD/'acc3'/f'{part}.bin')
     ref.write_bytes(pack([0]*1024 + words))
     diff = subprocess.run([sys.executable, str(INSDIFF), str(ref), str(image),
                            f'{lo:o}', f'{hi:o}', '--shift'],
@@ -192,7 +192,7 @@ def main():
                                 '2000', '4013', '4000', f'{pool:o}'],
                                capture_output=True, text=True, check=True).stdout
         (WORK/f'{part}.seeds').write_text(seeds)
-        listing = subprocess.run([str(ROOT/'disbesm6'), '-b', '-a2000', '-e4013',
+        listing = subprocess.run([str(TOOLS/'disbesm6'), '-b', '-a2000', '-e4013',
                                   '-n', str(WORK/f'{part}.seeds'), str(image)],
                                  capture_output=True, text=True).stdout
         (WORK/f'{part}.dis').write_text(listing)

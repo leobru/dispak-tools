@@ -24,17 +24,18 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
-from corpus import BASE, ROOT, pack, read_words, sha, find_volume, volume_words
+from paths import ROOT, COMPILER, PROGRAMS, BUILD, IMAGES, CORPUS
+from corpus import BASE, pack, read_words, sha, find_volume, volume_words
 import build
 from build import job, environment
 from libmatch import load_symbols
 
-spec = importlib.util.spec_from_file_location('boxbuild', HERE.parent/'box/build.py')
+spec = importlib.util.spec_from_file_location('boxbuild', PROGRAMS/'box/build.py')
 box = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(box)
 comp = box.comp
-ORIGINAL = HERE.parent/'images/4001/0002-monitr-pascal.bin'
-WORK = HERE.parent/'build/monitr'
+ORIGINAL = IMAGES/'4001/0002-monitr-pascal.bin'
+WORK = BUILD/'monitr'
 UNIT, ZONE, ZONES = 0o44, 0o2, 7
 FREE = 0o7432
 # Public entries of the file-access bundles that МОНИТР calls, as word
@@ -185,7 +186,7 @@ def main():
     WORK.mkdir(parents=True, exist_ok=True)
     original_disk = find_volume()
     raw, disk = volume_words(original_disk)
-    expected = json.loads((HERE.parent/'corpus.json').read_text())['volume']['sha256']
+    expected = json.loads((CORPUS).read_text())['volume']['sha256']
     if sha(raw) != expected:
         raise ValueError('volume 4001 differs from the cataloged reference')
     if pack(disk[ZONE*1024:(ZONE+ZONES)*1024]) != ORIGINAL.read_bytes():
@@ -198,7 +199,7 @@ def main():
     installed77_hash = sha(installed77.read_bytes())
     # Reuse the private-compiler build; cache only while mypas.b6 is unchanged.
     stamp = WORK/'compiler.json'
-    compiler_hash = sha((ROOT/'mypas.b6').read_bytes())
+    compiler_hash = sha((COMPILER/'mypas.b6').read_bytes())
     compiler = json.loads(stamp.read_text()) if stamp.exists() else {}
     if compiler.get('source_sha256') != compiler_hash or not (WORK/'77').exists():
         compiler = comp.more.rebuild_compiler(WORK)
@@ -274,7 +275,7 @@ def main():
     if not args.explore and (report['unexplained_differences'] or
                              not report['free_matches']):
         raise ValueError('image differs beyond the residues; see '
-                         'runtime/build/monitr/reconstruction.json')
+                         f'{(WORK/"reconstruction.json").relative_to(ROOT)}')
     if not args.explore:
         (HERE/'reconstruction.json').write_text(json.dumps(report, indent=2,
                                                            ensure_ascii=False)+'\n')

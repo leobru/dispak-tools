@@ -12,8 +12,9 @@ import json
 from pathlib import Path
 import sys
 
-from corpus import BASE, ROOT, read_words, pack, sha
-sys.path.insert(0, str(ROOT))
+from paths import ROOT, TOOLS, RUNTIME
+from corpus import BASE, read_words, pack, sha
+sys.path.insert(0, str(TOOLS))
 from libmatch import operand
 
 SHORT = ['ATX','STX','MOD','XTS','A+X','A-X','X-A','AMX',
@@ -227,7 +228,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('profile',nargs='?',default='monitor')
     args=parser.parse_args()
-    generate(args.profile,Path(__file__).resolve().parent)
+    generate(args.profile,RUNTIME)
 
 
 if __name__=='__main__':

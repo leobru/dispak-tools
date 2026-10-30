@@ -14,10 +14,13 @@ from pathlib import Path
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path[:0] = [str(HERE.parent), str(HERE.parents[1])]
+sys.path.insert(0, str(HERE.parent))
+import paths
+from paths import ROOT, TOOLS, PROGRAMS, IMAGES
+sys.path.insert(1, str(TOOLS))
 from corpus import read_words
 from libmatch import operand
-sys.path.insert(0,str(HERE.parent/'linker-runtime'))
+sys.path.insert(0,str(paths.RUNTIME/'linker-runtime'))
 import historical_names as historical
 
 
@@ -28,10 +31,10 @@ def load_module(name, path):
     return module
 
 
-LINK = load_module('blink1_link_reference', HERE.parent/'link1/build.py')
-SK = load_module('blink1_frames', HERE.parent/'acc3/skeleton.py')
+LINK = load_module('blink1_link_reference', PROGRAMS/'link1/build.py')
+SK = load_module('blink1_frames', PROGRAMS/'acc3/skeleton.py')
 BASE, POOL, GLOBALS, RUNTIME, FREE = 0o2000, 0o16704, 0o20540, 0o21505, 0o24736
-IMAGE = HERE.parent/'images/4001/0255-blink1.bin'
+IMAGE = IMAGES/'4001/0255-blink1.bin'
 F1, F2 = LINK.analyze.F1, LINK.analyze.F2
 ensure_images = LINK.analyze.ensure_images
 
@@ -120,7 +123,7 @@ def load_helpers():
     data = profile()
     result = {int(address, 8):name for address, _, name in
               (line.split() for line in
-               (HERE.parent/'analysis/4001-0255-blink1.sym').read_text().splitlines())}
+               (paths.RUNTIME/'analysis/4001-0255-blink1.sym').read_text().splitlines())}
     for address, name in LINK.analyze.load_helpers().items():
         if address in data['relocations']:
             result[data['relocations'][address]] = name
@@ -151,8 +154,8 @@ def main():
                 halves.append(f'{reg:02o},{mnemonic},{value:05o}'+note)
             print(f'{address:05o} {halves[0]:72} {halves[1]}')
         return
-    inventory = dict(image=str(IMAGE.relative_to(HERE.parent)),
-                     basis='runtime/link1/link1.pas', pool=f'{POOL:05o}',
+    inventory = dict(image=str(IMAGE.relative_to(paths.RUNTIME)),
+                     basis=str((PROGRAMS/'link1/link1.pas').relative_to(ROOT)), pool=f'{POOL:05o}',
                      globals=f'{GLOBALS:05o}', runtime=f'{RUNTIME:05o}',
                      free=f'{FREE:05o}', code_words=POOL-0o2012,
                      entries=[dict(name=historical.routine(n), address=f'{a:05o}') for n, a in data['entries']],

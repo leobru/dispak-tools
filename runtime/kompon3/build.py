@@ -17,10 +17,12 @@ import subprocess
 import sys
 
 HERE=Path(__file__).resolve().parent
-WORK=HERE.parent/'build/kompon3'
 sys.path.insert(0,str(HERE))
 from analyze import module, scopes, CMP
-sys.path[:0]=[str(HERE.parent),str(HERE.parents[1])]
+sys.path.insert(0,str(HERE.parent))
+from paths import TOOLS, COMPILER, PROGRAMS, BUILD
+sys.path.insert(1,str(TOOLS))
+WORK=BUILD/'kompon3'
 from corpus import read_words
 from libmatch import load_symbols, operand
 
@@ -36,7 +38,7 @@ def main():
     args=parser.parse_args()
     WORK.mkdir(parents=True,exist_ok=True)
     name='reference' if args.reference else 'candidate'
-    compiler_source=(args.compiler_source or HERE.parents[1]/'mypas.b6').resolve()
+    compiler_source=(args.compiler_source or COMPILER/'mypas.b6').resolve()
     provenance=dict(compiler_source=str(compiler_source),
                     compiler_patches=['inline_trunc','input_before_output'])
     state=WORK/(name+'-build.json')
@@ -44,7 +46,7 @@ def main():
                                     **provenance))+'\n')
     (WORK/(name+'.img')).unlink(missing_ok=True)
     (WORK/(name+'-pmd.json')).unlink(missing_ok=True)
-    shared=module('kompon_shared_builder',HERE.parent/'link1/build.py')
+    shared=module('kompon_shared_builder',PROGRAMS/'link1/build.py')
     shared.WORK=WORK
     env=os.environ.copy()
     env['BESM6_PATH']=str(WORK.resolve())+':'+env.get('BESM6_PATH',
@@ -54,7 +56,7 @@ def main():
     shared.COMPILER_SOURCE=shared.prepare_compiler(compiler_source)
     shared.compiler(env)
     if args.reference:
-        source=(HERE.parent/'link/link.pas').read_text().replace('p-,','p+,',1)
+        source=(PROGRAMS/'link/link.pas').read_text().replace('p-,','p+,',1)
         name='reference'
     else:
         source=args.source.read_text();name='candidate'

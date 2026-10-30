@@ -14,7 +14,10 @@ from pathlib import Path
 import re
 import sys
 
-BUILD = Path(__file__).resolve().parent.parent/'build/acc3'
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import paths
+
+BUILD = paths.BUILD/'acc3'
 RUNTIME = {'ov1': 0o22557, 'ov2': 0o33027}
 POOL = {'ov1': '17731', 'ov2': '31346'}
 INSN = re.compile(r'^(?: ?([0-7]{4,5})[: ]| {6})([0-7]{2}) ([0-7]{2,3}) ([0-7]{4,5}) \t')

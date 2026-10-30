@@ -14,9 +14,10 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
+from paths import BUILD, IMAGES
 from corpus import pack, read_words
 
-ORIGINAL = HERE.parent/'images/4001/0132-acc3.bin'
+ORIGINAL = IMAGES/'4001/0132-acc3.bin'
 ZONE = 0o132
 # name, first zone (relative), zones, load address
 PARTS = [('head', 0, 1, 0o2000), ('ov1', 0o4, 0o13, 0o4000), ('ov2', 0o20, 0o16, 0o4000)]
@@ -29,7 +30,7 @@ def split(words):
 
 def main():
     image = Path(sys.argv[1]) if len(sys.argv) > 1 else ORIGINAL
-    out = Path(sys.argv[2]) if len(sys.argv) > 2 else HERE.parent/'build/acc3'
+    out = Path(sys.argv[2]) if len(sys.argv) > 2 else BUILD/'acc3'
     out.mkdir(parents=True, exist_ok=True)
     words = read_words(image)
     for name, z, n, base in PARTS:

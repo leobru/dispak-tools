@@ -16,21 +16,22 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
-from corpus import BASE, ROOT, pack, read_words, sha, find_volume, volume_words
+from paths import ROOT, COMPILER, PROGRAMS, BUILD, IMAGES, CORPUS
+from corpus import BASE, pack, read_words, sha, find_volume, volume_words
 import build
 from build import job, environment
 from libmatch import load_symbols, operand
 
-spec = importlib.util.spec_from_file_location('compbuild', HERE.parent/'comp/build.py')
+spec = importlib.util.spec_from_file_location('compbuild', PROGRAMS/'comp/build.py')
 comp = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(comp)
-ORIGINAL = HERE.parent/'images/4001/0172-mt.bin'
-WORK = HERE.parent/'build/mt'
+ORIGINAL = IMAGES/'4001/0172-mt.bin'
+WORK = BUILD/'mt'
 SERVICES = ['lib.madlen', 'tapeio.madlen', 'dbpasc.madlen', 'dbcore.madlen']
 
 
 def library_sources():
-    spec = importlib.util.spec_from_file_location('mtdbuild', HERE.parent/'mtd/build.py')
+    spec = importlib.util.spec_from_file_location('mtdbuild', PROGRAMS/'mtd/build.py')
     mtd = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mtd)
     text = mtd.library_sources()
@@ -49,7 +50,7 @@ def library_sources():
 
 def references(volume, disk):
     """Extract missing reference binaries with besmtool; never rewrite one."""
-    manifest = json.loads((HERE.parent/'corpus.json').read_text())
+    manifest = json.loads((CORPUS).read_text())
     env = os.environ.copy()
     env['BESM6_PATH'] = str(volume.parent)
     for stem, zone, count in [('0172-mt', 0o172, 3),
@@ -149,7 +150,7 @@ def main():
     WORK.mkdir(parents=True,exist_ok=True)
     original_disk = find_volume()
     raw, disk = volume_words(original_disk)
-    expected = json.loads((HERE.parent/'corpus.json').read_text())['volume']['sha256']
+    expected = json.loads((CORPUS).read_text())['volume']['sha256']
     if sha(raw) != expected:
         raise ValueError('volume 4001 differs from the cataloged reference')
     references(original_disk, disk)
@@ -160,7 +161,7 @@ def main():
     installed77_hash = sha(installed77.read_bytes())
     # Reuse the private-compiler build; cache only while mypas.b6 is unchanged.
     stamp = WORK/'compiler.json'
-    compiler_hash = sha((ROOT/'mypas.b6').read_bytes())
+    compiler_hash = sha((COMPILER/'mypas.b6').read_bytes())
     compiler = json.loads(stamp.read_text()) if stamp.exists() else {}
     if compiler.get('source_sha256') != compiler_hash or not (WORK/'77').exists():
         compiler = comp.more.rebuild_compiler(WORK)
@@ -208,7 +209,7 @@ def main():
                   build_source_sha256={str(p.relative_to(ROOT)):sha(p.read_bytes()) for p in
                       [HERE/'build.py', *(HERE/name for name in SERVICES), HERE/'mt.sym',
                        HERE/'variants.py',
-                       HERE/'mt-readable.pas', HERE.parent/'mtd/build.py', comp.HERE/'build.py',
+                       HERE/'mt-readable.pas', PROGRAMS/'mtd/build.py', comp.HERE/'build.py',
                        comp.more.HERE/'build.py']},
                   library_source_sha256=sha(sources.encode()),
                   image=str(image.relative_to(ROOT)),

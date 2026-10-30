@@ -11,6 +11,7 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
+from paths import BUILD
 from corpus import read_words
 
 BASE = {'head': 0o2000, 'ov1': 0o4000, 'ov2': 0o4000}
@@ -18,7 +19,7 @@ BASE = {'head': 0o2000, 'ov1': 0o4000, 'ov2': 0o4000}
 
 def main():
     part = sys.argv[1]
-    words = read_words(HERE.parent/'build/acc3'/f'{part}.bin')
+    words = read_words(BUILD/'acc3'/f'{part}.bin')
     for spec in sys.argv[2:]:
         addr, n = spec.split(':')
         addr, n = int(addr, 8), int(n)

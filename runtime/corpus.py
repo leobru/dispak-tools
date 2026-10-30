@@ -16,7 +16,7 @@ from pathlib import Path
 import struct
 import subprocess
 
-ROOT = Path(__file__).resolve().parent.parent
+from paths import ROOT, RUNTIME
 BASE = 0o2000
 ZONE_WORDS = 1024
 PHYSICAL_ZONE_BYTES = 1032 * 8
@@ -237,7 +237,7 @@ def extract(volume, output):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--volume', type=Path)
-    parser.add_argument('--output', type=Path, default=ROOT / 'runtime')
+    parser.add_argument('--output', type=Path, default=RUNTIME)
     args = parser.parse_args()
     extract(args.volume or find_volume(), args.output.resolve())
 

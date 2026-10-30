@@ -12,8 +12,9 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[1]
-WORK = HERE.parent/'build/link1'
+sys.path.insert(0, str(HERE.parent))
+from paths import ROOT, BUILD
+WORK = BUILD/'link1'
 LOOP = re.compile(r'(\s*)(?:(\(q\)|\(\*q\*\))\s*)?(?:for|while)\b')
 
 

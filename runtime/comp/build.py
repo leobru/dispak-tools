@@ -32,17 +32,18 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
+from paths import ROOT, COMPILER, PROGRAMS, BUILD, IMAGES
 import build
 from build import job, environment
-from corpus import BASE, ROOT, read_words, sha
+from corpus import BASE, read_words, sha
 from recover import LONG, SHORT
 from libmatch import load_symbols, operand
 
-spec = importlib.util.spec_from_file_location('morebuild', HERE.parent/'more/build.py')
+spec = importlib.util.spec_from_file_location('morebuild', PROGRAMS/'more/build.py')
 more = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(more)
 
-ORIGINAL = HERE.parent/'images/4001/0315-comp.bin'
+ORIGINAL = IMAGES/'4001/0315-comp.bin'
 ZONES = 8
 LIBPAS = ['p_mi.madlen', 'p_wc.madlen', 'p_a6.madlen', 'p_star.madlen']
 # Modules taken from the image. E6365B and E6602B are the zero commons in
@@ -243,7 +244,7 @@ def compare(image, listing):
 
 
 def main():
-    work = HERE.parent/'build/comp'
+    work = BUILD/'comp'
     work.mkdir(parents=True, exist_ok=True)
     build.HEADER = HEADER
     compiler = more.rebuild_compiler(work)
@@ -271,8 +272,8 @@ def main():
     report = dict(image=str(image.relative_to(ROOT)), image_sha256=sha(image.read_bytes()),
                   original=str(ORIGINAL.relative_to(ROOT)),
                   original_sha256=sha(ORIGINAL.read_bytes()),
-                  source_sha256={p: sha((ROOT/p).read_bytes())
-                                 for p in ('comp.pas', 'mypas.b6', 'runtime/comp/build.py')},
+                  source_sha256={str(p.relative_to(ROOT)): sha(p.read_bytes())
+                                 for p in (ROOT/'comp.pas', COMPILER/'mypas.b6', HERE/'build.py')},
                   compared=['02000', f'{BASE+ZONES*1024-1:05o}'],
                   identical_words=ZONES*1024-len(residues), residues=residues,
                   compiler=compiler)

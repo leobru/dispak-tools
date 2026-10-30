@@ -6,9 +6,12 @@ the field is the complement: printed as 'field' bit ranges (1 = LSB).
 """
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from paths import BUILD
 POOL = {'ov1': 0o17731, 'ov2': 0o31346}
 part = sys.argv[1]
-d = (Path(__file__).parent.parent/'build/acc3'/(part + '.bin')).read_bytes()
+d = (BUILD/'acc3'/(part + '.bin')).read_bytes()
 def ranges(v):
     out, i = [], 1
     while i <= 48:

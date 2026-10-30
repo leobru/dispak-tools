@@ -19,9 +19,9 @@ import shutil
 import subprocess
 import sys
 
-HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent
-WORK = HERE/'build/fixpoint'
+from paths import ROOT, TOOLS, COMPILER, BUILD
+
+WORK = BUILD/'fixpoint'
 INSTALLED = Path.home()/'.besm6/77'
 
 
@@ -52,12 +52,12 @@ def build_tests(compiler_dir, out_dir):
     out_dir.mkdir(parents=True, exist_ok=True)
     path = f'{compiler_dir}:{Path.home()}/.besm6:/usr/local/share/besm6'
     images = {}
-    for src in sorted((ROOT/'tests').glob('*.pas')) + [ROOT/'test.pas']:
+    for src in sorted((COMPILER/'tests').glob('*.pas')) + [ROOT/'test.pas']:
         shutil.copyfile(src, out_dir/src.name)
         pre = src.with_suffix('.pre')
         if pre.exists():
             shutil.copyfile(pre, out_dir/pre.name)
-        subprocess.run([str(ROOT/'buildimg.sh'), src.name], cwd=out_dir,
+        subprocess.run([str(TOOLS/'buildimg.sh'), src.name], cwd=out_dir,
                        env=dict(os.environ, BESM6_PATH=path),
                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         img = out_dir/(src.stem + '.img')
@@ -68,9 +68,9 @@ def build_tests(compiler_dir, out_dir):
 def main():
     base_rev = sys.argv[1] if len(sys.argv) > 1 else 'HEAD'
     before = INSTALLED.read_bytes()
-    base_text = subprocess.run(['git', 'show', f'{base_rev}:mypas.b6'], cwd=ROOT,
+    base_text = subprocess.run(['git', 'show', f'{base_rev}:{(COMPILER/"mypas.b6").relative_to(ROOT)}'], cwd=ROOT,
                                capture_output=True, text=True, check=True).stdout
-    new_text = (ROOT/'mypas.b6').read_text()
+    new_text = (COMPILER/'mypas.b6').read_text()
     compile_compiler(base_text, INSTALLED.parent, WORK/'base0')
     compile_compiler(base_text, WORK/'base0', WORK/'base')
     previous = WORK/'base'

@@ -12,18 +12,18 @@ import json
 from pathlib import Path
 import sys
 
-from corpus import BASE, ROOT, pack, read_words, sha
-sys.path.insert(0, str(ROOT))
+from paths import ROOT, TOOLS, RUNTIME, CORPUS
+from corpus import BASE, pack, read_words, sha
+sys.path.insert(0, str(TOOLS))
 from libmatch import match_at, operand
 
-DIRECTORY = Path(__file__).resolve().parent
 
 
 def main():
-    profiles = json.loads((DIRECTORY/'profiles.json').read_text())
-    corpus = json.loads((DIRECTORY/'corpus.json').read_text())
+    profiles = json.loads((RUNTIME/'profiles.json').read_text())
+    corpus = json.loads(CORPUS.read_text())
     record = next(r for r in corpus['images'] if r['id']=='4001-0315-comp')
-    words = read_words(DIRECTORY/record['path'])
+    words = read_words(RUNTIME/record['path'])
     if sha(pack(words)) != record['sha256']:
         raise ValueError('COMP extract differs from corpus manifest')
     source = (ROOT/'compar.b6').read_text()
@@ -94,7 +94,7 @@ def main():
     external_records = [dict(name=name,address=f'{address:05o}',
                              source_line=line(fragment),role=role,calls=calls[address])
                         for name,address,fragment,role in externals]
-    api_sources = DIRECTORY/'sources/4001'
+    api_sources = RUNTIME/'sources/4001'
     include = (api_sources/'dbf.inc.b6').read_text()
     copy = (api_sources/'copy.b6').read_text()
     api = {
@@ -160,8 +160,8 @@ def main():
                 monin_table=dict(reference=['03264','03314'],comp=['10556','10616'],
                                  shared_prefix_words=24,additional_words=8),
                 common_constant_changes=common_changes)
-    (DIRECTORY/'compar-evidence.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
-    symbols={tuple(s.split()) for s in (DIRECTORY/'analysis/4001-0315-comp.sym').read_text().splitlines()}
+    (RUNTIME/'compar-evidence.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+    symbols={tuple(s.split()) for s in (RUNTIME/'analysis/4001-0315-comp.sym').read_text().splitlines()}
     for record in helper_records:
         symbols.add((record['start'],'C',record['name']))
     for record in external_records:
@@ -170,7 +170,7 @@ def main():
             symbols.add((record['address'],'C',record['api']['name']))
     symbols.update([('06332','D','*TTIO*'),('06754','C','P/WO'),
                     ('10455','C','MONOUT'),('10547','C','MONIN')])
-    (DIRECTORY/'compar.sym').write_text(''.join(' '.join(s)+'\n' for s in sorted(symbols)))
+    (RUNTIME/'compar.sym').write_text(''.join(' '.join(s)+'\n' for s in sorted(symbols)))
     print('Recorded six helper anchors, seven external entries, TTIO stores and converter variants.')
 
 

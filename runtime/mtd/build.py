@@ -16,16 +16,17 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
-from corpus import BASE, ROOT, pack, read_words, sha, find_volume, volume_words
+from paths import ROOT, COMPILER, PROGRAMS, BUILD, IMAGES, CORPUS
+from corpus import BASE, pack, read_words, sha, find_volume, volume_words
 import build
 from build import job, environment
 from libmatch import load_symbols, operand
 
-spec = importlib.util.spec_from_file_location('compbuild', HERE.parent/'comp/build.py')
+spec = importlib.util.spec_from_file_location('compbuild', PROGRAMS/'comp/build.py')
 comp = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(comp)
-ORIGINAL = HERE.parent/'images/4001/0047-mtd.bin'
-WORK = HERE.parent/'build/mtd'
+ORIGINAL = IMAGES/'4001/0047-mtd.bin'
+WORK = BUILD/'mtd'
 
 
 def library_sources():
@@ -56,7 +57,7 @@ def library_sources():
 
 def references(volume, disk):
     """Extract missing reference binaries with besmtool; never rewrite one."""
-    manifest = json.loads((HERE.parent/'corpus.json').read_text())
+    manifest = json.loads((CORPUS).read_text())
     env = os.environ.copy()
     env['BESM6_PATH'] = str(volume.parent)
     for stem, zone, count in [('0047-mtd', 0o47, 2),
@@ -153,7 +154,7 @@ def main():
     WORK.mkdir(parents=True,exist_ok=True)
     original_disk = find_volume()
     raw, disk = volume_words(original_disk)
-    expected = json.loads((HERE.parent/'corpus.json').read_text())['volume']['sha256']
+    expected = json.loads((CORPUS).read_text())['volume']['sha256']
     if sha(raw) != expected:
         raise ValueError('volume 4001 differs from the cataloged reference')
     references(original_disk, disk)
@@ -164,7 +165,7 @@ def main():
     installed77_hash = sha(installed77.read_bytes())
     # Reuse the private-compiler build; cache only while mypas.b6 is unchanged.
     stamp = WORK/'compiler.json'
-    compiler_hash = sha((ROOT/'mypas.b6').read_bytes())
+    compiler_hash = sha((COMPILER/'mypas.b6').read_bytes())
     compiler = json.loads(stamp.read_text()) if stamp.exists() else {}
     if compiler.get('source_sha256') != compiler_hash or not (WORK/'77').exists():
         compiler = comp.more.rebuild_compiler(WORK)

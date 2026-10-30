@@ -12,8 +12,9 @@ import sys
 import tempfile
 import unittest
 
-from corpus import BASE, ROOT, catalog, find_volume, pack, sha, volume_words
-sys.path.insert(0,str(ROOT))
+from paths import ROOT, TOOLS, RUNTIME, BUILD
+from corpus import BASE, catalog, find_volume, pack, sha, volume_words
+sys.path.insert(0,str(TOOLS))
 import libmatch
 
 
@@ -27,7 +28,7 @@ class Regressions(unittest.TestCase):
                              for e in entries))
 
     def test_extract_provenance(self):
-        directory=Path(__file__).resolve().parent
+        directory=RUNTIME
         corpus=json.loads((directory/'corpus.json').read_text())
         _,words=volume_words(find_volume())
         self.assertEqual(len(corpus['images']),26)
@@ -81,10 +82,10 @@ class Regressions(unittest.TestCase):
 
 
 def disk_paths():
-    from build import environment,DIRECTORY
+    from build import environment
     paths=[find_volume()]+list(ROOT.glob('*.bin'))
     for volume in ('77','2113','2148','2048'):
-        for directory in environment(DIRECTORY/'build')['BESM6_PATH'].split(':'):
+        for directory in environment(BUILD)['BESM6_PATH'].split(':'):
             path=Path(directory)/volume
             if path.is_file():
                 paths.append(path)
@@ -94,7 +95,7 @@ def disk_paths():
 
 def check():
     import build
-    directory=Path(__file__).resolve().parent
+    directory=RUNTIME
     unit=unittest.TextTestRunner(verbosity=2).run(
         unittest.defaultTestLoader.loadTestsFromTestCase(Regressions))
     if not unit.wasSuccessful():

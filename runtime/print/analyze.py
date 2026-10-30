@@ -10,10 +10,11 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from paths import ROOT, IMAGES
 from corpus import GOST, pack, read_words
 
 HERE = Path(__file__).resolve().parent
-IMAGE = HERE.parent / 'images/4001/0051-print.bin'
+IMAGE = IMAGES / '4001/0051-print.bin'
 
 
 def main():
@@ -64,7 +65,7 @@ def main():
                 })
 
     report = {
-        'image': 'runtime/images/4001/0051-print.bin',
+        'image': str(IMAGE.relative_to(ROOT)),
         'method': 'static decoding; no emulator execution',
         'usage': data(0o2737, 0o2753)[:68].decode('koi8-r'),
         'application_code': {'start': '02012', 'end_inclusive': '02714',

@@ -12,6 +12,8 @@ import re
 import sys
 
 HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE.parent))
+from paths import PROGRAMS
 NAMES = json.loads((HERE/'historical-names.json').read_text())
 ROUTINES = NAMES['routines']
 CANONICAL = {v:k for k,v in ROUTINES.items()}
@@ -49,7 +51,7 @@ def declarations(node):
 
 
 def mirror(source):
-    sys.path.insert(0,str(HERE.parent/'kompon3'))
+    sys.path.insert(0,str(PROGRAMS/'kompon3'))
     from restore import parse, cards
     root,nodes,tokens = parse(source)
     previous = {t.start():tokens[i-1][0] if i else ''
@@ -103,7 +105,7 @@ def main():
     parser.add_argument('--apply',action='store_true')
     args = parser.parse_args()
     for name in ['link1','blink1','link','blink']:
-        path = HERE.parent/name/(name+'.pas')
+        path = PROGRAMS/name/(name+'.pas')
         before = path.read_text()
         after,count = mirror(before)
         if args.apply:

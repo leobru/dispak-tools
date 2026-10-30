@@ -16,6 +16,7 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
+from paths import BUILD
 from corpus import read_words
 
 BASE = 0o2000
@@ -52,7 +53,7 @@ def literal(word, form):
 
 
 def main():
-    words = read_words(HERE.parent/'build/acc3/head.bin')
+    words = read_words(BUILD/'acc3/head.bin')
     for name, addr, n, form in DATA:
         items = []
         values = [words[addr - BASE + k] for k in range(n)]

@@ -13,8 +13,9 @@ from pathlib import Path
 import subprocess
 import sys
 
-from corpus import BASE, ROOT, decode_text, read_words, sha, pack
-sys.path.insert(0, str(ROOT))
+from paths import ROOT, TOOLS, RUNTIME
+from corpus import BASE, decode_text, read_words, sha, pack
+sys.path.insert(0, str(TOOLS))
 import libmatch
 
 
@@ -187,8 +188,8 @@ def report(directory, corpus, records, profiles):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--directory', type=Path, default=ROOT / 'runtime')
-    parser.add_argument('--disassembler', type=Path, default=ROOT / 'disbesm6')
+    parser.add_argument('--directory', type=Path, default=RUNTIME)
+    parser.add_argument('--disassembler', type=Path, default=TOOLS / 'disbesm6')
     args = parser.parse_args()
     analyze(args.directory.resolve(), args.disassembler.resolve())
 

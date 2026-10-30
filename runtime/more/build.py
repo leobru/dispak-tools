@@ -15,8 +15,9 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
+from paths import ROOT, COMPILER, RUNTIME, BUILD, IMAGES, CORPUS
 from build import BOOT, dump, environment, expected_word, job
-from corpus import BASE, ROOT, find_volume, pack, read_words, sha, volume_words
+from corpus import BASE, find_volume, pack, read_words, sha, volume_words
 from recover import LONG, SHORT
 from libmatch import load_symbols, operand
 
@@ -29,7 +30,7 @@ HELPERS = [
 def extra_helpers():
     lines = []
     for name, image, start, end, externals in HELPERS:
-        words = read_words(HERE.parent/'images/4001'/f'{image}.bin')
+        words = read_words(IMAGES/'4001'/f'{image}.bin')
         lines += [f' {name}:,NAME,']+[f' {v}:,SUBP,' for v in externals.values()]
         for address in range(start, end):
             for shift in (24, 0):
@@ -51,7 +52,7 @@ def extra_helpers():
 
 
 def runtime_sources():
-    directory = HERE.parent/'profiles/monitor'
+    directory = RUNTIME/'profiles/monitor'
     meta = json.loads((directory/'relocations.json').read_text())
     sources = []
     for name in meta['sources']+meta['helper_sources']:
@@ -69,7 +70,7 @@ def runtime_sources():
             source = source.replace('0401053141407416', '0401053141407417')
             source = source.replace('0705613303607417', '0705613303607416')
         elif name == 'monin.madlen':
-            comp = read_words(HERE.parent/'images/4001/0315-comp.bin')
+            comp = read_words(IMAGES/'4001/0315-comp.bin')
             extension = ''.join(f' ,LOG,{w:016o}\n' for w in comp[0o10606-BASE:0o10616-BASE])
             source = source.replace(' R03314:', extension+' R03314:')
         elif name == 'p_1.madlen':
@@ -80,7 +81,7 @@ def runtime_sources():
             lines[first+0o46] = ' ,LOG,0000000000100000'
             source = '\n'.join(lines)+'\n'
         sources.append(source)
-    files = HERE.parent/'file-access'
+    files = RUNTIME/'file-access'
     api = json.loads((files/'relocations.json').read_text())
     sources += [(files/module['source']).read_text() for module in api['modules']]
     return ''.join(sources)+extra_helpers()
@@ -111,7 +112,7 @@ def compare_link(image, listing):
         raise ValueError('unexpected ASSEMBLER calls in MORE')
     helper_words = 0
     for name, reference, start, end, externals in HELPERS:
-        source = read_words(HERE.parent/'images/4001'/f'{reference}.bin')
+        source = read_words(IMAGES/'4001'/f'{reference}.bin')
         for address in range(start, end):
             expected = source[address-BASE]
             for shift in (24, 0):
@@ -127,8 +128,8 @@ def compare_link(image, listing):
             if actual[symbols[name]+address-start-BASE] != expected:
                 raise ValueError(f'{name}: different helper word {address:05o}')
             helper_words += 1
-    comp = read_words(HERE.parent/'images/4001/0315-comp.bin')
-    api = json.loads((HERE.parent/'file-access/relocations.json').read_text())
+    comp = read_words(IMAGES/'4001/0315-comp.bin')
+    api = json.loads((RUNTIME/'file-access/relocations.json').read_text())
     count = 0
     for module in api['modules']:
         fields = {}
@@ -154,7 +155,7 @@ def compare_link(image, listing):
             if symbols[name] != symbols[module['name']]+int(entry, 8)-int(module['start'], 8):
                 raise ValueError('external entry mismatch: '+name)
     # Check the Monitor chunks, accounting for MORE's loader descriptor slot.
-    meta = json.loads((HERE.parent/'profiles/monitor/relocations.json').read_text())
+    meta = json.loads((RUNTIME/'profiles/monitor/relocations.json').read_text())
     monitor = read_words(ROOT/meta['source'])
     monitor_words = 0
     for chunk in meta['chunks']:
@@ -178,7 +179,7 @@ def compare_link(image, listing):
                     expected = (expected & ~(0o77777 << shift)) | ((symbols[name]+target-lo) << shift)
             if actual[symbols[name]+address-lo-BASE] != expected:
                 raise ValueError(f'{name}: different COMP converter word {address:05o}')
-    original = read_words(HERE.parent/'images/4001/0034-more.bin')
+    original = read_words(IMAGES/'4001/0034-more.bin')
     # Both images reserve the same 0117-word global area before the TEXT files.
     original_globals = original[0o2701-BASE:0o3020-BASE]
     rebuilt_globals = actual[symbols['P/1D']-BASE:symbols['P/1D']-BASE+len(original_globals)]
@@ -202,7 +203,7 @@ def restored_volume(work, image):
     if source.resolve() == target.resolve():
         raise ValueError('source volume must be distinct from the private restored copy')
     raw, original_words = volume_words(source)
-    expected_sha = json.loads((HERE.parent/'corpus.json').read_text())['volume']['sha256']
+    expected_sha = json.loads((CORPUS).read_text())['volume']['sha256']
     if sha(raw) != expected_sha:
         raise ValueError('source volume differs from the cataloged 4001')
     data = image.read_bytes()
@@ -240,7 +241,7 @@ def compare_pascal(image, listing):
         address = int(address, 8)
         if 0o3114 <= address < 0o74000:
             names[address] = aliases.get(name, name)
-    original = read_words(HERE.parent/'images/4001/0034-more.bin')
+    original = read_words(IMAGES/'4001/0034-more.bin')
     actual = read_words(image)
     if (symbols['PROGRAM'], symbols['P/1D'], symbols['*INPUT*'], symbols['*OUTPUT*']) != (
             0o2012, 0o2701, 0o3020, 0o3056):
@@ -274,14 +275,14 @@ def compare_pascal(image, listing):
                 code_identical_after_runtime_relocation=True,
                 pool_pmd_bit_identical=True, initial_data_bit_identical=True,
                 mismatches_after_runtime_relocation=0, runtime_fixups=fixups,
-                saved_readable_source='runtime/more/more-readable.pas',
+                saved_readable_source=str((HERE/'more-readable.pas').relative_to(ROOT)),
                 saved_readable_sha256=sha((HERE/'more-readable.pas').read_bytes()))
 
 
 def intactness():
-    path = HERE.parent/'images/4001/0034-more.bin'
+    path = IMAGES/'4001/0034-more.bin'
     words = read_words(path)
-    manifest = json.loads((HERE.parent/'corpus.json').read_text())
+    manifest = json.loads((CORPUS).read_text())
     entry = next(e for e in manifest['images'] if e['id'] == '4001-0034-more')
     if sha(path.read_bytes()) != entry['sha256']:
         raise ValueError('original MORE extract differs from the corpus')
@@ -314,7 +315,7 @@ def rebuild_compiler(work, compiler_source=None):
     raw = source.read_bytes()
     target.write_bytes(raw)
     if compiler_source is None:
-        compiler_source = (ROOT/'mypas.b6').read_text()
+        compiler_source = (COMPILER/'mypas.b6').read_text()
     prefix, marker, _ = compiler_source.partition('*end record\n')
     if not marker:
         raise ValueError('compiler deck has no overlay record terminator')
@@ -334,7 +335,7 @@ def rebuild_compiler(work, compiler_source=None):
         raise ValueError('compiler rebuild failed; see '+str(listing))
     if source.read_bytes() != raw:
         raise ValueError('installed compiler volume changed')
-    return dict(source='mypas.b6', source_sha256=sha(compiler_source.encode()),
+    return dict(source=str((COMPILER/'mypas.b6').relative_to(ROOT)), source_sha256=sha(compiler_source.encode()),
                 volume=str(target.relative_to(ROOT)),
                 installed_volume_sha256=sha(raw), installed_volume_unchanged=True,
                 translator_zone='0000', assembler_last_argument='accumulator',
@@ -361,7 +362,7 @@ def pascal_cards(source):
 
 
 def main():
-    work = HERE.parent/'build/more'
+    work = BUILD/'more'
     original_evidence = intactness()
     sources = runtime_sources()
     work.mkdir(parents=True, exist_ok=True)
@@ -388,7 +389,7 @@ def main():
     words = read_words(image)
     if symbols['PROGRAM'] != 0o2012:
         raise ValueError('unexpected application placement')
-    original = read_words(HERE.parent/'images/4001/0034-more.bin')
+    original = read_words(IMAGES/'4001/0034-more.bin')
     words[:0o12] = original[:0o12]
     words[0o10] = (words[0o10] & ~0o77777) | symbols['FREE']
     image.write_bytes(pack(words))

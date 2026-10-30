@@ -9,7 +9,8 @@ the recovered programs' call sites, and inspection of the routines themselves.
 
 import json
 from pathlib import Path
-from corpus import BASE,ROOT,read_words
+from paths import ROOT,RUNTIME
+from corpus import BASE,read_words
 
 
 def pairs(text):
@@ -46,7 +47,7 @@ def profile(image,tag,ranges,code,m1,output,exports,extra_common=None):
 
 
 def main():
-    path=Path(__file__).resolve().parent/'profiles.json'
+    path=RUNTIME/'profiles.json'
     profiles=json.loads(path.read_text())
     profiles['svs']=profile('тестац.bin','TS',
         '03710-03745 03745-04067 04067-04233 04245-04354',
