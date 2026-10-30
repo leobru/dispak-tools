@@ -69,7 +69,11 @@ def main():
     base_rev = sys.argv[1] if len(sys.argv) > 1 else 'HEAD'
     before = INSTALLED.read_bytes()
     base_text = subprocess.run(['git', 'show', f'{base_rev}:{(COMPILER/"mypas.b6").relative_to(ROOT)}'], cwd=ROOT,
-                               capture_output=True, text=True, check=True).stdout
+                               capture_output=True, text=True).stdout
+    if not base_text:
+        # Revisions before the move kept the compiler at the root.
+        base_text = subprocess.run(['git', 'show', f'{base_rev}:mypas.b6'], cwd=ROOT,
+                                   capture_output=True, text=True, check=True).stdout
     new_text = (COMPILER/'mypas.b6').read_text()
     compile_compiler(base_text, INSTALLED.parent, WORK/'base0')
     compile_compiler(base_text, WORK/'base0', WORK/'base')

@@ -91,7 +91,7 @@ def replacements():
     if COMPILER != ROOT:
         places.append((str(COMPILER.relative_to(ROOT)) + '/', ''))
     return [(str(ROOT) + '/', '<ROOT>/'), (str(ROOT), '<ROOT>')] + [
-        ('<ROOT>/' + place, label) for place, label in places] + places
+        ('<ROOT>/' + place, label or '<ROOT>/') for place, label in places] + places
 
 
 def normalized(data, table):
