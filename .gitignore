@@ -51,6 +51,7 @@ pascompl
 # Decompilation artifacts
 *.lst
 *.dis
+*.img
 
 # Extracted binaries
 *.bin
