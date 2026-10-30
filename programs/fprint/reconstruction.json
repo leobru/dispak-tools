@@ -1,0 +1,137 @@
+{
+  "range": [
+    "02012",
+    "04404"
+  ],
+  "words": 1275,
+  "code_words": 765,
+  "rebuilt_pool": "03407",
+  "globals": "04027",
+  "mismatches": 0,
+  "differences": [],
+  "runtime_fixups": [],
+  "full_image_different_words": 1,
+  "full_image_differences": [
+    {
+      "word": "02010",
+      "original": "0004500000007412",
+      "rebuilt": "0003540000007412",
+      "cause": "loader descriptor left half; right half FREE is identical"
+    }
+  ],
+  "full_image_words": 3072,
+  "full_image_identical_words": 3071,
+  "unexplained_differences": 0,
+  "regions": [
+    {
+      "name": "code",
+      "range": [
+        "02012",
+        "03406"
+      ],
+      "words": 765,
+      "identical_words": 765,
+      "bit_identical": true
+    },
+    {
+      "name": "constants_and_pmd",
+      "range": [
+        "03407",
+        "04026"
+      ],
+      "words": 272,
+      "identical_words": 272,
+      "bit_identical": true
+    },
+    {
+      "name": "initial_globals_and_files",
+      "range": [
+        "04027",
+        "04404"
+      ],
+      "words": 238,
+      "identical_words": 238,
+      "bit_identical": true
+    },
+    {
+      "name": "runtime",
+      "range": [
+        "04405",
+        "07411"
+      ],
+      "words": 1541,
+      "identical_words": 1541,
+      "bit_identical": true
+    },
+    {
+      "name": "padding",
+      "range": [
+        "07412",
+        "07777"
+      ],
+      "words": 246,
+      "identical_words": 246,
+      "bit_identical": true
+    }
+  ],
+  "application_bit_identical": true,
+  "placement": {
+    "PROGRAM": "02012",
+    "P/1D": "04027",
+    "*INPUT*": "04311",
+    "*OUTPUT*": "04347",
+    "*TTIO*": "05173",
+    "E64TEXT": "05222",
+    "MKNAME": "05234",
+    "ERROR": "05420",
+    "LIB": "05611",
+    "OPENF": "05642",
+    "DBPASC": "06662",
+    "DBCORE": "06735",
+    "PASPMDAD": "07072",
+    "FREE": "07412"
+  },
+  "placement_matches": true,
+  "source": "programs/fprint/fprint.pas",
+  "source_sha256": "cfe6cfd69aec1494e5ee6333fb72c74c878a1020781a7d452244739730e7502c",
+  "compiler": {
+    "source": "mypas.b6",
+    "source_sha256": "4883945fed317eba27cf1676363636bd900be61165bc4af2979293c0c87e9963",
+    "volume": "runtime/build/fprint/77",
+    "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
+    "installed_volume_unchanged": true,
+    "translator_zone": "0000",
+    "assembler_last_argument": "accumulator",
+    "assembler_constant_base_restored_by_caller": true
+  },
+  "build_source_sha256": {
+    "programs/fprint/build.py": "5b4d0a9fa72b33244923991c4d5047752e94be01075e5e39e6d31570e01624f2",
+    "programs/fprint/fprint.sym": "a1bc77e9d28b20e29f0a4ab187949a52bbd1c2aa40d068d6fb009711c89e097c",
+    "programs/fprint/fprint-readable.pas": "0dc27e6e3d7cebaa440fe3cc2a82b2db48c90649f162e18583c96af38295696e",
+    "programs/mtd/build.py": "8d481be3dfdcbcac64f3ca6edbba72009792a06d10d1d4ada9c0c432d9876da1",
+    "programs/comp/build.py": "e34db3090536aa4c76bc255e76dc6aaf13e1e07db1180d1f5b4fd183a87642fa",
+    "programs/more/build.py": "3be8d9f41f747f3a81841205cfa311a743217fd69e2f5903072bb0ab8bec8369",
+    "programs/fprint/printer.madlen": "1802ef60f45f1c1ff3f2d8cad615ee87e4546494aed4f1e39861f4e8055d1cd8",
+    "programs/fprint/mkname.madlen": "0e37ec2b8ca9622db011524e76d513891c46ea7892e0179ffa7e82bfb536e725",
+    "programs/fprint/error.madlen": "339c3b712f1664374169d4973709b7cd2373388e8fb4ea32c1bbb37b82b11d5d",
+    "programs/fprint/lib.madlen": "18852b4174d9042bc055add6a1dfb0674177292d809e76223a41c63554b9b81b",
+    "programs/fprint/dbpasc.madlen": "f7dde7a674c36a8b8012f3f49d8ee5070d48f03d58cd30d34feed37d8499954f",
+    "programs/fprint/dbcore.madlen": "73ecc4557f1d98e60ef77537dff17b2c308520331e73fd3f489891b9984e846e"
+  },
+  "library_source_sha256": "83c545708462f91fc4c46edabe44c9a474d65997b410e5544435fcf4d668b3ca",
+  "image": "runtime/build/fprint/fprint.img",
+  "image_sha256": "2298cf6fd9f95691cda62c9ccd2b53056351841c329b88a288e96bf52b61f339",
+  "original": "runtime/images/4001/0063-fprint.bin",
+  "original_zones": [
+    "0063",
+    "0064",
+    "0065"
+  ],
+  "original_sha256": "10f07d99b30a31ffc22dd85b8a174168431d713c7ee7184cc15c0f1f4f3ed2d9",
+  "original_volume_sha256": "30223751b839a6273cf96a0a6ab2e8becfcef2a59dd16661022b39740974b978",
+  "original_volume_unchanged": true,
+  "installed_volume77_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
+  "installed_volume77_unchanged": true,
+  "interactive_execution": false,
+  "printer_execution": false
+}

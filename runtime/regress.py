@@ -85,7 +85,7 @@ def parts():
 
 def replacements():
     """The place of each part and the label that replaces it in file contents."""
-    # Longest places first, so that runtime/link1/ is not taken for runtime/.
+    # Longest places first, so that programs/link1/ is not taken for runtime/.
     places = sorted(((str(d.relative_to(ROOT)) + '/', n) for n, d in parts()),
                     key=lambda x: -len(x[0]))
     if COMPILER != ROOT:

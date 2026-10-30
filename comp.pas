@@ -1,7 +1,7 @@
 (*=y+,a4,l1,o-*)program KOMПAPAT(input, output, TTIO);
 % COMP (KOMПAPAT), volume 4001 zones 0315-0324, decompiled from the
 % image; started from compar.b6.  Full build with its library:
-%  python3 runtime/comp/build.py  (compiler from mypas.b6)
+%  python3 programs/comp/build.py  (compiler from mypas.b6)
 % All 8 zones match the original except two words of RDBUF (the old
 % compiler loaded LIS before AФ*[30:47]) and the loader's half-word
 % at 02010.  O- keeps a load right after a store, as the original

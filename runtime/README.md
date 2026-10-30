@@ -26,52 +26,52 @@ The [recovered Madlen bundles](file-access/README.md) for these two services
 and their shared helpers include relocation evidence from independently linked
 copies in the volume 4001 corpus.
 
-[MORE recovery](more/README.md) reconstructs the intact Pascal application and
+[MORE recovery](../programs/more/README.md) reconstructs the intact Pascal application and
 rebuilds its erased runtime with the recovered Monitor helpers and COMP's
-file-access library. `python3 runtime/more/build.py` produces a complete image
+file-access library. `python3 programs/more/build.py` produces a complete image
 and a private repaired volume 4001, preserving every zone outside MORE's
 three-zone allocation and leaving the original volume unchanged.
 
-[MTD recovery](mtd/README.md) restores the small tape-to-disk copier from
-volume 4001 zones `0047–0050`. `python3 runtime/mtd/build.py` rebuilds it on
+[MTD recovery](../programs/mtd/README.md) restores the small tape-to-disk copier from
+volume 4001 zones `0047–0050`. `python3 programs/mtd/build.py` rebuilds it on
 private disks: all 677 application words and the complete runtime match the
 original literally. The full two-zone image differs only in the loader value
 at `02010.L`.
 
-[BOX recovery](box/README.md) restores the Monitor utility from volume 4001
-zones `0066–0067`. `python3 runtime/box/build.py` reproduces all 527 application
+[BOX recovery](../programs/box/README.md) restores the Monitor utility from volume 4001
+zones `0066–0067`. `python3 programs/box/build.py` reproduces all 527 application
 words and the full runtime literally; only `02010.L` differs in the complete
 two-zone image. The build dumps the image without executing BOX commands.
 
-[MT recovery](mt/README.md) restores the tape-control utility from volume 4001
-zones `0172–0174`. `python3 runtime/mt/build.py` reproduces all 771 application
+[MT recovery](../programs/mt/README.md) restores the tape-control utility from volume 4001
+zones `0172–0174`. `python3 programs/mt/build.py` reproduces all 771 application
 words and all 1333 runtime words literally; only `02010.L` differs in the
 complete image. The uncatalogued MT at `0104–0105` corroborates the common
 parser and service modules after relocation.
 
-[МОНИТР recovery](monitr/README.md) restores the Pascal part of the Monitor's
+[МОНИТР recovery](../programs/monitr/README.md) restores the Pascal part of the Monitor's
 command interpreter, volume 4001 zones `0002–0010`. `python3
-runtime/monitr/build.py` reproduces the application, constants, globals and
+programs/monitr/build.py` reproduces the application, constants, globals and
 runtime (`02000–07431`) literally, except `02010.L`. The memory above FREE
 held buffers left in core when the image was written and is not reproduced.
 
-[ПРОЗ recovery](proz/README.md) restores the interactive file viewer/editor
-from volume 4001 zones `0030–0033`. `python3 runtime/proz/build.py` reproduces
+[ПРОЗ recovery](../programs/proz/README.md) restores the interactive file viewer/editor
+from volume 4001 zones `0030–0033`. `python3 programs/proz/build.py` reproduces
 all 1574 application words and all 1709 runtime words literally. The complete
 four-zone image differs only in `02010.L`; file operations are not executed
 during the build.
 
-[FPRINT recovery](fprint/README.md) restores the line-printer utility PRINTFIL
-from volume 4001 zones `0063–0065`. `python3 runtime/fprint/build.py` reproduces
+[FPRINT recovery](../programs/fprint/README.md) restores the line-printer utility PRINTFIL
+from volume 4001 zones `0063–0065`. `python3 programs/fprint/build.py` reproduces
 all 1275 application words and all 1541 runtime words literally, including
 its earlier file-access library. The complete three-zone image differs only
 in `02010.L`; printer and file operations are not executed during the build.
-`python3 runtime/fprint/exercise.py` exercises both images on private disks:
+`python3 programs/fprint/exercise.py` exercises both images on private disks:
 all 22 runs passed, including multi-zone input and two-sheet printing, with
-byte-identical raw printer streams. See [execution results](fprint/execution.json).
+byte-identical raw printer streams. See [execution results](../programs/fprint/execution.json).
 
-[LINK1](link1/README.md), [BLINK1](blink1/README.md),
-[LINK](link/README.md) and [BLINK](blink/README.md) recover the four Elbrus-B
+[LINK1](../programs/link1/README.md), [BLINK1](../programs/blink1/README.md),
+[LINK](../programs/link/README.md) and [BLINK](../programs/blink/README.md) recover the four Elbrus-B
 linkers. Their [real runtime libraries](linker-runtime/README.md) share 53
 relocatable Madlen source variants, selecting 49 modules per image.
 
@@ -97,12 +97,12 @@ and its separate `P/BOOT` reader. It describes the three TABLE fields, computed
 zone count, saved stack override, and АСС3's independently implemented overlay
 loading and return convention.
 
-[КАНАЛ: purpose and interface](kanal/README.md) records the preliminary analysis
+[КАНАЛ: purpose and interface](../programs/kanal/README.md) records the preliminary analysis
 of 4001/0023 before decompilation: multiplex-channel registers, the 16-bit data
 protocol with parity and synchronization, operator commands, file transfers
 and disk requests.
 
-[PRINT: purpose and interface](print/README.md) analyzes 4001/0051: wildcard
+[PRINT: purpose and interface](../programs/print/README.md) analyzes 4001/0051: wildcard
 selection through FIRSTF/NEXTF, line-printer output, enlarged filename banners,
 alternative PC encoding, uppercase overprinting, and command-line parameters.
 The character tables are decoded statically; this image has not been exercised

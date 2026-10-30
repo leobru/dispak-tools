@@ -1,0 +1,121 @@
+{
+  "range": [
+    "02012",
+    "03256"
+  ],
+  "words": 677,
+  "code_words": 406,
+  "rebuilt_pool": "02640",
+  "globals": "03076",
+  "mismatches": 0,
+  "differences": [],
+  "runtime_fixups": [],
+  "full_image_different_words": 1,
+  "full_image_differences": [
+    {
+      "word": "02010",
+      "original": "0003400000005122",
+      "rebuilt": "0003260000005122",
+      "cause": "loader descriptor left half; right half FREE is identical"
+    }
+  ],
+  "full_image_words": 2048,
+  "full_image_identical_words": 2047,
+  "unexplained_differences": 0,
+  "regions": [
+    {
+      "name": "code",
+      "range": [
+        "02012",
+        "02637"
+      ],
+      "words": 406,
+      "identical_words": 406,
+      "bit_identical": true
+    },
+    {
+      "name": "constants_and_pmd",
+      "range": [
+        "02640",
+        "03075"
+      ],
+      "words": 158,
+      "identical_words": 158,
+      "bit_identical": true
+    },
+    {
+      "name": "initial_globals_and_files",
+      "range": [
+        "03076",
+        "03256"
+      ],
+      "words": 113,
+      "identical_words": 113,
+      "bit_identical": true
+    },
+    {
+      "name": "runtime",
+      "range": [
+        "03257",
+        "05121"
+      ],
+      "words": 931,
+      "identical_words": 931,
+      "bit_identical": true
+    },
+    {
+      "name": "padding",
+      "range": [
+        "05122",
+        "05777"
+      ],
+      "words": 430,
+      "identical_words": 430,
+      "bit_identical": true
+    }
+  ],
+  "application_bit_identical": true,
+  "placement": {
+    "PROGRAM": "02012",
+    "P/1D": "03076",
+    "*INPUT*": "03163",
+    "*OUTPUT*": "03221",
+    "TAPEIO": "04045",
+    "FREE": "05122"
+  },
+  "placement_matches": true,
+  "source": "programs/mtd/mtd.pas",
+  "source_sha256": "4c3e5d6517cfcb2a82a3b6e326f27be320dd9c31a47dbe92687f3f51172bc698",
+  "compiler": {
+    "source": "mypas.b6",
+    "source_sha256": "4883945fed317eba27cf1676363636bd900be61165bc4af2979293c0c87e9963",
+    "volume": "runtime/build/mtd/77",
+    "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
+    "installed_volume_unchanged": true,
+    "translator_zone": "0000",
+    "assembler_last_argument": "accumulator",
+    "assembler_constant_base_restored_by_caller": true
+  },
+  "build_source_sha256": {
+    "programs/mtd/build.py": "8d481be3dfdcbcac64f3ca6edbba72009792a06d10d1d4ada9c0c432d9876da1",
+    "programs/mtd/tapeio.madlen": "4f1f181236b7c22fbc7d7256fa11f88f90fe84a93ad1cb752ef8ed21dfcb9df2",
+    "programs/mtd/mtd.sym": "4a235785a862a66998333d370f727dcbb64e8c967734b8c6aad44a73b23d4a92",
+    "programs/mtd/mtd-readable.pas": "cb3e542b9c1f6f09e16b3f115167af75788820ceac961a53fb9411a381c5d09e",
+    "programs/comp/build.py": "e34db3090536aa4c76bc255e76dc6aaf13e1e07db1180d1f5b4fd183a87642fa",
+    "programs/more/build.py": "3be8d9f41f747f3a81841205cfa311a743217fd69e2f5903072bb0ab8bec8369"
+  },
+  "library_source_sha256": "f289c584da3ebc82864a63e5dd064e9883efaaef15782cfc8f8b103398f8dc13",
+  "image": "runtime/build/mtd/mtd.img",
+  "image_sha256": "702b5a9da64671d12f676e3c3ade9068ff9feecc7cd7b45280ab767144a3bbbe",
+  "original": "runtime/images/4001/0047-mtd.bin",
+  "original_zones": [
+    "0047",
+    "0050"
+  ],
+  "original_sha256": "df0c58282fe90fceda04522b2c2f0ca04aeaf7b3925ca7afbf532c2e9a4003ae",
+  "original_volume_sha256": "30223751b839a6273cf96a0a6ab2e8becfcef2a59dd16661022b39740974b978",
+  "original_volume_unchanged": true,
+  "installed_volume77_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
+  "installed_volume77_unchanged": true,
+  "interactive_execution": false
+}

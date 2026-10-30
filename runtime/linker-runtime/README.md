@@ -73,10 +73,10 @@ retains original halfword padding without introducing local symbols.
 ## Build and inspect
 
 ```sh
-python3 runtime/link1/build.py
-python3 runtime/blink1/build.py
-python3 runtime/link/build.py
-python3 runtime/blink/build.py
+python3 programs/link1/build.py
+python3 programs/blink1/build.py
+python3 programs/link/build.py
+python3 programs/blink/build.py
 tkdiff runtime/build/link1/original-runtime.dis \
        runtime/build/link1/rebuilt-runtime.dis
 ```
@@ -113,7 +113,7 @@ the recorded `library.json` reports.
 ### Historical identifiers
 
 The four Pascal sources mirror PMD-backed names from the older
-[KOMPON 2.02/3 recovery](../kompon3/README.md), including corresponding
+[KOMPON 2.02/3 recovery](../../programs/kompon3/README.md), including corresponding
 routines, globals, locals and enum values. For example, `READJOB` is
 `PAЗБOPЗA`, `EVALUATE` is `MAШИHA`, `KEYPOOL` is `TИMEH` and `NAMETAB`
 is `BEKXEШ`. These names come from 2248; the four 4001 images have no PMD.
