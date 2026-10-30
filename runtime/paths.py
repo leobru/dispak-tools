@@ -2,7 +2,10 @@
 
 Every script finds files through these names rather than through its own
 location, so that moving a part means changing one line here. A script in
-runtime/NAME/ imports this module after `sys.path.insert(0, str(HERE.parent))`.
+another directory finds this module by searching upwards from its own place:
+
+    sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
+                                if (p/'runtime/paths.py').exists())))
 
 ROOT      the repository
 TOOLS     disbesm6, libmatch.py, gostdump.py, cmpimg.py, buildimg.sh

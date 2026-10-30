@@ -14,7 +14,8 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE.parent))
+sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
+                            if (p/'runtime/paths.py').exists())))
 from paths import ROOT, COMPILER, RUNTIME, BUILD, IMAGES, CORPUS
 from build import BOOT, dump, environment, expected_word, job
 from corpus import BASE, find_volume, pack, read_words, sha, volume_words

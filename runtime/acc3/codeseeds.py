@@ -16,7 +16,8 @@ import sys
 import tempfile
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(next(p/'runtime' for p in Path(__file__).resolve().parents
+                            if (p/'runtime/paths.py').exists())))
 from paths import TOOLS
 BRANCH = {'26', '27', '30', '31', '34', '35', '37'}
 

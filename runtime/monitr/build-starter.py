@@ -12,7 +12,8 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE.parent))
+sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
+                            if (p/'runtime/paths.py').exists())))
 from paths import BUILD
 WORK = BUILD/'monitr-starter'
 from corpus import find_volume, pack, read_words, volume_words

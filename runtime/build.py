@@ -122,6 +122,8 @@ def dump(work,name,listing):
     target=work/(name+'.img')
     symbols={s.name:s.address for s in load_symbols(listing)}
     zones=(symbols['FREE']-BASE+1023)//1024
+    # besmtool does not truncate an existing file.
+    target.unlink(missing_ok=True)
     subprocess.run(['besmtool','dump','3777','--start=0','--length='+str(zones),
                     '--to-file='+str(target)],env=environment(work),check=True,
                    stdout=subprocess.DEVNULL)

@@ -32,7 +32,8 @@ SCRATCH_ZONE = 0o175
 COMPILER_SOURCE = None
 NAMEKEY_LITERALS = [(0o20017, 'KOMПOH-1'),
                     (0o20201, 'CИCBЫB'), (0o20203, 'CИCBBOД')]
-sys.path.insert(0, str(HERE.parent))
+sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
+                            if (p/'runtime/paths.py').exists())))
 from paths import ROOT, TOOLS, COMPILER, RUNTIME, PROGRAMS, BUILD
 sys.path.insert(0, str(TOOLS))
 WORK = BUILD/'link1'

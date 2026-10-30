@@ -14,7 +14,8 @@ from pathlib import Path
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE.parent))
+sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
+                            if (p/'runtime/paths.py').exists())))
 import paths
 from paths import ROOT, TOOLS, PROGRAMS, IMAGES
 sys.path.insert(1, str(TOOLS))

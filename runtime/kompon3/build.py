@@ -19,7 +19,8 @@ import sys
 HERE=Path(__file__).resolve().parent
 sys.path.insert(0,str(HERE))
 from analyze import module, scopes, CMP
-sys.path.insert(0,str(HERE.parent))
+sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
+                            if (p/'runtime/paths.py').exists())))
 from paths import TOOLS, COMPILER, PROGRAMS, BUILD
 sys.path.insert(1,str(TOOLS))
 WORK=BUILD/'kompon3'

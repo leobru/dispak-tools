@@ -7,7 +7,8 @@ the field is the complement: printed as 'field' bit ranges (1 = LSB).
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(next(p/'runtime' for p in Path(__file__).resolve().parents
+                            if (p/'runtime/paths.py').exists())))
 from paths import BUILD
 POOL = {'ov1': 0o17731, 'ov2': 0o31346}
 part = sys.argv[1]
