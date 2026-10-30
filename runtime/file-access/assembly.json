@@ -1,7 +1,7 @@
 {
   "words": 653,
-  "listing": "runtime/build/file-access/assembled.lst",
-  "image": "runtime/build/file-access/assembled.img",
+  "listing": "build/file-access/assembled.lst",
+  "image": "build/file-access/assembled.img",
   "loaded": {
     "DBNAME": "02012",
     "DBFILE": "02404",

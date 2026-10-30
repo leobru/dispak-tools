@@ -7,14 +7,14 @@ The head (zone +0) is loaded by the Monitor at 02000. It reads overlay 1
 (zones +4..+016) and then overlay 2 (zones +020..+035) to 04000, each with
 one Э70 of its first zone; the overlay's own PASCODER stub reads the rest.
 Writes head.bin (base 02000), ov1.bin and ov2.bin (base 04000) to outdir
-(default runtime/build/acc3) and prints the zone map.
+(default build/acc3) and prints the zone map.
 """
 from pathlib import Path
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
 from paths import BUILD, IMAGES
 from corpus import pack, read_words
 

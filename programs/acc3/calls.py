@@ -14,8 +14,8 @@ from pathlib import Path
 import re
 import sys
 
-sys.path.insert(0, str(next(p/'runtime' for p in Path(__file__).resolve().parents
-                            if (p/'runtime/paths.py').exists())))
+sys.path.insert(0, str(next(p/'py' for p in Path(__file__).resolve().parents
+                            if (p/'py/paths.py').exists())))
 import paths
 
 BUILD = paths.BUILD/'acc3'

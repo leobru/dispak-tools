@@ -15,7 +15,7 @@ The builder rebuilds `mypas.b6` on a private volume 77, assembles the recovered
 library into a private PERSO volume, compiles Pascal and dumps the linked image
 through PASCODER. It does not execute MT's tape commands. Missing reference
 extracts are obtained from volume 4001 with `besmtool` and checked against the
-corpus and original disk words. All build artifacts are in `runtime/build/mt/`.
+corpus and original disk words. All build artifacts are in `build/mt/`.
 Original volume 4001 and installed volume 77 are checked for changes. Private
 writable volumes are neither hashed nor included in Git.
 

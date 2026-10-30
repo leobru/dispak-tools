@@ -17,10 +17,11 @@ import json
 from pathlib import Path
 import sys
 
-from paths import ROOT, TOOLS, IMAGES
+sys.path.insert(0, str(next(p/'py' for p in Path(__file__).resolve().parents
+                            if (p/'py/paths.py').exists())))
+from paths import ROOT, IMAGES
 from corpus import BASE, pack, read_words, sha
 from recover import LONG, SHORT
-sys.path.insert(0, str(TOOLS))
 from libmatch import mask, operand
 
 HERE = Path(__file__).resolve().parent

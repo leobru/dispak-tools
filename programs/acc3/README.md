@@ -6,7 +6,7 @@ one core image but a NEWPASC head and two NEWPASC overlays that run one after
 the other in the same memory. Addresses and zone numbers are octal.
 
 `python3 programs/acc3/parts.py` splits the image into `head.bin`, `ov1.bin`
-and `ov2.bin` under `runtime/build/acc3/`.
+and `ov2.bin` under `build/acc3/`.
 
 ## Zone map
 

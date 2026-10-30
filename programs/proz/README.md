@@ -23,7 +23,7 @@ are neither hashed nor included in Git.
 Missing reference images for ПРОЗ, MORE and COMP are extracted from volume
 4001 with `besmtool` and checked against the corpus and source disk words.
 The build uses the same DISPAK, system disks and `BESM6_PATH` setup as the
-other recovered programs. All temporary files are in `runtime/build/proz/`.
+other recovered programs. All temporary files are in `build/proz/`.
 
 - [proz.pas](proz.pas): exact reconstruction with historical line numbers.
 - [proz-readable.pas](proz-readable.pas): source without line padding.

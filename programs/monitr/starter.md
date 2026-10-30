@@ -40,10 +40,10 @@ python3 programs/monitr/build-starter.py
 
 Нужны `dispak`, `besmtool` и исходные тома `2048`, `2099`, `4001` на
 `BESM6_PATH` (по умолчанию `~/.besm6:/usr/local/share/besm6`).
-Запись идёт только на частный том `runtime/build/monitr-starter/1234`.
+Запись идёт только на частный том `build/monitr-starter/1234`.
 Повторный запуск пересоздаёт этот частный том.
 
-Артефакты в `runtime/build/monitr-starter/`:
+Артефакты в `build/monitr-starter/`:
 
 - `starter.b6` — сформированный пакет с текстом `starter.be`;
 - `starter.lst` — листинг ассемблера и компоновщика;
@@ -122,12 +122,12 @@ python3 programs/monitr/build-starter.py
 Из корня репозитория, с исходным томом 4001 на `BESM6_PATH`:
 
 ```sh
-mkdir -p runtime/build/monitr-starter
+mkdir -p build/monitr-starter
 besmtool dump 4001 --start=01 --length=1 \
-  --to-file=runtime/build/monitr-starter/zone1.bin
-./disbesm6 -b -s -a0 -e1 -e2 -e4 -e10 -e114 -e132 \
+  --to-file=build/monitr-starter/zone1.bin
+tools/disbesm6 -b -s -a0 -e1 -e2 -e4 -e10 -e114 -e132 \
   -n programs/monitr/starter.sym \
-  runtime/build/monitr-starter/zone1.bin
+  build/monitr-starter/zone1.bin
 ```
 
 `disbesm6` пропускает аппаратную нулевую ячейку и выдаёт `СТАРТ '1'`.

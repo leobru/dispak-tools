@@ -27,11 +27,11 @@ byte-for-byte identical to the pre-rename build.
 python3 programs/blink1/analyze.py
 python3 programs/blink1/build.py
 python3 programs/blink1/analyze.py 10645 11162
-tkdiff runtime/build/blink1/original.dis runtime/build/blink1/rebuilt.dis
+tkdiff build/blink1/original.dis build/blink1/rebuilt.dis
 ```
 
 The build shares LINK1's compiler, symbolic comparison and loop-marker
-checks. It uses private scratch disks and HOME under `runtime/build/blink1`.
+checks. It uses private scratch disks and HOME under `build/blink1`.
 The source images are extracted with `besmtool` when absent; no extracted
 `.bin`, generated `.dis`, or private volume belongs in Git.
 

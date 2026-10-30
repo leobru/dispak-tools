@@ -97,7 +97,7 @@
   "compiler": {
     "source": "mypas.b6",
     "source_sha256": "4883945fed317eba27cf1676363636bd900be61165bc4af2979293c0c87e9963",
-    "volume": "runtime/build/fprint/77",
+    "volume": "build/fprint/77",
     "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
     "installed_volume_unchanged": true,
     "translator_zone": "0000",
@@ -119,7 +119,7 @@
     "programs/fprint/dbcore.madlen": "73ecc4557f1d98e60ef77537dff17b2c308520331e73fd3f489891b9984e846e"
   },
   "library_source_sha256": "83c545708462f91fc4c46edabe44c9a474d65997b410e5544435fcf4d668b3ca",
-  "image": "runtime/build/fprint/fprint.img",
+  "image": "build/fprint/fprint.img",
   "image_sha256": "2298cf6fd9f95691cda62c9ccd2b53056351841c329b88a288e96bf52b61f339",
   "original": "runtime/images/4001/0063-fprint.bin",
   "original_zones": [

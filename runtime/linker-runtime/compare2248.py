@@ -2,7 +2,7 @@
 """Compare 2248's KOMPON executables with the four 4001 linkers.
 
 Usage: python3 runtime/linker-runtime/compare2248.py
-Read-only besmtool extraction; binaries stay in runtime/build/linker-2248.
+Read-only besmtool extraction; binaries stay in build/linker-2248.
 Addresses/zones in JSON are octal; sizes and source line numbers are decimal.
 """
 from pathlib import Path
@@ -14,10 +14,9 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
-from paths import TOOLS, PROGRAMS, BUILD
-sys.path.insert(1, str(TOOLS))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
+from paths import PROGRAMS, BUILD
 from corpus import read_words
 from libmatch import operand
 

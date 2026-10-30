@@ -12,6 +12,9 @@ import argparse
 import json
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(next(p/'py' for p in Path(__file__).resolve().parents
+                            if (p/'py/paths.py').exists())))
 from paths import RUNTIME
 from corpus import find_volume, pack, sha, volume_words
 

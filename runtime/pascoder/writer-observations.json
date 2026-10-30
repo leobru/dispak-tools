@@ -16,8 +16,8 @@
         "0000010000660123"
       ],
       "exit_octal": "01040",
-      "trace": "runtime/build/pascoder/writer-only.trace",
-      "listing": "runtime/build/pascoder/writer.lst"
+      "trace": "build/pascoder/writer-only.trace",
+      "listing": "build/pascoder/writer.lst"
     },
     {
       "name": "stack-high",
@@ -35,8 +35,8 @@
         "0000010000660140"
       ],
       "exit_octal": "01040",
-      "trace": "runtime/build/pascoder/stack-high.trace",
-      "listing": "runtime/build/pascoder/stack-high.lst"
+      "trace": "build/pascoder/stack-high.trace",
+      "listing": "build/pascoder/stack-high.lst"
     },
     {
       "name": "stack-zero",
@@ -54,8 +54,8 @@
         "0000010000660150"
       ],
       "exit_octal": "01040",
-      "trace": "runtime/build/pascoder/stack-zero.trace",
-      "listing": "runtime/build/pascoder/stack-zero.lst"
+      "trace": "build/pascoder/stack-zero.trace",
+      "listing": "build/pascoder/stack-zero.lst"
     }
   ]
 }

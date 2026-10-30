@@ -17,11 +17,11 @@ differing blocks; blocks that differ only in `мода` fillers are counted
 but shown only with --pads; --range keeps the blocks whose original
 addresses fall in lo..hi-1, octal; --dis also writes the disassembly of
 the built overlay to <part>.dis there). Work files are kept under
-runtime/build/acc3/try.
+build/acc3/try.
 Every `assembler` or `fortran` external of the source gets an empty stub
 module, so that the program links; their code is not compared. P/WH
 (write ... hex), which the standard library lacks, comes with its module
-P/WO from the PROZ runtime (runtime/build/proz/runtime.madlen, made by
+P/WO from the PROZ runtime (build/proz/runtime.madlen, made by
 programs/proz/build.py).
 """
 from pathlib import Path
@@ -30,8 +30,8 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
 from paths import TOOLS, COMPILER, PROGRAMS, BUILD
 from corpus import pack, read_words, sha
 import importlib.util

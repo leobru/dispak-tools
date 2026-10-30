@@ -10,7 +10,7 @@ TRUNC emission and INPUT/OUTPUT allocation order for historical matching.
 Real runtime modules are selected from runtime/linker-runtime. The library,
 its public entries, constants, globals and file blocks are compared literally.
 The compiled linker is not executed.
-Private disks, HOME and all compilation artifacts stay in runtime/build/link1.
+Private disks, HOME and all compilation artifacts stay in build/link1.
 The comparison resolves constant-pool operands and named call relocations;
 it does not claim bit identity of the original and candidate images.
 """
@@ -32,10 +32,9 @@ SCRATCH_ZONE = 0o175
 COMPILER_SOURCE = None
 NAMEKEY_LITERALS = [(0o20017, 'KOMПOH-1'),
                     (0o20201, 'CИCBЫB'), (0o20203, 'CИCBBOД')]
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
-from paths import ROOT, TOOLS, COMPILER, RUNTIME, PROGRAMS, BUILD
-sys.path.insert(0, str(TOOLS))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
+from paths import ROOT, COMPILER, RUNTIME, PROGRAMS, BUILD
 WORK = BUILD/'link1'
 from corpus import read_words, sha
 from libmatch import load_symbols, operand

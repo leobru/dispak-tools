@@ -34,7 +34,7 @@ Sources:
 
 The source, listing and image used for comparison are recorded in the report.
 All temporary decks, writable volumes, listings and images are under
-`runtime/build/mtd/`. Neither the source volume 4001 nor the installed volume 77
+`build/mtd/`. Neither the source volume 4001 nor the installed volume 77
 is changed; their hashes are checked before and after building. Binary images
 and generated disassemblies are build/reference artifacts, not source files.
 

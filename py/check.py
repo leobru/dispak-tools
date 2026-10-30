@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regression and emulator checks, invoked by runtime/build.py check.
+"""Regression and emulator checks, invoked by py/build.py check.
 
 The emulator checks compare original placement, independently relocated module
 layouts, public-entry provenance, constants, output, and source-disk hashes.
@@ -12,9 +12,8 @@ import sys
 import tempfile
 import unittest
 
-from paths import ROOT, TOOLS, RUNTIME, BUILD
+from paths import ROOT, RUNTIME, BUILD
 from corpus import BASE, catalog, find_volume, pack, sha, volume_words
-sys.path.insert(0,str(TOOLS))
 import libmatch
 
 

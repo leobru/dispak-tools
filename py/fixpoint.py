@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Check a change of mypas.b6: self-compilation fixpoint and the tests.
 
-Usage: python3 runtime/fixpoint.py [base-revision]
+Usage: python3 py/fixpoint.py [base-revision]
 
-Works on private copies of volume 77 under runtime/build/fixpoint; the
+Works on private copies of volume 77 under build/fixpoint; the
 installed ~/.besm6/77 is only read.
 - base: mypas.b6 of base-revision (default HEAD) compiled by the installed
   compiler, then by itself, so that it is that revision's own fixpoint;

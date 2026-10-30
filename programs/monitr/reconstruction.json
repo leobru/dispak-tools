@@ -60,7 +60,7 @@
   "compiler": {
     "source": "mypas.b6",
     "source_sha256": "4883945fed317eba27cf1676363636bd900be61165bc4af2979293c0c87e9963",
-    "volume": "runtime/build/monitr/77",
+    "volume": "build/monitr/77",
     "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
     "installed_volume_unchanged": true,
     "translator_zone": "0000",
@@ -75,7 +75,7 @@
     "programs/more/build.py": "3be8d9f41f747f3a81841205cfa311a743217fd69e2f5903072bb0ab8bec8369"
   },
   "library_source_sha256": "f0f4c584dafd606db9be559b8b9966ae86661a6699cc0cf635d381fb844c6d77",
-  "image": "runtime/build/monitr/monitr.img",
+  "image": "build/monitr/monitr.img",
   "image_sha256": "6b6717954909b3ae5d981eeb8f62f2c85b0ec28f6649cc00e951e2cefa5bf501",
   "original": "runtime/images/4001/0002-monitr-pascal.bin",
   "original_zones": [

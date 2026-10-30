@@ -3,7 +3,7 @@
 
 Usage: python3 programs/monitr/build-starter.py
 Generated deck, listing, private volume 1234 and zone extracts are kept in
-runtime/build/monitr-starter. The starter itself is not executed.
+build/monitr-starter. The starter itself is not executed.
 """
 from pathlib import Path
 import os
@@ -12,8 +12,8 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
 from paths import BUILD
 WORK = BUILD/'monitr-starter'
 from corpus import find_volume, pack, read_words, volume_words

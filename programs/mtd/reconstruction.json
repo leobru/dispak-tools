@@ -89,7 +89,7 @@
   "compiler": {
     "source": "mypas.b6",
     "source_sha256": "4883945fed317eba27cf1676363636bd900be61165bc4af2979293c0c87e9963",
-    "volume": "runtime/build/mtd/77",
+    "volume": "build/mtd/77",
     "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
     "installed_volume_unchanged": true,
     "translator_zone": "0000",
@@ -105,7 +105,7 @@
     "programs/more/build.py": "3be8d9f41f747f3a81841205cfa311a743217fd69e2f5903072bb0ab8bec8369"
   },
   "library_source_sha256": "f289c584da3ebc82864a63e5dd064e9883efaaef15782cfc8f8b103398f8dc13",
-  "image": "runtime/build/mtd/mtd.img",
+  "image": "build/mtd/mtd.img",
   "image_sha256": "702b5a9da64671d12f676e3c3ade9068ff9feecc7cd7b45280ab767144a3bbbe",
   "original": "runtime/images/4001/0047-mtd.bin",
   "original_zones": [

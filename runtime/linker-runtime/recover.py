@@ -17,10 +17,9 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
-from paths import ROOT, TOOLS, RUNTIME, PROGRAMS, BUILD, IMAGES
-sys.path.insert(0, str(TOOLS))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
+from paths import ROOT, RUNTIME, PROGRAMS, BUILD, IMAGES
 from corpus import read_words, find_volume
 from libmatch import operand
 from recover import LONG, SHORT

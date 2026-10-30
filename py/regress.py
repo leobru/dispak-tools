@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Run every build and analysis of the project and fingerprint what they write.
 
-Usage: python3 runtime/regress.py run [STEP ...]
-       python3 runtime/regress.py compare A.json B.json [--detail]
+Usage: python3 py/regress.py run [STEP ...]
+       python3 py/regress.py compare A.json B.json [--detail]
 
 `run` executes the steps below in order (or only the named ones) from the
 repository root, keeps each log in BUILD/regress/NAME.log and writes
@@ -24,7 +24,7 @@ import subprocess
 import sys
 import time
 
-from paths import ROOT, COMPILER, RUNTIME, PROGRAMS, BUILD, IMAGES
+from paths import ROOT, PY, COMPILER, RUNTIME, PROGRAMS, BUILD, IMAGES
 
 OUT = BUILD/'regress'
 # The program directories under PROGRAMS (the others belong to the runtime).
@@ -40,7 +40,7 @@ STEPS = [
     ('error-variants', '{RUNTIME}/error-variants.py'),
     ('volume-sources', '{RUNTIME}/volume-sources.py'),
     ('reviewed', '{RUNTIME}/reviewed.py'),
-    ('recover', '{RUNTIME}/recover.py'),
+    ('recover', '{PY}/recover.py'),
     ('more', '{PROGRAMS}/more/build.py'),
     ('comp', '{PROGRAMS}/comp/build.py'),
     ('mtd', '{PROGRAMS}/mtd/build.py'),
@@ -72,7 +72,7 @@ STEPS = [
     ('acc3-head', '{PROGRAMS}/acc3/headtry.py'),
     ('acc3-ov1', '{PROGRAMS}/acc3/ovtry.py ov1 {PROGRAMS}/acc3/ov1.pas'),
     ('acc3-ov2', '{PROGRAMS}/acc3/ovtry.py ov2 {PROGRAMS}/acc3/ov2.pas'),
-    ('check', '{RUNTIME}/build.py check'),
+    ('check', '{PY}/build.py check'),
 ]
 
 
@@ -120,7 +120,7 @@ def run(names):
     OUT.mkdir(parents=True, exist_ok=True)
     steps = [s for s in STEPS if not names or s[0] in names]
     where = {k: str(v.relative_to(ROOT)) for k, v in
-             dict(RUNTIME=RUNTIME, PROGRAMS=PROGRAMS).items()}
+             dict(PY=PY, RUNTIME=RUNTIME, PROGRAMS=PROGRAMS).items()}
     for name, command in steps:
         start = time.time()
         with (OUT/f'{name}.log').open('w') as log:

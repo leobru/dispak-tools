@@ -9,8 +9,8 @@ import json
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(next(p/'runtime' for p in Path(__file__).resolve().parents
-                            if (p/'runtime/paths.py').exists())))
+sys.path.insert(0, str(next(p/'py' for p in Path(__file__).resolve().parents
+                            if (p/'py/paths.py').exists())))
 from paths import ROOT, IMAGES
 from corpus import GOST, pack, read_words
 

@@ -33,7 +33,7 @@ assembles a private Monitor library and links `monitr.pas` with PASCODER,
 which writes the image to a private disk mounted as drive 044. The exchange
 word at `02007` names that drive, and the original was written there. The
 builder checks that volumes 4001 and 77 are unchanged. All writable volumes,
-decks, listings and images are under `runtime/build/monitr/`. No Monitor
+decks, listings and images are under `build/monitr/`. No Monitor
 command is executed.
 
 - [monitr.pas](monitr.pas): the source with historical line numbers.

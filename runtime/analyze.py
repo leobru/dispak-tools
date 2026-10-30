@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Analyze the extracted corpus with strict module and entry-fragment matching.
 
-Usage: python3 runtime/analyze.py [--disassembler ./disbesm6]
+Usage: python3 runtime/analyze.py [--disassembler tools/disbesm6]
 Produces analysis.json, ANALYSIS.md, and per-image .sym/.dis files. No match is
 promoted to a recovered linkable module merely because its opcode mask agrees.
 """
@@ -13,9 +13,10 @@ from pathlib import Path
 import subprocess
 import sys
 
+sys.path.insert(0, str(next(p/'py' for p in Path(__file__).resolve().parents
+                            if (p/'py/paths.py').exists())))
 from paths import ROOT, TOOLS, RUNTIME
 from corpus import BASE, decode_text, read_words, sha, pack
-sys.path.insert(0, str(TOOLS))
 import libmatch
 
 

@@ -30,11 +30,11 @@ byte-for-byte identical to the pre-rename build.
 python3 programs/link/analyze.py
 python3 programs/link/build.py
 python3 programs/link/analyze.py 10602 10647
-tkdiff runtime/build/link/original.dis runtime/build/link/rebuilt.dis
+tkdiff build/link/original.dis build/link/rebuilt.dis
 ```
 
 The build reuses LINK1's compiler, symbolic comparison and loop checks.
-Scratch disks, HOME, listings and images stay under `runtime/build/link`.
+Scratch disks, HOME, listings and images stay under `build/link`.
 Missing original images are extracted with `besmtool`; extracted `.bin`
 files, generated `.dis` files and private volumes are not source artifacts.
 

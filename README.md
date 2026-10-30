@@ -3,7 +3,7 @@ Various tools for OS DISPAK for BESM-6, disassembled/decompiled.
 
 - `compiler/` — the improved Pascal compiler `mypas.b6`, its libraries and tests;
 - `runtime/` — the recovered NEWPASC runtime libraries, the volume 4001 corpus,
-  its analysis, and the scripts shared by the builds (`runtime/paths.py` names
+  its analysis, and the scripts shared by the builds (`py/paths.py` names
   every part of the project);
 - `programs/` — the recovered programs, one directory each, with their builders;
 - `arfa/` — АРФА; the root holds the disassemblers and image tools.
@@ -12,8 +12,8 @@ Various tools for OS DISPAK for BESM-6, disassembled/decompiled.
 
 [runtime/README.md](runtime/README.md) describes the Pascal image corpus extracted
 from volume 4001, its analysis, and four recovered Madlen runtime libraries.
-Compile and run a new program with `python3 runtime/build.py run program.pas`;
-use `python3 runtime/build.py check` for the word comparisons and emulator checks.
+Compile and run a new program with `python3 py/build.py run program.pas`;
+use `python3 py/build.py check` for the word comparisons and emulator checks.
 
 ## MARK3
 Утилита для разметки лент ЕС ЭВМ на СВС (Э1-К2) путем прямого доступа к ПВВ.
@@ -22,7 +22,7 @@ use `python3 runtime/build.py check` for the word comparisons and emulator check
 ## Паскаль-компилятор
 
 Исходный текст компилятора, библиотеки и тесты лежат в `compiler/`.
-Проверка изменения `mypas.b6`: `python3 runtime/fixpoint.py`.
+Проверка изменения `mypas.b6`: `python3 py/fixpoint.py`.
 
 ### По сравнению с базовой версией компилятора в составе МС "Дубна" или "Монитор-80", внесены следующие изменения, повторяющие изменения в компиляторе, использовавшемся для разработки кросс-системы программирования Э1-КБ:
 

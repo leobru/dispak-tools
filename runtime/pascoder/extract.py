@@ -3,7 +3,7 @@
 
 Usage: python3 runtime/pascoder/extract.py [--extract]
 --extract runs LIBPUNCH with a private HOME; otherwise reuse saved objects.
-Objects, punch cards and listings stay in runtime/build/pascoder, outside Git.
+Objects, punch cards and listings stay in build/pascoder, outside Git.
 """
 import argparse
 import hashlib
@@ -13,8 +13,8 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
 from paths import ROOT, BUILD
 WORK = BUILD / 'pascoder'
 from build import environment

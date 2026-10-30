@@ -56,8 +56,8 @@ the standard library; their Monitor instructions and tables remain unchanged.
 From the repository root:
 
 ```sh
-python3 runtime/recover.py monitor
-python3 runtime/build.py library --profile monitor
+python3 py/recover.py monitor
+python3 py/build.py library --profile monitor
 ```
 
 `profiles.json` defines the reviewed ranges, files, aliases and relocations.

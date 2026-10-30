@@ -19,7 +19,7 @@ external names, then each loaded module's SUBP/LC names in declaration order.
 The declaration orders below reproduce COMP's layout. The library PASCODER
 writes the image to a scratch 3777 zone 0250, as it did originally. All eight
 zones are compared word by word with runtime/images/4001/0315-comp.bin; only
-the RESIDUES may differ. Artifacts are in runtime/build/comp; the report is
+the RESIDUES may differ. Artifacts are in build/comp; the report is
 programs/comp/reconstruction.json.
 """
 
@@ -31,8 +31,8 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
 from paths import ROOT, COMPILER, PROGRAMS, BUILD, IMAGES
 import build
 from build import job, environment

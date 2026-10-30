@@ -88,7 +88,7 @@
   "compiler": {
     "source": "mypas.b6",
     "source_sha256": "4883945fed317eba27cf1676363636bd900be61165bc4af2979293c0c87e9963",
-    "volume": "runtime/build/box/77",
+    "volume": "build/box/77",
     "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
     "installed_volume_unchanged": true,
     "translator_zone": "0000",
@@ -104,7 +104,7 @@
     "programs/more/build.py": "3be8d9f41f747f3a81841205cfa311a743217fd69e2f5903072bb0ab8bec8369"
   },
   "library_source_sha256": "f3487841ac974eaa6e5fdc19ecc72fc1aa46d4a27f53e392cb20dc9f9ec6d399",
-  "image": "runtime/build/box/box.img",
+  "image": "build/box/box.img",
   "image_sha256": "5b43f8ae43f5f0bb7eb4da3c10418c367738f72d46859c1254cd27b96892c383",
   "original": "runtime/images/4001/0066-box.bin",
   "original_zones": [

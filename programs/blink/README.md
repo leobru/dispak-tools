@@ -48,13 +48,13 @@ Addresses and zones below are octal; word counts are decimal.
 python3 programs/blink/analyze.py
 python3 programs/blink/build.py
 python3 programs/blink/analyze.py 11165 11452
-tkdiff runtime/build/blink/original.dis runtime/build/blink/rebuilt.dis
+tkdiff build/blink/original.dis build/blink/rebuilt.dis
 ```
 
 The build shares LINK1's compilation and comparison code. Missing original
 images are extracted read-only with `besmtool`. Scratch disks, HOME,
 compiler sources, listings, images and disassemblies stay under
-`runtime/build/blink`; extracted binaries and private volumes are not
+`build/blink`; extracted binaries and private volumes are not
 source artifacts.
 
 - [inventory.json](inventory.json): original regions, services and LINK

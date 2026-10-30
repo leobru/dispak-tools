@@ -18,7 +18,7 @@ private volume 77, assembles a private Monitor library and dumps the linked
 image with PASCODER. It checks that the original volumes 4001 and 77 remain
 unchanged. Missing reference extracts are obtained from 4001 with `besmtool`;
 existing extracts must agree with the corpus hashes and the disk contents.
-All writable volumes, decks, listings and images are under `runtime/build/box/`.
+All writable volumes, decks, listings and images are under `build/box/`.
 It stops after dumping and does not execute BOX's Monitor commands.
 
 - [box.pas](box.pas): source with historical line numbers and packing.

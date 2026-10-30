@@ -1,5 +1,5 @@
 {
-  "image": "runtime/build/comp/comp.img",
+  "image": "build/comp/comp.img",
   "image_sha256": "a65cb5223f683be2c17d6edf3e3762a5c4cd8b4586d0eb76df6012ce2b2669be",
   "original": "runtime/images/4001/0315-comp.bin",
   "original_sha256": "4a448553b9499d719f770c33e32a0cab200ca718557493e44c067a8df0858d34",
@@ -36,7 +36,7 @@
   "compiler": {
     "source": "mypas.b6",
     "source_sha256": "4883945fed317eba27cf1676363636bd900be61165bc4af2979293c0c87e9963",
-    "volume": "runtime/build/comp/77",
+    "volume": "build/comp/77",
     "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
     "installed_volume_unchanged": true,
     "translator_zone": "0000",

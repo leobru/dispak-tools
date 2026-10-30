@@ -16,7 +16,7 @@
           "data_zones_read": [],
           "printer_calls": 0,
           "exit_status_octal": null,
-          "artifacts": "runtime/build/fprint/exercise/original/usage"
+          "artifacts": "build/fprint/exercise/original/usage"
         },
         {
           "name": "usage",
@@ -25,7 +25,7 @@
           "data_zones_read": [],
           "printer_calls": 0,
           "exit_status_octal": null,
-          "artifacts": "runtime/build/fprint/exercise/rebuilt/usage"
+          "artifacts": "build/fprint/exercise/rebuilt/usage"
         }
       ]
     },
@@ -41,7 +41,7 @@
           "data_zones_read": [],
           "printer_calls": 0,
           "exit_status_octal": "10",
-          "artifacts": "runtime/build/fprint/exercise/original/missing-file"
+          "artifacts": "build/fprint/exercise/original/missing-file"
         },
         {
           "name": "missing-file",
@@ -50,7 +50,7 @@
           "data_zones_read": [],
           "printer_calls": 0,
           "exit_status_octal": "10",
-          "artifacts": "runtime/build/fprint/exercise/rebuilt/missing-file"
+          "artifacts": "build/fprint/exercise/rebuilt/missing-file"
         }
       ]
     },
@@ -68,7 +68,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/original/empty-file"
+          "artifacts": "build/fprint/exercise/original/empty-file"
         },
         {
           "name": "empty-file",
@@ -79,7 +79,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/rebuilt/empty-file"
+          "artifacts": "build/fprint/exercise/rebuilt/empty-file"
         }
       ]
     },
@@ -97,7 +97,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/original/nul-terminator"
+          "artifacts": "build/fprint/exercise/original/nul-terminator"
         },
         {
           "name": "nul-terminator",
@@ -108,7 +108,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/rebuilt/nul-terminator"
+          "artifacts": "build/fprint/exercise/rebuilt/nul-terminator"
         }
       ]
     },
@@ -126,7 +126,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/original/eot-terminator"
+          "artifacts": "build/fprint/exercise/original/eot-terminator"
         },
         {
           "name": "eot-terminator",
@@ -137,7 +137,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/rebuilt/eot-terminator"
+          "artifacts": "build/fprint/exercise/rebuilt/eot-terminator"
         }
       ]
     },
@@ -155,7 +155,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/original/tabs-cr"
+          "artifacts": "build/fprint/exercise/original/tabs-cr"
         },
         {
           "name": "tabs-cr",
@@ -166,7 +166,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/rebuilt/tabs-cr"
+          "artifacts": "build/fprint/exercise/rebuilt/tabs-cr"
         }
       ]
     },
@@ -184,7 +184,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/original/formfeed-columns"
+          "artifacts": "build/fprint/exercise/original/formfeed-columns"
         },
         {
           "name": "formfeed-columns",
@@ -195,7 +195,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/rebuilt/formfeed-columns"
+          "artifacts": "build/fprint/exercise/rebuilt/formfeed-columns"
         }
       ]
     },
@@ -213,7 +213,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/original/wrap-at-63"
+          "artifacts": "build/fprint/exercise/original/wrap-at-63"
         },
         {
           "name": "wrap-at-63",
@@ -224,7 +224,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/rebuilt/wrap-at-63"
+          "artifacts": "build/fprint/exercise/rebuilt/wrap-at-63"
         }
       ]
     },
@@ -243,7 +243,7 @@
           ],
           "printer_calls": 2,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/original/two-sheets-two-zones"
+          "artifacts": "build/fprint/exercise/original/two-sheets-two-zones"
         },
         {
           "name": "two-sheets-two-zones",
@@ -255,7 +255,7 @@
           ],
           "printer_calls": 2,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/rebuilt/two-sheets-two-zones"
+          "artifacts": "build/fprint/exercise/rebuilt/two-sheets-two-zones"
         }
       ]
     },
@@ -273,7 +273,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/original/backspace-overstrike"
+          "artifacts": "build/fprint/exercise/original/backspace-overstrike"
         },
         {
           "name": "backspace-overstrike",
@@ -284,7 +284,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/rebuilt/backspace-overstrike"
+          "artifacts": "build/fprint/exercise/rebuilt/backspace-overstrike"
         }
       ]
     },
@@ -302,7 +302,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/original/letter-conversion"
+          "artifacts": "build/fprint/exercise/original/letter-conversion"
         },
         {
           "name": "letter-conversion",
@@ -313,7 +313,7 @@
           ],
           "printer_calls": 1,
           "exit_status_octal": "0",
-          "artifacts": "runtime/build/fprint/exercise/rebuilt/letter-conversion"
+          "artifacts": "build/fprint/exercise/rebuilt/letter-conversion"
         }
       ]
     }

@@ -3,7 +3,7 @@
 
 Usage: python3 programs/mt/build.py [--explore] [--source file.pas]
 --explore records differences during reconstruction instead of rejecting them.
-Artifacts are kept under runtime/build/mt. No original volume is written.
+Artifacts are kept under build/mt. No original volume is written.
 """
 from pathlib import Path
 import argparse
@@ -15,8 +15,8 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
 from paths import ROOT, COMPILER, PROGRAMS, BUILD, IMAGES, CORPUS
 from corpus import BASE, pack, read_words, sha, find_volume, volume_words
 import build
@@ -227,7 +227,7 @@ def main():
           f'{len(report["runtime_fixups"])} runtime fixups')
     if (not args.explore and (report['mismatches'] or report['runtime_fixups'] or
             report['unexplained_differences'] or not report['placement_matches'])):
-        raise ValueError('image differs beyond 02010.L; see runtime/build/mt/reconstruction.json')
+        raise ValueError('image differs beyond 02010.L; see build/mt/reconstruction.json')
     if not args.explore:
         (HERE/'variants.json').write_text(
             json.dumps(report['variant_comparison'],indent=2)+'\n')

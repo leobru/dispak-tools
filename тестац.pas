@@ -2,7 +2,7 @@
 program main(output);(*=a1*)label 3230;
 % Restored from тестац.bin (memory image from 02000) by disassembly,
 % after the similar program mark3.b6; build with
-%   PERSO="311160 320100" ./buildimg.sh тестац.pas тестац.bin
+%   PERSO="311160 320100" tools/buildimg.sh тестац.pas тестац.bin
 % (тестац.pre gives stubs for the FORTRAN routines E4233, E4243).
 % Names are invented (no post-mortem tables, p-); g... are globals
 % named by their offsets.  The data, the globals and the constant

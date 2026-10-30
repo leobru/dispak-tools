@@ -3,7 +3,7 @@
 
 Usage: python3 programs/more/build.py
 The link uses recovered Monitor helpers and COMP's file-access library.
-Artifacts live in runtime/build/more. Reference disks are read-only.
+Artifacts live in build/more. Reference disks are read-only.
 """
 
 from pathlib import Path
@@ -14,8 +14,8 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
 from paths import ROOT, COMPILER, RUNTIME, BUILD, IMAGES, CORPUS
 from build import BOOT, dump, environment, expected_word, job
 from corpus import BASE, find_volume, pack, read_words, sha, volume_words

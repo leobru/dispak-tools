@@ -8,7 +8,7 @@ import os, re, sys
 
 here = os.path.dirname(os.path.abspath(__file__))
 gost = {}
-for line in open(os.path.join(here, 'gost10859.h'), encoding='utf-8'):
+for line in open(os.path.join(here, '..', 'tools', 'gost10859.h'), encoding='utf-8'):
     m = re.match(r'#define\s+GOST_(\w+)\s+(0[0-7]+)\s*(?:/\*\s*(.*?)\s*\*/)?', line)
     if m:
         name, code, ch = m.groups()

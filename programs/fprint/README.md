@@ -21,7 +21,7 @@ FPRINT's file and printer operations are not executed by the build.
 Missing reference extracts for FPRINT, MORE and COMP are obtained from volume
 4001 with `besmtool` and checked against the corpus and source disk words.
 The build uses the same DISPAK, system volumes and `BESM6_PATH` setup as the
-other recovered utilities. Artifacts remain under `runtime/build/fprint/`.
+other recovered utilities. Artifacts remain under `build/fprint/`.
 Original volume 4001 and installed volume 77 are checked for changes. Private
 writable volumes are neither hashed nor included in Git.
 
@@ -73,7 +73,7 @@ DISPAK runs with `-x`, using the supervisor's printer extracode, and a private
 queue inside the writable build directory. `BESM6_PATH` retains access to the
 installed system disks. Each run saves `input.txt`, `job.b6`, `trace.txt`,
 `print.raw`, `print.txt`, independently decoded `decoded.txt`, and a memory
-snapshot under `runtime/build/fprint/exercise/{original,rebuilt}/<scenario>/`.
+snapshot under `build/fprint/exercise/{original,rebuilt}/<scenario>/`.
 The checks verify the actual input-zone sequence, image-loader reads, printer
 call count, exit status, and exact printed rows/columns. Raw output is decoded
 again with DISPAK and compared byte for byte with its original text output.

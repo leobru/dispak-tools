@@ -15,11 +15,10 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
 import paths
-from paths import ROOT, TOOLS, PROGRAMS, IMAGES
-sys.path.insert(1, str(TOOLS))
+from paths import ROOT, PROGRAMS, IMAGES
 from corpus import read_words, find_volume
 from libmatch import operand
 sys.path.insert(0,str(paths.RUNTIME/'linker-runtime'))

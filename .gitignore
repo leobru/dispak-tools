@@ -54,3 +54,6 @@ pascompl
 
 # Extracted binaries
 *.bin
+
+# Build output
+/build/

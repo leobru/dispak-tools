@@ -2,10 +2,10 @@
 """Build private PERSO libraries, link new programs, and verify recovered words.
 
 Usage:
-  python3 runtime/build.py library [--profile monitor]
-  python3 runtime/build.py run program.pas [--profile monitor]
-  python3 runtime/build.py golden [--profile monitor]
-  python3 runtime/build.py check
+  python3 py/build.py library [--profile monitor]
+  python3 py/build.py run program.pas [--profile monitor]
+  python3 py/build.py golden [--profile monitor]
+  python3 py/build.py check
 
 All writable volumes and job/listing/image artifacts live in runtime/build.
 The standard Pascal library may provide the compiler and loader, but runtime
@@ -20,10 +20,9 @@ import re
 import subprocess
 import sys
 
-from paths import ROOT, TOOLS, RUNTIME, BUILD
+from paths import ROOT, RUNTIME, BUILD
 from corpus import BASE, read_words
 from recover import generate
-sys.path.insert(0,str(TOOLS))
 from libmatch import load_symbols
 
 HEADER='''user 419900зс5^
@@ -288,8 +287,8 @@ def run(profile,source):
     check_image(image,listing,meta)
     text=execute(runwork,image,listing)
     print(f'Program listing: {listing}')
-    return dict(listing=str(listing.relative_to(RUNTIME)),
-                image=str(image.relative_to(RUNTIME)),output=text)
+    return dict(listing=str(listing.relative_to(ROOT)),
+                image=str(image.relative_to(ROOT)),output=text)
 
 
 def execute(work,image,listing):

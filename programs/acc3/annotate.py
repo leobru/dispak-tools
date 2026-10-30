@@ -3,7 +3,7 @@
 
 Usage: python3 programs/acc3/annotate.py ov1|ov2|head lo hi
 
-Reads runtime/build/acc3/<part>.dis (made by disbesm6 with the codeseeds
+Reads build/acc3/<part>.dis (made by disbesm6 with the codeseeds
 seeds) and appends to each instruction what its operand is:
 - `n(М10)`: the pool word, as an integer, a set of bits or KOI-8 text;
 - `n(М1)`: the global, by the name in names.txt;
@@ -17,8 +17,8 @@ import re
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
 import paths
 from corpus import read_words
 

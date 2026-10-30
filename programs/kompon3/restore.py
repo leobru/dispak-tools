@@ -2,7 +2,7 @@
 """Prepare a working historical-name source from LINK and PMD bindings.
 
 Usage: python3 programs/kompon3/restore.py
-Writes a draft under runtime/build/kompon3; never overwrites edited recovery.
+Writes a draft under build/kompon3; never overwrites edited recovery.
 The draft is a starting point, not a claim that the two versions are equal.
 """
 from collections import defaultdict
@@ -13,8 +13,8 @@ import re
 import sys
 
 HERE=Path(__file__).resolve().parent
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
 from paths import PROGRAMS, BUILD
 WORK=BUILD/'kompon3'
 TOKENS=re.compile(r'\(\*.*?\*\)|\{.*?\}|%[^\n]*|"(?:""|[^"])*"|'

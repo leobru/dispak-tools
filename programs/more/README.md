@@ -45,7 +45,7 @@ From the repository root, with DISPAK, `besmtool`, NEWPASC on volume 77 and the
 usual system volumes on `BESM6_PATH`:
 
 ```sh
-python3 runtime/corpus.py
+python3 py/corpus.py
 python3 programs/more/build.py
 ```
 
@@ -59,11 +59,11 @@ dumps the image, audits its relocated library words, and creates these artifacts
 
 | Path | Contents |
 |---|---|
-| `runtime/build/more/more.img` | Complete rebuilt MORE, three zones of six-byte words |
-| `runtime/build/more/4001` | Private physical volume with MORE replaced |
-| `runtime/build/more/3776` | Private PERSO library |
-| `runtime/build/more/77` | Compiler rebuilt with the last-argument-in-A ABI |
-| `runtime/build/more/more.lst` | Compiler listing and link map |
+| `build/more/more.img` | Complete rebuilt MORE, three zones of six-byte words |
+| `build/more/4001` | Private physical volume with MORE replaced |
+| `build/more/3776` | Private PERSO library |
+| `build/more/77` | Compiler rebuilt with the last-argument-in-A ABI |
+| `build/more/more.lst` | Compiler listing and link map |
 | [reconstruction.json](reconstruction.json) | Original ranges, comparison counts and hashes |
 
 The source volume is checked against the corpus hash and remains unchanged.

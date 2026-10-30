@@ -54,7 +54,7 @@ Compilation starts from working-tree `mypas.b6` by default;
 patches only inline TRUNC and INPUT-before-OUTPUT allocation in the build
 copy, leaving instruction-node layout and heap options unchanged.
 The earlier `NO GLOBAL MEMORY` failure at `DUMPCTEK` is resolved with the
-current compiler. The successful listing is `runtime/build/kompon3/candidate.lst`;
+current compiler. The successful listing is `build/kompon3/candidate.lst`;
 `full-current.lst` and `full-link1.lst` retain earlier failed attempts.
 
 External services are inert stubs for **static comparison**. The image is
@@ -72,7 +72,7 @@ does **not** establish whole-image byte identity. Unresolved addresses
 remain visible. A failed or unfinished build cannot reuse an older image.
 
 Images, compiler decks, listings and disassembly stay under
-`runtime/build/kompon3`. The original volumes are read only.
+`build/kompon3`. The original volumes are read only.
 
 ## Remaining work
 

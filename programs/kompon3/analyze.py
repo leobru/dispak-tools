@@ -2,7 +2,7 @@
 """Inventory KOMPON 2.02/3 and map a debug build of LINK onto its scopes.
 
 Usage: python3 programs/kompon3/analyze.py
-Requires runtime/build/kompon3/reference.img and reference.lst for mapping.
+Requires build/kompon3/reference.img and reference.lst for mapping.
 The historical image is extracted read-only from 2248/2560-2577.
 """
 from bisect import bisect_right
@@ -16,10 +16,9 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
-from paths import TOOLS, RUNTIME, PROGRAMS, BUILD
-sys.path.insert(1, str(TOOLS))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
+from paths import RUNTIME, PROGRAMS, BUILD
 WORK = BUILD/'kompon3'
 from corpus import read_words
 from libmatch import load_symbols, operand

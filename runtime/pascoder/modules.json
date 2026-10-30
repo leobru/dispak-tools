@@ -8,7 +8,7 @@
       "constant_words": 25,
       "bss_words": 435,
       "total_words": 512,
-      "artifact": "runtime/build/pascoder/pascoder.obj"
+      "artifact": "build/pascoder/pascoder.obj"
     },
     {
       "name": "P/BOOT",
@@ -18,7 +18,7 @@
       "constant_words": 1,
       "bss_words": 0,
       "total_words": 7,
-      "artifact": "runtime/build/pascoder/boot.obj"
+      "artifact": "build/pascoder/boot.obj"
     }
   ]
 }

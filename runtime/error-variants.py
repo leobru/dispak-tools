@@ -13,9 +13,10 @@ from pathlib import Path
 import re
 import sys
 
-from paths import ROOT, TOOLS, IMAGES
+sys.path.insert(0, str(next(p/'py' for p in Path(__file__).resolve().parents
+                            if (p/'py/paths.py').exists())))
+from paths import ROOT, IMAGES
 from corpus import BASE, find_volume, pack, read_words, sha, volume_words
-sys.path.insert(0, str(TOOLS))
 from libmatch import mask, operand
 
 HERE = Path(__file__).resolve().parent

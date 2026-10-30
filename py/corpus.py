@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Extract and inventory NEWPASC memory images, including overlays, from 4001.
 
-Usage: python3 runtime/corpus.py [--volume /path/to/4001] [--output runtime]
+Usage: python3 py/corpus.py [--volume /path/to/4001] [--output runtime]
 The volume is opened read-only. Missing root binaries (test.bin, тестац.bin,
 mark3.bin, pak.bin) are first dumped from volumes 4001 and 2113 with besmtool. Addresses, zones and lengths in JSON are octal
 strings; word counts are decimal. Binary outputs contain six big-endian bytes

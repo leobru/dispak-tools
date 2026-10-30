@@ -361,11 +361,11 @@ python3 programs/link1/analyze.py
 python3 programs/link1/build.py
 ```
 
-The builder also writes `runtime/build/link1/original.dis` and `rebuilt.dis`
+The builder also writes `build/link1/original.dis` and `rebuilt.dis`
 for inspection with tkdiff:
 
 ```sh
-tkdiff runtime/build/link1/original.dis runtime/build/link1/rebuilt.dis
+tkdiff build/link1/original.dis build/link1/rebuilt.dis
 ```
 
 These symbolic listings cover the Pascal application, with one line per
@@ -389,7 +389,7 @@ volumes are not hashed.
 
 The build compiles the recovered routines and writes a scratch image with
 PASCODER. P/WO and its P/WH hexadecimal-output entry use the recovered Monitor
-module, also present in `runtime/build/proz/runtime.madlen`. The builder
+module, also present in `build/proz/runtime.madlen`. The builder
 recreates that module from tracked `profiles/monitor/p_wo.madlen` and exports
 P/WH at P/WO+1, as the PROZ builder does; no prior PROZ build is required.
 All external services now have real bodies. [library.json](library.json)
@@ -493,7 +493,7 @@ preserving explicit `(*q*)` exceptions. The former `--body` option is accepted
 as an alias. There is no automatic marker selection or removal.
 
 Listings, the combined job, scratch image and full comparison stay under
-`runtime/build/link1`. No `.bin`, generated `.dis`, or private disk is needed
+`build/link1`. No `.bin`, generated `.dis`, or private disk is needed
 in the source tree's Git history.
 
 ## Work remaining

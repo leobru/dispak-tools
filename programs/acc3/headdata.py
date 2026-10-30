@@ -3,7 +3,7 @@
 
 Usage: python3 programs/acc3/headdata.py > data.inc
 
-Reads runtime/build/acc3/head.bin (made by parts.py). DATA lists each
+Reads build/acc3/head.bin (made by parts.py). DATA lists each
 initialised variable with its address and the form of its words: a
 'string' is one literal of 6 characters per word (KOI-8, as under a4),
 'text' words become 6-character literals, 'int' words integers, the rest
@@ -15,8 +15,8 @@ from pathlib import Path
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
 from paths import BUILD
 from corpus import read_words
 

@@ -4,7 +4,7 @@
 Usage: python3 programs/acc3/headtry.py [programs/acc3/head.pas]
 
 The source is compiled by NEWPASC built from mypas.b6 (the compiler of
-ovtry.py, in its work directory runtime/build/acc3/try) and linked in the
+ovtry.py, in its work directory build/acc3/try) and linked in the
 original layout: P/BOOT at 02000-02006, P/CODER at 02007-02012 (its S
 parameter sets FREE to 040000, above both overlays), an empty HROOT that
 holds the PROGRAM entry, the head program at 02013, then the
@@ -23,8 +23,8 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
 from paths import BUILD
 import ovtry
 from corpus import read_words

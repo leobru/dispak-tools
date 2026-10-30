@@ -12,9 +12,10 @@ import json
 from pathlib import Path
 import sys
 
-from paths import ROOT, TOOLS, RUNTIME, CORPUS
+sys.path.insert(0, str(next(p/'py' for p in Path(__file__).resolve().parents
+                            if (p/'py/paths.py').exists())))
+from paths import ROOT, RUNTIME, CORPUS
 from corpus import BASE, pack, read_words, sha
-sys.path.insert(0, str(TOOLS))
 from libmatch import match_at, operand
 
 

@@ -131,15 +131,15 @@ Run these commands from the repository root. They require the existing DISPAK,
 `besmtool`, NEWPASC on volume 77, and system volumes available on `BESM6_PATH`.
 
 ```sh
-python3 runtime/build.py run runtime/examples/smoke.pas
-python3 runtime/build.py run runtime/examples/nested.pas --profile svs
-python3 runtime/build.py run runtime/examples/packed.pas --profile pak
+python3 py/build.py run runtime/examples/smoke.pas
+python3 py/build.py run runtime/examples/nested.pas --profile svs
+python3 py/build.py run runtime/examples/packed.pas --profile pak
 ```
 
 `run` builds a private PERSO library, compiles the program, checks the loader map
 and every relocated runtime word, then executes the linked memory image. Its
 printing output appears on stdout. Compilation listings, images, and execution
-output are retained under `runtime/build/PROFILE/run-PROGRAM/`.
+output are retained under `build/PROFILE/run-PROGRAM/`.
 
 The SVS profiles supply `(*=a1*)` before the Pascal source, as required by their
 historical I/O routines. Options explicitly written in the source take effect
@@ -161,10 +161,10 @@ the recovered runtime.
 ## Build the library for another launch deck
 
 ```sh
-python3 runtime/build.py library --profile monitor
+python3 py/build.py library --profile monitor
 ```
 
-This creates `runtime/build/monitor/3776`, with the PERSO library at zone `0100`.
+This creates `build/monitor/3776`, with the PERSO library at zone `0100`.
 Put that directory first on `BESM6_PATH`, mount `67(3776)` read-only, and load
 `*perso:670100,cont` after the Pascal program. The runner's generated job shows a
 complete example, including the PASCODER stack descriptor at core address `02007`
@@ -187,7 +187,7 @@ Binary inputs are not stored in Git. Extract the four root `*.bin` images from
 volume 2113 with `besmtool`; the command below regenerates the volume 4001 images.
 
 ```sh
-python3 runtime/corpus.py
+python3 py/corpus.py
 python3 runtime/analyze.py
 ```
 
@@ -216,15 +216,15 @@ tables have explicit data-pointer relocations, rather than guessed instruction
 operands.
 
 The scripts locate the tools, the compiler, the program directories, the
-build output and the extracted images through [paths.py](paths.py), not
-through their own location. `python3 runtime/regress.py run` runs every build
+build output and the extracted images through [paths.py](../py/paths.py), not
+through their own location. `python3 py/regress.py run` runs every build
 and analysis and records a fingerprint of all results;
 `regress.py compare A B` lists the results that differ between two runs.
 
 ## Validation
 
 ```sh
-python3 runtime/build.py check
+python3 py/build.py check
 ```
 
 The suite performs nine regression checks, exact comparisons of all four

@@ -22,7 +22,7 @@ python3 runtime/pascoder/extract.py --extract
 ```
 
 Extraction uses a private `HOME` and mounts source disks read-only. Objects,
-punch cards and listings remain in `runtime/build/pascoder/`. No private disk
+punch cards and listings remain in `build/pascoder/`. No private disk
 hashes are recorded. The regenerated Madlen has not been reassembled.
 
 ## PASCODER proper
@@ -139,7 +139,7 @@ replaces the entire saved word, discarding those service fields.
 
 The original library PASCODER was traced with a one-word PROGRAM, the library
 `P/BOOT`, and `*TABLE:P/CODER(W*660123,L*2)`, using a private writable disk.
-The trace and listing are in `runtime/build/pascoder/writer-only.trace` and
+The trace and listing are in `build/pascoder/writer-only.trace` and
 `writer.lst`:
 
 | Value | Observed result |

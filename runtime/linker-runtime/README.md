@@ -77,8 +77,8 @@ python3 programs/link1/build.py
 python3 programs/blink1/build.py
 python3 programs/link/build.py
 python3 programs/blink/build.py
-tkdiff runtime/build/link1/original-runtime.dis \
-       runtime/build/link1/rebuilt-runtime.dis
+tkdiff build/link1/original-runtime.dis \
+       build/link1/rebuilt-runtime.dis
 ```
 
 The existing application listings remain `original.dis` and `rebuilt.dis`.
@@ -86,7 +86,7 @@ The separate runtime listings include word addresses, raw words, decoded
 instructions and data. Each build writes a source-side `library.json`
 with all module placements, literal differences, data-region comparisons
 and loader-header differences. The complete build artifacts remain under
-`runtime/build/<program>`.
+`build/<program>`.
 
 Private PERSO libraries use scratch volume 3776, zone `0100`. The ordinary
 compiler/loader libraries are searched before this private library, whose
@@ -158,7 +158,7 @@ normal builds read only the checked-in source selections. Missing linker
 images are extracted with `besmtool` by the existing analyzers. The generator
 follows public/private code roots, distinguishes inline messages and data
 tables, and retains cross-module relocations. Per-image intermediate sources
-are retained under `runtime/build/linker-runtime/unshared`, while identical
+are retained under `build/linker-runtime/unshared`, while identical
 variants share one source file.
 
 Binary extracts, disassemblies, compiler volumes and scratch libraries are

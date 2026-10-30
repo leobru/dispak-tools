@@ -7,7 +7,7 @@
 % at 02010.  O- keeps a load right after a store, as the original
 % compiler did.  Names of the file services and READLINE are from
 % the volume 4001 sources (zone 0005 include, MORE); others are
-% invented.  User code only: LIBCODER=1 ZONE=0315 ./buildimg.sh
+% invented.  User code only: LIBCODER=1 ZONE=0315 tools/buildimg.sh
 % comp.pas ref.bin 8 (standard library, comp.pre stubs).  GETCMDLI
 % ends with reset(F), not writeln(f) as in test.bin.
 const lf = '_012'; eot = '_004';sp6='      ';d=2200000B;

@@ -127,7 +127,7 @@ python3 runtime/file-access.py --assemble
 The first command regenerates the five Madlen files and relocation evidence.
 The second assembles and links them using DISPAK/Madlen and PASCODER, dumps
 the private linked image, and compares every recovered word and public entry
-after relocation. Its artifacts are confined to `runtime/build/file-access/`.
+after relocation. Its artifacts are confined to `build/file-access/`.
 Volumes 2113, 77, 2148, and 2048 are mounted read-only; writable scratch volumes
 3776 and 3777 are private. DISPAK also needs access to its normal input queue.
 

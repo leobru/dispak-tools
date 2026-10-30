@@ -480,7 +480,7 @@
   "compiler": {
     "source": "mypas.b6",
     "source_sha256": "4883945fed317eba27cf1676363636bd900be61165bc4af2979293c0c87e9963",
-    "volume": "runtime/build/mt/77",
+    "volume": "build/mt/77",
     "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
     "installed_volume_unchanged": true,
     "translator_zone": "0000",
@@ -501,7 +501,7 @@
     "programs/more/build.py": "3be8d9f41f747f3a81841205cfa311a743217fd69e2f5903072bb0ab8bec8369"
   },
   "library_source_sha256": "e0ba6790992d2f0e8775dc9b687b448381bd4d9871d42668bbd425910937b7c5",
-  "image": "runtime/build/mt/mt.img",
+  "image": "build/mt/mt.img",
   "image_sha256": "2f66f43ace1c478741e29b38c87769ef4ae3aaa8352ac43badc9ae5a05ef8422",
   "original": "runtime/images/4001/0172-mt.bin",
   "original_zones": [

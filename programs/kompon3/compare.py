@@ -12,10 +12,9 @@ from pathlib import Path
 import sys
 
 HERE=Path(__file__).resolve().parent
-sys.path.insert(0, str(next(p/'runtime' for p in HERE.parents
-                            if (p/'runtime/paths.py').exists())))
-from paths import TOOLS, BUILD
-sys.path.insert(1,str(TOOLS))
+sys.path.insert(0, str(next(p/'py' for p in HERE.parents
+                            if (p/'py/paths.py').exists())))
+from paths import BUILD
 WORK=BUILD/'kompon3'
 from corpus import read_words
 from libmatch import load_symbols, operand
