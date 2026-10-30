@@ -50,6 +50,8 @@ LAYOUT = {'ov1': (0o4014, 0o17731, 0o13), 'ov2': (0o4014, 0o31346, 0o16)}
 POOL_END = {'ov1': 0o20537, 'ov2': 0o32560}
 # The overlay stub's exchange word: read page 2 from drive 040, zone +4 or +020.
 EXCHANGE = {'ov1': 0o0000020000400004, 'ov2': 0o0000020000400020}
+# The image of each part (from parts.py).
+IMAGE = {'ov1': BUILD/'acc3/ov1.bin', 'ov2': BUILD/'acc3/ov2.bin'}
 # The loader places the modules of P/BOOT's list level by level and, after
 # each level, the commons declared so far. The module with the PROGRAM entry
 # comes first. So OVROOT (the PROGRAM, 02012-02043) is followed by P/1D,
@@ -177,7 +179,7 @@ def main():
                     'PATH': '/usr/local/bin:/usr/bin:/bin'}, check=True,
                    stdout=subprocess.DEVNULL)
     ref = WORK/f'{part}-ref.bin'
-    words = read_words(BUILD/'acc3'/f'{part}.bin')
+    words = read_words(IMAGE[part])
     ref.write_bytes(pack([0]*1024 + words))
     diff = subprocess.run([sys.executable, str(INSDIFF), str(ref), str(image),
                            f'{lo:o}', f'{hi:o}', '--shift'],
