@@ -1,7 +1,7 @@
 #!/bin/sh
-# Build a memory image of a Pascal program the way arap.b6/compar.b6 do
-# (NEWPASC + the PASCODER stub writing core from 02000 to disk) and
-# compare it with a reference binary.
+# Build a memory image of a Pascal program the way programs/arap and
+# compar.b6 do (NEWPASC + the PASCODER stub writing core from 02000 to
+# disk) and compare it with a reference binary.
 #
 # Usage: buildimg.sh prog.pas [ref.bin [nzones]]
 #   Produces prog.img (nzones*1024 words from address 02000, default 2)

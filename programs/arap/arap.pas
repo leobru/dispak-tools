@@ -1,11 +1,4 @@
-user 419900зс5^
-dis 31(2113)32(77)33(2148-440)34(2048)37(1234-wr)^
-eeb1a3
-*name
-*libra:13
-*call ficmemory
-*trans:newpasc,,320000
-(*=y+,u-,p-,s5,a4,l1*)program АРАП(input, output);
+(*=y+,u-,p-,a4,l1,o-*)program АРАП(input, output);
 label 1745;
 const
   sp = ' ';
@@ -15,7 +8,7 @@ const
   eofMark1 = '*READ_201';
   eofMark2 = 'OLD_312_012_012';
   ctx = 750000B;
-  uj = 3000000B;
+%
 type bitset = set of 0..47;
 word = packed record case integer of
 0:(a:alfa);
@@ -26,86 +19,86 @@ end;
 %
 err = (unordered, badline, nolocation, badfirst, defined,
 nodirective, notdubna, badparam, unclear); 
-% 
-% 
-% Aligning line numbers to the executable
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
+% АРАП: volume 2248, zones 2600-2601 (catalog entry АРАП /999999),
+% recovered from the memory image; the names are invented.
+% Build and compare with the original:
+%   python3 programs/arap/build.py
+% It compiles this text with mypas.b6 and links it with the standard
+% library of volume 2113 and the original two-zone P/BOOT stub.
+%
+% The user code (02011-03326), the constant pool and the globals
+% are the same word for word, except:
+% - 02626, 02662, 03223, 03276: `pos := pos + 1` and `rdPos := rdPos
+%   + 1` add 17(М1) (P/1D's 1) instead of a pool constant; no
+%   construct of mypas gives that;
+% - long addresses into the library, P/1D[046] and the zone count and
+%   FREE in P/CODER: the original was linked with another version of
+%   the library.
+% o- keeps the load right after a store, as the original compiler did;
+% the line numbers (`уиа n(М16)`) are kept by the % lines.
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
 var line:array [1..85] of char;
 page36 [74000B] : array[1..1024] of word;
 page37 [76000B] : array[1..1024] of word;
@@ -142,10 +135,10 @@ procedure wr;
 var t:bitset;
 _(
   t := bitset(drum) * [30..47] + [13..17];
- besm(700000b : t);
+ besm(700000b : t); (q);
  drum := drum + 1;
  if drum = 10040B then drum := 20000B;
- (q) exit q;
+%
  wrPos := 1;
 _);
 %
@@ -162,12 +155,12 @@ _);
 % *READ<any char> will be affected.
 %
 function iseof(var a:alfa):boolean;
-_( (* fixme: Must be ASN 64+8 instead of negation *)
-  if alfa(-page36[rdPos].i) # '_000*READ' then iseof := false
+_(
+  if alfa(shift(page36[rdPos].i, 8)) # '_000*READ' then iseof := false
   else _( a := eofMark1; rdPos := rdPos + 1;
     if rdPos = 1025 _then rd;
-% fixme: Must be ASN 64+24 instead of negation
-    iseof := alfa(-page36[rdPos].i) = '_000_000_000OLD';
+%
+    iseof := alfa(shift(page36[rdPos].i, 24)) = '_000_000_000OLD';
   _)
 _);
 %
@@ -599,7 +592,7 @@ _(
   if wrPos = 1025 then wr;
   page37[wrPos].a := eofMark1;
   wrPos := wrPos + 1;
-  (q) if wrPos = 1025 then wr;
+  if wrPos = 1025 then wr;
   page37[wrPos].a := eofMark2;
   wr;
 _);
@@ -636,14 +629,14 @@ _(
        error ( unclear )
   end;
 _);
-% The next function is for code alignment only
-function fileInit(a:integer):alfa;
-_(
- fileInit := '_052_233_260_327_102_200';
- fileInit := '_000_000_051_273_015_164';
- fileInit := '_052_375_164_303_135_012';
- fileInit := '_000_013_365_323_015_164'; (q)exit q;(q)exit q;
-_);
+%
+%
+%
+%
+%
+%
+%
+%
 begin
  drum := 0;
  done := false;
@@ -671,29 +664,6 @@ begin
   (q) besm(ctx : page37[2]);
   cmd := 10010000310000C;
   (q) besm(ctx : page37[3]);
-  (q) besm(uj : page37); (* fixme *)
-1745: (q)exit q;(q)exit q;(q)exit q;
+  (q) besm(3076000B);
+1745:
 end.
-*perso:311160,cont
-*perso:320200,cont
-*no li
-*assem
- Р/ВООТ:,NАМЕ,DТRАN  /01.06.84/
- Р/СОDЕR:,SUВР,
- РRОGRАМ:,SUВР,
- ,WТС,P/CODER+2
- 1,VТМ,
- *1:1,UTM,-1
- 1,VZМ,РRОGRАМ
- ,ARX,=100 0000 0001
- ,АТХ,P/CODER
- ,*70,P/CODER
- ,XTA,P/CODER
- ,UJ,*1
- ,END,
-*table:p/coder(w*370000,l*2)
-*main pascoder
-*execute
-*end file
-``````
-еконец

@@ -28,9 +28,9 @@ from paths import ROOT, PY, COMPILER, RUNTIME, PROGRAMS, BUILD, IMAGES
 
 OUT = BUILD/'regress'
 # The program directories under PROGRAMS (the others belong to the runtime).
-PROGRAM_DIRS = ['acc2', 'acc3', 'blink', 'blink1', 'box', 'comp', 'fprint',
-                'kanal', 'kompon3', 'link', 'link1', 'monitr', 'more', 'mt',
-                'mtd', 'print', 'proz']
+PROGRAM_DIRS = ['acc2', 'acc3', 'arap', 'blink', 'blink1', 'box', 'comp',
+                'fprint', 'kanal', 'kompon3', 'link', 'link1', 'monitr', 'more',
+                'mt', 'mtd', 'print', 'proz']
 
 STEPS = [
     ('analyze', '{RUNTIME}/analyze.py'),
@@ -77,6 +77,7 @@ STEPS = [
     ('acc2-zone', '{PROGRAMS}/acc2/zone.py'),
     ('acc2-elf', '{PROGRAMS}/acc2/elf.py'),
     ('acc2-compare', '{PROGRAMS}/acc2/compare.py'),
+    ('arap', '{PROGRAMS}/arap/build.py'),
     ('check', '{PY}/build.py check'),
 ]
 

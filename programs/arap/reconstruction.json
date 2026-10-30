@@ -1,0 +1,4195 @@
+{
+  "placement": {
+    "PROGRAM": "02011",
+    "P/1D": "03477",
+    "*INPUT*": "03707",
+    "*OUTPUT*": "03745",
+    "P/2": "04003",
+    "FREE": "04734"
+  },
+  "rebuilt_pool": "03327",
+  "regions": [
+    {
+      "name": "stub",
+      "range": [
+        "02000",
+        "02010"
+      ],
+      "words": 9,
+      "identical_words": 8,
+      "bit_identical": false
+    },
+    {
+      "name": "code",
+      "range": [
+        "02011",
+        "03326"
+      ],
+      "words": 718,
+      "identical_words": 597,
+      "bit_identical": false
+    },
+    {
+      "name": "constants",
+      "range": [
+        "03327",
+        "03476"
+      ],
+      "words": 104,
+      "identical_words": 104,
+      "bit_identical": true
+    },
+    {
+      "name": "globals_and_files",
+      "range": [
+        "03477",
+        "04002"
+      ],
+      "words": 196,
+      "identical_words": 195,
+      "bit_identical": false
+    },
+    {
+      "name": "library",
+      "range": [
+        "04003",
+        "04733"
+      ],
+      "words": 473,
+      "identical_words": 45,
+      "bit_identical": false
+    },
+    {
+      "name": "above_free",
+      "range": [
+        "04734",
+        "05777"
+      ],
+      "words": 548,
+      "identical_words": 418,
+      "bit_identical": false
+    }
+  ],
+  "image_words": 2048,
+  "identical_words": 1367,
+  "different_words": 681,
+  "application_differences": 4,
+  "unexplained_differences": 0,
+  "differences": [
+    {
+      "word": "02007",
+      "original": "0003100000005143",
+      "rebuilt": "0003000000004734",
+      "cause": "P/CODER: zone count and FREE of the other library version"
+    },
+    {
+      "word": "02022",
+      "original": "0400017603004026",
+      "rebuilt": "0400017603004101",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02036",
+      "original": "0300402602200000",
+      "rebuilt": "0300410102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02044",
+      "original": "0270403140060010",
+      "rebuilt": "0270410440060010",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02045",
+      "original": "0270403174100001",
+      "rebuilt": "0270410474100001",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02074",
+      "original": "0300402602200000",
+      "rebuilt": "0300410102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02102",
+      "original": "6240374567104044",
+      "rebuilt": "6240374567104117",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02103",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02106",
+      "original": "6240374567104044",
+      "rebuilt": "6240374567104117",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02107",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02112",
+      "original": "6240374567104044",
+      "rebuilt": "6240374567104117",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02113",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02116",
+      "original": "6240374567104364",
+      "rebuilt": "6240374567104374",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02117",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02122",
+      "original": "6240374567104044",
+      "rebuilt": "6240374567104117",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02123",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02126",
+      "original": "6240374567104364",
+      "rebuilt": "6240374567104374",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02127",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02132",
+      "original": "6240374567104044",
+      "rebuilt": "6240374567104117",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02133",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02136",
+      "original": "6240374567104364",
+      "rebuilt": "6240374567104374",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02137",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02142",
+      "original": "6240374567104044",
+      "rebuilt": "6240374567104117",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02143",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02146",
+      "original": "6240374567104044",
+      "rebuilt": "6240374567104117",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02147",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02152",
+      "original": "6240374567104044",
+      "rebuilt": "6240374567104117",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02153",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02156",
+      "original": "6240374567104364",
+      "rebuilt": "6240374567104374",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02157",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02162",
+      "original": "6240374567104044",
+      "rebuilt": "6240374567104117",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02163",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02166",
+      "original": "6240374567104364",
+      "rebuilt": "6240374567104374",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02167",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02210",
+      "original": "0300437402200000",
+      "rebuilt": "0300440402200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02216",
+      "original": "0270403140060102",
+      "rebuilt": "0270410440060102",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02217",
+      "original": "0270403174100001",
+      "rebuilt": "0270410474100001",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02245",
+      "original": "1000000303004026",
+      "rebuilt": "1000000303004101",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02264",
+      "original": "1017000467104420",
+      "rebuilt": "1017000467104422",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02272",
+      "original": "0300402602200000",
+      "rebuilt": "0300410102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02305",
+      "original": "0300402602200000",
+      "rebuilt": "0300410102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02312",
+      "original": "1010000467104423",
+      "rebuilt": "1010000467104425",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02316",
+      "original": "0270403140060115",
+      "rebuilt": "0270410440060115",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02317",
+      "original": "0270403174100001",
+      "rebuilt": "0270410474100001",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02323",
+      "original": "0270403140060115",
+      "rebuilt": "0270410440060115",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02324",
+      "original": "0270403174100001",
+      "rebuilt": "0270410474100001",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02336",
+      "original": "7240000056404430",
+      "rebuilt": "7240000056404432",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02337",
+      "original": "6710445702200000",
+      "rebuilt": "6710446102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02343",
+      "original": "1000000303004026",
+      "rebuilt": "1000000303004101",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02350",
+      "original": "6240370767104344",
+      "rebuilt": "6240370767104473",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02361",
+      "original": "6640235003004255",
+      "rebuilt": "6640235003004272",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02362",
+      "original": "6240370767104255",
+      "rebuilt": "6240370767104272",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02402",
+      "original": "0270403140060010",
+      "rebuilt": "0270410440060010",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02403",
+      "original": "0270403174100001",
+      "rebuilt": "0270410474100001",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02460",
+      "original": "0400020003004026",
+      "rebuilt": "0400020003004101",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02515",
+      "original": "0300402602200000",
+      "rebuilt": "0300410102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02516",
+      "original": "7400000373104471",
+      "rebuilt": "7400000373104500",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02525",
+      "original": "7240000056404430",
+      "rebuilt": "7240000056404432",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02526",
+      "original": "6710447502200000",
+      "rebuilt": "6710450402200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02530",
+      "original": "6640257003004236",
+      "rebuilt": "6640257003004241",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02534",
+      "original": "7240000056404430",
+      "rebuilt": "7240000056404432",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02535",
+      "original": "6710447502200000",
+      "rebuilt": "6710450402200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02542",
+      "original": "7240000056404430",
+      "rebuilt": "7240000056404432",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02543",
+      "original": "6710447502200000",
+      "rebuilt": "6710450402200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02545",
+      "original": "6710450502200000",
+      "rebuilt": "6710451402200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02547",
+      "original": "6640256503004507",
+      "rebuilt": "6640256503004516",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02553",
+      "original": "7240000056404430",
+      "rebuilt": "7240000056404432",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02554",
+      "original": "6710447502200000",
+      "rebuilt": "6710450402200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02561",
+      "original": "6710450702200000",
+      "rebuilt": "6710451602200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02570",
+      "original": "0300402602200000",
+      "rebuilt": "0300410102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02610",
+      "original": "6240374567104511",
+      "rebuilt": "6240374567104520",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02612",
+      "original": "6710457202200000",
+      "rebuilt": "6710460102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02626",
+      "original": "0410017604040021",
+      "rebuilt": "0410017640040004",
+      "cause": "i := i + 1 through 17(\u041c1), not a pool constant; no construct of mypas gives it"
+    },
+    {
+      "word": "02640",
+      "original": "6240374567104572",
+      "rebuilt": "6240374567104601",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02642",
+      "original": "6710457202200000",
+      "rebuilt": "6710460102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02644",
+      "original": "6710457202200000",
+      "rebuilt": "6710460102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02646",
+      "original": "6710457202200000",
+      "rebuilt": "6710460102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02647",
+      "original": "6640402603004237",
+      "rebuilt": "6640410103004242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02650",
+      "original": "7310447102200000",
+      "rebuilt": "7310450002200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02662",
+      "original": "0410017504040021",
+      "rebuilt": "0410017540040004",
+      "cause": "i := i + 1 through 17(\u041c1), not a pool constant; no construct of mypas gives it"
+    },
+    {
+      "word": "02665",
+      "original": "0300402602200000",
+      "rebuilt": "0300410102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02706",
+      "original": "7240000056404430",
+      "rebuilt": "7240000056404432",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02707",
+      "original": "6640272603004457",
+      "rebuilt": "6640272603004461",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02715",
+      "original": "7240000056404430",
+      "rebuilt": "7240000056404432",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02716",
+      "original": "6640272603004457",
+      "rebuilt": "6640272603004461",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02722",
+      "original": "7240000056404430",
+      "rebuilt": "7240000056404432",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02723",
+      "original": "6710445702200000",
+      "rebuilt": "6710446102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02750",
+      "original": "6240374567104364",
+      "rebuilt": "6240374567104374",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02751",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02752",
+      "original": "0300402602200000",
+      "rebuilt": "0300410102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02753",
+      "original": "7310447102200000",
+      "rebuilt": "7310450002200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "02772",
+      "original": "0300402602200000",
+      "rebuilt": "0300410102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03017",
+      "original": "6240374567104572",
+      "rebuilt": "6240374567104601",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03022",
+      "original": "6240374567104364",
+      "rebuilt": "6240374567104374",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03023",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03025",
+      "original": "0300402602200000",
+      "rebuilt": "0300410102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03054",
+      "original": "6240374567104572",
+      "rebuilt": "6240374567104601",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03057",
+      "original": "6240374567104364",
+      "rebuilt": "6240374567104374",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03060",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03062",
+      "original": "3444000203004026",
+      "rebuilt": "3444000203004101",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03122",
+      "original": "6710457202200000",
+      "rebuilt": "6710460102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03125",
+      "original": "6240374567104364",
+      "rebuilt": "6240374567104374",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03126",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03130",
+      "original": "3444000203004026",
+      "rebuilt": "3444000203004101",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03135",
+      "original": "6240374567104572",
+      "rebuilt": "6240374567104601",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03140",
+      "original": "6240374567104364",
+      "rebuilt": "6240374567104374",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03141",
+      "original": "6240374567104237",
+      "rebuilt": "6240374567104242",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03171",
+      "original": "3444000203004026",
+      "rebuilt": "3444000203004101",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03176",
+      "original": "6240374567104572",
+      "rebuilt": "6240374567104601",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03200",
+      "original": "6710457202200000",
+      "rebuilt": "6710460102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03202",
+      "original": "6710457202200000",
+      "rebuilt": "6710460102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03204",
+      "original": "6710457202200000",
+      "rebuilt": "6710460102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03205",
+      "original": "6710423702200000",
+      "rebuilt": "6710424202200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03223",
+      "original": "0404002104000175",
+      "rebuilt": "4004000404000175",
+      "cause": "i := i + 1 through 17(\u041c1), not a pool constant; no construct of mypas gives it"
+    },
+    {
+      "word": "03245",
+      "original": "0300402602200000",
+      "rebuilt": "0300410102200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03251",
+      "original": "4010013767104106",
+      "rebuilt": "4010013767104050",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03255",
+      "original": "4010014167104106",
+      "rebuilt": "4010014167104050",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03264",
+      "original": "6240370767104255",
+      "rebuilt": "6240370767104272",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03265",
+      "original": "6240370767104347",
+      "rebuilt": "6240370767104603",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03276",
+      "original": "0404002104000175",
+      "rebuilt": "4004000404000175",
+      "cause": "i := i + 1 through 17(\u041c1), not a pool constant; no construct of mypas gives it"
+    },
+    {
+      "word": "03321",
+      "original": "0300402302200000",
+      "rebuilt": "0300407602200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03322",
+      "original": "7310457402200000",
+      "rebuilt": "7310460402200000",
+      "cause": "call into the library at another address"
+    },
+    {
+      "word": "03545",
+      "original": "0000000000000000",
+      "rebuilt": "0000000000100000",
+      "cause": "P/1D library constants of the other library version"
+    },
+    {
+      "word": "04007",
+      "original": "0042001702204620",
+      "rebuilt": "0042001702204612",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04011",
+      "original": "5710460702200000",
+      "rebuilt": "5710461302200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04015",
+      "original": "0042001702204602",
+      "rebuilt": "0042001702210435",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04017",
+      "original": "0042001672404602",
+      "rebuilt": "0042001672410435",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04023",
+      "original": "3410000100360117",
+      "rebuilt": "1002012025252050",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04024",
+      "original": "0040001672200000",
+      "rebuilt": "2142444021247514",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04025",
+      "original": "6710000002200000",
+      "rebuilt": "2343650620246123",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04026",
+      "original": "0037000334440017",
+      "rebuilt": "2120204010020040",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04027",
+      "original": "3410000000400007",
+      "rebuilt": "1002012025252050",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04030",
+      "original": "7630000103000000",
+      "rebuilt": "2142444021247506",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04031",
+      "original": "0220404300100000",
+      "rebuilt": "1725212225242404",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04032",
+      "original": "0043001604150011",
+      "rebuilt": "1002012025252050",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04033",
+      "original": "7400000062403745",
+      "rebuilt": "2142444023047503",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04034",
+      "original": "5240001456404041",
+      "rebuilt": "2024604021444514",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04035",
+      "original": "6710404402200000",
+      "rebuilt": "2122011725442522",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04036",
+      "original": "7410000067104511",
+      "rebuilt": "2144611725602040",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04037",
+      "original": "6710423702200000",
+      "rebuilt": "1002010721252050",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04040",
+      "original": "6710462102200000",
+      "rebuilt": "2142444021247506",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04041",
+      "original": "1004752621251101",
+      "rebuilt": "1725212225242404",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04042",
+      "original": "2344350510044516",
+      "rebuilt": "1002010721252050",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04043",
+      "original": "6400000000000006",
+      "rebuilt": "2142444021247514",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04044",
+      "original": "7310463302200000",
+      "rebuilt": "2343652424452505",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04045",
+      "original": "5444001050440007",
+      "rebuilt": "0102004010020040",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04046",
+      "original": "3247777340100000",
+      "rebuilt": "1342705610051105",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04047",
+      "original": "0400000502200000",
+      "rebuilt": "2503640410020040",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04050",
+      "original": "0410000500360070",
+      "rebuilt": "4640462202604060",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04051",
+      "original": "0400000500310000",
+      "rebuilt": "4412001356400000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04052",
+      "original": "6230000000000000",
+      "rebuilt": "0260405656400001",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04053",
+      "original": "6710421202200000",
+      "rebuilt": "4412001344120014",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04054",
+      "original": "3657777737404057",
+      "rebuilt": "0270406044100023",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04055",
+      "original": "3370405042500001",
+      "rebuilt": "7240406703004061",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04056",
+      "original": "0300404602200000",
+      "rebuilt": "4410002472404067",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04057",
+      "original": "7310463602200000",
+      "rebuilt": "0300406102200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04060",
+      "original": "6700000002200000",
+      "rebuilt": "4410002264440016",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04061",
+      "original": "1002012025252050",
+      "rebuilt": "4415002560000002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04062",
+      "original": "2142444021247514",
+      "rebuilt": "0010000060000004",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04063",
+      "original": "2343650620246123",
+      "rebuilt": "6000000344100004",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04064",
+      "original": "2120204010020040",
+      "rebuilt": "6000000162500001",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04065",
+      "original": "1002012025252050",
+      "rebuilt": "0042001461007777",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04066",
+      "original": "2142444021247506",
+      "rebuilt": "7300000002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04067",
+      "original": "1725212225242404",
+      "rebuilt": "0471002402200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04070",
+      "original": "1002012025252050",
+      "rebuilt": "0023000066600000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04071",
+      "original": "2142444023047503",
+      "rebuilt": "0036006456200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04072",
+      "original": "2024604021444514",
+      "rebuilt": "4415000556200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04073",
+      "original": "2122011725442522",
+      "rebuilt": "4400000544100003",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04074",
+      "original": "2144611725602040",
+      "rebuilt": "5620000044120015",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04075",
+      "original": "1002010721252050",
+      "rebuilt": "4400000367000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04076",
+      "original": "2142444021247506",
+      "rebuilt": "3410000100360117",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04077",
+      "original": "1725212225242404",
+      "rebuilt": "0040001672200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04100",
+      "original": "1002010721252050",
+      "rebuilt": "6710000002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04101",
+      "original": "2142444021247514",
+      "rebuilt": "0037000334440017",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04102",
+      "original": "2343652424452505",
+      "rebuilt": "3410000000400007",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04103",
+      "original": "0102004010020040",
+      "rebuilt": "7630000103000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04104",
+      "original": "1342705610051105",
+      "rebuilt": "0220411600100000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04105",
+      "original": "2503640410020040",
+      "rebuilt": "0043001604150011",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04106",
+      "original": "4640510002604116",
+      "rebuilt": "7400000062403745",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04107",
+      "original": "4412001356400000",
+      "rebuilt": "5240001456404114",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04110",
+      "original": "0260411456400001",
+      "rebuilt": "6710411702200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04111",
+      "original": "4412001344120014",
+      "rebuilt": "7410000067104520",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04112",
+      "original": "0270411644100021",
+      "rebuilt": "6710424202200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04113",
+      "original": "7240412503004117",
+      "rebuilt": "6710465002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04114",
+      "original": "4410002272404125",
+      "rebuilt": "1004752621251101",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04115",
+      "original": "0300411702200000",
+      "rebuilt": "2344350510044516",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04116",
+      "original": "4410002064440016",
+      "rebuilt": "6400000000000006",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04117",
+      "original": "4415002360000002",
+      "rebuilt": "7310466202200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04120",
+      "original": "0010000060000004",
+      "rebuilt": "5444001050440007",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04121",
+      "original": "6000000344100004",
+      "rebuilt": "3247777340100000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04122",
+      "original": "6000000162500001",
+      "rebuilt": "0400000502200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04123",
+      "original": "0042001461007777",
+      "rebuilt": "0410000500360070",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04124",
+      "original": "7300000002200000",
+      "rebuilt": "0400000500310000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04125",
+      "original": "0471002402200000",
+      "rebuilt": "6230000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04126",
+      "original": "0023000066600000",
+      "rebuilt": "6710421202200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04127",
+      "original": "0036006456200000",
+      "rebuilt": "3657777737404132",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04130",
+      "original": "4415000556200000",
+      "rebuilt": "3370412342500001",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04131",
+      "original": "4400000544100003",
+      "rebuilt": "0300412102200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04132",
+      "original": "5620000044120015",
+      "rebuilt": "7310466502200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04133",
+      "original": "4400000367000000",
+      "rebuilt": "6700000002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04134",
+      "original": "4640510000100000",
+      "rebuilt": "4640462200100000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04136",
+      "original": "6010000244150023",
+      "rebuilt": "6010000244150025",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04140",
+      "original": "4640510000100000",
+      "rebuilt": "4640462200100000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04143",
+      "original": "4415002344120023",
+      "rebuilt": "4415002544120025",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04150",
+      "original": "5640443054170000",
+      "rebuilt": "5640443254170000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04154",
+      "original": "7220000054260005",
+      "rebuilt": "7220000054260000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04174",
+      "original": "6710464202200000",
+      "rebuilt": "6711045502200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04201",
+      "original": "0037000700410014",
+      "rebuilt": "0041001400420015",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04202",
+      "original": "0042001546405100",
+      "rebuilt": "4640462244030003",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04203",
+      "original": "4403000344110022",
+      "rebuilt": "4411002402604207",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04204",
+      "original": "0260420744100004",
+      "rebuilt": "4410000467104516",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04205",
+      "original": "6710450702200000",
+      "rebuilt": "4410000344110021",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04206",
+      "original": "6710416702200000",
+      "rebuilt": "0270420767104167",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04207",
+      "original": "5240000167104235",
+      "rebuilt": "5240000167104136",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04211",
+      "original": "0300425602200000",
+      "rebuilt": "0300427302200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04212",
+      "original": "4640510060100002",
+      "rebuilt": "4640462260100002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04213",
+      "original": "4411002356404061",
+      "rebuilt": "4411002556400000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04214",
+      "original": "0260435060100002",
+      "rebuilt": "0260467060100002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04215",
+      "original": "4411002456404065",
+      "rebuilt": "4411002656405707",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04216",
+      "original": "0270435060100004",
+      "rebuilt": "0270467060100004",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04220",
+      "original": "5640407002604350",
+      "rebuilt": "5640571202604670",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04222",
+      "original": "4412000402604231",
+      "rebuilt": "4412000402604232",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04223",
+      "original": "7257760073504231",
+      "rebuilt": "4410000344110021",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04224",
+      "original": "6010000244110021",
+      "rebuilt": "0270423272577600",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04225",
+      "original": "0260423100420015",
+      "rebuilt": "7350423260100002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04226",
+      "original": "6003000100430000",
+      "rebuilt": "4411002302604232",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04227",
+      "original": "6710423702200000",
+      "rebuilt": "0042001560030001",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04230",
+      "original": "7410000003004232",
+      "rebuilt": "0043000067104242",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04231",
+      "original": "0042001560030001",
+      "rebuilt": "7410000003004233",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04232",
+      "original": "6003000456404430",
+      "rebuilt": "0042001560030001",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04233",
+      "original": "6640420003004156",
+      "rebuilt": "6003000456404432",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04234",
+      "original": "6240370702200000",
+      "rebuilt": "6640420003004156",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04235",
+      "original": "4640510003004136",
+      "rebuilt": "6240370702200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04236",
+      "original": "6240374502200000",
+      "rebuilt": "4640462260100002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04237",
+      "original": "0042001546405100",
+      "rebuilt": "4415002560000002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04240",
+      "original": "4403000467104507",
+      "rebuilt": "0300427202200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04241",
+      "original": "6710416702200000",
+      "rebuilt": "6240374502200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04242",
+      "original": "4410000344110024",
+      "rebuilt": "0042001546404622",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04243",
+      "original": "0260424444640011",
+      "rebuilt": "4403000467104516",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04244",
+      "original": "4410000344110023",
+      "rebuilt": "4410000344110020",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04245",
+      "original": "0260425444100006",
+      "rebuilt": "0270426544100003",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04246",
+      "original": "4400000744710007",
+      "rebuilt": "4411002102704252",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04247",
+      "original": "4400000100360130",
+      "rebuilt": "6710416702200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04250",
+      "original": "4411001602604272",
+      "rebuilt": "4410000344110026",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04251",
+      "original": "4412001602604272",
+      "rebuilt": "0260425244640011",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04252",
+      "original": "4410000204130010",
+      "rebuilt": "4410000344110025",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04253",
+      "original": "4400000202200000",
+      "rebuilt": "0260426444100003",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04254",
+      "original": "6640420003004134",
+      "rebuilt": "4420002100360113",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04255",
+      "original": "4640510052400000",
+      "rebuilt": "4415000644000007",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04256",
+      "original": "6010000244110024",
+      "rebuilt": "4471000702200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04257",
+      "original": "5640407502704350",
+      "rebuilt": "4400000100360130",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04260",
+      "original": "0042001560030002",
+      "rebuilt": "4411001602604307",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04261",
+      "original": "4411002302604333",
+      "rebuilt": "4412001602604307",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04262",
+      "original": "6010000244110022",
+      "rebuilt": "4410000204130010",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04263",
+      "original": "5640410002604350",
+      "rebuilt": "4400000202200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04264",
+      "original": "6010000244120023",
+      "rebuilt": "6640420003004134",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04265",
+      "original": "6000000244100003",
+      "rebuilt": "0042001100430014",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04266",
+      "original": "4411002202704306",
+      "rebuilt": "7400000067110641",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04267",
+      "original": "6000000460000003",
+      "rebuilt": "7410000000410014",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04270",
+      "original": "6060000502200000",
+      "rebuilt": "0040001144710010",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04271",
+      "original": "7350427502200000",
+      "rebuilt": "0300425702200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04272",
+      "original": "6010000244150024",
+      "rebuilt": "4640462252400000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04273",
+      "original": "4415002360000002",
+      "rebuilt": "6010000244110026",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04274",
+      "original": "0300420002200000",
+      "rebuilt": "5640571702704670",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04275",
+      "original": "6010000367104150",
+      "rebuilt": "0042001560030002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04276",
+      "original": "7340430102604303",
+      "rebuilt": "4411002502604363",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04277",
+      "original": "6710473402200000",
+      "rebuilt": "6010000244110024",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04300",
+      "original": "6003000467104156",
+      "rebuilt": "5640572202604670",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04301",
+      "original": "6010000304130010",
+      "rebuilt": "6010000244120025",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04302",
+      "original": "6000000303004275",
+      "rebuilt": "6000000244100003",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04303",
+      "original": "6000000344100004",
+      "rebuilt": "4411002402704323",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04304",
+      "original": "6003000466404333",
+      "rebuilt": "6000000460000003",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04305",
+      "original": "0300415602200000",
+      "rebuilt": "6060000502200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04306",
+      "original": "5350431044100000",
+      "rebuilt": "7350431202200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04307",
+      "original": "6000000502200000",
+      "rebuilt": "6010000244150026",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04310",
+      "original": "4410000344110021",
+      "rebuilt": "4415002560000002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04311",
+      "original": "0036003344150005",
+      "rebuilt": "0300420002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04312",
+      "original": "4400000744710007",
+      "rebuilt": "6010000367104150",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04313",
+      "original": "4400000100360130",
+      "rebuilt": "7340431602606142",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04314",
+      "original": "4411001602604272",
+      "rebuilt": "6711054702200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04315",
+      "original": "4412001602604272",
+      "rebuilt": "6003000467104156",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04316",
+      "original": "4410000344110020",
+      "rebuilt": "6010000304130010",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04317",
+      "original": "0260432144100006",
+      "rebuilt": "6000000303004312",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04320",
+      "original": "4400000744710007",
+      "rebuilt": "6000000344100004",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04321",
+      "original": "0410001144000002",
+      "rebuilt": "6003000466406205",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04322",
+      "original": "0010000060000003",
+      "rebuilt": "0300600002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04323",
+      "original": "6000000402200000",
+      "rebuilt": "5350432544100000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04324",
+      "original": "6710415002200000",
+      "rebuilt": "6000000502200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04325",
+      "original": "6000000154120002",
+      "rebuilt": "4410000344200023",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04326",
+      "original": "0260433260100004",
+      "rebuilt": "0036011244030003",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04327",
+      "original": "4412001702604332",
+      "rebuilt": "4420002100360113",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04330",
+      "original": "6010000167104734",
+      "rebuilt": "7415000044150005",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04331",
+      "original": "6640432403004161",
+      "rebuilt": "4400000744710007",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04332",
+      "original": "4410000467104161",
+      "rebuilt": "4400000100360130",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04333",
+      "original": "6010000460120003",
+      "rebuilt": "4411001602604307",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04334",
+      "original": "0270433666404200",
+      "rebuilt": "4412001602604307",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04335",
+      "original": "0300413602200000",
+      "rebuilt": "4410000344110022",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04336",
+      "original": "6010000367104150",
+      "rebuilt": "0260434244100003",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04337",
+      "original": "6000000144120004",
+      "rebuilt": "4411002102704342",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04340",
+      "original": "0270434266404200",
+      "rebuilt": "4410000644000007",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04341",
+      "original": "0300413602200000",
+      "rebuilt": "4471000702200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04342",
+      "original": "6010000304130010",
+      "rebuilt": "0410001144000002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04343",
+      "original": "6000000303004200",
+      "rebuilt": "0010000060000003",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04344",
+      "original": "4640512302200000",
+      "rebuilt": "6000000444100003",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04345",
+      "original": "6010000244200000",
+      "rebuilt": "4411002102604354",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04346",
+      "original": "0036015767000000",
+      "rebuilt": "6710415002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04347",
+      "original": "4640512403004345",
+      "rebuilt": "6000000144120004",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04350",
+      "original": "0042001500430013",
+      "rebuilt": "0260436260100004",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04351",
+      "original": "6240374560030004",
+      "rebuilt": "4412001702604362",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04352",
+      "original": "0260435404050010",
+      "rebuilt": "6010000166404346",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04353",
+      "original": "6000000467104236",
+      "rebuilt": "0300416102200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04354",
+      "original": "7630000056400000",
+      "rebuilt": "6710415002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04355",
+      "original": "6710477402200000",
+      "rebuilt": "6000000154120002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04356",
+      "original": "5640410467104774",
+      "rebuilt": "0260436260100004",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04357",
+      "original": "0220436300100000",
+      "rebuilt": "4412001702604362",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04360",
+      "original": "7630000072400000",
+      "rebuilt": "6010000167110547",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04361",
+      "original": "0043001667105013",
+      "rebuilt": "6640435403004161",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04362",
+      "original": "6640464103004236",
+      "rebuilt": "4410000467104161",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04363",
+      "original": "6400000000000005",
+      "rebuilt": "6010000460120003",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04364",
+      "original": "4647777773105125",
+      "rebuilt": "0270436666404200",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04365",
+      "original": "5444000650440005",
+      "rebuilt": "0300413602200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04366",
+      "original": "2740437330100000",
+      "rebuilt": "6010000367104150",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04367",
+      "original": "6230000000000000",
+      "rebuilt": "6000000144120004",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04370",
+      "original": "6710421202200000",
+      "rebuilt": "0270437266404200",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04371",
+      "original": "3250000126577777",
+      "rebuilt": "0300413602200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04372",
+      "original": "0300436602200000",
+      "rebuilt": "6010000304130010",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04373",
+      "original": "4647777703005130",
+      "rebuilt": "6000000303004200",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04374",
+      "original": "0037000362404415",
+      "rebuilt": "4647777773104677",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04375",
+      "original": "0042001660000000",
+      "rebuilt": "5444000650440005",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04376",
+      "original": "0042001560000001",
+      "rebuilt": "2740440330100000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04377",
+      "original": "0042000760120001",
+      "rebuilt": "6230000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04400",
+      "original": "0260441034100001",
+      "rebuilt": "6710421202200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04401",
+      "original": "0220441700110000",
+      "rebuilt": "3250000126577777",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04402",
+      "original": "0260440500360117",
+      "rebuilt": "0300437602200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04403",
+      "original": "0040001566200000",
+      "rebuilt": "4647777703004702",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04404",
+      "original": "6710000002200000",
+      "rebuilt": "0037000362404420",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04405",
+      "original": "6240441534440017",
+      "rebuilt": "0042001660000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04406",
+      "original": "3410000000400007",
+      "rebuilt": "0042001560000001",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04407",
+      "original": "0300437702200000",
+      "rebuilt": "0042000760120001",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04410",
+      "original": "0042001704050006",
+      "rebuilt": "0260441734100001",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04411",
+      "original": "0260441406300006",
+      "rebuilt": "0036011704110020",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04412",
+      "original": "0010000004000006",
+      "rebuilt": "0260441400400016",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04413",
+      "original": "0300441002200000",
+      "rebuilt": "7220000067100000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04414",
+      "original": "6230000003000000",
+      "rebuilt": "6240442034440017",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04415",
+      "original": "0000000000000000",
+      "rebuilt": "3410000000400007",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04416",
+      "original": "0000000000000000",
+      "rebuilt": "0300440702200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04417",
+      "original": "0000007777700000",
+      "rebuilt": "6230000003000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04420",
+      "original": "7400000100310100",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04421",
+      "original": "7412000104110013",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04422",
+      "original": "7412000167000000",
+      "rebuilt": "7400000100310100",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04423",
+      "original": "7400000172477773",
+      "rebuilt": "7412000104110013",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04424",
+      "original": "7410000100360070",
+      "rebuilt": "7412000167000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04425",
+      "original": "7400000100310000",
+      "rebuilt": "7400000172477773",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04426",
+      "original": "7220000060000005",
+      "rebuilt": "7410000100360070",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04427",
+      "original": "7370442467000000",
+      "rebuilt": "7400000100310000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04430",
+      "original": "4002525252525253",
+      "rebuilt": "7220000060000005",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04431",
+      "original": "4000000000000006",
+      "rebuilt": "7370442667000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04432",
+      "original": "0000000000000377",
+      "rebuilt": "4002525252525253",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04433",
+      "original": "0000000000004443",
+      "rebuilt": "4000000000000006",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04434",
+      "original": "0000000000004451",
+      "rebuilt": "0000000000000377",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04435",
+      "original": "6400000000000000",
+      "rebuilt": "0000000000004445",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04436",
+      "original": "6000000000000000",
+      "rebuilt": "0000000000004453",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04437",
+      "original": "5400000000000000",
+      "rebuilt": "6400000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04440",
+      "original": "5000000000000000",
+      "rebuilt": "6000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04441",
+      "original": "4400000000000000",
+      "rebuilt": "5400000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04442",
+      "original": "4000000000000000",
+      "rebuilt": "5000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04443",
+      "original": "1400000000000000",
+      "rebuilt": "4400000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04444",
+      "original": "2000000000000000",
+      "rebuilt": "4000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04445",
+      "original": "2400000000000000",
+      "rebuilt": "1400000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04446",
+      "original": "3000000000000000",
+      "rebuilt": "2000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04447",
+      "original": "3400000000000000",
+      "rebuilt": "2400000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04450",
+      "original": "4000000000000000",
+      "rebuilt": "3000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04451",
+      "original": "0017777777777777",
+      "rebuilt": "3400000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04452",
+      "original": "7760037777777777",
+      "rebuilt": "4000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04453",
+      "original": "7777740077777777",
+      "rebuilt": "0017777777777777",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04454",
+      "original": "7777777700177777",
+      "rebuilt": "7760037777777777",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04455",
+      "original": "7777777777600377",
+      "rebuilt": "7777740077777777",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04456",
+      "original": "7777777777777400",
+      "rebuilt": "7777777700177777",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04457",
+      "original": "0037000304150011",
+      "rebuilt": "7777777777600377",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04460",
+      "original": "7400000154170000",
+      "rebuilt": "7777777777777400",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04461",
+      "original": "0040001250450016",
+      "rebuilt": "0037000304150011",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04462",
+      "original": "5417000100310100",
+      "rebuilt": "7400000154170000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04463",
+      "original": "7406000100400012",
+      "rebuilt": "0040001250450016",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04464",
+      "original": "7510777756300003",
+      "rebuilt": "5417000100310100",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04465",
+      "original": "5026000075007777",
+      "rebuilt": "7406000100400012",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04466",
+      "original": "7012000056300004",
+      "rebuilt": "7510777756300003",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04467",
+      "original": "5011000074120000",
+      "rebuilt": "5026000075007777",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04470",
+      "original": "7000000067000000",
+      "rebuilt": "7012000056300004",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04471",
+      "original": "0037000300420007",
+      "rebuilt": "5011000074120000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04472",
+      "original": "7444000774440003",
+      "rebuilt": "7000000067000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04473",
+      "original": "0043001500430002",
+      "rebuilt": "6230000000100000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04474",
+      "original": "3400000273000000",
+      "rebuilt": "0220470600120000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04475",
+      "original": "0037000304150011",
+      "rebuilt": "0260447760100030",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04476",
+      "original": "7400000154170000",
+      "rebuilt": "6700000002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04477",
+      "original": "0040001250450016",
+      "rebuilt": "0410001067000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04500",
+      "original": "5417000100310100",
+      "rebuilt": "0037000300420007",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04501",
+      "original": "7406000100400012",
+      "rebuilt": "7444000774440003",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04502",
+      "original": "7010000052200000",
+      "rebuilt": "0043001500430002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04503",
+      "original": "5426000554110002",
+      "rebuilt": "3400000273000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04504",
+      "original": "6700000002200000",
+      "rebuilt": "0037000304150011",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04505",
+      "original": "3444000316300002",
+      "rebuilt": "7400000154170000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04506",
+      "original": "1240000067000000",
+      "rebuilt": "0040001250450016",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04507",
+      "original": "0037000362300000",
+      "rebuilt": "5417000100310100",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04510",
+      "original": "0000000003004212",
+      "rebuilt": "7406000100400012",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04511",
+      "original": "0415001100430015",
+      "rebuilt": "7010000052200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04512",
+      "original": "0043001004030010",
+      "rebuilt": "5426000554110002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04513",
+      "original": "7503777446404563",
+      "rebuilt": "6700000002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04514",
+      "original": "4411000404120011",
+      "rebuilt": "3444000314100002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04515",
+      "original": "0260452056404570",
+      "rebuilt": "0040000267000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04516",
+      "original": "5240001467104044",
+      "rebuilt": "0037000362300000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04517",
+      "original": "0300456002200000",
+      "rebuilt": "0000000003004212",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04520",
+      "original": "7510777452400000",
+      "rebuilt": "0415001100430015",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04521",
+      "original": "7620002442400000",
+      "rebuilt": "0043001004030010",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04522",
+      "original": "0037002302604525",
+      "rebuilt": "7503777446404572",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04523",
+      "original": "0414001775007774",
+      "rebuilt": "4411000404120011",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04524",
+      "original": "0010000075007777",
+      "rebuilt": "0260452756404577",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04525",
+      "original": "4410000140000000",
+      "rebuilt": "5240001467104117",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04526",
+      "original": "7510777444170000",
+      "rebuilt": "0300456702200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04527",
+      "original": "7400000144120002",
+      "rebuilt": "7510777452400000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04530",
+      "original": "0270453275107774",
+      "rebuilt": "7620002442400000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04531",
+      "original": "0300453402200000",
+      "rebuilt": "0037002302604534",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04532",
+      "original": "7410000144170003",
+      "rebuilt": "0414001775007774",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04533",
+      "original": "0031010075067774",
+      "rebuilt": "0010000075007777",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04534",
+      "original": "4411000102200000",
+      "rebuilt": "4410000140000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04535",
+      "original": "5250000140000001",
+      "rebuilt": "7510777444170000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04536",
+      "original": "4250000174100001",
+      "rebuilt": "7400000144120002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04537",
+      "original": "7500777444120002",
+      "rebuilt": "0270454175107774",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04540",
+      "original": "0270452675107777",
+      "rebuilt": "0300454302200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04541",
+      "original": "0270454252500001",
+      "rebuilt": "7410000144170003",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04542",
+      "original": "0042001204120011",
+      "rebuilt": "0031010075067774",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04543",
+      "original": "7505777376500062",
+      "rebuilt": "4411000102200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04544",
+      "original": "6710513402200000",
+      "rebuilt": "5250000140000001",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04545",
+      "original": "7657771675107777",
+      "rebuilt": "4250000174100001",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04546",
+      "original": "0270455002205076",
+      "rebuilt": "7500777444120002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04547",
+      "original": "0010000067104507",
+      "rebuilt": "0270453575107777",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04550",
+      "original": "4010000002204564",
+      "rebuilt": "0270455152500001",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04551",
+      "original": "0012000002604560",
+      "rebuilt": "0042001204120011",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04552",
+      "original": "4010000002205075",
+      "rebuilt": "7505777376500062",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04553",
+      "original": "0013000062300000",
+      "rebuilt": "6710470702200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04554",
+      "original": "0000000076500062",
+      "rebuilt": "7657771675107777",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04555",
+      "original": "6710421202200000",
+      "rebuilt": "0270455702204716",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04556",
+      "original": "7657771642577777",
+      "rebuilt": "0010000067104516",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04557",
+      "original": "0300455002200000",
+      "rebuilt": "4010000002204573",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04560",
+      "original": "7510777600400010",
+      "rebuilt": "0012000002604567",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04561",
+      "original": "7657777376300002",
+      "rebuilt": "4010000002204715",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04562",
+      "original": "0300000002200000",
+      "rebuilt": "0013000062300000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04563",
+      "original": "4001463146314632",
+      "rebuilt": "0000000076500062",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04564",
+      "original": "0000000000000377",
+      "rebuilt": "6710421202200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04565",
+      "original": "6400000000000000",
+      "rebuilt": "7657771642577777",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04566",
+      "original": "4000000000000012",
+      "rebuilt": "0300455702200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04567",
+      "original": "7740000000000000",
+      "rebuilt": "7510777600400010",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04570",
+      "original": "1244711710044516",
+      "rebuilt": "7657777376300002",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04571",
+      "original": "2504250721251052",
+      "rebuilt": "0300000002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04572",
+      "original": "0400000506200005",
+      "rebuilt": "4001463146314632",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04573",
+      "original": "5640000003004044",
+      "rebuilt": "0000000000000377",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04574",
+      "original": "0037000302302007",
+      "rebuilt": "6400000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04575",
+      "original": "7640000006403477",
+      "rebuilt": "4000000000000012",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04576",
+      "original": "6240460100420014",
+      "rebuilt": "7740000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04577",
+      "original": "0400000104440007",
+      "rebuilt": "1244711710044516",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04600",
+      "original": "7300000002200000",
+      "rebuilt": "2504250721251052",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04601",
+      "original": "0074000002200000",
+      "rebuilt": "0400000506200005",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04602",
+      "original": "0000000000000000",
+      "rebuilt": "5640000003004117",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04603",
+      "original": "0000000000000000",
+      "rebuilt": "6010000267000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04604",
+      "original": "0000000000000000",
+      "rebuilt": "0037000302302007",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04605",
+      "original": "0000000000000000",
+      "rebuilt": "7640000006403477",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04606",
+      "original": "0000000000000000",
+      "rebuilt": "6240461100420014",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04607",
+      "original": "0410002100430016",
+      "rebuilt": "0400000104440007",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04610",
+      "original": "0415001100430013",
+      "rebuilt": "7300000002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04611",
+      "original": "7400000067104236",
+      "rebuilt": "0074000002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04612",
+      "original": "7410000000400013",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04613",
+      "original": "6710477402200000",
+      "rebuilt": "0220462100100000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04614",
+      "original": "5640461767104774",
+      "rebuilt": "0043001604120011",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04615",
+      "original": "7410000067104511",
+      "rebuilt": "7400000062403745",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04616",
+      "original": "6710462102200000",
+      "rebuilt": "6710411702200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04617",
+      "original": "2304451621236404",
+      "rebuilt": "7410000067104520",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04620",
+      "original": "0000000000075377",
+      "rebuilt": "6710465002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04621",
+      "original": "7240514270100000",
+      "rebuilt": "6400000000000007",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04622",
+      "original": "0260462466404624",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04623",
+      "original": "7230000003000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04624",
+      "original": "0444001573104374",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04625",
+      "original": "3410000102204632",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04626",
+      "original": "0011000072404641",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04627",
+      "original": "0043001675157777",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04630",
+      "original": "3401000102604026",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04631",
+      "original": "0300402302200000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04632",
+      "original": "0000007777700000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04633",
+      "original": "0042001500430010",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04634",
+      "original": "0043000700430006",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04635",
+      "original": "7400000073000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04636",
+      "original": "7410000000410006",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04637",
+      "original": "0041000700410010",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04640",
+      "original": "0040001573000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04641",
+      "original": "0074000002200000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04642",
+      "original": "0220473200000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04643",
+      "original": "0042001602204733",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04644",
+      "original": "0000000072404644",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04645",
+      "original": "7010006670050063",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04646",
+      "original": "0270465670100066",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04647",
+      "original": "7005006402604652",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04650",
+      "original": "7010006670050065",
+      "rebuilt": "7240472070100000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04651",
+      "original": "7000006603004656",
+      "rebuilt": "0260465366404653",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04652",
+      "original": "7005006302604655",
+      "rebuilt": "7230000003000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04653",
+      "original": "7010006670050063",
+      "rebuilt": "0444001573104404",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04654",
+      "original": "0300465102200000",
+      "rebuilt": "3410000102204661",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04655",
+      "original": "7013006303004651",
+      "rebuilt": "0011000072404717",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04656",
+      "original": "7010006600360102",
+      "rebuilt": "0043001675157777",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04657",
+      "original": "7400000000310000",
+      "rebuilt": "3401000102604101",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04660",
+      "original": "0036015376300000",
+      "rebuilt": "0300407602200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04661",
+      "original": "0220466600030000",
+      "rebuilt": "0000007777700000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04662",
+      "original": "7630000000360120",
+      "rebuilt": "0042001500430010",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04663",
+      "original": "0220472600110000",
+      "rebuilt": "0043000700430006",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04664",
+      "original": "0230473372400000",
+      "rebuilt": "7400000073000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04665",
+      "original": "6700000002200000",
+      "rebuilt": "7410000000410006",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04666",
+      "original": "3650513330607417",
+      "rebuilt": "0041000700410010",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04667",
+      "original": "2661213526607417",
+      "rebuilt": "0040001573000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04670",
+      "original": "2667517562007417",
+      "rebuilt": "5240467256404676",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04671",
+      "original": "2364717240207417",
+      "rebuilt": "0300472102200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04672",
+      "original": "4130220106407417",
+      "rebuilt": "0360746022231022",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04673",
+      "original": "0405553141407417",
+      "rebuilt": "2001141711227100",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04674",
+      "original": "0665213607007417",
+      "rebuilt": "0524004021044045",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04675",
+      "original": "2465012524407417",
+      "rebuilt": "0360750711231025",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04676",
+      "original": "0705613303607417",
+      "rebuilt": "0000000000000172",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04677",
+      "original": "0665052625607417",
+      "rebuilt": "0043001502200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04700",
+      "original": "0241442304407417",
+      "rebuilt": "4443000647704700",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04701",
+      "original": "0300701303207417",
+      "rebuilt": "7400000073000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04702",
+      "original": "0060100100007417",
+      "rebuilt": "7410000066400006",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04703",
+      "original": "0160300501007417",
+      "rebuilt": "6620000000410000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04704",
+      "original": "0541741102007417",
+      "rebuilt": "6657777747704703",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04705",
+      "original": "2601702507207417",
+      "rebuilt": "0041001567000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04706",
+      "original": "1422104004207417",
+      "rebuilt": "0000000000000172",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04707",
+      "original": "2024004517607417",
+      "rebuilt": "6660000000430015",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04710",
+      "original": "1244150213207417",
+      "rebuilt": "0220472600030000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04711",
+      "original": "1344245421007417",
+      "rebuilt": "6230000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04712",
+      "original": "2204350614007417",
+      "rebuilt": "6710421202200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04713",
+      "original": "2264511114407417",
+      "rebuilt": "7410000000410015",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04714",
+      "original": "0564606315207417",
+      "rebuilt": "0404002103004707",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04715",
+      "original": "2644643026607417",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04716",
+      "original": "1542044017207417",
+      "rebuilt": "0000000000000013",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04717",
+      "original": "1063204511007417",
+      "rebuilt": "0074000002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04720",
+      "original": "1242445015207417",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04721",
+      "original": "1342645412607417",
+      "rebuilt": "0042001500360037",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04722",
+      "original": "1423007613607417",
+      "rebuilt": "0220472500210000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04723",
+      "original": "1042306314407417",
+      "rebuilt": "5415000054000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04724",
+      "original": "1602347216607417",
+      "rebuilt": "6640471703004727",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04725",
+      "original": "2663347117007417",
+      "rebuilt": "0160340701603400",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04726",
+      "original": "0000000000000377",
+      "rebuilt": "0000000000000017",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04727",
+      "original": "0000000000000140",
+      "rebuilt": "0220473100640000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04730",
+      "original": "0000000000000200",
+      "rebuilt": "6700000002200000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04731",
+      "original": "0000000000000040",
+      "rebuilt": "5000000054000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04732",
+      "original": "0000000000000000",
+      "rebuilt": "0000000040000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04733",
+      "original": "0000000000000000",
+      "rebuilt": "0000000000000377",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04734",
+      "original": "0036002700360153",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04735",
+      "original": "7400000000310000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04736",
+      "original": "0036015376300000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04737",
+      "original": "0220474300030000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04740",
+      "original": "7630000000360120",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04741",
+      "original": "0220477300110000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04742",
+      "original": "6700000002200000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04743",
+      "original": "1463106114020040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04744",
+      "original": "1563306515020040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04745",
+      "original": "1322547116020040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04746",
+      "original": "1002705413620040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04747",
+      "original": "1222402605620040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04750",
+      "original": "2663547501420040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04751",
+      "original": "1162345227220040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04752",
+      "original": "1643707410620040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04753",
+      "original": "7164134220220040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04754",
+      "original": "7657310571020040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04755",
+      "original": "7304575272220040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04756",
+      "original": "7404751023220040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04757",
+      "original": "2625210324020040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04760",
+      "original": "7756153071420040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04761",
+      "original": "7617477576620040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04762",
+      "original": "2117074077020040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04763",
+      "original": "2244450721420040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04764",
+      "original": "2445051623020040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04765",
+      "original": "2565312524620040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04766",
+      "original": "0360713626420040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04767",
+      "original": "0761604607420040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04770",
+      "original": "1102243506420040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04771",
+      "original": "1061247710020040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04772",
+      "original": "1161440510420040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04773",
+      "original": "0000000000000377",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04774",
+      "original": "0042001500430010",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04775",
+      "original": "0043000774000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04776",
+      "original": "5444001002200000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "04777",
+      "original": "3647777340100000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05000",
+      "original": "0036007074000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05001",
+      "original": "0031010062300000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05002",
+      "original": "0000000002205012",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05003",
+      "original": "0012000002605007",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05004",
+      "original": "6710421202200000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05005",
+      "original": "7410000037705000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05006",
+      "original": "4250000103004777",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05007",
+      "original": "7657777774100000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05010",
+      "original": "0041000700410010",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05011",
+      "original": "0040001567000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05012",
+      "original": "0000000000000004",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05013",
+      "original": "7240504703005015",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05014",
+      "original": "7240505202200000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05015",
+      "original": "0043001604010003",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05016",
+      "original": "4044001642405016",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05017",
+      "original": "4001003040000027",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05020",
+      "original": "0042001500430016",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05021",
+      "original": "0043000700430006",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05022",
+      "original": "0403000300400006",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05023",
+      "original": "4010002730060000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05024",
+      "original": "0260502667105134",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05025",
+      "original": "3010000040000027",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05026",
+      "original": "4010002700400007",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05027",
+      "original": "3005000030170002",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05030",
+      "original": "0031010000400016",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05031",
+      "original": "4010003070360100",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05032",
+      "original": "4000003002200000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05033",
+      "original": "3740504240100030",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05034",
+      "original": "3026000140000030",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05035",
+      "original": "0031000000400016",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05036",
+      "original": "7220000040100037",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05037",
+      "original": "6230000000000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05040",
+      "original": "3657777766405033",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05041",
+      "original": "0300421202200000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05042",
+      "original": "7410000000410006",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05043",
+      "original": "0041000700410010",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05044",
+      "original": "0040001567000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05047",
+      "original": "6400000000000020",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05050",
+      "original": "3640000000000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05051",
+      "original": "4000000000000003",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05052",
+      "original": "6400000000000014",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05053",
+      "original": "3600000000000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05054",
+      "original": "4000000000000004",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05055",
+      "original": "0000000000000060",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05056",
+      "original": "0000000000000061",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05057",
+      "original": "0000000000000062",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05060",
+      "original": "0000000000000063",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05061",
+      "original": "0000000000000064",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05062",
+      "original": "0000000000000065",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05063",
+      "original": "0000000000000066",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05064",
+      "original": "0000000000000067",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05065",
+      "original": "0000000000000070",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05066",
+      "original": "0000000000000071",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05067",
+      "original": "0000000000000101",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05070",
+      "original": "0000000000000102",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05071",
+      "original": "0000000000000103",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05072",
+      "original": "0000000000000104",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05073",
+      "original": "0000000000000105",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05074",
+      "original": "0000000000000106",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05075",
+      "original": "0000000000000060",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05076",
+      "original": "0000000000000055",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05077",
+      "original": "0000000000000040",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05100",
+      "original": "0626317200000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05102",
+      "original": "6400000000000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05103",
+      "original": "0000000000000001",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05104",
+      "original": "0000000000000012",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05105",
+      "original": "6034000560000035",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05106",
+      "original": "6020000560000035",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05110",
+      "original": "0120000000000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05111",
+      "original": "6000000560000005",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05112",
+      "original": "0000000040000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05113",
+      "original": "1251566065641200",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05114",
+      "original": "1257656460656412",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05115",
+      "original": "0000000000000004",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05116",
+      "original": "0000000000000003",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05117",
+      "original": "0000000000000225",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05120",
+      "original": "0000000000000020",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05121",
+      "original": "0000000000000010",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05122",
+      "original": "0000000000000004",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05123",
+      "original": "0000000000000002",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05124",
+      "original": "0000000000000001",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05125",
+      "original": "0043001502200000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05126",
+      "original": "4443000647705126",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05127",
+      "original": "7400000073000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05130",
+      "original": "7410000066400006",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05131",
+      "original": "6620000000410000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05132",
+      "original": "6657777747705131",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05133",
+      "original": "0041001567000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05134",
+      "original": "6660000000430015",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05135",
+      "original": "0220507700030000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05136",
+      "original": "6230000000000000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05137",
+      "original": "6710421202200000",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05140",
+      "original": "7410000000410015",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    },
+    {
+      "word": "05141",
+      "original": "0404002103005134",
+      "rebuilt": "0000000000000000",
+      "cause": "library code and memory above it: other library version"
+    }
+  ],
+  "source": "programs/arap/arap.pas",
+  "source_sha256": "c332d90998e8aafe4fbe61aa62e8552a601a72f873b584b10b85060dead009fc",
+  "compiler": {
+    "source": "compiler/mypas.b6",
+    "source_sha256": "af4119a87abd91ebbbceb23fe26192f4392b23b83a6f743b119117b9f9571009",
+    "volume": "build/arap/77",
+    "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
+    "installed_volume_unchanged": true,
+    "translator_zone": "0000",
+    "assembler_last_argument": "accumulator",
+    "assembler_constant_base_restored_by_caller": true
+  },
+  "build_source_sha256": {
+    "programs/arap/build.py": "2e4e870f8aa70689c1d4d4a815b1c71643632f9cba6abb480e8bacff2e1ed189",
+    "programs/more/build.py": "bf12c7f4419cdf6edc233c3f01e67e4cf2a9bd310f9a56f0e3267b570a6dc220"
+  },
+  "image": "build/arap/arap.img",
+  "image_sha256": "9540139d8d495447b734c3668990bcb49efe416ac4fbfac66addae41fda7674d",
+  "original": "build/arap/original.bin",
+  "original_zones": [
+    "2600",
+    "2601"
+  ],
+  "original_sha256": "ffab21679f5c46a3f38ad870461510461bb1cd32c5283f3346c36db4558bcf6a",
+  "original_volume_sha256": "7d73f890626117d37155fc41417f7b4f055462c2253ab5c00efeb6a1b903178e",
+  "original_volume_unchanged": true,
+  "installed_volume77_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
+  "installed_volume77_unchanged": true,
+  "execution": false
+}
