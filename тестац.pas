@@ -1,20 +1,19 @@
-(*=s7,s8,p-,t-,m-,y+,l1*)
+(*=s7,s8,p-,t-,m-,y+,l1,o-*)
 program main(output);(*=a1*)label 3230;
 % Restored from тестац.bin (memory image from 02000) by disassembly,
-% after the similar program mark3.b6; build with
+% after the similar program MARK3 (programs/mark3); build with
 %   PERSO="311160 320100" tools/buildimg.sh тестац.pas тестац.bin
 % (тестац.pre gives stubs for the FORTRAN routines E4233, E4243).
 % Names are invented (no post-mortem tables, p-); g... are globals
 % named by their offsets.  The data, the globals and the constant
 % pool contents match.  ord(not wr)*16384 in L2624 was computed by
 % adding to the exponent (слпа 64+14), as this compiler does under m-.
-% The code matches except for differences
-% caused by the compiler and library versions:
-%  - this compiler drops a load right after a store to the same
-%    address (README); the original did not, 4 times (in L2250,
-%    termio m0/m3, vvod);
-%  - i := i + 1 in vvod used the library constant 1 (17(M1)), as
-%    for loops do, not a pool constant;
+% o- keeps the load right after a store and one constant table, as
+% the original compiler did; the one load it dropped is written as
+% `g40z.a[5] := ;` in termio.  The code matches except for
+% differences caused by the compiler and library versions:
+%  - the three i := i + 1 in vvod used the library constant 1
+%    (17(M1)), as for loops do, not a pool constant;
 %  - the library (from 03516) is a different version.
 const
 boilerplate='< ТЕСТ УСТРОЙСТВ ВВОДА-ВЫВОДА = (ВЕРСИЯ ОТ 88/11/11) >';
@@ -161,7 +160,7 @@ _( (* termio *)
           besm(4710024B); (q);
           besm(4230011B);
           tty := ;
-          g40z.a[5] := tty; g41z.a[7] := tty;
+          g40z.a[5] := ; g41z.a[7] := tty;
           g42z := tty <> 0;
           batch := not g42z;
           g45z := ;

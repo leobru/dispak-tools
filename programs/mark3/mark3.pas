@@ -1,225 +1,23 @@
-user 419900зс5^
-dis 31(2113)32(77)33(2148-440)67(1234-wr)^
-eeb1a3
-*name
-*bemsh
-inp$$$
-        макро
-        э47     &а
-        кк     '47',&а
-        пам    0
-        мфин
-E5265 старт 1
-м17     экв     15
-м16     экв     14
-м15     экв     13
-м12     экв     10
-        счи     М17
-        уиа     D05315(М17)
-        уиа     13(М16)
-G05267  счим    (М16)
-        слиа    -1(М16)
-        пино    G05267(М16)
-        счм     14
-        счм     15
-        мод     D05315
-        счм     -1
-        зп      (М17)
-        сч      -33(М17)
-        Э75     16
-        сч      -19(М17)
-        пб      G05310
-******  вплоть до ****** не используется
-        ржа     '3'
-        пб      G05276
-G05276  слиа    1(М17)
-        счи     М17
-        уиа     D05315+17(М17)
-        вч      -17(М17)
-        по      G05301
-        Э74     
-G05301  сч      (М17)
-        мод     D05315
-        зпм     -1
-        зпм     15
-        зпм     14
-        уиа     -12(М16)
-G05304  уим     М15(М16)
-        цикл    G05304(М16)
-        сч      -1(М17)
-        Э50     '102'
-        сч      -3(М17)
-        Э50     '103'
-        сч      -1(М17)
-******        
-G05310  мод     D05315
-        уиа     0(М17)
-        ржа     '22'
-        пб      (М15)
-        конд    в'0000000000000020'
-        конд    в'6400000000000000'
-        конд    в'6400000000000001'
-D05315  пам     17
-   финиш
-eoi$$$
-trn$$$
-0-0
-end$$$
-inp$$$
-        макро
-        э47     &а
-        кк     '47',&а
-        пам    0
-        мфин
-Е5143   старт   1
-        уим     М10
-        счи     М15
-        зп      (М17)
-        мода    D05240
-        сч      
-        Э47     '13'
-        уиа     -6(М11)
-        уии     М12(М10)
-G05147  сч      1(М12)
-        нтж     
-        сч      (М12)
-        Э47     '77776'(М11)
-        слиа    2(М12)
-        цикл    G05147(М11)
-        сч      (М12)
-        зп      -1
-        уиа     -8(М16)
-        счи     М16
-        Э47     '16'
-        сч      -1
-        зп      (М12)
-        уиа     -6(М11)
-        уии     М12(М10)
-G05157  мода    -2(М11)
-        уиа     0(М16)
-        счи     М16
-        Э47     '10'
-        зп      (М12)
-        счмр    64
-        зп      1(М12)
-        слиа    2(М12)
-        цикл    G05157(М11)
-        мод     (М17)
-        пб      
-E5165   ноп
-        входн   Е5165
-        уим     М10
-        зпм     5(М10)
-        зп      7(М10)
-        мод     -3(М17)
-        уиа     0(М11)
-        сч      -1(М17)
-        сда     64-12
-        или     (М17)
-        пино    G05173(М11)
-        мода    D05241
-        и       
-G05173  мода    D05242
-        или     
-        сда     64-7
-        сда     64+7
-        зп      6(М10)
-        зпм     3(М10)
-        сда     64-42
-        зп      (М17)
-        мода    
-        Э50     '114'
-        или     (М17)
-        зпм     (М10)
-        сда     64-1
-        или     (М17)
-        сда     64-27
-        зп      (М17)
-        сда     64-18
-        или     (М17)
-        зп      (М17)
-        сч      -2(М17)
-        мода    D05243
-        и       
-        зп      -2(М17)
-        сда     64-30
-        или     (М17)
-        или     (М17)
-        мода    D05244
-        или     
-        зп      2(М10)
-        мода    D05245
-        сч      
-        зп      1(М10)
-        мода    
-        Э53     '10'
-        зпм     4(М10)
-        пб      (М15)
-E5215   ноп
-        входн   Е5215
-        уи      М10
-        уиа     -2(М11)
-G05216  сч      (М17)
-        сда     64-16
-        зп      (М17)
-        счмр    64
-        или     9(М1)
-        мода    2(М11)
-        зп      (М10)
-        цикл    G05216(М11)
-        слиа    -2(М17)
-        пб      (М15)
-Е5223   ноп
-        входн   Е5223
-        уи      М10
-        уиа     -5(М11)
-G05224  сч      (М17)
-        сда     64-8
-        зп      (М17)
-        счмр    64
-        мода    6(М11)
-        зп      (М10)
-        цикл    G05224(М11)
-        сч      -1(М17)
-        сда     64+24
-        мода    D05246
-        чед     
-        мода    D05246
-        и       
-        сда     64-1
-        зп      (М10)
-        сч      (М17)
-        сда     64-24
-        чед     
-        мода    D05246
-        и       
-        или     (М10)
-        зпм     (М10)
-        пб      (М15)
-D05240  конд    в'0000000000000020'
-D05241  конд    в'7777777777767777'
-D05242  конд    в'0007070700000000'
-D05243  конд    в'0077777777777777'
-D05244  конд    в'0000000077700000'
-D05245  конд    в'7356735673567356' PARITY ISO 'НННННН'
-D05246  конд    в'1'
-м17     экв     15
-м16     экв     14
-м15     экв     13
-м12     экв     10
-м11     экв     9
-м10     экв     8
-м1      экв     1
-  финиш 
-eoi$$$
-trn$$$
-0-0
-end$$$
-*libra:33
-*libra:32
-*call *pascom
-(*=s5,s7,s8,p-,t-,m-,y+,l1*)
+(*=s7,s8,p-,t-,m-,y+,l1,o-*)
 program main(output);(*=a1*)label 3516, 3667;
+% MARK3: volume 2113, zones 1243-1245, the program that marks ЕС
+% tapes on СВС (Э1-К2) by driving the IOP (ПВВ) directly; the names
+% are invented. The routines E5143... are in inp.bemsh (BEMSH);
+% run.b6 runs the same image from volume 2153, zone 0421.
+% Build and compare with the original:
+%   python3 programs/mark3/build.py
+% It assembles inp.bemsh, compiles this text with mypas.b6 and links
+% both with the standard library of volume 2113 (PERSO 311160, 320100),
+% as the original job did.
+%
+% The user code (02012-04114), the constant pool and the globals are
+% the same word for word. The PASCODER stub (02000-02011) and the
+% P/1D library constants differ: the original was linked with another
+% version of the library.
+% o- keeps the load right after a store and one constant table with
+% its replications, as the compiler of the original did; the only
+% load it dropped is written as `g40z.a[5] := ;` in termio.
+% The file initialization (no s5) is the code before the main program.
 const
 boilerplate='< ПРОГРАММА РАЗМЕТКИ  М Л = (ВЕРСИЯ ОТ 88/11/02) >';
 (*=a2*)c1='ЬЬЬЬЬЬЬ';(*=a1*) (* unused *)
@@ -228,11 +26,12 @@ type charset=set of '0'..'П';
 bitset=set of 0..47;
 three=packed array [0..2] of 0..65535;
 alfa0=packed array[0..5] of char;
-t1=array [boolean] of integer;
+defdesc=packed record z:0..4095; ercnt:0..7; double:boolean end;
+defarr=array [0..7] of defdesc;
 
 t2=array [0..7] of packed record case integer of
 
-99:(w1:bitset; w2:set of 0..15);
+99:(w1:bitset; w2:0..65535);
 
 0:(e48p16:set of 0..32; e15p1:0..32767;
 w2e48p47:0..3; w2e46:boolean; w2e45p34:set of 0..11; w2e33:boolean);
@@ -247,8 +46,7 @@ w2e48:boolean; w2e47p33:@three);
 4:(e48p43:set of 0..5; e42p39:0..15; e38p31:0..255)
 end;
 
-defdesc=packed record z:0..4095; ercnt:0..7; double:boolean end;
-defarr=array [0..7] of defdesc;
+t1=array [boolean] of integer;
 mode=(m0,m1,m2,m3);
 var g40z, g41z: packed record case integer of
 0:(a:packed array [0..7] of 0..63);
@@ -315,7 +113,7 @@ a[i] := IO@;
 len := i;
 get(IO)
 _);
-skipUntil(skipSet);
+(q) skipUntil(skipSet);
 _);
 
 function cmpAlfa(a, b:alfa; n:integer):boolean;
@@ -352,7 +150,7 @@ procedure hardCopy(l3a1z:boolean);
  reset(IO);
  while not eof(IO) do _(
  select
- l3a1z and g46z: _( write( '_170' ); i := i + 1 _);
+ l3a1z and g46z: _( write( '_031' ); i := i + 1 _);
  (IO@ = '_170'): write( '_173', chr(i - 1));
  true: _( write( IO@ ); i := (i + 1) _)
  end;
@@ -406,7 +204,7 @@ _( (* termio *)
           besm(4710024B); (q);
           besm(4230011B);
           tty := ;
-          g40z.a[5] := tty; g41z.a[7] := tty;
+          g40z.a[5] := ; g41z.a[7] := tty;
           g42z := tty <> 0;
           batch := not g42z;
           g45z := ;
@@ -523,12 +321,12 @@ procedure E5223(l2a1z:integer; var l2a2z:array [0..6] of char);
 fortran;
 _(
   if l2a3z = 1c then _(
-   if svsonly then _( l2v1z := l2a2z * 4; (q) exit q _)
+   if svsonly then _( l2v1z := l2a2z * 4; _)
     else l2v1z := l2a2z * 7;
     _) else _( (*2672 *)
    if not svsonly then l2v1z := (l2a2z + 8) * 7 else
    if l2a2z < 256 then l2v1z := l2a2z * 12 + 67
-    else _( l2v1z := (l2a2z - 256) * 4 + 64; (q) exit q _)
+    else _( l2v1z := (l2a2z - 256) * 4 + 64; _)
    _); (* 2707 *)
     if not svsonly then _(
      E5223(l2a1z, l2v6z);
@@ -565,7 +363,7 @@ _var l2v1z:integer; _(
  g96z := l2a1z;
  for l2v1z := 0 to 7 do _(
  request[l2v1z].w1 := [];
- request[l2v1z].w2 := [];
+ request[l2v1z].w2 := 0C;
  _);
  request[0].e15p1 := g100z;
  request[3].e48 := l2a1z <> 1;
@@ -674,12 +472,6 @@ _(
  skipSet := [' '];
  termio( m0 );
  rewrite(IO);
-_);
-
-procedure L3477to3511Filler;
-_(
-(q) exit q;(q) exit q;(q) exit q;(q) exit q;(q) exit q;(q) exit q;
-(q) exit q;(q) exit q;
 _);
 
 _(
@@ -802,7 +594,6 @@ _(
  if erasures < 8 then for g99z to 10 do _( L3010 (31); L3117 _);
  L3010 (15);
  E5143(request);
- (q) exit q; (q) exit q; (q) exit q; (q) exit q; (q) exit q; (q) exit q;
  goto 3516;
 _).data
 g40z := 1024000410000033C, 120000001000000C;
@@ -820,14 +611,3 @@ g132z := 30C; (* ??? *)
 g133z := '-', '+';
 defects := 0
 end
-*no li
-*assem
-*stand
-*perso:311160,cont
-*perso:320100,cont
-*table:p/coder(w*670421,l*3)
-*main pascoder
-*execute
-*end file
-``````
-еконец

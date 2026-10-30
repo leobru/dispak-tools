@@ -22,7 +22,8 @@ use `python3 py/build.py check` for the word comparisons and emulator checks.
 
 ## MARK3
 Утилита для разметки лент ЕС ЭВМ на СВС (Э1-К2) путем прямого доступа к ПВВ.
-Для компиляции требуется улучшенный Паскаль-компилятор.
+Исходные тексты и сборщик, дающий тот же код, что `mark3.bin`, —
+в [programs/mark3](programs/mark3/README.md).
 
 ## Паскаль-компилятор
 
