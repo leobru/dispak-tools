@@ -297,3 +297,5 @@ Notes for the source:
   card has 72 columns.
 - `ovtry.py` compares the pool of overlay 2 up to 32560.
 
+АСС2, the compatibility-mode build of the same program, is in
+[../acc2](../acc2/README.md).

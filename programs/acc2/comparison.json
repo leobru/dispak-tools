@@ -1,0 +1,374 @@
+{
+  "volumes": {
+    "4001": "/usr/local/share/besm6/4001",
+    "2248": "/usr/local/share/besm6/2248"
+  },
+  "allocations": {
+    "4001": [
+      "0215",
+      "0254"
+    ],
+    "2248": [
+      "2440",
+      "2477"
+    ]
+  },
+  "layouts": {
+    "4001": [
+      {
+        "name": "head",
+        "first_zone": "0215",
+        "last_zone": "0215",
+        "loaded_zones": 1,
+        "base": "02000",
+        "pool": "02031",
+        "startup": "02027",
+        "application_words": 13
+      },
+      {
+        "name": "ov1",
+        "first_zone": "0221",
+        "last_zone": "0232",
+        "loaded_zones": 10,
+        "base": "04000",
+        "pool": "17354",
+        "startup": "17347",
+        "application_words": 5856
+      },
+      {
+        "name": "ov2",
+        "first_zone": "0235",
+        "last_zone": "0251",
+        "loaded_zones": 13,
+        "base": "04000",
+        "pool": "30540",
+        "startup": "30533",
+        "application_words": 10580
+      }
+    ],
+    "2248": [
+      {
+        "name": "head",
+        "first_zone": "2440",
+        "last_zone": "2440",
+        "loaded_zones": 1,
+        "base": "02000",
+        "pool": "02025",
+        "startup": "02023",
+        "application_words": 9
+      },
+      {
+        "name": "ov1",
+        "first_zone": "2444",
+        "last_zone": "2454",
+        "loaded_zones": 9,
+        "base": "04000",
+        "pool": "16711",
+        "startup": "16704",
+        "application_words": 5565
+      },
+      {
+        "name": "ov2",
+        "first_zone": "2460",
+        "last_zone": "2474",
+        "loaded_zones": 13,
+        "base": "04000",
+        "pool": "27072",
+        "startup": "27065",
+        "application_words": 9774
+      }
+    ]
+  },
+  "zones": [
+    {
+      "zone4001": "0215",
+      "zone2248": "2440",
+      "nonzero4001": 479,
+      "nonzero2248": 460,
+      "equal_words": 490,
+      "equal_nonzero_words": 12
+    },
+    {
+      "zone4001": "0216",
+      "zone2248": "2441",
+      "nonzero4001": 252,
+      "nonzero2248": 257,
+      "equal_words": 761,
+      "equal_nonzero_words": 1
+    },
+    {
+      "zone4001": "0217",
+      "zone2248": "2442",
+      "nonzero4001": 1024,
+      "nonzero2248": 117,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0220",
+      "zone2248": "2443",
+      "nonzero4001": 1024,
+      "nonzero2248": 197,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0221",
+      "zone2248": "2444",
+      "nonzero4001": 1022,
+      "nonzero2248": 1022,
+      "equal_words": 17,
+      "equal_nonzero_words": 15
+    },
+    {
+      "zone4001": "0222",
+      "zone2248": "2445",
+      "nonzero4001": 1024,
+      "nonzero2248": 1024,
+      "equal_words": 4,
+      "equal_nonzero_words": 4
+    },
+    {
+      "zone4001": "0223",
+      "zone2248": "2446",
+      "nonzero4001": 1024,
+      "nonzero2248": 1024,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0224",
+      "zone2248": "2447",
+      "nonzero4001": 1024,
+      "nonzero2248": 1024,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0225",
+      "zone2248": "2450",
+      "nonzero4001": 0,
+      "nonzero2248": 1024,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0226",
+      "zone2248": "2451",
+      "nonzero4001": 1023,
+      "nonzero2248": 955,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0227",
+      "zone2248": "2452",
+      "nonzero4001": 792,
+      "nonzero2248": 859,
+      "equal_words": 23,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0230",
+      "zone2248": "2453",
+      "nonzero4001": 1014,
+      "nonzero2248": 1005,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0231",
+      "zone2248": "2454",
+      "nonzero4001": 988,
+      "nonzero2248": 572,
+      "equal_words": 17,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0232",
+      "zone2248": "2455",
+      "nonzero4001": 539,
+      "nonzero2248": 1004,
+      "equal_words": 20,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0233",
+      "zone2248": "2456",
+      "nonzero4001": 573,
+      "nonzero2248": 1006,
+      "equal_words": 4,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0234",
+      "zone2248": "2457",
+      "nonzero4001": 112,
+      "nonzero2248": 917,
+      "equal_words": 107,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0235",
+      "zone2248": "2460",
+      "nonzero4001": 1022,
+      "nonzero2248": 1022,
+      "equal_words": 17,
+      "equal_nonzero_words": 15
+    },
+    {
+      "zone4001": "0236",
+      "zone2248": "2461",
+      "nonzero4001": 1024,
+      "nonzero2248": 1024,
+      "equal_words": 2,
+      "equal_nonzero_words": 2
+    },
+    {
+      "zone4001": "0237",
+      "zone2248": "2462",
+      "nonzero4001": 1024,
+      "nonzero2248": 1024,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0240",
+      "zone2248": "2463",
+      "nonzero4001": 1024,
+      "nonzero2248": 1024,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0241",
+      "zone2248": "2464",
+      "nonzero4001": 1024,
+      "nonzero2248": 1024,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0242",
+      "zone2248": "2465",
+      "nonzero4001": 1024,
+      "nonzero2248": 1024,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0243",
+      "zone2248": "2466",
+      "nonzero4001": 1024,
+      "nonzero2248": 1024,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0244",
+      "zone2248": "2467",
+      "nonzero4001": 1024,
+      "nonzero2248": 1024,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0245",
+      "zone2248": "2470",
+      "nonzero4001": 1024,
+      "nonzero2248": 1024,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0246",
+      "zone2248": "2471",
+      "nonzero4001": 1024,
+      "nonzero2248": 1023,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0247",
+      "zone2248": "2472",
+      "nonzero4001": 930,
+      "nonzero2248": 771,
+      "equal_words": 3,
+      "equal_nonzero_words": 1
+    },
+    {
+      "zone4001": "0250",
+      "zone2248": "2473",
+      "nonzero4001": 880,
+      "nonzero2248": 1009,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0251",
+      "zone2248": "2474",
+      "nonzero4001": 952,
+      "nonzero2248": 80,
+      "equal_words": 70,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0252",
+      "zone2248": "2475",
+      "nonzero4001": 986,
+      "nonzero2248": 607,
+      "equal_words": 24,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0253",
+      "zone2248": "2476",
+      "nonzero4001": 739,
+      "nonzero2248": 987,
+      "equal_words": 37,
+      "equal_nonzero_words": 0
+    },
+    {
+      "zone4001": "0254",
+      "zone2248": "2477",
+      "nonzero4001": 1011,
+      "nonzero2248": 912,
+      "equal_words": 0,
+      "equal_nonzero_words": 0
+    }
+  ],
+  "missing": {
+    "volume": "4001",
+    "zone": "0225",
+    "words": 1024,
+    "overlay": "ov1",
+    "addresses": [
+      "14000",
+      "15777"
+    ]
+  },
+  "full_2248_exact_anchor_search": [
+    {
+      "address4001": "12000",
+      "words": 16,
+      "hits": []
+    },
+    {
+      "address4001": "13740",
+      "words": 16,
+      "hits": []
+    },
+    {
+      "address4001": "16000",
+      "words": 16,
+      "hits": []
+    },
+    {
+      "address4001": "17000",
+      "words": 16,
+      "hits": []
+    }
+  ],
+  "direct_zone_recovery_established": false,
+  "replacement_written": false
+}
