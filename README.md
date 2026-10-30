@@ -2,11 +2,16 @@
 Various tools for OS DISPAK for BESM-6, disassembled/decompiled.
 
 - `compiler/` — the improved Pascal compiler `mypas.b6`, its libraries and tests;
-- `runtime/` — the recovered NEWPASC runtime libraries, the volume 4001 corpus,
-  its analysis, and the scripts shared by the builds (`py/paths.py` names
-  every part of the project);
+- `runtime/` — the recovered NEWPASC runtime libraries, the volume 4001 corpus
+  and its analysis;
 - `programs/` — the recovered programs, one directory each, with their builders;
-- `arfa/` — АРФА; the root holds the disassemblers and image tools.
+- `py/` — the Python modules the scripts share: `paths.py` names every part
+  of the project, `build.py` builds and checks the runtime libraries,
+  `regress.py` runs every build, `fixpoint.py` checks a compiler change;
+- `tools/` — disbesm6, dtran, `buildimg.sh` and the other C, shell and Perl
+  tools (`make -C tools disbesm6`);
+- `build/` — generated output, not tracked;
+- `arfa/` — АРФА; the root holds the sample sources and decks.
 
 ## Pascal runtime recovery
 
