@@ -1,0 +1,23 @@
+[
+  {
+    "volume": 2053,
+    "first_zone": "0437",
+    "zones": 4,
+    "bytes": 24576,
+    "sha256": "2bbea399fc9b5eece7f9719ec56bb7a733d011af697dc975bc551fd38725c775"
+  },
+  {
+    "volume": 2048,
+    "first_zone": "0034",
+    "zones": 4,
+    "bytes": 24576,
+    "sha256": "2bbea399fc9b5eece7f9719ec56bb7a733d011af697dc975bc551fd38725c775"
+  },
+  {
+    "volume": 2248,
+    "first_zone": "03044",
+    "zones": 4,
+    "bytes": 24576,
+    "sha256": "2bbea399fc9b5eece7f9719ec56bb7a733d011af697dc975bc551fd38725c775"
+  }
+]

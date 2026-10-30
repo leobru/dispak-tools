@@ -1,0 +1,62 @@
+*assem
+C Historical six-word reader. P/CODER follows it; PROGRAM is Pascal.
+ P/BOOT:,NAME,
+ P/CODER:,SUBP,
+ PROGRAM:,SUBP,
+ ,WTC,P/CODER+2
+ 1,VTM,
+ LOOP:1,UTM,-1
+ 1,VZM,PROGRAM
+ ,ARX,STEP
+ ,ATX,P/CODER
+ ,*70,P/CODER
+ ,XTA,P/CODER
+ ,UJ,LOOP
+ STEP:,LOG,0000010000000001
+ ,END,
+*assem
+C Rebuild-only writer, not part of the saved image and not historical.
+C Save the original reader binding (67/0000), but write only private
+C volume 3777 at 67/0315. No Pascal or runtime entry is executed.
+C Require the linked image's final page to be page 4 before writing.
+ PAKWRITE:,NAME,
+ MACROBSS:,SUBP,
+ P/BOOT:,SUBP,
+ P/CODER:,SUBP,
+ PROGRAM:,SUBP,
+ ,NTR,3
+ ,XTA,17B
+ ,AAX,MASK
+ ,ATI,2
+ 2,UTM,-1
+ ,ITA,2
+ ,ASN,64+10
+ ,ATI,2
+ 2,UTM,-4
+ 2,VZM,WRITE
+ ,*74,
+ WRITE:,XTA,READ
+ ,ATX,P/CODER
+ ,XTA,STACK
+ ,ATX,P/CODER+1
+ ,XTA,FOUR
+ ,ATX,P/CODER+2
+ ,XTA,
+ ,ATX,P/CODER+3
+ 1,VTM,-4
+ ,UTC,
+ LOOP:,*70,IO
+ ,XTA,IO
+ ,ARX,STEP
+ ,ATX,IO
+ 1,VLM,LOOP
+ ,*74,
+ MASK:,LOG,77777
+ READ:,LOG,0000010000670000
+ STACK:,LOG,1520
+ FOUR:,LOG,4
+ IO:,LOG,0000010000670315
+ STEP:,LOG,0000010000000001
+C Keep this writer at 01000-01777, outside the saved image.
+ PAD:,BSS,753B
+ ,END,

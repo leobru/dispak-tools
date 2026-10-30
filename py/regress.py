@@ -30,7 +30,7 @@ OUT = BUILD/'regress'
 # The program directories under PROGRAMS (the others belong to the runtime).
 PROGRAM_DIRS = ['acc2', 'acc3', 'arap', 'blink', 'blink1', 'box', 'comp',
                 'fprint', 'kanal', 'kompon3', 'link', 'link1', 'mark3', 'monitr',
-                'more', 'mt', 'mtd', 'print', 'proz']
+                'more', 'mt', 'mtd', 'pak', 'print', 'proz']
 
 STEPS = [
     ('analyze', '{RUNTIME}/analyze.py'),
@@ -79,6 +79,15 @@ STEPS = [
     ('acc2-compare', '{PROGRAMS}/acc2/compare.py'),
     ('arap', '{PROGRAMS}/arap/build.py'),
     ('mark3', '{PROGRAMS}/mark3/build.py'),
+    ('pak-extract', '{PROGRAMS}/pak/extract.py'),
+    ('pak', '{PROGRAMS}/pak/build.py pak.pas --compiler pascal'),
+    ('pak-prefix', '{PROGRAMS}/pak/compare-prefix.py'),
+    ('pak-image', '{PROGRAMS}/pak/compare-image.py'),
+    ('pak-2113-extract', '{PROGRAMS}/pak/extract.py --edition 2113'),
+    ('pak-2113', '{PROGRAMS}/pak/build.py pak-2113.pas --compiler newpasc '
+                 '--compiler-source compiler/mypas.b6 --compiler-profile pak-2113'),
+    ('pak-2113-prefix', '{PROGRAMS}/pak/compare-prefix.py --edition 2113'),
+    ('pak-2113-image', '{PROGRAMS}/pak/compare-image.py --edition 2113'),
     ('check', '{PY}/build.py check'),
 ]
 

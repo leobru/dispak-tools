@@ -1,0 +1,8 @@
+{
+  "source": "compiler/mypas.b6",
+  "profile": "pak-2113",
+  "source_sha256": "af4119a87abd91ebbbceb23fe26192f4392b23b83a6f743b119117b9f9571009",
+  "adapted_sha256": "2451058aeab133b92315c5d22505fed32b9cda4c76b25fed931139e3cfdcb427",
+  "installed_volume_sha256": "fb5c13fd9f61a663c3c1f8926414a3a67ffb6837f642b40945a12c63e56f6c62",
+  "installed_volume_unchanged": true
+}

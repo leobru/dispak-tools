@@ -1,0 +1,6 @@
+44 IO
+75 border
+76 width
+77 column
+78 nextcol
+79 g117
