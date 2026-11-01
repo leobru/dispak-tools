@@ -63,3 +63,10 @@ arfa.gold:
 
 arfa.bin:
 	besmtool dump 2113 --start=01707 --length=1 --to-file=$@
+
+# The batch ARFA: a Dubna Monitor object module in 2113/1723-1725.
+arfab.mad: b1723.bin arfab.py arfa.bin arfa.sym
+	python3 arfab.py b1723.bin > $@
+
+b1723.bin:
+	besmtool dump 2113 --start=01723 --length=3 --to-file=$@
