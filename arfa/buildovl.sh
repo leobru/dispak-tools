@@ -60,7 +60,7 @@ EOF
 
 dispak --path="$BESM6_PATH" -l "$work/job.b6" > "$base.img.lst" 2>&1
 besmtool dump 3777 --start=0 --length=1 --to-file="$work/cat" >/dev/null || exit 1
-besmtool dump 3777 --start=1 --length=7 --to-file="$work/ovl" >/dev/null || exit 1
+besmtool dump 3777 --start=1 --length=16 --to-file="$work/ovl" >/dev/null || exit 1
 cp "$work/cat" "$base.cat"
 "$here/../tools/ovl2bin" < "$work/ovl" > "$base.img" || exit 1
 

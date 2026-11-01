@@ -32,3 +32,10 @@ bust.bin:
 	besmtool dump 2113 --start=01704 --length=3 --to-file=bust.ovl
 	../tools/ovl2bin < bust.ovl > $@
 	rm bust.ovl
+
+# STARFA: catalog in 1710, the packed image in 1711-1717 (0770-022001).
+starfa.bin:
+	rm -f starfa.ovl
+	besmtool dump 2113 --start=01711 --length=7 --to-file=starfa.ovl
+	../tools/ovl2bin < starfa.ovl > $@
+	rm starfa.ovl

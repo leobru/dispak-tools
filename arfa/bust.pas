@@ -51,30 +51,30 @@ procedure RDCAT(var ключ: integer; var r: запись); fortran;
 procedure USED(var r: запись; var з: тройка); fortran;
 function степень(x, n: integer): integer;
 var i, r: integer;
-_( r := 1;
-   for i to n do (*=m-*) r := r * x; (*=m+*)
-   степень := r
+_( (*54*)
+  r := 1;
+  for i to n do (*=m-*) r := r * x;
+  (*=m+*) степень := r
 _);
-%
 %
 %
 %
 %
 procedure восьм(x, n: integer);
 var был: boolean; t, d: integer;
-_( был := false;
-   for n := n downto 1 do _(
-      t := степень(8, n - 1);
-      d := x div t;
-      x := x - d * t;
-      if (d <> 0) or был then _(
-         write(d:1);
-         был := true
-      _) else write(' ')
-   _)
+_( (*65*)
+  был := false;
+  for n := n downto 1 do _(
+    t := степень(8, n - 1);
+    d := x div t;
+    x := x - d * t;
+    if (d <> 0) or был then _(
+      write(d:1);
+      был := true
+    _)
+    else write(' ')
+  _)
 _);
-%
-%
 %
 %
 %
@@ -85,48 +85,48 @@ var d: шесть;
 о: array [графа] of тройка;
 сумма, i, x: integer;
 k: носит; j: строка; q: графа;
-_( о[гр0] := з; о[гр1] := в; о[гр2] := сз; о[гр3] := св;
-   writeln;
-   unpack(r.шифр, d, 1);
-   write('|');
-   write(' ':отступ);
-   for i to 6 do write(цифра[d[i]]);
-   write(' |':9 - отступ);
-   if естьадм then _(
-      unpack(r.админ, d, 1);
-      write(' ');
-      if d[1] + d[2] + d[3] + d[4] + d[5] + d[6] <> 0 then
-         for i to 6 do write(цифра[d[i]])
-      else write('      ');
-      write(' |')
-   _);
-   if естьгр then _(
-      write(' ');
-      for i := 0 to 3 do
-         if i in r.группы then write(i:1) else write(' ');
-      write(' |')
-   _);
-   for k := перв to всп do if k in носители then
-   for j := выдел to резерв do if j in строки then _(
-      сумма := 0;
-      for q := гр0 to гр3 do
-         if q in знаки[j].плюс then сумма := сумма + о[q][k]
-         else if q in знаки[j].минус then
-            сумма := сумма - о[q][k]
-         else;
-      if сумма = 0 then write('|':11) else _(
-         восьм(сумма, 9);
-         write(' |')
-      _)
-   _)
+_( (*88*)
+  о[гр0] := з;
+  о[гр1] := в;
+  о[гр2] := сз;
+  о[гр3] := св;
+  writeln;
+  unpack(r.шифр, d, 1);
+  write('|');
+  write(' ':отступ);
+  for i to 6 do write(цифра[d[i]]);
+  write(' |':9 - отступ);
+  if естьадм then _(
+    unpack(r.админ, d, 1);
+    write(' ');
+    if d[1] + d[2] + d[3] + d[4] + d[5] + d[6] <> 0 then
+      for i to 6 do write(цифра[d[i]])
+    else write('      ');
+    write(' |')
+  _);
+  if естьгр then _(
+    write(' ');
+    for i := 0 to 3 do
+      if i in r.группы then write(i:1)
+      else write(' ');
+    write(' |')
+  _);
+  for k := перв to всп do
+    if k in носители then
+      for j := выдел to резерв do
+        if j in строки then _(
+          сумма := 0;
+          for q := гр0 to гр3 do
+            if q in знаки[j].плюс then сумма := сумма + о[q][k]
+            else if q in знаки[j].минус then сумма := сумма - о[q][k]
+            else;
+          if сумма = 0 then write('|':11)
+          else _(
+            восьм(сумма, 9);
+            write(' |')
+          _)
+        _)
 _);
-%
-%
-%
-%
-%
-%
-%
 %
 %
 %
@@ -161,32 +161,41 @@ r: запись;
 k: носит;
 сын, сл: integer;
 дз, дв: тройка;
-_( RDCAT(ключ, r);
-   брат := r.брат;
-   for k := перв to всп do _( сз[k] := 0; св[k] := 0 _);
-   USED(r, з);
-   if ключ <> 768 then _(
-      в[перв] := r.об1; в[втор] := r.об2; в[всп] := r.об3
-   _) else _(
-      в[перв] := 0; в[втор] := 0; в[всп] := 0
-   _);
-   if r.сын <> 0 then _(
-      отступ := отступ + 1;
-      writeln;
-      сын := r.сын;
-      repeat
-         узел(сын, дз, дв, сл);
-         for k := перв to всп do _(
-            в[k] := в[k] + дв[k];
-            сз[k] := сз[k] + дз[k];
-            св[k] := св[k] + дв[k]
-         _);
-         сын := сл
-      until сын = 0;
-      отступ := отступ - 1
-   _);
-   строчка(r, з, в, сз, св);
-   if r.сын <> 0 then writeln
+_( (*164*)
+  RDCAT(ключ, r);
+  брат := r.брат;
+  for k := перв to всп do _(
+    сз[k] := 0;
+    св[k] := 0
+  _);
+  USED(r, з);
+  if ключ <> 768 then _(
+    в[перв] := r.об1;
+    в[втор] := r.об2;
+    в[всп] := r.об3
+  _)
+  else _(
+    в[перв] := 0;
+    в[втор] := 0;
+    в[всп] := 0
+  _);
+  if r.сын <> 0 then _(
+    отступ := отступ + 1;
+    writeln;
+    сын := r.сын;
+    repeat
+      узел(сын, дз, дв, сл);
+      for k := перв to всп do _(
+        в[k] := в[k] + дв[k];
+        сз[k] := сз[k] + дз[k];
+        св[k] := св[k] + дв[k]
+      _);
+      сын := сл
+    until сын = 0;
+    отступ := отступ - 1
+  _);
+  строчка(r, з, в, сз, св);
+  if r.сын <> 0 then writeln
 _);
 %
 %
@@ -198,58 +207,55 @@ _);
 %
 %
 %
-%
-%
-%
-%
-%
-%
-%
-%
-%
-_( ширина := 32;
-   PARAM(ширина, носители, строки);
-   графы := card(строки) * 11;
-   левая := ord(естьадм) * 9 + 16 + ord(естьгр) * 7;
-   ширина := графы * card(носители) + левая;
-   if ширина > 128 then _(
-      writeln('ШИРИНА = ', ширина:3, ' ПОЗИЦИЙ !');
-      halt
-   _);
-   writeln('РАСПРЕДЕЛЕНИЕ АРХИВНОГО ПРОСТРАНСТВА':
-      ширина div 2 + 18);
-   writeln;
-   writeln;
-   for i to ширина do write('-');
-   writeln;
-   write('|              |');
-   if естьадм then write('        |');
-   if естьгр then write('      |');
-   i := графы div 2 + 5;
-   if перв in носители then _(
-      write('ПЕРВИЧНЫЕ':i); i := графы _);
-   if втор in носители then _(
-      write('ВТОРИЧНЫЕ':i); i := графы _);
-   if всп in носители then _(
-      write('ВСПОМОГАТ':i) _);
-   writeln;
-   write('| ШИФР БЮДЖЕТА |');
-   if естьадм then write(' АДМИН. |');
-   if естьгр then write('ГРУППЫ|');
-   k := ширина - левая;
-   for i to k do write('-');
-   writeln;
-   write('|              |');
-   if естьадм then write('        |');
-   if естьгр then write('      |');
-   n := card(носители);
-   for i to n do
-      for j := выдел to резерв do if j in строки then
-         write(заголовок[j].a:6, заголовок[j].b:4, '|':1);
-   writeln;
-   for i to ширина do write('-');
-   отступ := 1;
-   узел(768, занято, выделено, следующий)
+_( (*210*)
+  ширина := 32;
+  PARAM(ширина, носители, строки);
+  графы := card(строки) * 11;
+  левая := ord(естьадм) * 9 + 16 + ord(естьгр) * 7;
+  ширина := графы * card(носители) + левая;
+  if ширина > 128 then _(
+    writeln('ШИРИНА = ', ширина:3, ' ПОЗИЦИЙ !');
+    halt
+  _);
+  writeln('РАСПРЕДЕЛЕНИЕ АРХИВНОГО ПРОСТРАНСТВА': ширина div 2 + 18);
+  writeln;
+  writeln;
+  for i to ширина do write('-');
+  writeln;
+  write('|              |');
+  if естьадм then write('        |');
+  if естьгр then write('      |');
+  i := графы div 2 + 5;
+  if перв in носители then _(
+    write('ПЕРВИЧНЫЕ':i);
+    i := графы
+  _);
+  if втор in носители then _(
+    write('ВТОРИЧНЫЕ':i);
+    i := графы
+  _);
+  if всп in носители then _(
+    write('ВСПОМОГАТ':i)
+  _);
+  writeln;
+  write('| ШИФР БЮДЖЕТА |');
+  if естьадм then write(' АДМИН. |');
+  if естьгр then write('ГРУППЫ|');
+  k := ширина - левая;
+  for i to k do write('-');
+  writeln;
+  write('|              |');
+  if естьадм then write('        |');
+  if естьгр then write('      |');
+  n := card(носители);
+  for i to n do
+    for j := выдел to резерв do
+      if j in строки then
+        write(заголовок[j].a:6, заголовок[j].b:4, '|':1);
+  writeln;
+  for i to ширина do write('-');
+  отступ := 1;
+  узел(768, занято, выделено, следующий)
 _).data
 знаки[выдел] := 6000000000000000C, 0C;
 знаки[облас] := 4000000000000000C, 0C;
