@@ -51,3 +51,15 @@ prorva.gold:
 
 prorva.bin:
 	besmtool dump 2248 --start=0116 --length=1 --to-file=$@
+
+arfa: arfa.gold arfa.be.silver
+	diff -q $^
+
+arfa.be.silver: arfa.be
+	./zongp.pl -v arfa.be 1
+
+arfa.gold:
+	./textdump.sh 2113 1707 3 1023 > $@
+
+arfa.bin:
+	besmtool dump 2113 --start=01707 --length=1 --to-file=$@
