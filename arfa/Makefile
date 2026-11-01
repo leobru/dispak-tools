@@ -39,3 +39,15 @@ starfa.bin:
 	besmtool dump 2113 --start=01711 --length=7 --to-file=starfa.ovl
 	../tools/ovl2bin < starfa.ovl > $@
 	rm starfa.ovl
+
+prorva: prorva.gold prorva.be.silver
+	diff -q $^
+
+prorva.be.silver: prorva.be
+	./zongp.pl -v prorva.be 1
+
+prorva.gold:
+	./textdump.sh 2248 0116 3 1001 > $@
+
+prorva.bin:
+	besmtool dump 2248 --start=0116 --length=1 --to-file=$@
